@@ -1,0 +1,11 @@
+.\objects\fm33a0xx_scu.o: Drivers\fm33a0xx_scu.c
+.\objects\fm33a0xx_scu.o: Drivers\fm33A0xx_scu.h
+.\objects\fm33a0xx_scu.o: .\Device\Include\FM33A0XX.h
+.\objects\fm33a0xx_scu.o: .\Device\Include\core_cm0plus.h
+.\objects\fm33a0xx_scu.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\fm33a0xx_scu.o: .\Device\Include\core_cminstr.h
+.\objects\fm33a0xx_scu.o: .\Device\Include\core_cmfunc.h
+.\objects\fm33a0xx_scu.o: .\Device\Include\system_FM33A0XX.h
+.\objects\fm33a0xx_scu.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\fm33a0xx_scu.o: .\Device\Include\FM33A0XX.h
+.\objects\fm33a0xx_scu.o: .\Drivers\fm33a0xx_conf.h

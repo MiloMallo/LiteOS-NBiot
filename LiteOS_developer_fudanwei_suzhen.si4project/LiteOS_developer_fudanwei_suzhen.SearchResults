@@ -1,0 +1,7 @@
+---- suzhen Matches (6 in 3 files) ----
+define_all.h (targets\FM33A0XX_TesterV1.0\UserCode) : #if 0 //suzhen
+define_all.h (targets\FM33A0XX_TesterV1.0\UserCode) : #if 1 //suzhen
+define_all.h (targets\FM33A0XX_TesterV1.0\UserCode) : #include "print.h"  //suzhen
+main.c (targets\FM33A0XX_TesterV1.0\UserCode) : 	printf("hw1 \r\n"); //suzhen
+main.c (targets\FM33A0XX_TesterV1.0\UserCode) : 	printf("hw2 \r\n"); //suzhen
+print.c (targets\FM33A0XX_TesterV1.0\UserCode) : #if 1 //suzhen

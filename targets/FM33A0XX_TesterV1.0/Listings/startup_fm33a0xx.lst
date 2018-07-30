@@ -1,0 +1,905 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;//-------- <<< Use Configuration Wizard in Context Menu
+                        >>> ------------------
+    2 00000000         ;*/
+    3 00000000         
+    4 00000000         
+    5 00000000         ; <h> Stack Configuration
+    6 00000000         ;   <o> Stack Size (in Bytes) <0x0-0xFFFFFFFF:8>
+    7 00000000         ; </h>
+    8 00000000         
+    9 00000000 00001000 
+                       Stack_Size
+                               EQU              0x00001000
+   10 00000000         
+   11 00000000                 AREA             STACK, NOINIT, READWRITE, ALIGN
+=3
+   12 00000000         Stack_Mem
+                               SPACE            Stack_Size
+   13 00001000         __initial_sp
+   14 00001000         
+   15 00001000         
+   16 00001000         ; <h> Heap Configuration
+   17 00001000         ;   <o>  Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
+   18 00001000         ; </h>
+   19 00001000         
+   20 00001000 00000200 
+                       Heap_Size
+                               EQU              0x00000200
+   21 00001000         
+   22 00001000                 AREA             HEAP, NOINIT, READWRITE, ALIGN=
+3
+   23 00000000         __heap_base
+   24 00000000         Heap_Mem
+                               SPACE            Heap_Size
+   25 00000200         __heap_limit
+   26 00000200         
+   27 00000200         
+   28 00000200                 PRESERVE8
+   29 00000200                 THUMB
+   30 00000200         
+   31 00000200         
+   32 00000200         ; Vector Table Mapped to Address 0 at Reset
+   33 00000200         
+   34 00000200                 AREA             RESET, DATA, READONLY
+   35 00000000                 EXPORT           __Vectors
+   36 00000000                 EXPORT           __Vectors_End
+   37 00000000                 EXPORT           __Vectors_Size
+   38 00000000         
+   39 00000000 00000000 
+                       __Vectors
+                               DCD              __initial_sp ; Top of Stack
+   40 00000004 00000000        DCD              Reset_Handler ; Reset Handler
+   41 00000008 00000000        DCD              NMI_Handler ; NMI Handler
+   42 0000000C 00000000        DCD              HardFault_Handler ; Hard Fault 
+                                                            Handler
+   43 00000010 00000000        DCD              0           ; Reserved
+   44 00000014 00000000        DCD              0           ; Reserved
+   45 00000018 00000000        DCD              0           ; Reserved
+   46 0000001C 00000000        DCD              0           ; Reserved
+   47 00000020 00000000        DCD              0           ; Reserved
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   48 00000024 00000000        DCD              0           ; Reserved
+   49 00000028 00000000        DCD              0           ; Reserved
+   50 0000002C 00000000        DCD              SVC_Handler ; SVCall Handler
+   51 00000030 00000000        DCD              0           ; Reserved
+   52 00000034 00000000        DCD              0           ; Reserved
+   53 00000038 00000000        DCD              PendSV_Handler ; PendSV Handler
+                                                            
+   54 0000003C 00000000        DCD              SysTick_Handler 
+                                                            ; SysTick Handler
+   55 00000040         
+   56 00000040         ; External Interrupts
+   57 00000040 00000000        DCD              WWDT_IRQHandler ; 0:  WWDT 
+   58 00000044 00000000        DCD              SVD_IRQHandler ; 1:  SVD  
+   59 00000048 00000000        DCD              RTC_IRQHandler ; 2:  RTC  
+   60 0000004C 00000000        DCD              NVMIF_IRQHandler ; 3:  NVMIF 
+   61 00000050 00000000        DCD              FDET_IRQHandler ; 4:  FDET 
+   62 00000054 00000000        DCD              ADC_IRQHandler ; 5:  ADC 
+   63 00000058 00000000        DCD              HSPI_IRQHandler ; 6:  HSPI 
+   64 0000005C 00000000        DCD              SPI1_IRQHandler ; 7:  SPI1  
+   65 00000060 00000000        DCD              SPI2_IRQHandler ; 8:  SPI2 
+   66 00000064 00000000        DCD              UART0_IRQHandler ; 9:  UART0 
+   67 00000068 00000000        DCD              UART1_IRQHandler ; 10:  UART1 
+   68 0000006C 00000000        DCD              UART2_IRQHandler ; 11:  UART2 
+   69 00000070 00000000        DCD              UART3_IRQHandler ; 12:  UART3 
+   70 00000074 00000000        DCD              UART4_IRQHandler ; 13:  UART4 
+   71 00000078 00000000        DCD              UART5_IRQHandler ; 14:  UART5 
+   72 0000007C 00000000        DCD              U78160_IRQHandler 
+                                                            ; 15:  U78160 
+   73 00000080 00000000        DCD              U78161_IRQHandler 
+                                                            ; 16:  U78161 
+   74 00000084 00000000        DCD              I2C_IRQHandler ; 17:  I2C 
+   75 00000088 00000000        DCD              LCD_IRQHandler ; 18:  LCD DISP 
+                                                            
+   76 0000008C 00000000        DCD              AES_IRQHandler ; 19:  AES 
+   77 00000090 00000000        DCD              LPTIM_IRQHandler ; 20:  LPTIM 
+   78 00000094 00000000        DCD              DMA_IRQHandler ; 21:  DMA 
+   79 00000098 00000000        DCD              TRNG_IRQHandler ; 22:  TRNG 
+   80 0000009C 00000000        DCD              COMP_IRQHandler ; 23:  COMP 
+   81 000000A0 00000000        DCD              BTIM1_IRQHandler 
+                                                            ; 24:  BTIMER1 BT1
+   82 000000A4 00000000        DCD              BTIM2_IRQHandler 
+                                                            ; 25:  BTIMER2 BT2
+   83 000000A8 00000000        DCD              ETIM1_IRQHandler 
+                                                            ; 26:  ETIMER1 
+   84 000000AC 00000000        DCD              ETIM2_IRQHandler 
+                                                            ; 27:  ETIMER2 
+   85 000000B0 00000000        DCD              ETIM3_IRQHandler 
+                                                            ; 28:  ETIMER3 
+   86 000000B4 00000000        DCD              ETIM4_IRQHandler 
+                                                            ; 39:  ETIMER4 
+   87 000000B8 00000000        DCD              GPIO_IRQHandler ; 30:  GPIO 
+   88 000000BC 00000000        DCD              0           ; 31: Reserved
+   89 000000C0         __Vectors_End
+   90 000000C0         
+   91 000000C0 000000C0 
+                       __Vectors_Size
+                               EQU              __Vectors_End - __Vectors
+   92 000000C0         
+   93 000000C0                 AREA             |.text|, CODE, READONLY
+
+
+
+ARM Macro Assembler    Page 3 
+
+
+   94 00000000         
+   95 00000000         
+   96 00000000         ; Reset Handler
+   97 00000000         
+   98 00000000         Reset_Handler
+                               PROC
+   99 00000000                 EXPORT           Reset_Handler             [WEAK
+]
+  100 00000000                 IMPORT           SystemInit
+  101 00000000                 IMPORT           __main
+  102 00000000 4807            LDR              R0, =SystemInit
+  103 00000002 4780            BLX              R0
+  104 00000004 4807            LDR              R0, =__main
+  105 00000006 4700            BX               R0
+  106 00000008                 ENDP
+  107 00000008         
+  108 00000008         
+  109 00000008         ; Dummy Exception Handlers (infinite loops which can be 
+                       modified)
+  110 00000008         
+  111 00000008         NMI_Handler
+                               PROC
+  112 00000008                 EXPORT           NMI_Handler               [WEAK
+]
+  113 00000008 E7FE            B                .
+  114 0000000A                 ENDP
+  116 0000000A         HardFault_Handler
+                               PROC
+  117 0000000A                 EXPORT           HardFault_Handler         [WEAK
+]
+  118 0000000A E7FE            B                .
+  119 0000000C                 ENDP
+  120 0000000C         SVC_Handler
+                               PROC
+  121 0000000C                 EXPORT           SVC_Handler               [WEAK
+]
+  122 0000000C E7FE            B                .
+  123 0000000E                 ENDP
+  124 0000000E         PendSV_Handler
+                               PROC
+  125 0000000E                 EXPORT           PendSV_Handler            [WEAK
+]
+  126 0000000E E7FE            B                .
+  127 00000010                 ENDP
+  128 00000010         SysTick_Handler
+                               PROC
+  129 00000010                 EXPORT           SysTick_Handler           [WEAK
+]
+  130 00000010 E7FE            B                .
+  131 00000012                 ENDP
+  132 00000012         
+  133 00000012         Default_Handler
+                               PROC
+  134 00000012         
+  135 00000012                 EXPORT           GPIO_IRQHandler             [WE
+AK]
+  136 00000012                 EXPORT           ETIM4_IRQHandler          [WEAK
+]
+  137 00000012                 EXPORT           ETIM3_IRQHandler            [WE
+
+
+
+ARM Macro Assembler    Page 4 
+
+
+AK]
+  138 00000012                 EXPORT           ETIM2_IRQHandler            [WE
+AK]
+  139 00000012                 EXPORT           ETIM1_IRQHandler           [WEA
+K]
+  140 00000012                 EXPORT           BTIM2_IRQHandler           [WEA
+K]
+  141 00000012                 EXPORT           BTIM1_IRQHandler          [WEAK
+]
+  142 00000012                 EXPORT           COMP_IRQHandler          [WEAK]
+  143 00000012                 EXPORT           TRNG_IRQHandler          [WEAK]
+  144 00000012                 EXPORT           DMA_IRQHandler          [WEAK]
+  145 00000012                 EXPORT           LPTIM_IRQHandler          [WEAK
+]
+  146 00000012                 EXPORT           AES_IRQHandler           [WEAK]
+  147 00000012                 EXPORT           LCD_IRQHandler           [WEAK]
+  148 00000012                 EXPORT           I2C_IRQHandler           [WEAK]
+  149 00000012                 EXPORT           U78161_IRQHandler           [WE
+AK]
+  150 00000012                 EXPORT           U78160_IRQHandler           [WE
+AK]
+  151 00000012                 EXPORT           UART5_IRQHandler           [WEA
+K]
+  152 00000012                 EXPORT           UART4_IRQHandler           [WEA
+K]
+  153 00000012                 EXPORT           UART3_IRQHandler           [WEA
+K]
+  154 00000012                 EXPORT           UART2_IRQHandler          [WEAK
+]
+  155 00000012                 EXPORT           UART1_IRQHandler          [WEAK
+]
+  156 00000012                 EXPORT           UART0_IRQHandler          [WEAK
+]
+  157 00000012                 EXPORT           SPI2_IRQHandler        [WEAK]
+  158 00000012                 EXPORT           SPI1_IRQHandler            [WEA
+K]
+  159 00000012                 EXPORT           HSPI_IRQHandler            [WEA
+K]
+  160 00000012                 EXPORT           ADC_IRQHandler            [WEAK
+]
+  161 00000012                 EXPORT           FDET_IRQHandler       [WEAK]
+  162 00000012                 EXPORT           NVMIF_IRQHandler            [WE
+AK]
+  163 00000012                 EXPORT           RTC_IRQHandler            [WEAK
+]
+  164 00000012                 EXPORT           SVD_IRQHandler       [WEAK]
+  165 00000012                 EXPORT           WWDT_IRQHandler            [WEA
+K]
+  166 00000012         
+  167 00000012         GPIO_IRQHandler
+  168 00000012         ETIM4_IRQHandler
+  169 00000012         ETIM3_IRQHandler
+  170 00000012         ETIM2_IRQHandler
+  171 00000012         ETIM1_IRQHandler
+  172 00000012         BTIM2_IRQHandler
+  173 00000012         BTIM1_IRQHandler
+  174 00000012         COMP_IRQHandler
+  175 00000012         TRNG_IRQHandler
+  176 00000012         DMA_IRQHandler
+
+
+
+ARM Macro Assembler    Page 5 
+
+
+  177 00000012         LPTIM_IRQHandler
+  178 00000012         AES_IRQHandler
+  179 00000012         LCD_IRQHandler
+  180 00000012         I2C_IRQHandler
+  181 00000012         U78161_IRQHandler
+  182 00000012         U78160_IRQHandler
+  183 00000012         UART5_IRQHandler
+  184 00000012         UART4_IRQHandler
+  185 00000012         UART3_IRQHandler
+  186 00000012         UART2_IRQHandler
+  187 00000012         UART1_IRQHandler
+  188 00000012         UART0_IRQHandler
+  189 00000012         SPI2_IRQHandler
+  190 00000012         SPI1_IRQHandler
+  191 00000012         HSPI_IRQHandler
+  192 00000012         ADC_IRQHandler
+  193 00000012         FDET_IRQHandler
+  194 00000012         NVMIF_IRQHandler
+  195 00000012         RTC_IRQHandler
+  196 00000012         SVD_IRQHandler
+  197 00000012         WWDT_IRQHandler
+  198 00000012         
+  199 00000012 E7FE            B                .
+  200 00000014                 ENDP
+  201 00000014         
+  202 00000014         
+  203 00000014                 ALIGN
+  204 00000014         
+  205 00000014         
+  206 00000014         ; User Initial Stack & Heap
+  207 00000014         
+  208 00000014                 IF               :DEF:__MICROLIB
+  215 00000014         
+  216 00000014                 IMPORT           __use_two_region_memory
+  217 00000014                 EXPORT           __user_initial_stackheap
+  218 00000014         __user_initial_stackheap
+  219 00000014         
+  220 00000014 4804            LDR              R0, =  Heap_Mem
+  221 00000016 4905            LDR              R1, =(Stack_Mem + Stack_Size)
+  222 00000018 4A05            LDR              R2, = (Heap_Mem +  Heap_Size)
+  223 0000001A 4B06            LDR              R3, = Stack_Mem
+  224 0000001C 4770            BX               LR
+  225 0000001E         
+  226 0000001E 00 00           ALIGN
+  227 00000020         
+  228 00000020                 ENDIF
+  229 00000020         
+  230 00000020         
+  231 00000020                 END
+              00000000 
+              00000000 
+              00000000 
+              00001000 
+              00000200 
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M0 --apcs=interw
+ork --depend=.\objects\startup_fm33a0xx.d -o.\objects\startup_fm33a0xx.o -IC:\U
+sers\wangbingbing\Desktop\华为LiteOS复旦微合作\LiteOS_developer_Fmsh_C50V20\Lit
+eOS_developer_Fmsh_C50V20\LiteOS_developer\targets\FM33A0XX_TesterV1.0\RTE -ID:
+
+
+
+ARM Macro Assembler    Page 6 
+
+
+\Keil_v5\ARM\PACK\ARM\CMSIS\5.3.0\CMSIS\Include -ID:\Keil_v5\ARM\PACK\Keil\FM33
+A0XX_DFP\0.2.01gamma\Device\Include --predefine="__UVISION_VERSION SETA 517" --
+predefine="_RTE_ SETA 1" --list=.\listings\startup_fm33a0xx.lst RTE\Device\FM33
+A04XX\startup_FM33A0XX.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+STACK 00000000
+
+Symbol: STACK
+   Definitions
+      At line 11 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      None
+Comment: STACK unused
+Stack_Mem 00000000
+
+Symbol: Stack_Mem
+   Definitions
+      At line 12 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 221 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 223 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+__initial_sp 00001000
+
+Symbol: __initial_sp
+   Definitions
+      At line 13 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 39 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+Comment: __initial_sp used once
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+HEAP 00000000
+
+Symbol: HEAP
+   Definitions
+      At line 22 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      None
+Comment: HEAP unused
+Heap_Mem 00000000
+
+Symbol: Heap_Mem
+   Definitions
+      At line 24 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 220 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 222 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+__heap_base 00000000
+
+Symbol: __heap_base
+   Definitions
+      At line 23 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      None
+Comment: __heap_base unused
+__heap_limit 00000200
+
+Symbol: __heap_limit
+   Definitions
+      At line 25 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      None
+Comment: __heap_limit unused
+4 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 34 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 39 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 35 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 91 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+__Vectors_End 000000C0
+
+Symbol: __Vectors_End
+   Definitions
+      At line 89 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 36 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 91 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+.text 00000000
+
+Symbol: .text
+   Definitions
+      At line 93 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      None
+Comment: .text unused
+ADC_IRQHandler 00000012
+
+Symbol: ADC_IRQHandler
+   Definitions
+      At line 192 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 62 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 160 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+AES_IRQHandler 00000012
+
+Symbol: AES_IRQHandler
+   Definitions
+      At line 178 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 76 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 146 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+BTIM1_IRQHandler 00000012
+
+Symbol: BTIM1_IRQHandler
+   Definitions
+      At line 173 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 81 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 141 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+BTIM2_IRQHandler 00000012
+
+Symbol: BTIM2_IRQHandler
+   Definitions
+      At line 172 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 82 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 140 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+COMP_IRQHandler 00000012
+
+Symbol: COMP_IRQHandler
+   Definitions
+      At line 174 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 80 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 142 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+DMA_IRQHandler 00000012
+
+Symbol: DMA_IRQHandler
+   Definitions
+      At line 176 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+
+
+
+ARM Macro Assembler    Page 2 Alphabetic symbol ordering
+Relocatable symbols
+
+      At line 78 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 144 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+Default_Handler 00000012
+
+Symbol: Default_Handler
+   Definitions
+      At line 133 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      None
+Comment: Default_Handler unused
+ETIM1_IRQHandler 00000012
+
+Symbol: ETIM1_IRQHandler
+   Definitions
+      At line 171 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 83 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 139 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+ETIM2_IRQHandler 00000012
+
+Symbol: ETIM2_IRQHandler
+   Definitions
+      At line 170 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 84 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 138 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+ETIM3_IRQHandler 00000012
+
+Symbol: ETIM3_IRQHandler
+   Definitions
+      At line 169 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 85 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 137 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+ETIM4_IRQHandler 00000012
+
+Symbol: ETIM4_IRQHandler
+   Definitions
+      At line 168 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 86 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 136 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+FDET_IRQHandler 00000012
+
+Symbol: FDET_IRQHandler
+   Definitions
+      At line 193 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 61 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 161 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+GPIO_IRQHandler 00000012
+
+Symbol: GPIO_IRQHandler
+
+
+
+ARM Macro Assembler    Page 3 Alphabetic symbol ordering
+Relocatable symbols
+
+   Definitions
+      At line 167 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 87 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 135 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+HSPI_IRQHandler 00000012
+
+Symbol: HSPI_IRQHandler
+   Definitions
+      At line 191 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 63 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 159 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+HardFault_Handler 0000000A
+
+Symbol: HardFault_Handler
+   Definitions
+      At line 116 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 42 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 117 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+I2C_IRQHandler 00000012
+
+Symbol: I2C_IRQHandler
+   Definitions
+      At line 180 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 74 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 148 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+LCD_IRQHandler 00000012
+
+Symbol: LCD_IRQHandler
+   Definitions
+      At line 179 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 75 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 147 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+LPTIM_IRQHandler 00000012
+
+Symbol: LPTIM_IRQHandler
+   Definitions
+      At line 177 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 77 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 145 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+NMI_Handler 00000008
+
+Symbol: NMI_Handler
+   Definitions
+      At line 111 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 41 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 112 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+
+
+ARM Macro Assembler    Page 4 Alphabetic symbol ordering
+Relocatable symbols
+
+
+NVMIF_IRQHandler 00000012
+
+Symbol: NVMIF_IRQHandler
+   Definitions
+      At line 194 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 60 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 162 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+PendSV_Handler 0000000E
+
+Symbol: PendSV_Handler
+   Definitions
+      At line 124 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 53 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 125 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+RTC_IRQHandler 00000012
+
+Symbol: RTC_IRQHandler
+   Definitions
+      At line 195 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 59 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 163 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 98 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 40 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 99 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+SPI1_IRQHandler 00000012
+
+Symbol: SPI1_IRQHandler
+   Definitions
+      At line 190 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 64 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 158 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+SPI2_IRQHandler 00000012
+
+Symbol: SPI2_IRQHandler
+   Definitions
+      At line 189 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 65 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 157 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+SVC_Handler 0000000C
+
+Symbol: SVC_Handler
+   Definitions
+
+
+
+ARM Macro Assembler    Page 5 Alphabetic symbol ordering
+Relocatable symbols
+
+      At line 120 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 50 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 121 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+SVD_IRQHandler 00000012
+
+Symbol: SVD_IRQHandler
+   Definitions
+      At line 196 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 58 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 164 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+SysTick_Handler 00000010
+
+Symbol: SysTick_Handler
+   Definitions
+      At line 128 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 54 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 129 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+TRNG_IRQHandler 00000012
+
+Symbol: TRNG_IRQHandler
+   Definitions
+      At line 175 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 79 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 143 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+U78160_IRQHandler 00000012
+
+Symbol: U78160_IRQHandler
+   Definitions
+      At line 182 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 72 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 150 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+U78161_IRQHandler 00000012
+
+Symbol: U78161_IRQHandler
+   Definitions
+      At line 181 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 73 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 149 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+UART0_IRQHandler 00000012
+
+Symbol: UART0_IRQHandler
+   Definitions
+      At line 188 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 66 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 156 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+
+
+
+ARM Macro Assembler    Page 6 Alphabetic symbol ordering
+Relocatable symbols
+
+UART1_IRQHandler 00000012
+
+Symbol: UART1_IRQHandler
+   Definitions
+      At line 187 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 67 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 155 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+UART2_IRQHandler 00000012
+
+Symbol: UART2_IRQHandler
+   Definitions
+      At line 186 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 68 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 154 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+UART3_IRQHandler 00000012
+
+Symbol: UART3_IRQHandler
+   Definitions
+      At line 185 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 69 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 153 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+UART4_IRQHandler 00000012
+
+Symbol: UART4_IRQHandler
+   Definitions
+      At line 184 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 70 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 152 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+UART5_IRQHandler 00000012
+
+Symbol: UART5_IRQHandler
+   Definitions
+      At line 183 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 71 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 151 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+WWDT_IRQHandler 00000012
+
+Symbol: WWDT_IRQHandler
+   Definitions
+      At line 197 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 57 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 165 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+__user_initial_stackheap 00000014
+
+Symbol: __user_initial_stackheap
+   Definitions
+      At line 218 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+
+
+ARM Macro Assembler    Page 7 Alphabetic symbol ordering
+Relocatable symbols
+
+   Uses
+      At line 217 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+Comment: __user_initial_stackheap used once
+40 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+Heap_Size 00000200
+
+Symbol: Heap_Size
+   Definitions
+      At line 20 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 24 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 222 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+Stack_Size 00001000
+
+Symbol: Stack_Size
+   Definitions
+      At line 9 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 12 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+      At line 221 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+
+__Vectors_Size 000000C0
+
+Symbol: __Vectors_Size
+   Definitions
+      At line 91 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 37 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+Comment: __Vectors_Size used once
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+SystemInit 00000000
+
+Symbol: SystemInit
+   Definitions
+      At line 100 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 102 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+Comment: SystemInit used once
+__main 00000000
+
+Symbol: __main
+   Definitions
+      At line 101 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      At line 104 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+Comment: __main used once
+__use_two_region_memory 00000000
+
+Symbol: __use_two_region_memory
+   Definitions
+      At line 216 in file RTE\Device\FM33A04XX\startup_FM33A0XX.s
+   Uses
+      None
+Comment: __use_two_region_memory unused
+3 symbols
+392 symbols in table
