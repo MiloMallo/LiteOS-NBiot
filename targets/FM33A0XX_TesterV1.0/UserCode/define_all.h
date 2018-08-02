@@ -51,8 +51,8 @@ typedef union
 #endif 
 
 #if 1 //suzhen
-#define LED0_GPIO		GPIOA
-#define LED0_PIN		GPIO_Pin_4
+#define LED0_GPIO		GPIOB
+#define LED0_PIN		GPIO_Pin_10
 #endif
 
 

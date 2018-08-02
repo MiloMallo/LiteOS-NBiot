@@ -9,7 +9,7 @@
 	1 = 普通打印
 	2 = 带文件名，行号打印	
 */	
-#define __DEBUG_PRINT__ 1
+#define __DEBUG_PRINT__ 0
 
 
 #define PRINT_UART		UART1

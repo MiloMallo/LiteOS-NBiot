@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    fm33a0xx_flash.h
   * @author  FM33a0xx Application Team
-  * @version V2.0.1
+  * @version V2.0.2
   * @date    3-1-2018
   * @brief   This file contains all the functions prototypes for the flash firmware library.  
   ******************************************************************************

@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    fm33a0xx_u7816.h
   * @author  FM33a0xx Application Team
-  * @version V2.0.1
+  * @version V2.0.2
   * @date    6-MAR-2017
   * @brief   This file contains all the functions prototypes for the U7816 firmware library.  
   ******************************************************************************
@@ -293,11 +293,9 @@ extern FunState U7816x_U7816IE_LSIE_Getable(U7816x_Type* U7816x);
 extern FlagStatus U7816x_U7816IF_ERRIF_Chk(U7816x_Type* U7816x);
 
 /* 发送缓冲区空标志 相关函数 */
-extern void U7816x_U7816IF_TXIF_Clr(U7816x_Type* U7816x);
 extern FlagStatus U7816x_U7816IF_TXIF_Chk(U7816x_Type* U7816x);
 
 /* 接收完成标志 相关函数 */
-extern void U7816x_U7816IF_RXIF_Clr(U7816x_Type* U7816x);
 extern FlagStatus U7816x_U7816IF_RXIF_Chk(U7816x_Type* U7816x);
 
 /* 发送数据奇偶校验错误标志位 相关函数 */

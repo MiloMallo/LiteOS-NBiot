@@ -75,7 +75,7 @@ static inline UINT32 osSleepTicksGet(VOID)
     uwSleepTicks = (uwTskSortLinkTicks < uwSwtmrSortLinkTicks) ? uwTskSortLinkTicks : uwSwtmrSortLinkTicks;
     return uwSleepTicks;
 }
-
+#if 0
 inline VOID osUpdateKernelTickCount(UINT32 uwHwiIndex)
 {
     /** this function must be called in interrupt context */
@@ -110,6 +110,20 @@ inline VOID osUpdateKernelTickCount(UINT32 uwHwiIndex)
         g_uwSleepTicks = 0;
     }
 }
+#else
+VOID osUpdateKernelTickCount(UINT32 uwHwiIndex)
+{
+    /** this function must be called in interrupt context */
+    if (g_uwSleepTicks > 1)
+    {
+        
+        osTickHandlerLoop(getSleepTicks());
+        setSleepTicks(0);
+        g_uwSleepTicks = 0;
+    }
+}
+
+#endif
 
 VOID osTicklessStart(VOID)
 {
@@ -122,16 +136,18 @@ VOID osTicklessStart(VOID)
     uwSleepTicks = osSleepTicksGet();
     if (uwSleepTicks > 1)
     {
-        UINT32 uwSleepCycles, uwCurrSysCycles;
-        if (uwSleepTicks >= uwMaxTicks)
-        {
-            uwSleepTicks = uwMaxTicks;
-        }
+//        UINT32 uwSleepCycles, uwCurrSysCycles;
+//        if (uwSleepTicks >= uwMaxTicks)
+//        {
+//            uwSleepTicks = uwMaxTicks;
+//        }
 
-        uwSleepCycles = uwSleepTicks * uwCyclesPerTick;
-        uwCurrSysCycles = LOS_SysTickCurrCycleGet();
-        LOS_SysTickReload(uwSleepCycles - uwCurrSysCycles);
+//        uwSleepCycles = uwSleepTicks * uwCyclesPerTick;
+//        uwCurrSysCycles = LOS_SysTickCurrCycleGet();
+//        LOS_SysTickReload(uwSleepCycles - uwCurrSysCycles);
         g_uwSleepTicks = uwSleepTicks;
+        
+
     }
     LOS_IntRestore(uvIntSave);
 

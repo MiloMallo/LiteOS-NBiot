@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    fm33a0xx_gpio.h
   * @author  FM33a0xx Application Team
-  * @version V2.0.0
+  * @version V2.0.2
   * @date    
   * @brief   This file contains all the functions prototypes for the GPIO firmware library.  
   ******************************************************************************

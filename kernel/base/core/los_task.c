@@ -39,6 +39,7 @@
 #include "los_priqueue.ph"
 #include "los_sem.ph"
 #include "los_mux.ph"
+#include "define_all.h"
 #if (LOSCFG_PLATFORM_EXC == YES)
 #include "los_exc.ph"
 #endif
@@ -119,6 +120,17 @@ LITE_OS_SEC_TEXT_MINOR UINT32 osTaskNextSwitchTimeGet(VOID)
     return uwTaskSortLinkTick;
 }
 
+
+__WEAK void userEnterSleepHook(void)
+{
+  return;
+}
+__WEAK void userExitSleepHook(void)
+{
+  return;
+}
+
+
 /*****************************************************************************
  Function : osTskIdleBGD
  Description : Idle background.
@@ -138,7 +150,10 @@ LITE_OS_SEC_TEXT WEAK VOID osIdleTask(VOID)
         }
 #endif
 #if (LOSCFG_KERNEL_RUNSTOP == YES)
+        setSleepTicks(g_uwSleepTicks);
+        userEnterSleepHook();
         osEnterSleep();
+        userExitSleepHook();
 #endif
     }
 }

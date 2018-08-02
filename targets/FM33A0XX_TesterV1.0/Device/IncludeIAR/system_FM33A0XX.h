@@ -76,7 +76,7 @@ extern void SystemInit (void);
  *         retrieved from cpu registers.
  */
 extern void SystemCoreClockUpdate (void);
-#define __SYSTEM_CLOCK    (8000000)
+#define __SYSTEM_CLOCK    (SYSCLKdef)
 #define DELAY_US      (__SYSTEM_CLOCK/1000000)
 #define DELAY_MS      (__SYSTEM_CLOCK/1000)
 

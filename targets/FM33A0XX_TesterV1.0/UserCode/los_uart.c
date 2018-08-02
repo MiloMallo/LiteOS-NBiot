@@ -200,7 +200,7 @@ int los_dev_uart_init(int uartidx, int baudrate, char *buf, int size)
 		return ret;
 	}
 	Uartx_Init(UARTx);//???uart??
-	UARTx_RXSTA_RXEN_Setable(UARTx, ENABLE);		//??????
+	UARTx_RXSTA_RXEN_Setable(UARTx, DISABLE);		//??????
 	UARTx_TXSTA_TXEN_Setable(UARTx, ENABLE);		//??????
 	UART_UARTIE_RxTxIE_SetableEx(UARTx, RxInt, ENABLE);//??????
 

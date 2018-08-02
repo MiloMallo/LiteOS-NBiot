@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    FM33a0xx_gpio.c
   * @author  FM33a0xx Application Team
-  * @version V2.0.1
+  * @version V2.0.2
   * @date    
   * @brief   This file provides firmware functions to manage the following 
   *
@@ -34,36 +34,66 @@
 //2018-04-02-13-21-16
 //FM33A0XX_Driver_Gen_V1.4
 
-/* PortX输出数据寄存器 相关函数 */
+/********************************
+ PortX输出数据寄存器配置函数
+功能: 配置PortX输出数据
+输入：GPIOx_Type* GPIOx（管脚号）,  uint32_t SetValue（输出值）
+输出:无
+********************************/
 void GPIOx_DO_Write(GPIOx_Type* GPIOx, uint32_t SetValue)
 {
 	GPIOx->DO = (SetValue & GPIOx_DO_DO_Msk);
 }
-
+/********************************
+读PortX输出数据状态函数
+功能:读PortX输出数据状态
+输入：无
+输出:PortX输出值
+********************************/
 uint32_t GPIOx_DO_Read(GPIOx_Type* GPIOx)
 {
 	return (GPIOx->DO & GPIOx_DO_DO_Msk);
 }
 
-/* PortX输出数据置位寄存器 相关函数 */
+/********************************
+PortX输出数据置位寄存器函数
+功能:PortX输出数据置位，如向PADSET写0x0000_8000，则PADO[15]置位，其余位保持不变。
+输入：GPIOx_Type* GPIOx（管脚号）,  uint32_t SetValue（输出值）
+输出:无
+********************************/
 void GPIOx_DSET_Write(GPIOx_Type* GPIOx, uint32_t SetValue)
 {
 	GPIOx->DSET = (SetValue & GPIOx_DSET_DSET_Msk);
 }
 
-/* PortX输出数据复位寄存器 相关函数 */
+/********************************
+PortX输出数据复位寄存器函数
+功能:PortX输出数据复位，如向PADRST写0x0000_8000，则PADO[15]清零，其余位保持不变。
+输入：GPIOx_Type* GPIOx（管脚号）,  uint32_t SetValue（输出值）
+输出:无
+********************************/
 void GPIOx_DRESET_Write(GPIOx_Type* GPIOx, uint32_t SetValue)
 {
 	GPIOx->DRESET = (SetValue & GPIOx_DRESET_DRESET_Msk);
 }
 
-/* PortX输入数据寄存器 相关函数 */
+/********************************
+PortX输入数据寄存器函数
+功能:PortX输入数据，此寄存器仅占用地址空间，无物理实现。软件读此寄存器直接返回引脚输入信号，芯片并不对引脚输入进行锁存
+输入：GPIOx_Type* GPIOx（管脚号）,  uint32_t SetValue（输入值）
+输出:无
+********************************/
 uint32_t GPIOx_DIN_Read(GPIOx_Type* GPIOx)
 {
 	return (GPIOx->DIN & GPIOx_DIN_DIN_Msk);
 }
 
-/* FOUT输出频率选择信号 相关函数 */
+/********************************
+ FOUT输出配置函数
+功能: 配置FOUT输出
+输入：输出频率选择信号
+输出:无
+********************************/
 void GPIO_FOUTSEL_FOUTSEL_Set(uint32_t SetValue)
 {
 	uint32_t tmpreg;
@@ -72,13 +102,24 @@ void GPIO_FOUTSEL_FOUTSEL_Set(uint32_t SetValue)
 	tmpreg |= (SetValue & GPIO_FOUTSEL_FOUTSEL_Msk);
 	GPIO->FOUTSEL = tmpreg;
 }
-
+/********************************
+读FOUT输出状态函数
+功能:读FOUT输出状态
+输入：无
+输出:FOUT输出选择值
+********************************/
 uint32_t GPIO_FOUTSEL_FOUTSEL_Get(void)
 {
 	return (GPIO->FOUTSEL & GPIO_FOUTSEL_FOUTSEL_Msk);
 }
 
-/* PG6强驱动使能 相关函数 */
+/********************************
+ PG6强驱动使能函数
+功能: 配置PG6强驱动
+输入：ENABLE  使能强驱动模式
+      DISABLE 关闭强驱动模式
+输出:无
+********************************/
 void GPIO_HDSEL_PG6HDEN_Setable(FunState NewState)
 {
 	if (NewState == ENABLE)
@@ -90,7 +131,13 @@ void GPIO_HDSEL_PG6HDEN_Setable(FunState NewState)
 		GPIO->HDSEL &= ~(GPIO_HDSEL_PG6HDEN_Msk);
 	}
 }
-
+/********************************
+读PG6强驱动状态函数
+功能:读PG6强驱动状态
+输入：无
+输出: ENABLE  强驱动模式已使能
+      DISABLE 强驱动模式已关闭
+********************************/
 FunState GPIO_HDSEL_PG6HDEN_Getable(void)
 {
 	if (GPIO->HDSEL & (GPIO_HDSEL_PG6HDEN_Msk))
@@ -102,8 +149,13 @@ FunState GPIO_HDSEL_PG6HDEN_Getable(void)
 		return DISABLE;
 	}
 }
-
-/* PE2强驱动使能 相关函数 */
+/********************************
+ PE2强驱动使能函数
+功能: 配置PE2强驱动
+输入：ENABLE  使能强驱动模式
+      DISABLE 关闭强驱动模式
+输出:无
+********************************/
 void GPIO_HDSEL_PE2HDEN_Setable(FunState NewState)
 {
 	if (NewState == ENABLE)
@@ -116,6 +168,13 @@ void GPIO_HDSEL_PE2HDEN_Setable(FunState NewState)
 	}
 }
 
+/********************************
+读PE2强驱动状态函数
+功能:读PE2强驱动状态
+输入：无
+输出: ENABLE  强驱动模式已使能
+      DISABLE 强驱动模式已关闭
+********************************/
 FunState GPIO_HDSEL_PE2HDEN_Getable(void)
 {
 	if (GPIO->HDSEL & (GPIO_HDSEL_PE2HDEN_Msk))
@@ -128,7 +187,13 @@ FunState GPIO_HDSEL_PE2HDEN_Getable(void)
 	}
 }
 
-/* PE4模拟功能选择 相关函数 */
+/********************************
+ PE4模拟功能选择函数
+功能: 配置PE4模拟功能选择
+输入：1：选择作为SEG19
+      0：选择作为ACMP1_INP1
+输出:无
+********************************/
 void GPIO_ANASEL_PE4ANS_Set(uint32_t SetValue)
 {
 	uint32_t tmpreg;
@@ -137,13 +202,26 @@ void GPIO_ANASEL_PE4ANS_Set(uint32_t SetValue)
 	tmpreg |= (SetValue & GPIO_ANASEL_PE4ANS_Msk);
 	GPIO->ANASEL = tmpreg;
 }
-
+/********************************
+读PE4模拟功能选择状态函数
+功能:读PE4模拟功能选择状态
+输入：无
+输出: 1：选择SEG19
+      0：选择ACMP1_INP1
+********************************/
 uint32_t GPIO_ANASEL_PE4ANS_Get(void)
 {
 	return (GPIO->ANASEL & GPIO_ANASEL_PE4ANS_Msk);
 }
 
-/* PE3模拟功能选择 相关函数 */
+
+/********************************
+ PE3模拟功能选择函数
+功能: 配置PE3模拟功能选择
+输入：1：选择作为SEG18
+      0：选择作为ACMP1_INN1
+输出:无
+********************************/
 void GPIO_ANASEL_PE3ANS_Set(uint32_t SetValue)
 {
 	uint32_t tmpreg;
@@ -152,13 +230,25 @@ void GPIO_ANASEL_PE3ANS_Set(uint32_t SetValue)
 	tmpreg |= (SetValue & GPIO_ANASEL_PE3ANS_Msk);
 	GPIO->ANASEL = tmpreg;
 }
-
+/********************************
+读PE3模拟功能选择状态函数
+功能:读PE3模拟功能选择状态
+输入：无
+输出: 1：选择SEG18
+      0：选择ACMP1_INN1
+********************************/
 uint32_t GPIO_ANASEL_PE3ANS_Get(void)
 {
 	return (GPIO->ANASEL & GPIO_ANASEL_PE3ANS_Msk);
 }
 
-/* PC15模拟功能选择 相关函数 */
+/********************************
+ PC15模拟功能选择函数
+功能: 配置PC15模拟功能选择
+输入：1：选择作为SEG39
+      0：选择作为ACMP1_INP0
+输出:无
+********************************/
 void GPIO_ANASEL_PC15ANS_Set(uint32_t SetValue)
 {
 	uint32_t tmpreg;
@@ -167,13 +257,25 @@ void GPIO_ANASEL_PC15ANS_Set(uint32_t SetValue)
 	tmpreg |= (SetValue & GPIO_ANASEL_PC15ANS_Msk);
 	GPIO->ANASEL = tmpreg;
 }
-
+/********************************
+读PC15模拟功能选择状态函数
+功能:读PC15模拟功能选择状态
+输入：无
+输出: 1：选择SEG39
+      0：选择ACMP1_INP0
+********************************/
 uint32_t GPIO_ANASEL_PC15ANS_Get(void)
 {
 	return (GPIO->ANASEL & GPIO_ANASEL_PC15ANS_Msk);
 }
 
-/* PC14模拟功能选择 相关函数 */
+/********************************
+ PC14模拟功能选择函数
+功能: 配置PC14模拟功能选择
+输入：1：选择作为SEG38
+      0：选择作为ACMP1_INN0
+输出:无
+********************************/
 void GPIO_ANASEL_PC14ANS_Set(uint32_t SetValue)
 {
 	uint32_t tmpreg;
@@ -182,13 +284,25 @@ void GPIO_ANASEL_PC14ANS_Set(uint32_t SetValue)
 	tmpreg |= (SetValue & GPIO_ANASEL_PC14ANS_Msk);
 	GPIO->ANASEL = tmpreg;
 }
-
+/********************************
+读PC14模拟功能选择状态函数
+功能:读PC14模拟功能选择状态
+输入：无
+输出: 1：选择SEG38
+      0：选择ACMP1_INN0
+********************************/
 uint32_t GPIO_ANASEL_PC14ANS_Get(void)
 {
 	return (GPIO->ANASEL & GPIO_ANASEL_PC14ANS_Msk);
 }
 
-/* PC13模拟功能选择 相关函数 */
+/********************************
+ PC13模拟功能选择函数
+功能: 配置PC13模拟功能选择
+输入：1：选择作为SEG37
+      0：选择作为ADC_IN2
+输出:无
+********************************/
 void GPIO_ANASEL_PC13ANS_Set(uint32_t SetValue)
 {
 	uint32_t tmpreg;
@@ -197,13 +311,24 @@ void GPIO_ANASEL_PC13ANS_Set(uint32_t SetValue)
 	tmpreg |= (SetValue & GPIO_ANASEL_PC13ANS_Msk);
 	GPIO->ANASEL = tmpreg;
 }
-
+/********************************
+读PC13模拟功能选择状态函数
+功能:读PC13模拟功能选择状态
+输入：无
+输出: 1：选择SEG37
+      0：选择ADC_IN2
+********************************/
 uint32_t GPIO_ANASEL_PC13ANS_Get(void)
 {
 	return (GPIO->ANASEL & GPIO_ANASEL_PC13ANS_Msk);
 }
-
-/* PC12模拟功能选择 相关函数 */
+/********************************
+ PC12模拟功能选择函数
+功能: 配置PC12模拟功能选择
+输入：1：选择作为SEG36
+      0：选择作为ADC_IN1
+输出:无
+********************************/
 void GPIO_ANASEL_PC12ANS_Set(uint32_t SetValue)
 {
 	uint32_t tmpreg;
@@ -212,7 +337,13 @@ void GPIO_ANASEL_PC12ANS_Set(uint32_t SetValue)
 	tmpreg |= (SetValue & GPIO_ANASEL_PC12ANS_Msk);
 	GPIO->ANASEL = tmpreg;
 }
-
+/********************************
+读PC12模拟功能选择状态函数
+功能:读PC12模拟功能选择状态
+输入：无
+输出: 1：选择SEG36
+      0：选择ADC_IN1
+********************************/
 uint32_t GPIO_ANASEL_PC12ANS_Get(void)
 {
 	return (GPIO->ANASEL & GPIO_ANASEL_PC12ANS_Msk);
@@ -260,7 +391,13 @@ void GPIO_ALL_Deinit(void)
 	GPIOx_Deinit(GPIOG);
 }
 
-/* GPIO 初始化配置 */
+
+/********************************
+GPIO初始化配置函数
+功能:GPIO初始化配置
+输入：GPIO端口  GPIO_PIN引脚
+输出: 无
+********************************/
 void GPIO_Init(GPIOx_Type* GPIOx, GPIO_InitTypeDef* para)
 {
     uint32_t pinpos = 0x00,pinbit = 0x00,currentpin =0x00;
@@ -302,7 +439,12 @@ void GPIO_Init(GPIOx_Type* GPIOx, GPIO_InitTypeDef* para)
 /* 获取一个IO口的配置参数结构体 
 	注意一次只能读取一个IO的配置
 */
-
+/********************************
+获取一个IO配置参数结构体函数
+功能:获取一个IO配置参数结构体
+输入：GPIO端口  GPIO_PIN引脚 引脚类型
+输出: 无
+********************************/
 void GPIO_Get_InitPara(GPIOx_Type* GPIOx, uint32_t GPIO_Pin, GPIO_InitTypeDef* para)
 {
     uint32_t pinbit = 0x00;
@@ -371,7 +513,12 @@ void GPIO_Get_InitPara(GPIOx_Type* GPIOx, uint32_t GPIO_Pin, GPIO_InitTypeDef* p
 	}  
 }
 
-/* 读取GPIOx输入数据寄存器 */
+/********************************
+读取GPIOx输入数据寄存器函数
+功能:读取GPIOx输入数据寄存器
+输入：GPIOx_PIN引脚 
+输出: 数据寄存器值
+********************************/
 uint32_t GPIO_ReadInputData(GPIOx_Type* GPIOx)
 {
 	assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
@@ -380,7 +527,12 @@ uint32_t GPIO_ReadInputData(GPIOx_Type* GPIOx)
 	return (GPIOx->DIN);
 }
 
-/* 读取GPIOx输入数据寄存器bit */
+/********************************
+读取GPIOx输入数据寄存器bit函数
+功能:GPIOx输入数据寄存器bit
+输入：GPIO端口  GPIO_PIN引脚 
+输出: bit状态
+********************************/
 uint8_t GPIO_ReadInputDataBit(GPIOx_Type* GPIOx, uint32_t GPIO_Pin)
 {
     uint8_t bitstatus = 0x00;
@@ -399,7 +551,12 @@ uint8_t GPIO_ReadInputDataBit(GPIOx_Type* GPIOx, uint32_t GPIO_Pin)
     return bitstatus;
 }
 
-/* GPIOx输出数据置1 */
+/********************************
+GPIOx输出置1函数
+功能: GPIOx输出置1
+输入：GPIO端口  GPIO_PIN引脚 
+输出: 无
+********************************/
 void GPIO_SetBits(GPIOx_Type* GPIOx, uint32_t GPIO_Pin)
 {
     assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
@@ -409,7 +566,12 @@ void GPIO_SetBits(GPIOx_Type* GPIOx, uint32_t GPIO_Pin)
     GPIOx->DSET = GPIO_Pin;
 }
 
-/* GPIOx输出数据置0 */
+/********************************
+GPIOx输出置0函数
+功能: GPIOx输出置0
+输入：GPIO端口  GPIO_PIN引脚 
+输出: 无
+********************************/
 void GPIO_ResetBits(GPIOx_Type* GPIOx, uint32_t GPIO_Pin)
 {
     assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
@@ -419,7 +581,12 @@ void GPIO_ResetBits(GPIOx_Type* GPIOx, uint32_t GPIO_Pin)
     GPIOx->DRESET = GPIO_Pin;
 }
 
-/* GPIOx输出数据置翻转 */
+/********************************
+GPIOx输出翻转函数
+功能: GPIOx输出置0
+输入：GPIO端口  GPIO_PIN引脚 
+输出: 无
+********************************/
 void GPIO_ToggleBits(GPIOx_Type* GPIOx, uint32_t GPIO_Pin)
 {
     assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
@@ -437,7 +604,12 @@ void GPIO_ToggleBits(GPIOx_Type* GPIOx, uint32_t GPIO_Pin)
 	}
 }
 
-/* 读取GPIOx输出数据寄存器 */
+/********************************
+读取GPIOx输出数据寄存器函数
+功能:读取GPIOx输出数据寄存器
+输入：GPIOx_PIN引脚 
+输出: 数据寄存器值
+********************************/
 uint32_t GPIO_ReadOutputData(GPIOx_Type* GPIOx)
 {
 	assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
@@ -446,7 +618,13 @@ uint32_t GPIO_ReadOutputData(GPIOx_Type* GPIOx)
 	return (GPIOx->DO);
 }
 
-/* 读取GPIOx输出数据寄存器bit */
+
+/********************************
+读取GPIOx输出数据寄存器bit函数
+功能:GPIOx输出数据寄存器bit
+输入：GPIO端口  GPIO_PIN引脚 
+输出: bit状态
+********************************/
 uint8_t GPIO_ReadOutputDataBit(GPIOx_Type* GPIOx, uint32_t GPIO_Pin)
 {
     uint8_t bitstatus = 0x00;
@@ -465,7 +643,14 @@ uint8_t GPIO_ReadOutputDataBit(GPIOx_Type* GPIOx, uint32_t GPIO_Pin)
     return bitstatus;
 }
 
-/* GPIO输入数字滤波配置 */
+/********************************
+GPIO输入数字滤波配置函数
+功能:输入数字滤波配置
+输入：数字滤波GPIO_PIN引脚        
+      ENABLE 使能数字滤波
+      DISABLE 关闭数字滤波
+输出: 无
+********************************/
 void GPIO_IODF_SetableEx(uint32_t DFPinDef, FunState NewState)
 {
 	if (NewState == ENABLE)
@@ -478,7 +663,14 @@ void GPIO_IODF_SetableEx(uint32_t DFPinDef, FunState NewState)
 	}
 }
 
-/* WKUP引脚使能 */
+/********************************
+WKUP引脚配置函数
+功能：WKUP引脚配置
+输入：WKUP GPIO_PIN引脚        
+      ENABLE 使能数字滤波
+      DISABLE 关闭数字滤波
+输出: 无
+********************************/
 void GPIO_PINWKEN_SetableEx(uint32_t NWKPinDef, FunState NewState)
 {
 	if (NewState == ENABLE)

@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    fm33a0xx_wwdt.h
   * @author  FM33a0xx Application Team
-  * @version V2.0.1
+  * @version V2.0.2
   * @date    8-1-2018
   * @brief   This file contains all the functions prototypes for the  firmware library.  
   ******************************************************************************

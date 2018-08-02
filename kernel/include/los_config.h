@@ -128,7 +128,7 @@ extern "C" {
  * Configuration liteos kernel tickless
  */
 #ifndef LOSCFG_KERNEL_TICKLESS
-#define LOSCFG_KERNEL_TICKLESS                              YES//NO
+#define LOSCFG_KERNEL_TICKLESS                              NO
 #endif
 
 /*=============================================================================

@@ -66,7 +66,7 @@ extern "C" {
  * @ingroup los_config
  * Number of Ticks in one second
  */
-#define LOSCFG_BASE_CORE_TICK_PER_SECOND                    (1000UL)
+#define LOSCFG_BASE_CORE_TICK_PER_SECOND                    (100UL)
 
 /**
  * @ingroup los_config
@@ -459,8 +459,8 @@ extern "C" {
  * @ingroup los_config
  * Configuration item for runstop module tailoring
  */
-#define LOSCFG_KERNEL_RUNSTOP                               NO
-
+//#define LOSCFG_KERNEL_RUNSTOP                               NO
+#define LOSCFG_KERNEL_RUNSTOP                               YES
 
 /*=============================================================================
                                         track configuration

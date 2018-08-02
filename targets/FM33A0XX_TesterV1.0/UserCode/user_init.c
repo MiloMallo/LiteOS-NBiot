@@ -354,7 +354,7 @@ void Close_AllIO_GPIO_80pin( void )
 	GPIO_HDSEL_PG6HDEN_Setable(DISABLE);
 	
 	//FOUT输出信号选择
-	GPIO_FOUTSEL_FOUTSEL_Set(GPIO_FOUTSEL_FOUTSEL_LSCLK);
+	//GPIO_FOUTSEL_FOUTSEL_Set(GPIO_FOUTSEL_FOUTSEL_LSCLK);
 	
 	//模拟口液晶、AD功能选择	
 	IO_AnalogFunSet();
@@ -452,51 +452,51 @@ void Init_RCC_PERIPH_clk(void)
 {
 	//PERCLKCON1
 	RCC_PERCLK_SetableEx( DCUCLK, 		ENABLE );		//debug contro时钟使能，建议打开
-	RCC_PERCLK_SetableEx( EXTI2CLK, 	ENABLE );		//EXTI外部引脚中断采样时钟，IO数字滤波时钟使能
-	RCC_PERCLK_SetableEx( EXTI1CLK, 	ENABLE );		//EXTI外部引脚中断采样时钟，IO数字滤波时钟使能
-	RCC_PERCLK_SetableEx( EXTI0CLK, 	ENABLE );		//EXTI外部引脚中断采样时钟，IO数字滤波时钟使能
-	RCC_PERCLK_SetableEx( PDCCLK, 		ENABLE );		//IO控制时钟寄存器使能
+//	RCC_PERCLK_SetableEx( EXTI2CLK, 	ENABLE );		//EXTI外部引脚中断采样时钟，IO数字滤波时钟使能
+//	RCC_PERCLK_SetableEx( EXTI1CLK, 	ENABLE );		//EXTI外部引脚中断采样时钟，IO数字滤波时钟使能
+//	RCC_PERCLK_SetableEx( EXTI0CLK, 	ENABLE );		//EXTI外部引脚中断采样时钟，IO数字滤波时钟使能
+//	RCC_PERCLK_SetableEx( PDCCLK, 		ENABLE );		//IO控制时钟寄存器使能
 	RCC_PERCLK_SetableEx( ANACCLK, 		ENABLE );		//模拟电路总线时钟使能
 	RCC_PERCLK_SetableEx( IWDTCLK, 		ENABLE );		//IWDT总线时钟使能
 	RCC_PERCLK_SetableEx( SCUCLK, 		ENABLE );		//system control时钟使能，建议打开
 	RCC_PERCLK_SetableEx( PMUCLK, 		ENABLE );		//电源管理模块时钟使能
-	RCC_PERCLK_SetableEx( RTCCLK, 		ENABLE );		//RTC总线时钟使能
+//	RCC_PERCLK_SetableEx( RTCCLK, 		ENABLE );		//RTC总线时钟使能
 	RCC_PERCLK_SetableEx( LPTFCLK, 		ENABLE );		//LPTIM功能时钟使能
 	RCC_PERCLK_SetableEx( LPTRCLK, 		ENABLE );		//LPTIM总线时钟使能
 				
     //PERCLKCON2 SETTING
-	RCC_PERCLK_SetableEx( ADCCLK, 		ENABLE );		//ADC时钟使能
-	RCC_PERCLK_SetableEx( WWDTCLK, 		ENABLE );		//WWDT时钟使能
-	RCC_PERCLK_SetableEx( RAMBISTCLK, 	DISABLE );		//RAMBIST时钟使能，建议关闭
-	RCC_PERCLK_SetableEx( FLSEPCLK, 	DISABLE );		//Flash擦写控制器时钟使能，用完就关
-	RCC_PERCLK_SetableEx( DMACLK, 		ENABLE );		//DMA时钟使能
-	RCC_PERCLK_SetableEx( LCDCLK, 		ENABLE );		//LCD时钟使能
-	RCC_PERCLK_SetableEx( AESCLK, 		ENABLE );		//AES时钟使能
-	RCC_PERCLK_SetableEx( TRNGCLK, 		ENABLE );		//TRNG时钟使能
-	RCC_PERCLK_SetableEx( CRCCLK, 		ENABLE );		//CRC时钟使能
+//	RCC_PERCLK_SetableEx( ADCCLK, 		ENABLE );		//ADC时钟使能
+//	RCC_PERCLK_SetableEx( WWDTCLK, 		ENABLE );		//WWDT时钟使能
+//	RCC_PERCLK_SetableEx( RAMBISTCLK, 	DISABLE );		//RAMBIST时钟使能，建议关闭
+//	RCC_PERCLK_SetableEx( FLSEPCLK, 	DISABLE );		//Flash擦写控制器时钟使能，用完就关
+//	RCC_PERCLK_SetableEx( DMACLK, 		ENABLE );		//DMA时钟使能
+//	RCC_PERCLK_SetableEx( LCDCLK, 		ENABLE );		//LCD时钟使能
+//	RCC_PERCLK_SetableEx( AESCLK, 		ENABLE );		//AES时钟使能
+//	RCC_PERCLK_SetableEx( TRNGCLK, 		ENABLE );		//TRNG时钟使能
+//	RCC_PERCLK_SetableEx( CRCCLK, 		ENABLE );		//CRC时钟使能
 
     //PERCLKCON3 SETTING
-	RCC_PERCLK_SetableEx( I2CCLK, 		ENABLE );		//I2C时钟使能
-	RCC_PERCLK_SetableEx( U7816CLK1, 	ENABLE );		//78161时钟使能
-	RCC_PERCLK_SetableEx( U7816CLK0, 	ENABLE );		//78160时钟使能
-	RCC_PERCLK_SetableEx( UARTCOMCLK, 	ENABLE );		//UART0~5共享寄存器时钟使能
-	RCC_PERCLK_SetableEx( UART5CLK, 	ENABLE );		//UART5时钟使能
-	RCC_PERCLK_SetableEx( UART4CLK, 	ENABLE );		//UART4时钟使能
-	RCC_PERCLK_SetableEx( UART3CLK, 	ENABLE );		//UART3时钟使能
-	RCC_PERCLK_SetableEx( UART2CLK, 	ENABLE );		//UART2时钟使能
-	RCC_PERCLK_SetableEx( UART1CLK, 	ENABLE );		//UART1时钟使能
-	RCC_PERCLK_SetableEx( UART0CLK, 	ENABLE );		//UART0时钟使能
-	RCC_PERCLK_SetableEx( HSPICLK, 		ENABLE );		//HSPI时钟使能
-	RCC_PERCLK_SetableEx( SPI2CLK, 		ENABLE );		//SPI2时钟使能
-	RCC_PERCLK_SetableEx( SPI1CLK, 		ENABLE );		//SPI1时钟使能
+//	RCC_PERCLK_SetableEx( I2CCLK, 		ENABLE );		//I2C时钟使能
+//	RCC_PERCLK_SetableEx( U7816CLK1, 	ENABLE );		//78161时钟使能
+//	RCC_PERCLK_SetableEx( U7816CLK0, 	ENABLE );		//78160时钟使能
+//	RCC_PERCLK_SetableEx( UARTCOMCLK, 	ENABLE );		//UART0~5共享寄存器时钟使能
+//	RCC_PERCLK_SetableEx( UART5CLK, 	ENABLE );		//UART5时钟使能
+//	RCC_PERCLK_SetableEx( UART4CLK, 	ENABLE );		//UART4时钟使能
+//	RCC_PERCLK_SetableEx( UART3CLK, 	ENABLE );		//UART3时钟使能
+//	RCC_PERCLK_SetableEx( UART2CLK, 	ENABLE );		//UART2时钟使能
+//	RCC_PERCLK_SetableEx( UART1CLK, 	ENABLE );		//UART1时钟使能
+//	RCC_PERCLK_SetableEx( UART0CLK, 	ENABLE );		//UART0时钟使能
+//	RCC_PERCLK_SetableEx( HSPICLK, 		ENABLE );		//HSPI时钟使能
+//	RCC_PERCLK_SetableEx( SPI2CLK, 		ENABLE );		//SPI2时钟使能
+//	RCC_PERCLK_SetableEx( SPI1CLK, 		ENABLE );		//SPI1时钟使能
 
     //PERCLKCON4 SETTING
-	RCC_PERCLK_SetableEx( ET4CLK, 		ENABLE );		//ET4时钟使能
-	RCC_PERCLK_SetableEx( ET3CLK, 		ENABLE );		//ET3时钟使能
-	RCC_PERCLK_SetableEx( ET2CLK, 		ENABLE );		//ET2时钟使能
-	RCC_PERCLK_SetableEx( ET1CLK, 		ENABLE );		//ET1时钟使能
-	RCC_PERCLK_SetableEx( BT2CLK, 		ENABLE );		//BT2时钟使能
-	RCC_PERCLK_SetableEx( BT1CLK, 		ENABLE );		//BT1时钟使能
+//	RCC_PERCLK_SetableEx( ET4CLK, 		ENABLE );		//ET4时钟使能
+//	RCC_PERCLK_SetableEx( ET3CLK, 		ENABLE );		//ET3时钟使能
+//	RCC_PERCLK_SetableEx( ET2CLK, 		ENABLE );		//ET2时钟使能
+//	RCC_PERCLK_SetableEx( ET1CLK, 		ENABLE );		//ET1时钟使能
+//	RCC_PERCLK_SetableEx( BT2CLK, 		ENABLE );		//BT2时钟使能
+//	RCC_PERCLK_SetableEx( BT1CLK, 		ENABLE );		//BT1时钟使能
 }
 
 void Init_PLL(void)
@@ -582,9 +582,8 @@ void Init_SysClk_Gen( void )				//时钟选择相关
 	//当电源电压低于下电复位电压时，芯片会被复位住		
 	//pdr电压档位不准但是功耗极低（几乎无法测量）
 	//bor电压档位准确但是需要增加2uA功耗
-	ANAC_PDRCON_PDRCFG_Set(ENABLE);		//打开PDR
-	ANAC_PDRCON_PDREN_Setable(ENABLE);	//打开BOR
-	
+	ANAC_PDRCON_PDREN_Setable(ENABLE);		//打开PDR
+	ANAC_BORCON_OFF_BOR_Setable(ENABLE);
 	/*仿真控制寄存器配置*/
 	#ifdef __DEBUG
 	SCU_Init(1);//仿真时运行定时器,关闭看门狗
@@ -598,14 +597,14 @@ void IWDT_Init(void)
 	RCC_PERCLK_SetableEx(IWDTCLK, ENABLE);		//IWDT总线时钟使能
 	IWDT_Clr();									//清IWDT
 	IWDT_IWDTCFG_IWDTOVP_Set(IWDT_IWDTCFG_IWDTOVP_2s);//配置IWDT溢出周期
-	IWDT_IWDTCFG_IWDTSLP4096S_Setable(DISABLE);	//配置休眠时是否启用4096s长周期
+	IWDT_IWDTCFG_IWDTSLP4096S_Setable(ENABLE);	//配置休眠时是否启用4096s长周期
 }
 
 void Init_IO(void)
 {
-	LED0_OFF;
+	//LED0_OFF;
 
-	OutputIO( LED0_GPIO, LED0_PIN, 0 );	 //led0
+	//OutputIO( LED0_GPIO, LED0_PIN, 0 );	 //led0
 	
 	//fout 输出系统时钟64分频
 //	GPIO_FOUTSEL_FOUTSEL_Set(GPIO_FOUTSEL_FOUTSEL_AHBCLKD64);
@@ -647,11 +646,11 @@ void Init_System(void)
 	
 	/*用户初始化代码*/
 	Init_IO();
-	
+	LCD_Deinit();
 	/*准备进入主循环*/
 	TicksDelayMs( 100, NULL );	//软件延时
 	
-	LED0_Flash(5);				//软件延时，闪灯五次
+	//LED0_Flash(5);				//软件延时，闪灯五次
 	
 	__enable_irq();				//打开全局中断使能
 }

@@ -10,12 +10,13 @@
       <TargetName>Debug</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
+      <pArmCC>5060061::V5.06 update 1 (build 61)::ARMCC</pArmCC>
       <pCCUsed>5060061::V5.06 update 1 (build 61)::ARMCC</pCCUsed>
       <TargetOption>
         <TargetCommonOption>
           <Device>FM33A04XX</Device>
           <Vendor>FMSH</Vendor>
-          <PackID>Keil.FM33A0XX_DFP.0.2.01gamma</PackID>
+          <PackID>Keil.FM33A0XX_DFP.0.2.02</PackID>
           <Cpu>IROM(0x00000000,0x40000) IRAM(0x20000000,0x8000) CPUTYPE("Cortex-M0") CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
           <StartupFile></StartupFile>
@@ -149,7 +150,7 @@
             <RestoreSysVw>1</RestoreSysVw>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>6</TargetSelection>
+          <TargetSelection>1</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -163,7 +164,7 @@
             <PeripheralDll></PeripheralDll>
             <PeripheralDllArguments></PeripheralDllArguments>
             <InitializationFile></InitializationFile>
-            <Driver>Segger\JL2CM3.dll</Driver>
+            <Driver>BIN\UL2CM3.DLL</Driver>
           </TargetDlls>
         </DebugOption>
         <Utilities>
@@ -177,7 +178,7 @@
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4>.\sct\ChipErase.ini</Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -226,7 +227,7 @@
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
-            <useUlib>0</useUlib>
+            <useUlib>1</useUlib>
             <EndSel>0</EndSel>
             <uLtcg>0</uLtcg>
             <nSecure>0</nSecure>
@@ -449,6 +450,11 @@
               <FileName>dht12.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\UserCode\dht12.c</FilePath>
+            </File>
+            <File>
+              <FileName>osHook.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\osHook\osHook.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -789,7 +795,7 @@
         <TargetCommonOption>
           <Device>FM33A04XX</Device>
           <Vendor>FMSH</Vendor>
-          <PackID>Keil.FM33A0XX_DFP.0.2.01gamma</PackID>
+          <PackID>Keil.FM33A0XX_DFP.0.2.02</PackID>
           <Cpu>IROM(0x00000000,0x40000) IRAM(0x20000000,0x8000) CPUTYPE("Cortex-M0") CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
           <StartupFile></StartupFile>
@@ -1224,6 +1230,11 @@
               <FileType>1</FileType>
               <FilePath>.\UserCode\dht12.c</FilePath>
             </File>
+            <File>
+              <FileName>osHook.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\osHook\osHook.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1566,9 +1577,9 @@
           <targetInfo name="Debug" versionMatchMode="fixed"/>
         </targetInfos>
       </package>
-      <package name="FM33A0XX_DFP" schemaVersion="1.2" supportContact="support@keil.com" vendor="Keil" version="0.2.01gamma">
+      <package name="FM33A0XX_DFP" schemaVersion="1.2" supportContact="support@keil.com" vendor="Keil" version="0.2.02">
         <targetInfos>
-          <targetInfo name="Debug" versionMatchMode="fixed"/>
+          <targetInfo name="Debug"/>
         </targetInfos>
       </package>
     </packages>
@@ -1593,7 +1604,7 @@
       <file attr="config" category="source" condition="Startup ARM" name="Device\Source\ARM\startup_FM33A0XX.s" version="1.0.0">
         <instance index="0">RTE\Device\FM33A04XX\startup_FM33A0XX.s</instance>
         <component Cclass="Device" Cgroup="Startup" Cvendor="Keil" Cversion="1.0.0" condition="FM33A0XX CMSIS-CORE"/>
-        <package name="FM33A0XX_DFP" schemaVersion="1.2" supportContact="support@keil.com" vendor="Keil" version="0.2.01gamma"/>
+        <package name="FM33A0XX_DFP" schemaVersion="1.2" supportContact="support@keil.com" vendor="Keil" version="0.2.02"/>
         <targetInfos>
           <targetInfo name="Debug"/>
           <targetInfo name="Release"/>
@@ -1602,7 +1613,7 @@
       <file attr="config" category="source" name="Device\Source\system_FM33A0XX.c" version="1.0.0">
         <instance index="0">RTE\Device\FM33A04XX\system_FM33A0XX.c</instance>
         <component Cclass="Device" Cgroup="Startup" Cvendor="Keil" Cversion="1.0.0" condition="FM33A0XX CMSIS-CORE"/>
-        <package name="FM33A0XX_DFP" schemaVersion="1.2" supportContact="support@keil.com" vendor="Keil" version="0.2.01gamma"/>
+        <package name="FM33A0XX_DFP" schemaVersion="1.2" supportContact="support@keil.com" vendor="Keil" version="0.2.02"/>
         <targetInfos>
           <targetInfo name="Debug"/>
           <targetInfo name="Release"/>
