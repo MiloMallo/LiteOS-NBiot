@@ -1,0 +1,340 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc2eTTwa.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"los_demo_entry.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.LOS_Demo_Tskfunc,"ax",%progbits
+  20              		.align	2
+  21              		.code	16
+  22              		.thumb_func
+  24              	LOS_Demo_Tskfunc:
+  25              	.LFB44:
+  26              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api/los_demo_entry.c"
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** /*----------------------------------------------------------------------------
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  * Copyright (c) <2016-2018>, <Huawei Technologies Co., Ltd>
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  * All rights reserved.
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  * are permitted provided that the following conditions are met:
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  * conditions and the following disclaimer.
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  * provided with the distribution.
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  * permission.
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  *---------------------------------------------------------------------------*/
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** /*----------------------------------------------------------------------------
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  * Notice of Export Control Law
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  * ===============================================
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  * applicable export control laws and regulations.
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc2eTTwa.s 			page 2
+
+
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****  *---------------------------------------------------------------------------*/
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #ifdef __cplusplus
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #if __cplusplus
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** extern "C" {
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #endif /* __cpluscplus */
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #endif /* __cpluscplus */
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** 
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #include "los_demo_entry.h"
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #include "los_task.h"
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #include <string.h>
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** 
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** static UINT32 g_uwDemoTaskID;
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** 
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #ifdef LOS_KERNEL_DEBUG_OUT
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** /* print via SWO */
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #ifdef LOS_KERNEL_TEST_KEIL_SWSIMU
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** 
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #define ITM_Port8(n)    (*((volatile unsigned char *)(0xE0000000+4*n)))
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #define ITM_Port16(n)   (*((volatile unsigned short*)(0xE0000000+4*n)))
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #define ITM_Port32(n)   (*((volatile unsigned long *)(0xE0000000+4*n)))
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #define DEMCR           (*((volatile unsigned long *)(0xE000EDFC)))
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #define TRCENA          0x01000000
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** 
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** struct __FILE
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** {
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     INT32 handle; /* Add whatever needed */
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** };
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** 
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** FILE __stdout;
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** FILE __stdin;
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** 
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #if defined ( __ARMCC_VERSION ) || defined ( __ICCARM__ )  /* KEIL and IAR: printf will call fputc 
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** INT32 fputc(INT32 ch, FILE *f)
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** {
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     if (DEMCR & TRCENA)
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     {
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****         while (ITM_Port32(0) == 0);
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****         ITM_Port8(0) = ch;
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     }
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     return(ch);
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** }
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #elif defined ( __GNUC__ )  /* GCC: printf will call _write to print */
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** __attribute__((used)) INT32 _write(INT32 fd, CHAR *ptr, INT32 len)
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** {
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     INT32 i;
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     for (i = 0; i < len; i++)
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     {
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****         if (DEMCR & TRCENA)
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****         {
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****             while (ITM_Port32(0) == 0);
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****             ITM_Port8(0) = ptr[i];
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****         }
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     }
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     return len;
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** }
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #endif
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #endif
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc2eTTwa.s 			page 3
+
+
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** 
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #else
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** 
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** INT32 dprintf_none(const CHAR *format,...)
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** {
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     return 0;
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** }
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #endif /* #ifdef LOS_KERNEL_DEBUG_OUT */
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** 
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** static LITE_OS_SEC_TEXT VOID LOS_Demo_Tskfunc(VOID)
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** {
+  27              		.loc 1 100 0
+  28              		.cfi_startproc
+  29              		@ Volatile: function does not return.
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 10B5     		push	{r4, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 4, -8
+  36              		.cfi_offset 14, -4
+  37              	.L2:
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #ifdef LOS_KERNEL_TEST_ALL
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #else /* LOS_KERNEL_TEST_ALL */
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** 
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** /* only test some function */
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #ifdef LOS_KERNEL_TEST_TASK
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     Example_TskCaseEntry();
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #endif
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #ifdef LOS_KERNEL_TEST_MEM_DYNAMIC
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****      Example_Dyn_Mem();
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #endif
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #ifdef LOS_KERNEL_TEST_MEM_STATIC
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     Example_StaticMem();
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #endif
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #ifdef LOS_KERNEL_TEST_INTRRUPT
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     Example_Interrupt();
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #endif
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #ifdef LOS_KERNEL_TEST_QUEUE
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     Example_MsgQueue();
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #endif
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #ifdef LOS_KERNEL_TEST_EVENT
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     Example_SndRcvEvent();
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #endif
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #ifdef LOS_KERNEL_TEST_MUTEX
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     Example_MutexLock();
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #endif
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #ifdef LOS_KERNEL_TEST_SEMPHORE
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     Example_Semphore();
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #endif
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #ifdef LOS_KERNEL_TEST_SYSTICK
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     Example_GetTick();
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #endif
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #ifdef LOS_KERNEL_TEST_SWTIMER
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     Example_swTimer();
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #endif
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #ifdef LOS_KERNEL_TEST_LIST
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc2eTTwa.s 			page 4
+
+
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     Example_list();
+ 137:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #endif
+ 138:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #endif/* LOS_KERNEL_TEST_ALL */
+ 139:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** 
+ 140:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     while (1)
+ 141:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     {
+ 142:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****         (VOID)LOS_TaskDelay(100);
+  38              		.loc 1 142 0 discriminator 1
+  39 0002 6420     		movs	r0, #100
+  40 0004 FFF7FEFF 		bl	LOS_TaskDelay
+  41              	.LVL0:
+  42 0008 FBE7     		b	.L2
+  43              		.cfi_endproc
+  44              	.LFE44:
+  46 000a C046     		.section	.text.dprintf_none,"ax",%progbits
+  47              		.align	2
+  48              		.global	dprintf_none
+  49              		.code	16
+  50              		.thumb_func
+  52              	dprintf_none:
+  53              	.LFB43:
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     return 0;
+  54              		.loc 1 94 0
+  55              		.cfi_startproc
+  56              		@ args = 4, pretend = 16, frame = 0
+  57              		@ frame_needed = 0, uses_anonymous_args = 1
+  58              		@ link register save eliminated.
+  59              	.LVL1:
+  60 0000 0FB4     		push	{r0, r1, r2, r3}
+  61              	.LCFI1:
+  62              		.cfi_def_cfa_offset 16
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** #endif /* #ifdef LOS_KERNEL_DEBUG_OUT */
+  63              		.loc 1 96 0
+  64 0002 0020     		movs	r0, #0
+  65              		@ sp needed
+  66 0004 04B0     		add	sp, sp, #16
+  67 0006 7047     		bx	lr
+  68              		.cfi_endproc
+  69              	.LFE43:
+  71              		.section	.text.LOS_Demo_Entry,"ax",%progbits
+  72              		.align	2
+  73              		.global	LOS_Demo_Entry
+  74              		.code	16
+  75              		.thumb_func
+  77              	LOS_Demo_Entry:
+  78              	.LFB45:
+ 143:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     }
+ 144:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** }
+ 145:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** 
+ 146:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** VOID LOS_Demo_Entry(VOID)
+ 147:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** {
+  79              		.loc 1 147 0
+  80              		.cfi_startproc
+  81              		@ args = 0, pretend = 0, frame = 24
+  82              		@ frame_needed = 0, uses_anonymous_args = 0
+  83 0000 00B5     		push	{lr}
+  84              	.LCFI2:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc2eTTwa.s 			page 5
+
+
+  85              		.cfi_def_cfa_offset 4
+  86              		.cfi_offset 14, -4
+  87 0002 87B0     		sub	sp, sp, #28
+  88              	.LCFI3:
+  89              		.cfi_def_cfa_offset 32
+ 148:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     UINT32 uwRet;
+ 149:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     TSK_INIT_PARAM_S stTaskInitParam;
+ 150:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** 
+ 151:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     (VOID)memset((VOID *)(&stTaskInitParam), 0, sizeof(TSK_INIT_PARAM_S));
+  90              		.loc 1 151 0
+  91 0004 1822     		movs	r2, #24
+  92 0006 0021     		movs	r1, #0
+  93 0008 6846     		mov	r0, sp
+  94 000a FFF7FEFF 		bl	memset
+  95              	.LVL2:
+ 152:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     stTaskInitParam.pfnTaskEntry = (TSK_ENTRY_FUNC)LOS_Demo_Tskfunc;
+  96              		.loc 1 152 0
+  97 000e 084B     		ldr	r3, .L5
+  98 0010 0093     		str	r3, [sp]
+ 153:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     stTaskInitParam.uwStackSize = LOSCFG_BASE_CORE_TSK_DEFAULT_STACK_SIZE;
+  99              		.loc 1 153 0
+ 100 0012 B423     		movs	r3, #180
+ 101 0014 9B00     		lsls	r3, r3, #2
+ 102 0016 0393     		str	r3, [sp, #12]
+ 154:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     stTaskInitParam.pcName = "ApiDemo";
+ 103              		.loc 1 154 0
+ 104 0018 064B     		ldr	r3, .L5+4
+ 105 001a 0493     		str	r3, [sp, #16]
+ 155:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     stTaskInitParam.usTaskPrio = 30;
+ 106              		.loc 1 155 0
+ 107 001c 1E23     		movs	r3, #30
+ 108 001e 6A46     		mov	r2, sp
+ 109 0020 9380     		strh	r3, [r2, #4]
+ 156:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     uwRet = LOS_TaskCreate(&g_uwDemoTaskID, &stTaskInitParam);
+ 110              		.loc 1 156 0
+ 111 0022 6946     		mov	r1, sp
+ 112 0024 0448     		ldr	r0, .L5+8
+ 113 0026 FFF7FEFF 		bl	LOS_TaskCreate
+ 114              	.LVL3:
+ 157:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** 
+ 158:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     if (uwRet != LOS_OK)
+ 159:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     {
+ 160:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****         dprintf("Api demo test task create failed \r\n");
+ 161:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****         return;
+ 162:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     }
+ 163:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c ****     return;
+ 164:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_demo_entry.c **** }
+ 115              		.loc 1 164 0
+ 116 002a 07B0     		add	sp, sp, #28
+ 117              		@ sp needed
+ 118 002c 00BD     		pop	{pc}
+ 119              	.L6:
+ 120 002e C046     		.align	2
+ 121              	.L5:
+ 122 0030 00000000 		.word	LOS_Demo_Tskfunc
+ 123 0034 00000000 		.word	.LC1
+ 124 0038 00000000 		.word	.LANCHOR0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc2eTTwa.s 			page 6
+
+
+ 125              		.cfi_endproc
+ 126              	.LFE45:
+ 128              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 129              		.align	2
+ 130              	.LC1:
+ 131 0000 41706944 		.ascii	"ApiDemo\000"
+ 131      656D6F00 
+ 132              		.section	.bss.g_uwDemoTaskID,"aw",%nobits
+ 133              		.align	2
+ 134              		.set	.LANCHOR0,. + 0
+ 137              	g_uwDemoTaskID:
+ 138 0000 00000000 		.space	4
+ 139              		.text
+ 140              	.Letext0:
+ 141              		.file 2 "e:\\liteos\\liteos\\kernel\\include\\los_typedef.h"
+ 142              		.file 3 "e:\\liteos\\liteos\\kernel\\include\\los_task.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc2eTTwa.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 los_demo_entry.c
+C:\Users\WANGBI~1\AppData\Local\Temp\cc2eTTwa.s:20     .text.LOS_Demo_Tskfunc:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc2eTTwa.s:24     .text.LOS_Demo_Tskfunc:00000000 LOS_Demo_Tskfunc
+C:\Users\WANGBI~1\AppData\Local\Temp\cc2eTTwa.s:47     .text.dprintf_none:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc2eTTwa.s:52     .text.dprintf_none:00000000 dprintf_none
+C:\Users\WANGBI~1\AppData\Local\Temp\cc2eTTwa.s:72     .text.LOS_Demo_Entry:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc2eTTwa.s:77     .text.LOS_Demo_Entry:00000000 LOS_Demo_Entry
+C:\Users\WANGBI~1\AppData\Local\Temp\cc2eTTwa.s:122    .text.LOS_Demo_Entry:00000030 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc2eTTwa.s:129    .rodata.str1.4:00000000 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc2eTTwa.s:133    .bss.g_uwDemoTaskID:00000000 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc2eTTwa.s:137    .bss.g_uwDemoTaskID:00000000 g_uwDemoTaskID
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+LOS_TaskDelay
+memset
+LOS_TaskCreate

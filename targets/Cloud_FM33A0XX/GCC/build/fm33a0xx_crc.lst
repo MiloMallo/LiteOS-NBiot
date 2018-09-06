@@ -1,0 +1,1190 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"fm33a0xx_crc.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.CRC_CRCDR_Write,"ax",%progbits
+  20              		.align	2
+  21              		.global	CRC_CRCDR_Write
+  22              		.code	16
+  23              		.thumb_func
+  25              	CRC_CRCDR_Write:
+  26              	.LFB36:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers/fm33a
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** /**
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c ****   ******************************************************************************
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c ****   * @file    fm33a0xx_crc.c
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c ****   * @author  FM33a0xx Application Team
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c ****   * @version V2.0.1
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c ****   * @date    8-1-2018
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c ****   * @brief   This file provides firmware functions to manage the following 
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c ****   *          functionalities of....:
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c ****   *
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** */
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** /* Includes ------------------------------------------------------------------*/
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** #include "fm33A0xx_crc.h" 
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** /** @addtogroup fm33a0xx_StdPeriph_Driver
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c ****   * @{
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c ****   */
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** /** @defgroup CRC
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c ****   * @brief CRC driver modules
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c ****   * @{
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c ****   */ 
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** /* Private typedef -----------------------------------------------------------*/
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** /* Private define ------------------------------------------------------------*/
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** /* Private macro -------------------------------------------------------------*/
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** /* Private variables ---------------------------------------------------------*/
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** /* Private function prototypes -----------------------------------------------*/
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** /* Private functions ---------------------------------------------------------*/
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s 			page 2
+
+
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** //Code_Start
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** //2018-04-02-13-20-31
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** //FM33A0XX_Driver_Gen_V1.4
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** /* CRC数据寄存器 相关函数 */
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** void CRC_CRCDR_Write(uint32_t SetValue)
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** {
+  28              		.loc 1 38 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	CRC->CRCDR = (SetValue & CRC_CRCDR_CRCDR_Msk);
+  34              		.loc 1 39 0
+  35 0000 0004     		lsls	r0, r0, #16
+  36              	.LVL1:
+  37 0002 000C     		lsrs	r0, r0, #16
+  38 0004 014B     		ldr	r3, .L2
+  39 0006 1860     		str	r0, [r3]
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** }
+  40              		.loc 1 40 0
+  41              		@ sp needed
+  42 0008 7047     		bx	lr
+  43              	.L3:
+  44 000a C046     		.align	2
+  45              	.L2:
+  46 000c 00000140 		.word	1073807360
+  47              		.cfi_endproc
+  48              	.LFE36:
+  50              		.section	.text.CRC_CRCDR_Read,"ax",%progbits
+  51              		.align	2
+  52              		.global	CRC_CRCDR_Read
+  53              		.code	16
+  54              		.thumb_func
+  56              	CRC_CRCDR_Read:
+  57              	.LFB37:
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** uint32_t CRC_CRCDR_Read(void)
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** {
+  58              		.loc 1 43 0
+  59              		.cfi_startproc
+  60              		@ args = 0, pretend = 0, frame = 0
+  61              		@ frame_needed = 0, uses_anonymous_args = 0
+  62              		@ link register save eliminated.
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	return (CRC->CRCDR & CRC_CRCDR_CRCDR_Msk);
+  63              		.loc 1 44 0
+  64 0000 024B     		ldr	r3, .L5
+  65 0002 1868     		ldr	r0, [r3]
+  66 0004 0004     		lsls	r0, r0, #16
+  67 0006 000C     		lsrs	r0, r0, #16
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** }
+  68              		.loc 1 45 0
+  69              		@ sp needed
+  70 0008 7047     		bx	lr
+  71              	.L6:
+  72 000a C046     		.align	2
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s 			page 3
+
+
+  73              	.L5:
+  74 000c 00000140 		.word	1073807360
+  75              		.cfi_endproc
+  76              	.LFE37:
+  78              		.section	.text.CRC_CRCCR_RFLTIN_Setable,"ax",%progbits
+  79              		.align	2
+  80              		.global	CRC_CRCCR_RFLTIN_Setable
+  81              		.code	16
+  82              		.thumb_func
+  84              	CRC_CRCCR_RFLTIN_Setable:
+  85              	.LFB38:
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** /* CRC输入反转控制 相关函数 */
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** void CRC_CRCCR_RFLTIN_Setable(FunState NewState)
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** {
+  86              		.loc 1 49 0
+  87              		.cfi_startproc
+  88              		@ args = 0, pretend = 0, frame = 0
+  89              		@ frame_needed = 0, uses_anonymous_args = 0
+  90              		@ link register save eliminated.
+  91              	.LVL2:
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	if (NewState == ENABLE)
+  92              		.loc 1 50 0
+  93 0000 0128     		cmp	r0, #1
+  94 0002 05D1     		bne	.L8
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	{
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 		CRC->CRCCR |= (CRC_CRCCR_RFLTIN_Msk);
+  95              		.loc 1 52 0
+  96 0004 054A     		ldr	r2, .L10
+  97 0006 5168     		ldr	r1, [r2, #4]
+  98 0008 4023     		movs	r3, #64
+  99 000a 0B43     		orrs	r3, r1
+ 100 000c 5360     		str	r3, [r2, #4]
+ 101 000e 04E0     		b	.L7
+ 102              	.L8:
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	}
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	else
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	{
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 		CRC->CRCCR &= ~(CRC_CRCCR_RFLTIN_Msk);
+ 103              		.loc 1 56 0
+ 104 0010 024A     		ldr	r2, .L10
+ 105 0012 5368     		ldr	r3, [r2, #4]
+ 106 0014 4021     		movs	r1, #64
+ 107 0016 8B43     		bics	r3, r1
+ 108 0018 5360     		str	r3, [r2, #4]
+ 109              	.L7:
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	}
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** }
+ 110              		.loc 1 58 0
+ 111              		@ sp needed
+ 112 001a 7047     		bx	lr
+ 113              	.L11:
+ 114              		.align	2
+ 115              	.L10:
+ 116 001c 00000140 		.word	1073807360
+ 117              		.cfi_endproc
+ 118              	.LFE38:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s 			page 4
+
+
+ 120              		.section	.text.CRC_CRCCR_RFLTIN_Getable,"ax",%progbits
+ 121              		.align	2
+ 122              		.global	CRC_CRCCR_RFLTIN_Getable
+ 123              		.code	16
+ 124              		.thumb_func
+ 126              	CRC_CRCCR_RFLTIN_Getable:
+ 127              	.LFB39:
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** FunState CRC_CRCCR_RFLTIN_Getable(void)
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** {
+ 128              		.loc 1 61 0
+ 129              		.cfi_startproc
+ 130              		@ args = 0, pretend = 0, frame = 0
+ 131              		@ frame_needed = 0, uses_anonymous_args = 0
+ 132              		@ link register save eliminated.
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	if (CRC->CRCCR & (CRC_CRCCR_RFLTIN_Msk))
+ 133              		.loc 1 62 0
+ 134 0000 034B     		ldr	r3, .L15
+ 135 0002 5B68     		ldr	r3, [r3, #4]
+ 136 0004 5B06     		lsls	r3, r3, #25
+ 137 0006 01D5     		bpl	.L14
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	{
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 		return ENABLE;
+ 138              		.loc 1 64 0
+ 139 0008 0120     		movs	r0, #1
+ 140 000a 00E0     		b	.L13
+ 141              	.L14:
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	}
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	else
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	{
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 		return DISABLE;
+ 142              		.loc 1 68 0
+ 143 000c 0020     		movs	r0, #0
+ 144              	.L13:
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	}
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** }
+ 145              		.loc 1 70 0
+ 146              		@ sp needed
+ 147 000e 7047     		bx	lr
+ 148              	.L16:
+ 149              		.align	2
+ 150              	.L15:
+ 151 0010 00000140 		.word	1073807360
+ 152              		.cfi_endproc
+ 153              	.LFE39:
+ 155              		.section	.text.CRC_CRCCR_RFLTO_Setable,"ax",%progbits
+ 156              		.align	2
+ 157              		.global	CRC_CRCCR_RFLTO_Setable
+ 158              		.code	16
+ 159              		.thumb_func
+ 161              	CRC_CRCCR_RFLTO_Setable:
+ 162              	.LFB40:
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** /* CRC输出反转控制 相关函数 */
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** void CRC_CRCCR_RFLTO_Setable(FunState NewState)
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** {
+ 163              		.loc 1 74 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s 			page 5
+
+
+ 164              		.cfi_startproc
+ 165              		@ args = 0, pretend = 0, frame = 0
+ 166              		@ frame_needed = 0, uses_anonymous_args = 0
+ 167              		@ link register save eliminated.
+ 168              	.LVL3:
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	if (NewState == ENABLE)
+ 169              		.loc 1 75 0
+ 170 0000 0128     		cmp	r0, #1
+ 171 0002 05D1     		bne	.L18
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	{
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 		CRC->CRCCR |= (CRC_CRCCR_RFLTO_Msk);
+ 172              		.loc 1 77 0
+ 173 0004 054A     		ldr	r2, .L20
+ 174 0006 5168     		ldr	r1, [r2, #4]
+ 175 0008 2023     		movs	r3, #32
+ 176 000a 0B43     		orrs	r3, r1
+ 177 000c 5360     		str	r3, [r2, #4]
+ 178 000e 04E0     		b	.L17
+ 179              	.L18:
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	}
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	else
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	{
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 		CRC->CRCCR &= ~(CRC_CRCCR_RFLTO_Msk);
+ 180              		.loc 1 81 0
+ 181 0010 024A     		ldr	r2, .L20
+ 182 0012 5368     		ldr	r3, [r2, #4]
+ 183 0014 2021     		movs	r1, #32
+ 184 0016 8B43     		bics	r3, r1
+ 185 0018 5360     		str	r3, [r2, #4]
+ 186              	.L17:
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	}
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** }
+ 187              		.loc 1 83 0
+ 188              		@ sp needed
+ 189 001a 7047     		bx	lr
+ 190              	.L21:
+ 191              		.align	2
+ 192              	.L20:
+ 193 001c 00000140 		.word	1073807360
+ 194              		.cfi_endproc
+ 195              	.LFE40:
+ 197              		.section	.text.CRC_CRCCR_RFLTO_Getable,"ax",%progbits
+ 198              		.align	2
+ 199              		.global	CRC_CRCCR_RFLTO_Getable
+ 200              		.code	16
+ 201              		.thumb_func
+ 203              	CRC_CRCCR_RFLTO_Getable:
+ 204              	.LFB41:
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** FunState CRC_CRCCR_RFLTO_Getable(void)
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** {
+ 205              		.loc 1 86 0
+ 206              		.cfi_startproc
+ 207              		@ args = 0, pretend = 0, frame = 0
+ 208              		@ frame_needed = 0, uses_anonymous_args = 0
+ 209              		@ link register save eliminated.
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	if (CRC->CRCCR & (CRC_CRCCR_RFLTO_Msk))
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s 			page 6
+
+
+ 210              		.loc 1 87 0
+ 211 0000 034B     		ldr	r3, .L25
+ 212 0002 5B68     		ldr	r3, [r3, #4]
+ 213 0004 9B06     		lsls	r3, r3, #26
+ 214 0006 01D5     		bpl	.L24
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	{
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 		return ENABLE;
+ 215              		.loc 1 89 0
+ 216 0008 0120     		movs	r0, #1
+ 217 000a 00E0     		b	.L23
+ 218              	.L24:
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	}
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	else
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	{
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 		return DISABLE;
+ 219              		.loc 1 93 0
+ 220 000c 0020     		movs	r0, #0
+ 221              	.L23:
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	}
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** }
+ 222              		.loc 1 95 0
+ 223              		@ sp needed
+ 224 000e 7047     		bx	lr
+ 225              	.L26:
+ 226              		.align	2
+ 227              	.L25:
+ 228 0010 00000140 		.word	1073807360
+ 229              		.cfi_endproc
+ 230              	.LFE41:
+ 232              		.section	.text.CRC_CRCCR_RES_Chk,"ax",%progbits
+ 233              		.align	2
+ 234              		.global	CRC_CRCCR_RES_Chk
+ 235              		.code	16
+ 236              		.thumb_func
+ 238              	CRC_CRCCR_RES_Chk:
+ 239              	.LFB42:
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** /* CRC结果标志位，只读 相关函数 */
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** FlagStatus CRC_CRCCR_RES_Chk(void)
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** {
+ 240              		.loc 1 99 0
+ 241              		.cfi_startproc
+ 242              		@ args = 0, pretend = 0, frame = 0
+ 243              		@ frame_needed = 0, uses_anonymous_args = 0
+ 244              		@ link register save eliminated.
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	if (CRC->CRCCR & CRC_CRCCR_RES_Msk)
+ 245              		.loc 1 100 0
+ 246 0000 034B     		ldr	r3, .L30
+ 247 0002 5B68     		ldr	r3, [r3, #4]
+ 248 0004 DB06     		lsls	r3, r3, #27
+ 249 0006 01D5     		bpl	.L29
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	{
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 		return SET;
+ 250              		.loc 1 102 0
+ 251 0008 0120     		movs	r0, #1
+ 252 000a 00E0     		b	.L28
+ 253              	.L29:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s 			page 7
+
+
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	}
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	else
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	{
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 		return RESET;
+ 254              		.loc 1 106 0
+ 255 000c 0020     		movs	r0, #0
+ 256              	.L28:
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	}
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** }
+ 257              		.loc 1 108 0
+ 258              		@ sp needed
+ 259 000e 7047     		bx	lr
+ 260              	.L31:
+ 261              		.align	2
+ 262              	.L30:
+ 263 0010 00000140 		.word	1073807360
+ 264              		.cfi_endproc
+ 265              	.LFE42:
+ 267              		.section	.text.CRC_CRCCR_BUSY_Chk,"ax",%progbits
+ 268              		.align	2
+ 269              		.global	CRC_CRCCR_BUSY_Chk
+ 270              		.code	16
+ 271              		.thumb_func
+ 273              	CRC_CRCCR_BUSY_Chk:
+ 274              	.LFB43:
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** /* CRC运算标志位，只读 相关函数 */
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** FlagStatus CRC_CRCCR_BUSY_Chk(void)
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** {
+ 275              		.loc 1 112 0
+ 276              		.cfi_startproc
+ 277              		@ args = 0, pretend = 0, frame = 0
+ 278              		@ frame_needed = 0, uses_anonymous_args = 0
+ 279              		@ link register save eliminated.
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	if (CRC->CRCCR & CRC_CRCCR_BUSY_Msk)
+ 280              		.loc 1 113 0
+ 281 0000 034B     		ldr	r3, .L35
+ 282 0002 5B68     		ldr	r3, [r3, #4]
+ 283 0004 1B07     		lsls	r3, r3, #28
+ 284 0006 01D5     		bpl	.L34
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	{
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 		return SET;
+ 285              		.loc 1 115 0
+ 286 0008 0120     		movs	r0, #1
+ 287 000a 00E0     		b	.L33
+ 288              	.L34:
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	}
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	else
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	{
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 		return RESET;
+ 289              		.loc 1 119 0
+ 290 000c 0020     		movs	r0, #0
+ 291              	.L33:
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	}
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** }
+ 292              		.loc 1 121 0
+ 293              		@ sp needed
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s 			page 8
+
+
+ 294 000e 7047     		bx	lr
+ 295              	.L36:
+ 296              		.align	2
+ 297              	.L35:
+ 298 0010 00000140 		.word	1073807360
+ 299              		.cfi_endproc
+ 300              	.LFE43:
+ 302              		.section	.text.CRC_CRCCR_XOR_Setable,"ax",%progbits
+ 303              		.align	2
+ 304              		.global	CRC_CRCCR_XOR_Setable
+ 305              		.code	16
+ 306              		.thumb_func
+ 308              	CRC_CRCCR_XOR_Setable:
+ 309              	.LFB44:
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** /* 输出异或使能 相关函数 */
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** void CRC_CRCCR_XOR_Setable(FunState NewState)
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** {
+ 310              		.loc 1 125 0
+ 311              		.cfi_startproc
+ 312              		@ args = 0, pretend = 0, frame = 0
+ 313              		@ frame_needed = 0, uses_anonymous_args = 0
+ 314              		@ link register save eliminated.
+ 315              	.LVL4:
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	if (NewState == ENABLE)
+ 316              		.loc 1 126 0
+ 317 0000 0128     		cmp	r0, #1
+ 318 0002 05D1     		bne	.L38
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	{
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 		CRC->CRCCR |= (CRC_CRCCR_XOR_Msk);
+ 319              		.loc 1 128 0
+ 320 0004 054A     		ldr	r2, .L40
+ 321 0006 5168     		ldr	r1, [r2, #4]
+ 322 0008 0423     		movs	r3, #4
+ 323 000a 0B43     		orrs	r3, r1
+ 324 000c 5360     		str	r3, [r2, #4]
+ 325 000e 04E0     		b	.L37
+ 326              	.L38:
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	}
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	else
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	{
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 		CRC->CRCCR &= ~(CRC_CRCCR_XOR_Msk);
+ 327              		.loc 1 132 0
+ 328 0010 024A     		ldr	r2, .L40
+ 329 0012 5368     		ldr	r3, [r2, #4]
+ 330 0014 0421     		movs	r1, #4
+ 331 0016 8B43     		bics	r3, r1
+ 332 0018 5360     		str	r3, [r2, #4]
+ 333              	.L37:
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	}
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** }
+ 334              		.loc 1 134 0
+ 335              		@ sp needed
+ 336 001a 7047     		bx	lr
+ 337              	.L41:
+ 338              		.align	2
+ 339              	.L40:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s 			page 9
+
+
+ 340 001c 00000140 		.word	1073807360
+ 341              		.cfi_endproc
+ 342              	.LFE44:
+ 344              		.section	.text.CRC_CRCCR_XOR_Getable,"ax",%progbits
+ 345              		.align	2
+ 346              		.global	CRC_CRCCR_XOR_Getable
+ 347              		.code	16
+ 348              		.thumb_func
+ 350              	CRC_CRCCR_XOR_Getable:
+ 351              	.LFB45:
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** FunState CRC_CRCCR_XOR_Getable(void)
+ 137:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** {
+ 352              		.loc 1 137 0
+ 353              		.cfi_startproc
+ 354              		@ args = 0, pretend = 0, frame = 0
+ 355              		@ frame_needed = 0, uses_anonymous_args = 0
+ 356              		@ link register save eliminated.
+ 138:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	if (CRC->CRCCR & (CRC_CRCCR_XOR_Msk))
+ 357              		.loc 1 138 0
+ 358 0000 034B     		ldr	r3, .L45
+ 359 0002 5B68     		ldr	r3, [r3, #4]
+ 360 0004 5B07     		lsls	r3, r3, #29
+ 361 0006 01D5     		bpl	.L44
+ 139:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	{
+ 140:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 		return ENABLE;
+ 362              		.loc 1 140 0
+ 363 0008 0120     		movs	r0, #1
+ 364 000a 00E0     		b	.L43
+ 365              	.L44:
+ 141:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	}
+ 142:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	else
+ 143:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	{
+ 144:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 		return DISABLE;
+ 366              		.loc 1 144 0
+ 367 000c 0020     		movs	r0, #0
+ 368              	.L43:
+ 145:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	}
+ 146:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** }
+ 369              		.loc 1 146 0
+ 370              		@ sp needed
+ 371 000e 7047     		bx	lr
+ 372              	.L46:
+ 373              		.align	2
+ 374              	.L45:
+ 375 0010 00000140 		.word	1073807360
+ 376              		.cfi_endproc
+ 377              	.LFE45:
+ 379              		.section	.text.CRC_CRCCR_CRCSEL_Set,"ax",%progbits
+ 380              		.align	2
+ 381              		.global	CRC_CRCCR_CRCSEL_Set
+ 382              		.code	16
+ 383              		.thumb_func
+ 385              	CRC_CRCCR_CRCSEL_Set:
+ 386              	.LFB46:
+ 147:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+ 148:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** /* CRC校验多项式选择 相关函数 */
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s 			page 10
+
+
+ 149:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** void CRC_CRCCR_CRCSEL_Set(uint32_t SetValue)
+ 150:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** {
+ 387              		.loc 1 150 0
+ 388              		.cfi_startproc
+ 389              		@ args = 0, pretend = 0, frame = 0
+ 390              		@ frame_needed = 0, uses_anonymous_args = 0
+ 391              		@ link register save eliminated.
+ 392              	.LVL5:
+ 151:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	uint32_t tmpreg;
+ 152:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	tmpreg = CRC->CRCCR;
+ 393              		.loc 1 152 0
+ 394 0000 034A     		ldr	r2, .L48
+ 395 0002 5368     		ldr	r3, [r2, #4]
+ 396              	.LVL6:
+ 153:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	tmpreg &= ~(CRC_CRCCR_CRCSEL_Msk);
+ 397              		.loc 1 153 0
+ 398 0004 0321     		movs	r1, #3
+ 399 0006 8B43     		bics	r3, r1
+ 400              	.LVL7:
+ 154:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	tmpreg |= (SetValue & CRC_CRCCR_CRCSEL_Msk);
+ 401              		.loc 1 154 0
+ 402 0008 0840     		ands	r0, r1
+ 403              	.LVL8:
+ 404 000a 1843     		orrs	r0, r3
+ 405              	.LVL9:
+ 155:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	CRC->CRCCR = tmpreg;
+ 406              		.loc 1 155 0
+ 407 000c 5060     		str	r0, [r2, #4]
+ 156:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** }
+ 408              		.loc 1 156 0
+ 409              		@ sp needed
+ 410 000e 7047     		bx	lr
+ 411              	.L49:
+ 412              		.align	2
+ 413              	.L48:
+ 414 0010 00000140 		.word	1073807360
+ 415              		.cfi_endproc
+ 416              	.LFE46:
+ 418              		.section	.text.CRC_CRCCR_CRCSEL_Get,"ax",%progbits
+ 419              		.align	2
+ 420              		.global	CRC_CRCCR_CRCSEL_Get
+ 421              		.code	16
+ 422              		.thumb_func
+ 424              	CRC_CRCCR_CRCSEL_Get:
+ 425              	.LFB47:
+ 157:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+ 158:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** uint32_t CRC_CRCCR_CRCSEL_Get(void)
+ 159:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** {
+ 426              		.loc 1 159 0
+ 427              		.cfi_startproc
+ 428              		@ args = 0, pretend = 0, frame = 0
+ 429              		@ frame_needed = 0, uses_anonymous_args = 0
+ 430              		@ link register save eliminated.
+ 160:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	return (CRC->CRCCR & CRC_CRCCR_CRCSEL_Msk);
+ 431              		.loc 1 160 0
+ 432 0000 024B     		ldr	r3, .L51
+ 433 0002 5B68     		ldr	r3, [r3, #4]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s 			page 11
+
+
+ 434 0004 0320     		movs	r0, #3
+ 435 0006 1840     		ands	r0, r3
+ 161:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** }
+ 436              		.loc 1 161 0
+ 437              		@ sp needed
+ 438 0008 7047     		bx	lr
+ 439              	.L52:
+ 440 000a C046     		.align	2
+ 441              	.L51:
+ 442 000c 00000140 		.word	1073807360
+ 443              		.cfi_endproc
+ 444              	.LFE47:
+ 446              		.section	.text.CRC_CRCLFSR_Write,"ax",%progbits
+ 447              		.align	2
+ 448              		.global	CRC_CRCLFSR_Write
+ 449              		.code	16
+ 450              		.thumb_func
+ 452              	CRC_CRCLFSR_Write:
+ 453              	.LFB48:
+ 162:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+ 163:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** /* CRC运算寄存器 相关函数 */
+ 164:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** void CRC_CRCLFSR_Write(uint32_t SetValue)
+ 165:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** {
+ 454              		.loc 1 165 0
+ 455              		.cfi_startproc
+ 456              		@ args = 0, pretend = 0, frame = 0
+ 457              		@ frame_needed = 0, uses_anonymous_args = 0
+ 458              		@ link register save eliminated.
+ 459              	.LVL10:
+ 166:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	CRC->CRCLFSR = (SetValue & CRC_CRCLFSR_LFSR_Msk);
+ 460              		.loc 1 166 0
+ 461 0000 0004     		lsls	r0, r0, #16
+ 462              	.LVL11:
+ 463 0002 000C     		lsrs	r0, r0, #16
+ 464 0004 014B     		ldr	r3, .L54
+ 465 0006 9860     		str	r0, [r3, #8]
+ 167:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** }
+ 466              		.loc 1 167 0
+ 467              		@ sp needed
+ 468 0008 7047     		bx	lr
+ 469              	.L55:
+ 470 000a C046     		.align	2
+ 471              	.L54:
+ 472 000c 00000140 		.word	1073807360
+ 473              		.cfi_endproc
+ 474              	.LFE48:
+ 476              		.section	.text.CRC_CRCLFSR_Read,"ax",%progbits
+ 477              		.align	2
+ 478              		.global	CRC_CRCLFSR_Read
+ 479              		.code	16
+ 480              		.thumb_func
+ 482              	CRC_CRCLFSR_Read:
+ 483              	.LFB49:
+ 168:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+ 169:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** uint32_t CRC_CRCLFSR_Read(void)
+ 170:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** {
+ 484              		.loc 1 170 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s 			page 12
+
+
+ 485              		.cfi_startproc
+ 486              		@ args = 0, pretend = 0, frame = 0
+ 487              		@ frame_needed = 0, uses_anonymous_args = 0
+ 488              		@ link register save eliminated.
+ 171:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	return (CRC->CRCLFSR & CRC_CRCLFSR_LFSR_Msk);
+ 489              		.loc 1 171 0
+ 490 0000 024B     		ldr	r3, .L57
+ 491 0002 9868     		ldr	r0, [r3, #8]
+ 492 0004 0004     		lsls	r0, r0, #16
+ 493 0006 000C     		lsrs	r0, r0, #16
+ 172:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** }
+ 494              		.loc 1 172 0
+ 495              		@ sp needed
+ 496 0008 7047     		bx	lr
+ 497              	.L58:
+ 498 000a C046     		.align	2
+ 499              	.L57:
+ 500 000c 00000140 		.word	1073807360
+ 501              		.cfi_endproc
+ 502              	.LFE49:
+ 504              		.section	.text.CRC_CRCXOR_Write,"ax",%progbits
+ 505              		.align	2
+ 506              		.global	CRC_CRCXOR_Write
+ 507              		.code	16
+ 508              		.thumb_func
+ 510              	CRC_CRCXOR_Write:
+ 511              	.LFB50:
+ 173:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+ 174:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** /* CRC输出异或寄存器 相关函数 */
+ 175:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** void CRC_CRCXOR_Write(uint32_t SetValue)
+ 176:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** {
+ 512              		.loc 1 176 0
+ 513              		.cfi_startproc
+ 514              		@ args = 0, pretend = 0, frame = 0
+ 515              		@ frame_needed = 0, uses_anonymous_args = 0
+ 516              		@ link register save eliminated.
+ 517              	.LVL12:
+ 177:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	CRC->CRCXOR = (SetValue & CRC_CRCXOR_CRC_XOR_Msk);
+ 518              		.loc 1 177 0
+ 519 0000 0004     		lsls	r0, r0, #16
+ 520              	.LVL13:
+ 521 0002 000C     		lsrs	r0, r0, #16
+ 522 0004 014B     		ldr	r3, .L60
+ 523 0006 D860     		str	r0, [r3, #12]
+ 178:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** }
+ 524              		.loc 1 178 0
+ 525              		@ sp needed
+ 526 0008 7047     		bx	lr
+ 527              	.L61:
+ 528 000a C046     		.align	2
+ 529              	.L60:
+ 530 000c 00000140 		.word	1073807360
+ 531              		.cfi_endproc
+ 532              	.LFE50:
+ 534              		.section	.text.CRC_CRCXOR_Read,"ax",%progbits
+ 535              		.align	2
+ 536              		.global	CRC_CRCXOR_Read
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s 			page 13
+
+
+ 537              		.code	16
+ 538              		.thumb_func
+ 540              	CRC_CRCXOR_Read:
+ 541              	.LFB51:
+ 179:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+ 180:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** uint32_t CRC_CRCXOR_Read(void)
+ 181:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** {
+ 542              		.loc 1 181 0
+ 543              		.cfi_startproc
+ 544              		@ args = 0, pretend = 0, frame = 0
+ 545              		@ frame_needed = 0, uses_anonymous_args = 0
+ 546              		@ link register save eliminated.
+ 182:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	return (CRC->CRCXOR & CRC_CRCXOR_CRC_XOR_Msk);
+ 547              		.loc 1 182 0
+ 548 0000 024B     		ldr	r3, .L63
+ 549 0002 D868     		ldr	r0, [r3, #12]
+ 550 0004 0004     		lsls	r0, r0, #16
+ 551 0006 000C     		lsrs	r0, r0, #16
+ 183:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** }
+ 552              		.loc 1 183 0
+ 553              		@ sp needed
+ 554 0008 7047     		bx	lr
+ 555              	.L64:
+ 556 000a C046     		.align	2
+ 557              	.L63:
+ 558 000c 00000140 		.word	1073807360
+ 559              		.cfi_endproc
+ 560              	.LFE51:
+ 562              		.section	.text.CRC_CRCFLSEN_FLSCRCEN_Setable,"ax",%progbits
+ 563              		.align	2
+ 564              		.global	CRC_CRCFLSEN_FLSCRCEN_Setable
+ 565              		.code	16
+ 566              		.thumb_func
+ 568              	CRC_CRCFLSEN_FLSCRCEN_Setable:
+ 569              	.LFB52:
+ 184:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+ 185:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** /* Flash内容CRC校验使能 相关函数 */
+ 186:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** void CRC_CRCFLSEN_FLSCRCEN_Setable(FunState NewState)
+ 187:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** {
+ 570              		.loc 1 187 0
+ 571              		.cfi_startproc
+ 572              		@ args = 0, pretend = 0, frame = 0
+ 573              		@ frame_needed = 0, uses_anonymous_args = 0
+ 574              		@ link register save eliminated.
+ 575              	.LVL14:
+ 188:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	if (NewState == ENABLE)
+ 576              		.loc 1 188 0
+ 577 0000 0128     		cmp	r0, #1
+ 578 0002 05D1     		bne	.L66
+ 189:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	{
+ 190:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 		CRC->CRCFLSEN |= (CRC_CRCFLSEN_FLSCRCEN_Msk);
+ 579              		.loc 1 190 0
+ 580 0004 054A     		ldr	r2, .L68
+ 581 0006 1169     		ldr	r1, [r2, #16]
+ 582 0008 0123     		movs	r3, #1
+ 583 000a 0B43     		orrs	r3, r1
+ 584 000c 1361     		str	r3, [r2, #16]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s 			page 14
+
+
+ 585 000e 04E0     		b	.L65
+ 586              	.L66:
+ 191:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	}
+ 192:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	else
+ 193:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	{
+ 194:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 		CRC->CRCFLSEN &= ~(CRC_CRCFLSEN_FLSCRCEN_Msk);
+ 587              		.loc 1 194 0
+ 588 0010 024A     		ldr	r2, .L68
+ 589 0012 1369     		ldr	r3, [r2, #16]
+ 590 0014 0121     		movs	r1, #1
+ 591 0016 8B43     		bics	r3, r1
+ 592 0018 1361     		str	r3, [r2, #16]
+ 593              	.L65:
+ 195:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	}
+ 196:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** }
+ 594              		.loc 1 196 0
+ 595              		@ sp needed
+ 596 001a 7047     		bx	lr
+ 597              	.L69:
+ 598              		.align	2
+ 599              	.L68:
+ 600 001c 00000140 		.word	1073807360
+ 601              		.cfi_endproc
+ 602              	.LFE52:
+ 604              		.section	.text.CRC_CRCFLSEN_FLSCRCEN_Getable,"ax",%progbits
+ 605              		.align	2
+ 606              		.global	CRC_CRCFLSEN_FLSCRCEN_Getable
+ 607              		.code	16
+ 608              		.thumb_func
+ 610              	CRC_CRCFLSEN_FLSCRCEN_Getable:
+ 611              	.LFB53:
+ 197:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+ 198:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** FunState CRC_CRCFLSEN_FLSCRCEN_Getable(void)
+ 199:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** {
+ 612              		.loc 1 199 0
+ 613              		.cfi_startproc
+ 614              		@ args = 0, pretend = 0, frame = 0
+ 615              		@ frame_needed = 0, uses_anonymous_args = 0
+ 616              		@ link register save eliminated.
+ 200:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	if (CRC->CRCFLSEN & (CRC_CRCFLSEN_FLSCRCEN_Msk))
+ 617              		.loc 1 200 0
+ 618 0000 034B     		ldr	r3, .L73
+ 619 0002 1B69     		ldr	r3, [r3, #16]
+ 620 0004 DB07     		lsls	r3, r3, #31
+ 621 0006 01D5     		bpl	.L72
+ 201:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	{
+ 202:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 		return ENABLE;
+ 622              		.loc 1 202 0
+ 623 0008 0120     		movs	r0, #1
+ 624 000a 00E0     		b	.L71
+ 625              	.L72:
+ 203:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	}
+ 204:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	else
+ 205:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	{
+ 206:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 		return DISABLE;
+ 626              		.loc 1 206 0
+ 627 000c 0020     		movs	r0, #0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s 			page 15
+
+
+ 628              	.L71:
+ 207:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	}
+ 208:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** }
+ 629              		.loc 1 208 0
+ 630              		@ sp needed
+ 631 000e 7047     		bx	lr
+ 632              	.L74:
+ 633              		.align	2
+ 634              	.L73:
+ 635 0010 00000140 		.word	1073807360
+ 636              		.cfi_endproc
+ 637              	.LFE53:
+ 639              		.section	.text.CRC_CRCFLSAD_Write,"ax",%progbits
+ 640              		.align	2
+ 641              		.global	CRC_CRCFLSAD_Write
+ 642              		.code	16
+ 643              		.thumb_func
+ 645              	CRC_CRCFLSAD_Write:
+ 646              	.LFB54:
+ 209:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+ 210:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** /* Flash校验起始地址（Word地址） 相关函数 */
+ 211:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** void CRC_CRCFLSAD_Write(uint32_t SetValue)
+ 212:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** {
+ 647              		.loc 1 212 0
+ 648              		.cfi_startproc
+ 649              		@ args = 0, pretend = 0, frame = 0
+ 650              		@ frame_needed = 0, uses_anonymous_args = 0
+ 651              		@ link register save eliminated.
+ 652              	.LVL15:
+ 213:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	CRC->CRCFLSAD = (SetValue & CRC_CRCFLSAD_FLSAD_Msk);
+ 653              		.loc 1 213 0
+ 654 0000 C003     		lsls	r0, r0, #15
+ 655              	.LVL16:
+ 656 0002 C00B     		lsrs	r0, r0, #15
+ 657 0004 014B     		ldr	r3, .L76
+ 658 0006 5861     		str	r0, [r3, #20]
+ 214:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** }
+ 659              		.loc 1 214 0
+ 660              		@ sp needed
+ 661 0008 7047     		bx	lr
+ 662              	.L77:
+ 663 000a C046     		.align	2
+ 664              	.L76:
+ 665 000c 00000140 		.word	1073807360
+ 666              		.cfi_endproc
+ 667              	.LFE54:
+ 669              		.section	.text.CRC_CRCFLSAD_Read,"ax",%progbits
+ 670              		.align	2
+ 671              		.global	CRC_CRCFLSAD_Read
+ 672              		.code	16
+ 673              		.thumb_func
+ 675              	CRC_CRCFLSAD_Read:
+ 676              	.LFB55:
+ 215:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+ 216:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** uint32_t CRC_CRCFLSAD_Read(void)
+ 217:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** {
+ 677              		.loc 1 217 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s 			page 16
+
+
+ 678              		.cfi_startproc
+ 679              		@ args = 0, pretend = 0, frame = 0
+ 680              		@ frame_needed = 0, uses_anonymous_args = 0
+ 681              		@ link register save eliminated.
+ 218:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	return (CRC->CRCFLSAD & CRC_CRCFLSAD_FLSAD_Msk);
+ 682              		.loc 1 218 0
+ 683 0000 024B     		ldr	r3, .L79
+ 684 0002 5869     		ldr	r0, [r3, #20]
+ 685 0004 C003     		lsls	r0, r0, #15
+ 686 0006 C00B     		lsrs	r0, r0, #15
+ 219:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** }
+ 687              		.loc 1 219 0
+ 688              		@ sp needed
+ 689 0008 7047     		bx	lr
+ 690              	.L80:
+ 691 000a C046     		.align	2
+ 692              	.L79:
+ 693 000c 00000140 		.word	1073807360
+ 694              		.cfi_endproc
+ 695              	.LFE55:
+ 697              		.section	.text.CRC_CRCFLSSIZE_Write,"ax",%progbits
+ 698              		.align	2
+ 699              		.global	CRC_CRCFLSSIZE_Write
+ 700              		.code	16
+ 701              		.thumb_func
+ 703              	CRC_CRCFLSSIZE_Write:
+ 704              	.LFB56:
+ 220:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+ 221:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** /* CRC Flash校验数据长度（Word长度） 相关函数 */
+ 222:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** void CRC_CRCFLSSIZE_Write(uint32_t SetValue)
+ 223:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** {
+ 705              		.loc 1 223 0
+ 706              		.cfi_startproc
+ 707              		@ args = 0, pretend = 0, frame = 0
+ 708              		@ frame_needed = 0, uses_anonymous_args = 0
+ 709              		@ link register save eliminated.
+ 710              	.LVL17:
+ 224:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	CRC->CRCFLSSIZE = (SetValue & CRC_CRCFLSSIZE_FLSS_Msk);
+ 711              		.loc 1 224 0
+ 712 0000 C003     		lsls	r0, r0, #15
+ 713              	.LVL18:
+ 714 0002 C00B     		lsrs	r0, r0, #15
+ 715 0004 014B     		ldr	r3, .L82
+ 716 0006 9861     		str	r0, [r3, #24]
+ 225:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** }
+ 717              		.loc 1 225 0
+ 718              		@ sp needed
+ 719 0008 7047     		bx	lr
+ 720              	.L83:
+ 721 000a C046     		.align	2
+ 722              	.L82:
+ 723 000c 00000140 		.word	1073807360
+ 724              		.cfi_endproc
+ 725              	.LFE56:
+ 727              		.section	.text.CRC_CRCFLSSIZE_Read,"ax",%progbits
+ 728              		.align	2
+ 729              		.global	CRC_CRCFLSSIZE_Read
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s 			page 17
+
+
+ 730              		.code	16
+ 731              		.thumb_func
+ 733              	CRC_CRCFLSSIZE_Read:
+ 734              	.LFB57:
+ 226:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+ 227:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** uint32_t CRC_CRCFLSSIZE_Read(void)
+ 228:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** {
+ 735              		.loc 1 228 0
+ 736              		.cfi_startproc
+ 737              		@ args = 0, pretend = 0, frame = 0
+ 738              		@ frame_needed = 0, uses_anonymous_args = 0
+ 739              		@ link register save eliminated.
+ 229:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	return (CRC->CRCFLSSIZE & CRC_CRCFLSSIZE_FLSS_Msk);
+ 740              		.loc 1 229 0
+ 741 0000 024B     		ldr	r3, .L85
+ 742 0002 9869     		ldr	r0, [r3, #24]
+ 743 0004 C003     		lsls	r0, r0, #15
+ 744 0006 C00B     		lsrs	r0, r0, #15
+ 230:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** }
+ 745              		.loc 1 230 0
+ 746              		@ sp needed
+ 747 0008 7047     		bx	lr
+ 748              	.L86:
+ 749 000a C046     		.align	2
+ 750              	.L85:
+ 751 000c 00000140 		.word	1073807360
+ 752              		.cfi_endproc
+ 753              	.LFE57:
+ 755              		.section	.text.CRC_Deinit,"ax",%progbits
+ 756              		.align	2
+ 757              		.global	CRC_Deinit
+ 758              		.code	16
+ 759              		.thumb_func
+ 761              	CRC_Deinit:
+ 762              	.LFB58:
+ 231:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+ 232:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+ 233:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** void CRC_Deinit(void)
+ 234:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** {
+ 763              		.loc 1 234 0
+ 764              		.cfi_startproc
+ 765              		@ args = 0, pretend = 0, frame = 0
+ 766              		@ frame_needed = 0, uses_anonymous_args = 0
+ 767              		@ link register save eliminated.
+ 235:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	//CRC->CRCDR = ;
+ 236:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	CRC->CRCCR = 0x00000000;
+ 768              		.loc 1 236 0
+ 769 0000 044B     		ldr	r3, .L88
+ 770 0002 0022     		movs	r2, #0
+ 771 0004 5A60     		str	r2, [r3, #4]
+ 237:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	CRC->CRCLFSR = 0x0000FFFF;
+ 772              		.loc 1 237 0
+ 773 0006 0449     		ldr	r1, .L88+4
+ 774 0008 9960     		str	r1, [r3, #8]
+ 238:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	CRC->CRCXOR = 0x00000000;
+ 775              		.loc 1 238 0
+ 776 000a DA60     		str	r2, [r3, #12]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s 			page 18
+
+
+ 239:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	CRC->CRCFLSEN = 0x00000000;
+ 777              		.loc 1 239 0
+ 778 000c 1A61     		str	r2, [r3, #16]
+ 240:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	CRC->CRCFLSAD = 0x00000000;
+ 779              		.loc 1 240 0
+ 780 000e 5A61     		str	r2, [r3, #20]
+ 241:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	CRC->CRCFLSSIZE = 0x00000000;
+ 781              		.loc 1 241 0
+ 782 0010 9A61     		str	r2, [r3, #24]
+ 242:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** }
+ 783              		.loc 1 242 0
+ 784              		@ sp needed
+ 785 0012 7047     		bx	lr
+ 786              	.L89:
+ 787              		.align	2
+ 788              	.L88:
+ 789 0014 00000140 		.word	1073807360
+ 790 0018 FFFF0000 		.word	65535
+ 791              		.cfi_endproc
+ 792              	.LFE58:
+ 794              		.section	.text.CRC_Init,"ax",%progbits
+ 795              		.align	2
+ 796              		.global	CRC_Init
+ 797              		.code	16
+ 798              		.thumb_func
+ 800              	CRC_Init:
+ 801              	.LFB59:
+ 243:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** //Code_End
+ 244:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 
+ 245:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** /* CRC初始化配置函数*/
+ 246:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** void CRC_Init(CRC_InitTypeDef* para)
+ 247:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** {
+ 802              		.loc 1 247 0
+ 803              		.cfi_startproc
+ 804              		@ args = 0, pretend = 0, frame = 0
+ 805              		@ frame_needed = 0, uses_anonymous_args = 0
+ 806              	.LVL19:
+ 807 0000 10B5     		push	{r4, lr}
+ 808              	.LCFI0:
+ 809              		.cfi_def_cfa_offset 8
+ 810              		.cfi_offset 4, -8
+ 811              		.cfi_offset 14, -4
+ 812 0002 0400     		movs	r4, r0
+ 248:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	CRC_CRCCR_CRCSEL_Set(para->CRCSEL);			/*!<CRC校验多项式选择*/
+ 813              		.loc 1 248 0
+ 814 0004 0068     		ldr	r0, [r0]
+ 815              	.LVL20:
+ 816 0006 FFF7FEFF 		bl	CRC_CRCCR_CRCSEL_Set
+ 817              	.LVL21:
+ 249:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	CRC_CRCCR_RFLTIN_Setable(para->RFLTIN);		/*!<CRC输入反转控制*/
+ 818              		.loc 1 249 0
+ 819 000a 2079     		ldrb	r0, [r4, #4]
+ 820 000c FFF7FEFF 		bl	CRC_CRCCR_RFLTIN_Setable
+ 821              	.LVL22:
+ 250:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	CRC_CRCCR_RFLTO_Setable(para->RFLTO);		/*!<CRC输出反转控制*/
+ 822              		.loc 1 250 0
+ 823 0010 6079     		ldrb	r0, [r4, #5]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s 			page 19
+
+
+ 824 0012 FFF7FEFF 		bl	CRC_CRCCR_RFLTO_Setable
+ 825              	.LVL23:
+ 251:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	CRC_CRCCR_XOR_Setable(para->XOR);			/*!<输出异或使能*/
+ 826              		.loc 1 251 0
+ 827 0016 A079     		ldrb	r0, [r4, #6]
+ 828 0018 FFF7FEFF 		bl	CRC_CRCCR_XOR_Setable
+ 829              	.LVL24:
+ 252:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** 	CRC_CRCXOR_Write(para->CRC_XOR);			/*!<运算结果异或寄存器*/
+ 830              		.loc 1 252 0
+ 831 001c A068     		ldr	r0, [r4, #8]
+ 832 001e FFF7FEFF 		bl	CRC_CRCXOR_Write
+ 833              	.LVL25:
+ 253:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_crc.c **** }
+ 834              		.loc 1 253 0
+ 835              		@ sp needed
+ 836              	.LVL26:
+ 837 0022 10BD     		pop	{r4, pc}
+ 838              		.cfi_endproc
+ 839              	.LFE59:
+ 841              		.text
+ 842              	.Letext0:
+ 843              		.file 2 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\device\\include\\fm33a0xx.h"
+ 844              		.file 3 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\machine\\_default_types.h
+ 845              		.file 4 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 846              		.file 5 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\drivers\\fm33A0xx_crc.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s 			page 20
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 fm33a0xx_crc.c
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:20     .text.CRC_CRCDR_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:25     .text.CRC_CRCDR_Write:00000000 CRC_CRCDR_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:46     .text.CRC_CRCDR_Write:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:51     .text.CRC_CRCDR_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:56     .text.CRC_CRCDR_Read:00000000 CRC_CRCDR_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:74     .text.CRC_CRCDR_Read:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:79     .text.CRC_CRCCR_RFLTIN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:84     .text.CRC_CRCCR_RFLTIN_Setable:00000000 CRC_CRCCR_RFLTIN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:116    .text.CRC_CRCCR_RFLTIN_Setable:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:121    .text.CRC_CRCCR_RFLTIN_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:126    .text.CRC_CRCCR_RFLTIN_Getable:00000000 CRC_CRCCR_RFLTIN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:151    .text.CRC_CRCCR_RFLTIN_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:156    .text.CRC_CRCCR_RFLTO_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:161    .text.CRC_CRCCR_RFLTO_Setable:00000000 CRC_CRCCR_RFLTO_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:193    .text.CRC_CRCCR_RFLTO_Setable:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:198    .text.CRC_CRCCR_RFLTO_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:203    .text.CRC_CRCCR_RFLTO_Getable:00000000 CRC_CRCCR_RFLTO_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:228    .text.CRC_CRCCR_RFLTO_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:233    .text.CRC_CRCCR_RES_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:238    .text.CRC_CRCCR_RES_Chk:00000000 CRC_CRCCR_RES_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:263    .text.CRC_CRCCR_RES_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:268    .text.CRC_CRCCR_BUSY_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:273    .text.CRC_CRCCR_BUSY_Chk:00000000 CRC_CRCCR_BUSY_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:298    .text.CRC_CRCCR_BUSY_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:303    .text.CRC_CRCCR_XOR_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:308    .text.CRC_CRCCR_XOR_Setable:00000000 CRC_CRCCR_XOR_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:340    .text.CRC_CRCCR_XOR_Setable:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:345    .text.CRC_CRCCR_XOR_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:350    .text.CRC_CRCCR_XOR_Getable:00000000 CRC_CRCCR_XOR_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:375    .text.CRC_CRCCR_XOR_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:380    .text.CRC_CRCCR_CRCSEL_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:385    .text.CRC_CRCCR_CRCSEL_Set:00000000 CRC_CRCCR_CRCSEL_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:414    .text.CRC_CRCCR_CRCSEL_Set:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:419    .text.CRC_CRCCR_CRCSEL_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:424    .text.CRC_CRCCR_CRCSEL_Get:00000000 CRC_CRCCR_CRCSEL_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:442    .text.CRC_CRCCR_CRCSEL_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:447    .text.CRC_CRCLFSR_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:452    .text.CRC_CRCLFSR_Write:00000000 CRC_CRCLFSR_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:472    .text.CRC_CRCLFSR_Write:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:477    .text.CRC_CRCLFSR_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:482    .text.CRC_CRCLFSR_Read:00000000 CRC_CRCLFSR_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:500    .text.CRC_CRCLFSR_Read:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:505    .text.CRC_CRCXOR_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:510    .text.CRC_CRCXOR_Write:00000000 CRC_CRCXOR_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:530    .text.CRC_CRCXOR_Write:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:535    .text.CRC_CRCXOR_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:540    .text.CRC_CRCXOR_Read:00000000 CRC_CRCXOR_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:558    .text.CRC_CRCXOR_Read:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:563    .text.CRC_CRCFLSEN_FLSCRCEN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:568    .text.CRC_CRCFLSEN_FLSCRCEN_Setable:00000000 CRC_CRCFLSEN_FLSCRCEN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:600    .text.CRC_CRCFLSEN_FLSCRCEN_Setable:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:605    .text.CRC_CRCFLSEN_FLSCRCEN_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:610    .text.CRC_CRCFLSEN_FLSCRCEN_Getable:00000000 CRC_CRCFLSEN_FLSCRCEN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:635    .text.CRC_CRCFLSEN_FLSCRCEN_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:640    .text.CRC_CRCFLSAD_Write:00000000 $t
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s 			page 21
+
+
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:645    .text.CRC_CRCFLSAD_Write:00000000 CRC_CRCFLSAD_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:665    .text.CRC_CRCFLSAD_Write:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:670    .text.CRC_CRCFLSAD_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:675    .text.CRC_CRCFLSAD_Read:00000000 CRC_CRCFLSAD_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:693    .text.CRC_CRCFLSAD_Read:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:698    .text.CRC_CRCFLSSIZE_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:703    .text.CRC_CRCFLSSIZE_Write:00000000 CRC_CRCFLSSIZE_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:723    .text.CRC_CRCFLSSIZE_Write:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:728    .text.CRC_CRCFLSSIZE_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:733    .text.CRC_CRCFLSSIZE_Read:00000000 CRC_CRCFLSSIZE_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:751    .text.CRC_CRCFLSSIZE_Read:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:756    .text.CRC_Deinit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:761    .text.CRC_Deinit:00000000 CRC_Deinit
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:789    .text.CRC_Deinit:00000014 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:795    .text.CRC_Init:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF18Xuq.s:800    .text.CRC_Init:00000000 CRC_Init
+                     .debug_frame:00000010 $d
+
+NO UNDEFINED SYMBOLS

@@ -1,0 +1,2926 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"fm33a0xx_hspi.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.HSPI_SPICR1_DELAY_CFG_Set,"ax",%progbits
+  20              		.align	2
+  21              		.global	HSPI_SPICR1_DELAY_CFG_Set
+  22              		.code	16
+  23              		.thumb_func
+  25              	HSPI_SPICR1_DELAY_CFG_Set:
+  26              	.LFB36:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers/fm33a
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** /**
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c ****   ******************************************************************************
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c ****   * @file    fm33a0xx_spi.c
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c ****   * @author  
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c ****   * @version V2.0.1
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c ****   * @date    
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c ****   * @brief   This file provides firmware functions to manage the following 
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c ****   *          functionalities of SPI:           
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c ****   *           
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c ****   ******************************************************************************  
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c ****   */ 
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** /* Includes ------------------------------------------------------------------*/ 
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** #include "fm33A0xx_hspi.h"  
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** /* Private typedef -----------------------------------------------------------*/
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** /* Private define ------------------------------------------------------------*/
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** /* Private macro -------------------------------------------------------------*/
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** /* Private variables ---------------------------------------------------------*/
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** /* Private function prototypes -----------------------------------------------*/
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** /* Private functions ---------------------------------------------------------*/
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** //Code_Start
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** //2018-04-02-13-22-40
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** //FM33A0XX_Driver_Gen_V1.4
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** /* Master模式下，用于调整接收采样相位；Slave模式下，用于调整发送相位 相关函数 */
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_SPICR1_DELAY_CFG_Set(uint32_t SetValue)
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 2
+
+
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+  28              		.loc 1 32 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	uint32_t tmpreg;
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg = HSPI->SPICR1;
+  34              		.loc 1 34 0
+  35 0000 0449     		ldr	r1, .L2
+  36 0002 0A68     		ldr	r2, [r1]
+  37              	.LVL1:
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg &= ~(HSPI_SPICR1_DELAY_CFG_Msk);
+  38              		.loc 1 35 0
+  39 0004 044B     		ldr	r3, .L2+4
+  40 0006 1A40     		ands	r2, r3
+  41              	.LVL2:
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg |= (SetValue & HSPI_SPICR1_DELAY_CFG_Msk);
+  42              		.loc 1 36 0
+  43 0008 E023     		movs	r3, #224
+  44 000a 1B01     		lsls	r3, r3, #4
+  45 000c 1840     		ands	r0, r3
+  46              	.LVL3:
+  47 000e 1043     		orrs	r0, r2
+  48              	.LVL4:
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI->SPICR1 = tmpreg;
+  49              		.loc 1 37 0
+  50 0010 0860     		str	r0, [r1]
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+  51              		.loc 1 38 0
+  52              		@ sp needed
+  53 0012 7047     		bx	lr
+  54              	.L3:
+  55              		.align	2
+  56              	.L2:
+  57 0014 00080040 		.word	1073743872
+  58 0018 FFF1FFFF 		.word	-3585
+  59              		.cfi_endproc
+  60              	.LFE36:
+  62              		.section	.text.HSPI_SPICR1_DELAY_CFG_Get,"ax",%progbits
+  63              		.align	2
+  64              		.global	HSPI_SPICR1_DELAY_CFG_Get
+  65              		.code	16
+  66              		.thumb_func
+  68              	HSPI_SPICR1_DELAY_CFG_Get:
+  69              	.LFB37:
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** uint32_t HSPI_SPICR1_DELAY_CFG_Get(void)
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+  70              		.loc 1 41 0
+  71              		.cfi_startproc
+  72              		@ args = 0, pretend = 0, frame = 0
+  73              		@ frame_needed = 0, uses_anonymous_args = 0
+  74              		@ link register save eliminated.
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	return (HSPI->SPICR1 & HSPI_SPICR1_DELAY_CFG_Msk);
+  75              		.loc 1 42 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 3
+
+
+  76 0000 024B     		ldr	r3, .L5
+  77 0002 1868     		ldr	r0, [r3]
+  78 0004 E023     		movs	r3, #224
+  79 0006 1B01     		lsls	r3, r3, #4
+  80 0008 1840     		ands	r0, r3
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+  81              		.loc 1 43 0
+  82              		@ sp needed
+  83 000a 7047     		bx	lr
+  84              	.L6:
+  85              		.align	2
+  86              	.L5:
+  87 000c 00080040 		.word	1073743872
+  88              		.cfi_endproc
+  89              	.LFE37:
+  91              		.section	.text.HSPI_SPICR1_MM_Set,"ax",%progbits
+  92              		.align	2
+  93              		.global	HSPI_SPICR1_MM_Set
+  94              		.code	16
+  95              		.thumb_func
+  97              	HSPI_SPICR1_MM_Set:
+  98              	.LFB38:
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** /* MASTER/SLAVE模式选择 相关函数 */
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_SPICR1_MM_Set(uint32_t SetValue)
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+  99              		.loc 1 47 0
+ 100              		.cfi_startproc
+ 101              		@ args = 0, pretend = 0, frame = 0
+ 102              		@ frame_needed = 0, uses_anonymous_args = 0
+ 103              		@ link register save eliminated.
+ 104              	.LVL5:
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	uint32_t tmpreg;
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg = HSPI->SPICR1;
+ 105              		.loc 1 49 0
+ 106 0000 0449     		ldr	r1, .L8
+ 107 0002 0A68     		ldr	r2, [r1]
+ 108              	.LVL6:
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg &= ~(HSPI_SPICR1_MM_Msk);
+ 109              		.loc 1 50 0
+ 110 0004 044B     		ldr	r3, .L8+4
+ 111 0006 1A40     		ands	r2, r3
+ 112              	.LVL7:
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg |= (SetValue & HSPI_SPICR1_MM_Msk);
+ 113              		.loc 1 51 0
+ 114 0008 8023     		movs	r3, #128
+ 115 000a 5B00     		lsls	r3, r3, #1
+ 116 000c 1840     		ands	r0, r3
+ 117              	.LVL8:
+ 118 000e 1043     		orrs	r0, r2
+ 119              	.LVL9:
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI->SPICR1 = tmpreg;
+ 120              		.loc 1 52 0
+ 121 0010 0860     		str	r0, [r1]
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 122              		.loc 1 53 0
+ 123              		@ sp needed
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 4
+
+
+ 124 0012 7047     		bx	lr
+ 125              	.L9:
+ 126              		.align	2
+ 127              	.L8:
+ 128 0014 00080040 		.word	1073743872
+ 129 0018 FFFEFFFF 		.word	-257
+ 130              		.cfi_endproc
+ 131              	.LFE38:
+ 133              		.section	.text.HSPI_SPICR1_MM_Get,"ax",%progbits
+ 134              		.align	2
+ 135              		.global	HSPI_SPICR1_MM_Get
+ 136              		.code	16
+ 137              		.thumb_func
+ 139              	HSPI_SPICR1_MM_Get:
+ 140              	.LFB39:
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** uint32_t HSPI_SPICR1_MM_Get(void)
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 141              		.loc 1 56 0
+ 142              		.cfi_startproc
+ 143              		@ args = 0, pretend = 0, frame = 0
+ 144              		@ frame_needed = 0, uses_anonymous_args = 0
+ 145              		@ link register save eliminated.
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	return (HSPI->SPICR1 & HSPI_SPICR1_MM_Msk);
+ 146              		.loc 1 57 0
+ 147 0000 024B     		ldr	r3, .L11
+ 148 0002 1868     		ldr	r0, [r3]
+ 149 0004 8023     		movs	r3, #128
+ 150 0006 5B00     		lsls	r3, r3, #1
+ 151 0008 1840     		ands	r0, r3
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 152              		.loc 1 58 0
+ 153              		@ sp needed
+ 154 000a 7047     		bx	lr
+ 155              	.L12:
+ 156              		.align	2
+ 157              	.L11:
+ 158 000c 00080040 		.word	1073743872
+ 159              		.cfi_endproc
+ 160              	.LFE39:
+ 162              		.section	.text.HSPI_SPICR1_WAIT_Set,"ax",%progbits
+ 163              		.align	2
+ 164              		.global	HSPI_SPICR1_WAIT_Set
+ 165              		.code	16
+ 166              		.thumb_func
+ 168              	HSPI_SPICR1_WAIT_Set:
+ 169              	.LFB40:
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_SPICR1_WAIT_Set(uint32_t SetValue)
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 170              		.loc 1 61 0
+ 171              		.cfi_startproc
+ 172              		@ args = 0, pretend = 0, frame = 0
+ 173              		@ frame_needed = 0, uses_anonymous_args = 0
+ 174              		@ link register save eliminated.
+ 175              	.LVL10:
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	uint32_t tmpreg;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 5
+
+
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg = HSPI->SPICR1;
+ 176              		.loc 1 63 0
+ 177 0000 034A     		ldr	r2, .L14
+ 178 0002 1368     		ldr	r3, [r2]
+ 179              	.LVL11:
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg &= ~(HSPI_SPICR1_WAIT_Msk);
+ 180              		.loc 1 64 0
+ 181 0004 C021     		movs	r1, #192
+ 182 0006 8B43     		bics	r3, r1
+ 183              	.LVL12:
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg |= (SetValue & HSPI_SPICR1_WAIT_Msk);
+ 184              		.loc 1 65 0
+ 185 0008 0840     		ands	r0, r1
+ 186              	.LVL13:
+ 187 000a 1843     		orrs	r0, r3
+ 188              	.LVL14:
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI->SPICR1 = tmpreg;
+ 189              		.loc 1 66 0
+ 190 000c 1060     		str	r0, [r2]
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 191              		.loc 1 67 0
+ 192              		@ sp needed
+ 193 000e 7047     		bx	lr
+ 194              	.L15:
+ 195              		.align	2
+ 196              	.L14:
+ 197 0010 00080040 		.word	1073743872
+ 198              		.cfi_endproc
+ 199              	.LFE40:
+ 201              		.section	.text.HSPI_SPICR1_WAIT_Get,"ax",%progbits
+ 202              		.align	2
+ 203              		.global	HSPI_SPICR1_WAIT_Get
+ 204              		.code	16
+ 205              		.thumb_func
+ 207              	HSPI_SPICR1_WAIT_Get:
+ 208              	.LFB41:
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** uint32_t HSPI_SPICR1_WAIT_Get(void)
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 209              		.loc 1 70 0
+ 210              		.cfi_startproc
+ 211              		@ args = 0, pretend = 0, frame = 0
+ 212              		@ frame_needed = 0, uses_anonymous_args = 0
+ 213              		@ link register save eliminated.
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	return (HSPI->SPICR1 & HSPI_SPICR1_WAIT_Msk);
+ 214              		.loc 1 71 0
+ 215 0000 024B     		ldr	r3, .L17
+ 216 0002 1B68     		ldr	r3, [r3]
+ 217 0004 C020     		movs	r0, #192
+ 218 0006 1840     		ands	r0, r3
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 219              		.loc 1 72 0
+ 220              		@ sp needed
+ 221 0008 7047     		bx	lr
+ 222              	.L18:
+ 223 000a C046     		.align	2
+ 224              	.L17:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 6
+
+
+ 225 000c 00080040 		.word	1073743872
+ 226              		.cfi_endproc
+ 227              	.LFE41:
+ 229              		.section	.text.HSPI_SPICR1_BAUD_Set,"ax",%progbits
+ 230              		.align	2
+ 231              		.global	HSPI_SPICR1_BAUD_Set
+ 232              		.code	16
+ 233              		.thumb_func
+ 235              	HSPI_SPICR1_BAUD_Set:
+ 236              	.LFB42:
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** /* MASTER模式波特率配置 相关函数 */
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_SPICR1_BAUD_Set(uint32_t SetValue)
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 237              		.loc 1 76 0
+ 238              		.cfi_startproc
+ 239              		@ args = 0, pretend = 0, frame = 0
+ 240              		@ frame_needed = 0, uses_anonymous_args = 0
+ 241              		@ link register save eliminated.
+ 242              	.LVL15:
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	uint32_t tmpreg;
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg = HSPI->SPICR1;
+ 243              		.loc 1 78 0
+ 244 0000 034A     		ldr	r2, .L20
+ 245 0002 1368     		ldr	r3, [r2]
+ 246              	.LVL16:
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg &= ~(HSPI_SPICR1_BAUD_Msk);
+ 247              		.loc 1 79 0
+ 248 0004 3821     		movs	r1, #56
+ 249 0006 8B43     		bics	r3, r1
+ 250              	.LVL17:
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg |= (SetValue & HSPI_SPICR1_BAUD_Msk);
+ 251              		.loc 1 80 0
+ 252 0008 0840     		ands	r0, r1
+ 253              	.LVL18:
+ 254 000a 1843     		orrs	r0, r3
+ 255              	.LVL19:
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI->SPICR1 = tmpreg;
+ 256              		.loc 1 81 0
+ 257 000c 1060     		str	r0, [r2]
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 258              		.loc 1 82 0
+ 259              		@ sp needed
+ 260 000e 7047     		bx	lr
+ 261              	.L21:
+ 262              		.align	2
+ 263              	.L20:
+ 264 0010 00080040 		.word	1073743872
+ 265              		.cfi_endproc
+ 266              	.LFE42:
+ 268              		.section	.text.HSPI_SPICR1_BAUD_Get,"ax",%progbits
+ 269              		.align	2
+ 270              		.global	HSPI_SPICR1_BAUD_Get
+ 271              		.code	16
+ 272              		.thumb_func
+ 274              	HSPI_SPICR1_BAUD_Get:
+ 275              	.LFB43:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 7
+
+
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** uint32_t HSPI_SPICR1_BAUD_Get(void)
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 276              		.loc 1 85 0
+ 277              		.cfi_startproc
+ 278              		@ args = 0, pretend = 0, frame = 0
+ 279              		@ frame_needed = 0, uses_anonymous_args = 0
+ 280              		@ link register save eliminated.
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	return (HSPI->SPICR1 & HSPI_SPICR1_BAUD_Msk);
+ 281              		.loc 1 86 0
+ 282 0000 024B     		ldr	r3, .L23
+ 283 0002 1B68     		ldr	r3, [r3]
+ 284 0004 3820     		movs	r0, #56
+ 285 0006 1840     		ands	r0, r3
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 286              		.loc 1 87 0
+ 287              		@ sp needed
+ 288 0008 7047     		bx	lr
+ 289              	.L24:
+ 290 000a C046     		.align	2
+ 291              	.L23:
+ 292 000c 00080040 		.word	1073743872
+ 293              		.cfi_endproc
+ 294              	.LFE43:
+ 296              		.section	.text.HSPI_SPICR1_LSBF_Set,"ax",%progbits
+ 297              		.align	2
+ 298              		.global	HSPI_SPICR1_LSBF_Set
+ 299              		.code	16
+ 300              		.thumb_func
+ 302              	HSPI_SPICR1_LSBF_Set:
+ 303              	.LFB44:
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** /* 帧格式 相关函数 */
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_SPICR1_LSBF_Set(uint32_t SetValue)
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 304              		.loc 1 91 0
+ 305              		.cfi_startproc
+ 306              		@ args = 0, pretend = 0, frame = 0
+ 307              		@ frame_needed = 0, uses_anonymous_args = 0
+ 308              		@ link register save eliminated.
+ 309              	.LVL20:
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	uint32_t tmpreg;
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg = HSPI->SPICR1;
+ 310              		.loc 1 93 0
+ 311 0000 034A     		ldr	r2, .L26
+ 312 0002 1368     		ldr	r3, [r2]
+ 313              	.LVL21:
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg &= ~(HSPI_SPICR1_LSBF_Msk);
+ 314              		.loc 1 94 0
+ 315 0004 0421     		movs	r1, #4
+ 316 0006 8B43     		bics	r3, r1
+ 317              	.LVL22:
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg |= (SetValue & HSPI_SPICR1_LSBF_Msk);
+ 318              		.loc 1 95 0
+ 319 0008 0840     		ands	r0, r1
+ 320              	.LVL23:
+ 321 000a 1843     		orrs	r0, r3
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 8
+
+
+ 322              	.LVL24:
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI->SPICR1 = tmpreg;
+ 323              		.loc 1 96 0
+ 324 000c 1060     		str	r0, [r2]
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 325              		.loc 1 97 0
+ 326              		@ sp needed
+ 327 000e 7047     		bx	lr
+ 328              	.L27:
+ 329              		.align	2
+ 330              	.L26:
+ 331 0010 00080040 		.word	1073743872
+ 332              		.cfi_endproc
+ 333              	.LFE44:
+ 335              		.section	.text.HSPI_SPICR1_LSBF_Get,"ax",%progbits
+ 336              		.align	2
+ 337              		.global	HSPI_SPICR1_LSBF_Get
+ 338              		.code	16
+ 339              		.thumb_func
+ 341              	HSPI_SPICR1_LSBF_Get:
+ 342              	.LFB45:
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** uint32_t HSPI_SPICR1_LSBF_Get(void)
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 343              		.loc 1 100 0
+ 344              		.cfi_startproc
+ 345              		@ args = 0, pretend = 0, frame = 0
+ 346              		@ frame_needed = 0, uses_anonymous_args = 0
+ 347              		@ link register save eliminated.
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	return (HSPI->SPICR1 & HSPI_SPICR1_LSBF_Msk);
+ 348              		.loc 1 101 0
+ 349 0000 024B     		ldr	r3, .L29
+ 350 0002 1B68     		ldr	r3, [r3]
+ 351 0004 0420     		movs	r0, #4
+ 352 0006 1840     		ands	r0, r3
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 353              		.loc 1 102 0
+ 354              		@ sp needed
+ 355 0008 7047     		bx	lr
+ 356              	.L30:
+ 357 000a C046     		.align	2
+ 358              	.L29:
+ 359 000c 00080040 		.word	1073743872
+ 360              		.cfi_endproc
+ 361              	.LFE45:
+ 363              		.section	.text.HSPI_SPICR1_CPHOL_Set,"ax",%progbits
+ 364              		.align	2
+ 365              		.global	HSPI_SPICR1_CPHOL_Set
+ 366              		.code	16
+ 367              		.thumb_func
+ 369              	HSPI_SPICR1_CPHOL_Set:
+ 370              	.LFB46:
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** /* 时钟极性选择 相关函数 */
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_SPICR1_CPHOL_Set(uint32_t SetValue)
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 371              		.loc 1 106 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 9
+
+
+ 372              		.cfi_startproc
+ 373              		@ args = 0, pretend = 0, frame = 0
+ 374              		@ frame_needed = 0, uses_anonymous_args = 0
+ 375              		@ link register save eliminated.
+ 376              	.LVL25:
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	uint32_t tmpreg;
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg = HSPI->SPICR1;
+ 377              		.loc 1 108 0
+ 378 0000 034A     		ldr	r2, .L32
+ 379 0002 1368     		ldr	r3, [r2]
+ 380              	.LVL26:
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg &= ~(HSPI_SPICR1_CPHOL_Msk);
+ 381              		.loc 1 109 0
+ 382 0004 0221     		movs	r1, #2
+ 383 0006 8B43     		bics	r3, r1
+ 384              	.LVL27:
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg |= (SetValue & HSPI_SPICR1_CPHOL_Msk);
+ 385              		.loc 1 110 0
+ 386 0008 0840     		ands	r0, r1
+ 387              	.LVL28:
+ 388 000a 1843     		orrs	r0, r3
+ 389              	.LVL29:
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI->SPICR1 = tmpreg;
+ 390              		.loc 1 111 0
+ 391 000c 1060     		str	r0, [r2]
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 392              		.loc 1 112 0
+ 393              		@ sp needed
+ 394 000e 7047     		bx	lr
+ 395              	.L33:
+ 396              		.align	2
+ 397              	.L32:
+ 398 0010 00080040 		.word	1073743872
+ 399              		.cfi_endproc
+ 400              	.LFE46:
+ 402              		.section	.text.HSPI_SPICR1_CPHOL_Get,"ax",%progbits
+ 403              		.align	2
+ 404              		.global	HSPI_SPICR1_CPHOL_Get
+ 405              		.code	16
+ 406              		.thumb_func
+ 408              	HSPI_SPICR1_CPHOL_Get:
+ 409              	.LFB47:
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** uint32_t HSPI_SPICR1_CPHOL_Get(void)
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 410              		.loc 1 115 0
+ 411              		.cfi_startproc
+ 412              		@ args = 0, pretend = 0, frame = 0
+ 413              		@ frame_needed = 0, uses_anonymous_args = 0
+ 414              		@ link register save eliminated.
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	return (HSPI->SPICR1 & HSPI_SPICR1_CPHOL_Msk);
+ 415              		.loc 1 116 0
+ 416 0000 024B     		ldr	r3, .L35
+ 417 0002 1B68     		ldr	r3, [r3]
+ 418 0004 0220     		movs	r0, #2
+ 419 0006 1840     		ands	r0, r3
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 10
+
+
+ 420              		.loc 1 117 0
+ 421              		@ sp needed
+ 422 0008 7047     		bx	lr
+ 423              	.L36:
+ 424 000a C046     		.align	2
+ 425              	.L35:
+ 426 000c 00080040 		.word	1073743872
+ 427              		.cfi_endproc
+ 428              	.LFE47:
+ 430              		.section	.text.HSPI_SPICR1_CPHA_Set,"ax",%progbits
+ 431              		.align	2
+ 432              		.global	HSPI_SPICR1_CPHA_Set
+ 433              		.code	16
+ 434              		.thumb_func
+ 436              	HSPI_SPICR1_CPHA_Set:
+ 437              	.LFB48:
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** /* 时钟相位选择 相关函数 */
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_SPICR1_CPHA_Set(uint32_t SetValue)
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 438              		.loc 1 121 0
+ 439              		.cfi_startproc
+ 440              		@ args = 0, pretend = 0, frame = 0
+ 441              		@ frame_needed = 0, uses_anonymous_args = 0
+ 442              		@ link register save eliminated.
+ 443              	.LVL30:
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	uint32_t tmpreg;
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg = HSPI->SPICR1;
+ 444              		.loc 1 123 0
+ 445 0000 034A     		ldr	r2, .L38
+ 446 0002 1368     		ldr	r3, [r2]
+ 447              	.LVL31:
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg &= ~(HSPI_SPICR1_CPHA_Msk);
+ 448              		.loc 1 124 0
+ 449 0004 0121     		movs	r1, #1
+ 450 0006 8B43     		bics	r3, r1
+ 451              	.LVL32:
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg |= (SetValue & HSPI_SPICR1_CPHA_Msk);
+ 452              		.loc 1 125 0
+ 453 0008 0840     		ands	r0, r1
+ 454              	.LVL33:
+ 455 000a 1843     		orrs	r0, r3
+ 456              	.LVL34:
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI->SPICR1 = tmpreg;
+ 457              		.loc 1 126 0
+ 458 000c 1060     		str	r0, [r2]
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 459              		.loc 1 127 0
+ 460              		@ sp needed
+ 461 000e 7047     		bx	lr
+ 462              	.L39:
+ 463              		.align	2
+ 464              	.L38:
+ 465 0010 00080040 		.word	1073743872
+ 466              		.cfi_endproc
+ 467              	.LFE48:
+ 469              		.section	.text.HSPI_SPICR1_CPHA_Get,"ax",%progbits
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 11
+
+
+ 470              		.align	2
+ 471              		.global	HSPI_SPICR1_CPHA_Get
+ 472              		.code	16
+ 473              		.thumb_func
+ 475              	HSPI_SPICR1_CPHA_Get:
+ 476              	.LFB49:
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** uint32_t HSPI_SPICR1_CPHA_Get(void)
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 477              		.loc 1 130 0
+ 478              		.cfi_startproc
+ 479              		@ args = 0, pretend = 0, frame = 0
+ 480              		@ frame_needed = 0, uses_anonymous_args = 0
+ 481              		@ link register save eliminated.
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	return (HSPI->SPICR1 & HSPI_SPICR1_CPHA_Msk);
+ 482              		.loc 1 131 0
+ 483 0000 024B     		ldr	r3, .L41
+ 484 0002 1B68     		ldr	r3, [r3]
+ 485 0004 0120     		movs	r0, #1
+ 486 0006 1840     		ands	r0, r3
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 487              		.loc 1 132 0
+ 488              		@ sp needed
+ 489 0008 7047     		bx	lr
+ 490              	.L42:
+ 491 000a C046     		.align	2
+ 492              	.L41:
+ 493 000c 00080040 		.word	1073743872
+ 494              		.cfi_endproc
+ 495              	.LFE49:
+ 497              		.section	.text.HSPI_SPICR2_FLTEN_Setable,"ax",%progbits
+ 498              		.align	2
+ 499              		.global	HSPI_SPICR2_FLTEN_Setable
+ 500              		.code	16
+ 501              		.thumb_func
+ 503              	HSPI_SPICR2_FLTEN_Setable:
+ 504              	.LFB50:
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** /* Slave输入管脚滤波使能（SSN/SCK/MOSI） 相关函数 */
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_SPICR2_FLTEN_Setable(FunState NewState)
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 505              		.loc 1 136 0
+ 506              		.cfi_startproc
+ 507              		@ args = 0, pretend = 0, frame = 0
+ 508              		@ frame_needed = 0, uses_anonymous_args = 0
+ 509              		@ link register save eliminated.
+ 510              	.LVL35:
+ 137:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	if (NewState == ENABLE)
+ 511              		.loc 1 137 0
+ 512 0000 0128     		cmp	r0, #1
+ 513 0002 05D1     		bne	.L44
+ 138:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 139:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		HSPI->SPICR2 |= (HSPI_SPICR2_FLTEN_Msk);
+ 514              		.loc 1 139 0
+ 515 0004 054A     		ldr	r2, .L46
+ 516 0006 5168     		ldr	r1, [r2, #4]
+ 517 0008 4023     		movs	r3, #64
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 12
+
+
+ 518 000a 0B43     		orrs	r3, r1
+ 519 000c 5360     		str	r3, [r2, #4]
+ 520 000e 04E0     		b	.L43
+ 521              	.L44:
+ 140:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 141:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	else
+ 142:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 143:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		HSPI->SPICR2 &= ~(HSPI_SPICR2_FLTEN_Msk);
+ 522              		.loc 1 143 0
+ 523 0010 024A     		ldr	r2, .L46
+ 524 0012 5368     		ldr	r3, [r2, #4]
+ 525 0014 4021     		movs	r1, #64
+ 526 0016 8B43     		bics	r3, r1
+ 527 0018 5360     		str	r3, [r2, #4]
+ 528              	.L43:
+ 144:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 145:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 529              		.loc 1 145 0
+ 530              		@ sp needed
+ 531 001a 7047     		bx	lr
+ 532              	.L47:
+ 533              		.align	2
+ 534              	.L46:
+ 535 001c 00080040 		.word	1073743872
+ 536              		.cfi_endproc
+ 537              	.LFE50:
+ 539              		.section	.text.HSPI_SPICR2_FLTEN_Getable,"ax",%progbits
+ 540              		.align	2
+ 541              		.global	HSPI_SPICR2_FLTEN_Getable
+ 542              		.code	16
+ 543              		.thumb_func
+ 545              	HSPI_SPICR2_FLTEN_Getable:
+ 546              	.LFB51:
+ 146:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 147:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** FunState HSPI_SPICR2_FLTEN_Getable(void)
+ 148:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 547              		.loc 1 148 0
+ 548              		.cfi_startproc
+ 549              		@ args = 0, pretend = 0, frame = 0
+ 550              		@ frame_needed = 0, uses_anonymous_args = 0
+ 551              		@ link register save eliminated.
+ 149:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	if (HSPI->SPICR2 & (HSPI_SPICR2_FLTEN_Msk))
+ 552              		.loc 1 149 0
+ 553 0000 034B     		ldr	r3, .L51
+ 554 0002 5B68     		ldr	r3, [r3, #4]
+ 555 0004 5B06     		lsls	r3, r3, #25
+ 556 0006 01D5     		bpl	.L50
+ 150:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 151:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		return ENABLE;
+ 557              		.loc 1 151 0
+ 558 0008 0120     		movs	r0, #1
+ 559 000a 00E0     		b	.L49
+ 560              	.L50:
+ 152:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 153:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	else
+ 154:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 155:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		return DISABLE;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 13
+
+
+ 561              		.loc 1 155 0
+ 562 000c 0020     		movs	r0, #0
+ 563              	.L49:
+ 156:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 157:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 564              		.loc 1 157 0
+ 565              		@ sp needed
+ 566 000e 7047     		bx	lr
+ 567              	.L52:
+ 568              		.align	2
+ 569              	.L51:
+ 570 0010 00080040 		.word	1073743872
+ 571              		.cfi_endproc
+ 572              	.LFE51:
+ 574              		.section	.text.HSPI_SPICR2_SSNM_Set,"ax",%progbits
+ 575              		.align	2
+ 576              		.global	HSPI_SPICR2_SSNM_Set
+ 577              		.code	16
+ 578              		.thumb_func
+ 580              	HSPI_SPICR2_SSNM_Set:
+ 581              	.LFB52:
+ 158:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 159:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** /* Master模式下SSN控制模式选择 相关函数 */
+ 160:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_SPICR2_SSNM_Set(uint32_t SetValue)
+ 161:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 582              		.loc 1 161 0
+ 583              		.cfi_startproc
+ 584              		@ args = 0, pretend = 0, frame = 0
+ 585              		@ frame_needed = 0, uses_anonymous_args = 0
+ 586              		@ link register save eliminated.
+ 587              	.LVL36:
+ 162:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	uint32_t tmpreg;
+ 163:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg = HSPI->SPICR2;
+ 588              		.loc 1 163 0
+ 589 0000 034A     		ldr	r2, .L54
+ 590 0002 5368     		ldr	r3, [r2, #4]
+ 591              	.LVL37:
+ 164:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg &= ~(HSPI_SPICR2_SSNM_Msk);
+ 592              		.loc 1 164 0
+ 593 0004 2021     		movs	r1, #32
+ 594 0006 8B43     		bics	r3, r1
+ 595              	.LVL38:
+ 165:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg |= (SetValue & HSPI_SPICR2_SSNM_Msk);
+ 596              		.loc 1 165 0
+ 597 0008 0840     		ands	r0, r1
+ 598              	.LVL39:
+ 599 000a 1843     		orrs	r0, r3
+ 600              	.LVL40:
+ 166:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI->SPICR2 = tmpreg;
+ 601              		.loc 1 166 0
+ 602 000c 5060     		str	r0, [r2, #4]
+ 167:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 603              		.loc 1 167 0
+ 604              		@ sp needed
+ 605 000e 7047     		bx	lr
+ 606              	.L55:
+ 607              		.align	2
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 14
+
+
+ 608              	.L54:
+ 609 0010 00080040 		.word	1073743872
+ 610              		.cfi_endproc
+ 611              	.LFE52:
+ 613              		.section	.text.HSPI_SPICR2_SSNM_Get,"ax",%progbits
+ 614              		.align	2
+ 615              		.global	HSPI_SPICR2_SSNM_Get
+ 616              		.code	16
+ 617              		.thumb_func
+ 619              	HSPI_SPICR2_SSNM_Get:
+ 620              	.LFB53:
+ 168:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 169:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** uint32_t HSPI_SPICR2_SSNM_Get(void)
+ 170:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 621              		.loc 1 170 0
+ 622              		.cfi_startproc
+ 623              		@ args = 0, pretend = 0, frame = 0
+ 624              		@ frame_needed = 0, uses_anonymous_args = 0
+ 625              		@ link register save eliminated.
+ 171:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	return (HSPI->SPICR2 & HSPI_SPICR2_SSNM_Msk);
+ 626              		.loc 1 171 0
+ 627 0000 024B     		ldr	r3, .L57
+ 628 0002 5B68     		ldr	r3, [r3, #4]
+ 629 0004 2020     		movs	r0, #32
+ 630 0006 1840     		ands	r0, r3
+ 172:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 631              		.loc 1 172 0
+ 632              		@ sp needed
+ 633 0008 7047     		bx	lr
+ 634              	.L58:
+ 635 000a C046     		.align	2
+ 636              	.L57:
+ 637 000c 00080040 		.word	1073743872
+ 638              		.cfi_endproc
+ 639              	.LFE53:
+ 641              		.section	.text.HSPI_SPICR2_TXO_AC_Set,"ax",%progbits
+ 642              		.align	2
+ 643              		.global	HSPI_SPICR2_TXO_AC_Set
+ 644              		.code	16
+ 645              		.thumb_func
+ 647              	HSPI_SPICR2_TXO_AC_Set:
+ 648              	.LFB54:
+ 173:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 174:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** /* TXONLY硬件自动清空的使能 相关函数 */
+ 175:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_SPICR2_TXO_AC_Set(uint32_t SetValue)
+ 176:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 649              		.loc 1 176 0
+ 650              		.cfi_startproc
+ 651              		@ args = 0, pretend = 0, frame = 0
+ 652              		@ frame_needed = 0, uses_anonymous_args = 0
+ 653              		@ link register save eliminated.
+ 654              	.LVL41:
+ 177:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	uint32_t tmpreg;
+ 178:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg = HSPI->SPICR2;
+ 655              		.loc 1 178 0
+ 656 0000 034A     		ldr	r2, .L60
+ 657 0002 5368     		ldr	r3, [r2, #4]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 15
+
+
+ 658              	.LVL42:
+ 179:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg &= ~(HSPI_SPICR2_TXO_AC_Msk);
+ 659              		.loc 1 179 0
+ 660 0004 1021     		movs	r1, #16
+ 661 0006 8B43     		bics	r3, r1
+ 662              	.LVL43:
+ 180:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg |= (SetValue & HSPI_SPICR2_TXO_AC_Msk);
+ 663              		.loc 1 180 0
+ 664 0008 0840     		ands	r0, r1
+ 665              	.LVL44:
+ 666 000a 1843     		orrs	r0, r3
+ 667              	.LVL45:
+ 181:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI->SPICR2 = tmpreg;
+ 668              		.loc 1 181 0
+ 669 000c 5060     		str	r0, [r2, #4]
+ 182:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 670              		.loc 1 182 0
+ 671              		@ sp needed
+ 672 000e 7047     		bx	lr
+ 673              	.L61:
+ 674              		.align	2
+ 675              	.L60:
+ 676 0010 00080040 		.word	1073743872
+ 677              		.cfi_endproc
+ 678              	.LFE54:
+ 680              		.section	.text.HSPI_SPICR2_TXO_AC_Get,"ax",%progbits
+ 681              		.align	2
+ 682              		.global	HSPI_SPICR2_TXO_AC_Get
+ 683              		.code	16
+ 684              		.thumb_func
+ 686              	HSPI_SPICR2_TXO_AC_Get:
+ 687              	.LFB55:
+ 183:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 184:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** uint32_t HSPI_SPICR2_TXO_AC_Get(void)
+ 185:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 688              		.loc 1 185 0
+ 689              		.cfi_startproc
+ 690              		@ args = 0, pretend = 0, frame = 0
+ 691              		@ frame_needed = 0, uses_anonymous_args = 0
+ 692              		@ link register save eliminated.
+ 186:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	return (HSPI->SPICR2 & HSPI_SPICR2_TXO_AC_Msk);
+ 693              		.loc 1 186 0
+ 694 0000 024B     		ldr	r3, .L63
+ 695 0002 5B68     		ldr	r3, [r3, #4]
+ 696 0004 1020     		movs	r0, #16
+ 697 0006 1840     		ands	r0, r3
+ 187:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 698              		.loc 1 187 0
+ 699              		@ sp needed
+ 700 0008 7047     		bx	lr
+ 701              	.L64:
+ 702 000a C046     		.align	2
+ 703              	.L63:
+ 704 000c 00080040 		.word	1073743872
+ 705              		.cfi_endproc
+ 706              	.LFE55:
+ 708              		.section	.text.HSPI_SPICR2_TXO_Setable,"ax",%progbits
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 16
+
+
+ 709              		.align	2
+ 710              		.global	HSPI_SPICR2_TXO_Setable
+ 711              		.code	16
+ 712              		.thumb_func
+ 714              	HSPI_SPICR2_TXO_Setable:
+ 715              	.LFB56:
+ 188:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 189:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** /* TXONLY控制位 相关函数 */
+ 190:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_SPICR2_TXO_Setable(FunState NewState)
+ 191:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 716              		.loc 1 191 0
+ 717              		.cfi_startproc
+ 718              		@ args = 0, pretend = 0, frame = 0
+ 719              		@ frame_needed = 0, uses_anonymous_args = 0
+ 720              		@ link register save eliminated.
+ 721              	.LVL46:
+ 192:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	if (NewState == ENABLE)
+ 722              		.loc 1 192 0
+ 723 0000 0128     		cmp	r0, #1
+ 724 0002 05D1     		bne	.L66
+ 193:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 194:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		HSPI->SPICR2 |= (HSPI_SPICR2_TXO_Msk);
+ 725              		.loc 1 194 0
+ 726 0004 054A     		ldr	r2, .L68
+ 727 0006 5168     		ldr	r1, [r2, #4]
+ 728 0008 0823     		movs	r3, #8
+ 729 000a 0B43     		orrs	r3, r1
+ 730 000c 5360     		str	r3, [r2, #4]
+ 731 000e 04E0     		b	.L65
+ 732              	.L66:
+ 195:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 196:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	else
+ 197:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 198:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		HSPI->SPICR2 &= ~(HSPI_SPICR2_TXO_Msk);
+ 733              		.loc 1 198 0
+ 734 0010 024A     		ldr	r2, .L68
+ 735 0012 5368     		ldr	r3, [r2, #4]
+ 736 0014 0821     		movs	r1, #8
+ 737 0016 8B43     		bics	r3, r1
+ 738 0018 5360     		str	r3, [r2, #4]
+ 739              	.L65:
+ 199:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 200:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 740              		.loc 1 200 0
+ 741              		@ sp needed
+ 742 001a 7047     		bx	lr
+ 743              	.L69:
+ 744              		.align	2
+ 745              	.L68:
+ 746 001c 00080040 		.word	1073743872
+ 747              		.cfi_endproc
+ 748              	.LFE56:
+ 750              		.section	.text.HSPI_SPICR2_TXO_Getable,"ax",%progbits
+ 751              		.align	2
+ 752              		.global	HSPI_SPICR2_TXO_Getable
+ 753              		.code	16
+ 754              		.thumb_func
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 17
+
+
+ 756              	HSPI_SPICR2_TXO_Getable:
+ 757              	.LFB57:
+ 201:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 202:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** FunState HSPI_SPICR2_TXO_Getable(void)
+ 203:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 758              		.loc 1 203 0
+ 759              		.cfi_startproc
+ 760              		@ args = 0, pretend = 0, frame = 0
+ 761              		@ frame_needed = 0, uses_anonymous_args = 0
+ 762              		@ link register save eliminated.
+ 204:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	if (HSPI->SPICR2 & (HSPI_SPICR2_TXO_Msk))
+ 763              		.loc 1 204 0
+ 764 0000 034B     		ldr	r3, .L73
+ 765 0002 5B68     		ldr	r3, [r3, #4]
+ 766 0004 1B07     		lsls	r3, r3, #28
+ 767 0006 01D5     		bpl	.L72
+ 205:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 206:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		return ENABLE;
+ 768              		.loc 1 206 0
+ 769 0008 0120     		movs	r0, #1
+ 770 000a 00E0     		b	.L71
+ 771              	.L72:
+ 207:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 208:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	else
+ 209:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 210:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		return DISABLE;
+ 772              		.loc 1 210 0
+ 773 000c 0020     		movs	r0, #0
+ 774              	.L71:
+ 211:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 212:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 775              		.loc 1 212 0
+ 776              		@ sp needed
+ 777 000e 7047     		bx	lr
+ 778              	.L74:
+ 779              		.align	2
+ 780              	.L73:
+ 781 0010 00080040 		.word	1073743872
+ 782              		.cfi_endproc
+ 783              	.LFE57:
+ 785              		.section	.text.HSPI_SPICR2_SSN_Set,"ax",%progbits
+ 786              		.align	2
+ 787              		.global	HSPI_SPICR2_SSN_Set
+ 788              		.code	16
+ 789              		.thumb_func
+ 791              	HSPI_SPICR2_SSN_Set:
+ 792              	.LFB58:
+ 213:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 214:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** /* Master模式下，软件可以通过此位控制SSN输出电平 相关函数 */
+ 215:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_SPICR2_SSN_Set(uint32_t SetValue)
+ 216:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 793              		.loc 1 216 0
+ 794              		.cfi_startproc
+ 795              		@ args = 0, pretend = 0, frame = 0
+ 796              		@ frame_needed = 0, uses_anonymous_args = 0
+ 797              		@ link register save eliminated.
+ 798              	.LVL47:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 18
+
+
+ 217:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	uint32_t tmpreg;
+ 218:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg = HSPI->SPICR2;
+ 799              		.loc 1 218 0
+ 800 0000 034A     		ldr	r2, .L76
+ 801 0002 5368     		ldr	r3, [r2, #4]
+ 802              	.LVL48:
+ 219:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg &= ~(HSPI_SPICR2_SSN_Msk);
+ 803              		.loc 1 219 0
+ 804 0004 0421     		movs	r1, #4
+ 805 0006 8B43     		bics	r3, r1
+ 806              	.LVL49:
+ 220:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg |= (SetValue & HSPI_SPICR2_SSN_Msk);
+ 807              		.loc 1 220 0
+ 808 0008 0840     		ands	r0, r1
+ 809              	.LVL50:
+ 810 000a 1843     		orrs	r0, r3
+ 811              	.LVL51:
+ 221:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI->SPICR2 = tmpreg;
+ 812              		.loc 1 221 0
+ 813 000c 5060     		str	r0, [r2, #4]
+ 222:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 814              		.loc 1 222 0
+ 815              		@ sp needed
+ 816 000e 7047     		bx	lr
+ 817              	.L77:
+ 818              		.align	2
+ 819              	.L76:
+ 820 0010 00080040 		.word	1073743872
+ 821              		.cfi_endproc
+ 822              	.LFE58:
+ 824              		.section	.text.HSPI_SPICR2_SSN_Get,"ax",%progbits
+ 825              		.align	2
+ 826              		.global	HSPI_SPICR2_SSN_Get
+ 827              		.code	16
+ 828              		.thumb_func
+ 830              	HSPI_SPICR2_SSN_Get:
+ 831              	.LFB59:
+ 223:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 224:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** uint32_t HSPI_SPICR2_SSN_Get(void)
+ 225:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 832              		.loc 1 225 0
+ 833              		.cfi_startproc
+ 834              		@ args = 0, pretend = 0, frame = 0
+ 835              		@ frame_needed = 0, uses_anonymous_args = 0
+ 836              		@ link register save eliminated.
+ 226:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	return (HSPI->SPICR2 & HSPI_SPICR2_SSN_Msk);
+ 837              		.loc 1 226 0
+ 838 0000 024B     		ldr	r3, .L79
+ 839 0002 5B68     		ldr	r3, [r3, #4]
+ 840 0004 0420     		movs	r0, #4
+ 841 0006 1840     		ands	r0, r3
+ 227:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 842              		.loc 1 227 0
+ 843              		@ sp needed
+ 844 0008 7047     		bx	lr
+ 845              	.L80:
+ 846 000a C046     		.align	2
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 19
+
+
+ 847              	.L79:
+ 848 000c 00080040 		.word	1073743872
+ 849              		.cfi_endproc
+ 850              	.LFE59:
+ 852              		.section	.text.HSPI_SPICR2_SSNSEN_Set,"ax",%progbits
+ 853              		.align	2
+ 854              		.global	HSPI_SPICR2_SSNSEN_Set
+ 855              		.code	16
+ 856              		.thumb_func
+ 858              	HSPI_SPICR2_SSNSEN_Set:
+ 859              	.LFB60:
+ 228:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 229:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** /* Master模式下，SSN的控制方式 相关函数 */
+ 230:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_SPICR2_SSNSEN_Set(uint32_t SetValue)
+ 231:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 860              		.loc 1 231 0
+ 861              		.cfi_startproc
+ 862              		@ args = 0, pretend = 0, frame = 0
+ 863              		@ frame_needed = 0, uses_anonymous_args = 0
+ 864              		@ link register save eliminated.
+ 865              	.LVL52:
+ 232:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	uint32_t tmpreg;
+ 233:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg = HSPI->SPICR2;
+ 866              		.loc 1 233 0
+ 867 0000 034A     		ldr	r2, .L82
+ 868 0002 5368     		ldr	r3, [r2, #4]
+ 869              	.LVL53:
+ 234:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg &= ~(HSPI_SPICR2_SSNSEN_Msk);
+ 870              		.loc 1 234 0
+ 871 0004 0221     		movs	r1, #2
+ 872 0006 8B43     		bics	r3, r1
+ 873              	.LVL54:
+ 235:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	tmpreg |= (SetValue & HSPI_SPICR2_SSNSEN_Msk);
+ 874              		.loc 1 235 0
+ 875 0008 0840     		ands	r0, r1
+ 876              	.LVL55:
+ 877 000a 1843     		orrs	r0, r3
+ 878              	.LVL56:
+ 236:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI->SPICR2 = tmpreg;
+ 879              		.loc 1 236 0
+ 880 000c 5060     		str	r0, [r2, #4]
+ 237:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 881              		.loc 1 237 0
+ 882              		@ sp needed
+ 883 000e 7047     		bx	lr
+ 884              	.L83:
+ 885              		.align	2
+ 886              	.L82:
+ 887 0010 00080040 		.word	1073743872
+ 888              		.cfi_endproc
+ 889              	.LFE60:
+ 891              		.section	.text.HSPI_SPICR2_SSNSEN_Get,"ax",%progbits
+ 892              		.align	2
+ 893              		.global	HSPI_SPICR2_SSNSEN_Get
+ 894              		.code	16
+ 895              		.thumb_func
+ 897              	HSPI_SPICR2_SSNSEN_Get:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 20
+
+
+ 898              	.LFB61:
+ 238:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 239:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** uint32_t HSPI_SPICR2_SSNSEN_Get(void)
+ 240:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 899              		.loc 1 240 0
+ 900              		.cfi_startproc
+ 901              		@ args = 0, pretend = 0, frame = 0
+ 902              		@ frame_needed = 0, uses_anonymous_args = 0
+ 903              		@ link register save eliminated.
+ 241:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	return (HSPI->SPICR2 & HSPI_SPICR2_SSNSEN_Msk);
+ 904              		.loc 1 241 0
+ 905 0000 024B     		ldr	r3, .L85
+ 906 0002 5B68     		ldr	r3, [r3, #4]
+ 907 0004 0220     		movs	r0, #2
+ 908 0006 1840     		ands	r0, r3
+ 242:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 909              		.loc 1 242 0
+ 910              		@ sp needed
+ 911 0008 7047     		bx	lr
+ 912              	.L86:
+ 913 000a C046     		.align	2
+ 914              	.L85:
+ 915 000c 00080040 		.word	1073743872
+ 916              		.cfi_endproc
+ 917              	.LFE61:
+ 919              		.section	.text.HSPI_SPICR2_HSPIEN_Setable,"ax",%progbits
+ 920              		.align	2
+ 921              		.global	HSPI_SPICR2_HSPIEN_Setable
+ 922              		.code	16
+ 923              		.thumb_func
+ 925              	HSPI_SPICR2_HSPIEN_Setable:
+ 926              	.LFB62:
+ 243:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 244:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** /* HSPI使能 相关函数 */
+ 245:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_SPICR2_HSPIEN_Setable(FunState NewState)
+ 246:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 927              		.loc 1 246 0
+ 928              		.cfi_startproc
+ 929              		@ args = 0, pretend = 0, frame = 0
+ 930              		@ frame_needed = 0, uses_anonymous_args = 0
+ 931              		@ link register save eliminated.
+ 932              	.LVL57:
+ 247:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	if (NewState == ENABLE)
+ 933              		.loc 1 247 0
+ 934 0000 0128     		cmp	r0, #1
+ 935 0002 05D1     		bne	.L88
+ 248:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 249:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		HSPI->SPICR2 |= (HSPI_SPICR2_HSPIEN_Msk);
+ 936              		.loc 1 249 0
+ 937 0004 054A     		ldr	r2, .L90
+ 938 0006 5168     		ldr	r1, [r2, #4]
+ 939 0008 0123     		movs	r3, #1
+ 940 000a 0B43     		orrs	r3, r1
+ 941 000c 5360     		str	r3, [r2, #4]
+ 942 000e 04E0     		b	.L87
+ 943              	.L88:
+ 250:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 21
+
+
+ 251:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	else
+ 252:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 253:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		HSPI->SPICR2 &= ~(HSPI_SPICR2_HSPIEN_Msk);
+ 944              		.loc 1 253 0
+ 945 0010 024A     		ldr	r2, .L90
+ 946 0012 5368     		ldr	r3, [r2, #4]
+ 947 0014 0121     		movs	r1, #1
+ 948 0016 8B43     		bics	r3, r1
+ 949 0018 5360     		str	r3, [r2, #4]
+ 950              	.L87:
+ 254:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 255:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 951              		.loc 1 255 0
+ 952              		@ sp needed
+ 953 001a 7047     		bx	lr
+ 954              	.L91:
+ 955              		.align	2
+ 956              	.L90:
+ 957 001c 00080040 		.word	1073743872
+ 958              		.cfi_endproc
+ 959              	.LFE62:
+ 961              		.section	.text.HSPI_SPICR2_HSPIEN_Getable,"ax",%progbits
+ 962              		.align	2
+ 963              		.global	HSPI_SPICR2_HSPIEN_Getable
+ 964              		.code	16
+ 965              		.thumb_func
+ 967              	HSPI_SPICR2_HSPIEN_Getable:
+ 968              	.LFB63:
+ 256:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 257:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** FunState HSPI_SPICR2_HSPIEN_Getable(void)
+ 258:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 969              		.loc 1 258 0
+ 970              		.cfi_startproc
+ 971              		@ args = 0, pretend = 0, frame = 0
+ 972              		@ frame_needed = 0, uses_anonymous_args = 0
+ 973              		@ link register save eliminated.
+ 259:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	if (HSPI->SPICR2 & (HSPI_SPICR2_HSPIEN_Msk))
+ 974              		.loc 1 259 0
+ 975 0000 034B     		ldr	r3, .L95
+ 976 0002 5B68     		ldr	r3, [r3, #4]
+ 977 0004 DB07     		lsls	r3, r3, #31
+ 978 0006 01D5     		bpl	.L94
+ 260:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 261:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		return ENABLE;
+ 979              		.loc 1 261 0
+ 980 0008 0120     		movs	r0, #1
+ 981 000a 00E0     		b	.L93
+ 982              	.L94:
+ 262:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 263:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	else
+ 264:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 265:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		return DISABLE;
+ 983              		.loc 1 265 0
+ 984 000c 0020     		movs	r0, #0
+ 985              	.L93:
+ 266:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 267:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 22
+
+
+ 986              		.loc 1 267 0
+ 987              		@ sp needed
+ 988 000e 7047     		bx	lr
+ 989              	.L96:
+ 990              		.align	2
+ 991              	.L95:
+ 992 0010 00080040 		.word	1073743872
+ 993              		.cfi_endproc
+ 994              	.LFE63:
+ 996              		.section	.text.HSPI_SPICR3_TXBFC_Clr,"ax",%progbits
+ 997              		.align	2
+ 998              		.global	HSPI_SPICR3_TXBFC_Clr
+ 999              		.code	16
+ 1000              		.thumb_func
+ 1002              	HSPI_SPICR3_TXBFC_Clr:
+ 1003              	.LFB64:
+ 268:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 269:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_SPICR3_TXBFC_Clr(void)
+ 270:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 1004              		.loc 1 270 0
+ 1005              		.cfi_startproc
+ 1006              		@ args = 0, pretend = 0, frame = 0
+ 1007              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1008              		@ link register save eliminated.
+ 271:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI->SPICR3 = HSPI_SPICR3_TXBFC_Msk;
+ 1009              		.loc 1 271 0
+ 1010 0000 0822     		movs	r2, #8
+ 1011 0002 014B     		ldr	r3, .L98
+ 1012 0004 9A60     		str	r2, [r3, #8]
+ 272:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 1013              		.loc 1 272 0
+ 1014              		@ sp needed
+ 1015 0006 7047     		bx	lr
+ 1016              	.L99:
+ 1017              		.align	2
+ 1018              	.L98:
+ 1019 0008 00080040 		.word	1073743872
+ 1020              		.cfi_endproc
+ 1021              	.LFE64:
+ 1023              		.section	.text.HSPI_SPICR3_RXBFC_Clr,"ax",%progbits
+ 1024              		.align	2
+ 1025              		.global	HSPI_SPICR3_RXBFC_Clr
+ 1026              		.code	16
+ 1027              		.thumb_func
+ 1029              	HSPI_SPICR3_RXBFC_Clr:
+ 1030              	.LFB65:
+ 273:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 274:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_SPICR3_RXBFC_Clr(void)
+ 275:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 1031              		.loc 1 275 0
+ 1032              		.cfi_startproc
+ 1033              		@ args = 0, pretend = 0, frame = 0
+ 1034              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1035              		@ link register save eliminated.
+ 276:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI->SPICR3 = HSPI_SPICR3_RXBFC_Msk;
+ 1036              		.loc 1 276 0
+ 1037 0000 0422     		movs	r2, #4
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 23
+
+
+ 1038 0002 014B     		ldr	r3, .L101
+ 1039 0004 9A60     		str	r2, [r3, #8]
+ 277:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 1040              		.loc 1 277 0
+ 1041              		@ sp needed
+ 1042 0006 7047     		bx	lr
+ 1043              	.L102:
+ 1044              		.align	2
+ 1045              	.L101:
+ 1046 0008 00080040 		.word	1073743872
+ 1047              		.cfi_endproc
+ 1048              	.LFE65:
+ 1050              		.section	.text.HSPI_SPICR3_MERRC_Clr,"ax",%progbits
+ 1051              		.align	2
+ 1052              		.global	HSPI_SPICR3_MERRC_Clr
+ 1053              		.code	16
+ 1054              		.thumb_func
+ 1056              	HSPI_SPICR3_MERRC_Clr:
+ 1057              	.LFB66:
+ 278:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 279:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_SPICR3_MERRC_Clr(void)
+ 280:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 1058              		.loc 1 280 0
+ 1059              		.cfi_startproc
+ 1060              		@ args = 0, pretend = 0, frame = 0
+ 1061              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1062              		@ link register save eliminated.
+ 281:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI->SPICR3 = HSPI_SPICR3_MERRC_Msk;
+ 1063              		.loc 1 281 0
+ 1064 0000 0222     		movs	r2, #2
+ 1065 0002 014B     		ldr	r3, .L104
+ 1066 0004 9A60     		str	r2, [r3, #8]
+ 282:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 1067              		.loc 1 282 0
+ 1068              		@ sp needed
+ 1069 0006 7047     		bx	lr
+ 1070              	.L105:
+ 1071              		.align	2
+ 1072              	.L104:
+ 1073 0008 00080040 		.word	1073743872
+ 1074              		.cfi_endproc
+ 1075              	.LFE66:
+ 1077              		.section	.text.HSPI_SPICR3_SERRC_Clr,"ax",%progbits
+ 1078              		.align	2
+ 1079              		.global	HSPI_SPICR3_SERRC_Clr
+ 1080              		.code	16
+ 1081              		.thumb_func
+ 1083              	HSPI_SPICR3_SERRC_Clr:
+ 1084              	.LFB67:
+ 283:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 284:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_SPICR3_SERRC_Clr(void)
+ 285:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 1085              		.loc 1 285 0
+ 1086              		.cfi_startproc
+ 1087              		@ args = 0, pretend = 0, frame = 0
+ 1088              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1089              		@ link register save eliminated.
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 24
+
+
+ 286:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI->SPICR3 = HSPI_SPICR3_SERRC_Msk;
+ 1090              		.loc 1 286 0
+ 1091 0000 0122     		movs	r2, #1
+ 1092 0002 014B     		ldr	r3, .L107
+ 1093 0004 9A60     		str	r2, [r3, #8]
+ 287:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 1094              		.loc 1 287 0
+ 1095              		@ sp needed
+ 1096 0006 7047     		bx	lr
+ 1097              	.L108:
+ 1098              		.align	2
+ 1099              	.L107:
+ 1100 0008 00080040 		.word	1073743872
+ 1101              		.cfi_endproc
+ 1102              	.LFE67:
+ 1104              		.section	.text.HSPI_SPIIE_ERRIE_Setable,"ax",%progbits
+ 1105              		.align	2
+ 1106              		.global	HSPI_SPIIE_ERRIE_Setable
+ 1107              		.code	16
+ 1108              		.thumb_func
+ 1110              	HSPI_SPIIE_ERRIE_Setable:
+ 1111              	.LFB68:
+ 288:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 289:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_SPIIE_ERRIE_Setable(FunState NewState)
+ 290:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 1112              		.loc 1 290 0
+ 1113              		.cfi_startproc
+ 1114              		@ args = 0, pretend = 0, frame = 0
+ 1115              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1116              		@ link register save eliminated.
+ 1117              	.LVL58:
+ 291:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	if (NewState == ENABLE)
+ 1118              		.loc 1 291 0
+ 1119 0000 0128     		cmp	r0, #1
+ 1120 0002 05D1     		bne	.L110
+ 292:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 293:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		HSPI->SPIIE |= (HSPI_SPIIE_ERRIE_Msk);
+ 1121              		.loc 1 293 0
+ 1122 0004 054A     		ldr	r2, .L112
+ 1123 0006 D168     		ldr	r1, [r2, #12]
+ 1124 0008 0423     		movs	r3, #4
+ 1125 000a 0B43     		orrs	r3, r1
+ 1126 000c D360     		str	r3, [r2, #12]
+ 1127 000e 04E0     		b	.L109
+ 1128              	.L110:
+ 294:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 295:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	else
+ 296:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 297:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		HSPI->SPIIE &= ~(HSPI_SPIIE_ERRIE_Msk);
+ 1129              		.loc 1 297 0
+ 1130 0010 024A     		ldr	r2, .L112
+ 1131 0012 D368     		ldr	r3, [r2, #12]
+ 1132 0014 0421     		movs	r1, #4
+ 1133 0016 8B43     		bics	r3, r1
+ 1134 0018 D360     		str	r3, [r2, #12]
+ 1135              	.L109:
+ 298:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 25
+
+
+ 299:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 1136              		.loc 1 299 0
+ 1137              		@ sp needed
+ 1138 001a 7047     		bx	lr
+ 1139              	.L113:
+ 1140              		.align	2
+ 1141              	.L112:
+ 1142 001c 00080040 		.word	1073743872
+ 1143              		.cfi_endproc
+ 1144              	.LFE68:
+ 1146              		.section	.text.HSPI_SPIIE_ERRIE_Getable,"ax",%progbits
+ 1147              		.align	2
+ 1148              		.global	HSPI_SPIIE_ERRIE_Getable
+ 1149              		.code	16
+ 1150              		.thumb_func
+ 1152              	HSPI_SPIIE_ERRIE_Getable:
+ 1153              	.LFB69:
+ 300:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 301:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** FunState HSPI_SPIIE_ERRIE_Getable(void)
+ 302:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 1154              		.loc 1 302 0
+ 1155              		.cfi_startproc
+ 1156              		@ args = 0, pretend = 0, frame = 0
+ 1157              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1158              		@ link register save eliminated.
+ 303:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	if (HSPI->SPIIE & (HSPI_SPIIE_ERRIE_Msk))
+ 1159              		.loc 1 303 0
+ 1160 0000 034B     		ldr	r3, .L117
+ 1161 0002 DB68     		ldr	r3, [r3, #12]
+ 1162 0004 5B07     		lsls	r3, r3, #29
+ 1163 0006 01D5     		bpl	.L116
+ 304:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 305:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		return ENABLE;
+ 1164              		.loc 1 305 0
+ 1165 0008 0120     		movs	r0, #1
+ 1166 000a 00E0     		b	.L115
+ 1167              	.L116:
+ 306:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 307:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	else
+ 308:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 309:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		return DISABLE;
+ 1168              		.loc 1 309 0
+ 1169 000c 0020     		movs	r0, #0
+ 1170              	.L115:
+ 310:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 311:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 1171              		.loc 1 311 0
+ 1172              		@ sp needed
+ 1173 000e 7047     		bx	lr
+ 1174              	.L118:
+ 1175              		.align	2
+ 1176              	.L117:
+ 1177 0010 00080040 		.word	1073743872
+ 1178              		.cfi_endproc
+ 1179              	.LFE69:
+ 1181              		.section	.text.HSPI_SPIIE_TXIE_Setable,"ax",%progbits
+ 1182              		.align	2
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 26
+
+
+ 1183              		.global	HSPI_SPIIE_TXIE_Setable
+ 1184              		.code	16
+ 1185              		.thumb_func
+ 1187              	HSPI_SPIIE_TXIE_Setable:
+ 1188              	.LFB70:
+ 312:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 313:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_SPIIE_TXIE_Setable(FunState NewState)
+ 314:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 1189              		.loc 1 314 0
+ 1190              		.cfi_startproc
+ 1191              		@ args = 0, pretend = 0, frame = 0
+ 1192              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1193              		@ link register save eliminated.
+ 1194              	.LVL59:
+ 315:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	if (NewState == ENABLE)
+ 1195              		.loc 1 315 0
+ 1196 0000 0128     		cmp	r0, #1
+ 1197 0002 05D1     		bne	.L120
+ 316:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 317:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		HSPI->SPIIE |= (HSPI_SPIIE_TXIE_Msk);
+ 1198              		.loc 1 317 0
+ 1199 0004 054A     		ldr	r2, .L122
+ 1200 0006 D168     		ldr	r1, [r2, #12]
+ 1201 0008 0223     		movs	r3, #2
+ 1202 000a 0B43     		orrs	r3, r1
+ 1203 000c D360     		str	r3, [r2, #12]
+ 1204 000e 04E0     		b	.L119
+ 1205              	.L120:
+ 318:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 319:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	else
+ 320:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 321:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		HSPI->SPIIE &= ~(HSPI_SPIIE_TXIE_Msk);
+ 1206              		.loc 1 321 0
+ 1207 0010 024A     		ldr	r2, .L122
+ 1208 0012 D368     		ldr	r3, [r2, #12]
+ 1209 0014 0221     		movs	r1, #2
+ 1210 0016 8B43     		bics	r3, r1
+ 1211 0018 D360     		str	r3, [r2, #12]
+ 1212              	.L119:
+ 322:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 323:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 1213              		.loc 1 323 0
+ 1214              		@ sp needed
+ 1215 001a 7047     		bx	lr
+ 1216              	.L123:
+ 1217              		.align	2
+ 1218              	.L122:
+ 1219 001c 00080040 		.word	1073743872
+ 1220              		.cfi_endproc
+ 1221              	.LFE70:
+ 1223              		.section	.text.HSPI_SPIIE_TXIE_Getable,"ax",%progbits
+ 1224              		.align	2
+ 1225              		.global	HSPI_SPIIE_TXIE_Getable
+ 1226              		.code	16
+ 1227              		.thumb_func
+ 1229              	HSPI_SPIIE_TXIE_Getable:
+ 1230              	.LFB71:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 27
+
+
+ 324:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 325:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** FunState HSPI_SPIIE_TXIE_Getable(void)
+ 326:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 1231              		.loc 1 326 0
+ 1232              		.cfi_startproc
+ 1233              		@ args = 0, pretend = 0, frame = 0
+ 1234              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1235              		@ link register save eliminated.
+ 327:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	if (HSPI->SPIIE & (HSPI_SPIIE_TXIE_Msk))
+ 1236              		.loc 1 327 0
+ 1237 0000 034B     		ldr	r3, .L127
+ 1238 0002 DB68     		ldr	r3, [r3, #12]
+ 1239 0004 9B07     		lsls	r3, r3, #30
+ 1240 0006 01D5     		bpl	.L126
+ 328:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 329:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		return ENABLE;
+ 1241              		.loc 1 329 0
+ 1242 0008 0120     		movs	r0, #1
+ 1243 000a 00E0     		b	.L125
+ 1244              	.L126:
+ 330:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 331:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	else
+ 332:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 333:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		return DISABLE;
+ 1245              		.loc 1 333 0
+ 1246 000c 0020     		movs	r0, #0
+ 1247              	.L125:
+ 334:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 335:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 1248              		.loc 1 335 0
+ 1249              		@ sp needed
+ 1250 000e 7047     		bx	lr
+ 1251              	.L128:
+ 1252              		.align	2
+ 1253              	.L127:
+ 1254 0010 00080040 		.word	1073743872
+ 1255              		.cfi_endproc
+ 1256              	.LFE71:
+ 1258              		.section	.text.HSPI_SPIIE_RXIE_Setable,"ax",%progbits
+ 1259              		.align	2
+ 1260              		.global	HSPI_SPIIE_RXIE_Setable
+ 1261              		.code	16
+ 1262              		.thumb_func
+ 1264              	HSPI_SPIIE_RXIE_Setable:
+ 1265              	.LFB72:
+ 336:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 337:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_SPIIE_RXIE_Setable(FunState NewState)
+ 338:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 1266              		.loc 1 338 0
+ 1267              		.cfi_startproc
+ 1268              		@ args = 0, pretend = 0, frame = 0
+ 1269              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1270              		@ link register save eliminated.
+ 1271              	.LVL60:
+ 339:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	if (NewState == ENABLE)
+ 1272              		.loc 1 339 0
+ 1273 0000 0128     		cmp	r0, #1
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 28
+
+
+ 1274 0002 05D1     		bne	.L130
+ 340:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 341:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		HSPI->SPIIE |= (HSPI_SPIIE_RXIE_Msk);
+ 1275              		.loc 1 341 0
+ 1276 0004 054A     		ldr	r2, .L132
+ 1277 0006 D168     		ldr	r1, [r2, #12]
+ 1278 0008 0123     		movs	r3, #1
+ 1279 000a 0B43     		orrs	r3, r1
+ 1280 000c D360     		str	r3, [r2, #12]
+ 1281 000e 04E0     		b	.L129
+ 1282              	.L130:
+ 342:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 343:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	else
+ 344:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 345:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		HSPI->SPIIE &= ~(HSPI_SPIIE_RXIE_Msk);
+ 1283              		.loc 1 345 0
+ 1284 0010 024A     		ldr	r2, .L132
+ 1285 0012 D368     		ldr	r3, [r2, #12]
+ 1286 0014 0121     		movs	r1, #1
+ 1287 0016 8B43     		bics	r3, r1
+ 1288 0018 D360     		str	r3, [r2, #12]
+ 1289              	.L129:
+ 346:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 347:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 1290              		.loc 1 347 0
+ 1291              		@ sp needed
+ 1292 001a 7047     		bx	lr
+ 1293              	.L133:
+ 1294              		.align	2
+ 1295              	.L132:
+ 1296 001c 00080040 		.word	1073743872
+ 1297              		.cfi_endproc
+ 1298              	.LFE72:
+ 1300              		.section	.text.HSPI_SPIIE_RXIE_Getable,"ax",%progbits
+ 1301              		.align	2
+ 1302              		.global	HSPI_SPIIE_RXIE_Getable
+ 1303              		.code	16
+ 1304              		.thumb_func
+ 1306              	HSPI_SPIIE_RXIE_Getable:
+ 1307              	.LFB73:
+ 348:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 349:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** FunState HSPI_SPIIE_RXIE_Getable(void)
+ 350:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 1308              		.loc 1 350 0
+ 1309              		.cfi_startproc
+ 1310              		@ args = 0, pretend = 0, frame = 0
+ 1311              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1312              		@ link register save eliminated.
+ 351:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	if (HSPI->SPIIE & (HSPI_SPIIE_RXIE_Msk))
+ 1313              		.loc 1 351 0
+ 1314 0000 034B     		ldr	r3, .L137
+ 1315 0002 DB68     		ldr	r3, [r3, #12]
+ 1316 0004 DB07     		lsls	r3, r3, #31
+ 1317 0006 01D5     		bpl	.L136
+ 352:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 353:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		return ENABLE;
+ 1318              		.loc 1 353 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 29
+
+
+ 1319 0008 0120     		movs	r0, #1
+ 1320 000a 00E0     		b	.L135
+ 1321              	.L136:
+ 354:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 355:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	else
+ 356:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 357:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		return DISABLE;
+ 1322              		.loc 1 357 0
+ 1323 000c 0020     		movs	r0, #0
+ 1324              	.L135:
+ 358:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 359:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 1325              		.loc 1 359 0
+ 1326              		@ sp needed
+ 1327 000e 7047     		bx	lr
+ 1328              	.L138:
+ 1329              		.align	2
+ 1330              	.L137:
+ 1331 0010 00080040 		.word	1073743872
+ 1332              		.cfi_endproc
+ 1333              	.LFE73:
+ 1335              		.section	.text.HSPI_SPIIF_MERR_Chk,"ax",%progbits
+ 1336              		.align	2
+ 1337              		.global	HSPI_SPIIF_MERR_Chk
+ 1338              		.code	16
+ 1339              		.thumb_func
+ 1341              	HSPI_SPIIF_MERR_Chk:
+ 1342              	.LFB74:
+ 360:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 361:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** /* Master Error标志 相关函数 */
+ 362:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** FlagStatus HSPI_SPIIF_MERR_Chk(void)
+ 363:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 1343              		.loc 1 363 0
+ 1344              		.cfi_startproc
+ 1345              		@ args = 0, pretend = 0, frame = 0
+ 1346              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1347              		@ link register save eliminated.
+ 364:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	if (HSPI->SPIIF & HSPI_SPIIF_MERR_Msk)
+ 1348              		.loc 1 364 0
+ 1349 0000 034B     		ldr	r3, .L142
+ 1350 0002 1B69     		ldr	r3, [r3, #16]
+ 1351 0004 5B06     		lsls	r3, r3, #25
+ 1352 0006 01D5     		bpl	.L141
+ 365:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 366:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		return SET;
+ 1353              		.loc 1 366 0
+ 1354 0008 0120     		movs	r0, #1
+ 1355 000a 00E0     		b	.L140
+ 1356              	.L141:
+ 367:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 368:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	else
+ 369:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 370:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		return RESET;
+ 1357              		.loc 1 370 0
+ 1358 000c 0020     		movs	r0, #0
+ 1359              	.L140:
+ 371:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 30
+
+
+ 372:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 1360              		.loc 1 372 0
+ 1361              		@ sp needed
+ 1362 000e 7047     		bx	lr
+ 1363              	.L143:
+ 1364              		.align	2
+ 1365              	.L142:
+ 1366 0010 00080040 		.word	1073743872
+ 1367              		.cfi_endproc
+ 1368              	.LFE74:
+ 1370              		.section	.text.HSPI_SPIIF_SERR_Chk,"ax",%progbits
+ 1371              		.align	2
+ 1372              		.global	HSPI_SPIIF_SERR_Chk
+ 1373              		.code	16
+ 1374              		.thumb_func
+ 1376              	HSPI_SPIIF_SERR_Chk:
+ 1377              	.LFB75:
+ 373:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 374:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** /* Slave Error标志 相关函数 */
+ 375:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** FlagStatus HSPI_SPIIF_SERR_Chk(void)
+ 376:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 1378              		.loc 1 376 0
+ 1379              		.cfi_startproc
+ 1380              		@ args = 0, pretend = 0, frame = 0
+ 1381              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1382              		@ link register save eliminated.
+ 377:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	if (HSPI->SPIIF & HSPI_SPIIF_SERR_Msk)
+ 1383              		.loc 1 377 0
+ 1384 0000 034B     		ldr	r3, .L147
+ 1385 0002 1B69     		ldr	r3, [r3, #16]
+ 1386 0004 9B06     		lsls	r3, r3, #26
+ 1387 0006 01D5     		bpl	.L146
+ 378:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 379:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		return SET;
+ 1388              		.loc 1 379 0
+ 1389 0008 0120     		movs	r0, #1
+ 1390 000a 00E0     		b	.L145
+ 1391              	.L146:
+ 380:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 381:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	else
+ 382:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 383:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		return RESET;
+ 1392              		.loc 1 383 0
+ 1393 000c 0020     		movs	r0, #0
+ 1394              	.L145:
+ 384:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 385:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 1395              		.loc 1 385 0
+ 1396              		@ sp needed
+ 1397 000e 7047     		bx	lr
+ 1398              	.L148:
+ 1399              		.align	2
+ 1400              	.L147:
+ 1401 0010 00080040 		.word	1073743872
+ 1402              		.cfi_endproc
+ 1403              	.LFE75:
+ 1405              		.section	.text.HSPI_SPIIF_RXCOL_Clr,"ax",%progbits
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 31
+
+
+ 1406              		.align	2
+ 1407              		.global	HSPI_SPIIF_RXCOL_Clr
+ 1408              		.code	16
+ 1409              		.thumb_func
+ 1411              	HSPI_SPIIF_RXCOL_Clr:
+ 1412              	.LFB76:
+ 386:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 387:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** /* 接收缓存溢出，软件写1清零 相关函数 */
+ 388:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_SPIIF_RXCOL_Clr(void)
+ 389:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 1413              		.loc 1 389 0
+ 1414              		.cfi_startproc
+ 1415              		@ args = 0, pretend = 0, frame = 0
+ 1416              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1417              		@ link register save eliminated.
+ 390:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI->SPIIF = HSPI_SPIIF_RXCOL_Msk;
+ 1418              		.loc 1 390 0
+ 1419 0000 1022     		movs	r2, #16
+ 1420 0002 014B     		ldr	r3, .L150
+ 1421 0004 1A61     		str	r2, [r3, #16]
+ 391:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 1422              		.loc 1 391 0
+ 1423              		@ sp needed
+ 1424 0006 7047     		bx	lr
+ 1425              	.L151:
+ 1426              		.align	2
+ 1427              	.L150:
+ 1428 0008 00080040 		.word	1073743872
+ 1429              		.cfi_endproc
+ 1430              	.LFE76:
+ 1432              		.section	.text.HSPI_SPIIF_RXCOL_Chk,"ax",%progbits
+ 1433              		.align	2
+ 1434              		.global	HSPI_SPIIF_RXCOL_Chk
+ 1435              		.code	16
+ 1436              		.thumb_func
+ 1438              	HSPI_SPIIF_RXCOL_Chk:
+ 1439              	.LFB77:
+ 392:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 393:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** FlagStatus HSPI_SPIIF_RXCOL_Chk(void)
+ 394:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 1440              		.loc 1 394 0
+ 1441              		.cfi_startproc
+ 1442              		@ args = 0, pretend = 0, frame = 0
+ 1443              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1444              		@ link register save eliminated.
+ 395:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	if (HSPI->SPIIF & HSPI_SPIIF_RXCOL_Msk)
+ 1445              		.loc 1 395 0
+ 1446 0000 034B     		ldr	r3, .L155
+ 1447 0002 1B69     		ldr	r3, [r3, #16]
+ 1448 0004 DB06     		lsls	r3, r3, #27
+ 1449 0006 01D5     		bpl	.L154
+ 396:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 397:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		return SET;
+ 1450              		.loc 1 397 0
+ 1451 0008 0120     		movs	r0, #1
+ 1452 000a 00E0     		b	.L153
+ 1453              	.L154:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 32
+
+
+ 398:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 399:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	else
+ 400:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 401:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		return RESET;
+ 1454              		.loc 1 401 0
+ 1455 000c 0020     		movs	r0, #0
+ 1456              	.L153:
+ 402:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 403:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 1457              		.loc 1 403 0
+ 1458              		@ sp needed
+ 1459 000e 7047     		bx	lr
+ 1460              	.L156:
+ 1461              		.align	2
+ 1462              	.L155:
+ 1463 0010 00080040 		.word	1073743872
+ 1464              		.cfi_endproc
+ 1465              	.LFE77:
+ 1467              		.section	.text.HSPI_SPIIF_TXCOL_Clr,"ax",%progbits
+ 1468              		.align	2
+ 1469              		.global	HSPI_SPIIF_TXCOL_Clr
+ 1470              		.code	16
+ 1471              		.thumb_func
+ 1473              	HSPI_SPIIF_TXCOL_Clr:
+ 1474              	.LFB78:
+ 404:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 405:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** /* 发送缓存溢出，软件写1清零 相关函数 */
+ 406:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_SPIIF_TXCOL_Clr(void)
+ 407:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 1475              		.loc 1 407 0
+ 1476              		.cfi_startproc
+ 1477              		@ args = 0, pretend = 0, frame = 0
+ 1478              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1479              		@ link register save eliminated.
+ 408:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI->SPIIF = HSPI_SPIIF_TXCOL_Msk;
+ 1480              		.loc 1 408 0
+ 1481 0000 0822     		movs	r2, #8
+ 1482 0002 014B     		ldr	r3, .L158
+ 1483 0004 1A61     		str	r2, [r3, #16]
+ 409:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 1484              		.loc 1 409 0
+ 1485              		@ sp needed
+ 1486 0006 7047     		bx	lr
+ 1487              	.L159:
+ 1488              		.align	2
+ 1489              	.L158:
+ 1490 0008 00080040 		.word	1073743872
+ 1491              		.cfi_endproc
+ 1492              	.LFE78:
+ 1494              		.section	.text.HSPI_SPIIF_TXCOL_Chk,"ax",%progbits
+ 1495              		.align	2
+ 1496              		.global	HSPI_SPIIF_TXCOL_Chk
+ 1497              		.code	16
+ 1498              		.thumb_func
+ 1500              	HSPI_SPIIF_TXCOL_Chk:
+ 1501              	.LFB79:
+ 410:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 33
+
+
+ 411:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** FlagStatus HSPI_SPIIF_TXCOL_Chk(void)
+ 412:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 1502              		.loc 1 412 0
+ 1503              		.cfi_startproc
+ 1504              		@ args = 0, pretend = 0, frame = 0
+ 1505              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1506              		@ link register save eliminated.
+ 413:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	if (HSPI->SPIIF & HSPI_SPIIF_TXCOL_Msk)
+ 1507              		.loc 1 413 0
+ 1508 0000 034B     		ldr	r3, .L163
+ 1509 0002 1B69     		ldr	r3, [r3, #16]
+ 1510 0004 1B07     		lsls	r3, r3, #28
+ 1511 0006 01D5     		bpl	.L162
+ 414:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 415:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		return SET;
+ 1512              		.loc 1 415 0
+ 1513 0008 0120     		movs	r0, #1
+ 1514 000a 00E0     		b	.L161
+ 1515              	.L162:
+ 416:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 417:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	else
+ 418:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 419:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		return RESET;
+ 1516              		.loc 1 419 0
+ 1517 000c 0020     		movs	r0, #0
+ 1518              	.L161:
+ 420:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 421:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 1519              		.loc 1 421 0
+ 1520              		@ sp needed
+ 1521 000e 7047     		bx	lr
+ 1522              	.L164:
+ 1523              		.align	2
+ 1524              	.L163:
+ 1525 0010 00080040 		.word	1073743872
+ 1526              		.cfi_endproc
+ 1527              	.LFE79:
+ 1529              		.section	.text.HSPI_SPIIF_BUSY_Chk,"ax",%progbits
+ 1530              		.align	2
+ 1531              		.global	HSPI_SPIIF_BUSY_Chk
+ 1532              		.code	16
+ 1533              		.thumb_func
+ 1535              	HSPI_SPIIF_BUSY_Chk:
+ 1536              	.LFB80:
+ 422:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 423:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** /* HSPI空闲标志，只读 相关函数 */
+ 424:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** FlagStatus HSPI_SPIIF_BUSY_Chk(void)
+ 425:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 1537              		.loc 1 425 0
+ 1538              		.cfi_startproc
+ 1539              		@ args = 0, pretend = 0, frame = 0
+ 1540              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1541              		@ link register save eliminated.
+ 426:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	if (HSPI->SPIIF & HSPI_SPIIF_BUSY_Msk)
+ 1542              		.loc 1 426 0
+ 1543 0000 034B     		ldr	r3, .L168
+ 1544 0002 1B69     		ldr	r3, [r3, #16]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 34
+
+
+ 1545 0004 5B07     		lsls	r3, r3, #29
+ 1546 0006 01D5     		bpl	.L167
+ 427:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 428:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		return SET;
+ 1547              		.loc 1 428 0
+ 1548 0008 0120     		movs	r0, #1
+ 1549 000a 00E0     		b	.L166
+ 1550              	.L167:
+ 429:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 430:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	else
+ 431:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 432:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		return RESET;
+ 1551              		.loc 1 432 0
+ 1552 000c 0020     		movs	r0, #0
+ 1553              	.L166:
+ 433:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 434:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 1554              		.loc 1 434 0
+ 1555              		@ sp needed
+ 1556 000e 7047     		bx	lr
+ 1557              	.L169:
+ 1558              		.align	2
+ 1559              	.L168:
+ 1560 0010 00080040 		.word	1073743872
+ 1561              		.cfi_endproc
+ 1562              	.LFE80:
+ 1564              		.section	.text.HSPI_SPIIF_TXBE_Chk,"ax",%progbits
+ 1565              		.align	2
+ 1566              		.global	HSPI_SPIIF_TXBE_Chk
+ 1567              		.code	16
+ 1568              		.thumb_func
+ 1570              	HSPI_SPIIF_TXBE_Chk:
+ 1571              	.LFB81:
+ 435:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 436:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** /* TX Buffer Empty标志位 相关函数 */
+ 437:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** FlagStatus HSPI_SPIIF_TXBE_Chk(void)
+ 438:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 1572              		.loc 1 438 0
+ 1573              		.cfi_startproc
+ 1574              		@ args = 0, pretend = 0, frame = 0
+ 1575              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1576              		@ link register save eliminated.
+ 439:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	if (HSPI->SPIIF & HSPI_SPIIF_TXBE_Msk)
+ 1577              		.loc 1 439 0
+ 1578 0000 034B     		ldr	r3, .L173
+ 1579 0002 1B69     		ldr	r3, [r3, #16]
+ 1580 0004 9B07     		lsls	r3, r3, #30
+ 1581 0006 01D5     		bpl	.L172
+ 440:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 441:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		return SET;
+ 1582              		.loc 1 441 0
+ 1583 0008 0120     		movs	r0, #1
+ 1584 000a 00E0     		b	.L171
+ 1585              	.L172:
+ 442:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 443:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	else
+ 444:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 35
+
+
+ 445:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		return RESET;
+ 1586              		.loc 1 445 0
+ 1587 000c 0020     		movs	r0, #0
+ 1588              	.L171:
+ 446:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 447:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 1589              		.loc 1 447 0
+ 1590              		@ sp needed
+ 1591 000e 7047     		bx	lr
+ 1592              	.L174:
+ 1593              		.align	2
+ 1594              	.L173:
+ 1595 0010 00080040 		.word	1073743872
+ 1596              		.cfi_endproc
+ 1597              	.LFE81:
+ 1599              		.section	.text.HSPI_SPIIF_RXBF_Chk,"ax",%progbits
+ 1600              		.align	2
+ 1601              		.global	HSPI_SPIIF_RXBF_Chk
+ 1602              		.code	16
+ 1603              		.thumb_func
+ 1605              	HSPI_SPIIF_RXBF_Chk:
+ 1606              	.LFB82:
+ 448:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 449:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** /* RX Buffer Full标志位 相关函数 */
+ 450:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** FlagStatus HSPI_SPIIF_RXBF_Chk(void)
+ 451:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 1607              		.loc 1 451 0
+ 1608              		.cfi_startproc
+ 1609              		@ args = 0, pretend = 0, frame = 0
+ 1610              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1611              		@ link register save eliminated.
+ 452:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	if (HSPI->SPIIF & HSPI_SPIIF_RXBF_Msk)
+ 1612              		.loc 1 452 0
+ 1613 0000 034B     		ldr	r3, .L178
+ 1614 0002 1B69     		ldr	r3, [r3, #16]
+ 1615 0004 DB07     		lsls	r3, r3, #31
+ 1616 0006 01D5     		bpl	.L177
+ 453:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 454:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		return SET;
+ 1617              		.loc 1 454 0
+ 1618 0008 0120     		movs	r0, #1
+ 1619 000a 00E0     		b	.L176
+ 1620              	.L177:
+ 455:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 456:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	else
+ 457:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	{
+ 458:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		return RESET;
+ 1621              		.loc 1 458 0
+ 1622 000c 0020     		movs	r0, #0
+ 1623              	.L176:
+ 459:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	}
+ 460:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 1624              		.loc 1 460 0
+ 1625              		@ sp needed
+ 1626 000e 7047     		bx	lr
+ 1627              	.L179:
+ 1628              		.align	2
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 36
+
+
+ 1629              	.L178:
+ 1630 0010 00080040 		.word	1073743872
+ 1631              		.cfi_endproc
+ 1632              	.LFE82:
+ 1634              		.section	.text.HSPI_SPITXBUF_Write,"ax",%progbits
+ 1635              		.align	2
+ 1636              		.global	HSPI_SPITXBUF_Write
+ 1637              		.code	16
+ 1638              		.thumb_func
+ 1640              	HSPI_SPITXBUF_Write:
+ 1641              	.LFB83:
+ 461:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 462:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** /* SPI发送缓存 相关函数 */
+ 463:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_SPITXBUF_Write(uint32_t SetValue)
+ 464:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 1642              		.loc 1 464 0
+ 1643              		.cfi_startproc
+ 1644              		@ args = 0, pretend = 0, frame = 0
+ 1645              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1646              		@ link register save eliminated.
+ 1647              	.LVL61:
+ 465:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI->SPITXBUF = (SetValue & HSPI_SPITXBUF_TXBUF_Msk);
+ 1648              		.loc 1 465 0
+ 1649 0000 FF23     		movs	r3, #255
+ 1650 0002 1840     		ands	r0, r3
+ 1651              	.LVL62:
+ 1652 0004 014B     		ldr	r3, .L181
+ 1653 0006 5861     		str	r0, [r3, #20]
+ 466:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 1654              		.loc 1 466 0
+ 1655              		@ sp needed
+ 1656 0008 7047     		bx	lr
+ 1657              	.L182:
+ 1658 000a C046     		.align	2
+ 1659              	.L181:
+ 1660 000c 00080040 		.word	1073743872
+ 1661              		.cfi_endproc
+ 1662              	.LFE83:
+ 1664              		.section	.text.HSPI_SPITXBUF_Read,"ax",%progbits
+ 1665              		.align	2
+ 1666              		.global	HSPI_SPITXBUF_Read
+ 1667              		.code	16
+ 1668              		.thumb_func
+ 1670              	HSPI_SPITXBUF_Read:
+ 1671              	.LFB84:
+ 467:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 468:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** uint32_t HSPI_SPITXBUF_Read(void)
+ 469:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 1672              		.loc 1 469 0
+ 1673              		.cfi_startproc
+ 1674              		@ args = 0, pretend = 0, frame = 0
+ 1675              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1676              		@ link register save eliminated.
+ 470:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	return (HSPI->SPITXBUF & HSPI_SPITXBUF_TXBUF_Msk);
+ 1677              		.loc 1 470 0
+ 1678 0000 024B     		ldr	r3, .L184
+ 1679 0002 5B69     		ldr	r3, [r3, #20]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 37
+
+
+ 1680 0004 FF20     		movs	r0, #255
+ 1681 0006 1840     		ands	r0, r3
+ 471:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 1682              		.loc 1 471 0
+ 1683              		@ sp needed
+ 1684 0008 7047     		bx	lr
+ 1685              	.L185:
+ 1686 000a C046     		.align	2
+ 1687              	.L184:
+ 1688 000c 00080040 		.word	1073743872
+ 1689              		.cfi_endproc
+ 1690              	.LFE84:
+ 1692              		.section	.text.HSPI_SPIRXBUF_Write,"ax",%progbits
+ 1693              		.align	2
+ 1694              		.global	HSPI_SPIRXBUF_Write
+ 1695              		.code	16
+ 1696              		.thumb_func
+ 1698              	HSPI_SPIRXBUF_Write:
+ 1699              	.LFB85:
+ 472:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 473:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** /* SPI接收缓存 相关函数 */
+ 474:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_SPIRXBUF_Write(uint32_t SetValue)
+ 475:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 1700              		.loc 1 475 0
+ 1701              		.cfi_startproc
+ 1702              		@ args = 0, pretend = 0, frame = 0
+ 1703              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1704              		@ link register save eliminated.
+ 1705              	.LVL63:
+ 476:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI->SPIRXBUF = (SetValue & HSPI_SPIRXBUF_RXBUF_Msk);
+ 1706              		.loc 1 476 0
+ 1707 0000 FF23     		movs	r3, #255
+ 1708 0002 1840     		ands	r0, r3
+ 1709              	.LVL64:
+ 1710 0004 014B     		ldr	r3, .L187
+ 1711 0006 9861     		str	r0, [r3, #24]
+ 477:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 1712              		.loc 1 477 0
+ 1713              		@ sp needed
+ 1714 0008 7047     		bx	lr
+ 1715              	.L188:
+ 1716 000a C046     		.align	2
+ 1717              	.L187:
+ 1718 000c 00080040 		.word	1073743872
+ 1719              		.cfi_endproc
+ 1720              	.LFE85:
+ 1722              		.section	.text.HSPI_SPIRXBUF_Read,"ax",%progbits
+ 1723              		.align	2
+ 1724              		.global	HSPI_SPIRXBUF_Read
+ 1725              		.code	16
+ 1726              		.thumb_func
+ 1728              	HSPI_SPIRXBUF_Read:
+ 1729              	.LFB86:
+ 478:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 479:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** uint32_t HSPI_SPIRXBUF_Read(void)
+ 480:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 1730              		.loc 1 480 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 38
+
+
+ 1731              		.cfi_startproc
+ 1732              		@ args = 0, pretend = 0, frame = 0
+ 1733              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1734              		@ link register save eliminated.
+ 481:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	return (HSPI->SPIRXBUF & HSPI_SPIRXBUF_RXBUF_Msk);
+ 1735              		.loc 1 481 0
+ 1736 0000 024B     		ldr	r3, .L190
+ 1737 0002 9B69     		ldr	r3, [r3, #24]
+ 1738 0004 FF20     		movs	r0, #255
+ 1739 0006 1840     		ands	r0, r3
+ 482:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 1740              		.loc 1 482 0
+ 1741              		@ sp needed
+ 1742 0008 7047     		bx	lr
+ 1743              	.L191:
+ 1744 000a C046     		.align	2
+ 1745              	.L190:
+ 1746 000c 00080040 		.word	1073743872
+ 1747              		.cfi_endproc
+ 1748              	.LFE86:
+ 1750              		.section	.text.HSPI_Deinit,"ax",%progbits
+ 1751              		.align	2
+ 1752              		.global	HSPI_Deinit
+ 1753              		.code	16
+ 1754              		.thumb_func
+ 1756              	HSPI_Deinit:
+ 1757              	.LFB87:
+ 483:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 484:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 485:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_Deinit(void)
+ 486:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 1758              		.loc 1 486 0
+ 1759              		.cfi_startproc
+ 1760              		@ args = 0, pretend = 0, frame = 0
+ 1761              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1762              		@ link register save eliminated.
+ 487:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI->SPICR1 = 0x00000108;
+ 1763              		.loc 1 487 0
+ 1764 0000 044B     		ldr	r3, .L193
+ 1765 0002 8422     		movs	r2, #132
+ 1766 0004 5200     		lsls	r2, r2, #1
+ 1767 0006 1A60     		str	r2, [r3]
+ 488:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI->SPICR2 = 0x00000054;
+ 1768              		.loc 1 488 0
+ 1769 0008 B43A     		subs	r2, r2, #180
+ 1770 000a 5A60     		str	r2, [r3, #4]
+ 489:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI->SPICR3 = 0x00000000;
+ 1771              		.loc 1 489 0
+ 1772 000c 0022     		movs	r2, #0
+ 1773 000e 9A60     		str	r2, [r3, #8]
+ 490:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI->SPIIE = 0x00000000;
+ 1774              		.loc 1 490 0
+ 1775 0010 DA60     		str	r2, [r3, #12]
+ 491:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	//HSPI->SPIIF = 0x00000002;
+ 492:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	//HSPI->SPITXBUF = 0x00000000;
+ 493:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	//HSPI->SPIRXBUF = 0x00000000;
+ 494:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 39
+
+
+ 1776              		.loc 1 494 0
+ 1777              		@ sp needed
+ 1778 0012 7047     		bx	lr
+ 1779              	.L194:
+ 1780              		.align	2
+ 1781              	.L193:
+ 1782 0014 00080040 		.word	1073743872
+ 1783              		.cfi_endproc
+ 1784              	.LFE87:
+ 1786              		.section	.text.HSPI_Master_Init,"ax",%progbits
+ 1787              		.align	2
+ 1788              		.global	HSPI_Master_Init
+ 1789              		.code	16
+ 1790              		.thumb_func
+ 1792              	HSPI_Master_Init:
+ 1793              	.LFB88:
+ 495:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** //Code_End
+ 496:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 497:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** //Code_Start_HandBy
+ 498:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_Master_Init(HSPI_Master_SInitTypeDef* para)
+ 499:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 1794              		.loc 1 499 0
+ 1795              		.cfi_startproc
+ 1796              		@ args = 0, pretend = 0, frame = 0
+ 1797              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1798              	.LVL65:
+ 1799 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 1800              	.LCFI0:
+ 1801              		.cfi_def_cfa_offset 24
+ 1802              		.cfi_offset 3, -24
+ 1803              		.cfi_offset 4, -20
+ 1804              		.cfi_offset 5, -16
+ 1805              		.cfi_offset 6, -12
+ 1806              		.cfi_offset 7, -8
+ 1807              		.cfi_offset 14, -4
+ 1808 0002 4F46     		mov	r7, r9
+ 1809 0004 4646     		mov	r6, r8
+ 1810 0006 C0B4     		push	{r6, r7}
+ 1811              	.LCFI1:
+ 1812              		.cfi_def_cfa_offset 32
+ 1813              		.cfi_offset 8, -32
+ 1814              		.cfi_offset 9, -28
+ 1815 0008 0400     		movs	r4, r0
+ 500:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI_Master_InitTypeDef init_para;
+ 501:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI_Deinit();
+ 1816              		.loc 1 501 0
+ 1817 000a FFF7FEFF 		bl	HSPI_Deinit
+ 1818              	.LVL66:
+ 502:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 503:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	init_para.DELAY_CFG = HSPI_SPICR1_DELAY_CFG_MASTER_NO_DELAY;
+ 504:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	init_para.WAIT = HSPI_SPICR1_WAIT_WAIT_1;
+ 505:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	init_para.BAUD_RATE = para->BAUD_RATE;
+ 1819              		.loc 1 505 0
+ 1820 000e 2368     		ldr	r3, [r4]
+ 1821 0010 9946     		mov	r9, r3
+ 506:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	init_para.LSBF = para->LSBF;
+ 1822              		.loc 1 506 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 40
+
+
+ 1823 0012 6368     		ldr	r3, [r4, #4]
+ 1824 0014 9846     		mov	r8, r3
+ 507:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	init_para.CPHOL = para->CPHOL;
+ 1825              		.loc 1 507 0
+ 1826 0016 A768     		ldr	r7, [r4, #8]
+ 508:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	init_para.CPHA = para->CPHA;
+ 1827              		.loc 1 508 0
+ 1828 0018 E668     		ldr	r6, [r4, #12]
+ 509:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	init_para.SSNM = para->SSNM;
+ 1829              		.loc 1 509 0
+ 1830 001a 2569     		ldr	r5, [r4, #16]
+ 510:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	init_para.TXO = DISABLE;
+ 511:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	init_para.TXO_AC = HSPI_SPICR2_TXO_AC_CLR_AT_CLOSE;
+ 512:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	init_para.SSNSEN = para->SSNSEN;
+ 1831              		.loc 1 512 0
+ 1832 001c 6469     		ldr	r4, [r4, #20]
+ 1833              	.LVL67:
+ 513:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 514:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	init_para.HSPIEN = DISABLE;
+ 515:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	init_para.ERRIE = DISABLE;
+ 516:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	init_para.TXIE = DISABLE;
+ 517:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	init_para.RXIE = DISABLE;
+ 518:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 519:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI_SPICR1_DELAY_CFG_Set(init_para.DELAY_CFG);
+ 1834              		.loc 1 519 0
+ 1835 001e 0020     		movs	r0, #0
+ 1836 0020 FFF7FEFF 		bl	HSPI_SPICR1_DELAY_CFG_Set
+ 1837              	.LVL68:
+ 520:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI_SPICR1_WAIT_Set(init_para.WAIT);
+ 1838              		.loc 1 520 0
+ 1839 0024 0020     		movs	r0, #0
+ 1840 0026 FFF7FEFF 		bl	HSPI_SPICR1_WAIT_Set
+ 1841              	.LVL69:
+ 521:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI_SPICR1_BAUD_Set(init_para.BAUD_RATE);
+ 1842              		.loc 1 521 0
+ 1843 002a 4846     		mov	r0, r9
+ 1844 002c FFF7FEFF 		bl	HSPI_SPICR1_BAUD_Set
+ 1845              	.LVL70:
+ 522:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI_SPICR1_LSBF_Set(init_para.LSBF);
+ 1846              		.loc 1 522 0
+ 1847 0030 4046     		mov	r0, r8
+ 1848 0032 FFF7FEFF 		bl	HSPI_SPICR1_LSBF_Set
+ 1849              	.LVL71:
+ 523:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI_SPICR1_CPHOL_Set(init_para.CPHOL);
+ 1850              		.loc 1 523 0
+ 1851 0036 3800     		movs	r0, r7
+ 1852 0038 FFF7FEFF 		bl	HSPI_SPICR1_CPHOL_Set
+ 1853              	.LVL72:
+ 524:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI_SPICR1_CPHA_Set(init_para.CPHA);
+ 1854              		.loc 1 524 0
+ 1855 003c 3000     		movs	r0, r6
+ 1856 003e FFF7FEFF 		bl	HSPI_SPICR1_CPHA_Set
+ 1857              	.LVL73:
+ 525:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI_SPICR2_SSNM_Set(init_para.SSNM);
+ 1858              		.loc 1 525 0
+ 1859 0042 2800     		movs	r0, r5
+ 1860 0044 FFF7FEFF 		bl	HSPI_SPICR2_SSNM_Set
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 41
+
+
+ 1861              	.LVL74:
+ 526:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI_SPICR2_TXO_Setable(init_para.TXO);
+ 1862              		.loc 1 526 0
+ 1863 0048 0020     		movs	r0, #0
+ 1864 004a FFF7FEFF 		bl	HSPI_SPICR2_TXO_Setable
+ 1865              	.LVL75:
+ 527:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI_SPICR2_TXO_AC_Set(init_para.TXO_AC);
+ 1866              		.loc 1 527 0
+ 1867 004e 0020     		movs	r0, #0
+ 1868 0050 FFF7FEFF 		bl	HSPI_SPICR2_TXO_AC_Set
+ 1869              	.LVL76:
+ 528:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI_SPICR2_SSNSEN_Set(init_para.SSNSEN);
+ 1870              		.loc 1 528 0
+ 1871 0054 2000     		movs	r0, r4
+ 1872 0056 FFF7FEFF 		bl	HSPI_SPICR2_SSNSEN_Set
+ 1873              	.LVL77:
+ 529:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 530:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI_SPICR1_MM_Set(HSPI_SPICR1_MM_MASTER);//配置成主模式
+ 1874              		.loc 1 530 0
+ 1875 005a 8020     		movs	r0, #128
+ 1876 005c 4000     		lsls	r0, r0, #1
+ 1877 005e FFF7FEFF 		bl	HSPI_SPICR1_MM_Set
+ 1878              	.LVL78:
+ 531:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 1879              		.loc 1 531 0
+ 1880              		@ sp needed
+ 1881 0062 0CBC     		pop	{r2, r3}
+ 1882 0064 9046     		mov	r8, r2
+ 1883 0066 9946     		mov	r9, r3
+ 1884 0068 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 1885              		.cfi_endproc
+ 1886              	.LFE88:
+ 1888 006a C046     		.section	.text.HSPI_Slave_Init,"ax",%progbits
+ 1889              		.align	2
+ 1890              		.global	HSPI_Slave_Init
+ 1891              		.code	16
+ 1892              		.thumb_func
+ 1894              	HSPI_Slave_Init:
+ 1895              	.LFB89:
+ 532:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 533:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 534:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_Slave_Init(HSPI_Slave_SInitTypeDef* para)
+ 535:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 1896              		.loc 1 535 0
+ 1897              		.cfi_startproc
+ 1898              		@ args = 0, pretend = 0, frame = 0
+ 1899              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1900              	.LVL79:
+ 1901 0000 70B5     		push	{r4, r5, r6, lr}
+ 1902              	.LCFI2:
+ 1903              		.cfi_def_cfa_offset 16
+ 1904              		.cfi_offset 4, -16
+ 1905              		.cfi_offset 5, -12
+ 1906              		.cfi_offset 6, -8
+ 1907              		.cfi_offset 14, -4
+ 1908 0002 0400     		movs	r4, r0
+ 536:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI_Slave_InitTypeDef init_para;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 42
+
+
+ 537:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI_Deinit();
+ 1909              		.loc 1 537 0
+ 1910 0004 FFF7FEFF 		bl	HSPI_Deinit
+ 1911              	.LVL80:
+ 538:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 539:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	init_para.DELAY_CFG = HSPI_SPICR1_DELAY_CFG_SLAVE_NORMAL;
+ 540:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	init_para.FLTEN = ENABLE;
+ 541:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	init_para.LSBF = para->LSBF;
+ 1912              		.loc 1 541 0
+ 1913 0008 2668     		ldr	r6, [r4]
+ 542:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	init_para.CPHOL = para->CPHOL;
+ 1914              		.loc 1 542 0
+ 1915 000a 6568     		ldr	r5, [r4, #4]
+ 543:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	init_para.CPHA = para->CPHA;
+ 1916              		.loc 1 543 0
+ 1917 000c A468     		ldr	r4, [r4, #8]
+ 1918              	.LVL81:
+ 544:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	init_para.TXO = DISABLE;
+ 545:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	init_para.TXO_AC = HSPI_SPICR2_TXO_AC_CLR_AT_CLOSE;
+ 546:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 547:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	init_para.HSPIEN = DISABLE;
+ 548:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	init_para.ERRIE = DISABLE;
+ 549:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	init_para.TXIE = DISABLE;
+ 550:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	init_para.RXIE = DISABLE;
+ 551:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 552:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI_SPICR1_DELAY_CFG_Set(init_para.DELAY_CFG);
+ 1919              		.loc 1 552 0
+ 1920 000e 0020     		movs	r0, #0
+ 1921 0010 FFF7FEFF 		bl	HSPI_SPICR1_DELAY_CFG_Set
+ 1922              	.LVL82:
+ 553:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI_SPICR2_FLTEN_Setable(init_para.FLTEN);
+ 1923              		.loc 1 553 0
+ 1924 0014 0120     		movs	r0, #1
+ 1925 0016 FFF7FEFF 		bl	HSPI_SPICR2_FLTEN_Setable
+ 1926              	.LVL83:
+ 554:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI_SPICR1_LSBF_Set(init_para.LSBF);
+ 1927              		.loc 1 554 0
+ 1928 001a 3000     		movs	r0, r6
+ 1929 001c FFF7FEFF 		bl	HSPI_SPICR1_LSBF_Set
+ 1930              	.LVL84:
+ 555:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI_SPICR1_CPHOL_Set(init_para.CPHOL);
+ 1931              		.loc 1 555 0
+ 1932 0020 2800     		movs	r0, r5
+ 1933 0022 FFF7FEFF 		bl	HSPI_SPICR1_CPHOL_Set
+ 1934              	.LVL85:
+ 556:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI_SPICR1_CPHA_Set(init_para.CPHA);
+ 1935              		.loc 1 556 0
+ 1936 0026 2000     		movs	r0, r4
+ 1937 0028 FFF7FEFF 		bl	HSPI_SPICR1_CPHA_Set
+ 1938              	.LVL86:
+ 557:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI_SPICR2_TXO_Setable(init_para.TXO);
+ 1939              		.loc 1 557 0
+ 1940 002c 0020     		movs	r0, #0
+ 1941 002e FFF7FEFF 		bl	HSPI_SPICR2_TXO_Setable
+ 1942              	.LVL87:
+ 558:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI_SPICR2_TXO_AC_Set(init_para.TXO_AC);
+ 1943              		.loc 1 558 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 43
+
+
+ 1944 0032 0020     		movs	r0, #0
+ 1945 0034 FFF7FEFF 		bl	HSPI_SPICR2_TXO_AC_Set
+ 1946              	.LVL88:
+ 559:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	
+ 560:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI_SPICR1_MM_Set(HSPI_SPICR1_MM_SLAVE);//配置成从模式
+ 1947              		.loc 1 560 0
+ 1948 0038 0020     		movs	r0, #0
+ 1949 003a FFF7FEFF 		bl	HSPI_SPICR1_MM_Set
+ 1950              	.LVL89:
+ 561:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 1951              		.loc 1 561 0
+ 1952              		@ sp needed
+ 1953 003e 70BD     		pop	{r4, r5, r6, pc}
+ 1954              		.cfi_endproc
+ 1955              	.LFE89:
+ 1957              		.section	.text.HSPI_SSN_Set_Low,"ax",%progbits
+ 1958              		.align	2
+ 1959              		.global	HSPI_SSN_Set_Low
+ 1960              		.code	16
+ 1961              		.thumb_func
+ 1963              	HSPI_SSN_Set_Low:
+ 1964              	.LFB90:
+ 562:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 563:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_SSN_Set_Low(void)//驱动级
+ 564:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 1965              		.loc 1 564 0
+ 1966              		.cfi_startproc
+ 1967              		@ args = 0, pretend = 0, frame = 0
+ 1968              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1969 0000 10B5     		push	{r4, lr}
+ 1970              	.LCFI3:
+ 1971              		.cfi_def_cfa_offset 8
+ 1972              		.cfi_offset 4, -8
+ 1973              		.cfi_offset 14, -4
+ 565:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI_SPICR2_SSN_Set(HSPI_SPICR2_SSN_LOW);//拉低SSN信号
+ 1974              		.loc 1 565 0
+ 1975 0002 0020     		movs	r0, #0
+ 1976 0004 FFF7FEFF 		bl	HSPI_SPICR2_SSN_Set
+ 1977              	.LVL90:
+ 566:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 1978              		.loc 1 566 0
+ 1979              		@ sp needed
+ 1980 0008 10BD     		pop	{r4, pc}
+ 1981              		.cfi_endproc
+ 1982              	.LFE90:
+ 1984 000a C046     		.section	.text.HSPI_SSN_Set_High,"ax",%progbits
+ 1985              		.align	2
+ 1986              		.global	HSPI_SSN_Set_High
+ 1987              		.code	16
+ 1988              		.thumb_func
+ 1990              	HSPI_SSN_Set_High:
+ 1991              	.LFB91:
+ 567:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 568:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_SSN_Set_High(void)//驱动级
+ 569:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 1992              		.loc 1 569 0
+ 1993              		.cfi_startproc
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 44
+
+
+ 1994              		@ args = 0, pretend = 0, frame = 0
+ 1995              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1996 0000 10B5     		push	{r4, lr}
+ 1997              	.LCFI4:
+ 1998              		.cfi_def_cfa_offset 8
+ 1999              		.cfi_offset 4, -8
+ 2000              		.cfi_offset 14, -4
+ 570:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI_SPICR2_SSN_Set(HSPI_SPICR2_SSN_HIGH);//拉高SSN信号
+ 2001              		.loc 1 570 0
+ 2002 0002 0420     		movs	r0, #4
+ 2003 0004 FFF7FEFF 		bl	HSPI_SPICR2_SSN_Set
+ 2004              	.LVL91:
+ 571:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 2005              		.loc 1 571 0
+ 2006              		@ sp needed
+ 2007 0008 10BD     		pop	{r4, pc}
+ 2008              		.cfi_endproc
+ 2009              	.LFE91:
+ 2011 000a C046     		.section	.text.HSPI_Recv_Byte,"ax",%progbits
+ 2012              		.align	2
+ 2013              		.global	HSPI_Recv_Byte
+ 2014              		.code	16
+ 2015              		.thumb_func
+ 2017              	HSPI_Recv_Byte:
+ 2018              	.LFB92:
+ 572:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 573:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** unsigned char HSPI_Recv_Byte(void)//HSPI接收一字节
+ 574:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 2019              		.loc 1 574 0
+ 2020              		.cfi_startproc
+ 2021              		@ args = 0, pretend = 0, frame = 0
+ 2022              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2023 0000 10B5     		push	{r4, lr}
+ 2024              	.LCFI5:
+ 2025              		.cfi_def_cfa_offset 8
+ 2026              		.cfi_offset 4, -8
+ 2027              		.cfi_offset 14, -4
+ 575:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	return HSPI_SPIRXBUF_Read();
+ 2028              		.loc 1 575 0
+ 2029 0002 FFF7FEFF 		bl	HSPI_SPIRXBUF_Read
+ 2030              	.LVL92:
+ 2031 0006 C0B2     		uxtb	r0, r0
+ 576:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 2032              		.loc 1 576 0
+ 2033              		@ sp needed
+ 2034 0008 10BD     		pop	{r4, pc}
+ 2035              		.cfi_endproc
+ 2036              	.LFE92:
+ 2038 000a C046     		.section	.text.HSPI_Send_Byte,"ax",%progbits
+ 2039              		.align	2
+ 2040              		.global	HSPI_Send_Byte
+ 2041              		.code	16
+ 2042              		.thumb_func
+ 2044              	HSPI_Send_Byte:
+ 2045              	.LFB93:
+ 577:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** void HSPI_Send_Byte(unsigned char data)//HSPI发送一字节
+ 578:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 45
+
+
+ 2046              		.loc 1 578 0
+ 2047              		.cfi_startproc
+ 2048              		@ args = 0, pretend = 0, frame = 0
+ 2049              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2050              	.LVL93:
+ 2051 0000 10B5     		push	{r4, lr}
+ 2052              	.LCFI6:
+ 2053              		.cfi_def_cfa_offset 8
+ 2054              		.cfi_offset 4, -8
+ 2055              		.cfi_offset 14, -4
+ 579:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 	HSPI_SPITXBUF_Write(data);
+ 2056              		.loc 1 579 0
+ 2057 0002 FFF7FEFF 		bl	HSPI_SPITXBUF_Write
+ 2058              	.LVL94:
+ 580:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 2059              		.loc 1 580 0
+ 2060              		@ sp needed
+ 2061 0006 10BD     		pop	{r4, pc}
+ 2062              		.cfi_endproc
+ 2063              	.LFE93:
+ 2065              		.section	.text.HSPI_RW_Byte,"ax",%progbits
+ 2066              		.align	2
+ 2067              		.global	HSPI_RW_Byte
+ 2068              		.code	16
+ 2069              		.thumb_func
+ 2071              	HSPI_RW_Byte:
+ 2072              	.LFB94:
+ 581:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 582:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** unsigned char HSPI_RW_Byte(unsigned char data)//SPI发送并接收一字节
+ 583:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** {
+ 2073              		.loc 1 583 0
+ 2074              		.cfi_startproc
+ 2075              		@ args = 0, pretend = 0, frame = 0
+ 2076              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2077              	.LVL95:
+ 2078 0000 10B5     		push	{r4, lr}
+ 2079              	.LCFI7:
+ 2080              		.cfi_def_cfa_offset 8
+ 2081              		.cfi_offset 4, -8
+ 2082              		.cfi_offset 14, -4
+ 2083 0002 0400     		movs	r4, r0
+ 2084              	.LVL96:
+ 2085              	.L202:
+ 584:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c ****     unsigned char rx_data;
+ 585:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 586:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c ****     while(1)
+ 587:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c ****     {
+ 588:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c ****     	if (HSPI_SPIIF_TXBE_Chk() == SET)
+ 2086              		.loc 1 588 0
+ 2087 0004 FFF7FEFF 		bl	HSPI_SPIIF_TXBE_Chk
+ 2088              	.LVL97:
+ 2089 0008 0128     		cmp	r0, #1
+ 2090 000a FBD1     		bne	.L202
+ 589:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		{
+ 590:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 			break;
+ 591:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 		}		
+ 592:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c ****     }
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 46
+
+
+ 593:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c ****     HSPI_Send_Byte(data);
+ 2091              		.loc 1 593 0
+ 2092 000c 2000     		movs	r0, r4
+ 2093 000e FFF7FEFF 		bl	HSPI_Send_Byte
+ 2094              	.LVL98:
+ 2095              	.L203:
+ 594:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** 
+ 595:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c ****     while(1)
+ 596:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c ****     {
+ 597:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c ****     	if (HSPI_SPIIF_RXBF_Chk() == SET)
+ 2096              		.loc 1 597 0
+ 2097 0012 FFF7FEFF 		bl	HSPI_SPIIF_RXBF_Chk
+ 2098              	.LVL99:
+ 2099 0016 0128     		cmp	r0, #1
+ 2100 0018 FBD1     		bne	.L203
+ 598:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c ****         {
+ 599:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c ****             break;
+ 600:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c ****         }
+ 601:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c ****     }
+ 602:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c ****     rx_data = HSPI_Recv_Byte();
+ 2101              		.loc 1 602 0
+ 2102 001a FFF7FEFF 		bl	HSPI_Recv_Byte
+ 2103              	.LVL100:
+ 603:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c ****     return rx_data;
+ 604:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_hspi.c **** }
+ 2104              		.loc 1 604 0
+ 2105              		@ sp needed
+ 2106 001e 10BD     		pop	{r4, pc}
+ 2107              		.cfi_endproc
+ 2108              	.LFE94:
+ 2110              		.text
+ 2111              	.Letext0:
+ 2112              		.file 2 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\device\\include\\fm33a0xx.h"
+ 2113              		.file 3 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\machine\\_default_types.h
+ 2114              		.file 4 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 2115              		.file 5 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\drivers\\fm33A0xx_hspi.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 47
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 fm33a0xx_hspi.c
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:20     .text.HSPI_SPICR1_DELAY_CFG_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:25     .text.HSPI_SPICR1_DELAY_CFG_Set:00000000 HSPI_SPICR1_DELAY_CFG_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:57     .text.HSPI_SPICR1_DELAY_CFG_Set:00000014 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:63     .text.HSPI_SPICR1_DELAY_CFG_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:68     .text.HSPI_SPICR1_DELAY_CFG_Get:00000000 HSPI_SPICR1_DELAY_CFG_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:87     .text.HSPI_SPICR1_DELAY_CFG_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:92     .text.HSPI_SPICR1_MM_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:97     .text.HSPI_SPICR1_MM_Set:00000000 HSPI_SPICR1_MM_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:128    .text.HSPI_SPICR1_MM_Set:00000014 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:134    .text.HSPI_SPICR1_MM_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:139    .text.HSPI_SPICR1_MM_Get:00000000 HSPI_SPICR1_MM_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:158    .text.HSPI_SPICR1_MM_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:163    .text.HSPI_SPICR1_WAIT_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:168    .text.HSPI_SPICR1_WAIT_Set:00000000 HSPI_SPICR1_WAIT_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:197    .text.HSPI_SPICR1_WAIT_Set:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:202    .text.HSPI_SPICR1_WAIT_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:207    .text.HSPI_SPICR1_WAIT_Get:00000000 HSPI_SPICR1_WAIT_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:225    .text.HSPI_SPICR1_WAIT_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:230    .text.HSPI_SPICR1_BAUD_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:235    .text.HSPI_SPICR1_BAUD_Set:00000000 HSPI_SPICR1_BAUD_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:264    .text.HSPI_SPICR1_BAUD_Set:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:269    .text.HSPI_SPICR1_BAUD_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:274    .text.HSPI_SPICR1_BAUD_Get:00000000 HSPI_SPICR1_BAUD_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:292    .text.HSPI_SPICR1_BAUD_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:297    .text.HSPI_SPICR1_LSBF_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:302    .text.HSPI_SPICR1_LSBF_Set:00000000 HSPI_SPICR1_LSBF_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:331    .text.HSPI_SPICR1_LSBF_Set:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:336    .text.HSPI_SPICR1_LSBF_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:341    .text.HSPI_SPICR1_LSBF_Get:00000000 HSPI_SPICR1_LSBF_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:359    .text.HSPI_SPICR1_LSBF_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:364    .text.HSPI_SPICR1_CPHOL_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:369    .text.HSPI_SPICR1_CPHOL_Set:00000000 HSPI_SPICR1_CPHOL_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:398    .text.HSPI_SPICR1_CPHOL_Set:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:403    .text.HSPI_SPICR1_CPHOL_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:408    .text.HSPI_SPICR1_CPHOL_Get:00000000 HSPI_SPICR1_CPHOL_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:426    .text.HSPI_SPICR1_CPHOL_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:431    .text.HSPI_SPICR1_CPHA_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:436    .text.HSPI_SPICR1_CPHA_Set:00000000 HSPI_SPICR1_CPHA_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:465    .text.HSPI_SPICR1_CPHA_Set:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:470    .text.HSPI_SPICR1_CPHA_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:475    .text.HSPI_SPICR1_CPHA_Get:00000000 HSPI_SPICR1_CPHA_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:493    .text.HSPI_SPICR1_CPHA_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:498    .text.HSPI_SPICR2_FLTEN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:503    .text.HSPI_SPICR2_FLTEN_Setable:00000000 HSPI_SPICR2_FLTEN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:535    .text.HSPI_SPICR2_FLTEN_Setable:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:540    .text.HSPI_SPICR2_FLTEN_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:545    .text.HSPI_SPICR2_FLTEN_Getable:00000000 HSPI_SPICR2_FLTEN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:570    .text.HSPI_SPICR2_FLTEN_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:575    .text.HSPI_SPICR2_SSNM_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:580    .text.HSPI_SPICR2_SSNM_Set:00000000 HSPI_SPICR2_SSNM_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:609    .text.HSPI_SPICR2_SSNM_Set:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:614    .text.HSPI_SPICR2_SSNM_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:619    .text.HSPI_SPICR2_SSNM_Get:00000000 HSPI_SPICR2_SSNM_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:637    .text.HSPI_SPICR2_SSNM_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:642    .text.HSPI_SPICR2_TXO_AC_Set:00000000 $t
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 48
+
+
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:647    .text.HSPI_SPICR2_TXO_AC_Set:00000000 HSPI_SPICR2_TXO_AC_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:676    .text.HSPI_SPICR2_TXO_AC_Set:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:681    .text.HSPI_SPICR2_TXO_AC_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:686    .text.HSPI_SPICR2_TXO_AC_Get:00000000 HSPI_SPICR2_TXO_AC_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:704    .text.HSPI_SPICR2_TXO_AC_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:709    .text.HSPI_SPICR2_TXO_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:714    .text.HSPI_SPICR2_TXO_Setable:00000000 HSPI_SPICR2_TXO_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:746    .text.HSPI_SPICR2_TXO_Setable:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:751    .text.HSPI_SPICR2_TXO_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:756    .text.HSPI_SPICR2_TXO_Getable:00000000 HSPI_SPICR2_TXO_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:781    .text.HSPI_SPICR2_TXO_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:786    .text.HSPI_SPICR2_SSN_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:791    .text.HSPI_SPICR2_SSN_Set:00000000 HSPI_SPICR2_SSN_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:820    .text.HSPI_SPICR2_SSN_Set:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:825    .text.HSPI_SPICR2_SSN_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:830    .text.HSPI_SPICR2_SSN_Get:00000000 HSPI_SPICR2_SSN_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:848    .text.HSPI_SPICR2_SSN_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:853    .text.HSPI_SPICR2_SSNSEN_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:858    .text.HSPI_SPICR2_SSNSEN_Set:00000000 HSPI_SPICR2_SSNSEN_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:887    .text.HSPI_SPICR2_SSNSEN_Set:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:892    .text.HSPI_SPICR2_SSNSEN_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:897    .text.HSPI_SPICR2_SSNSEN_Get:00000000 HSPI_SPICR2_SSNSEN_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:915    .text.HSPI_SPICR2_SSNSEN_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:920    .text.HSPI_SPICR2_HSPIEN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:925    .text.HSPI_SPICR2_HSPIEN_Setable:00000000 HSPI_SPICR2_HSPIEN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:957    .text.HSPI_SPICR2_HSPIEN_Setable:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:962    .text.HSPI_SPICR2_HSPIEN_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:967    .text.HSPI_SPICR2_HSPIEN_Getable:00000000 HSPI_SPICR2_HSPIEN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:992    .text.HSPI_SPICR2_HSPIEN_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:997    .text.HSPI_SPICR3_TXBFC_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1002   .text.HSPI_SPICR3_TXBFC_Clr:00000000 HSPI_SPICR3_TXBFC_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1019   .text.HSPI_SPICR3_TXBFC_Clr:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1024   .text.HSPI_SPICR3_RXBFC_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1029   .text.HSPI_SPICR3_RXBFC_Clr:00000000 HSPI_SPICR3_RXBFC_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1046   .text.HSPI_SPICR3_RXBFC_Clr:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1051   .text.HSPI_SPICR3_MERRC_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1056   .text.HSPI_SPICR3_MERRC_Clr:00000000 HSPI_SPICR3_MERRC_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1073   .text.HSPI_SPICR3_MERRC_Clr:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1078   .text.HSPI_SPICR3_SERRC_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1083   .text.HSPI_SPICR3_SERRC_Clr:00000000 HSPI_SPICR3_SERRC_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1100   .text.HSPI_SPICR3_SERRC_Clr:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1105   .text.HSPI_SPIIE_ERRIE_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1110   .text.HSPI_SPIIE_ERRIE_Setable:00000000 HSPI_SPIIE_ERRIE_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1142   .text.HSPI_SPIIE_ERRIE_Setable:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1147   .text.HSPI_SPIIE_ERRIE_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1152   .text.HSPI_SPIIE_ERRIE_Getable:00000000 HSPI_SPIIE_ERRIE_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1177   .text.HSPI_SPIIE_ERRIE_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1182   .text.HSPI_SPIIE_TXIE_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1187   .text.HSPI_SPIIE_TXIE_Setable:00000000 HSPI_SPIIE_TXIE_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1219   .text.HSPI_SPIIE_TXIE_Setable:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1224   .text.HSPI_SPIIE_TXIE_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1229   .text.HSPI_SPIIE_TXIE_Getable:00000000 HSPI_SPIIE_TXIE_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1254   .text.HSPI_SPIIE_TXIE_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1259   .text.HSPI_SPIIE_RXIE_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1264   .text.HSPI_SPIIE_RXIE_Setable:00000000 HSPI_SPIIE_RXIE_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1296   .text.HSPI_SPIIE_RXIE_Setable:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1301   .text.HSPI_SPIIE_RXIE_Getable:00000000 $t
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 49
+
+
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1306   .text.HSPI_SPIIE_RXIE_Getable:00000000 HSPI_SPIIE_RXIE_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1331   .text.HSPI_SPIIE_RXIE_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1336   .text.HSPI_SPIIF_MERR_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1341   .text.HSPI_SPIIF_MERR_Chk:00000000 HSPI_SPIIF_MERR_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1366   .text.HSPI_SPIIF_MERR_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1371   .text.HSPI_SPIIF_SERR_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1376   .text.HSPI_SPIIF_SERR_Chk:00000000 HSPI_SPIIF_SERR_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1401   .text.HSPI_SPIIF_SERR_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1406   .text.HSPI_SPIIF_RXCOL_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1411   .text.HSPI_SPIIF_RXCOL_Clr:00000000 HSPI_SPIIF_RXCOL_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1428   .text.HSPI_SPIIF_RXCOL_Clr:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1433   .text.HSPI_SPIIF_RXCOL_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1438   .text.HSPI_SPIIF_RXCOL_Chk:00000000 HSPI_SPIIF_RXCOL_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1463   .text.HSPI_SPIIF_RXCOL_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1468   .text.HSPI_SPIIF_TXCOL_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1473   .text.HSPI_SPIIF_TXCOL_Clr:00000000 HSPI_SPIIF_TXCOL_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1490   .text.HSPI_SPIIF_TXCOL_Clr:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1495   .text.HSPI_SPIIF_TXCOL_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1500   .text.HSPI_SPIIF_TXCOL_Chk:00000000 HSPI_SPIIF_TXCOL_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1525   .text.HSPI_SPIIF_TXCOL_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1530   .text.HSPI_SPIIF_BUSY_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1535   .text.HSPI_SPIIF_BUSY_Chk:00000000 HSPI_SPIIF_BUSY_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1560   .text.HSPI_SPIIF_BUSY_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1565   .text.HSPI_SPIIF_TXBE_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1570   .text.HSPI_SPIIF_TXBE_Chk:00000000 HSPI_SPIIF_TXBE_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1595   .text.HSPI_SPIIF_TXBE_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1600   .text.HSPI_SPIIF_RXBF_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1605   .text.HSPI_SPIIF_RXBF_Chk:00000000 HSPI_SPIIF_RXBF_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1630   .text.HSPI_SPIIF_RXBF_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1635   .text.HSPI_SPITXBUF_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1640   .text.HSPI_SPITXBUF_Write:00000000 HSPI_SPITXBUF_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1660   .text.HSPI_SPITXBUF_Write:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1665   .text.HSPI_SPITXBUF_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1670   .text.HSPI_SPITXBUF_Read:00000000 HSPI_SPITXBUF_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1688   .text.HSPI_SPITXBUF_Read:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1693   .text.HSPI_SPIRXBUF_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1698   .text.HSPI_SPIRXBUF_Write:00000000 HSPI_SPIRXBUF_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1718   .text.HSPI_SPIRXBUF_Write:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1723   .text.HSPI_SPIRXBUF_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1728   .text.HSPI_SPIRXBUF_Read:00000000 HSPI_SPIRXBUF_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1746   .text.HSPI_SPIRXBUF_Read:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1751   .text.HSPI_Deinit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1756   .text.HSPI_Deinit:00000000 HSPI_Deinit
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1782   .text.HSPI_Deinit:00000014 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1787   .text.HSPI_Master_Init:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1792   .text.HSPI_Master_Init:00000000 HSPI_Master_Init
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1889   .text.HSPI_Slave_Init:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1894   .text.HSPI_Slave_Init:00000000 HSPI_Slave_Init
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1958   .text.HSPI_SSN_Set_Low:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1963   .text.HSPI_SSN_Set_Low:00000000 HSPI_SSN_Set_Low
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1985   .text.HSPI_SSN_Set_High:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:1990   .text.HSPI_SSN_Set_High:00000000 HSPI_SSN_Set_High
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:2012   .text.HSPI_Recv_Byte:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:2017   .text.HSPI_Recv_Byte:00000000 HSPI_Recv_Byte
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:2039   .text.HSPI_Send_Byte:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:2044   .text.HSPI_Send_Byte:00000000 HSPI_Send_Byte
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:2066   .text.HSPI_RW_Byte:00000000 $t
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s 			page 50
+
+
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdyvfwv.s:2071   .text.HSPI_RW_Byte:00000000 HSPI_RW_Byte
+                     .debug_frame:00000010 $d
+
+NO UNDEFINED SYMBOLS

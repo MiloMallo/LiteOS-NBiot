@@ -1,0 +1,660 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccpOQyBz.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"los_init.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.osRegister,"ax",%progbits
+  20              		.align	2
+  21              		.code	16
+  22              		.thumb_func
+  24              	osRegister:
+  25              	.LFB45:
+  26              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/los_init.c"
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** /*----------------------------------------------------------------------------
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  * Copyright (c) <2013-2015>, <Huawei Technologies Co., Ltd>
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  * All rights reserved.
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  * are permitted provided that the following conditions are met:
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  * conditions and the following disclaimer.
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  * provided with the distribution.
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  * permission.
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  *---------------------------------------------------------------------------*/
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** /*----------------------------------------------------------------------------
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  * Notice of Export Control Law
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  * ===============================================
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  * applicable export control laws and regulations.
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccpOQyBz.s 			page 2
+
+
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  *---------------------------------------------------------------------------*/
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #include "los_sys.h"
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #include "los_tick.h"
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #include "los_task.ph"
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #include "los_config.h"
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** 
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #if (LOSCFG_PLATFORM_EXC == YES)
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #include "los_exc.ph"
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #endif
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** 
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #ifdef __cplusplus
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #if __cplusplus
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** extern "C" {
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #endif /* __cpluscplus */
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #endif /* __cpluscplus */
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** 
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** LITE_OS_SEC_BSS UINT8* m_aucSysMem0;
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** 
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #if ((LOSCFG_PLATFORM_EXC == YES) && (LOSCFG_SAVE_EXC_INFO == YES))
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** LITE_OS_SEC_BSS UINT8 m_aucTaskArray[MAX_EXC_MEM_SIZE];
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #endif
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** 
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** LITE_OS_SEC_TEXT_INIT void osEnableFPU(void)
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** {
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     *(volatile UINT32 *)0xE000ED88 |= ((3UL << 20)|(3UL << 22));
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** }
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** 
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** /*****************************************************************************
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  Function    : LOS_Reboot
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  Description : system exception, die in here, wait for watchdog.
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  Input       : None
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  Output      : None
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  Return      : None
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  *****************************************************************************/
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** LITE_OS_SEC_TEXT_INIT VOID LOS_Reboot(VOID)
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** {
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     (VOID) LOS_IntLock();
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     while (1)
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     {
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     }
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** }
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** /*****************************************************************************
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  Function    : osRegister
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  Description : Configuring the maximum number of tasks
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  Input       : None
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  Output      : None
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  Return      : None
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  *****************************************************************************/
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** LITE_OS_SEC_TEXT_INIT static VOID osRegister(VOID)
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** {
+  27              		.loc 1 82 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     g_uwTskMaxNum = LOSCFG_BASE_CORE_TSK_LIMIT + 1; /* Reserved 1 for IDLE */
+  32              		.loc 1 83 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccpOQyBz.s 			page 3
+
+
+  33 0000 1022     		movs	r2, #16
+  34 0002 014B     		ldr	r3, .L2
+  35 0004 1A60     		str	r2, [r3]
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** 
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     return;
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** }
+  36              		.loc 1 86 0
+  37              		@ sp needed
+  38 0006 7047     		bx	lr
+  39              	.L3:
+  40              		.align	2
+  41              	.L2:
+  42 0008 00000000 		.word	g_uwTskMaxNum
+  43              		.cfi_endproc
+  44              	.LFE45:
+  46              		.section	.text.osEnableFPU,"ax",%progbits
+  47              		.align	2
+  48              		.global	osEnableFPU
+  49              		.code	16
+  50              		.thumb_func
+  52              	osEnableFPU:
+  53              	.LFB43:
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     *(volatile UINT32 *)0xE000ED88 |= ((3UL << 20)|(3UL << 22));
+  54              		.loc 1 56 0
+  55              		.cfi_startproc
+  56              		@ args = 0, pretend = 0, frame = 0
+  57              		@ frame_needed = 0, uses_anonymous_args = 0
+  58              		@ link register save eliminated.
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** }
+  59              		.loc 1 57 0
+  60 0000 034A     		ldr	r2, .L5
+  61 0002 1368     		ldr	r3, [r2]
+  62 0004 F021     		movs	r1, #240
+  63 0006 0904     		lsls	r1, r1, #16
+  64 0008 0B43     		orrs	r3, r1
+  65 000a 1360     		str	r3, [r2]
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** 
+  66              		.loc 1 58 0
+  67              		@ sp needed
+  68 000c 7047     		bx	lr
+  69              	.L6:
+  70 000e C046     		.align	2
+  71              	.L5:
+  72 0010 88ED00E0 		.word	-536810104
+  73              		.cfi_endproc
+  74              	.LFE43:
+  76              		.section	.text.LOS_Reboot,"ax",%progbits
+  77              		.align	2
+  78              		.global	LOS_Reboot
+  79              		.code	16
+  80              		.thumb_func
+  82              	LOS_Reboot:
+  83              	.LFB44:
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     (VOID) LOS_IntLock();
+  84              		.loc 1 68 0
+  85              		.cfi_startproc
+  86              		@ Volatile: function does not return.
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccpOQyBz.s 			page 4
+
+
+  87              		@ args = 0, pretend = 0, frame = 0
+  88              		@ frame_needed = 0, uses_anonymous_args = 0
+  89 0000 10B5     		push	{r4, lr}
+  90              	.LCFI0:
+  91              		.cfi_def_cfa_offset 8
+  92              		.cfi_offset 4, -8
+  93              		.cfi_offset 14, -4
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     while (1)
+  94              		.loc 1 69 0
+  95 0002 FFF7FEFF 		bl	LOS_IntLock
+  96              	.LVL0:
+  97              	.L8:
+  98 0006 FEE7     		b	.L8
+  99              		.cfi_endproc
+ 100              	.LFE44:
+ 102              		.section	.text.LOS_Start,"ax",%progbits
+ 103              		.align	2
+ 104              		.global	LOS_Start
+ 105              		.code	16
+ 106              		.thumb_func
+ 108              	LOS_Start:
+ 109              	.LFB46:
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** 
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** /*****************************************************************************
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  Function    : LOS_Start
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  Description : Task start function
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  Input       : None
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  Output      : None
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  Return      : LOS_OK on success or error code on failure
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  *****************************************************************************/
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** LITE_OS_SEC_TEXT_INIT UINT32 LOS_Start(VOID)
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** {
+ 110              		.loc 1 96 0
+ 111              		.cfi_startproc
+ 112              		@ args = 0, pretend = 0, frame = 0
+ 113              		@ frame_needed = 0, uses_anonymous_args = 0
+ 114 0000 10B5     		push	{r4, lr}
+ 115              	.LCFI1:
+ 116              		.cfi_def_cfa_offset 8
+ 117              		.cfi_offset 4, -8
+ 118              		.cfi_offset 14, -4
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     UINT32 uwRet;
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #if (LOSCFG_BASE_CORE_TICK_HW_TIME == NO)
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     uwRet = osTickStart();
+ 119              		.loc 1 99 0
+ 120 0002 FFF7FEFF 		bl	osTickStart
+ 121              	.LVL1:
+ 122 0006 041E     		subs	r4, r0, #0
+ 123              	.LVL2:
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** 
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     if (uwRet != LOS_OK)
+ 124              		.loc 1 101 0
+ 125 0008 06D0     		beq	.L10
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     {
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         PRINT_ERR("osTickStart error\n");
+ 126              		.loc 1 103 0
+ 127 000a 0548     		ldr	r0, .L12
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccpOQyBz.s 			page 5
+
+
+ 128              	.LVL3:
+ 129 000c FFF7FEFF 		bl	printf
+ 130              	.LVL4:
+ 131 0010 0448     		ldr	r0, .L12+4
+ 132 0012 FFF7FEFF 		bl	puts
+ 133              	.LVL5:
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         return uwRet;
+ 134              		.loc 1 104 0
+ 135 0016 01E0     		b	.L11
+ 136              	.LVL6:
+ 137              	.L10:
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     }
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #else
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     extern int os_timer_init(void);
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     uwRet = os_timer_init();
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     if (uwRet != LOS_OK)
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     {
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         PRINT_ERR("os_timer_init error\n");
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         return uwRet;
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     }
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #endif
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** 
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #if (LOSCFG_LIB_LIBC_NEWLIB_REENT == YES)
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     extern VOID osTaskSwitchImpurePtr(VOID);
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     osTaskSwitchImpurePtr();
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #endif
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** 
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     LOS_StartToRun();
+ 138              		.loc 1 121 0
+ 139 0018 FFF7FEFF 		bl	LOS_StartToRun
+ 140              	.LVL7:
+ 141              	.L11:
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** 
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     return uwRet;
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** }
+ 142              		.loc 1 124 0
+ 143 001c 2000     		movs	r0, r4
+ 144              		@ sp needed
+ 145              	.LVL8:
+ 146 001e 10BD     		pop	{r4, pc}
+ 147              	.L13:
+ 148              		.align	2
+ 149              	.L12:
+ 150 0020 00000000 		.word	.LC1
+ 151 0024 08000000 		.word	.LC3
+ 152              		.cfi_endproc
+ 153              	.LFE46:
+ 155              		.section	.text.LOS_KernelInit,"ax",%progbits
+ 156              		.align	2
+ 157              		.global	LOS_KernelInit
+ 158              		.code	16
+ 159              		.thumb_func
+ 161              	LOS_KernelInit:
+ 162              	.LFB47:
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** 
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** /*****************************************************************************
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  Function    : LOS_KernelInit
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccpOQyBz.s 			page 6
+
+
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  Description : System kernel initialization function, configure all system modules
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  Input       : None
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  Output      : None
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  Return      : LOS_OK on success or error code on failure
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****  *****************************************************************************/
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** LITE_OS_SEC_TEXT_INIT UINT32 LOS_KernelInit(VOID)
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** {
+ 163              		.loc 1 134 0
+ 164              		.cfi_startproc
+ 165              		@ args = 0, pretend = 0, frame = 0
+ 166              		@ frame_needed = 0, uses_anonymous_args = 0
+ 167 0000 10B5     		push	{r4, lr}
+ 168              	.LCFI2:
+ 169              		.cfi_def_cfa_offset 8
+ 170              		.cfi_offset 4, -8
+ 171              		.cfi_offset 14, -4
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     UINT32 uwRet;
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** 
+ 137:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     osRegister();
+ 172              		.loc 1 137 0
+ 173 0002 FFF7FEFF 		bl	osRegister
+ 174              	.LVL9:
+ 138:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** 
+ 139:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     m_aucSysMem0 = OS_SYS_MEM_ADDR;
+ 175              		.loc 1 139 0
+ 176 0006 224B     		ldr	r3, .L23
+ 177 0008 224A     		ldr	r2, .L23+4
+ 178 000a D318     		adds	r3, r2, r3
+ 179 000c 224A     		ldr	r2, .L23+8
+ 180 000e 1360     		str	r3, [r2]
+ 140:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     uwRet = osMemSystemInit();
+ 181              		.loc 1 140 0
+ 182 0010 FFF7FEFF 		bl	osMemSystemInit
+ 183              	.LVL10:
+ 184 0014 041E     		subs	r4, r0, #0
+ 185              	.LVL11:
+ 141:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     if (uwRet != LOS_OK)
+ 186              		.loc 1 141 0
+ 187 0016 08D0     		beq	.L15
+ 142:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     {
+ 143:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         PRINT_ERR("osMemSystemInit error %d\n", uwRet);/*lint !e515*/
+ 188              		.loc 1 143 0
+ 189 0018 2048     		ldr	r0, .L23+12
+ 190              	.LVL12:
+ 191 001a FFF7FEFF 		bl	printf
+ 192              	.LVL13:
+ 193 001e 2100     		movs	r1, r4
+ 194 0020 1F48     		ldr	r0, .L23+16
+ 195 0022 FFF7FEFF 		bl	printf
+ 196              	.LVL14:
+ 144:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         return uwRet;
+ 197              		.loc 1 144 0
+ 198 0026 2000     		movs	r0, r4
+ 199 0028 31E0     		b	.L16
+ 200              	.L15:
+ 145:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     }
+ 146:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccpOQyBz.s 			page 7
+
+
+ 147:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #if (LOSCFG_PLATFORM_HWI == YES)
+ 148:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     {
+ 149:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         osHwiInit();
+ 150:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     }
+ 151:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #endif
+ 152:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** 
+ 153:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #if (LOSCFG_PLATFORM_EXC == YES)
+ 154:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     {
+ 155:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         osExcInit(MAX_EXC_MEM_SIZE);
+ 156:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     }
+ 157:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #endif
+ 158:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** 
+ 159:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     uwRet =osTaskInit();
+ 201              		.loc 1 159 0
+ 202 002a FFF7FEFF 		bl	osTaskInit
+ 203              	.LVL15:
+ 204 002e 041E     		subs	r4, r0, #0
+ 205              	.LVL16:
+ 160:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     if (uwRet != LOS_OK)
+ 206              		.loc 1 160 0
+ 207 0030 07D0     		beq	.L17
+ 161:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     {
+ 162:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         PRINT_ERR("osTaskInit error\n");
+ 208              		.loc 1 162 0
+ 209 0032 1A48     		ldr	r0, .L23+12
+ 210              	.LVL17:
+ 211 0034 FFF7FEFF 		bl	printf
+ 212              	.LVL18:
+ 213 0038 1A48     		ldr	r0, .L23+20
+ 214 003a FFF7FEFF 		bl	puts
+ 215              	.LVL19:
+ 163:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         return uwRet;
+ 216              		.loc 1 163 0
+ 217 003e 2000     		movs	r0, r4
+ 218 0040 25E0     		b	.L16
+ 219              	.L17:
+ 164:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     }
+ 165:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** 
+ 166:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #if (LOSCFG_BASE_CORE_TSK_MONITOR == YES)
+ 167:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     {
+ 168:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         osTaskMonInit();
+ 220              		.loc 1 168 0
+ 221 0042 FFF7FEFF 		bl	osTaskMonInit
+ 222              	.LVL20:
+ 169:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     }
+ 170:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #endif
+ 171:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** 
+ 172:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #if (LOSCFG_BASE_CORE_CPUP == YES)
+ 173:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     {
+ 174:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         uwRet = osCpupInit();
+ 175:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         if (uwRet != LOS_OK)
+ 176:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         {
+ 177:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****             PRINT_ERR("osCpupInit error\n");
+ 178:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****             return uwRet;
+ 179:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         }
+ 180:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     }
+ 181:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #endif
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccpOQyBz.s 			page 8
+
+
+ 182:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** 
+ 183:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #if (LOSCFG_BASE_IPC_SEM == YES)
+ 184:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     {
+ 185:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         uwRet = osSemInit();
+ 223              		.loc 1 185 0
+ 224 0046 FFF7FEFF 		bl	osSemInit
+ 225              	.LVL21:
+ 186:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         if (uwRet != LOS_OK)
+ 226              		.loc 1 186 0
+ 227 004a 0028     		cmp	r0, #0
+ 228 004c 1FD1     		bne	.L16
+ 187:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         {
+ 188:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****             return uwRet;
+ 189:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         }
+ 190:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     }
+ 191:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #endif
+ 192:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** 
+ 193:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #if (LOSCFG_BASE_IPC_MUX == YES)
+ 194:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     {
+ 195:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         uwRet = osMuxInit();
+ 229              		.loc 1 195 0
+ 230 004e FFF7FEFF 		bl	osMuxInit
+ 231              	.LVL22:
+ 196:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         if (uwRet != LOS_OK)
+ 232              		.loc 1 196 0
+ 233 0052 0028     		cmp	r0, #0
+ 234 0054 1BD1     		bne	.L16
+ 197:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         {
+ 198:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****             return uwRet;
+ 199:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         }
+ 200:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     }
+ 201:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #endif
+ 202:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** 
+ 203:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #if (LOSCFG_BASE_IPC_QUEUE == YES)
+ 204:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     {
+ 205:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         uwRet = osQueueInit();
+ 235              		.loc 1 205 0
+ 236 0056 FFF7FEFF 		bl	osQueueInit
+ 237              	.LVL23:
+ 238 005a 041E     		subs	r4, r0, #0
+ 239              	.LVL24:
+ 206:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         if (uwRet != LOS_OK)
+ 240              		.loc 1 206 0
+ 241 005c 07D0     		beq	.L18
+ 207:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         {
+ 208:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****             PRINT_ERR("osQueueInit error\n");
+ 242              		.loc 1 208 0
+ 243 005e 0F48     		ldr	r0, .L23+12
+ 244              	.LVL25:
+ 245 0060 FFF7FEFF 		bl	printf
+ 246              	.LVL26:
+ 247 0064 1048     		ldr	r0, .L23+24
+ 248 0066 FFF7FEFF 		bl	puts
+ 249              	.LVL27:
+ 209:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****             return uwRet;
+ 250              		.loc 1 209 0
+ 251 006a 2000     		movs	r0, r4
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccpOQyBz.s 			page 9
+
+
+ 252 006c 0FE0     		b	.L16
+ 253              	.L18:
+ 210:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         }
+ 211:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     }
+ 212:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #endif
+ 213:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** 
+ 214:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #if (LOSCFG_BASE_CORE_SWTMR == YES)
+ 215:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     {
+ 216:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         uwRet = osSwTmrInit();
+ 254              		.loc 1 216 0
+ 255 006e FFF7FEFF 		bl	osSwTmrInit
+ 256              	.LVL28:
+ 257 0072 041E     		subs	r4, r0, #0
+ 258              	.LVL29:
+ 217:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         if (uwRet != LOS_OK)
+ 259              		.loc 1 217 0
+ 260 0074 07D0     		beq	.L19
+ 218:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         {
+ 219:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****             PRINT_ERR("osSwTmrInit error\n");
+ 261              		.loc 1 219 0
+ 262 0076 0948     		ldr	r0, .L23+12
+ 263              	.LVL30:
+ 264 0078 FFF7FEFF 		bl	printf
+ 265              	.LVL31:
+ 266 007c 0B48     		ldr	r0, .L23+28
+ 267 007e FFF7FEFF 		bl	puts
+ 268              	.LVL32:
+ 220:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****             return uwRet;
+ 269              		.loc 1 220 0
+ 270 0082 2000     		movs	r0, r4
+ 271 0084 03E0     		b	.L16
+ 272              	.L19:
+ 221:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         }
+ 222:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     }
+ 223:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #endif
+ 224:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** 
+ 225:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     #if(LOSCFG_BASE_CORE_TIMESLICE == YES)
+ 226:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     osTimesliceInit();
+ 273              		.loc 1 226 0
+ 274 0086 FFF7FEFF 		bl	osTimesliceInit
+ 275              	.LVL33:
+ 227:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     #endif
+ 228:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** 
+ 229:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     uwRet = osIdleTaskCreate();
+ 276              		.loc 1 229 0
+ 277 008a FFF7FEFF 		bl	osIdleTaskCreate
+ 278              	.LVL34:
+ 279              	.L16:
+ 230:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     if (uwRet != LOS_OK)
+ 231:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     {
+ 232:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         return uwRet;
+ 233:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     }
+ 234:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** 
+ 235:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #if (LOSCFG_TEST == YES)
+ 236:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     uwRet = los_TestInit();
+ 237:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     if (uwRet != LOS_OK)
+ 238:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     {
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccpOQyBz.s 			page 10
+
+
+ 239:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         PRINT_ERR("los_TestInit error\n");
+ 240:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****         return uwRet;
+ 241:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     }
+ 242:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** #endif
+ 243:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** 
+ 244:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c ****     return LOS_OK;
+ 245:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel\los_init.c **** }
+ 280              		.loc 1 245 0
+ 281              		@ sp needed
+ 282 008e 10BD     		pop	{r4, pc}
+ 283              	.L24:
+ 284              		.align	2
+ 285              	.L23:
+ 286 0090 00000000 		.word	_Min_Heap_Size
+ 287 0094 00000000 		.word	_ebss
+ 288 0098 00000000 		.word	m_aucSysMem0
+ 289 009c 00000000 		.word	.LC1
+ 290 00a0 1C000000 		.word	.LC9
+ 291 00a4 38000000 		.word	.LC11
+ 292 00a8 4C000000 		.word	.LC13
+ 293 00ac 60000000 		.word	.LC15
+ 294              		.cfi_endproc
+ 295              	.LFE47:
+ 297              		.comm	m_aucSysMem0,4,4
+ 298              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 299              		.align	2
+ 300              	.LC1:
+ 301 0000 5B455252 		.ascii	"[ERR] \000"
+ 301      5D2000
+ 302 0007 00       		.space	1
+ 303              	.LC3:
+ 304 0008 6F735469 		.ascii	"osTickStart error\000"
+ 304      636B5374 
+ 304      61727420 
+ 304      6572726F 
+ 304      7200
+ 305 001a 0000     		.space	2
+ 306              	.LC9:
+ 307 001c 6F734D65 		.ascii	"osMemSystemInit error %d\012\000"
+ 307      6D537973 
+ 307      74656D49 
+ 307      6E697420 
+ 307      6572726F 
+ 308 0036 0000     		.space	2
+ 309              	.LC11:
+ 310 0038 6F735461 		.ascii	"osTaskInit error\000"
+ 310      736B496E 
+ 310      69742065 
+ 310      72726F72 
+ 310      00
+ 311 0049 000000   		.space	3
+ 312              	.LC13:
+ 313 004c 6F735175 		.ascii	"osQueueInit error\000"
+ 313      65756549 
+ 313      6E697420 
+ 313      6572726F 
+ 313      7200
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccpOQyBz.s 			page 11
+
+
+ 314 005e 0000     		.space	2
+ 315              	.LC15:
+ 316 0060 6F735377 		.ascii	"osSwTmrInit error\000"
+ 316      546D7249 
+ 316      6E697420 
+ 316      6572726F 
+ 316      7200
+ 317              		.text
+ 318              	.Letext0:
+ 319              		.file 2 "e:\\liteos\\liteos\\kernel\\include\\los_typedef.h"
+ 320              		.file 3 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\os_config\\target_config.h"
+ 321              		.file 4 "e:\\liteos\\liteos\\kernel\\base\\include\\los_task.ph"
+ 322              		.file 5 "e:\\liteos\\liteos\\arch\\arm\\arm-m\\include\\los_hwi.h"
+ 323              		.file 6 "e:\\liteos\\liteos\\kernel\\include\\los_config.h"
+ 324              		.file 7 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\stdio.h"
+ 325              		.file 8 "<built-in>"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccpOQyBz.s 			page 12
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 los_init.c
+C:\Users\WANGBI~1\AppData\Local\Temp\ccpOQyBz.s:20     .text.osRegister:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccpOQyBz.s:24     .text.osRegister:00000000 osRegister
+C:\Users\WANGBI~1\AppData\Local\Temp\ccpOQyBz.s:42     .text.osRegister:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccpOQyBz.s:47     .text.osEnableFPU:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccpOQyBz.s:52     .text.osEnableFPU:00000000 osEnableFPU
+C:\Users\WANGBI~1\AppData\Local\Temp\ccpOQyBz.s:72     .text.osEnableFPU:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccpOQyBz.s:77     .text.LOS_Reboot:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccpOQyBz.s:82     .text.LOS_Reboot:00000000 LOS_Reboot
+C:\Users\WANGBI~1\AppData\Local\Temp\ccpOQyBz.s:103    .text.LOS_Start:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccpOQyBz.s:108    .text.LOS_Start:00000000 LOS_Start
+C:\Users\WANGBI~1\AppData\Local\Temp\ccpOQyBz.s:150    .text.LOS_Start:00000020 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccpOQyBz.s:156    .text.LOS_KernelInit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccpOQyBz.s:161    .text.LOS_KernelInit:00000000 LOS_KernelInit
+C:\Users\WANGBI~1\AppData\Local\Temp\ccpOQyBz.s:286    .text.LOS_KernelInit:00000090 $d
+                            *COM*:00000004 m_aucSysMem0
+C:\Users\WANGBI~1\AppData\Local\Temp\ccpOQyBz.s:299    .rodata.str1.4:00000000 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+g_uwTskMaxNum
+LOS_IntLock
+osTickStart
+printf
+puts
+LOS_StartToRun
+osMemSystemInit
+osTaskInit
+osTaskMonInit
+osSemInit
+osMuxInit
+osQueueInit
+osSwTmrInit
+osTimesliceInit
+osIdleTaskCreate
+_Min_Heap_Size
+_ebss

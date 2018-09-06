@@ -1,0 +1,3130 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"los_swtmr.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.osSwTmrTask,"ax",%progbits
+  20              		.align	2
+  21              		.global	osSwTmrTask
+  22              		.code	16
+  23              		.thumb_func
+  25              	osSwTmrTask:
+  26              	.LFB43:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core/los_swtmr.c"
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** /*----------------------------------------------------------------------------
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  * Copyright (c) <2013-2015>, <Huawei Technologies Co., Ltd>
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  * All rights reserved.
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  * are permitted provided that the following conditions are met:
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  * conditions and the following disclaimer.
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  * provided with the distribution.
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  * permission.
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  *---------------------------------------------------------------------------*/
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** /*----------------------------------------------------------------------------
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  * Notice of Export Control Law
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  * ===============================================
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 2
+
+
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  * applicable export control laws and regulations.
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  *---------------------------------------------------------------------------*/
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #include "string.h"
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #include "los_swtmr.inc"
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #include "los_base.ph"
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #include "los_membox.ph"
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #include "los_memory.ph"
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #include "los_queue.ph"
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #include "los_task.ph"
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #include "los_hwi.h"
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #if (LOSCFG_PLATFORM_EXC == YES)
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #include "los_exc.h"
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #endif
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #ifdef __cplusplus
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #if __cplusplus
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** extern "C" {
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #endif /* __cplusplus */
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #endif /* __cplusplus */
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #if (LOSCFG_BASE_CORE_SWTMR == YES)
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** LITE_OS_SEC_BSS UINT32            m_uwSwTmrHandlerQueue;       /*Software Timer timeout queue ID*/
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** LITE_OS_SEC_BSS SWTMR_CTRL_S     *m_pstSwtmrCBArray;           /*first address in Timer memory spac
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** LITE_OS_SEC_BSS SWTMR_CTRL_S     *m_pstSwtmrFreeList;          /*Free list of Softwaer Timer*/
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** LITE_OS_SEC_BSS SWTMR_CTRL_S     *m_pstSwtmrSortList;          /*The software timer count list*/
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #if (LOSCFG_BASE_CORE_SWTMR_ALIGN == YES)
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** LITE_OS_SEC_BSS UINT32            m_uwSwTmrAlignID[LOSCFG_BASE_CORE_SWTMR_LIMIT] = {0};    /* store
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** LITE_OS_SEC_DATA_INIT static UINT32                     m_uwSwtimerRousesTime = 0;          // susp
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** LITE_OS_SEC_DATA_INIT static SWTMR_CTRL_S               *m_pstRouses = NULL;              // first 
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** LITE_OS_SEC_DATA_INIT static SWTMR_CTRL_S               *m_pstRousesPrev = NULL;
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #endif
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #define CHECK_SWTMRID(usSwTmrID, uvIntSave, usSwTmrCBID, pstSwtmr)\
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** {\
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if (usSwTmrID >= OS_SWTMR_MAX_TIMERID)\
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****    {\
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****        return LOS_ERRNO_SWTMR_ID_INVALID;\
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****    }\
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****    uvIntSave = LOS_IntLock();\
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****    usSwTmrCBID = usSwTmrID % LOSCFG_BASE_CORE_SWTMR_LIMIT;\
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****    pstSwtmr = m_pstSwtmrCBArray + usSwTmrCBID;\
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****    if (pstSwtmr->usTimerID != usSwTmrID)\
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****    {\
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****        LOS_IntRestore(uvIntSave);\
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****        return LOS_ERRNO_SWTMR_ID_INVALID;\
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****    }\
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** }
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** /*****************************************************************************
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Function   : osSwTmrTask
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Description: Swtmr task main loop, handle time-out timer.
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Input      : None
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Output     : None
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 3
+
+
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Return     : None
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** *****************************************************************************/
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** LITE_OS_SEC_TEXT VOID osSwTmrTask(VOID)
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** {
+  28              		.loc 1 92 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 16
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 00B5     		push	{lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 4
+  35              		.cfi_offset 14, -4
+  36 0002 85B0     		sub	sp, sp, #20
+  37              	.LCFI1:
+  38              		.cfi_def_cfa_offset 24
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     SWTMR_HANDLER_ITEM_S stSwtmrHandle;
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT32 uwReadSzie;
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT32 uwRet;
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT64 ullTick;
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     uwReadSzie = sizeof(SWTMR_HANDLER_ITEM_S);
+  39              		.loc 1 97 0
+  40 0004 0823     		movs	r3, #8
+  41 0006 0193     		str	r3, [sp, #4]
+  42              	.L2:
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     for ( ; ; )
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         uwRet = LOS_QueueReadCopy(m_uwSwTmrHandlerQueue, &stSwtmrHandle, &uwReadSzie, LOS_WAIT_FORE
+  43              		.loc 1 100 0
+  44 0008 0B4B     		ldr	r3, .L4
+  45 000a 1868     		ldr	r0, [r3]
+  46 000c 0123     		movs	r3, #1
+  47 000e 5B42     		rsbs	r3, r3, #0
+  48 0010 01AA     		add	r2, sp, #4
+  49 0012 02A9     		add	r1, sp, #8
+  50 0014 FFF7FEFF 		bl	LOS_QueueReadCopy
+  51              	.LVL0:
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         if (uwRet == LOS_OK && uwReadSzie == sizeof(SWTMR_HANDLER_ITEM_S))
+  52              		.loc 1 101 0
+  53 0018 0028     		cmp	r0, #0
+  54 001a F5D1     		bne	.L2
+  55              		.loc 1 101 0 is_stmt 0 discriminator 1
+  56 001c 019B     		ldr	r3, [sp, #4]
+  57 001e 082B     		cmp	r3, #8
+  58 0020 F2D1     		bne	.L2
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         {
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             if (stSwtmrHandle.pfnHandler != NULL)
+  59              		.loc 1 103 0 is_stmt 1
+  60 0022 029B     		ldr	r3, [sp, #8]
+  61 0024 002B     		cmp	r3, #0
+  62 0026 EFD0     		beq	.L2
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             {
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                 ullTick = LOS_TickCountGet();
+  63              		.loc 1 105 0
+  64 0028 FFF7FEFF 		bl	LOS_TickCountGet
+  65              	.LVL1:
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                 stSwtmrHandle.pfnHandler(stSwtmrHandle.uwArg);
+  66              		.loc 1 106 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 4
+
+
+  67 002c 0398     		ldr	r0, [sp, #12]
+  68 002e 029B     		ldr	r3, [sp, #8]
+  69 0030 9847     		blx	r3
+  70              	.LVL2:
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                 ullTick = LOS_TickCountGet()- ullTick;
+  71              		.loc 1 107 0
+  72 0032 FFF7FEFF 		bl	LOS_TickCountGet
+  73              	.LVL3:
+  74 0036 E7E7     		b	.L2
+  75              	.L5:
+  76              		.align	2
+  77              	.L4:
+  78 0038 00000000 		.word	m_uwSwTmrHandlerQueue
+  79              		.cfi_endproc
+  80              	.LFE43:
+  82              		.section	.text.osSwTmrTaskCreate,"ax",%progbits
+  83              		.align	2
+  84              		.global	osSwTmrTaskCreate
+  85              		.code	16
+  86              		.thumb_func
+  88              	osSwTmrTaskCreate:
+  89              	.LFB44:
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                 if (ullTick >= 2)
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                 {
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                     PRINT_WARN("timer_handler(%p) cost too many ms(%d)\n", stSwtmrHandle.pfnHandler
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                 }
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             }
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         }
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }//end of for
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** }
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** /*****************************************************************************
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Function   : osSwTmrTaskCreate
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Description: Create Software Timer
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Input      : None
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Output     : None
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Return     : LOS_OK on success or error code on failure
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** *****************************************************************************/
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** LITE_OS_SEC_TEXT_INIT UINT32 osSwTmrTaskCreate(VOID)
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** {
+  90              		.loc 1 127 0
+  91              		.cfi_startproc
+  92              		@ args = 0, pretend = 0, frame = 24
+  93              		@ frame_needed = 0, uses_anonymous_args = 0
+  94 0000 00B5     		push	{lr}
+  95              	.LCFI2:
+  96              		.cfi_def_cfa_offset 4
+  97              		.cfi_offset 14, -4
+  98 0002 87B0     		sub	sp, sp, #28
+  99              	.LCFI3:
+ 100              		.cfi_def_cfa_offset 32
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT32 uwRet;
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     TSK_INIT_PARAM_S stSwTmrTask;
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     (VOID)memset(&stSwTmrTask, 0, sizeof(TSK_INIT_PARAM_S));
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 5
+
+
+ 101              		.loc 1 131 0
+ 102 0004 1822     		movs	r2, #24
+ 103 0006 0021     		movs	r1, #0
+ 104 0008 6846     		mov	r0, sp
+ 105 000a FFF7FEFF 		bl	memset
+ 106              	.LVL4:
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     stSwTmrTask.pfnTaskEntry    = (TSK_ENTRY_FUNC)osSwTmrTask;
+ 107              		.loc 1 132 0
+ 108 000e 064B     		ldr	r3, .L7
+ 109 0010 0093     		str	r3, [sp]
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     stSwTmrTask.uwStackSize     = LOSCFG_BASE_CORE_TSK_SWTMR_STACK_SIZE;
+ 110              		.loc 1 133 0
+ 111 0012 B423     		movs	r3, #180
+ 112 0014 9B00     		lsls	r3, r3, #2
+ 113 0016 0393     		str	r3, [sp, #12]
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     stSwTmrTask.pcName          = "Swt_Task";
+ 114              		.loc 1 134 0
+ 115 0018 044B     		ldr	r3, .L7+4
+ 116 001a 0493     		str	r3, [sp, #16]
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     stSwTmrTask.usTaskPrio      = 0;
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     uwRet = LOS_TaskCreate(&g_uwSwtmrTaskID, &stSwTmrTask);
+ 117              		.loc 1 136 0
+ 118 001c 6946     		mov	r1, sp
+ 119 001e 0448     		ldr	r0, .L7+8
+ 120 0020 FFF7FEFF 		bl	LOS_TaskCreate
+ 121              	.LVL5:
+ 137:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     return uwRet;
+ 138:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** }
+ 122              		.loc 1 138 0
+ 123 0024 07B0     		add	sp, sp, #28
+ 124              		@ sp needed
+ 125 0026 00BD     		pop	{pc}
+ 126              	.L8:
+ 127              		.align	2
+ 128              	.L7:
+ 129 0028 00000000 		.word	osSwTmrTask
+ 130 002c 00000000 		.word	.LC2
+ 131 0030 00000000 		.word	g_uwSwtmrTaskID
+ 132              		.cfi_endproc
+ 133              	.LFE44:
+ 135              		.section	.text.osSwTmrInit,"ax",%progbits
+ 136              		.align	2
+ 137              		.global	osSwTmrInit
+ 138              		.code	16
+ 139              		.thumb_func
+ 141              	osSwTmrInit:
+ 142              	.LFB45:
+ 139:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 140:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** /*****************************************************************************
+ 141:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Function   : osSwTmrInit
+ 142:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Description: Initializes Software Timer
+ 143:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Input      : None
+ 144:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Output     : None
+ 145:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Return     : LOS_OK on success or error code on failure
+ 146:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** *****************************************************************************/
+ 147:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** LITE_OS_SEC_TEXT_INIT UINT32 osSwTmrInit(VOID)
+ 148:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** {
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 6
+
+
+ 143              		.loc 1 148 0
+ 144              		.cfi_startproc
+ 145              		@ args = 0, pretend = 0, frame = 0
+ 146              		@ frame_needed = 0, uses_anonymous_args = 0
+ 147 0000 10B5     		push	{r4, lr}
+ 148              	.LCFI4:
+ 149              		.cfi_def_cfa_offset 8
+ 150              		.cfi_offset 4, -8
+ 151              		.cfi_offset 14, -4
+ 152 0002 82B0     		sub	sp, sp, #8
+ 153              	.LCFI5:
+ 154              		.cfi_def_cfa_offset 16
+ 149:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT32 uwSize;
+ 150:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT16 usIndex;
+ 151:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT32 uwRet;
+ 152:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     SWTMR_CTRL_S *pstSwtmr;
+ 153:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     SWTMR_CTRL_S *pstTemp;
+ 154:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 155:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if (0 == LOSCFG_BASE_CORE_SWTMR_LIMIT)  /*lint !e506*/
+ 156:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 157:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         return LOS_ERRNO_SWTMR_MAXSIZE_INVALID;
+ 158:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 159:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 160:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #if (LOSCFG_BASE_CORE_SWTMR_ALIGN == YES)
+ 161:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     (VOID)memset((VOID *)m_uwSwTmrAlignID, 0, LOSCFG_BASE_CORE_SWTMR_LIMIT * sizeof(UINT32));
+ 155              		.loc 1 161 0
+ 156 0004 4022     		movs	r2, #64
+ 157 0006 0021     		movs	r1, #0
+ 158 0008 1D48     		ldr	r0, .L16
+ 159 000a FFF7FEFF 		bl	memset
+ 160              	.LVL6:
+ 162:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  #endif
+ 163:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 164:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     m_pstSwtmrSortList = (SWTMR_CTRL_S *)NULL;
+ 161              		.loc 1 164 0
+ 162 000e 0022     		movs	r2, #0
+ 163 0010 1C4B     		ldr	r3, .L16+4
+ 164 0012 1A60     		str	r2, [r3]
+ 165              	.LVL7:
+ 165:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     uwSize = sizeof(SWTMR_CTRL_S) * LOSCFG_BASE_CORE_SWTMR_LIMIT;
+ 166:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     pstSwtmr = (SWTMR_CTRL_S *)LOS_MemAlloc(m_aucSysMem0, uwSize);
+ 166              		.loc 1 166 0
+ 167 0014 1C4B     		ldr	r3, .L16+8
+ 168 0016 1868     		ldr	r0, [r3]
+ 169 0018 E021     		movs	r1, #224
+ 170 001a 4900     		lsls	r1, r1, #1
+ 171 001c FFF7FEFF 		bl	LOS_MemAlloc
+ 172              	.LVL8:
+ 173 0020 041E     		subs	r4, r0, #0
+ 174              	.LVL9:
+ 167:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if (NULL == pstSwtmr)
+ 175              		.loc 1 167 0
+ 176 0022 26D0     		beq	.L13
+ 168:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 169:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         return LOS_ERRNO_SWTMR_NO_MEMORY;
+ 170:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 171:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 7
+
+
+ 172:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     (VOID)memset((VOID *)pstSwtmr, 0, uwSize);
+ 177              		.loc 1 172 0
+ 178 0024 E022     		movs	r2, #224
+ 179 0026 5200     		lsls	r2, r2, #1
+ 180 0028 0021     		movs	r1, #0
+ 181 002a FFF7FEFF 		bl	memset
+ 182              	.LVL10:
+ 173:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     m_pstSwtmrCBArray = pstSwtmr;
+ 183              		.loc 1 173 0
+ 184 002e 174B     		ldr	r3, .L16+12
+ 185 0030 1C60     		str	r4, [r3]
+ 174:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     m_pstSwtmrFreeList = pstSwtmr;
+ 186              		.loc 1 174 0
+ 187 0032 174B     		ldr	r3, .L16+16
+ 188 0034 1C60     		str	r4, [r3]
+ 175:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     pstSwtmr->usTimerID = 0;
+ 189              		.loc 1 175 0
+ 190 0036 0023     		movs	r3, #0
+ 191 0038 2381     		strh	r3, [r4, #8]
+ 192              	.LVL11:
+ 176:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     pstTemp = pstSwtmr;
+ 177:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     pstSwtmr++;
+ 193              		.loc 1 177 0
+ 194 003a 2200     		movs	r2, r4
+ 195 003c 1C32     		adds	r2, r2, #28
+ 196              	.LVL12:
+ 178:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     for (usIndex = 1; usIndex < LOSCFG_BASE_CORE_SWTMR_LIMIT; usIndex++, pstSwtmr++)
+ 197              		.loc 1 178 0
+ 198 003e 0133     		adds	r3, r3, #1
+ 199 0040 05E0     		b	.L11
+ 200              	.LVL13:
+ 201              	.L12:
+ 179:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 180:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         pstSwtmr->usTimerID = usIndex;
+ 202              		.loc 1 180 0 discriminator 3
+ 203 0042 1381     		strh	r3, [r2, #8]
+ 181:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         pstTemp->pstNext = pstSwtmr;
+ 204              		.loc 1 181 0 discriminator 3
+ 205 0044 2260     		str	r2, [r4]
+ 206              	.LVL14:
+ 178:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     for (usIndex = 1; usIndex < LOSCFG_BASE_CORE_SWTMR_LIMIT; usIndex++, pstSwtmr++)
+ 207              		.loc 1 178 0 discriminator 3
+ 208 0046 0133     		adds	r3, r3, #1
+ 209              	.LVL15:
+ 210 0048 9BB2     		uxth	r3, r3
+ 211              	.LVL16:
+ 182:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         pstTemp = pstSwtmr;
+ 212              		.loc 1 182 0 discriminator 3
+ 213 004a 1400     		movs	r4, r2
+ 214              	.LVL17:
+ 178:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 215              		.loc 1 178 0 discriminator 3
+ 216 004c 1C32     		adds	r2, r2, #28
+ 217              	.LVL18:
+ 218              	.L11:
+ 178:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 219              		.loc 1 178 0 is_stmt 0 discriminator 1
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 8
+
+
+ 220 004e 0F2B     		cmp	r3, #15
+ 221 0050 F7D9     		bls	.L12
+ 183:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 184:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 185:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     uwRet = LOS_QueueCreate((CHAR *)NULL, OS_SWTMR_HANDLE_QUEUE_SIZE, &m_uwSwTmrHandlerQueue, 0, si
+ 222              		.loc 1 185 0 is_stmt 1
+ 223 0052 0823     		movs	r3, #8
+ 224              	.LVL19:
+ 225 0054 0093     		str	r3, [sp]
+ 226 0056 0023     		movs	r3, #0
+ 227 0058 0E4A     		ldr	r2, .L16+20
+ 228              	.LVL20:
+ 229 005a 1021     		movs	r1, #16
+ 230 005c 0020     		movs	r0, #0
+ 231 005e FFF7FEFF 		bl	LOS_QueueCreate
+ 232              	.LVL21:
+ 186:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if (uwRet != LOS_OK)
+ 233              		.loc 1 186 0
+ 234 0062 0028     		cmp	r0, #0
+ 235 0064 07D1     		bne	.L14
+ 187:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 188:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         return LOS_ERRNO_SWTMR_QUEUE_CREATE_FAILED;
+ 189:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 190:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 191:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     uwRet = osSwTmrTaskCreate();
+ 236              		.loc 1 191 0
+ 237 0066 FFF7FEFF 		bl	osSwTmrTaskCreate
+ 238              	.LVL22:
+ 192:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if (LOS_OK != uwRet)
+ 239              		.loc 1 192 0
+ 240 006a 0028     		cmp	r0, #0
+ 241 006c 05D0     		beq	.L15
+ 193:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 194:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         return LOS_ERRNO_SWTMR_TASK_CREATE_FAILED;
+ 242              		.loc 1 194 0
+ 243 006e 0A48     		ldr	r0, .L16+24
+ 244              	.LVL23:
+ 245 0070 04E0     		b	.L10
+ 246              	.LVL24:
+ 247              	.L13:
+ 169:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 248              		.loc 1 169 0
+ 249 0072 0A48     		ldr	r0, .L16+28
+ 250              	.LVL25:
+ 251 0074 02E0     		b	.L10
+ 252              	.LVL26:
+ 253              	.L14:
+ 188:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 254              		.loc 1 188 0
+ 255 0076 0A48     		ldr	r0, .L16+32
+ 256              	.LVL27:
+ 257 0078 00E0     		b	.L10
+ 258              	.LVL28:
+ 259              	.L15:
+ 195:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 196:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 197:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     return LOS_OK;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 9
+
+
+ 260              		.loc 1 197 0
+ 261 007a 0020     		movs	r0, #0
+ 262              	.LVL29:
+ 263              	.L10:
+ 198:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** }
+ 264              		.loc 1 198 0
+ 265 007c 02B0     		add	sp, sp, #8
+ 266              		@ sp needed
+ 267 007e 10BD     		pop	{r4, pc}
+ 268              	.L17:
+ 269              		.align	2
+ 270              	.L16:
+ 271 0080 00000000 		.word	.LANCHOR0
+ 272 0084 00000000 		.word	m_pstSwtmrSortList
+ 273 0088 00000000 		.word	m_aucSysMem0
+ 274 008c 00000000 		.word	m_pstSwtmrCBArray
+ 275 0090 00000000 		.word	m_pstSwtmrFreeList
+ 276 0094 00000000 		.word	m_uwSwTmrHandlerQueue
+ 277 0098 0C030002 		.word	33555212
+ 278 009c 07030002 		.word	33555207
+ 279 00a0 0B030002 		.word	33555211
+ 280              		.cfi_endproc
+ 281              	.LFE45:
+ 283              		.global	__aeabi_uidivmod
+ 284              		.global	__aeabi_uidiv
+ 285              		.section	.text.osSwTmrStart,"ax",%progbits
+ 286              		.align	2
+ 287              		.global	osSwTmrStart
+ 288              		.code	16
+ 289              		.thumb_func
+ 291              	osSwTmrStart:
+ 292              	.LFB46:
+ 199:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 200:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** /*****************************************************************************
+ 201:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Function   : osSwTmrStart
+ 202:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Description: Start Software Timer
+ 203:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Input      : pstSwtmr ---------- Need to start Software Timer
+ 204:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Output     : None
+ 205:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Return     : None
+ 206:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** *****************************************************************************/
+ 207:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** LITE_OS_SEC_TEXT VOID osSwTmrStart(SWTMR_CTRL_S *pstSwtmr)
+ 208:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** {
+ 293              		.loc 1 208 0
+ 294              		.cfi_startproc
+ 295              		@ args = 0, pretend = 0, frame = 8
+ 296              		@ frame_needed = 0, uses_anonymous_args = 0
+ 297              	.LVL30:
+ 298 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 299              	.LCFI6:
+ 300              		.cfi_def_cfa_offset 20
+ 301              		.cfi_offset 4, -20
+ 302              		.cfi_offset 5, -16
+ 303              		.cfi_offset 6, -12
+ 304              		.cfi_offset 7, -8
+ 305              		.cfi_offset 14, -4
+ 306 0002 5F46     		mov	r7, fp
+ 307 0004 5646     		mov	r6, r10
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 10
+
+
+ 308 0006 4D46     		mov	r5, r9
+ 309 0008 E0B4     		push	{r5, r6, r7}
+ 310              	.LCFI7:
+ 311              		.cfi_def_cfa_offset 32
+ 312              		.cfi_offset 9, -32
+ 313              		.cfi_offset 10, -28
+ 314              		.cfi_offset 11, -24
+ 315 000a 82B0     		sub	sp, sp, #8
+ 316              	.LCFI8:
+ 317              		.cfi_def_cfa_offset 40
+ 318 000c 0500     		movs	r5, r0
+ 319              	.LVL31:
+ 209:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     SWTMR_CTRL_S *pstPrev = (SWTMR_CTRL_S *)NULL;
+ 210:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     SWTMR_CTRL_S *pstCur = (SWTMR_CTRL_S *)NULL;
+ 211:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 212:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #if (LOSCFG_BASE_CORE_SWTMR_ALIGN == YES)
+ 213:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT32 uwCurrSwtmrTimes, uwSwtmrTimes;
+ 214:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT32 uwMinInLarge = 0xFFFFFFFF, uwMaxInLitte = 0xFFFFFFFF;
+ 215:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT32 uwMinInLargeID = LOSCFG_BASE_CORE_SWTMR_LIMIT;
+ 216:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT32 uwMaxInLitteID = LOSCFG_BASE_CORE_SWTMR_LIMIT;
+ 217:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT16 usSwTmrCBID;
+ 218:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT16 usSwtmrIdIndex;
+ 219:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT32 uwCount = 0;
+ 220:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #endif
+ 221:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 222:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     pstSwtmr->uwCount = pstSwtmr->uwInterval;
+ 320              		.loc 1 222 0
+ 321 000e 0369     		ldr	r3, [r0, #16]
+ 322 0010 C360     		str	r3, [r0, #12]
+ 223:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 224:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #if (LOSCFG_BASE_CORE_SWTMR_ALIGN == YES)
+ 225:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     usSwTmrCBID = pstSwtmr->usTimerID % LOSCFG_BASE_CORE_SWTMR_LIMIT;
+ 323              		.loc 1 225 0
+ 324 0012 0389     		ldrh	r3, [r0, #8]
+ 325 0014 0F22     		movs	r2, #15
+ 326 0016 1A40     		ands	r2, r3
+ 327 0018 1700     		movs	r7, r2
+ 328              	.LVL32:
+ 226:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if(CHECK_ALIGN_SWTMR_CAN_MULTI_ALIGN(m_uwSwTmrAlignID[usSwTmrCBID]))
+ 329              		.loc 1 226 0
+ 330 001a 9200     		lsls	r2, r2, #2
+ 331              	.LVL33:
+ 332 001c 644B     		ldr	r3, .L39
+ 333 001e D258     		ldr	r2, [r2, r3]
+ 334 0020 530F     		lsrs	r3, r2, #29
+ 335 0022 5B07     		lsls	r3, r3, #29
+ 336 0024 C021     		movs	r1, #192
+ 337 0026 C905     		lsls	r1, r1, #23
+ 338 0028 8B42     		cmp	r3, r1
+ 339 002a 77D1     		bne	.L19
+ 227:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 228:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         SET_ALIGN_SWTMR_ALREADY_ALIGNED(m_uwSwTmrAlignID[usSwTmrCBID]);
+ 340              		.loc 1 228 0
+ 341 002c 8023     		movs	r3, #128
+ 342 002e 1B06     		lsls	r3, r3, #24
+ 343 0030 1A43     		orrs	r2, r3
+ 344 0032 BB00     		lsls	r3, r7, #2
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 11
+
+
+ 345 0034 5E49     		ldr	r1, .L39
+ 346 0036 5A50     		str	r2, [r3, r1]
+ 229:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         uwCurrSwtmrTimes = GET_ALIGN_SWTMR_DIVISOR_TIMERS(m_uwSwTmrAlignID[usSwTmrCBID]);
+ 347              		.loc 1 229 0
+ 348 0038 1202     		lsls	r2, r2, #8
+ 349 003a 130A     		lsrs	r3, r2, #8
+ 350 003c 9946     		mov	r9, r3
+ 351              	.LVL34:
+ 230:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         for(usSwtmrIdIndex = 0; usSwtmrIdIndex < LOSCFG_BASE_CORE_SWTMR_LIMIT; usSwtmrIdIndex++)
+ 352              		.loc 1 230 0
+ 353 003e 0024     		movs	r4, #0
+ 216:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT16 usSwTmrCBID;
+ 354              		.loc 1 216 0
+ 355 0040 1023     		movs	r3, #16
+ 356              	.LVL35:
+ 357 0042 9B46     		mov	fp, r3
+ 215:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT32 uwMaxInLitteID = LOSCFG_BASE_CORE_SWTMR_LIMIT;
+ 358              		.loc 1 215 0
+ 359 0044 9A46     		mov	r10, r3
+ 214:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT32 uwMinInLargeID = LOSCFG_BASE_CORE_SWTMR_LIMIT;
+ 360              		.loc 1 214 0
+ 361 0046 113B     		subs	r3, r3, #17
+ 362 0048 0193     		str	r3, [sp, #4]
+ 363 004a 0093     		str	r3, [sp]
+ 364              		.loc 1 230 0
+ 365 004c 32E0     		b	.L20
+ 366              	.LVL36:
+ 367              	.L23:
+ 231:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         {
+ 232:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             uwSwtmrTimes = GET_ALIGN_SWTMR_DIVISOR_TIMERS(m_uwSwTmrAlignID[usSwtmrIdIndex]);
+ 368              		.loc 1 232 0
+ 369 004e A300     		lsls	r3, r4, #2
+ 370 0050 574A     		ldr	r2, .L39
+ 371 0052 9B58     		ldr	r3, [r3, r2]
+ 372 0054 1E02     		lsls	r6, r3, #8
+ 373 0056 360A     		lsrs	r6, r6, #8
+ 374              	.LVL37:
+ 233:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             if(uwSwtmrTimes == 0 //swtmr not creat
+ 375              		.loc 1 233 0
+ 376 0058 2AD0     		beq	.L21
+ 234:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                 || usSwtmrIdIndex == usSwTmrCBID //swtmr is pstSwtmr
+ 377              		.loc 1 234 0
+ 378 005a BC42     		cmp	r4, r7
+ 379 005c 28D0     		beq	.L21
+ 235:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                 || !CHECK_ALIGN_SWTMR_ALREADY_ALIGN(m_uwSwTmrAlignID[usSwtmrIdIndex])) //swtmr not 
+ 380              		.loc 1 235 0
+ 381 005e 9B0F     		lsrs	r3, r3, #30
+ 382 0060 9B07     		lsls	r3, r3, #30
+ 383 0062 C022     		movs	r2, #192
+ 384 0064 1206     		lsls	r2, r2, #24
+ 385 0066 9342     		cmp	r3, r2
+ 386 0068 22D1     		bne	.L21
+ 236:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             {
+ 237:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                 continue;
+ 238:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             }
+ 239:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             if(uwSwtmrTimes >= uwCurrSwtmrTimes && uwSwtmrTimes % uwCurrSwtmrTimes == 0)
+ 387              		.loc 1 239 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 12
+
+
+ 388 006a B145     		cmp	r9, r6
+ 389 006c 0FD8     		bhi	.L22
+ 390              		.loc 1 239 0 is_stmt 0 discriminator 1
+ 391 006e 4946     		mov	r1, r9
+ 392 0070 3000     		movs	r0, r6
+ 393 0072 FFF7FEFF 		bl	__aeabi_uidivmod
+ 394              	.LVL38:
+ 395 0076 0029     		cmp	r1, #0
+ 396 0078 09D1     		bne	.L22
+ 240:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             {
+ 241:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                 if(uwMinInLarge > uwSwtmrTimes / uwCurrSwtmrTimes)
+ 397              		.loc 1 241 0 is_stmt 1
+ 398 007a 4946     		mov	r1, r9
+ 399 007c 3000     		movs	r0, r6
+ 400 007e FFF7FEFF 		bl	__aeabi_uidiv
+ 401              	.LVL39:
+ 402 0082 009B     		ldr	r3, [sp]
+ 403 0084 8342     		cmp	r3, r0
+ 404 0086 13D9     		bls	.L21
+ 405              	.LVL40:
+ 242:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                 {
+ 243:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                     uwMinInLarge = uwSwtmrTimes / uwCurrSwtmrTimes;
+ 244:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                     uwMinInLargeID = usSwtmrIdIndex;
+ 406              		.loc 1 244 0
+ 407 0088 A246     		mov	r10, r4
+ 408              	.LVL41:
+ 243:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                     uwMinInLargeID = usSwtmrIdIndex;
+ 409              		.loc 1 243 0
+ 410 008a 0090     		str	r0, [sp]
+ 411 008c 10E0     		b	.L21
+ 412              	.LVL42:
+ 413              	.L22:
+ 245:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                 }
+ 246:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             }
+ 247:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             else if(uwSwtmrTimes < uwCurrSwtmrTimes && uwCurrSwtmrTimes % uwSwtmrTimes == 0)
+ 414              		.loc 1 247 0
+ 415 008e B145     		cmp	r9, r6
+ 416 0090 0ED9     		bls	.L21
+ 417              		.loc 1 247 0 is_stmt 0 discriminator 1
+ 418 0092 3100     		movs	r1, r6
+ 419 0094 4846     		mov	r0, r9
+ 420 0096 FFF7FEFF 		bl	__aeabi_uidivmod
+ 421              	.LVL43:
+ 422 009a 0029     		cmp	r1, #0
+ 423 009c 08D1     		bne	.L21
+ 248:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             {
+ 249:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                 if(uwMaxInLitte > uwCurrSwtmrTimes / uwSwtmrTimes)
+ 424              		.loc 1 249 0 is_stmt 1
+ 425 009e 3100     		movs	r1, r6
+ 426 00a0 4846     		mov	r0, r9
+ 427 00a2 FFF7FEFF 		bl	__aeabi_uidiv
+ 428              	.LVL44:
+ 429 00a6 019B     		ldr	r3, [sp, #4]
+ 430 00a8 8342     		cmp	r3, r0
+ 431 00aa 01D9     		bls	.L21
+ 432              	.LVL45:
+ 250:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                 {
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 13
+
+
+ 251:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                     uwMaxInLitte = uwCurrSwtmrTimes / uwSwtmrTimes;
+ 252:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                     uwMaxInLitteID = usSwtmrIdIndex;
+ 433              		.loc 1 252 0
+ 434 00ac A346     		mov	fp, r4
+ 435              	.LVL46:
+ 251:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                     uwMaxInLitteID = usSwtmrIdIndex;
+ 436              		.loc 1 251 0
+ 437 00ae 0190     		str	r0, [sp, #4]
+ 438              	.LVL47:
+ 439              	.L21:
+ 230:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         {
+ 440              		.loc 1 230 0 discriminator 2
+ 441 00b0 0134     		adds	r4, r4, #1
+ 442              	.LVL48:
+ 443 00b2 A4B2     		uxth	r4, r4
+ 444              	.LVL49:
+ 445              	.L20:
+ 230:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         {
+ 446              		.loc 1 230 0 is_stmt 0 discriminator 1
+ 447 00b4 0F2C     		cmp	r4, #15
+ 448 00b6 CAD9     		bls	.L23
+ 253:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                 }
+ 254:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             }
+ 255:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         }
+ 256:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         if(uwMinInLargeID != LOSCFG_BASE_CORE_SWTMR_LIMIT)
+ 449              		.loc 1 256 0 is_stmt 1
+ 450 00b8 5346     		mov	r3, r10
+ 451 00ba 102B     		cmp	r3, #16
+ 452 00bc 1FD0     		beq	.L24
+ 257:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         {
+ 258:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             pstCur = m_pstSwtmrSortList;
+ 453              		.loc 1 258 0
+ 454 00be 3D4B     		ldr	r3, .L39+4
+ 455 00c0 1B68     		ldr	r3, [r3]
+ 456              	.LVL50:
+ 219:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #endif
+ 457              		.loc 1 219 0
+ 458 00c2 0020     		movs	r0, #0
+ 259:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             while (pstCur != NULL)
+ 459              		.loc 1 259 0
+ 460 00c4 0EE0     		b	.L25
+ 461              	.LVL51:
+ 462              	.L27:
+ 260:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             {
+ 261:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                 uwCount += pstCur->uwCount;
+ 463              		.loc 1 261 0
+ 464 00c6 DA68     		ldr	r2, [r3, #12]
+ 465 00c8 9446     		mov	ip, r2
+ 466 00ca 6044     		add	r0, r0, ip
+ 467              	.LVL52:
+ 262:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                 if (pstCur->usTimerID == ((SWTMR_CTRL_S  *)(m_pstSwtmrCBArray + uwMinInLargeID))->u
+ 468              		.loc 1 262 0
+ 469 00cc 1C89     		ldrh	r4, [r3, #8]
+ 470 00ce 5246     		mov	r2, r10
+ 471 00d0 D100     		lsls	r1, r2, #3
+ 472 00d2 891A     		subs	r1, r1, r2
+ 473 00d4 8A00     		lsls	r2, r1, #2
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 14
+
+
+ 474 00d6 3849     		ldr	r1, .L39+8
+ 475 00d8 0968     		ldr	r1, [r1]
+ 476 00da 8A18     		adds	r2, r1, r2
+ 477 00dc 1289     		ldrh	r2, [r2, #8]
+ 478 00de 9442     		cmp	r4, r2
+ 479 00e0 02D0     		beq	.L26
+ 263:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                 {
+ 264:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                     break;
+ 265:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                 }
+ 266:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                 pstCur = pstCur->pstNext;
+ 480              		.loc 1 266 0
+ 481 00e2 1B68     		ldr	r3, [r3]
+ 482              	.LVL53:
+ 483              	.L25:
+ 259:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             {
+ 484              		.loc 1 259 0
+ 485 00e4 002B     		cmp	r3, #0
+ 486 00e6 EED1     		bne	.L27
+ 487              	.L26:
+ 267:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             }
+ 268:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             if(pstCur != NULL)
+ 488              		.loc 1 268 0
+ 489 00e8 002B     		cmp	r3, #0
+ 490 00ea 3DD0     		beq	.L28
+ 269:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             {
+ 270:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                 pstSwtmr->uwCount = pstSwtmr->uwInterval - (pstCur->uwInterval - uwCount)% pstSwtmr
+ 491              		.loc 1 270 0
+ 492 00ec 1B69     		ldr	r3, [r3, #16]
+ 493              	.LVL54:
+ 494 00ee 181A     		subs	r0, r3, r0
+ 495              	.LVL55:
+ 496 00f0 2C69     		ldr	r4, [r5, #16]
+ 497 00f2 2100     		movs	r1, r4
+ 498 00f4 FFF7FEFF 		bl	__aeabi_uidivmod
+ 499              	.LVL56:
+ 500 00f8 641A     		subs	r4, r4, r1
+ 501 00fa EC60     		str	r4, [r5, #12]
+ 502 00fc 34E0     		b	.L28
+ 503              	.LVL57:
+ 504              	.L24:
+ 271:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             }
+ 272:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         }
+ 273:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         else if(uwMaxInLitteID != LOSCFG_BASE_CORE_SWTMR_LIMIT)
+ 505              		.loc 1 273 0
+ 506 00fe 5B46     		mov	r3, fp
+ 507              	.LVL58:
+ 508 0100 102B     		cmp	r3, #16
+ 509 0102 31D0     		beq	.L28
+ 510              	.LVL59:
+ 274:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         {
+ 275:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             pstSwtmr->uwCount = 0;
+ 511              		.loc 1 275 0
+ 512 0104 0023     		movs	r3, #0
+ 513              	.LVL60:
+ 514 0106 EB60     		str	r3, [r5, #12]
+ 276:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             pstPrev = m_pstSwtmrCBArray + uwMaxInLitteID;
+ 515              		.loc 1 276 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 15
+
+
+ 516 0108 2B4B     		ldr	r3, .L39+8
+ 517 010a 1968     		ldr	r1, [r3]
+ 518 010c 5B46     		mov	r3, fp
+ 519 010e DB00     		lsls	r3, r3, #3
+ 520 0110 5A46     		mov	r2, fp
+ 521 0112 9B1A     		subs	r3, r3, r2
+ 522 0114 9A00     		lsls	r2, r3, #2
+ 523 0116 8918     		adds	r1, r1, r2
+ 524              	.LVL61:
+ 277:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             pstCur = pstPrev->pstNext;
+ 525              		.loc 1 277 0
+ 526 0118 0B68     		ldr	r3, [r1]
+ 527              	.LVL62:
+ 278:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             goto Inset_list;
+ 528              		.loc 1 278 0
+ 529 011a 33E0     		b	.L29
+ 530              	.LVL63:
+ 531              	.L19:
+ 279:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         }
+ 280:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 281:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     else if(CHECK_ALIGN_SWTMR_CAN_PERIODIC_ALIGN(m_uwSwTmrAlignID[usSwTmrCBID]))
+ 532              		.loc 1 281 0
+ 533 011c 8021     		movs	r1, #128
+ 534 011e C905     		lsls	r1, r1, #23
+ 535 0120 8B42     		cmp	r3, r1
+ 536 0122 21D1     		bne	.L28
+ 282:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 283:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         SET_ALIGN_SWTMR_ALREADY_ALIGNED(m_uwSwTmrAlignID[usSwTmrCBID]);
+ 537              		.loc 1 283 0
+ 538 0124 8023     		movs	r3, #128
+ 539 0126 1B06     		lsls	r3, r3, #24
+ 540 0128 1A43     		orrs	r2, r3
+ 541 012a BB00     		lsls	r3, r7, #2
+ 542 012c 2049     		ldr	r1, .L39
+ 543 012e 5A50     		str	r2, [r3, r1]
+ 284:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         pstCur = m_pstSwtmrSortList;
+ 544              		.loc 1 284 0
+ 545 0130 204B     		ldr	r3, .L39+4
+ 546 0132 1968     		ldr	r1, [r3]
+ 547              	.LVL64:
+ 285:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         while (pstCur != NULL)
+ 548              		.loc 1 285 0
+ 549 0134 10E0     		b	.L30
+ 550              	.L33:
+ 286:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         {
+ 287:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             if (pstCur->uwInterval ==  pstSwtmr->uwInterval
+ 551              		.loc 1 287 0
+ 552 0136 0B69     		ldr	r3, [r1, #16]
+ 553 0138 2A69     		ldr	r2, [r5, #16]
+ 554 013a 9342     		cmp	r3, r2
+ 555 013c 0BD1     		bne	.L31
+ 288:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                 && CHECK_ALIGN_SWTMR_ALREADY_ALIGN(m_uwSwTmrAlignID[pstCur->usTimerID % LOSCFG_BASE
+ 556              		.loc 1 288 0
+ 557 013e 0B89     		ldrh	r3, [r1, #8]
+ 558 0140 0F22     		movs	r2, #15
+ 559 0142 1340     		ands	r3, r2
+ 560 0144 9B00     		lsls	r3, r3, #2
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 16
+
+
+ 561 0146 1A4A     		ldr	r2, .L39
+ 562 0148 9B58     		ldr	r3, [r3, r2]
+ 563 014a 9B0F     		lsrs	r3, r3, #30
+ 564 014c 9B07     		lsls	r3, r3, #30
+ 565 014e C022     		movs	r2, #192
+ 566 0150 1206     		lsls	r2, r2, #24
+ 567 0152 9342     		cmp	r3, r2
+ 568 0154 02D0     		beq	.L32
+ 569              	.L31:
+ 289:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             {
+ 290:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                 break;
+ 291:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             }
+ 292:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             pstCur = pstCur->pstNext;
+ 570              		.loc 1 292 0
+ 571 0156 0968     		ldr	r1, [r1]
+ 572              	.LVL65:
+ 573              	.L30:
+ 285:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         {
+ 574              		.loc 1 285 0
+ 575 0158 0029     		cmp	r1, #0
+ 576 015a ECD1     		bne	.L33
+ 577              	.L32:
+ 293:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         }
+ 294:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         if(pstCur != NULL)
+ 578              		.loc 1 294 0
+ 579 015c 0029     		cmp	r1, #0
+ 580 015e 03D0     		beq	.L28
+ 295:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         {
+ 296:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             pstSwtmr->uwCount = 0;
+ 581              		.loc 1 296 0
+ 582 0160 0023     		movs	r3, #0
+ 583 0162 EB60     		str	r3, [r5, #12]
+ 584              	.LVL66:
+ 297:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             pstPrev = pstCur;
+ 298:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             pstCur = pstCur->pstNext;
+ 585              		.loc 1 298 0
+ 586 0164 0B68     		ldr	r3, [r1]
+ 587              	.LVL67:
+ 299:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             goto Inset_list;
+ 588              		.loc 1 299 0
+ 589 0166 0DE0     		b	.L29
+ 590              	.LVL68:
+ 591              	.L28:
+ 300:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         }
+ 301:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 302:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #endif
+ 303:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 304:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     pstCur = m_pstSwtmrSortList;
+ 592              		.loc 1 304 0
+ 593 0168 124B     		ldr	r3, .L39+4
+ 594 016a 1B68     		ldr	r3, [r3]
+ 595              	.LVL69:
+ 209:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     SWTMR_CTRL_S *pstCur = (SWTMR_CTRL_S *)NULL;
+ 596              		.loc 1 209 0
+ 597 016c 0021     		movs	r1, #0
+ 305:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     while (pstCur != NULL)
+ 598              		.loc 1 305 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 17
+
+
+ 599 016e 07E0     		b	.L34
+ 600              	.LVL70:
+ 601              	.L35:
+ 306:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 307:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         if (pstCur->uwCount > pstSwtmr->uwCount)
+ 602              		.loc 1 307 0
+ 603 0170 D868     		ldr	r0, [r3, #12]
+ 604 0172 EA68     		ldr	r2, [r5, #12]
+ 605 0174 9042     		cmp	r0, r2
+ 606 0176 05D8     		bhi	.L29
+ 308:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         {
+ 309:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             break;
+ 310:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         }
+ 311:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 312:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         pstSwtmr->uwCount -= pstCur->uwCount;
+ 607              		.loc 1 312 0
+ 608 0178 121A     		subs	r2, r2, r0
+ 609 017a EA60     		str	r2, [r5, #12]
+ 610              	.LVL71:
+ 313:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         pstPrev = pstCur;
+ 611              		.loc 1 313 0
+ 612 017c 1900     		movs	r1, r3
+ 314:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         pstCur = pstCur->pstNext;
+ 613              		.loc 1 314 0
+ 614 017e 1B68     		ldr	r3, [r3]
+ 615              	.LVL72:
+ 616              	.L34:
+ 305:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 617              		.loc 1 305 0
+ 618 0180 002B     		cmp	r3, #0
+ 619 0182 F5D1     		bne	.L35
+ 620              	.L29:
+ 315:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 316:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 317:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #if (LOSCFG_BASE_CORE_SWTMR_ALIGN == YES)
+ 318:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Inset_list:
+ 319:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #endif
+ 320:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 321:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     pstSwtmr->pstNext = pstCur;
+ 621              		.loc 1 321 0
+ 622 0184 2B60     		str	r3, [r5]
+ 322:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 323:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if (pstCur != NULL)
+ 623              		.loc 1 323 0
+ 624 0186 002B     		cmp	r3, #0
+ 625 0188 03D0     		beq	.L36
+ 324:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 325:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         pstCur->uwCount -= pstSwtmr->uwCount;
+ 626              		.loc 1 325 0
+ 627 018a DA68     		ldr	r2, [r3, #12]
+ 628 018c E868     		ldr	r0, [r5, #12]
+ 629 018e 121A     		subs	r2, r2, r0
+ 630 0190 DA60     		str	r2, [r3, #12]
+ 631              	.L36:
+ 326:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 327:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 328:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if (pstPrev == NULL)
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 18
+
+
+ 632              		.loc 1 328 0
+ 633 0192 0029     		cmp	r1, #0
+ 634 0194 02D1     		bne	.L37
+ 329:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 330:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         m_pstSwtmrSortList = pstSwtmr;
+ 635              		.loc 1 330 0
+ 636 0196 074B     		ldr	r3, .L39+4
+ 637              	.LVL73:
+ 638 0198 1D60     		str	r5, [r3]
+ 639 019a 00E0     		b	.L38
+ 640              	.LVL74:
+ 641              	.L37:
+ 331:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 332:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     else
+ 333:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 334:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         pstPrev->pstNext = pstSwtmr;
+ 642              		.loc 1 334 0
+ 643 019c 0D60     		str	r5, [r1]
+ 644              	.LVL75:
+ 645              	.L38:
+ 335:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 336:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 337:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     pstSwtmr->ucState = OS_SWTMR_STATUS_TICKING;
+ 646              		.loc 1 337 0
+ 647 019e 0223     		movs	r3, #2
+ 648 01a0 2B71     		strb	r3, [r5, #4]
+ 338:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 339:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     return;
+ 340:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** }
+ 649              		.loc 1 340 0
+ 650 01a2 02B0     		add	sp, sp, #8
+ 651              		@ sp needed
+ 652              	.LVL76:
+ 653              	.LVL77:
+ 654 01a4 1CBC     		pop	{r2, r3, r4}
+ 655 01a6 9146     		mov	r9, r2
+ 656 01a8 9A46     		mov	r10, r3
+ 657 01aa A346     		mov	fp, r4
+ 658 01ac F0BD     		pop	{r4, r5, r6, r7, pc}
+ 659              	.L40:
+ 660 01ae C046     		.align	2
+ 661              	.L39:
+ 662 01b0 00000000 		.word	.LANCHOR0
+ 663 01b4 00000000 		.word	m_pstSwtmrSortList
+ 664 01b8 00000000 		.word	m_pstSwtmrCBArray
+ 665              		.cfi_endproc
+ 666              	.LFE46:
+ 668              		.section	.text.osSwTmrTimeoutHandle,"ax",%progbits
+ 669              		.align	2
+ 670              		.code	16
+ 671              		.thumb_func
+ 673              	osSwTmrTimeoutHandle:
+ 674              	.LFB49:
+ 341:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 342:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** /*****************************************************************************
+ 343:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Function   : osSwTmrDelete
+ 344:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Description: Delete Software Timer
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 19
+
+
+ 345:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Input      : pstSwtmr --- Need to delete Software Timer, When using, Ensure that it can't be NULL.
+ 346:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Output     : None
+ 347:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Return     : None
+ 348:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** *****************************************************************************/
+ 349:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** LITE_OS_SEC_TEXT STATIC_INLINE VOID osSwtmrDelete(SWTMR_CTRL_S *pstSwtmr)
+ 350:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** {
+ 351:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     /**insert to free list **/
+ 352:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     pstSwtmr->pstNext = m_pstSwtmrFreeList;
+ 353:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     m_pstSwtmrFreeList = pstSwtmr;
+ 354:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     pstSwtmr->ucState = OS_SWTMR_STATUS_UNUSED;
+ 355:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 356:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #if (LOSCFG_BASE_CORE_SWTMR_ALIGN == YES)
+ 357:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     m_uwSwTmrAlignID[pstSwtmr->usTimerID % LOSCFG_BASE_CORE_SWTMR_LIMIT] = 0;
+ 358:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #endif
+ 359:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** }
+ 360:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 361:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** /*****************************************************************************
+ 362:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Function   : osSwtmrStop
+ 363:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Description: Stop of Software Timer interface
+ 364:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Input      : pstSwtmr
+ 365:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Output     : None
+ 366:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Return     : None
+ 367:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** *****************************************************************************/
+ 368:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** LITE_OS_SEC_TEXT VOID osSwtmrStop(SWTMR_CTRL_S *pstSwtmr)
+ 369:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** {
+ 370:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     SWTMR_CTRL_S *pstPrev = (SWTMR_CTRL_S *)NULL;
+ 371:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     SWTMR_CTRL_S *pstCur = (SWTMR_CTRL_S *)NULL;
+ 372:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 373:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if(!m_pstSwtmrSortList)
+ 374:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         return;
+ 375:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 376:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     pstCur = m_pstSwtmrSortList;
+ 377:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 378:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     while (pstCur != pstSwtmr)
+ 379:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 380:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         pstPrev = pstCur;
+ 381:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         pstCur = pstCur->pstNext;
+ 382:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 383:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 384:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if (pstCur->pstNext != NULL)
+ 385:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 386:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         pstCur->pstNext->uwCount += pstCur->uwCount;
+ 387:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 388:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 389:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if (pstPrev == NULL)
+ 390:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 391:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         m_pstSwtmrSortList = pstCur->pstNext;
+ 392:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 393:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     else
+ 394:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 395:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         pstPrev->pstNext = pstCur->pstNext;
+ 396:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 397:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 398:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     pstCur->pstNext = (SWTMR_CTRL_S *)NULL;
+ 399:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     pstCur->ucState = OS_SWTMR_STATUS_CREATED;
+ 400:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 401:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #if (LOSCFG_BASE_CORE_SWTMR_ALIGN == YES)
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 20
+
+
+ 402:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     SET_ALIGN_SWTMR_ALREADY_NOT_ALIGNED(m_uwSwTmrAlignID[pstSwtmr->usTimerID % LOSCFG_BASE_CORE_SWT
+ 403:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #endif
+ 404:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** }
+ 405:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 406:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** /*****************************************************************************
+ 407:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Function   : osSwTmrTimeoutHandle
+ 408:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Description: Software Timer time out handler
+ 409:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Input      : None
+ 410:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Output     : None
+ 411:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Return     : None
+ 412:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** *****************************************************************************/
+ 413:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** LITE_OS_SEC_TEXT static VOID osSwTmrTimeoutHandle(VOID)
+ 414:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** {
+ 675              		.loc 1 414 0
+ 676              		.cfi_startproc
+ 677              		@ args = 0, pretend = 0, frame = 8
+ 678              		@ frame_needed = 0, uses_anonymous_args = 0
+ 679 0000 10B5     		push	{r4, lr}
+ 680              	.LCFI9:
+ 681              		.cfi_def_cfa_offset 8
+ 682              		.cfi_offset 4, -8
+ 683              		.cfi_offset 14, -4
+ 684 0002 82B0     		sub	sp, sp, #8
+ 685              	.LCFI10:
+ 686              		.cfi_def_cfa_offset 16
+ 415:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     SWTMR_CTRL_S *pstSwtmr = m_pstSwtmrSortList;
+ 687              		.loc 1 415 0
+ 688 0004 1E4B     		ldr	r3, .L49
+ 689 0006 1C68     		ldr	r4, [r3]
+ 690              	.LVL78:
+ 416:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     SWTMR_HANDLER_ITEM_S stSwtmrHandler;
+ 417:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 418:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     while (pstSwtmr != NULL && pstSwtmr->uwCount == 0)
+ 691              		.loc 1 418 0
+ 692 0008 33E0     		b	.L42
+ 693              	.L48:
+ 419:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 420:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         m_pstSwtmrSortList = pstSwtmr->pstNext;
+ 694              		.loc 1 420 0
+ 695 000a 1D4B     		ldr	r3, .L49
+ 696 000c 2268     		ldr	r2, [r4]
+ 697 000e 1A60     		str	r2, [r3]
+ 421:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         stSwtmrHandler.pfnHandler = pstSwtmr->pfnHandler;
+ 698              		.loc 1 421 0
+ 699 0010 A369     		ldr	r3, [r4, #24]
+ 700 0012 0093     		str	r3, [sp]
+ 422:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         stSwtmrHandler.uwArg = pstSwtmr->uwArg;
+ 701              		.loc 1 422 0
+ 702 0014 6369     		ldr	r3, [r4, #20]
+ 703 0016 0193     		str	r3, [sp, #4]
+ 423:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         (VOID)LOS_QueueWriteCopy(m_uwSwTmrHandlerQueue, &stSwtmrHandler, sizeof(SWTMR_HANDLER_ITEM_
+ 704              		.loc 1 423 0
+ 705 0018 1A4B     		ldr	r3, .L49+4
+ 706 001a 1868     		ldr	r0, [r3]
+ 707 001c 0023     		movs	r3, #0
+ 708 001e 0822     		movs	r2, #8
+ 709 0020 6946     		mov	r1, sp
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 21
+
+
+ 710 0022 FFF7FEFF 		bl	LOS_QueueWriteCopy
+ 711              	.LVL79:
+ 424:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         if (pstSwtmr->ucMode == LOS_SWTMR_MODE_ONCE)
+ 712              		.loc 1 424 0
+ 713 0026 6379     		ldrb	r3, [r4, #5]
+ 714 0028 002B     		cmp	r3, #0
+ 715 002a 16D1     		bne	.L43
+ 716              	.LVL80:
+ 717              	.LBB6:
+ 718              	.LBB7:
+ 352:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     m_pstSwtmrFreeList = pstSwtmr;
+ 719              		.loc 1 352 0
+ 720 002c 164B     		ldr	r3, .L49+8
+ 721 002e 1A68     		ldr	r2, [r3]
+ 722 0030 2260     		str	r2, [r4]
+ 353:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     pstSwtmr->ucState = OS_SWTMR_STATUS_UNUSED;
+ 723              		.loc 1 353 0
+ 724 0032 1C60     		str	r4, [r3]
+ 354:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 725              		.loc 1 354 0
+ 726 0034 0022     		movs	r2, #0
+ 727 0036 2271     		strb	r2, [r4, #4]
+ 357:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #endif
+ 728              		.loc 1 357 0
+ 729 0038 2389     		ldrh	r3, [r4, #8]
+ 730 003a 0F21     		movs	r1, #15
+ 731 003c 0B40     		ands	r3, r1
+ 732 003e 9B00     		lsls	r3, r3, #2
+ 733 0040 1249     		ldr	r1, .L49+12
+ 734 0042 5A50     		str	r2, [r3, r1]
+ 735              	.LVL81:
+ 736              	.LBE7:
+ 737              	.LBE6:
+ 425:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         {
+ 426:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             osSwtmrDelete(pstSwtmr);
+ 427:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             if (pstSwtmr->usTimerID < OS_SWTMR_MAX_TIMERID - LOSCFG_BASE_CORE_SWTMR_LIMIT)
+ 738              		.loc 1 427 0
+ 739 0044 2389     		ldrh	r3, [r4, #8]
+ 740 0046 124A     		ldr	r2, .L49+16
+ 741 0048 9342     		cmp	r3, r2
+ 742 004a 02D8     		bhi	.L44
+ 428:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                 pstSwtmr->usTimerID += LOSCFG_BASE_CORE_SWTMR_LIMIT;
+ 743              		.loc 1 428 0
+ 744 004c 1033     		adds	r3, r3, #16
+ 745 004e 2381     		strh	r3, [r4, #8]
+ 746 0050 0DE0     		b	.L45
+ 747              	.L44:
+ 429:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             else
+ 430:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                 pstSwtmr->usTimerID %= LOSCFG_BASE_CORE_SWTMR_LIMIT;
+ 748              		.loc 1 430 0
+ 749 0052 0F22     		movs	r2, #15
+ 750 0054 1340     		ands	r3, r2
+ 751 0056 2381     		strh	r3, [r4, #8]
+ 752 0058 09E0     		b	.L45
+ 753              	.L43:
+ 431:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         }
+ 432:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         else if ( pstSwtmr->ucMode == LOS_SWTMR_MODE_PERIOD)
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 22
+
+
+ 754              		.loc 1 432 0
+ 755 005a 012B     		cmp	r3, #1
+ 756 005c 03D1     		bne	.L46
+ 433:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         {
+ 434:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             osSwTmrStart(pstSwtmr);
+ 757              		.loc 1 434 0
+ 758 005e 2000     		movs	r0, r4
+ 759 0060 FFF7FEFF 		bl	osSwTmrStart
+ 760              	.LVL82:
+ 761 0064 03E0     		b	.L45
+ 762              	.L46:
+ 435:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         }
+ 436:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         else if (pstSwtmr->ucMode == LOS_SWTMR_MODE_NO_SELFDELETE)
+ 763              		.loc 1 436 0
+ 764 0066 022B     		cmp	r3, #2
+ 765 0068 01D1     		bne	.L45
+ 437:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         {
+ 438:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             pstSwtmr->ucState = OS_SWTMR_STATUS_CREATED;
+ 766              		.loc 1 438 0
+ 767 006a 013B     		subs	r3, r3, #1
+ 768 006c 2371     		strb	r3, [r4, #4]
+ 769              	.L45:
+ 439:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         }
+ 440:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 441:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         pstSwtmr = m_pstSwtmrSortList;
+ 770              		.loc 1 441 0
+ 771 006e 044B     		ldr	r3, .L49
+ 772 0070 1C68     		ldr	r4, [r3]
+ 773              	.LVL83:
+ 774              	.L42:
+ 418:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 775              		.loc 1 418 0
+ 776 0072 002C     		cmp	r4, #0
+ 777 0074 02D0     		beq	.L41
+ 418:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 778              		.loc 1 418 0 is_stmt 0 discriminator 1
+ 779 0076 E368     		ldr	r3, [r4, #12]
+ 780 0078 002B     		cmp	r3, #0
+ 781 007a C6D0     		beq	.L48
+ 782              	.L41:
+ 442:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 443:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** }
+ 783              		.loc 1 443 0 is_stmt 1
+ 784 007c 02B0     		add	sp, sp, #8
+ 785              		@ sp needed
+ 786              	.LVL84:
+ 787 007e 10BD     		pop	{r4, pc}
+ 788              	.L50:
+ 789              		.align	2
+ 790              	.L49:
+ 791 0080 00000000 		.word	m_pstSwtmrSortList
+ 792 0084 00000000 		.word	m_uwSwTmrHandlerQueue
+ 793 0088 00000000 		.word	m_pstSwtmrFreeList
+ 794 008c 00000000 		.word	.LANCHOR0
+ 795 0090 DFFF0000 		.word	65503
+ 796              		.cfi_endproc
+ 797              	.LFE49:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 23
+
+
+ 799              		.section	.text.osSwtmrStop,"ax",%progbits
+ 800              		.align	2
+ 801              		.global	osSwtmrStop
+ 802              		.code	16
+ 803              		.thumb_func
+ 805              	osSwtmrStop:
+ 806              	.LFB48:
+ 369:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     SWTMR_CTRL_S *pstPrev = (SWTMR_CTRL_S *)NULL;
+ 807              		.loc 1 369 0
+ 808              		.cfi_startproc
+ 809              		@ args = 0, pretend = 0, frame = 0
+ 810              		@ frame_needed = 0, uses_anonymous_args = 0
+ 811              	.LVL85:
+ 812 0000 30B5     		push	{r4, r5, lr}
+ 813              	.LCFI11:
+ 814              		.cfi_def_cfa_offset 12
+ 815              		.cfi_offset 4, -12
+ 816              		.cfi_offset 5, -8
+ 817              		.cfi_offset 14, -4
+ 818              	.LVL86:
+ 373:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         return;
+ 819              		.loc 1 373 0
+ 820 0002 144B     		ldr	r3, .L58
+ 821 0004 1B68     		ldr	r3, [r3]
+ 822 0006 002B     		cmp	r3, #0
+ 823 0008 23D0     		beq	.L51
+ 824 000a 0022     		movs	r2, #0
+ 825 000c 01E0     		b	.L53
+ 826              	.LVL87:
+ 827              	.L54:
+ 380:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         pstCur = pstCur->pstNext;
+ 828              		.loc 1 380 0
+ 829 000e 1A00     		movs	r2, r3
+ 381:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 830              		.loc 1 381 0
+ 831 0010 1B68     		ldr	r3, [r3]
+ 832              	.LVL88:
+ 833              	.L53:
+ 378:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 834              		.loc 1 378 0
+ 835 0012 8342     		cmp	r3, r0
+ 836 0014 FBD1     		bne	.L54
+ 384:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 837              		.loc 1 384 0
+ 838 0016 1968     		ldr	r1, [r3]
+ 839 0018 0029     		cmp	r1, #0
+ 840 001a 05D0     		beq	.L55
+ 386:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 841              		.loc 1 386 0
+ 842 001c CC68     		ldr	r4, [r1, #12]
+ 843 001e 2500     		movs	r5, r4
+ 844 0020 DC68     		ldr	r4, [r3, #12]
+ 845 0022 A446     		mov	ip, r4
+ 846 0024 6544     		add	r5, r5, ip
+ 847 0026 CD60     		str	r5, [r1, #12]
+ 848              	.L55:
+ 389:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 24
+
+
+ 849              		.loc 1 389 0
+ 850 0028 002A     		cmp	r2, #0
+ 851 002a 03D1     		bne	.L56
+ 391:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 852              		.loc 1 391 0
+ 853 002c 094A     		ldr	r2, .L58
+ 854              	.LVL89:
+ 855 002e 1968     		ldr	r1, [r3]
+ 856 0030 1160     		str	r1, [r2]
+ 857 0032 01E0     		b	.L57
+ 858              	.LVL90:
+ 859              	.L56:
+ 395:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 860              		.loc 1 395 0
+ 861 0034 1968     		ldr	r1, [r3]
+ 862 0036 1160     		str	r1, [r2]
+ 863              	.LVL91:
+ 864              	.L57:
+ 398:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     pstCur->ucState = OS_SWTMR_STATUS_CREATED;
+ 865              		.loc 1 398 0
+ 866 0038 0022     		movs	r2, #0
+ 867 003a 1A60     		str	r2, [r3]
+ 399:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 868              		.loc 1 399 0
+ 869 003c 0132     		adds	r2, r2, #1
+ 870 003e 1A71     		strb	r2, [r3, #4]
+ 402:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #endif
+ 871              		.loc 1 402 0
+ 872 0040 0389     		ldrh	r3, [r0, #8]
+ 873              	.LVL92:
+ 874 0042 0E32     		adds	r2, r2, #14
+ 875 0044 1340     		ands	r3, r2
+ 876 0046 0449     		ldr	r1, .L58+4
+ 877 0048 9B00     		lsls	r3, r3, #2
+ 878 004a 5A58     		ldr	r2, [r3, r1]
+ 879 004c 5200     		lsls	r2, r2, #1
+ 880 004e 5208     		lsrs	r2, r2, #1
+ 881 0050 5A50     		str	r2, [r3, r1]
+ 882              	.L51:
+ 404:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 883              		.loc 1 404 0
+ 884              		@ sp needed
+ 885 0052 30BD     		pop	{r4, r5, pc}
+ 886              	.L59:
+ 887              		.align	2
+ 888              	.L58:
+ 889 0054 00000000 		.word	m_pstSwtmrSortList
+ 890 0058 00000000 		.word	.LANCHOR0
+ 891              		.cfi_endproc
+ 892              	.LFE48:
+ 894              		.section	.text.osSwtmrScan,"ax",%progbits
+ 895              		.align	2
+ 896              		.global	osSwtmrScan
+ 897              		.code	16
+ 898              		.thumb_func
+ 900              	osSwtmrScan:
+ 901              	.LFB50:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 25
+
+
+ 444:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 445:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** /*****************************************************************************
+ 446:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Function   : osSwtmrScan
+ 447:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Description: Tick interrupt interface module of Software Timer
+ 448:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Input      : None
+ 449:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Output     : None
+ 450:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Return     : LOS_OK on success or error code on failure
+ 451:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** *****************************************************************************/
+ 452:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** LITE_OS_SEC_TEXT UINT32 osSwtmrScan(VOID)
+ 453:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** {
+ 902              		.loc 1 453 0
+ 903              		.cfi_startproc
+ 904              		@ args = 0, pretend = 0, frame = 0
+ 905              		@ frame_needed = 0, uses_anonymous_args = 0
+ 906 0000 10B5     		push	{r4, lr}
+ 907              	.LCFI12:
+ 908              		.cfi_def_cfa_offset 8
+ 909              		.cfi_offset 4, -8
+ 910              		.cfi_offset 14, -4
+ 454:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if (m_pstSwtmrSortList != NULL)
+ 911              		.loc 1 454 0
+ 912 0002 064B     		ldr	r3, .L62
+ 913 0004 1A68     		ldr	r2, [r3]
+ 914 0006 002A     		cmp	r2, #0
+ 915 0008 06D0     		beq	.L61
+ 455:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 456:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         if (--(m_pstSwtmrSortList->uwCount) == 0)
+ 916              		.loc 1 456 0
+ 917 000a D368     		ldr	r3, [r2, #12]
+ 918 000c 013B     		subs	r3, r3, #1
+ 919 000e D360     		str	r3, [r2, #12]
+ 920 0010 002B     		cmp	r3, #0
+ 921 0012 01D1     		bne	.L61
+ 457:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         {
+ 458:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             osSwTmrTimeoutHandle();
+ 922              		.loc 1 458 0
+ 923 0014 FFF7FEFF 		bl	osSwTmrTimeoutHandle
+ 924              	.LVL93:
+ 925              	.L61:
+ 459:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         }
+ 460:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 461:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     return LOS_OK;
+ 462:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** }
+ 926              		.loc 1 462 0
+ 927 0018 0020     		movs	r0, #0
+ 928              		@ sp needed
+ 929 001a 10BD     		pop	{r4, pc}
+ 930              	.L63:
+ 931              		.align	2
+ 932              	.L62:
+ 933 001c 00000000 		.word	m_pstSwtmrSortList
+ 934              		.cfi_endproc
+ 935              	.LFE50:
+ 937              		.section	.text.osSwtimerInsert,"ax",%progbits
+ 938              		.align	2
+ 939              		.global	osSwtimerInsert
+ 940              		.code	16
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 26
+
+
+ 941              		.thumb_func
+ 943              	osSwtimerInsert:
+ 944              	.LFB51:
+ 463:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 464:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** /*****************************************************************************
+ 465:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Function   : osSwTmrGetNextTimeout
+ 466:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Description: Get next timeout
+ 467:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Input      : None
+ 468:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Output     : None
+ 469:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Return     : Count of the Timer list
+ 470:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** *****************************************************************************/
+ 471:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #if (LOSCFG_KERNEL_TICKLESS == YES)
+ 472:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #if (LOSCFG_BASE_CORE_SWTMR_ALIGN == YES)
+ 473:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** LITE_OS_SEC_TEXT UINT32 osSwTmrGetNextTimeout(VOID)
+ 474:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** {
+ 475:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     SWTMR_CTRL_S *pstCur = NULL;
+ 476:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT32 uwTmpTime = 0, uwSleepTime = 0;
+ 477:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 478:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     pstCur = m_pstSwtmrSortList;
+ 479:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 480:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     //find first timer can wakeup the system
+ 481:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     while (pstCur != NULL)
+ 482:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 483:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         if(OS_SWTMR_ROUSES_ALLOW == pstCur->ucRouses)
+ 484:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         {
+ 485:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             m_pstRouses = pstCur;
+ 486:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             break;
+ 487:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         }
+ 488:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 489:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         uwTmpTime += pstCur->uwCount;
+ 490:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         m_pstRousesPrev = pstCur;
+ 491:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         pstCur = pstCur->pstNext;
+ 492:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 493:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 494:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if(pstCur != NULL)
+ 495:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 496:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         uwSleepTime = pstCur->uwCount + uwTmpTime;
+ 497:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         m_uwSwtimerRousesTime  = uwSleepTime;
+ 498:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 499:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     else
+ 500:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 501:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         return	0xFFFFFFFF;
+ 502:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 503:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 504:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     return uwSleepTime;
+ 505:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** }
+ 506:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #else
+ 507:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** LITE_OS_SEC_TEXT UINT32 osSwTmrGetNextTimeout(VOID)
+ 508:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** {
+ 509:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if (m_pstSwtmrSortList == NULL)
+ 510:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 511:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         return 0xFFFFFFFF;
+ 512:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 513:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     return m_pstSwtmrSortList->uwCount;
+ 514:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** }
+ 515:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #endif
+ 516:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #endif
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 27
+
+
+ 517:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 518:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** /*****************************************************************************
+ 519:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Function   : osSwtimerInsert
+ 520:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Description: Insert a list of swtmr
+ 521:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Input      : None
+ 522:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Output     : None
+ 523:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Return     : None
+ 524:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** *****************************************************************************/
+ 525:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #if (LOSCFG_BASE_CORE_SWTMR_ALIGN == YES)
+ 526:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** LITE_OS_SEC_TEXT VOID osSwtimerInsert(SWTMR_CTRL_S **pstHead, SWTMR_CTRL_S *pstSwtmr)
+ 527:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** {
+ 945              		.loc 1 527 0
+ 946              		.cfi_startproc
+ 947              		@ args = 0, pretend = 0, frame = 0
+ 948              		@ frame_needed = 0, uses_anonymous_args = 0
+ 949              	.LVL94:
+ 950 0000 70B5     		push	{r4, r5, r6, lr}
+ 951              	.LCFI13:
+ 952              		.cfi_def_cfa_offset 16
+ 953              		.cfi_offset 4, -16
+ 954              		.cfi_offset 5, -12
+ 955              		.cfi_offset 6, -8
+ 956              		.cfi_offset 14, -4
+ 957              	.LVL95:
+ 528:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     SWTMR_CTRL_S *pstPrev = NULL;
+ 529:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     SWTMR_CTRL_S *pstNextTmp = pstSwtmr->pstNext;
+ 958              		.loc 1 529 0
+ 959 0002 0E68     		ldr	r6, [r1]
+ 960              	.LVL96:
+ 530:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     SWTMR_CTRL_S *pstCur = *pstHead;
+ 961              		.loc 1 530 0
+ 962 0004 0368     		ldr	r3, [r0]
+ 963              	.LVL97:
+ 528:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     SWTMR_CTRL_S *pstPrev = NULL;
+ 964              		.loc 1 528 0
+ 965 0006 0025     		movs	r5, #0
+ 531:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 532:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     while(pstSwtmr!=NULL)
+ 966              		.loc 1 532 0
+ 967 0008 18E0     		b	.L65
+ 968              	.LVL98:
+ 969              	.L67:
+ 533:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 534:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         while (pstCur != NULL)
+ 535:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         {
+ 536:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             if (pstCur->uwCount > pstSwtmr->uwCount)
+ 970              		.loc 1 536 0
+ 971 000a DC68     		ldr	r4, [r3, #12]
+ 972 000c CA68     		ldr	r2, [r1, #12]
+ 973 000e 9442     		cmp	r4, r2
+ 974 0010 05D8     		bhi	.L66
+ 537:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             {
+ 538:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                 break;
+ 539:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             }
+ 540:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 541:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             pstSwtmr->uwCount -= pstCur->uwCount;
+ 975              		.loc 1 541 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 28
+
+
+ 976 0012 121B     		subs	r2, r2, r4
+ 977 0014 CA60     		str	r2, [r1, #12]
+ 978              	.LVL99:
+ 542:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             pstPrev = pstCur;
+ 979              		.loc 1 542 0
+ 980 0016 1D00     		movs	r5, r3
+ 543:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             pstCur = pstCur->pstNext;
+ 981              		.loc 1 543 0
+ 982 0018 1B68     		ldr	r3, [r3]
+ 983              	.LVL100:
+ 984              	.L71:
+ 534:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         {
+ 985              		.loc 1 534 0
+ 986 001a 002B     		cmp	r3, #0
+ 987 001c F5D1     		bne	.L67
+ 988              	.L66:
+ 544:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         }
+ 545:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         pstSwtmr->pstNext = pstCur;
+ 989              		.loc 1 545 0
+ 990 001e 0B60     		str	r3, [r1]
+ 546:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 547:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         if (pstCur != NULL)
+ 991              		.loc 1 547 0
+ 992 0020 002B     		cmp	r3, #0
+ 993 0022 03D0     		beq	.L68
+ 548:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         {
+ 549:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             pstCur->uwCount -= pstSwtmr->uwCount;
+ 994              		.loc 1 549 0
+ 995 0024 DA68     		ldr	r2, [r3, #12]
+ 996 0026 CC68     		ldr	r4, [r1, #12]
+ 997 0028 121B     		subs	r2, r2, r4
+ 998 002a DA60     		str	r2, [r3, #12]
+ 999              	.L68:
+ 550:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         }
+ 551:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         if (pstPrev == NULL)
+ 1000              		.loc 1 551 0
+ 1001 002c 002D     		cmp	r5, #0
+ 1002 002e 01D1     		bne	.L69
+ 552:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         {
+ 553:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             *pstHead = pstSwtmr;
+ 1003              		.loc 1 553 0
+ 1004 0030 0160     		str	r1, [r0]
+ 1005 0032 00E0     		b	.L70
+ 1006              	.L69:
+ 554:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         }
+ 555:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         else
+ 556:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         {
+ 557:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             pstPrev->pstNext = pstSwtmr;
+ 1007              		.loc 1 557 0
+ 1008 0034 2960     		str	r1, [r5]
+ 1009              	.L70:
+ 1010              	.LVL101:
+ 558:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         }
+ 559:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 560:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         pstPrev = pstSwtmr;
+ 1011              		.loc 1 560 0
+ 1012 0036 0D00     		movs	r5, r1
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 29
+
+
+ 561:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         pstSwtmr = pstNextTmp;
+ 1013              		.loc 1 561 0
+ 1014 0038 3100     		movs	r1, r6
+ 1015              	.LVL102:
+ 562:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         pstNextTmp = pstNextTmp->pstNext;
+ 1016              		.loc 1 562 0
+ 1017 003a 3668     		ldr	r6, [r6]
+ 1018              	.LVL103:
+ 1019              	.L65:
+ 532:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 1020              		.loc 1 532 0
+ 1021 003c 0029     		cmp	r1, #0
+ 1022 003e ECD1     		bne	.L71
+ 563:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 564:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 565:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     return;
+ 566:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** }
+ 1023              		.loc 1 566 0
+ 1024              		@ sp needed
+ 1025              	.LVL104:
+ 1026              	.LVL105:
+ 1027 0040 70BD     		pop	{r4, r5, r6, pc}
+ 1028              		.cfi_endproc
+ 1029              	.LFE51:
+ 1031 0042 C046     		.section	.text.osSwTmrAdjust,"ax",%progbits
+ 1032              		.align	2
+ 1033              		.global	osSwTmrAdjust
+ 1034              		.code	16
+ 1035              		.thumb_func
+ 1037              	osSwTmrAdjust:
+ 1038              	.LFB52:
+ 567:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #endif
+ 568:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 569:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** /*****************************************************************************
+ 570:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Function   : osSwTmrAdjust
+ 571:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Description: Adjust Software Timer list
+ 572:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Input      : sleep_time
+ 573:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Output     : None
+ 574:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Return     : None
+ 575:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** *****************************************************************************/
+ 576:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #if (LOSCFG_BASE_CORE_SWTMR_ALIGN == YES)
+ 577:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** LITE_OS_SEC_TEXT VOID osSwTmrAdjust(UINT32 uwSleepTime)
+ 578:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** {
+ 1039              		.loc 1 578 0
+ 1040              		.cfi_startproc
+ 1041              		@ args = 0, pretend = 0, frame = 0
+ 1042              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1043              	.LVL106:
+ 1044 0000 70B5     		push	{r4, r5, r6, lr}
+ 1045              	.LCFI14:
+ 1046              		.cfi_def_cfa_offset 16
+ 1047              		.cfi_offset 4, -16
+ 1048              		.cfi_offset 5, -12
+ 1049              		.cfi_offset 6, -8
+ 1050              		.cfi_offset 14, -4
+ 1051              	.LVL107:
+ 579:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     SWTMR_CTRL_S  *pstCur = NULL;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 30
+
+
+ 580:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 581:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if(m_pstRouses == NULL)
+ 1052              		.loc 1 581 0
+ 1053 0002 154B     		ldr	r3, .L79
+ 1054 0004 1B68     		ldr	r3, [r3]
+ 1055 0006 002B     		cmp	r3, #0
+ 1056 0008 24D0     		beq	.L72
+ 582:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         return;
+ 583:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 584:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if (uwSleepTime > m_uwSwtimerRousesTime)
+ 1057              		.loc 1 584 0
+ 1058 000a 0028     		cmp	r0, #0
+ 1059 000c 00D0     		beq	.L74
+ 585:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 586:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         uwSleepTime = m_uwSwtimerRousesTime;
+ 1060              		.loc 1 586 0
+ 1061 000e 0020     		movs	r0, #0
+ 1062              	.LVL108:
+ 1063              	.L74:
+ 587:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 588:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 589:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if(uwSleepTime <= m_pstRouses->uwCount)
+ 1064              		.loc 1 589 0
+ 1065 0010 DA68     		ldr	r2, [r3, #12]
+ 1066 0012 9042     		cmp	r0, r2
+ 1067 0014 02D8     		bhi	.L75
+ 590:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 591:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         m_pstRouses->uwCount -= uwSleepTime;
+ 1068              		.loc 1 591 0
+ 1069 0016 101A     		subs	r0, r2, r0
+ 1070              	.LVL109:
+ 1071 0018 D860     		str	r0, [r3, #12]
+ 1072 001a 0FE0     		b	.L76
+ 1073              	.LVL110:
+ 1074              	.L75:
+ 592:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 593:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     else
+ 594:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 595:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         m_pstRouses->uwCount = m_uwSwtimerRousesTime - uwSleepTime;
+ 1075              		.loc 1 595 0
+ 1076 001c 4042     		rsbs	r0, r0, #0
+ 1077              	.LVL111:
+ 1078 001e D860     		str	r0, [r3, #12]
+ 596:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 597:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         if(m_pstRousesPrev!=NULL)
+ 1079              		.loc 1 597 0
+ 1080 0020 0E4B     		ldr	r3, .L79+4
+ 1081 0022 1B68     		ldr	r3, [r3]
+ 1082 0024 002B     		cmp	r3, #0
+ 1083 0026 09D0     		beq	.L76
+ 598:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         {
+ 599:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             m_pstRousesPrev->pstNext = NULL;
+ 1084              		.loc 1 599 0
+ 1085 0028 0022     		movs	r2, #0
+ 1086 002a 1A60     		str	r2, [r3]
+ 600:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             pstCur = m_pstSwtmrSortList;
+ 1087              		.loc 1 600 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 31
+
+
+ 1088 002c 0C4C     		ldr	r4, .L79+8
+ 1089              	.LVL112:
+ 601:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             osSwtimerInsert(&m_pstRouses,pstCur);
+ 1090              		.loc 1 601 0
+ 1091 002e 0A4D     		ldr	r5, .L79
+ 1092 0030 2168     		ldr	r1, [r4]
+ 1093 0032 2800     		movs	r0, r5
+ 1094              	.LVL113:
+ 1095 0034 FFF7FEFF 		bl	osSwtimerInsert
+ 1096              	.LVL114:
+ 602:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             m_pstSwtmrSortList = m_pstRouses;
+ 1097              		.loc 1 602 0
+ 1098 0038 2B68     		ldr	r3, [r5]
+ 1099 003a 2360     		str	r3, [r4]
+ 1100              	.L76:
+ 603:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         }
+ 604:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 605:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if (m_pstSwtmrSortList->uwCount == 0)
+ 1101              		.loc 1 605 0
+ 1102 003c 084B     		ldr	r3, .L79+8
+ 1103 003e 1B68     		ldr	r3, [r3]
+ 1104 0040 DB68     		ldr	r3, [r3, #12]
+ 1105 0042 002B     		cmp	r3, #0
+ 1106 0044 01D1     		bne	.L77
+ 606:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 607:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         osSwTmrTimeoutHandle();
+ 1107              		.loc 1 607 0
+ 1108 0046 FFF7FEFF 		bl	osSwTmrTimeoutHandle
+ 1109              	.LVL115:
+ 1110              	.L77:
+ 608:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 609:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 610:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     m_pstRouses = NULL;
+ 1111              		.loc 1 610 0
+ 1112 004a 0023     		movs	r3, #0
+ 1113 004c 024A     		ldr	r2, .L79
+ 1114 004e 1360     		str	r3, [r2]
+ 611:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     m_pstRousesPrev = NULL;
+ 1115              		.loc 1 611 0
+ 1116 0050 024A     		ldr	r2, .L79+4
+ 1117 0052 1360     		str	r3, [r2]
+ 1118              	.L72:
+ 612:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** }
+ 1119              		.loc 1 612 0
+ 1120              		@ sp needed
+ 1121 0054 70BD     		pop	{r4, r5, r6, pc}
+ 1122              	.L80:
+ 1123 0056 C046     		.align	2
+ 1124              	.L79:
+ 1125 0058 00000000 		.word	.LANCHOR1
+ 1126 005c 00000000 		.word	.LANCHOR2
+ 1127 0060 00000000 		.word	m_pstSwtmrSortList
+ 1128              		.cfi_endproc
+ 1129              	.LFE52:
+ 1131              		.section	.text.osSwtmrTimeGet,"ax",%progbits
+ 1132              		.align	2
+ 1133              		.global	osSwtmrTimeGet
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 32
+
+
+ 1134              		.code	16
+ 1135              		.thumb_func
+ 1137              	osSwtmrTimeGet:
+ 1138              	.LFB53:
+ 613:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #else
+ 614:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** LITE_OS_SEC_TEXT VOID osSwTmrAdjust(UINT32 uwSleepTime)
+ 615:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** {
+ 616:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if (m_pstSwtmrSortList == NULL)
+ 617:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 618:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         return ;
+ 619:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 620:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 621:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if (uwSleepTime > m_pstSwtmrSortList->uwCount)
+ 622:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 623:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         uwSleepTime = m_pstSwtmrSortList->uwCount;
+ 624:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 625:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 626:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     m_pstSwtmrSortList->uwCount -= uwSleepTime;
+ 627:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 628:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if (m_pstSwtmrSortList->uwCount == 0)
+ 629:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 630:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         osSwTmrTimeoutHandle();
+ 631:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 632:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** }
+ 633:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #endif
+ 634:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 635:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** /*****************************************************************************
+ 636:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Function   : osSwtmrTimeGet
+ 637:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Description:Obtain a software timer ticks.
+ 638:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Input       : pstSwtmr
+ 639:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Output     : None
+ 640:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Return     : None
+ 641:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Other      : None
+ 642:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** *****************************************************************************/
+ 643:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** LITE_OS_SEC_TEXT UINT32 osSwtmrTimeGet(SWTMR_CTRL_S *pstSwtmr)
+ 644:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** {
+ 1139              		.loc 1 644 0
+ 1140              		.cfi_startproc
+ 1141              		@ args = 0, pretend = 0, frame = 0
+ 1142              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1143              		@ link register save eliminated.
+ 1144              	.LVL116:
+ 645:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     SWTMR_CTRL_S *pstCur = (SWTMR_CTRL_S *)NULL;
+ 646:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT32 uwTick = 0;
+ 647:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 648:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     pstCur = m_pstSwtmrSortList;
+ 1145              		.loc 1 648 0
+ 1146 0000 054B     		ldr	r3, .L84
+ 1147 0002 1B68     		ldr	r3, [r3]
+ 1148              	.LVL117:
+ 646:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 1149              		.loc 1 646 0
+ 1150 0004 0022     		movs	r2, #0
+ 1151              	.LVL118:
+ 1152              	.L83:
+ 649:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     while (1)
+ 650:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 33
+
+
+ 651:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         uwTick += pstCur->uwCount;
+ 1153              		.loc 1 651 0
+ 1154 0006 D968     		ldr	r1, [r3, #12]
+ 1155 0008 8C46     		mov	ip, r1
+ 1156 000a 6244     		add	r2, r2, ip
+ 1157              	.LVL119:
+ 652:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         if (pstCur == pstSwtmr)
+ 1158              		.loc 1 652 0
+ 1159 000c 8342     		cmp	r3, r0
+ 1160 000e 01D0     		beq	.L82
+ 653:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         {
+ 654:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             break;
+ 655:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         }
+ 656:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 657:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         pstCur = pstCur->pstNext;
+ 1161              		.loc 1 657 0
+ 1162 0010 1B68     		ldr	r3, [r3]
+ 1163              	.LVL120:
+ 658:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 1164              		.loc 1 658 0
+ 1165 0012 F8E7     		b	.L83
+ 1166              	.L82:
+ 659:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 660:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     return uwTick;
+ 661:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** }
+ 1167              		.loc 1 661 0
+ 1168 0014 1000     		movs	r0, r2
+ 1169              	.LVL121:
+ 1170              		@ sp needed
+ 1171 0016 7047     		bx	lr
+ 1172              	.L85:
+ 1173              		.align	2
+ 1174              	.L84:
+ 1175 0018 00000000 		.word	m_pstSwtmrSortList
+ 1176              		.cfi_endproc
+ 1177              	.LFE53:
+ 1179              		.section	.text.LOS_SwtmrCreate,"ax",%progbits
+ 1180              		.align	2
+ 1181              		.global	LOS_SwtmrCreate
+ 1182              		.code	16
+ 1183              		.thumb_func
+ 1185              	LOS_SwtmrCreate:
+ 1186              	.LFB54:
+ 662:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 663:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** /*****************************************************************************
+ 664:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Function   : LOS_SwtmrCreate
+ 665:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Description: Create software timer
+ 666:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Input      : uwInterval
+ 667:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****              usMode
+ 668:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****              pfnHandler
+ 669:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****              uwArg
+ 670:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Output     : pusSwTmrID
+ 671:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Return     : LOS_OK on success or error code on failure
+ 672:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** *****************************************************************************/
+ 673:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** LITE_OS_SEC_TEXT_INIT UINT32 LOS_SwtmrCreate(UINT32 uwInterval, UINT8 ucMode, SWTMR_PROC_FUNC pfnHa
+ 674:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #if (LOSCFG_BASE_CORE_SWTMR_ALIGN == YES)
+ 675:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                     , UINT8 ucRouses, UINT8 ucSensitive
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 34
+
+
+ 676:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #endif
+ 677:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****                     )
+ 678:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** {
+ 1187              		.loc 1 678 0
+ 1188              		.cfi_startproc
+ 1189              		@ args = 12, pretend = 0, frame = 16
+ 1190              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1191              	.LVL122:
+ 1192 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 1193              	.LCFI15:
+ 1194              		.cfi_def_cfa_offset 20
+ 1195              		.cfi_offset 4, -20
+ 1196              		.cfi_offset 5, -16
+ 1197              		.cfi_offset 6, -12
+ 1198              		.cfi_offset 7, -8
+ 1199              		.cfi_offset 14, -4
+ 1200 0002 5F46     		mov	r7, fp
+ 1201 0004 80B4     		push	{r7}
+ 1202              	.LCFI16:
+ 1203              		.cfi_def_cfa_offset 24
+ 1204              		.cfi_offset 11, -24
+ 1205 0006 84B0     		sub	sp, sp, #16
+ 1206              	.LCFI17:
+ 1207              		.cfi_def_cfa_offset 40
+ 1208 0008 0700     		movs	r7, r0
+ 1209 000a 0191     		str	r1, [sp, #4]
+ 1210 000c 0292     		str	r2, [sp, #8]
+ 1211 000e 0393     		str	r3, [sp, #12]
+ 1212 0010 0AAB     		add	r3, sp, #40
+ 1213              	.LVL123:
+ 1214 0012 10CB     		ldmia	r3!, {r4}
+ 1215              	.LVL124:
+ 1216 0014 1D78     		ldrb	r5, [r3]
+ 1217 0016 0CAB     		add	r3, sp, #48
+ 1218              	.LVL125:
+ 1219 0018 1E78     		ldrb	r6, [r3]
+ 679:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     SWTMR_CTRL_S  *pstSwtmr;
+ 680:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINTPTR  uvIntSave;
+ 681:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 682:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if (0 == uwInterval)
+ 1220              		.loc 1 682 0
+ 1221 001a 0028     		cmp	r0, #0
+ 1222 001c 2FD0     		beq	.L89
+ 683:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 684:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         return LOS_ERRNO_SWTMR_INTERVAL_NOT_SUITED;
+ 685:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 686:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 687:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if ((LOS_SWTMR_MODE_ONCE != ucMode)
+ 1223              		.loc 1 687 0
+ 1224 001e 0229     		cmp	r1, #2
+ 1225 0020 2FD8     		bhi	.L90
+ 688:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         && (LOS_SWTMR_MODE_PERIOD != ucMode)
+ 689:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         && (LOS_SWTMR_MODE_NO_SELFDELETE != ucMode))
+ 690:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 691:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         return LOS_ERRNO_SWTMR_MODE_INVALID;
+ 692:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 693:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 35
+
+
+ 694:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if (NULL == pfnHandler)
+ 1226              		.loc 1 694 0
+ 1227 0022 002A     		cmp	r2, #0
+ 1228 0024 2FD0     		beq	.L91
+ 695:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 696:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         return LOS_ERRNO_SWTMR_PTR_NULL;
+ 697:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 698:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 699:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if (NULL == pusSwTmrID)
+ 1229              		.loc 1 699 0
+ 1230 0026 039B     		ldr	r3, [sp, #12]
+ 1231              	.LVL126:
+ 1232 0028 002B     		cmp	r3, #0
+ 1233 002a 2ED0     		beq	.L92
+ 700:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 701:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         return LOS_ERRNO_SWTMR_RET_PTR_NULL;
+ 702:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 703:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 704:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #if (LOSCFG_BASE_CORE_SWTMR_ALIGN == YES)
+ 705:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if((OS_SWTMR_ROUSES_IGNORE != ucRouses)&& (OS_SWTMR_ROUSES_ALLOW != ucRouses))
+ 1234              		.loc 1 705 0
+ 1235 002c 012D     		cmp	r5, #1
+ 1236 002e 2ED8     		bhi	.L93
+ 706:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 707:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         return OS_ERRNO_SWTMR_ROUSES_INVALID;
+ 708:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 709:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 710:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if((OS_SWTMR_ALIGN_INSENSITIVE != ucSensitive)&& (OS_SWTMR_ALIGN_SENSITIVE != ucSensitive))
+ 1237              		.loc 1 710 0
+ 1238 0030 012E     		cmp	r6, #1
+ 1239 0032 2ED8     		bhi	.L94
+ 711:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 712:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         return OS_ERRNO_SWTMR_ALIGN_INVALID;
+ 713:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 714:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #endif
+ 715:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 716:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     uvIntSave = LOS_IntLock();
+ 1240              		.loc 1 716 0
+ 1241 0034 FFF7FEFF 		bl	LOS_IntLock
+ 1242              	.LVL127:
+ 717:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if (NULL == m_pstSwtmrFreeList)
+ 1243              		.loc 1 717 0
+ 1244 0038 184B     		ldr	r3, .L95
+ 1245 003a 1B68     		ldr	r3, [r3]
+ 1246 003c 9B46     		mov	fp, r3
+ 1247 003e 002B     		cmp	r3, #0
+ 1248 0040 03D1     		bne	.L88
+ 718:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 719:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         LOS_IntRestore(uvIntSave);
+ 1249              		.loc 1 719 0
+ 1250 0042 FFF7FEFF 		bl	LOS_IntRestore
+ 1251              	.LVL128:
+ 720:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         return LOS_ERRNO_SWTMR_MAXSIZE;
+ 1252              		.loc 1 720 0
+ 1253 0046 1648     		ldr	r0, .L95+4
+ 1254 0048 24E0     		b	.L87
+ 1255              	.LVL129:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 36
+
+
+ 1256              	.L88:
+ 721:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 722:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 723:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     pstSwtmr = m_pstSwtmrFreeList;
+ 724:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     m_pstSwtmrFreeList = pstSwtmr->pstNext;
+ 1257              		.loc 1 724 0
+ 1258 004a 144B     		ldr	r3, .L95
+ 1259              	.LVL130:
+ 1260 004c 5A46     		mov	r2, fp
+ 1261 004e 1268     		ldr	r2, [r2]
+ 1262 0050 1A60     		str	r2, [r3]
+ 725:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     LOS_IntRestore(uvIntSave);
+ 1263              		.loc 1 725 0
+ 1264 0052 FFF7FEFF 		bl	LOS_IntRestore
+ 1265              	.LVL131:
+ 726:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     pstSwtmr->pfnHandler    = pfnHandler;
+ 1266              		.loc 1 726 0
+ 1267 0056 5B46     		mov	r3, fp
+ 1268 0058 029A     		ldr	r2, [sp, #8]
+ 1269 005a 9A61     		str	r2, [r3, #24]
+ 727:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     pstSwtmr->ucMode        = ucMode;
+ 1270              		.loc 1 727 0
+ 1271 005c 6A46     		mov	r2, sp
+ 1272 005e 1279     		ldrb	r2, [r2, #4]
+ 1273 0060 5A71     		strb	r2, [r3, #5]
+ 728:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     pstSwtmr->uwInterval    = uwInterval;
+ 1274              		.loc 1 728 0
+ 1275 0062 1F61     		str	r7, [r3, #16]
+ 729:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     pstSwtmr->pstNext       = (SWTMR_CTRL_S *)NULL;
+ 1276              		.loc 1 729 0
+ 1277 0064 0020     		movs	r0, #0
+ 1278 0066 1860     		str	r0, [r3]
+ 730:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     pstSwtmr->uwCount       = 0;
+ 1279              		.loc 1 730 0
+ 1280 0068 D860     		str	r0, [r3, #12]
+ 731:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     pstSwtmr->uwArg         = uwArg;
+ 1281              		.loc 1 731 0
+ 1282 006a 5C61     		str	r4, [r3, #20]
+ 732:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #if (LOSCFG_BASE_CORE_SWTMR_ALIGN == YES)
+ 733:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     pstSwtmr->ucRouses      = ucRouses;
+ 1283              		.loc 1 733 0
+ 1284 006c 9D71     		strb	r5, [r3, #6]
+ 734:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     pstSwtmr->ucSensitive   = ucSensitive;
+ 1285              		.loc 1 734 0
+ 1286 006e DE71     		strb	r6, [r3, #7]
+ 735:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #endif
+ 736:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     pstSwtmr->ucState       = OS_SWTMR_STATUS_CREATED;
+ 1287              		.loc 1 736 0
+ 1288 0070 0123     		movs	r3, #1
+ 1289 0072 5A46     		mov	r2, fp
+ 1290 0074 1371     		strb	r3, [r2, #4]
+ 737:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     *pusSwTmrID = pstSwtmr->usTimerID;
+ 1291              		.loc 1 737 0
+ 1292 0076 1389     		ldrh	r3, [r2, #8]
+ 1293 0078 039A     		ldr	r2, [sp, #12]
+ 1294 007a 1380     		strh	r3, [r2]
+ 738:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 37
+
+
+ 739:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     return LOS_OK;
+ 1295              		.loc 1 739 0
+ 1296 007c 0AE0     		b	.L87
+ 1297              	.LVL132:
+ 1298              	.L89:
+ 684:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 1299              		.loc 1 684 0
+ 1300 007e 0948     		ldr	r0, .L95+8
+ 1301              	.LVL133:
+ 1302 0080 08E0     		b	.L87
+ 1303              	.LVL134:
+ 1304              	.L90:
+ 691:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 1305              		.loc 1 691 0
+ 1306 0082 0948     		ldr	r0, .L95+12
+ 1307              	.LVL135:
+ 1308 0084 06E0     		b	.L87
+ 1309              	.LVL136:
+ 1310              	.L91:
+ 696:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 1311              		.loc 1 696 0
+ 1312 0086 0948     		ldr	r0, .L95+16
+ 1313              	.LVL137:
+ 1314 0088 04E0     		b	.L87
+ 1315              	.LVL138:
+ 1316              	.L92:
+ 701:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 1317              		.loc 1 701 0
+ 1318 008a 0948     		ldr	r0, .L95+20
+ 1319              	.LVL139:
+ 1320 008c 02E0     		b	.L87
+ 1321              	.LVL140:
+ 1322              	.L93:
+ 707:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 1323              		.loc 1 707 0
+ 1324 008e 0948     		ldr	r0, .L95+24
+ 1325              	.LVL141:
+ 1326 0090 00E0     		b	.L87
+ 1327              	.LVL142:
+ 1328              	.L94:
+ 712:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 1329              		.loc 1 712 0
+ 1330 0092 0948     		ldr	r0, .L95+28
+ 1331              	.LVL143:
+ 1332              	.L87:
+ 740:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** }
+ 1333              		.loc 1 740 0
+ 1334 0094 04B0     		add	sp, sp, #16
+ 1335              		@ sp needed
+ 1336              	.LVL144:
+ 1337 0096 04BC     		pop	{r2}
+ 1338 0098 9346     		mov	fp, r2
+ 1339 009a F0BD     		pop	{r4, r5, r6, r7, pc}
+ 1340              	.L96:
+ 1341              		.align	2
+ 1342              	.L95:
+ 1343 009c 00000000 		.word	m_pstSwtmrFreeList
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 38
+
+
+ 1344 00a0 04030002 		.word	33555204
+ 1345 00a4 01030002 		.word	33555201
+ 1346 00a8 02030002 		.word	33555202
+ 1347 00ac 00030002 		.word	33555200
+ 1348 00b0 03030002 		.word	33555203
+ 1349 00b4 11030002 		.word	33555217
+ 1350 00b8 12030002 		.word	33555218
+ 1351              		.cfi_endproc
+ 1352              	.LFE54:
+ 1354              		.section	.text.LOS_SwtmrStart,"ax",%progbits
+ 1355              		.align	2
+ 1356              		.global	LOS_SwtmrStart
+ 1357              		.code	16
+ 1358              		.thumb_func
+ 1360              	LOS_SwtmrStart:
+ 1361              	.LFB55:
+ 741:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 742:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** /*****************************************************************************
+ 743:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Function   : LOS_SwtmrStart
+ 744:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Description: Start software timer
+ 745:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Input      : usSwTmrID ------- Software timer ID
+ 746:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Output     : None
+ 747:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Return     : LOS_OK on success or error code on failure
+ 748:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** *****************************************************************************/
+ 749:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** LITE_OS_SEC_TEXT UINT32 LOS_SwtmrStart(UINT16 usSwTmrID)
+ 750:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** {
+ 1362              		.loc 1 750 0
+ 1363              		.cfi_startproc
+ 1364              		@ args = 0, pretend = 0, frame = 0
+ 1365              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1366              	.LVL145:
+ 1367 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 1368              	.LCFI18:
+ 1369              		.cfi_def_cfa_offset 24
+ 1370              		.cfi_offset 3, -24
+ 1371              		.cfi_offset 4, -20
+ 1372              		.cfi_offset 5, -16
+ 1373              		.cfi_offset 6, -12
+ 1374              		.cfi_offset 7, -8
+ 1375              		.cfi_offset 14, -4
+ 1376 0002 0400     		movs	r4, r0
+ 1377              	.LVL146:
+ 751:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     SWTMR_CTRL_S  *pstSwtmr;
+ 752:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINTPTR  uvIntSave;
+ 753:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #if (LOSCFG_BASE_CORE_SWTMR_ALIGN == YES)
+ 754:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT32 uwTimes;
+ 755:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #endif
+ 756:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT32 uwRet = LOS_OK;
+ 757:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT16 usSwTmrCBID;
+ 758:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 759:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     CHECK_SWTMRID(usSwTmrID, uvIntSave, usSwTmrCBID, pstSwtmr);
+ 1378              		.loc 1 759 0
+ 1379 0004 2D4B     		ldr	r3, .L108
+ 1380 0006 9842     		cmp	r0, r3
+ 1381 0008 56D8     		bhi	.L105
+ 1382              		.loc 1 759 0 is_stmt 0 discriminator 2
+ 1383 000a FFF7FEFF 		bl	LOS_IntLock
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 39
+
+
+ 1384              	.LVL147:
+ 1385 000e 0600     		movs	r6, r0
+ 1386              	.LVL148:
+ 1387 0010 0F23     		movs	r3, #15
+ 1388 0012 2340     		ands	r3, r4
+ 1389              	.LVL149:
+ 1390 0014 2A4A     		ldr	r2, .L108+4
+ 1391 0016 1568     		ldr	r5, [r2]
+ 1392 0018 DA00     		lsls	r2, r3, #3
+ 1393 001a D31A     		subs	r3, r2, r3
+ 1394              	.LVL150:
+ 1395 001c 9A00     		lsls	r2, r3, #2
+ 1396 001e AD18     		adds	r5, r5, r2
+ 1397              	.LVL151:
+ 1398 0020 2B89     		ldrh	r3, [r5, #8]
+ 1399 0022 9C42     		cmp	r4, r3
+ 1400 0024 03D0     		beq	.L99
+ 1401              		.loc 1 759 0 discriminator 3
+ 1402 0026 FFF7FEFF 		bl	LOS_IntRestore
+ 1403              	.LVL152:
+ 1404 002a 2648     		ldr	r0, .L108+8
+ 1405 002c 45E0     		b	.L98
+ 1406              	.LVL153:
+ 1407              	.L99:
+ 760:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #if (LOSCFG_BASE_CORE_SWTMR_ALIGN == YES)
+ 761:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if( OS_SWTMR_ALIGN_INSENSITIVE == pstSwtmr->ucSensitive && LOS_SWTMR_MODE_PERIOD == pstSwtmr->u
+ 1408              		.loc 1 761 0 is_stmt 1
+ 1409 002e 264A     		ldr	r2, .L108+12
+ 1410 0030 6968     		ldr	r1, [r5, #4]
+ 1411 0032 0A40     		ands	r2, r1
+ 1412 0034 2549     		ldr	r1, .L108+16
+ 1413 0036 8A42     		cmp	r2, r1
+ 1414 0038 26D1     		bne	.L100
+ 762:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 763:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         SET_ALIGN_SWTMR_CAN_ALIGNED(m_uwSwTmrAlignID[pstSwtmr->usTimerID % LOSCFG_BASE_CORE_SWTMR_L
+ 1415              		.loc 1 763 0
+ 1416 003a 0F22     		movs	r2, #15
+ 1417              	.LVL154:
+ 1418 003c 1340     		ands	r3, r2
+ 1419 003e 2449     		ldr	r1, .L108+20
+ 1420 0040 9B00     		lsls	r3, r3, #2
+ 1421 0042 8022     		movs	r2, #128
+ 1422              	.LVL155:
+ 1423 0044 D205     		lsls	r2, r2, #23
+ 1424 0046 5858     		ldr	r0, [r3, r1]
+ 1425              	.LVL156:
+ 1426 0048 0243     		orrs	r2, r0
+ 1427 004a 5A50     		str	r2, [r3, r1]
+ 764:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         if(pstSwtmr->uwInterval % LOS_COMMON_DIVISOR == 0)
+ 1428              		.loc 1 764 0
+ 1429 004c 0A21     		movs	r1, #10
+ 1430 004e 2869     		ldr	r0, [r5, #16]
+ 1431 0050 FFF7FEFF 		bl	__aeabi_uidivmod
+ 1432              	.LVL157:
+ 1433 0054 0029     		cmp	r1, #0
+ 1434 0056 17D1     		bne	.L100
+ 765:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         {
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 40
+
+
+ 766:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             SET_ALIGN_SWTMR_CAN_MULTIPLE(m_uwSwTmrAlignID[pstSwtmr->usTimerID % LOSCFG_BASE_CORE_SW
+ 1435              		.loc 1 766 0
+ 1436 0058 2B89     		ldrh	r3, [r5, #8]
+ 1437 005a 0F27     		movs	r7, #15
+ 1438              	.LVL158:
+ 1439 005c 3B40     		ands	r3, r7
+ 1440 005e 1C4C     		ldr	r4, .L108+20
+ 1441              	.LVL159:
+ 1442 0060 9B00     		lsls	r3, r3, #2
+ 1443 0062 8022     		movs	r2, #128
+ 1444 0064 9205     		lsls	r2, r2, #22
+ 1445 0066 1959     		ldr	r1, [r3, r4]
+ 1446 0068 0A43     		orrs	r2, r1
+ 1447 006a 1A51     		str	r2, [r3, r4]
+ 767:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             uwTimes = pstSwtmr->uwInterval / (LOS_COMMON_DIVISOR);
+ 1448              		.loc 1 767 0
+ 1449 006c 0A21     		movs	r1, #10
+ 1450 006e 2869     		ldr	r0, [r5, #16]
+ 1451 0070 FFF7FEFF 		bl	__aeabi_uidiv
+ 1452              	.LVL160:
+ 768:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****             SET_ALIGN_SWTMR_DIVISOR_TIMERS(m_uwSwTmrAlignID[pstSwtmr->usTimerID % LOSCFG_BASE_CORE_
+ 1453              		.loc 1 768 0
+ 1454 0074 2A89     		ldrh	r2, [r5, #8]
+ 1455 0076 0002     		lsls	r0, r0, #8
+ 1456              	.LVL161:
+ 1457 0078 000A     		lsrs	r0, r0, #8
+ 1458 007a 3A40     		ands	r2, r7
+ 1459 007c 9200     		lsls	r2, r2, #2
+ 1460 007e 1359     		ldr	r3, [r2, r4]
+ 1461 0080 1B0E     		lsrs	r3, r3, #24
+ 1462 0082 1B06     		lsls	r3, r3, #24
+ 1463 0084 0343     		orrs	r3, r0
+ 1464 0086 1351     		str	r3, [r2, r4]
+ 1465              	.L100:
+ 769:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         }
+ 770:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 771:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****  #endif
+ 772:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 773:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     switch (pstSwtmr->ucState)
+ 1466              		.loc 1 773 0
+ 1467 0088 2B79     		ldrb	r3, [r5, #4]
+ 1468 008a 012B     		cmp	r3, #1
+ 1469 008c 09D0     		beq	.L102
+ 1470 008e 002B     		cmp	r3, #0
+ 1471 0090 02D0     		beq	.L103
+ 1472 0092 022B     		cmp	r3, #2
+ 1473 0094 02D0     		beq	.L104
+ 1474 0096 09E0     		b	.L107
+ 1475              	.L103:
+ 774:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 775:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     case OS_SWTMR_STATUS_UNUSED:
+ 776:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         uwRet = LOS_ERRNO_SWTMR_NOT_CREATED;
+ 1476              		.loc 1 776 0
+ 1477 0098 0E4C     		ldr	r4, .L108+24
+ 1478 009a 08E0     		b	.L101
+ 1479              	.L104:
+ 777:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         break;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 41
+
+
+ 778:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     case OS_SWTMR_STATUS_TICKING:
+ 779:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         osSwtmrStop(pstSwtmr);
+ 1480              		.loc 1 779 0
+ 1481 009c 2800     		movs	r0, r5
+ 1482 009e FFF7FEFF 		bl	osSwtmrStop
+ 1483              	.LVL162:
+ 1484              	.L102:
+ 780:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     case OS_SWTMR_STATUS_CREATED: /*lint !e616*/
+ 781:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         osSwTmrStart(pstSwtmr);
+ 1485              		.loc 1 781 0
+ 1486 00a2 2800     		movs	r0, r5
+ 1487 00a4 FFF7FEFF 		bl	osSwTmrStart
+ 1488              	.LVL163:
+ 756:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT16 usSwTmrCBID;
+ 1489              		.loc 1 756 0
+ 1490 00a8 0024     		movs	r4, #0
+ 782:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         break;
+ 1491              		.loc 1 782 0
+ 1492 00aa 00E0     		b	.L101
+ 1493              	.L107:
+ 783:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     default:
+ 784:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         uwRet = LOS_ERRNO_SWTMR_STATUS_INVALID;
+ 1494              		.loc 1 784 0
+ 1495 00ac 0A4C     		ldr	r4, .L108+28
+ 1496              	.L101:
+ 1497              	.LVL164:
+ 785:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         break;
+ 786:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 787:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 788:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     LOS_IntRestore(uvIntSave);
+ 1498              		.loc 1 788 0
+ 1499 00ae 3000     		movs	r0, r6
+ 1500 00b0 FFF7FEFF 		bl	LOS_IntRestore
+ 1501              	.LVL165:
+ 789:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     return uwRet;
+ 1502              		.loc 1 789 0
+ 1503 00b4 2000     		movs	r0, r4
+ 1504 00b6 00E0     		b	.L98
+ 1505              	.LVL166:
+ 1506              	.L105:
+ 759:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #if (LOSCFG_BASE_CORE_SWTMR_ALIGN == YES)
+ 1507              		.loc 1 759 0
+ 1508 00b8 0248     		ldr	r0, .L108+8
+ 1509              	.LVL167:
+ 1510              	.L98:
+ 790:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** }
+ 1511              		.loc 1 790 0
+ 1512              		@ sp needed
+ 1513 00ba F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 1514              	.L109:
+ 1515              		.align	2
+ 1516              	.L108:
+ 1517 00bc EFFF0000 		.word	65519
+ 1518 00c0 00000000 		.word	m_pstSwtmrCBArray
+ 1519 00c4 05030002 		.word	33555205
+ 1520 00c8 00FF00FF 		.word	-16711936
+ 1521 00cc 00010001 		.word	16777472
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 42
+
+
+ 1522 00d0 00000000 		.word	.LANCHOR0
+ 1523 00d4 06030002 		.word	33555206
+ 1524 00d8 0E030002 		.word	33555214
+ 1525              		.cfi_endproc
+ 1526              	.LFE55:
+ 1528              		.section	.text.LOS_SwtmrStop,"ax",%progbits
+ 1529              		.align	2
+ 1530              		.global	LOS_SwtmrStop
+ 1531              		.code	16
+ 1532              		.thumb_func
+ 1534              	LOS_SwtmrStop:
+ 1535              	.LFB56:
+ 791:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 792:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** /*****************************************************************************
+ 793:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Function   : LOS_SwtmrStop
+ 794:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Description: Stop software timer
+ 795:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Input      : usSwTmrID ------- Software timer ID
+ 796:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Output     : None
+ 797:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Return     : LOS_OK on success or error code on failure
+ 798:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** *****************************************************************************/
+ 799:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** LITE_OS_SEC_TEXT UINT32 LOS_SwtmrStop(UINT16 usSwTmrID)
+ 800:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** {
+ 1536              		.loc 1 800 0
+ 1537              		.cfi_startproc
+ 1538              		@ args = 0, pretend = 0, frame = 0
+ 1539              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1540              	.LVL168:
+ 1541 0000 70B5     		push	{r4, r5, r6, lr}
+ 1542              	.LCFI19:
+ 1543              		.cfi_def_cfa_offset 16
+ 1544              		.cfi_offset 4, -16
+ 1545              		.cfi_offset 5, -12
+ 1546              		.cfi_offset 6, -8
+ 1547              		.cfi_offset 14, -4
+ 1548 0002 0400     		movs	r4, r0
+ 1549              	.LVL169:
+ 801:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     SWTMR_CTRL_S *pstSwtmr;
+ 802:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINTPTR uvIntSave;
+ 803:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT16 usSwTmrCBID;
+ 804:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT32 uwRet = LOS_OK;
+ 805:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 806:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     CHECK_SWTMRID(usSwTmrID, uvIntSave, usSwTmrCBID, pstSwtmr);
+ 1550              		.loc 1 806 0
+ 1551 0004 164B     		ldr	r3, .L120
+ 1552 0006 9842     		cmp	r0, r3
+ 1553 0008 28D8     		bhi	.L117
+ 1554              		.loc 1 806 0 is_stmt 0 discriminator 2
+ 1555 000a FFF7FEFF 		bl	LOS_IntLock
+ 1556              	.LVL170:
+ 1557 000e 0500     		movs	r5, r0
+ 1558              	.LVL171:
+ 1559 0010 0F23     		movs	r3, #15
+ 1560 0012 2340     		ands	r3, r4
+ 1561              	.LVL172:
+ 1562 0014 134A     		ldr	r2, .L120+4
+ 1563 0016 1168     		ldr	r1, [r2]
+ 1564 0018 DA00     		lsls	r2, r3, #3
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 43
+
+
+ 1565 001a D31A     		subs	r3, r2, r3
+ 1566              	.LVL173:
+ 1567 001c 9800     		lsls	r0, r3, #2
+ 1568              	.LVL174:
+ 1569 001e 0818     		adds	r0, r1, r0
+ 1570              	.LVL175:
+ 1571 0020 0389     		ldrh	r3, [r0, #8]
+ 1572 0022 9C42     		cmp	r4, r3
+ 1573 0024 04D0     		beq	.L112
+ 1574              		.loc 1 806 0 discriminator 3
+ 1575 0026 2800     		movs	r0, r5
+ 1576              	.LVL176:
+ 1577 0028 FFF7FEFF 		bl	LOS_IntRestore
+ 1578              	.LVL177:
+ 1579 002c 0E48     		ldr	r0, .L120+8
+ 1580 002e 16E0     		b	.L111
+ 1581              	.LVL178:
+ 1582              	.L112:
+ 807:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     switch (pstSwtmr->ucState)
+ 1583              		.loc 1 807 0 is_stmt 1
+ 1584 0030 0379     		ldrb	r3, [r0, #4]
+ 1585 0032 012B     		cmp	r3, #1
+ 1586 0034 0CD0     		beq	.L118
+ 1587 0036 002B     		cmp	r3, #0
+ 1588 0038 02D0     		beq	.L115
+ 1589 003a 022B     		cmp	r3, #2
+ 1590 003c 02D0     		beq	.L116
+ 1591 003e 05E0     		b	.L119
+ 1592              	.L115:
+ 808:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 809:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     case OS_SWTMR_STATUS_UNUSED:
+ 810:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         uwRet = LOS_ERRNO_SWTMR_NOT_CREATED;
+ 1593              		.loc 1 810 0
+ 1594 0040 0A4C     		ldr	r4, .L120+12
+ 1595              	.LVL179:
+ 1596 0042 06E0     		b	.L114
+ 1597              	.LVL180:
+ 1598              	.L116:
+ 811:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         break;
+ 812:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     case OS_SWTMR_STATUS_CREATED:
+ 813:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         uwRet = LOS_ERRNO_SWTMR_NOT_STARTED;
+ 814:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         break;
+ 815:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     case OS_SWTMR_STATUS_TICKING:
+ 816:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         osSwtmrStop(pstSwtmr);
+ 1599              		.loc 1 816 0
+ 1600 0044 FFF7FEFF 		bl	osSwtmrStop
+ 1601              	.LVL181:
+ 804:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 1602              		.loc 1 804 0
+ 1603 0048 0024     		movs	r4, #0
+ 1604              	.LVL182:
+ 817:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         break;
+ 1605              		.loc 1 817 0
+ 1606 004a 02E0     		b	.L114
+ 1607              	.LVL183:
+ 1608              	.L119:
+ 818:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     default:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 44
+
+
+ 819:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         uwRet = LOS_ERRNO_SWTMR_STATUS_INVALID;
+ 1609              		.loc 1 819 0
+ 1610 004c 084C     		ldr	r4, .L120+16
+ 1611              	.LVL184:
+ 820:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         break;
+ 1612              		.loc 1 820 0
+ 1613 004e 00E0     		b	.L114
+ 1614              	.LVL185:
+ 1615              	.L118:
+ 813:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         break;
+ 1616              		.loc 1 813 0
+ 1617 0050 084C     		ldr	r4, .L120+20
+ 1618              	.LVL186:
+ 1619              	.L114:
+ 821:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 822:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 823:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     LOS_IntRestore(uvIntSave);
+ 1620              		.loc 1 823 0
+ 1621 0052 2800     		movs	r0, r5
+ 1622 0054 FFF7FEFF 		bl	LOS_IntRestore
+ 1623              	.LVL187:
+ 824:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     return uwRet;
+ 1624              		.loc 1 824 0
+ 1625 0058 2000     		movs	r0, r4
+ 1626 005a 00E0     		b	.L111
+ 1627              	.LVL188:
+ 1628              	.L117:
+ 806:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     switch (pstSwtmr->ucState)
+ 1629              		.loc 1 806 0
+ 1630 005c 0248     		ldr	r0, .L120+8
+ 1631              	.LVL189:
+ 1632              	.L111:
+ 825:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** }
+ 1633              		.loc 1 825 0
+ 1634              		@ sp needed
+ 1635 005e 70BD     		pop	{r4, r5, r6, pc}
+ 1636              	.L121:
+ 1637              		.align	2
+ 1638              	.L120:
+ 1639 0060 EFFF0000 		.word	65519
+ 1640 0064 00000000 		.word	m_pstSwtmrCBArray
+ 1641 0068 05030002 		.word	33555205
+ 1642 006c 06030002 		.word	33555206
+ 1643 0070 0E030002 		.word	33555214
+ 1644 0074 0D030002 		.word	33555213
+ 1645              		.cfi_endproc
+ 1646              	.LFE56:
+ 1648              		.section	.text.LOS_SwtmrTimeGet,"ax",%progbits
+ 1649              		.align	2
+ 1650              		.global	LOS_SwtmrTimeGet
+ 1651              		.code	16
+ 1652              		.thumb_func
+ 1654              	LOS_SwtmrTimeGet:
+ 1655              	.LFB57:
+ 826:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 827:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** LITE_OS_SEC_TEXT UINT32 LOS_SwtmrTimeGet(UINT16 usSwTmrID, UINT32 *uwTick)
+ 828:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** {
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 45
+
+
+ 1656              		.loc 1 828 0
+ 1657              		.cfi_startproc
+ 1658              		@ args = 0, pretend = 0, frame = 0
+ 1659              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1660              	.LVL190:
+ 1661 0000 70B5     		push	{r4, r5, r6, lr}
+ 1662              	.LCFI20:
+ 1663              		.cfi_def_cfa_offset 16
+ 1664              		.cfi_offset 4, -16
+ 1665              		.cfi_offset 5, -12
+ 1666              		.cfi_offset 6, -8
+ 1667              		.cfi_offset 14, -4
+ 1668 0002 0400     		movs	r4, r0
+ 1669 0004 0D00     		movs	r5, r1
+ 1670              	.LVL191:
+ 829:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     SWTMR_CTRL_S  *pstSwtmr;
+ 830:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINTPTR  uvIntSave;
+ 831:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT32 uwRet = LOS_OK;
+ 832:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT16 usSwTmrCBID;
+ 833:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 834:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if (usSwTmrID >= OS_SWTMR_MAX_TIMERID)
+ 1671              		.loc 1 834 0
+ 1672 0006 194B     		ldr	r3, .L133
+ 1673 0008 9842     		cmp	r0, r3
+ 1674 000a 2BD8     		bhi	.L129
+ 835:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 836:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         return LOS_ERRNO_SWTMR_ID_INVALID;
+ 837:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 838:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 839:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if (uwTick == NULL)
+ 1675              		.loc 1 839 0
+ 1676 000c 0029     		cmp	r1, #0
+ 1677 000e 2BD0     		beq	.L130
+ 840:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 841:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         return LOS_ERRNO_SWTMR_TICK_PTR_NULL;
+ 842:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 843:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 844:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     uvIntSave = LOS_IntLock();
+ 1678              		.loc 1 844 0
+ 1679 0010 FFF7FEFF 		bl	LOS_IntLock
+ 1680              	.LVL192:
+ 1681 0014 0600     		movs	r6, r0
+ 1682              	.LVL193:
+ 845:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     usSwTmrCBID = usSwTmrID % LOSCFG_BASE_CORE_SWTMR_LIMIT;
+ 1683              		.loc 1 845 0
+ 1684 0016 0F23     		movs	r3, #15
+ 1685 0018 2340     		ands	r3, r4
+ 1686              	.LVL194:
+ 846:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     pstSwtmr = m_pstSwtmrCBArray + usSwTmrCBID;
+ 1687              		.loc 1 846 0
+ 1688 001a 154A     		ldr	r2, .L133+4
+ 1689 001c 1168     		ldr	r1, [r2]
+ 1690 001e DA00     		lsls	r2, r3, #3
+ 1691 0020 D31A     		subs	r3, r2, r3
+ 1692              	.LVL195:
+ 1693 0022 9800     		lsls	r0, r3, #2
+ 1694              	.LVL196:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 46
+
+
+ 1695 0024 0818     		adds	r0, r1, r0
+ 1696              	.LVL197:
+ 847:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 848:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     if (pstSwtmr->usTimerID != usSwTmrID)
+ 1697              		.loc 1 848 0
+ 1698 0026 0389     		ldrh	r3, [r0, #8]
+ 1699 0028 9C42     		cmp	r4, r3
+ 1700 002a 04D0     		beq	.L124
+ 849:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 850:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         LOS_IntRestore(uvIntSave);
+ 1701              		.loc 1 850 0
+ 1702 002c 3000     		movs	r0, r6
+ 1703              	.LVL198:
+ 1704 002e FFF7FEFF 		bl	LOS_IntRestore
+ 1705              	.LVL199:
+ 851:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         return LOS_ERRNO_SWTMR_ID_INVALID;
+ 1706              		.loc 1 851 0
+ 1707 0032 1048     		ldr	r0, .L133+8
+ 1708 0034 19E0     		b	.L123
+ 1709              	.LVL200:
+ 1710              	.L124:
+ 852:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 853:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     switch (pstSwtmr->ucState)
+ 1711              		.loc 1 853 0
+ 1712 0036 0379     		ldrb	r3, [r0, #4]
+ 1713 0038 012B     		cmp	r3, #1
+ 1714 003a 0DD0     		beq	.L131
+ 1715 003c 002B     		cmp	r3, #0
+ 1716 003e 02D0     		beq	.L127
+ 1717 0040 022B     		cmp	r3, #2
+ 1718 0042 02D0     		beq	.L128
+ 1719 0044 06E0     		b	.L132
+ 1720              	.L127:
+ 854:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 855:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     case OS_SWTMR_STATUS_UNUSED:
+ 856:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         uwRet = LOS_ERRNO_SWTMR_NOT_CREATED;
+ 1721              		.loc 1 856 0
+ 1722 0046 0C4C     		ldr	r4, .L133+12
+ 1723              	.LVL201:
+ 1724 0048 07E0     		b	.L126
+ 1725              	.LVL202:
+ 1726              	.L128:
+ 857:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         break;
+ 858:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     case OS_SWTMR_STATUS_CREATED:
+ 859:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         uwRet = LOS_ERRNO_SWTMR_NOT_STARTED;
+ 860:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         break;
+ 861:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     case OS_SWTMR_STATUS_TICKING:
+ 862:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         *uwTick = osSwtmrTimeGet(pstSwtmr);
+ 1727              		.loc 1 862 0
+ 1728 004a FFF7FEFF 		bl	osSwtmrTimeGet
+ 1729              	.LVL203:
+ 1730 004e 2860     		str	r0, [r5]
+ 831:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT16 usSwTmrCBID;
+ 1731              		.loc 1 831 0
+ 1732 0050 0024     		movs	r4, #0
+ 1733              	.LVL204:
+ 863:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         break;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 47
+
+
+ 1734              		.loc 1 863 0
+ 1735 0052 02E0     		b	.L126
+ 1736              	.LVL205:
+ 1737              	.L132:
+ 864:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     default:
+ 865:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         uwRet = LOS_ERRNO_SWTMR_STATUS_INVALID;
+ 1738              		.loc 1 865 0
+ 1739 0054 094C     		ldr	r4, .L133+16
+ 1740              	.LVL206:
+ 866:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         break;
+ 1741              		.loc 1 866 0
+ 1742 0056 00E0     		b	.L126
+ 1743              	.LVL207:
+ 1744              	.L131:
+ 859:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         break;
+ 1745              		.loc 1 859 0
+ 1746 0058 094C     		ldr	r4, .L133+20
+ 1747              	.LVL208:
+ 1748              	.L126:
+ 867:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 868:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     LOS_IntRestore(uvIntSave);
+ 1749              		.loc 1 868 0
+ 1750 005a 3000     		movs	r0, r6
+ 1751 005c FFF7FEFF 		bl	LOS_IntRestore
+ 1752              	.LVL209:
+ 869:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     return uwRet;
+ 1753              		.loc 1 869 0
+ 1754 0060 2000     		movs	r0, r4
+ 1755 0062 02E0     		b	.L123
+ 1756              	.LVL210:
+ 1757              	.L129:
+ 836:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 1758              		.loc 1 836 0
+ 1759 0064 0348     		ldr	r0, .L133+8
+ 1760              	.LVL211:
+ 1761 0066 00E0     		b	.L123
+ 1762              	.LVL212:
+ 1763              	.L130:
+ 841:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 1764              		.loc 1 841 0
+ 1765 0068 0648     		ldr	r0, .L133+24
+ 1766              	.LVL213:
+ 1767              	.L123:
+ 870:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** }
+ 1768              		.loc 1 870 0
+ 1769              		@ sp needed
+ 1770              	.LVL214:
+ 1771 006a 70BD     		pop	{r4, r5, r6, pc}
+ 1772              	.L134:
+ 1773              		.align	2
+ 1774              	.L133:
+ 1775 006c EFFF0000 		.word	65519
+ 1776 0070 00000000 		.word	m_pstSwtmrCBArray
+ 1777 0074 05030002 		.word	33555205
+ 1778 0078 06030002 		.word	33555206
+ 1779 007c 0E030002 		.word	33555214
+ 1780 0080 0D030002 		.word	33555213
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 48
+
+
+ 1781 0084 10030002 		.word	33555216
+ 1782              		.cfi_endproc
+ 1783              	.LFE57:
+ 1785              		.section	.text.LOS_SwtmrDelete,"ax",%progbits
+ 1786              		.align	2
+ 1787              		.global	LOS_SwtmrDelete
+ 1788              		.code	16
+ 1789              		.thumb_func
+ 1791              	LOS_SwtmrDelete:
+ 1792              	.LFB58:
+ 871:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 872:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** /*****************************************************************************
+ 873:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Function   : LOS_SwtmrDelete
+ 874:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Description: Delete software timer
+ 875:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Input      : usSwTmrID ------- Software timer ID
+ 876:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Output     : None
+ 877:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** Return     : LOS_OK on success or error code on failure
+ 878:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** *****************************************************************************/
+ 879:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** LITE_OS_SEC_TEXT UINT32 LOS_SwtmrDelete(UINT16 usSwTmrID)
+ 880:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** {
+ 1793              		.loc 1 880 0
+ 1794              		.cfi_startproc
+ 1795              		@ args = 0, pretend = 0, frame = 0
+ 1796              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1797              	.LVL215:
+ 1798 0000 70B5     		push	{r4, r5, r6, lr}
+ 1799              	.LCFI21:
+ 1800              		.cfi_def_cfa_offset 16
+ 1801              		.cfi_offset 4, -16
+ 1802              		.cfi_offset 5, -12
+ 1803              		.cfi_offset 6, -8
+ 1804              		.cfi_offset 14, -4
+ 1805 0002 0400     		movs	r4, r0
+ 1806              	.LVL216:
+ 881:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     SWTMR_CTRL_S  *pstSwtmr;
+ 882:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINTPTR  uvIntSave;
+ 883:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT32 uwRet = LOS_OK;
+ 884:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT16 usSwTmrCBID;
+ 885:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 886:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     CHECK_SWTMRID(usSwTmrID, uvIntSave, usSwTmrCBID, pstSwtmr);
+ 1807              		.loc 1 886 0
+ 1808 0004 1B4B     		ldr	r3, .L145
+ 1809 0006 9842     		cmp	r0, r3
+ 1810 0008 32D8     		bhi	.L142
+ 1811              		.loc 1 886 0 is_stmt 0 discriminator 2
+ 1812 000a FFF7FEFF 		bl	LOS_IntLock
+ 1813              	.LVL217:
+ 1814 000e 0600     		movs	r6, r0
+ 1815              	.LVL218:
+ 1816 0010 0F22     		movs	r2, #15
+ 1817 0012 2240     		ands	r2, r4
+ 1818              	.LVL219:
+ 1819 0014 184B     		ldr	r3, .L145+4
+ 1820 0016 1D68     		ldr	r5, [r3]
+ 1821 0018 D300     		lsls	r3, r2, #3
+ 1822 001a 9A1A     		subs	r2, r3, r2
+ 1823              	.LVL220:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 49
+
+
+ 1824 001c 9300     		lsls	r3, r2, #2
+ 1825 001e ED18     		adds	r5, r5, r3
+ 1826              	.LVL221:
+ 1827 0020 2B89     		ldrh	r3, [r5, #8]
+ 1828 0022 9C42     		cmp	r4, r3
+ 1829 0024 03D0     		beq	.L137
+ 1830              		.loc 1 886 0 discriminator 3
+ 1831 0026 FFF7FEFF 		bl	LOS_IntRestore
+ 1832              	.LVL222:
+ 1833 002a 1448     		ldr	r0, .L145+8
+ 1834 002c 21E0     		b	.L136
+ 1835              	.LVL223:
+ 1836              	.L137:
+ 887:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     switch (pstSwtmr->ucState)
+ 1837              		.loc 1 887 0 is_stmt 1
+ 1838 002e 2B79     		ldrb	r3, [r5, #4]
+ 1839 0030 012B     		cmp	r3, #1
+ 1840 0032 09D0     		beq	.L139
+ 1841 0034 002B     		cmp	r3, #0
+ 1842 0036 02D0     		beq	.L140
+ 1843 0038 022B     		cmp	r3, #2
+ 1844 003a 02D0     		beq	.L141
+ 1845 003c 12E0     		b	.L144
+ 1846              	.L140:
+ 888:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     {
+ 889:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     case OS_SWTMR_STATUS_UNUSED:
+ 890:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         uwRet = LOS_ERRNO_SWTMR_NOT_CREATED;
+ 1847              		.loc 1 890 0
+ 1848 003e 104C     		ldr	r4, .L145+12
+ 1849              	.LVL224:
+ 1850 0040 11E0     		b	.L138
+ 1851              	.LVL225:
+ 1852              	.L141:
+ 891:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         break;
+ 892:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     case OS_SWTMR_STATUS_TICKING:
+ 893:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         osSwtmrStop(pstSwtmr);
+ 1853              		.loc 1 893 0
+ 1854 0042 2800     		movs	r0, r5
+ 1855              	.LVL226:
+ 1856 0044 FFF7FEFF 		bl	osSwtmrStop
+ 1857              	.LVL227:
+ 1858              	.L139:
+ 1859              	.LBB8:
+ 1860              	.LBB9:
+ 352:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     m_pstSwtmrFreeList = pstSwtmr;
+ 1861              		.loc 1 352 0
+ 1862 0048 0E4B     		ldr	r3, .L145+16
+ 1863 004a 1A68     		ldr	r2, [r3]
+ 1864 004c 2A60     		str	r2, [r5]
+ 353:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     pstSwtmr->ucState = OS_SWTMR_STATUS_UNUSED;
+ 1865              		.loc 1 353 0
+ 1866 004e 1D60     		str	r5, [r3]
+ 354:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 1867              		.loc 1 354 0
+ 1868 0050 0022     		movs	r2, #0
+ 1869 0052 2A71     		strb	r2, [r5, #4]
+ 357:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** #endif
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 50
+
+
+ 1870              		.loc 1 357 0
+ 1871 0054 2B89     		ldrh	r3, [r5, #8]
+ 1872 0056 0F21     		movs	r1, #15
+ 1873              	.LVL228:
+ 1874 0058 0B40     		ands	r3, r1
+ 1875 005a 9B00     		lsls	r3, r3, #2
+ 1876 005c 0A49     		ldr	r1, .L145+20
+ 1877              	.LVL229:
+ 1878 005e 5A50     		str	r2, [r3, r1]
+ 1879              	.LBE9:
+ 1880              	.LBE8:
+ 883:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     UINT16 usSwTmrCBID;
+ 1881              		.loc 1 883 0
+ 1882 0060 0024     		movs	r4, #0
+ 1883              	.LVL230:
+ 1884 0062 00E0     		b	.L138
+ 1885              	.LVL231:
+ 1886              	.L144:
+ 894:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     case OS_SWTMR_STATUS_CREATED:  /*lint !e616*/
+ 895:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         osSwtmrDelete(pstSwtmr);
+ 896:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         break;
+ 897:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     default:
+ 898:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         uwRet = LOS_ERRNO_SWTMR_STATUS_INVALID;
+ 1887              		.loc 1 898 0
+ 1888 0064 094C     		ldr	r4, .L145+24
+ 1889              	.LVL232:
+ 1890              	.L138:
+ 899:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****         break;
+ 900:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     }
+ 901:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** 
+ 902:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     LOS_IntRestore(uvIntSave);
+ 1891              		.loc 1 902 0
+ 1892 0066 3000     		movs	r0, r6
+ 1893 0068 FFF7FEFF 		bl	LOS_IntRestore
+ 1894              	.LVL233:
+ 903:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     return uwRet;
+ 1895              		.loc 1 903 0
+ 1896 006c 2000     		movs	r0, r4
+ 1897 006e 00E0     		b	.L136
+ 1898              	.LVL234:
+ 1899              	.L142:
+ 886:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c ****     switch (pstSwtmr->ucState)
+ 1900              		.loc 1 886 0
+ 1901 0070 0248     		ldr	r0, .L145+8
+ 1902              	.LVL235:
+ 1903              	.L136:
+ 904:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_swtmr.c **** }
+ 1904              		.loc 1 904 0
+ 1905              		@ sp needed
+ 1906 0072 70BD     		pop	{r4, r5, r6, pc}
+ 1907              	.L146:
+ 1908              		.align	2
+ 1909              	.L145:
+ 1910 0074 EFFF0000 		.word	65519
+ 1911 0078 00000000 		.word	m_pstSwtmrCBArray
+ 1912 007c 05030002 		.word	33555205
+ 1913 0080 06030002 		.word	33555206
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 51
+
+
+ 1914 0084 00000000 		.word	m_pstSwtmrFreeList
+ 1915 0088 00000000 		.word	.LANCHOR0
+ 1916 008c 0E030002 		.word	33555214
+ 1917              		.cfi_endproc
+ 1918              	.LFE58:
+ 1920              		.global	m_uwSwTmrAlignID
+ 1921              		.comm	m_pstSwtmrSortList,4,4
+ 1922              		.comm	m_pstSwtmrFreeList,4,4
+ 1923              		.comm	m_pstSwtmrCBArray,4,4
+ 1924              		.comm	m_uwSwTmrHandlerQueue,4,4
+ 1925              		.section	.bss.m_pstRouses,"aw",%nobits
+ 1926              		.align	2
+ 1927              		.set	.LANCHOR1,. + 0
+ 1930              	m_pstRouses:
+ 1931 0000 00000000 		.space	4
+ 1932              		.section	.bss.m_pstRousesPrev,"aw",%nobits
+ 1933              		.align	2
+ 1934              		.set	.LANCHOR2,. + 0
+ 1937              	m_pstRousesPrev:
+ 1938 0000 00000000 		.space	4
+ 1939              		.section	.bss.m_uwSwTmrAlignID,"aw",%nobits
+ 1940              		.align	2
+ 1941              		.set	.LANCHOR0,. + 0
+ 1944              	m_uwSwTmrAlignID:
+ 1945 0000 00000000 		.space	64
+ 1945      00000000 
+ 1945      00000000 
+ 1945      00000000 
+ 1945      00000000 
+ 1946              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 1947              		.align	2
+ 1948              	.LC2:
+ 1949 0000 5377745F 		.ascii	"Swt_Task\000"
+ 1949      5461736B 
+ 1949      00
+ 1950              		.text
+ 1951              	.Letext0:
+ 1952              		.file 2 "e:\\liteos\\liteos\\kernel\\include\\los_typedef.h"
+ 1953              		.file 3 "e:\\liteos\\liteos\\kernel\\include\\los_task.h"
+ 1954              		.file 4 "e:\\liteos\\liteos\\kernel\\include\\los_err.h"
+ 1955              		.file 5 "e:\\liteos\\liteos\\kernel\\include\\los_swtmr.h"
+ 1956              		.file 6 "e:\\liteos\\liteos\\kernel\\base\\include\\los_swtmr.ph"
+ 1957              		.file 7 "e:\\liteos\\liteos\\kernel\\include\\los_config.h"
+ 1958              		.file 8 "e:\\liteos\\liteos\\kernel\\base\\include\\los_task.ph"
+ 1959              		.file 9 "e:\\liteos\\liteos\\kernel\\include\\los_queue.h"
+ 1960              		.file 10 "e:\\liteos\\liteos\\kernel\\include\\los_sys.h"
+ 1961              		.file 11 "e:\\liteos\\liteos\\kernel\\include\\los_memory.h"
+ 1962              		.file 12 "e:\\liteos\\liteos\\arch\\arm\\arm-m\\include\\los_hwi.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 52
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 los_swtmr.c
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:20     .text.osSwTmrTask:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:25     .text.osSwTmrTask:00000000 osSwTmrTask
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:78     .text.osSwTmrTask:00000038 $d
+                            *COM*:00000004 m_uwSwTmrHandlerQueue
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:83     .text.osSwTmrTaskCreate:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:88     .text.osSwTmrTaskCreate:00000000 osSwTmrTaskCreate
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:129    .text.osSwTmrTaskCreate:00000028 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:136    .text.osSwTmrInit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:141    .text.osSwTmrInit:00000000 osSwTmrInit
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:271    .text.osSwTmrInit:00000080 $d
+                            *COM*:00000004 m_pstSwtmrSortList
+                            *COM*:00000004 m_pstSwtmrCBArray
+                            *COM*:00000004 m_pstSwtmrFreeList
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:286    .text.osSwTmrStart:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:291    .text.osSwTmrStart:00000000 osSwTmrStart
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:662    .text.osSwTmrStart:000001b0 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:669    .text.osSwTmrTimeoutHandle:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:673    .text.osSwTmrTimeoutHandle:00000000 osSwTmrTimeoutHandle
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:791    .text.osSwTmrTimeoutHandle:00000080 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:800    .text.osSwtmrStop:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:805    .text.osSwtmrStop:00000000 osSwtmrStop
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:889    .text.osSwtmrStop:00000054 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:895    .text.osSwtmrScan:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:900    .text.osSwtmrScan:00000000 osSwtmrScan
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:933    .text.osSwtmrScan:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:938    .text.osSwtimerInsert:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:943    .text.osSwtimerInsert:00000000 osSwtimerInsert
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:1032   .text.osSwTmrAdjust:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:1037   .text.osSwTmrAdjust:00000000 osSwTmrAdjust
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:1125   .text.osSwTmrAdjust:00000058 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:1132   .text.osSwtmrTimeGet:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:1137   .text.osSwtmrTimeGet:00000000 osSwtmrTimeGet
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:1175   .text.osSwtmrTimeGet:00000018 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:1180   .text.LOS_SwtmrCreate:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:1185   .text.LOS_SwtmrCreate:00000000 LOS_SwtmrCreate
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:1343   .text.LOS_SwtmrCreate:0000009c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:1355   .text.LOS_SwtmrStart:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:1360   .text.LOS_SwtmrStart:00000000 LOS_SwtmrStart
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:1517   .text.LOS_SwtmrStart:000000bc $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:1529   .text.LOS_SwtmrStop:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:1534   .text.LOS_SwtmrStop:00000000 LOS_SwtmrStop
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:1639   .text.LOS_SwtmrStop:00000060 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:1649   .text.LOS_SwtmrTimeGet:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:1654   .text.LOS_SwtmrTimeGet:00000000 LOS_SwtmrTimeGet
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:1775   .text.LOS_SwtmrTimeGet:0000006c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:1786   .text.LOS_SwtmrDelete:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:1791   .text.LOS_SwtmrDelete:00000000 LOS_SwtmrDelete
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:1910   .text.LOS_SwtmrDelete:00000074 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:1944   .bss.m_uwSwTmrAlignID:00000000 m_uwSwTmrAlignID
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:1926   .bss.m_pstRouses:00000000 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:1930   .bss.m_pstRouses:00000000 m_pstRouses
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:1933   .bss.m_pstRousesPrev:00000000 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:1937   .bss.m_pstRousesPrev:00000000 m_pstRousesPrev
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:1940   .bss.m_uwSwTmrAlignID:00000000 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s:1947   .rodata.str1.4:00000000 $d
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdpZuRt.s 			page 53
+
+
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+LOS_QueueReadCopy
+LOS_TickCountGet
+memset
+LOS_TaskCreate
+g_uwSwtmrTaskID
+LOS_MemAlloc
+LOS_QueueCreate
+m_aucSysMem0
+__aeabi_uidivmod
+__aeabi_uidiv
+LOS_QueueWriteCopy
+LOS_IntLock
+LOS_IntRestore

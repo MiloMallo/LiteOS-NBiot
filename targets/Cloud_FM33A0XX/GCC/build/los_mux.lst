@@ -1,0 +1,1538 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"los_mux.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.osMuxInit,"ax",%progbits
+  20              		.align	2
+  21              		.global	osMuxInit
+  22              		.code	16
+  23              		.thumb_func
+  25              	osMuxInit:
+  26              	.LFB43:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc/los_mux.c"
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** /*----------------------------------------------------------------------------
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  * Copyright (c) <2013-2015>, <Huawei Technologies Co., Ltd>
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  * All rights reserved.
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  * are permitted provided that the following conditions are met:
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  * conditions and the following disclaimer.
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  * provided with the distribution.
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  * permission.
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  *---------------------------------------------------------------------------*/
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** /*----------------------------------------------------------------------------
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  * Notice of Export Control Law
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  * ===============================================
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s 			page 2
+
+
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  * applicable export control laws and regulations.
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  *---------------------------------------------------------------------------*/
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** #include "los_mux.inc"
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** #include "los_err.ph"
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** #include "los_memory.ph"
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** #include "los_priqueue.ph"
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** #include "los_task.ph"
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** #if (LOSCFG_PLATFORM_EXC == YES)
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** #include "los_exc.h"
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** #endif
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** #include "los_hw.h"
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** #ifdef __cplusplus
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** #if __cplusplus
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** extern "C"{
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** #endif
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** #endif /* __cplusplus */
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** #if (LOSCFG_BASE_IPC_MUX == YES)
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** LITE_OS_SEC_BSS MUX_CB_S             *g_pstAllMux;
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** LITE_OS_SEC_BSS LOS_DL_LIST          g_stUnusedMuxList;
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** /*****************************************************************************
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  Funtion	     : osMuxInit,
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  Description  : Initializes the mutex,
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  Input        : None
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  Output       : None
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  Return       : LOS_OK on success ,or error code on failure
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  *****************************************************************************/
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** LITE_OS_SEC_TEXT_INIT UINT32 osMuxInit(VOID)
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** {
+  28              		.loc 1 66 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 10B5     		push	{r4, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 4, -8
+  36              		.cfi_offset 14, -4
+  37              	.LVL0:
+  38              	.LBB22:
+  39              	.LBB23:
+  40              		.file 2 "e:\\liteos\\liteos\\kernel\\include\\los_list.h"
+   1:e:\liteos\liteos\kernel\include\los_list.h **** /*----------------------------------------------------------------------------
+   2:e:\liteos\liteos\kernel\include\los_list.h ****  * Copyright (c) <2013-2015>, <Huawei Technologies Co., Ltd>
+   3:e:\liteos\liteos\kernel\include\los_list.h ****  * All rights reserved.
+   4:e:\liteos\liteos\kernel\include\los_list.h ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:e:\liteos\liteos\kernel\include\los_list.h ****  * are permitted provided that the following conditions are met:
+   6:e:\liteos\liteos\kernel\include\los_list.h ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:e:\liteos\liteos\kernel\include\los_list.h ****  * conditions and the following disclaimer.
+   8:e:\liteos\liteos\kernel\include\los_list.h ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:e:\liteos\liteos\kernel\include\los_list.h ****  * of conditions and the following disclaimer in the documentation and/or other materials
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s 			page 3
+
+
+  10:e:\liteos\liteos\kernel\include\los_list.h ****  * provided with the distribution.
+  11:e:\liteos\liteos\kernel\include\los_list.h ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:e:\liteos\liteos\kernel\include\los_list.h ****  * to endorse or promote products derived from this software without specific prior written
+  13:e:\liteos\liteos\kernel\include\los_list.h ****  * permission.
+  14:e:\liteos\liteos\kernel\include\los_list.h ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:e:\liteos\liteos\kernel\include\los_list.h ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:e:\liteos\liteos\kernel\include\los_list.h ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:e:\liteos\liteos\kernel\include\los_list.h ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:e:\liteos\liteos\kernel\include\los_list.h ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:e:\liteos\liteos\kernel\include\los_list.h ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:e:\liteos\liteos\kernel\include\los_list.h ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:e:\liteos\liteos\kernel\include\los_list.h ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:e:\liteos\liteos\kernel\include\los_list.h ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:e:\liteos\liteos\kernel\include\los_list.h ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:e:\liteos\liteos\kernel\include\los_list.h ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:e:\liteos\liteos\kernel\include\los_list.h ****  *---------------------------------------------------------------------------*/
+  26:e:\liteos\liteos\kernel\include\los_list.h **** /*----------------------------------------------------------------------------
+  27:e:\liteos\liteos\kernel\include\los_list.h ****  * Notice of Export Control Law
+  28:e:\liteos\liteos\kernel\include\los_list.h ****  * ===============================================
+  29:e:\liteos\liteos\kernel\include\los_list.h ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:e:\liteos\liteos\kernel\include\los_list.h ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:e:\liteos\liteos\kernel\include\los_list.h ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:e:\liteos\liteos\kernel\include\los_list.h ****  * applicable export control laws and regulations.
+  33:e:\liteos\liteos\kernel\include\los_list.h ****  *---------------------------------------------------------------------------*/
+  34:e:\liteos\liteos\kernel\include\los_list.h **** 
+  35:e:\liteos\liteos\kernel\include\los_list.h ****  /** @defgroup los_list Doubly linked list
+  36:e:\liteos\liteos\kernel\include\los_list.h ****  * @ingroup kernel
+  37:e:\liteos\liteos\kernel\include\los_list.h ****  */
+  38:e:\liteos\liteos\kernel\include\los_list.h **** 
+  39:e:\liteos\liteos\kernel\include\los_list.h **** #ifndef _LOS_LIST_H
+  40:e:\liteos\liteos\kernel\include\los_list.h **** #define _LOS_LIST_H
+  41:e:\liteos\liteos\kernel\include\los_list.h **** 
+  42:e:\liteos\liteos\kernel\include\los_list.h **** #include "los_typedef.h"
+  43:e:\liteos\liteos\kernel\include\los_list.h **** 
+  44:e:\liteos\liteos\kernel\include\los_list.h **** #ifdef __cplusplus
+  45:e:\liteos\liteos\kernel\include\los_list.h **** #if __cplusplus
+  46:e:\liteos\liteos\kernel\include\los_list.h **** extern "C" {
+  47:e:\liteos\liteos\kernel\include\los_list.h **** #endif /* __cplusplus */
+  48:e:\liteos\liteos\kernel\include\los_list.h **** #endif /* __cplusplus */
+  49:e:\liteos\liteos\kernel\include\los_list.h **** 
+  50:e:\liteos\liteos\kernel\include\los_list.h **** 
+  51:e:\liteos\liteos\kernel\include\los_list.h **** /**
+  52:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+  53:e:\liteos\liteos\kernel\include\los_list.h ****  *Structure of a node in a doubly linked list.
+  54:e:\liteos\liteos\kernel\include\los_list.h ****  */
+  55:e:\liteos\liteos\kernel\include\los_list.h **** typedef struct LOS_DL_LIST
+  56:e:\liteos\liteos\kernel\include\los_list.h **** {
+  57:e:\liteos\liteos\kernel\include\los_list.h ****     struct LOS_DL_LIST *pstPrev;            /**< Current node's pointer to the previous node*/
+  58:e:\liteos\liteos\kernel\include\los_list.h ****     struct LOS_DL_LIST *pstNext;            /**< Current node's pointer to the next node*/
+  59:e:\liteos\liteos\kernel\include\los_list.h **** } LOS_DL_LIST;
+  60:e:\liteos\liteos\kernel\include\los_list.h **** 
+  61:e:\liteos\liteos\kernel\include\los_list.h **** /**
+  62:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+  63:e:\liteos\liteos\kernel\include\los_list.h ****  *@brief Initialize a doubly linked list.
+  64:e:\liteos\liteos\kernel\include\los_list.h ****  *
+  65:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Description:
+  66:e:\liteos\liteos\kernel\include\los_list.h ****  *This API is used to initialize a doubly linked list.
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s 			page 4
+
+
+  67:e:\liteos\liteos\kernel\include\los_list.h ****  *@attention
+  68:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+  69:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>The parameter passed in should be ensured to be a legal pointer.</li>
+  70:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+  71:e:\liteos\liteos\kernel\include\los_list.h ****  *
+  72:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstList    [IN] Node in a doubly linked list.
+  73:e:\liteos\liteos\kernel\include\los_list.h ****  *
+  74:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval None.
+  75:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Dependency:
+  76:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul><li>los_list.h: the header file that contains the API declaration.</li></ul>
+  77:e:\liteos\liteos\kernel\include\los_list.h ****  *@see
+  78:e:\liteos\liteos\kernel\include\los_list.h ****  *@since Huawei LiteOS V100R001C00
+  79:e:\liteos\liteos\kernel\include\los_list.h ****  */
+  80:e:\liteos\liteos\kernel\include\los_list.h **** LITE_OS_SEC_ALW_INLINE STATIC_INLINE VOID LOS_ListInit(LOS_DL_LIST *pstList)
+  81:e:\liteos\liteos\kernel\include\los_list.h **** {
+  82:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstNext = pstList;
+  41              		.loc 2 82 0
+  42 0002 144B     		ldr	r3, .L6
+  43 0004 5B60     		str	r3, [r3, #4]
+  83:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstPrev = pstList;
+  44              		.loc 2 83 0
+  45 0006 1B60     		str	r3, [r3]
+  46              	.LVL1:
+  47              	.LBE23:
+  48              	.LBE22:
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     MUX_CB_S *pstMuxNode;
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     UINT32   uwIndex;
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     LOS_ListInit(&g_stUnusedMuxList);
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     if (LOSCFG_BASE_IPC_MUX_LIMIT == 0)   /*lint !e506*/
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     {
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         return LOS_ERRNO_MUX_MAXNUM_ZERO;
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     }
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     g_pstAllMux = (MUX_CB_S *)LOS_MemAlloc(m_aucSysMem0, (LOSCFG_BASE_IPC_MUX_LIMIT * sizeof(MUX_CB
+  49              		.loc 1 77 0
+  50 0008 134B     		ldr	r3, .L6+4
+  51 000a 1868     		ldr	r0, [r3]
+  52 000c B421     		movs	r1, #180
+  53 000e 4900     		lsls	r1, r1, #1
+  54 0010 FFF7FEFF 		bl	LOS_MemAlloc
+  55              	.LVL2:
+  56 0014 114B     		ldr	r3, .L6+8
+  57 0016 1860     		str	r0, [r3]
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     if (NULL == g_pstAllMux)
+  58              		.loc 1 78 0
+  59 0018 0028     		cmp	r0, #0
+  60 001a 19D0     		beq	.L5
+  61 001c 0022     		movs	r2, #0
+  62 001e 13E0     		b	.L3
+  63              	.LVL3:
+  64              	.L4:
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     {
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         return LOS_ERRNO_MUX_NO_MEMORY;
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     }
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s 			page 5
+
+
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     for (uwIndex = 0; uwIndex < LOSCFG_BASE_IPC_MUX_LIMIT; uwIndex++)
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     {
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         pstMuxNode              = ((MUX_CB_S *)g_pstAllMux) + uwIndex;
+  65              		.loc 1 85 0 discriminator 3
+  66 0020 0E4B     		ldr	r3, .L6+8
+  67 0022 1868     		ldr	r0, [r3]
+  68 0024 5100     		lsls	r1, r2, #1
+  69 0026 8918     		adds	r1, r1, r2
+  70 0028 CB00     		lsls	r3, r1, #3
+  71 002a C318     		adds	r3, r0, r3
+  72              	.LVL4:
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         pstMuxNode->ucMuxID     = uwIndex;
+  73              		.loc 1 86 0 discriminator 3
+  74 002c 5A60     		str	r2, [r3, #4]
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         pstMuxNode->ucMuxStat   = OS_MUX_UNUSED;
+  75              		.loc 1 87 0 discriminator 3
+  76 002e 0021     		movs	r1, #0
+  77 0030 1970     		strb	r1, [r3]
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         LOS_ListTailInsert(&g_stUnusedMuxList, &pstMuxNode->stMuxList);
+  78              		.loc 1 88 0 discriminator 3
+  79 0032 1800     		movs	r0, r3
+  80 0034 0830     		adds	r0, r0, #8
+  81              	.LVL5:
+  82              	.LBB24:
+  83              	.LBB25:
+  84:e:\liteos\liteos\kernel\include\los_list.h **** }
+  85:e:\liteos\liteos\kernel\include\los_list.h **** 
+  86:e:\liteos\liteos\kernel\include\los_list.h **** /**
+  87:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+  88:e:\liteos\liteos\kernel\include\los_list.h ****  *@brief Point to the next node pointed to by the current node.
+  89:e:\liteos\liteos\kernel\include\los_list.h ****  *
+  90:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Description:
+  91:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+  92:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>This API is used to point to the next node pointed to by the current node.</li>
+  93:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+  94:e:\liteos\liteos\kernel\include\los_list.h ****  *@attention
+  95:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+  96:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>None.</li>
+  97:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+  98:e:\liteos\liteos\kernel\include\los_list.h ****  *
+  99:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstObject  [IN] Node in the doubly linked list.
+ 100:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 101:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval None.
+ 102:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Dependency:
+ 103:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul><li>los_list.h: the header file that contains the API declaration.</li></ul>
+ 104:e:\liteos\liteos\kernel\include\los_list.h ****  *@see
+ 105:e:\liteos\liteos\kernel\include\los_list.h ****  *@since Huawei LiteOS V100R001C00
+ 106:e:\liteos\liteos\kernel\include\los_list.h ****  */
+ 107:e:\liteos\liteos\kernel\include\los_list.h **** #define LOS_DL_LIST_FIRST(pstObject) ((pstObject)->pstNext)
+ 108:e:\liteos\liteos\kernel\include\los_list.h **** 
+ 109:e:\liteos\liteos\kernel\include\los_list.h **** /**
+ 110:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+ 111:e:\liteos\liteos\kernel\include\los_list.h ****  *@brief Insert a new node to a doubly linked list.
+ 112:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 113:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Description:
+ 114:e:\liteos\liteos\kernel\include\los_list.h ****  *This API is used to insert a new node to a doubly linked list.
+ 115:e:\liteos\liteos\kernel\include\los_list.h ****  *@attention
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s 			page 6
+
+
+ 116:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+ 117:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>The parameters passed in should be ensured to be legal pointers.</li>
+ 118:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+ 119:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 120:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstList    [IN]   Doubly linked list where the new node is inserted.
+ 121:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstNode    [IN]   New node to be inserted.
+ 122:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 123:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval None
+ 124:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Dependency:
+ 125:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul><li>los_list.h: the header file that contains the API declaration.</li></ul>
+ 126:e:\liteos\liteos\kernel\include\los_list.h ****  *@see LOS_ListDelete
+ 127:e:\liteos\liteos\kernel\include\los_list.h ****  *@since Huawei LiteOS V100R001C00
+ 128:e:\liteos\liteos\kernel\include\los_list.h ****  */
+ 129:e:\liteos\liteos\kernel\include\los_list.h **** LITE_OS_SEC_ALW_INLINE STATIC_INLINE VOID LOS_ListAdd(LOS_DL_LIST *pstList, LOS_DL_LIST *pstNode)
+ 130:e:\liteos\liteos\kernel\include\los_list.h **** {
+ 131:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstNext = pstList->pstNext;
+ 132:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstPrev = pstList;
+ 133:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstNext->pstPrev = pstNode;
+ 134:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstNext = pstNode;
+ 135:e:\liteos\liteos\kernel\include\los_list.h **** }
+ 136:e:\liteos\liteos\kernel\include\los_list.h **** 
+ 137:e:\liteos\liteos\kernel\include\los_list.h **** /**
+ 138:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+ 139:e:\liteos\liteos\kernel\include\los_list.h ****  *@brief Insert a node to the tail of a doubly linked list.
+ 140:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 141:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Description:
+ 142:e:\liteos\liteos\kernel\include\los_list.h ****  *This API is used to insert a new node to the tail of a doubly linked list.
+ 143:e:\liteos\liteos\kernel\include\los_list.h ****  *@attention
+ 144:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+ 145:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>The parameters passed in should be ensured to be legal pointers.</li>
+ 146:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+ 147:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 148:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstList     [IN] Doubly linked list where the new node is inserted.
+ 149:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstNode     [IN] New node to be inserted.
+ 150:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 151:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval None.
+ 152:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Dependency:
+ 153:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul><li>los_list.h: the header file that contains the API declaration.</li></ul>
+ 154:e:\liteos\liteos\kernel\include\los_list.h ****  *@see LOS_ListAdd | LOS_ListHeadInsert
+ 155:e:\liteos\liteos\kernel\include\los_list.h ****  *@since Huawei LiteOS V100R001C00
+ 156:e:\liteos\liteos\kernel\include\los_list.h ****  */
+ 157:e:\liteos\liteos\kernel\include\los_list.h **** LITE_OS_SEC_ALW_INLINE STATIC_INLINE VOID LOS_ListTailInsert(LOS_DL_LIST *pstList, LOS_DL_LIST *pst
+ 158:e:\liteos\liteos\kernel\include\los_list.h **** {
+ 159:e:\liteos\liteos\kernel\include\los_list.h ****     LOS_ListAdd(pstList->pstPrev, pstNode);
+  84              		.loc 2 159 0 discriminator 3
+  85 0036 0749     		ldr	r1, .L6
+  86 0038 0968     		ldr	r1, [r1]
+  87              	.LVL6:
+  88              	.LBB26:
+  89              	.LBB27:
+ 131:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstPrev = pstList;
+  90              		.loc 2 131 0 discriminator 3
+  91 003a 4C68     		ldr	r4, [r1, #4]
+  92 003c DC60     		str	r4, [r3, #12]
+ 132:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstNext->pstPrev = pstNode;
+  93              		.loc 2 132 0 discriminator 3
+  94 003e 9960     		str	r1, [r3, #8]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s 			page 7
+
+
+ 133:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstNext = pstNode;
+  95              		.loc 2 133 0 discriminator 3
+  96 0040 4B68     		ldr	r3, [r1, #4]
+  97              	.LVL7:
+  98 0042 1860     		str	r0, [r3]
+ 134:e:\liteos\liteos\kernel\include\los_list.h **** }
+  99              		.loc 2 134 0 discriminator 3
+ 100 0044 4860     		str	r0, [r1, #4]
+ 101              	.LVL8:
+ 102              	.LBE27:
+ 103              	.LBE26:
+ 104              	.LBE25:
+ 105              	.LBE24:
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     {
+ 106              		.loc 1 83 0 discriminator 3
+ 107 0046 0132     		adds	r2, r2, #1
+ 108              	.LVL9:
+ 109              	.L3:
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     {
+ 110              		.loc 1 83 0 is_stmt 0 discriminator 1
+ 111 0048 0E2A     		cmp	r2, #14
+ 112 004a E9D9     		bls	.L4
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     }
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     return LOS_OK;
+ 113              		.loc 1 90 0 is_stmt 1
+ 114 004c 0020     		movs	r0, #0
+ 115 004e 00E0     		b	.L2
+ 116              	.LVL10:
+ 117              	.L5:
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     }
+ 118              		.loc 1 80 0
+ 119 0050 0348     		ldr	r0, .L6+12
+ 120              	.L2:
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** }
+ 121              		.loc 1 91 0
+ 122              		@ sp needed
+ 123 0052 10BD     		pop	{r4, pc}
+ 124              	.L7:
+ 125              		.align	2
+ 126              	.L6:
+ 127 0054 00000000 		.word	g_stUnusedMuxList
+ 128 0058 00000000 		.word	m_aucSysMem0
+ 129 005c 00000000 		.word	g_pstAllMux
+ 130 0060 001D0002 		.word	33561856
+ 131              		.cfi_endproc
+ 132              	.LFE43:
+ 134              		.section	.text.LOS_MuxCreate,"ax",%progbits
+ 135              		.align	2
+ 136              		.global	LOS_MuxCreate
+ 137              		.code	16
+ 138              		.thumb_func
+ 140              	LOS_MuxCreate:
+ 141              	.LFB44:
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** /*****************************************************************************
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  Function     : LOS_MuxCreate
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  Description  : Create a mutex,
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s 			page 8
+
+
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  Input        : None
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  Output       : puwMuxHandle ------ Mutex operation handle
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  Return       : LOS_OK on success ,or error code on failure
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  *****************************************************************************/
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** LITE_OS_SEC_TEXT_INIT  UINT32  LOS_MuxCreate (UINT32 *puwMuxHandle)
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** {
+ 142              		.loc 1 101 0
+ 143              		.cfi_startproc
+ 144              		@ args = 0, pretend = 0, frame = 0
+ 145              		@ frame_needed = 0, uses_anonymous_args = 0
+ 146              	.LVL11:
+ 147 0000 30B5     		push	{r4, r5, lr}
+ 148              	.LCFI1:
+ 149              		.cfi_def_cfa_offset 12
+ 150              		.cfi_offset 4, -12
+ 151              		.cfi_offset 5, -8
+ 152              		.cfi_offset 14, -4
+ 153 0002 83B0     		sub	sp, sp, #12
+ 154              	.LCFI2:
+ 155              		.cfi_def_cfa_offset 24
+ 156 0004 041E     		subs	r4, r0, #0
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     UINT32      uwIntSave;
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     MUX_CB_S    *pstMuxCreated;
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     LOS_DL_LIST *pstUnusedMux;
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     UINT32      uwErrNo;
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     UINT32      uwErrLine;
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     if (NULL == puwMuxHandle)
+ 157              		.loc 1 108 0
+ 158 0006 27D0     		beq	.L11
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     {
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         return LOS_ERRNO_MUX_PTR_NULL;
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     }
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     uwIntSave = LOS_IntLock();
+ 159              		.loc 1 113 0
+ 160 0008 FFF7FEFF 		bl	LOS_IntLock
+ 161              	.LVL12:
+ 162              	.LBB28:
+ 163              	.LBB29:
+ 160:e:\liteos\liteos\kernel\include\los_list.h **** }
+ 161:e:\liteos\liteos\kernel\include\los_list.h **** 
+ 162:e:\liteos\liteos\kernel\include\los_list.h **** /**
+ 163:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+ 164:e:\liteos\liteos\kernel\include\los_list.h ****  *@brief Delete a specified node from a doubly linked list.
+ 165:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 166:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Description:
+ 167:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+ 168:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>This API is used to delete a specified node from a doubly linked list.</li>
+ 169:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+ 170:e:\liteos\liteos\kernel\include\los_list.h ****  *@attention
+ 171:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+ 172:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>The parameter passed in should be ensured to be a legal pointer.</li>
+ 173:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+ 174:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 175:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstNode    [IN] Node to be deleted.
+ 176:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s 			page 9
+
+
+ 177:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval None.
+ 178:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Dependency:
+ 179:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul><li>los_list.h: the header file that contains the API declaration.</li></ul>
+ 180:e:\liteos\liteos\kernel\include\los_list.h ****  *@see LOS_ListAdd
+ 181:e:\liteos\liteos\kernel\include\los_list.h ****  *@since Huawei LiteOS V100R001C00
+ 182:e:\liteos\liteos\kernel\include\los_list.h ****  */
+ 183:e:\liteos\liteos\kernel\include\los_list.h **** LITE_OS_SEC_ALW_INLINE STATIC_INLINE VOID LOS_ListDelete(LOS_DL_LIST *pstNode)
+ 184:e:\liteos\liteos\kernel\include\los_list.h **** {
+ 185:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstNext->pstPrev = pstNode->pstPrev;
+ 186:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstPrev->pstNext = pstNode->pstNext;
+ 187:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstNext = (LOS_DL_LIST *)NULL;
+ 188:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstPrev = (LOS_DL_LIST *)NULL;
+ 189:e:\liteos\liteos\kernel\include\los_list.h **** }
+ 190:e:\liteos\liteos\kernel\include\los_list.h **** 
+ 191:e:\liteos\liteos\kernel\include\los_list.h **** /**
+ 192:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+ 193:e:\liteos\liteos\kernel\include\los_list.h ****  *@brief Identify whether a specified doubly linked list is empty.
+ 194:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 195:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Description:
+ 196:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+ 197:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>This API is used to return whether a doubly linked list is empty.</li>
+ 198:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+ 199:e:\liteos\liteos\kernel\include\los_list.h ****  *@attention
+ 200:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+ 201:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>The parameter passed in should be ensured to be a legal pointer.</li>
+ 202:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+ 203:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 204:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstList  [IN] Doubly linked list.
+ 205:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 206:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval TRUE The doubly linked list is empty.
+ 207:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval FALSE The doubly linked list is not empty.
+ 208:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Dependency:
+ 209:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul><li>los_list.h: the header file that contains the API declaration.</li></ul>
+ 210:e:\liteos\liteos\kernel\include\los_list.h ****  *@see
+ 211:e:\liteos\liteos\kernel\include\los_list.h ****  *@since Huawei LiteOS V100R001C00
+ 212:e:\liteos\liteos\kernel\include\los_list.h ****  */
+ 213:e:\liteos\liteos\kernel\include\los_list.h **** LITE_OS_SEC_ALW_INLINE STATIC_INLINE BOOL LOS_ListEmpty(LOS_DL_LIST *pstNode)
+ 214:e:\liteos\liteos\kernel\include\los_list.h **** {
+ 215:e:\liteos\liteos\kernel\include\los_list.h ****     return (BOOL)(pstNode->pstNext == pstNode);
+ 164              		.loc 2 215 0
+ 165 000c 144A     		ldr	r2, .L12
+ 166 000e 5368     		ldr	r3, [r2, #4]
+ 167              	.LVL13:
+ 168              	.LBE29:
+ 169              	.LBE28:
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     if (LOS_ListEmpty(&g_stUnusedMuxList))
+ 170              		.loc 1 114 0
+ 171 0010 9342     		cmp	r3, r2
+ 172 0012 0BD1     		bne	.L10
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     {
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         LOS_IntRestore(uwIntSave);
+ 173              		.loc 1 116 0
+ 174 0014 FFF7FEFF 		bl	LOS_IntRestore
+ 175              	.LVL14:
+ 176              	.LDL1:
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         OS_GOTO_ERR_HANDLER(LOS_ERRNO_MUX_ALL_BUSY);
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     }
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s 			page 10
+
+
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     pstUnusedMux                = LOS_DL_LIST_FIRST(&(g_stUnusedMuxList));
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     LOS_ListDelete(pstUnusedMux);
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     pstMuxCreated               = (GET_MUX_LIST(pstUnusedMux)); /*lint !e413*/
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     pstMuxCreated->usMuxCount   = 0;
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     pstMuxCreated->ucMuxStat    = OS_MUX_USED;
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     pstMuxCreated->usPriority   = 0;
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     pstMuxCreated->pstOwner     = (LOS_TASK_CB *)NULL;
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     LOS_ListInit(&pstMuxCreated->stMuxList);
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     *puwMuxHandle               = (UINT32)pstMuxCreated->ucMuxID;
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     LOS_IntRestore(uwIntSave);
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     return LOS_OK;
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** ErrHandler:
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     OS_RETURN_ERROR_P2(uwErrLine, uwErrNo);
+ 177              		.loc 1 132 0
+ 178 0018 124C     		ldr	r4, .L12+4
+ 179              	.LVL15:
+ 180 001a 0023     		movs	r3, #0
+ 181 001c 0093     		str	r3, [sp]
+ 182 001e 2200     		movs	r2, r4
+ 183 0020 1149     		ldr	r1, .L12+8
+ 184 0022 1248     		ldr	r0, .L12+12
+ 185 0024 FFF7FEFF 		bl	LOS_ErrHandle
+ 186              	.LVL16:
+ 187 0028 2000     		movs	r0, r4
+ 188 002a 16E0     		b	.L9
+ 189              	.LVL17:
+ 190              	.L10:
+ 191              	.LBB30:
+ 192              	.LBB31:
+ 185:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstPrev->pstNext = pstNode->pstNext;
+ 193              		.loc 2 185 0
+ 194 002c 5A68     		ldr	r2, [r3, #4]
+ 195 002e 1968     		ldr	r1, [r3]
+ 196 0030 1160     		str	r1, [r2]
+ 186:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstNext = (LOS_DL_LIST *)NULL;
+ 197              		.loc 2 186 0
+ 198 0032 1A68     		ldr	r2, [r3]
+ 199 0034 5968     		ldr	r1, [r3, #4]
+ 200 0036 5160     		str	r1, [r2, #4]
+ 187:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstPrev = (LOS_DL_LIST *)NULL;
+ 201              		.loc 2 187 0
+ 202 0038 0021     		movs	r1, #0
+ 203              	.LVL18:
+ 204              	.LBE31:
+ 205              	.LBE30:
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     pstMuxCreated->ucMuxStat    = OS_MUX_USED;
+ 206              		.loc 1 123 0
+ 207 003a 1A00     		movs	r2, r3
+ 208 003c 083A     		subs	r2, r2, #8
+ 209              	.LVL19:
+ 210 003e 5180     		strh	r1, [r2, #2]
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     pstMuxCreated->usPriority   = 0;
+ 211              		.loc 1 124 0
+ 212 0040 0125     		movs	r5, #1
+ 213 0042 1570     		strb	r5, [r2]
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     pstMuxCreated->pstOwner     = (LOS_TASK_CB *)NULL;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s 			page 11
+
+
+ 214              		.loc 1 125 0
+ 215 0044 9182     		strh	r1, [r2, #20]
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     LOS_ListInit(&pstMuxCreated->stMuxList);
+ 216              		.loc 1 126 0
+ 217 0046 1161     		str	r1, [r2, #16]
+ 218              	.LVL20:
+ 219              	.LBB32:
+ 220              	.LBB33:
+  82:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstPrev = pstList;
+ 221              		.loc 2 82 0
+ 222 0048 5B60     		str	r3, [r3, #4]
+  83:e:\liteos\liteos\kernel\include\los_list.h **** }
+ 223              		.loc 2 83 0
+ 224 004a 1B60     		str	r3, [r3]
+ 225              	.LVL21:
+ 226              	.LBE33:
+ 227              	.LBE32:
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     LOS_IntRestore(uwIntSave);
+ 228              		.loc 1 128 0
+ 229 004c 5368     		ldr	r3, [r2, #4]
+ 230              	.LVL22:
+ 231 004e 2360     		str	r3, [r4]
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     return LOS_OK;
+ 232              		.loc 1 129 0
+ 233 0050 FFF7FEFF 		bl	LOS_IntRestore
+ 234              	.LVL23:
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** ErrHandler:
+ 235              		.loc 1 130 0
+ 236 0054 0020     		movs	r0, #0
+ 237 0056 00E0     		b	.L9
+ 238              	.LVL24:
+ 239              	.L11:
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     }
+ 240              		.loc 1 110 0
+ 241 0058 0548     		ldr	r0, .L12+16
+ 242              	.LVL25:
+ 243              	.L9:
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** }
+ 244              		.loc 1 133 0
+ 245 005a 03B0     		add	sp, sp, #12
+ 246              		@ sp needed
+ 247 005c 30BD     		pop	{r4, r5, pc}
+ 248              	.L13:
+ 249 005e C046     		.align	2
+ 250              	.L12:
+ 251 0060 00000000 		.word	g_stUnusedMuxList
+ 252 0064 031D0002 		.word	33561859
+ 253 0068 F8C3B2A1 		.word	-1582119944
+ 254 006c 00000000 		.word	.LC4
+ 255 0070 021D0002 		.word	33561858
+ 256              		.cfi_endproc
+ 257              	.LFE44:
+ 259              		.section	.text.LOS_MuxDelete,"ax",%progbits
+ 260              		.align	2
+ 261              		.global	LOS_MuxDelete
+ 262              		.code	16
+ 263              		.thumb_func
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s 			page 12
+
+
+ 265              	LOS_MuxDelete:
+ 266              	.LFB45:
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** /*****************************************************************************
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  Function     : LOS_MuxDelete
+ 137:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  Description  : Delete a mutex,
+ 138:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  Input        : uwMuxHandle------Mutex operation handle
+ 139:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  Output       : None
+ 140:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  Return       : LOS_OK on success ,or error code on failure
+ 141:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  *****************************************************************************/
+ 142:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** LITE_OS_SEC_TEXT_INIT UINT32 LOS_MuxDelete(UINT32 uwMuxHandle)
+ 143:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** {
+ 267              		.loc 1 143 0
+ 268              		.cfi_startproc
+ 269              		@ args = 0, pretend = 0, frame = 0
+ 270              		@ frame_needed = 0, uses_anonymous_args = 0
+ 271              	.LVL26:
+ 272 0000 10B5     		push	{r4, lr}
+ 273              	.LCFI3:
+ 274              		.cfi_def_cfa_offset 8
+ 275              		.cfi_offset 4, -8
+ 276              		.cfi_offset 14, -4
+ 277 0002 82B0     		sub	sp, sp, #8
+ 278              	.LCFI4:
+ 279              		.cfi_def_cfa_offset 16
+ 144:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     UINT32    uwIntSave;
+ 145:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     MUX_CB_S *pstMuxDeleted;
+ 146:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     UINT32   uwErrNo;
+ 147:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     UINT32   uwErrLine;
+ 148:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 149:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     if (uwMuxHandle >= (UINT32)LOSCFG_BASE_IPC_MUX_LIMIT)
+ 280              		.loc 1 149 0
+ 281 0004 0E28     		cmp	r0, #14
+ 282 0006 26D8     		bhi	.L20
+ 150:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     {
+ 151:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         OS_GOTO_ERR_HANDLER(LOS_ERRNO_MUX_INVALID);
+ 152:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     }
+ 153:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 154:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     pstMuxDeleted = GET_MUX(uwMuxHandle);
+ 283              		.loc 1 154 0
+ 284 0008 184B     		ldr	r3, .L21
+ 285 000a 1C68     		ldr	r4, [r3]
+ 286 000c 4300     		lsls	r3, r0, #1
+ 287 000e 1818     		adds	r0, r3, r0
+ 288              	.LVL27:
+ 289 0010 C300     		lsls	r3, r0, #3
+ 290 0012 E418     		adds	r4, r4, r3
+ 291              	.LVL28:
+ 155:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     uwIntSave = LOS_IntLock();
+ 292              		.loc 1 155 0
+ 293 0014 FFF7FEFF 		bl	LOS_IntLock
+ 294              	.LVL29:
+ 156:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     if (OS_MUX_UNUSED == pstMuxDeleted->ucMuxStat)
+ 295              		.loc 1 156 0
+ 296 0018 2378     		ldrb	r3, [r4]
+ 297 001a 002B     		cmp	r3, #0
+ 298 001c 03D1     		bne	.L16
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s 			page 13
+
+
+ 157:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     {
+ 158:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         LOS_IntRestore(uwIntSave);
+ 299              		.loc 1 158 0
+ 300 001e FFF7FEFF 		bl	LOS_IntRestore
+ 301              	.LVL30:
+ 159:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         OS_GOTO_ERR_HANDLER(LOS_ERRNO_MUX_INVALID);
+ 302              		.loc 1 159 0
+ 303 0022 134C     		ldr	r4, .L21+4
+ 304              	.LVL31:
+ 305 0024 18E0     		b	.L15
+ 306              	.LVL32:
+ 307              	.L16:
+ 160:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     }
+ 161:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 162:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     if (!LOS_ListEmpty(&pstMuxDeleted->stMuxList) || pstMuxDeleted->usMuxCount)
+ 308              		.loc 1 162 0
+ 309 0026 2300     		movs	r3, r4
+ 310 0028 0833     		adds	r3, r3, #8
+ 311              	.LVL33:
+ 312 002a E268     		ldr	r2, [r4, #12]
+ 313 002c 9342     		cmp	r3, r2
+ 314 002e 02D1     		bne	.L17
+ 315              		.loc 1 162 0 is_stmt 0 discriminator 1
+ 316 0030 6288     		ldrh	r2, [r4, #2]
+ 317 0032 002A     		cmp	r2, #0
+ 318 0034 03D0     		beq	.L18
+ 319              	.L17:
+ 163:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     {
+ 164:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         LOS_IntRestore(uwIntSave);
+ 320              		.loc 1 164 0 is_stmt 1
+ 321 0036 FFF7FEFF 		bl	LOS_IntRestore
+ 322              	.LVL34:
+ 165:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         OS_GOTO_ERR_HANDLER(LOS_ERRNO_MUX_PENDED);
+ 323              		.loc 1 165 0
+ 324 003a 0E4C     		ldr	r4, .L21+8
+ 325              	.LVL35:
+ 326 003c 0CE0     		b	.L15
+ 327              	.LVL36:
+ 328              	.L18:
+ 329              	.LBB34:
+ 330              	.LBB35:
+ 131:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstPrev = pstList;
+ 331              		.loc 2 131 0
+ 332 003e 0E4A     		ldr	r2, .L21+12
+ 333 0040 5168     		ldr	r1, [r2, #4]
+ 334 0042 E160     		str	r1, [r4, #12]
+ 132:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstNext->pstPrev = pstNode;
+ 335              		.loc 2 132 0
+ 336 0044 A260     		str	r2, [r4, #8]
+ 133:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstNext = pstNode;
+ 337              		.loc 2 133 0
+ 338 0046 0B60     		str	r3, [r1]
+ 134:e:\liteos\liteos\kernel\include\los_list.h **** }
+ 339              		.loc 2 134 0
+ 340 0048 5360     		str	r3, [r2, #4]
+ 341              	.LVL37:
+ 342              	.LBE35:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s 			page 14
+
+
+ 343              	.LBE34:
+ 166:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     }
+ 167:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 168:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     LOS_ListAdd(&g_stUnusedMuxList, &pstMuxDeleted->stMuxList);
+ 169:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     pstMuxDeleted->ucMuxStat = OS_MUX_UNUSED;
+ 344              		.loc 1 169 0
+ 345 004a 0023     		movs	r3, #0
+ 346 004c 2370     		strb	r3, [r4]
+ 170:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 171:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     LOS_IntRestore(uwIntSave);
+ 347              		.loc 1 171 0
+ 348 004e FFF7FEFF 		bl	LOS_IntRestore
+ 349              	.LVL38:
+ 172:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 173:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     return LOS_OK;
+ 350              		.loc 1 173 0
+ 351 0052 0020     		movs	r0, #0
+ 352 0054 08E0     		b	.L19
+ 353              	.LVL39:
+ 354              	.L20:
+ 151:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     }
+ 355              		.loc 1 151 0
+ 356 0056 064C     		ldr	r4, .L21+4
+ 357              	.LVL40:
+ 358              	.L15:
+ 174:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** ErrHandler:
+ 175:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     OS_RETURN_ERROR_P2(uwErrLine, uwErrNo);
+ 359              		.loc 1 175 0
+ 360 0058 0023     		movs	r3, #0
+ 361 005a 0093     		str	r3, [sp]
+ 362 005c 2200     		movs	r2, r4
+ 363 005e 0749     		ldr	r1, .L21+16
+ 364 0060 0748     		ldr	r0, .L21+20
+ 365 0062 FFF7FEFF 		bl	LOS_ErrHandle
+ 366              	.LVL41:
+ 367 0066 2000     		movs	r0, r4
+ 368              	.LVL42:
+ 369              	.L19:
+ 176:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** }
+ 370              		.loc 1 176 0
+ 371 0068 02B0     		add	sp, sp, #8
+ 372              		@ sp needed
+ 373 006a 10BD     		pop	{r4, pc}
+ 374              	.L22:
+ 375              		.align	2
+ 376              	.L21:
+ 377 006c 00000000 		.word	g_pstAllMux
+ 378 0070 011D0002 		.word	33561857
+ 379 0074 091D0002 		.word	33561865
+ 380 0078 00000000 		.word	g_stUnusedMuxList
+ 381 007c F8C3B2A1 		.word	-1582119944
+ 382 0080 00000000 		.word	.LC4
+ 383              		.cfi_endproc
+ 384              	.LFE45:
+ 386              		.section	.text.LOS_MuxPend,"ax",%progbits
+ 387              		.align	2
+ 388              		.global	LOS_MuxPend
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s 			page 15
+
+
+ 389              		.code	16
+ 390              		.thumb_func
+ 392              	LOS_MuxPend:
+ 393              	.LFB46:
+ 177:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 178:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** /*****************************************************************************
+ 179:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  Function     : LOS_MuxPend
+ 180:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  Description  : Specify the mutex P operation,
+ 181:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  Input        : uwMuxHandle ------ Mutex operation handleone,
+ 182:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  		       uwTimeOut  ------- waiting time,
+ 183:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  Output       : None
+ 184:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  Return       : LOS_OK on success ,or error code on failure
+ 185:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  *****************************************************************************/
+ 186:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** LITE_OS_SEC_TEXT UINT32 LOS_MuxPend(UINT32 uwMuxHandle, UINT32 uwTimeout)
+ 187:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** {
+ 394              		.loc 1 187 0
+ 395              		.cfi_startproc
+ 396              		@ args = 0, pretend = 0, frame = 8
+ 397              		@ frame_needed = 0, uses_anonymous_args = 0
+ 398              	.LVL43:
+ 399 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 400              	.LCFI5:
+ 401              		.cfi_def_cfa_offset 20
+ 402              		.cfi_offset 4, -20
+ 403              		.cfi_offset 5, -16
+ 404              		.cfi_offset 6, -12
+ 405              		.cfi_offset 7, -8
+ 406              		.cfi_offset 14, -4
+ 407 0002 85B0     		sub	sp, sp, #20
+ 408              	.LCFI6:
+ 409              		.cfi_def_cfa_offset 40
+ 410 0004 0D00     		movs	r5, r1
+ 188:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     UINT32     uwIntSave;
+ 189:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     MUX_CB_S  *pstMuxPended;
+ 190:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     UINT32     uwRetErr;
+ 191:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     LOS_TASK_CB  *pstRunTsk;
+ 192:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 193:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     if (uwMuxHandle >= (UINT32)LOSCFG_BASE_IPC_MUX_LIMIT)
+ 411              		.loc 1 193 0
+ 412 0006 0E28     		cmp	r0, #14
+ 413 0008 08D9     		bls	.L24
+ 194:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     {
+ 195:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         OS_RETURN_ERROR(LOS_ERRNO_MUX_INVALID);
+ 414              		.loc 1 195 0
+ 415 000a 3F4C     		ldr	r4, .L34
+ 416 000c 0023     		movs	r3, #0
+ 417 000e 0093     		str	r3, [sp]
+ 418 0010 2200     		movs	r2, r4
+ 419 0012 3E49     		ldr	r1, .L34+4
+ 420              	.LVL44:
+ 421 0014 3E48     		ldr	r0, .L34+8
+ 422              	.LVL45:
+ 423 0016 FFF7FEFF 		bl	LOS_ErrHandle
+ 424              	.LVL46:
+ 425 001a 72E0     		b	.L25
+ 426              	.LVL47:
+ 427              	.L24:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s 			page 16
+
+
+ 196:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     }
+ 197:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 198:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     pstMuxPended = GET_MUX(uwMuxHandle);
+ 428              		.loc 1 198 0
+ 429 001c 3D4B     		ldr	r3, .L34+12
+ 430 001e 1E68     		ldr	r6, [r3]
+ 431 0020 4300     		lsls	r3, r0, #1
+ 432 0022 1818     		adds	r0, r3, r0
+ 433              	.LVL48:
+ 434 0024 C300     		lsls	r3, r0, #3
+ 435 0026 F618     		adds	r6, r6, r3
+ 436              	.LVL49:
+ 199:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     uwIntSave = LOS_IntLock();
+ 437              		.loc 1 199 0
+ 438 0028 FFF7FEFF 		bl	LOS_IntLock
+ 439              	.LVL50:
+ 440 002c 0390     		str	r0, [sp, #12]
+ 441              	.LVL51:
+ 200:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     if (OS_MUX_UNUSED == pstMuxPended->ucMuxStat)
+ 442              		.loc 1 200 0
+ 443 002e 3378     		ldrb	r3, [r6]
+ 444 0030 002B     		cmp	r3, #0
+ 445 0032 0AD1     		bne	.L26
+ 201:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     {
+ 202:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         LOS_IntRestore(uwIntSave);
+ 446              		.loc 1 202 0
+ 447 0034 FFF7FEFF 		bl	LOS_IntRestore
+ 448              	.LVL52:
+ 203:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         OS_RETURN_ERROR(LOS_ERRNO_MUX_INVALID);
+ 449              		.loc 1 203 0
+ 450 0038 334C     		ldr	r4, .L34
+ 451 003a 0023     		movs	r3, #0
+ 452 003c 0093     		str	r3, [sp]
+ 453 003e 2200     		movs	r2, r4
+ 454 0040 3249     		ldr	r1, .L34+4
+ 455 0042 3348     		ldr	r0, .L34+8
+ 456 0044 FFF7FEFF 		bl	LOS_ErrHandle
+ 457              	.LVL53:
+ 458 0048 5BE0     		b	.L25
+ 459              	.LVL54:
+ 460              	.L26:
+ 204:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     }
+ 205:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 206:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     if (OS_INT_ACTIVE)
+ 461              		.loc 1 206 0
+ 462 004a FFF7FEFF 		bl	osIntNumGet
+ 463              	.LVL55:
+ 464 004e 041E     		subs	r4, r0, #0
+ 465 0050 04D0     		beq	.L27
+ 207:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     {
+ 208:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         LOS_IntRestore(uwIntSave);
+ 466              		.loc 1 208 0
+ 467 0052 0398     		ldr	r0, [sp, #12]
+ 468 0054 FFF7FEFF 		bl	LOS_IntRestore
+ 469              	.LVL56:
+ 209:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         return LOS_ERRNO_MUX_PEND_INTERR;
+ 470              		.loc 1 209 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s 			page 17
+
+
+ 471 0058 2F4C     		ldr	r4, .L34+16
+ 472 005a 52E0     		b	.L25
+ 473              	.L27:
+ 210:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     }
+ 211:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 212:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     pstRunTsk = (LOS_TASK_CB *)g_stLosTask.pstRunTask;
+ 474              		.loc 1 212 0
+ 475 005c 2F4B     		ldr	r3, .L34+20
+ 476 005e 1F68     		ldr	r7, [r3]
+ 477              	.LVL57:
+ 213:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     if (pstMuxPended->usMuxCount == 0)
+ 478              		.loc 1 213 0
+ 479 0060 7388     		ldrh	r3, [r6, #2]
+ 480 0062 002B     		cmp	r3, #0
+ 481 0064 08D1     		bne	.L28
+ 214:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     {
+ 215:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         pstMuxPended->usMuxCount++;
+ 482              		.loc 1 215 0
+ 483 0066 0133     		adds	r3, r3, #1
+ 484 0068 7380     		strh	r3, [r6, #2]
+ 216:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         pstMuxPended->pstOwner = pstRunTsk;
+ 485              		.loc 1 216 0
+ 486 006a 3761     		str	r7, [r6, #16]
+ 217:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         pstMuxPended->usPriority = pstRunTsk->usPriority;
+ 487              		.loc 1 217 0
+ 488 006c FB88     		ldrh	r3, [r7, #6]
+ 489 006e B382     		strh	r3, [r6, #20]
+ 218:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         LOS_IntRestore(uwIntSave);
+ 490              		.loc 1 218 0
+ 491 0070 0398     		ldr	r0, [sp, #12]
+ 492 0072 FFF7FEFF 		bl	LOS_IntRestore
+ 493              	.LVL58:
+ 219:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         return LOS_OK;
+ 494              		.loc 1 219 0
+ 495 0076 44E0     		b	.L25
+ 496              	.L28:
+ 220:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     }
+ 221:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 222:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     if (pstMuxPended->pstOwner == pstRunTsk)
+ 497              		.loc 1 222 0
+ 498 0078 3269     		ldr	r2, [r6, #16]
+ 499 007a 9742     		cmp	r7, r2
+ 500 007c 05D1     		bne	.L29
+ 223:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     {
+ 224:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         pstMuxPended->usMuxCount++;
+ 501              		.loc 1 224 0
+ 502 007e 0133     		adds	r3, r3, #1
+ 503 0080 7380     		strh	r3, [r6, #2]
+ 225:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         LOS_IntRestore(uwIntSave);
+ 504              		.loc 1 225 0
+ 505 0082 0398     		ldr	r0, [sp, #12]
+ 506 0084 FFF7FEFF 		bl	LOS_IntRestore
+ 507              	.LVL59:
+ 226:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         return LOS_OK;
+ 508              		.loc 1 226 0
+ 509 0088 3BE0     		b	.L25
+ 510              	.L29:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s 			page 18
+
+
+ 227:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     }
+ 228:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 229:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     if (!uwTimeout)
+ 511              		.loc 1 229 0
+ 512 008a 002D     		cmp	r5, #0
+ 513 008c 04D1     		bne	.L30
+ 230:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     {
+ 231:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         LOS_IntRestore(uwIntSave);
+ 514              		.loc 1 231 0
+ 515 008e 0398     		ldr	r0, [sp, #12]
+ 516 0090 FFF7FEFF 		bl	LOS_IntRestore
+ 517              	.LVL60:
+ 232:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         return LOS_ERRNO_MUX_UNAVAILABLE;
+ 518              		.loc 1 232 0
+ 519 0094 224C     		ldr	r4, .L34+24
+ 520 0096 34E0     		b	.L25
+ 521              	.L30:
+ 233:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     }
+ 234:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 235:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     if (g_usLosTaskLock)
+ 522              		.loc 1 235 0
+ 523 0098 224B     		ldr	r3, .L34+28
+ 524 009a 1B88     		ldrh	r3, [r3]
+ 525 009c 002B     		cmp	r3, #0
+ 526 009e 0AD0     		beq	.L31
+ 527              	.LVL61:
+ 236:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     {
+ 237:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         uwRetErr = LOS_ERRNO_MUX_PEND_IN_LOCK;
+ 238:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         PRINT_ERR("!!!LOS_ERRNO_MUX_PEND_IN_LOCK!!!\n");
+ 528              		.loc 1 238 0
+ 529 00a0 2148     		ldr	r0, .L34+32
+ 530 00a2 FFF7FEFF 		bl	printf
+ 531              	.LVL62:
+ 532 00a6 2148     		ldr	r0, .L34+36
+ 533 00a8 FFF7FEFF 		bl	puts
+ 534              	.LVL63:
+ 535              	.LDL2:
+ 239:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** #if (LOSCFG_PLATFORM_EXC == YES)
+ 240:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         osBackTrace();
+ 241:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** #endif
+ 242:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         goto errre_uniMuxPend;
+ 243:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     }
+ 244:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 245:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     pstRunTsk->pTaskMux = (VOID *)pstMuxPended;
+ 246:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 247:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     if (pstMuxPended->pstOwner->usPriority > pstRunTsk->usPriority)
+ 248:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     {
+ 249:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         osTaskPriModify(pstMuxPended->pstOwner, pstRunTsk->usPriority);
+ 250:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     }
+ 251:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 252:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     osTaskWait(&pstMuxPended->stMuxList, OS_TASK_STATUS_PEND, uwTimeout);
+ 253:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 254:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     (VOID)LOS_IntRestore(uwIntSave);
+ 255:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     LOS_Schedule();
+ 256:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 257:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     if (pstRunTsk->usTaskStatus & OS_TASK_STATUS_TIMEOUT)
+ 258:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     {
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s 			page 19
+
+
+ 259:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         uwIntSave = LOS_IntLock();
+ 260:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         pstRunTsk->usTaskStatus &= (~OS_TASK_STATUS_TIMEOUT);
+ 261:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         (VOID)LOS_IntRestore(uwIntSave);
+ 262:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         uwRetErr = LOS_ERRNO_MUX_TIMEOUT;
+ 263:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         goto error_uniMuxPend;
+ 264:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     }
+ 265:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 266:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     return LOS_OK;
+ 267:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 268:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** errre_uniMuxPend:
+ 269:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     (VOID)LOS_IntRestore(uwIntSave);
+ 536              		.loc 1 269 0
+ 537 00ac 0398     		ldr	r0, [sp, #12]
+ 538 00ae FFF7FEFF 		bl	LOS_IntRestore
+ 539              	.LVL64:
+ 237:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         PRINT_ERR("!!!LOS_ERRNO_MUX_PEND_IN_LOCK!!!\n");
+ 540              		.loc 1 237 0
+ 541 00b2 1F4C     		ldr	r4, .L34+40
+ 542 00b4 1EE0     		b	.L32
+ 543              	.LVL65:
+ 544              	.L31:
+ 245:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 545              		.loc 1 245 0
+ 546 00b6 FE61     		str	r6, [r7, #28]
+ 247:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     {
+ 547              		.loc 1 247 0
+ 548 00b8 3069     		ldr	r0, [r6, #16]
+ 549 00ba C388     		ldrh	r3, [r0, #6]
+ 550 00bc F988     		ldrh	r1, [r7, #6]
+ 551 00be 8B42     		cmp	r3, r1
+ 552 00c0 01D9     		bls	.L33
+ 249:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     }
+ 553              		.loc 1 249 0
+ 554 00c2 FFF7FEFF 		bl	osTaskPriModify
+ 555              	.LVL66:
+ 556              	.L33:
+ 252:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 557              		.loc 1 252 0
+ 558 00c6 3000     		movs	r0, r6
+ 559 00c8 0830     		adds	r0, r0, #8
+ 560 00ca 2A00     		movs	r2, r5
+ 561 00cc 0821     		movs	r1, #8
+ 562 00ce FFF7FEFF 		bl	osTaskWait
+ 563              	.LVL67:
+ 254:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     LOS_Schedule();
+ 564              		.loc 1 254 0
+ 565 00d2 0398     		ldr	r0, [sp, #12]
+ 566 00d4 FFF7FEFF 		bl	LOS_IntRestore
+ 567              	.LVL68:
+ 255:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 568              		.loc 1 255 0
+ 569 00d8 FFF7FEFF 		bl	LOS_Schedule
+ 570              	.LVL69:
+ 257:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     {
+ 571              		.loc 1 257 0
+ 572 00dc BB88     		ldrh	r3, [r7, #4]
+ 573 00de 5B06     		lsls	r3, r3, #25
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s 			page 20
+
+
+ 574 00e0 0FD5     		bpl	.L25
+ 259:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         pstRunTsk->usTaskStatus &= (~OS_TASK_STATUS_TIMEOUT);
+ 575              		.loc 1 259 0
+ 576 00e2 FFF7FEFF 		bl	LOS_IntLock
+ 577              	.LVL70:
+ 260:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         (VOID)LOS_IntRestore(uwIntSave);
+ 578              		.loc 1 260 0
+ 579 00e6 BB88     		ldrh	r3, [r7, #4]
+ 580 00e8 4022     		movs	r2, #64
+ 581 00ea 9343     		bics	r3, r2
+ 582 00ec BB80     		strh	r3, [r7, #4]
+ 261:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         uwRetErr = LOS_ERRNO_MUX_TIMEOUT;
+ 583              		.loc 1 261 0
+ 584 00ee FFF7FEFF 		bl	LOS_IntRestore
+ 585              	.LVL71:
+ 262:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         goto error_uniMuxPend;
+ 586              		.loc 1 262 0
+ 587 00f2 104C     		ldr	r4, .L34+44
+ 588              	.LVL72:
+ 589              	.L32:
+ 270:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** error_uniMuxPend:
+ 271:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     OS_RETURN_ERROR(uwRetErr);
+ 590              		.loc 1 271 0
+ 591 00f4 0023     		movs	r3, #0
+ 592 00f6 0093     		str	r3, [sp]
+ 593 00f8 2200     		movs	r2, r4
+ 594 00fa 0449     		ldr	r1, .L34+4
+ 595 00fc 0448     		ldr	r0, .L34+8
+ 596 00fe FFF7FEFF 		bl	LOS_ErrHandle
+ 597              	.LVL73:
+ 598              	.L25:
+ 272:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** }
+ 599              		.loc 1 272 0
+ 600 0102 2000     		movs	r0, r4
+ 601 0104 05B0     		add	sp, sp, #20
+ 602              		@ sp needed
+ 603              	.LVL74:
+ 604 0106 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 605              	.L35:
+ 606              		.align	2
+ 607              	.L34:
+ 608 0108 011D0002 		.word	33561857
+ 609 010c F8C3B2A1 		.word	-1582119944
+ 610 0110 00000000 		.word	.LC4
+ 611 0114 00000000 		.word	g_pstAllMux
+ 612 0118 051D0002 		.word	33561861
+ 613 011c 00000000 		.word	g_stLosTask
+ 614 0120 041D0002 		.word	33561860
+ 615 0124 00000000 		.word	g_usLosTaskLock
+ 616 0128 14000000 		.word	.LC13
+ 617 012c 1C000000 		.word	.LC15
+ 618 0130 061D0002 		.word	33561862
+ 619 0134 071D0002 		.word	33561863
+ 620              		.cfi_endproc
+ 621              	.LFE46:
+ 623              		.section	.text.LOS_MuxPost,"ax",%progbits
+ 624              		.align	2
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s 			page 21
+
+
+ 625              		.global	LOS_MuxPost
+ 626              		.code	16
+ 627              		.thumb_func
+ 629              	LOS_MuxPost:
+ 630              	.LFB47:
+ 273:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 274:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** /*****************************************************************************
+ 275:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  Function     : LOS_MuxPost
+ 276:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  Description  : Specify the mutex V operation,
+ 277:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  Input        : uwMuxHandle ------ Mutex operation handle,
+ 278:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  Output       : None
+ 279:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  Return       : LOS_OK on success ,or error code on failure
+ 280:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****  *****************************************************************************/
+ 281:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** LITE_OS_SEC_TEXT UINT32 LOS_MuxPost(UINT32 uwMuxHandle)
+ 282:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** {
+ 631              		.loc 1 282 0
+ 632              		.cfi_startproc
+ 633              		@ args = 0, pretend = 0, frame = 0
+ 634              		@ frame_needed = 0, uses_anonymous_args = 0
+ 635              	.LVL75:
+ 636 0000 70B5     		push	{r4, r5, r6, lr}
+ 637              	.LCFI7:
+ 638              		.cfi_def_cfa_offset 16
+ 639              		.cfi_offset 4, -16
+ 640              		.cfi_offset 5, -12
+ 641              		.cfi_offset 6, -8
+ 642              		.cfi_offset 14, -4
+ 643 0002 82B0     		sub	sp, sp, #8
+ 644              	.LCFI8:
+ 645              		.cfi_def_cfa_offset 24
+ 646 0004 0400     		movs	r4, r0
+ 283:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     UINT32      uwIntSave;
+ 284:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     MUX_CB_S    *pstMuxPosted = GET_MUX(uwMuxHandle);
+ 647              		.loc 1 284 0
+ 648 0006 2E4B     		ldr	r3, .L45
+ 649 0008 1D68     		ldr	r5, [r3]
+ 650 000a 4300     		lsls	r3, r0, #1
+ 651 000c 1B18     		adds	r3, r3, r0
+ 652 000e DA00     		lsls	r2, r3, #3
+ 653 0010 AD18     		adds	r5, r5, r2
+ 654              	.LVL76:
+ 285:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     LOS_TASK_CB *pstResumedTask;
+ 286:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     LOS_TASK_CB *pstRunTsk;
+ 287:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 288:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     uwIntSave = LOS_IntLock();
+ 655              		.loc 1 288 0
+ 656 0012 FFF7FEFF 		bl	LOS_IntLock
+ 657              	.LVL77:
+ 658 0016 0600     		movs	r6, r0
+ 659              	.LVL78:
+ 289:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 290:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     if ((uwMuxHandle >= (UINT32)LOSCFG_BASE_IPC_MUX_LIMIT) ||
+ 660              		.loc 1 290 0
+ 661 0018 0E2C     		cmp	r4, #14
+ 662 001a 02D8     		bhi	.L37
+ 291:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         (OS_MUX_UNUSED == pstMuxPosted->ucMuxStat))
+ 663              		.loc 1 291 0 discriminator 1
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s 			page 22
+
+
+ 664 001c 2B78     		ldrb	r3, [r5]
+ 290:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         (OS_MUX_UNUSED == pstMuxPosted->ucMuxStat))
+ 665              		.loc 1 290 0 discriminator 1
+ 666 001e 002B     		cmp	r3, #0
+ 667 0020 0CD1     		bne	.L38
+ 668              	.L37:
+ 292:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     {
+ 293:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         LOS_IntRestore(uwIntSave);
+ 669              		.loc 1 293 0
+ 670 0022 3000     		movs	r0, r6
+ 671              	.LVL79:
+ 672 0024 FFF7FEFF 		bl	LOS_IntRestore
+ 673              	.LVL80:
+ 294:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         OS_RETURN_ERROR(LOS_ERRNO_MUX_INVALID);
+ 674              		.loc 1 294 0
+ 675 0028 264C     		ldr	r4, .L45+4
+ 676              	.LVL81:
+ 677 002a 0023     		movs	r3, #0
+ 678 002c 0093     		str	r3, [sp]
+ 679 002e 2200     		movs	r2, r4
+ 680 0030 2549     		ldr	r1, .L45+8
+ 681 0032 2648     		ldr	r0, .L45+12
+ 682 0034 FFF7FEFF 		bl	LOS_ErrHandle
+ 683              	.LVL82:
+ 684 0038 2000     		movs	r0, r4
+ 685 003a 3FE0     		b	.L39
+ 686              	.LVL83:
+ 687              	.L38:
+ 295:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     }
+ 296:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 297:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     pstRunTsk = (LOS_TASK_CB *)g_stLosTask.pstRunTask;
+ 688              		.loc 1 297 0
+ 689 003c 244B     		ldr	r3, .L45+16
+ 690 003e 1A68     		ldr	r2, [r3]
+ 691              	.LVL84:
+ 298:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     if ((pstMuxPosted->usMuxCount == 0) || (pstMuxPosted->pstOwner != pstRunTsk))
+ 692              		.loc 1 298 0
+ 693 0040 6B88     		ldrh	r3, [r5, #2]
+ 694 0042 002B     		cmp	r3, #0
+ 695 0044 02D0     		beq	.L40
+ 696              		.loc 1 298 0 is_stmt 0 discriminator 1
+ 697 0046 2869     		ldr	r0, [r5, #16]
+ 698              	.LVL85:
+ 699 0048 8242     		cmp	r2, r0
+ 700 004a 0CD0     		beq	.L41
+ 701              	.L40:
+ 299:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     {
+ 300:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         LOS_IntRestore(uwIntSave);
+ 702              		.loc 1 300 0 is_stmt 1
+ 703 004c 3000     		movs	r0, r6
+ 704 004e FFF7FEFF 		bl	LOS_IntRestore
+ 705              	.LVL86:
+ 301:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         OS_RETURN_ERROR(LOS_ERRNO_MUX_INVALID);
+ 706              		.loc 1 301 0
+ 707 0052 1C4C     		ldr	r4, .L45+4
+ 708              	.LVL87:
+ 709 0054 0023     		movs	r3, #0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s 			page 23
+
+
+ 710 0056 0093     		str	r3, [sp]
+ 711 0058 2200     		movs	r2, r4
+ 712 005a 1B49     		ldr	r1, .L45+8
+ 713 005c 1B48     		ldr	r0, .L45+12
+ 714 005e FFF7FEFF 		bl	LOS_ErrHandle
+ 715              	.LVL88:
+ 716 0062 2000     		movs	r0, r4
+ 717 0064 2AE0     		b	.L39
+ 718              	.LVL89:
+ 719              	.L41:
+ 302:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     }
+ 303:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 304:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     if (--(pstMuxPosted->usMuxCount) != 0)
+ 720              		.loc 1 304 0
+ 721 0066 013B     		subs	r3, r3, #1
+ 722 0068 9BB2     		uxth	r3, r3
+ 723 006a 6B80     		strh	r3, [r5, #2]
+ 724 006c 002B     		cmp	r3, #0
+ 725 006e 04D0     		beq	.L42
+ 305:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     {
+ 306:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         LOS_IntRestore(uwIntSave);
+ 726              		.loc 1 306 0
+ 727 0070 3000     		movs	r0, r6
+ 728 0072 FFF7FEFF 		bl	LOS_IntRestore
+ 729              	.LVL90:
+ 307:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         return LOS_OK;
+ 730              		.loc 1 307 0
+ 731 0076 0020     		movs	r0, #0
+ 732 0078 20E0     		b	.L39
+ 733              	.LVL91:
+ 734              	.L42:
+ 308:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     }
+ 309:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 310:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     if ((pstMuxPosted->pstOwner->usPriority) != pstMuxPosted->usPriority)
+ 735              		.loc 1 310 0
+ 736 007a C388     		ldrh	r3, [r0, #6]
+ 737 007c A98A     		ldrh	r1, [r5, #20]
+ 738 007e 8B42     		cmp	r3, r1
+ 739 0080 01D0     		beq	.L43
+ 311:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     {
+ 312:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         osTaskPriModify(pstMuxPosted->pstOwner, pstMuxPosted->usPriority);
+ 740              		.loc 1 312 0
+ 741 0082 FFF7FEFF 		bl	osTaskPriModify
+ 742              	.LVL92:
+ 743              	.L43:
+ 313:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     }
+ 314:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 315:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     if (!LOS_ListEmpty(&pstMuxPosted->stMuxList))
+ 744              		.loc 1 315 0
+ 745 0086 2B00     		movs	r3, r5
+ 746 0088 0833     		adds	r3, r3, #8
+ 747              	.LBB36:
+ 748              	.LBB37:
+ 749              		.loc 2 215 0
+ 750 008a E868     		ldr	r0, [r5, #12]
+ 751              	.LBE37:
+ 752              	.LBE36:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s 			page 24
+
+
+ 753              		.loc 1 315 0
+ 754 008c 8342     		cmp	r3, r0
+ 755 008e 11D0     		beq	.L44
+ 316:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     {
+ 317:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         pstResumedTask = OS_TCB_FROM_PENDLIST(LOS_DL_LIST_FIRST(&(pstMuxPosted->stMuxList))); /*lin
+ 756              		.loc 1 317 0
+ 757 0090 2838     		subs	r0, r0, #40
+ 758              	.LVL93:
+ 318:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 319:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         pstMuxPosted->usMuxCount    = 1;
+ 759              		.loc 1 319 0
+ 760 0092 0123     		movs	r3, #1
+ 761 0094 6B80     		strh	r3, [r5, #2]
+ 320:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         pstMuxPosted->pstOwner      = pstResumedTask;
+ 762              		.loc 1 320 0
+ 763 0096 2861     		str	r0, [r5, #16]
+ 321:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         pstMuxPosted->usPriority    = pstResumedTask->usPriority;
+ 764              		.loc 1 321 0
+ 765 0098 C388     		ldrh	r3, [r0, #6]
+ 766 009a AB82     		strh	r3, [r5, #20]
+ 322:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         pstResumedTask->pTaskMux    = NULL;
+ 767              		.loc 1 322 0
+ 768 009c 0023     		movs	r3, #0
+ 769 009e C361     		str	r3, [r0, #28]
+ 323:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 324:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         osTaskWake(pstResumedTask, OS_TASK_STATUS_PEND);
+ 770              		.loc 1 324 0
+ 771 00a0 0821     		movs	r1, #8
+ 772 00a2 FFF7FEFF 		bl	osTaskWake
+ 773              	.LVL94:
+ 325:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 326:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         (VOID)LOS_IntRestore(uwIntSave);
+ 774              		.loc 1 326 0
+ 775 00a6 3000     		movs	r0, r6
+ 776 00a8 FFF7FEFF 		bl	LOS_IntRestore
+ 777              	.LVL95:
+ 327:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         LOS_Schedule();
+ 778              		.loc 1 327 0
+ 779 00ac FFF7FEFF 		bl	LOS_Schedule
+ 780              	.LVL96:
+ 328:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     }
+ 329:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     else
+ 330:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     {
+ 331:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****         (VOID)LOS_IntRestore(uwIntSave);
+ 332:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     }
+ 333:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** 
+ 334:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     return LOS_OK;
+ 781              		.loc 1 334 0
+ 782 00b0 0020     		movs	r0, #0
+ 783 00b2 03E0     		b	.L39
+ 784              	.L44:
+ 331:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c ****     }
+ 785              		.loc 1 331 0
+ 786 00b4 3000     		movs	r0, r6
+ 787 00b6 FFF7FEFF 		bl	LOS_IntRestore
+ 788              	.LVL97:
+ 789              		.loc 1 334 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s 			page 25
+
+
+ 790 00ba 0020     		movs	r0, #0
+ 791              	.LVL98:
+ 792              	.L39:
+ 335:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_mux.c **** }
+ 793              		.loc 1 335 0
+ 794 00bc 02B0     		add	sp, sp, #8
+ 795              		@ sp needed
+ 796              	.LVL99:
+ 797              	.LVL100:
+ 798 00be 70BD     		pop	{r4, r5, r6, pc}
+ 799              	.L46:
+ 800              		.align	2
+ 801              	.L45:
+ 802 00c0 00000000 		.word	g_pstAllMux
+ 803 00c4 011D0002 		.word	33561857
+ 804 00c8 F8C3B2A1 		.word	-1582119944
+ 805 00cc 00000000 		.word	.LC4
+ 806 00d0 00000000 		.word	g_stLosTask
+ 807              		.cfi_endproc
+ 808              	.LFE47:
+ 810              		.comm	g_stUnusedMuxList,8,4
+ 811              		.comm	g_pstAllMux,4,4
+ 812              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 813              		.align	2
+ 814              	.LC4:
+ 815 0000 6F735F75 		.ascii	"os_unspecific_file\000"
+ 815      6E737065 
+ 815      63696669 
+ 815      635F6669 
+ 815      6C6500
+ 816 0013 00       		.space	1
+ 817              	.LC13:
+ 818 0014 5B455252 		.ascii	"[ERR] \000"
+ 818      5D2000
+ 819 001b 00       		.space	1
+ 820              	.LC15:
+ 821 001c 2121214C 		.ascii	"!!!LOS_ERRNO_MUX_PEND_IN_LOCK!!!\000"
+ 821      4F535F45 
+ 821      52524E4F 
+ 821      5F4D5558 
+ 821      5F50454E 
+ 822              		.text
+ 823              	.Letext0:
+ 824              		.file 3 "e:\\liteos\\liteos\\kernel\\include\\los_typedef.h"
+ 825              		.file 4 "e:\\liteos\\liteos\\kernel\\include\\los_event.h"
+ 826              		.file 5 "e:\\liteos\\liteos\\kernel\\include\\los_task.h"
+ 827              		.file 6 "e:\\liteos\\liteos\\kernel\\base\\include\\los_task.ph"
+ 828              		.file 7 "e:\\liteos\\liteos\\kernel\\base\\include\\los_mux.ph"
+ 829              		.file 8 "e:\\liteos\\liteos\\kernel\\include\\los_config.h"
+ 830              		.file 9 "e:\\liteos\\liteos\\kernel\\include\\los_memory.h"
+ 831              		.file 10 "e:\\liteos\\liteos\\arch\\arm\\arm-m\\include\\los_hwi.h"
+ 832              		.file 11 "e:\\liteos\\liteos\\kernel\\include\\los_err.h"
+ 833              		.file 12 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\stdio.h"
+ 834              		.file 13 "e:\\liteos\\liteos\\arch\\arm\\arm-m\\include\\los_hw.h"
+ 835              		.file 14 "<built-in>"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s 			page 26
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 los_mux.c
+C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s:20     .text.osMuxInit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s:25     .text.osMuxInit:00000000 osMuxInit
+C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s:127    .text.osMuxInit:00000054 $d
+                            *COM*:00000008 g_stUnusedMuxList
+                            *COM*:00000004 g_pstAllMux
+C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s:135    .text.LOS_MuxCreate:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s:140    .text.LOS_MuxCreate:00000000 LOS_MuxCreate
+C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s:251    .text.LOS_MuxCreate:00000060 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s:260    .text.LOS_MuxDelete:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s:265    .text.LOS_MuxDelete:00000000 LOS_MuxDelete
+C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s:377    .text.LOS_MuxDelete:0000006c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s:387    .text.LOS_MuxPend:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s:392    .text.LOS_MuxPend:00000000 LOS_MuxPend
+C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s:608    .text.LOS_MuxPend:00000108 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s:624    .text.LOS_MuxPost:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s:629    .text.LOS_MuxPost:00000000 LOS_MuxPost
+C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s:802    .text.LOS_MuxPost:000000c0 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cch2yQtg.s:813    .rodata.str1.4:00000000 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+LOS_MemAlloc
+m_aucSysMem0
+LOS_IntLock
+LOS_IntRestore
+LOS_ErrHandle
+osIntNumGet
+printf
+puts
+osTaskPriModify
+osTaskWait
+LOS_Schedule
+g_stLosTask
+g_usLosTaskLock
+osTaskWake

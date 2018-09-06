@@ -1,0 +1,2841 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"fm33a0xx_u7816.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.U7816x_U7816CTRL_TXEN_Setable,"ax",%progbits
+  20              		.align	2
+  21              		.global	U7816x_U7816CTRL_TXEN_Setable
+  22              		.code	16
+  23              		.thumb_func
+  25              	U7816x_U7816CTRL_TXEN_Setable:
+  26              	.LFB36:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers/fm33a
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /**
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c ****   ******************************************************************************
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c ****   * @file    fm33a0xx_u7816.c
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c ****   * @author  FM33a0 Application Team
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c ****   * @version V2.0.1
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c ****   * @date    4-MAY-2017
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c ****   * @brief   This file provides firmware functions to manage the following 
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c ****   *          functionalities of....:
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c ****   *
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** */
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* Includes ------------------------------------------------------------------*/
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** #include "FM33A0XX_u7816.h" 
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** //Code_Start
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** //2018-04-12-09-21-42
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** //FM33A0XX_Driver_Gen_V1.4
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* U7816Í¨µÀ·¢ËÍÊ¹ÄÜ¿ØÖÆ Ïà¹Øº¯Êý */
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** void U7816x_U7816CTRL_TXEN_Setable(U7816x_Type* U7816x, FunState NewState)
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+  28              		.loc 1 21 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (NewState == ENABLE)
+  34              		.loc 1 22 0
+  35 0000 0129     		cmp	r1, #1
+  36 0002 04D1     		bne	.L2
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 2
+
+
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		U7816x->U7816CTRL |= (U7816x_U7816CTRL_TXEN_Msk);
+  37              		.loc 1 24 0
+  38 0004 0268     		ldr	r2, [r0]
+  39 0006 2023     		movs	r3, #32
+  40 0008 1343     		orrs	r3, r2
+  41 000a 0360     		str	r3, [r0]
+  42 000c 03E0     		b	.L1
+  43              	.L2:
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		U7816x->U7816CTRL &= ~(U7816x_U7816CTRL_TXEN_Msk);
+  44              		.loc 1 28 0
+  45 000e 0368     		ldr	r3, [r0]
+  46 0010 2022     		movs	r2, #32
+  47 0012 9343     		bics	r3, r2
+  48 0014 0360     		str	r3, [r0]
+  49              	.L1:
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+  50              		.loc 1 30 0
+  51              		@ sp needed
+  52 0016 7047     		bx	lr
+  53              		.cfi_endproc
+  54              	.LFE36:
+  56              		.section	.text.U7816x_U7816CTRL_TXEN_Getable,"ax",%progbits
+  57              		.align	2
+  58              		.global	U7816x_U7816CTRL_TXEN_Getable
+  59              		.code	16
+  60              		.thumb_func
+  62              	U7816x_U7816CTRL_TXEN_Getable:
+  63              	.LFB37:
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** FunState U7816x_U7816CTRL_TXEN_Getable(U7816x_Type* U7816x)
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+  64              		.loc 1 33 0
+  65              		.cfi_startproc
+  66              		@ args = 0, pretend = 0, frame = 0
+  67              		@ frame_needed = 0, uses_anonymous_args = 0
+  68              		@ link register save eliminated.
+  69              	.LVL1:
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (U7816x->U7816CTRL & (U7816x_U7816CTRL_TXEN_Msk))
+  70              		.loc 1 34 0
+  71 0000 0368     		ldr	r3, [r0]
+  72 0002 9B06     		lsls	r3, r3, #26
+  73 0004 01D5     		bpl	.L6
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return ENABLE;
+  74              		.loc 1 36 0
+  75 0006 0120     		movs	r0, #1
+  76              	.LVL2:
+  77 0008 00E0     		b	.L5
+  78              	.LVL3:
+  79              	.L6:
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 3
+
+
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return DISABLE;
+  80              		.loc 1 40 0
+  81 000a 0020     		movs	r0, #0
+  82              	.LVL4:
+  83              	.L5:
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+  84              		.loc 1 42 0
+  85              		@ sp needed
+  86 000c 7047     		bx	lr
+  87              		.cfi_endproc
+  88              	.LFE37:
+  90 000e C046     		.section	.text.U7816x_U7816CTRL_RXEN_Setable,"ax",%progbits
+  91              		.align	2
+  92              		.global	U7816x_U7816CTRL_RXEN_Setable
+  93              		.code	16
+  94              		.thumb_func
+  96              	U7816x_U7816CTRL_RXEN_Setable:
+  97              	.LFB38:
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* U7816Í¨µÀ½ÓÊÕÊ¹ÄÜ¿ØÖÆ Ïà¹Øº¯Êý */
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** void U7816x_U7816CTRL_RXEN_Setable(U7816x_Type* U7816x, FunState NewState)
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+  98              		.loc 1 46 0
+  99              		.cfi_startproc
+ 100              		@ args = 0, pretend = 0, frame = 0
+ 101              		@ frame_needed = 0, uses_anonymous_args = 0
+ 102              		@ link register save eliminated.
+ 103              	.LVL5:
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (NewState == ENABLE)
+ 104              		.loc 1 47 0
+ 105 0000 0129     		cmp	r1, #1
+ 106 0002 04D1     		bne	.L8
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		U7816x->U7816CTRL |= (U7816x_U7816CTRL_RXEN_Msk);
+ 107              		.loc 1 49 0
+ 108 0004 0268     		ldr	r2, [r0]
+ 109 0006 1023     		movs	r3, #16
+ 110 0008 1343     		orrs	r3, r2
+ 111 000a 0360     		str	r3, [r0]
+ 112 000c 03E0     		b	.L7
+ 113              	.L8:
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		U7816x->U7816CTRL &= ~(U7816x_U7816CTRL_RXEN_Msk);
+ 114              		.loc 1 53 0
+ 115 000e 0368     		ldr	r3, [r0]
+ 116 0010 1022     		movs	r2, #16
+ 117 0012 9343     		bics	r3, r2
+ 118 0014 0360     		str	r3, [r0]
+ 119              	.L7:
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 120              		.loc 1 55 0
+ 121              		@ sp needed
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 4
+
+
+ 122 0016 7047     		bx	lr
+ 123              		.cfi_endproc
+ 124              	.LFE38:
+ 126              		.section	.text.U7816x_U7816CTRL_RXEN_Getable,"ax",%progbits
+ 127              		.align	2
+ 128              		.global	U7816x_U7816CTRL_RXEN_Getable
+ 129              		.code	16
+ 130              		.thumb_func
+ 132              	U7816x_U7816CTRL_RXEN_Getable:
+ 133              	.LFB39:
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** FunState U7816x_U7816CTRL_RXEN_Getable(U7816x_Type* U7816x)
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 134              		.loc 1 58 0
+ 135              		.cfi_startproc
+ 136              		@ args = 0, pretend = 0, frame = 0
+ 137              		@ frame_needed = 0, uses_anonymous_args = 0
+ 138              		@ link register save eliminated.
+ 139              	.LVL6:
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (U7816x->U7816CTRL & (U7816x_U7816CTRL_RXEN_Msk))
+ 140              		.loc 1 59 0
+ 141 0000 0368     		ldr	r3, [r0]
+ 142 0002 DB06     		lsls	r3, r3, #27
+ 143 0004 01D5     		bpl	.L12
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return ENABLE;
+ 144              		.loc 1 61 0
+ 145 0006 0120     		movs	r0, #1
+ 146              	.LVL7:
+ 147 0008 00E0     		b	.L11
+ 148              	.LVL8:
+ 149              	.L12:
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return DISABLE;
+ 150              		.loc 1 65 0
+ 151 000a 0020     		movs	r0, #0
+ 152              	.LVL9:
+ 153              	.L11:
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 154              		.loc 1 67 0
+ 155              		@ sp needed
+ 156 000c 7047     		bx	lr
+ 157              		.cfi_endproc
+ 158              	.LFE39:
+ 160 000e C046     		.section	.text.U7816x_U7816CTRL_CKOEN_Setable,"ax",%progbits
+ 161              		.align	2
+ 162              		.global	U7816x_U7816CTRL_CKOEN_Setable
+ 163              		.code	16
+ 164              		.thumb_func
+ 166              	U7816x_U7816CTRL_CKOEN_Setable:
+ 167              	.LFB40:
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* U7816Ê±ÖÓCLKÊä³öÊ¹ÄÜ¿ØÖÆ Ïà¹Øº¯Êý */
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** void U7816x_U7816CTRL_CKOEN_Setable(U7816x_Type* U7816x, FunState NewState)
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 5
+
+
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 168              		.loc 1 71 0
+ 169              		.cfi_startproc
+ 170              		@ args = 0, pretend = 0, frame = 0
+ 171              		@ frame_needed = 0, uses_anonymous_args = 0
+ 172              		@ link register save eliminated.
+ 173              	.LVL10:
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (NewState == ENABLE)
+ 174              		.loc 1 72 0
+ 175 0000 0129     		cmp	r1, #1
+ 176 0002 04D1     		bne	.L14
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		U7816x->U7816CTRL |= (U7816x_U7816CTRL_CKOEN_Msk);
+ 177              		.loc 1 74 0
+ 178 0004 0268     		ldr	r2, [r0]
+ 179 0006 0823     		movs	r3, #8
+ 180 0008 1343     		orrs	r3, r2
+ 181 000a 0360     		str	r3, [r0]
+ 182 000c 03E0     		b	.L13
+ 183              	.L14:
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		U7816x->U7816CTRL &= ~(U7816x_U7816CTRL_CKOEN_Msk);
+ 184              		.loc 1 78 0
+ 185 000e 0368     		ldr	r3, [r0]
+ 186 0010 0822     		movs	r2, #8
+ 187 0012 9343     		bics	r3, r2
+ 188 0014 0360     		str	r3, [r0]
+ 189              	.L13:
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 190              		.loc 1 80 0
+ 191              		@ sp needed
+ 192 0016 7047     		bx	lr
+ 193              		.cfi_endproc
+ 194              	.LFE40:
+ 196              		.section	.text.U7816x_U7816CTRL_CKOEN_Getable,"ax",%progbits
+ 197              		.align	2
+ 198              		.global	U7816x_U7816CTRL_CKOEN_Getable
+ 199              		.code	16
+ 200              		.thumb_func
+ 202              	U7816x_U7816CTRL_CKOEN_Getable:
+ 203              	.LFB41:
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** FunState U7816x_U7816CTRL_CKOEN_Getable(U7816x_Type* U7816x)
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 204              		.loc 1 83 0
+ 205              		.cfi_startproc
+ 206              		@ args = 0, pretend = 0, frame = 0
+ 207              		@ frame_needed = 0, uses_anonymous_args = 0
+ 208              		@ link register save eliminated.
+ 209              	.LVL11:
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (U7816x->U7816CTRL & (U7816x_U7816CTRL_CKOEN_Msk))
+ 210              		.loc 1 84 0
+ 211 0000 0368     		ldr	r3, [r0]
+ 212 0002 1B07     		lsls	r3, r3, #28
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 6
+
+
+ 213 0004 01D5     		bpl	.L18
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return ENABLE;
+ 214              		.loc 1 86 0
+ 215 0006 0120     		movs	r0, #1
+ 216              	.LVL12:
+ 217 0008 00E0     		b	.L17
+ 218              	.LVL13:
+ 219              	.L18:
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return DISABLE;
+ 220              		.loc 1 90 0
+ 221 000a 0020     		movs	r0, #0
+ 222              	.LVL14:
+ 223              	.L17:
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 224              		.loc 1 92 0
+ 225              		@ sp needed
+ 226 000c 7047     		bx	lr
+ 227              		.cfi_endproc
+ 228              	.LFE41:
+ 230 000e C046     		.section	.text.U7816x_U7816CTRL_HPUAT_Setable,"ax",%progbits
+ 231              		.align	2
+ 232              		.global	U7816x_U7816CTRL_HPUAT_Setable
+ 233              		.code	16
+ 234              		.thumb_func
+ 236              	U7816x_U7816CTRL_HPUAT_Setable:
+ 237              	.LFB42:
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* U7816Í¨µÀÊý¾Ý·¢ËÍÇ¿ÉÏÀ­µç×è×Ô¶¯ÓÐÐ§¿ØÖÆ Ïà¹Øº¯Êý */
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** void U7816x_U7816CTRL_HPUAT_Setable(U7816x_Type* U7816x, FunState NewState)
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 238              		.loc 1 96 0
+ 239              		.cfi_startproc
+ 240              		@ args = 0, pretend = 0, frame = 0
+ 241              		@ frame_needed = 0, uses_anonymous_args = 0
+ 242              		@ link register save eliminated.
+ 243              	.LVL15:
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (NewState == ENABLE)
+ 244              		.loc 1 97 0
+ 245 0000 0129     		cmp	r1, #1
+ 246 0002 04D1     		bne	.L20
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		U7816x->U7816CTRL |= (U7816x_U7816CTRL_HPUAT_Msk);
+ 247              		.loc 1 99 0
+ 248 0004 0268     		ldr	r2, [r0]
+ 249 0006 0423     		movs	r3, #4
+ 250 0008 1343     		orrs	r3, r2
+ 251 000a 0360     		str	r3, [r0]
+ 252 000c 03E0     		b	.L19
+ 253              	.L20:
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 7
+
+
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		U7816x->U7816CTRL &= ~(U7816x_U7816CTRL_HPUAT_Msk);
+ 254              		.loc 1 103 0
+ 255 000e 0368     		ldr	r3, [r0]
+ 256 0010 0422     		movs	r2, #4
+ 257 0012 9343     		bics	r3, r2
+ 258 0014 0360     		str	r3, [r0]
+ 259              	.L19:
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 260              		.loc 1 105 0
+ 261              		@ sp needed
+ 262 0016 7047     		bx	lr
+ 263              		.cfi_endproc
+ 264              	.LFE42:
+ 266              		.section	.text.U7816x_U7816CTRL_HPUAT_Getable,"ax",%progbits
+ 267              		.align	2
+ 268              		.global	U7816x_U7816CTRL_HPUAT_Getable
+ 269              		.code	16
+ 270              		.thumb_func
+ 272              	U7816x_U7816CTRL_HPUAT_Getable:
+ 273              	.LFB43:
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** FunState U7816x_U7816CTRL_HPUAT_Getable(U7816x_Type* U7816x)
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 274              		.loc 1 108 0
+ 275              		.cfi_startproc
+ 276              		@ args = 0, pretend = 0, frame = 0
+ 277              		@ frame_needed = 0, uses_anonymous_args = 0
+ 278              		@ link register save eliminated.
+ 279              	.LVL16:
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (U7816x->U7816CTRL & (U7816x_U7816CTRL_HPUAT_Msk))
+ 280              		.loc 1 109 0
+ 281 0000 0368     		ldr	r3, [r0]
+ 282 0002 5B07     		lsls	r3, r3, #29
+ 283 0004 01D5     		bpl	.L24
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return ENABLE;
+ 284              		.loc 1 111 0
+ 285 0006 0120     		movs	r0, #1
+ 286              	.LVL17:
+ 287 0008 00E0     		b	.L23
+ 288              	.LVL18:
+ 289              	.L24:
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return DISABLE;
+ 290              		.loc 1 115 0
+ 291 000a 0020     		movs	r0, #0
+ 292              	.LVL19:
+ 293              	.L23:
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 294              		.loc 1 117 0
+ 295              		@ sp needed
+ 296 000c 7047     		bx	lr
+ 297              		.cfi_endproc
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 8
+
+
+ 298              	.LFE43:
+ 300 000e C046     		.section	.text.U7816x_U7816CTRL_HPUEN_Setable,"ax",%progbits
+ 301              		.align	2
+ 302              		.global	U7816x_U7816CTRL_HPUEN_Setable
+ 303              		.code	16
+ 304              		.thumb_func
+ 306              	U7816x_U7816CTRL_HPUEN_Setable:
+ 307              	.LFB44:
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* U7816Í¨µÀÇ¿ÉÏÀ­Ê¹ÄÜ¿ØÖÆ Ïà¹Øº¯Êý */
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** void U7816x_U7816CTRL_HPUEN_Setable(U7816x_Type* U7816x, FunState NewState)
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 308              		.loc 1 121 0
+ 309              		.cfi_startproc
+ 310              		@ args = 0, pretend = 0, frame = 0
+ 311              		@ frame_needed = 0, uses_anonymous_args = 0
+ 312              		@ link register save eliminated.
+ 313              	.LVL20:
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (NewState == ENABLE)
+ 314              		.loc 1 122 0
+ 315 0000 0129     		cmp	r1, #1
+ 316 0002 04D1     		bne	.L26
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		U7816x->U7816CTRL |= (U7816x_U7816CTRL_HPUEN_Msk);
+ 317              		.loc 1 124 0
+ 318 0004 0268     		ldr	r2, [r0]
+ 319 0006 0223     		movs	r3, #2
+ 320 0008 1343     		orrs	r3, r2
+ 321 000a 0360     		str	r3, [r0]
+ 322 000c 03E0     		b	.L25
+ 323              	.L26:
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		U7816x->U7816CTRL &= ~(U7816x_U7816CTRL_HPUEN_Msk);
+ 324              		.loc 1 128 0
+ 325 000e 0368     		ldr	r3, [r0]
+ 326 0010 0222     		movs	r2, #2
+ 327 0012 9343     		bics	r3, r2
+ 328 0014 0360     		str	r3, [r0]
+ 329              	.L25:
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 330              		.loc 1 130 0
+ 331              		@ sp needed
+ 332 0016 7047     		bx	lr
+ 333              		.cfi_endproc
+ 334              	.LFE44:
+ 336              		.section	.text.U7816x_U7816CTRL_HPUEN_Getable,"ax",%progbits
+ 337              		.align	2
+ 338              		.global	U7816x_U7816CTRL_HPUEN_Getable
+ 339              		.code	16
+ 340              		.thumb_func
+ 342              	U7816x_U7816CTRL_HPUEN_Getable:
+ 343              	.LFB45:
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** FunState U7816x_U7816CTRL_HPUEN_Getable(U7816x_Type* U7816x)
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 9
+
+
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 344              		.loc 1 133 0
+ 345              		.cfi_startproc
+ 346              		@ args = 0, pretend = 0, frame = 0
+ 347              		@ frame_needed = 0, uses_anonymous_args = 0
+ 348              		@ link register save eliminated.
+ 349              	.LVL21:
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (U7816x->U7816CTRL & (U7816x_U7816CTRL_HPUEN_Msk))
+ 350              		.loc 1 134 0
+ 351 0000 0368     		ldr	r3, [r0]
+ 352 0002 9B07     		lsls	r3, r3, #30
+ 353 0004 01D5     		bpl	.L30
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return ENABLE;
+ 354              		.loc 1 136 0
+ 355 0006 0120     		movs	r0, #1
+ 356              	.LVL22:
+ 357 0008 00E0     		b	.L29
+ 358              	.LVL23:
+ 359              	.L30:
+ 137:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 138:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ 139:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 140:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return DISABLE;
+ 360              		.loc 1 140 0
+ 361 000a 0020     		movs	r0, #0
+ 362              	.LVL24:
+ 363              	.L29:
+ 141:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 142:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 364              		.loc 1 142 0
+ 365              		@ sp needed
+ 366 000c 7047     		bx	lr
+ 367              		.cfi_endproc
+ 368              	.LFE45:
+ 370 000e C046     		.section	.text.U7816x_U7816FRC_ERSW_Set,"ax",%progbits
+ 371              		.align	2
+ 372              		.global	U7816x_U7816FRC_ERSW_Set
+ 373              		.code	16
+ 374              		.thumb_func
+ 376              	U7816x_U7816FRC_ERSW_Set:
+ 377              	.LFB46:
+ 143:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 144:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* ERROR SIGNAL¿í¶ÈÑ¡Ôñ Ïà¹Øº¯Êý */
+ 145:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** void U7816x_U7816FRC_ERSW_Set(U7816x_Type* U7816x, uint32_t SetValue)
+ 146:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 378              		.loc 1 146 0
+ 379              		.cfi_startproc
+ 380              		@ args = 0, pretend = 0, frame = 0
+ 381              		@ frame_needed = 0, uses_anonymous_args = 0
+ 382              		@ link register save eliminated.
+ 383              	.LVL25:
+ 147:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	uint32_t tmpreg;
+ 148:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	tmpreg = U7816x->U7816FRC;
+ 384              		.loc 1 148 0
+ 385 0000 4268     		ldr	r2, [r0, #4]
+ 386              	.LVL26:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 10
+
+
+ 149:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	tmpreg &= ~(U7816x_U7816FRC_ERSW_Msk);
+ 387              		.loc 1 149 0
+ 388 0002 044B     		ldr	r3, .L32
+ 389 0004 1A40     		ands	r2, r3
+ 390              	.LVL27:
+ 150:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	tmpreg |= (SetValue & U7816x_U7816FRC_ERSW_Msk);
+ 391              		.loc 1 150 0
+ 392 0006 C023     		movs	r3, #192
+ 393 0008 DB00     		lsls	r3, r3, #3
+ 394 000a 1940     		ands	r1, r3
+ 395              	.LVL28:
+ 396 000c 1143     		orrs	r1, r2
+ 397              	.LVL29:
+ 151:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x->U7816FRC = tmpreg;
+ 398              		.loc 1 151 0
+ 399 000e 4160     		str	r1, [r0, #4]
+ 152:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 400              		.loc 1 152 0
+ 401              		@ sp needed
+ 402 0010 7047     		bx	lr
+ 403              	.L33:
+ 404 0012 C046     		.align	2
+ 405              	.L32:
+ 406 0014 FFF9FFFF 		.word	-1537
+ 407              		.cfi_endproc
+ 408              	.LFE46:
+ 410              		.section	.text.U7816x_U7816FRC_ERSW_Get,"ax",%progbits
+ 411              		.align	2
+ 412              		.global	U7816x_U7816FRC_ERSW_Get
+ 413              		.code	16
+ 414              		.thumb_func
+ 416              	U7816x_U7816FRC_ERSW_Get:
+ 417              	.LFB47:
+ 153:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 154:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** uint32_t U7816x_U7816FRC_ERSW_Get(U7816x_Type* U7816x)
+ 155:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 418              		.loc 1 155 0
+ 419              		.cfi_startproc
+ 420              		@ args = 0, pretend = 0, frame = 0
+ 421              		@ frame_needed = 0, uses_anonymous_args = 0
+ 422              		@ link register save eliminated.
+ 423              	.LVL30:
+ 156:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	return (U7816x->U7816FRC & U7816x_U7816FRC_ERSW_Msk);
+ 424              		.loc 1 156 0
+ 425 0000 4068     		ldr	r0, [r0, #4]
+ 426              	.LVL31:
+ 427 0002 C023     		movs	r3, #192
+ 428 0004 DB00     		lsls	r3, r3, #3
+ 429 0006 1840     		ands	r0, r3
+ 157:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 430              		.loc 1 157 0
+ 431              		@ sp needed
+ 432 0008 7047     		bx	lr
+ 433              		.cfi_endproc
+ 434              	.LFE47:
+ 436 000a C046     		.section	.text.U7816x_U7816FRC_ERSGD_Set,"ax",%progbits
+ 437              		.align	2
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 11
+
+
+ 438              		.global	U7816x_U7816FRC_ERSGD_Set
+ 439              		.code	16
+ 440              		.thumb_func
+ 442              	U7816x_U7816FRC_ERSGD_Set:
+ 443              	.LFB48:
+ 158:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 159:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* ERROR SIGNALºóGUARDTIME¿í¶ÈÑ¡Ôñ£¨½öÔÚ·¢ËÍÊ±ÓÐÐ§£© Ïà¹Øº¯Êý */
+ 160:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** void U7816x_U7816FRC_ERSGD_Set(U7816x_Type* U7816x, uint32_t SetValue)
+ 161:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 444              		.loc 1 161 0
+ 445              		.cfi_startproc
+ 446              		@ args = 0, pretend = 0, frame = 0
+ 447              		@ frame_needed = 0, uses_anonymous_args = 0
+ 448              		@ link register save eliminated.
+ 449              	.LVL32:
+ 162:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	uint32_t tmpreg;
+ 163:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	tmpreg = U7816x->U7816FRC;
+ 450              		.loc 1 163 0
+ 451 0000 4268     		ldr	r2, [r0, #4]
+ 452              	.LVL33:
+ 164:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	tmpreg &= ~(U7816x_U7816FRC_ERSGD_Msk);
+ 453              		.loc 1 164 0
+ 454 0002 044B     		ldr	r3, .L36
+ 455 0004 1A40     		ands	r2, r3
+ 456              	.LVL34:
+ 165:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	tmpreg |= (SetValue & U7816x_U7816FRC_ERSGD_Msk);
+ 457              		.loc 1 165 0
+ 458 0006 8023     		movs	r3, #128
+ 459 0008 5B00     		lsls	r3, r3, #1
+ 460 000a 1940     		ands	r1, r3
+ 461              	.LVL35:
+ 462 000c 1143     		orrs	r1, r2
+ 463              	.LVL36:
+ 166:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x->U7816FRC = tmpreg;
+ 464              		.loc 1 166 0
+ 465 000e 4160     		str	r1, [r0, #4]
+ 167:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 466              		.loc 1 167 0
+ 467              		@ sp needed
+ 468 0010 7047     		bx	lr
+ 469              	.L37:
+ 470 0012 C046     		.align	2
+ 471              	.L36:
+ 472 0014 FFFEFFFF 		.word	-257
+ 473              		.cfi_endproc
+ 474              	.LFE48:
+ 476              		.section	.text.U7816x_U7816FRC_ERSGD_Get,"ax",%progbits
+ 477              		.align	2
+ 478              		.global	U7816x_U7816FRC_ERSGD_Get
+ 479              		.code	16
+ 480              		.thumb_func
+ 482              	U7816x_U7816FRC_ERSGD_Get:
+ 483              	.LFB49:
+ 168:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 169:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** uint32_t U7816x_U7816FRC_ERSGD_Get(U7816x_Type* U7816x)
+ 170:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 484              		.loc 1 170 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 12
+
+
+ 485              		.cfi_startproc
+ 486              		@ args = 0, pretend = 0, frame = 0
+ 487              		@ frame_needed = 0, uses_anonymous_args = 0
+ 488              		@ link register save eliminated.
+ 489              	.LVL37:
+ 171:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	return (U7816x->U7816FRC & U7816x_U7816FRC_ERSGD_Msk);
+ 490              		.loc 1 171 0
+ 491 0000 4068     		ldr	r0, [r0, #4]
+ 492              	.LVL38:
+ 493 0002 8023     		movs	r3, #128
+ 494 0004 5B00     		lsls	r3, r3, #1
+ 495 0006 1840     		ands	r0, r3
+ 172:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 496              		.loc 1 172 0
+ 497              		@ sp needed
+ 498 0008 7047     		bx	lr
+ 499              		.cfi_endproc
+ 500              	.LFE49:
+ 502 000a C046     		.section	.text.U7816x_U7816FRC_BGTEN_Setable,"ax",%progbits
+ 503              		.align	2
+ 504              		.global	U7816x_U7816FRC_BGTEN_Setable
+ 505              		.code	16
+ 506              		.thumb_func
+ 508              	U7816x_U7816FRC_BGTEN_Setable:
+ 509              	.LFB50:
+ 173:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 174:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* BGT£¨block guard time£©¿ØÖÆ Ïà¹Øº¯Êý */
+ 175:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** void U7816x_U7816FRC_BGTEN_Setable(U7816x_Type* U7816x, FunState NewState)
+ 176:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 510              		.loc 1 176 0
+ 511              		.cfi_startproc
+ 512              		@ args = 0, pretend = 0, frame = 0
+ 513              		@ frame_needed = 0, uses_anonymous_args = 0
+ 514              		@ link register save eliminated.
+ 515              	.LVL39:
+ 177:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (NewState == ENABLE)
+ 516              		.loc 1 177 0
+ 517 0000 0129     		cmp	r1, #1
+ 518 0002 04D1     		bne	.L40
+ 178:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 179:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		U7816x->U7816FRC |= (U7816x_U7816FRC_BGTEN_Msk);
+ 519              		.loc 1 179 0
+ 520 0004 4268     		ldr	r2, [r0, #4]
+ 521 0006 8023     		movs	r3, #128
+ 522 0008 1343     		orrs	r3, r2
+ 523 000a 4360     		str	r3, [r0, #4]
+ 524 000c 03E0     		b	.L39
+ 525              	.L40:
+ 180:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 181:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ 182:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 183:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		U7816x->U7816FRC &= ~(U7816x_U7816FRC_BGTEN_Msk);
+ 526              		.loc 1 183 0
+ 527 000e 4368     		ldr	r3, [r0, #4]
+ 528 0010 8022     		movs	r2, #128
+ 529 0012 9343     		bics	r3, r2
+ 530 0014 4360     		str	r3, [r0, #4]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 13
+
+
+ 531              	.L39:
+ 184:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 185:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 532              		.loc 1 185 0
+ 533              		@ sp needed
+ 534 0016 7047     		bx	lr
+ 535              		.cfi_endproc
+ 536              	.LFE50:
+ 538              		.section	.text.U7816x_U7816FRC_BGTEN_Getable,"ax",%progbits
+ 539              		.align	2
+ 540              		.global	U7816x_U7816FRC_BGTEN_Getable
+ 541              		.code	16
+ 542              		.thumb_func
+ 544              	U7816x_U7816FRC_BGTEN_Getable:
+ 545              	.LFB51:
+ 186:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 187:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** FunState U7816x_U7816FRC_BGTEN_Getable(U7816x_Type* U7816x)
+ 188:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 546              		.loc 1 188 0
+ 547              		.cfi_startproc
+ 548              		@ args = 0, pretend = 0, frame = 0
+ 549              		@ frame_needed = 0, uses_anonymous_args = 0
+ 550              		@ link register save eliminated.
+ 551              	.LVL40:
+ 189:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (U7816x->U7816FRC & (U7816x_U7816FRC_BGTEN_Msk))
+ 552              		.loc 1 189 0
+ 553 0000 4368     		ldr	r3, [r0, #4]
+ 554 0002 1B06     		lsls	r3, r3, #24
+ 555 0004 01D5     		bpl	.L44
+ 190:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 191:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return ENABLE;
+ 556              		.loc 1 191 0
+ 557 0006 0120     		movs	r0, #1
+ 558              	.LVL41:
+ 559 0008 00E0     		b	.L43
+ 560              	.LVL42:
+ 561              	.L44:
+ 192:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 193:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ 194:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 195:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return DISABLE;
+ 562              		.loc 1 195 0
+ 563 000a 0020     		movs	r0, #0
+ 564              	.LVL43:
+ 565              	.L43:
+ 196:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 197:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 566              		.loc 1 197 0
+ 567              		@ sp needed
+ 568 000c 7047     		bx	lr
+ 569              		.cfi_endproc
+ 570              	.LFE51:
+ 572 000e C046     		.section	.text.U7816x_U7816FRC_REP_T_Set,"ax",%progbits
+ 573              		.align	2
+ 574              		.global	U7816x_U7816FRC_REP_T_Set
+ 575              		.code	16
+ 576              		.thumb_func
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 14
+
+
+ 578              	U7816x_U7816FRC_REP_T_Set:
+ 579              	.LFB52:
+ 198:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 199:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* ¿ØÖÆ½ÓÊÕÊý¾ÝÆæÅ¼Ð£Ñé³ö´íÊ±×Ô¶¯ÖØ·¢´ÎÊý Ïà¹Øº¯Êý */
+ 200:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** void U7816x_U7816FRC_REP_T_Set(U7816x_Type* U7816x, uint32_t SetValue)
+ 201:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 580              		.loc 1 201 0
+ 581              		.cfi_startproc
+ 582              		@ args = 0, pretend = 0, frame = 0
+ 583              		@ frame_needed = 0, uses_anonymous_args = 0
+ 584              		@ link register save eliminated.
+ 585              	.LVL44:
+ 202:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	uint32_t tmpreg;
+ 203:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	tmpreg = U7816x->U7816FRC;
+ 586              		.loc 1 203 0
+ 587 0000 4368     		ldr	r3, [r0, #4]
+ 588              	.LVL45:
+ 204:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	tmpreg &= ~(U7816x_U7816FRC_REP_T_Msk);
+ 589              		.loc 1 204 0
+ 590 0002 4022     		movs	r2, #64
+ 591 0004 9343     		bics	r3, r2
+ 592              	.LVL46:
+ 205:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	tmpreg |= (SetValue & U7816x_U7816FRC_REP_T_Msk);
+ 593              		.loc 1 205 0
+ 594 0006 1140     		ands	r1, r2
+ 595              	.LVL47:
+ 596 0008 1943     		orrs	r1, r3
+ 597              	.LVL48:
+ 206:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x->U7816FRC = tmpreg;
+ 598              		.loc 1 206 0
+ 599 000a 4160     		str	r1, [r0, #4]
+ 207:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 600              		.loc 1 207 0
+ 601              		@ sp needed
+ 602 000c 7047     		bx	lr
+ 603              		.cfi_endproc
+ 604              	.LFE52:
+ 606 000e C046     		.section	.text.U7816x_U7816FRC_REP_T_Get,"ax",%progbits
+ 607              		.align	2
+ 608              		.global	U7816x_U7816FRC_REP_T_Get
+ 609              		.code	16
+ 610              		.thumb_func
+ 612              	U7816x_U7816FRC_REP_T_Get:
+ 613              	.LFB53:
+ 208:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 209:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** uint32_t U7816x_U7816FRC_REP_T_Get(U7816x_Type* U7816x)
+ 210:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 614              		.loc 1 210 0
+ 615              		.cfi_startproc
+ 616              		@ args = 0, pretend = 0, frame = 0
+ 617              		@ frame_needed = 0, uses_anonymous_args = 0
+ 618              		@ link register save eliminated.
+ 619              	.LVL49:
+ 211:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	return (U7816x->U7816FRC & U7816x_U7816FRC_REP_T_Msk);
+ 620              		.loc 1 211 0
+ 621 0000 4368     		ldr	r3, [r0, #4]
+ 622 0002 4020     		movs	r0, #64
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 15
+
+
+ 623              	.LVL50:
+ 624 0004 1840     		ands	r0, r3
+ 212:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 625              		.loc 1 212 0
+ 626              		@ sp needed
+ 627 0006 7047     		bx	lr
+ 628              		.cfi_endproc
+ 629              	.LFE53:
+ 631              		.section	.text.U7816x_U7816FRC_PAR_Set,"ax",%progbits
+ 632              		.align	2
+ 633              		.global	U7816x_U7816FRC_PAR_Set
+ 634              		.code	16
+ 635              		.thumb_func
+ 637              	U7816x_U7816FRC_PAR_Set:
+ 638              	.LFB54:
+ 213:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 214:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* ÆæÅ¼Ð£ÑéÀàÐÍÑ¡Ôñ Ïà¹Øº¯Êý */
+ 215:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** void U7816x_U7816FRC_PAR_Set(U7816x_Type* U7816x, uint32_t SetValue)
+ 216:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 639              		.loc 1 216 0
+ 640              		.cfi_startproc
+ 641              		@ args = 0, pretend = 0, frame = 0
+ 642              		@ frame_needed = 0, uses_anonymous_args = 0
+ 643              		@ link register save eliminated.
+ 644              	.LVL51:
+ 217:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	uint32_t tmpreg;
+ 218:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	tmpreg = U7816x->U7816FRC;
+ 645              		.loc 1 218 0
+ 646 0000 4368     		ldr	r3, [r0, #4]
+ 647              	.LVL52:
+ 219:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	tmpreg &= ~(U7816x_U7816FRC_PAR_Msk);
+ 648              		.loc 1 219 0
+ 649 0002 3022     		movs	r2, #48
+ 650 0004 9343     		bics	r3, r2
+ 651              	.LVL53:
+ 220:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	tmpreg |= (SetValue & U7816x_U7816FRC_PAR_Msk);
+ 652              		.loc 1 220 0
+ 653 0006 1140     		ands	r1, r2
+ 654              	.LVL54:
+ 655 0008 1943     		orrs	r1, r3
+ 656              	.LVL55:
+ 221:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x->U7816FRC = tmpreg;
+ 657              		.loc 1 221 0
+ 658 000a 4160     		str	r1, [r0, #4]
+ 222:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 659              		.loc 1 222 0
+ 660              		@ sp needed
+ 661 000c 7047     		bx	lr
+ 662              		.cfi_endproc
+ 663              	.LFE54:
+ 665 000e C046     		.section	.text.U7816x_U7816FRC_PAR_Get,"ax",%progbits
+ 666              		.align	2
+ 667              		.global	U7816x_U7816FRC_PAR_Get
+ 668              		.code	16
+ 669              		.thumb_func
+ 671              	U7816x_U7816FRC_PAR_Get:
+ 672              	.LFB55:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 16
+
+
+ 223:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 224:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** uint32_t U7816x_U7816FRC_PAR_Get(U7816x_Type* U7816x)
+ 225:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 673              		.loc 1 225 0
+ 674              		.cfi_startproc
+ 675              		@ args = 0, pretend = 0, frame = 0
+ 676              		@ frame_needed = 0, uses_anonymous_args = 0
+ 677              		@ link register save eliminated.
+ 678              	.LVL56:
+ 226:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	return (U7816x->U7816FRC & U7816x_U7816FRC_PAR_Msk);
+ 679              		.loc 1 226 0
+ 680 0000 4368     		ldr	r3, [r0, #4]
+ 681 0002 3020     		movs	r0, #48
+ 682              	.LVL57:
+ 683 0004 1840     		ands	r0, r3
+ 227:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 684              		.loc 1 227 0
+ 685              		@ sp needed
+ 686 0006 7047     		bx	lr
+ 687              		.cfi_endproc
+ 688              	.LFE55:
+ 690              		.section	.text.U7816x_U7816FRC_FREN_Setable,"ax",%progbits
+ 691              		.align	2
+ 692              		.global	U7816x_U7816FRC_FREN_Setable
+ 693              		.code	16
+ 694              		.thumb_func
+ 696              	U7816x_U7816FRC_FREN_Setable:
+ 697              	.LFB56:
+ 228:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 229:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* Guard Time³¤¶È¿ØÖÆÎ»£¨·¢ËÍÊ±ÑÏ¸ñ°´ÕÕÐ­Òé2etu£© Ïà¹Øº¯Êý */
+ 230:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** void U7816x_U7816FRC_FREN_Setable(U7816x_Type* U7816x, FunState NewState)
+ 231:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 698              		.loc 1 231 0
+ 699              		.cfi_startproc
+ 700              		@ args = 0, pretend = 0, frame = 0
+ 701              		@ frame_needed = 0, uses_anonymous_args = 0
+ 702              		@ link register save eliminated.
+ 703              	.LVL58:
+ 232:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (NewState == ENABLE)
+ 704              		.loc 1 232 0
+ 705 0000 0129     		cmp	r1, #1
+ 706 0002 04D1     		bne	.L50
+ 233:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 234:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		U7816x->U7816FRC |= (U7816x_U7816FRC_FREN_Msk);
+ 707              		.loc 1 234 0
+ 708 0004 4268     		ldr	r2, [r0, #4]
+ 709 0006 0823     		movs	r3, #8
+ 710 0008 1343     		orrs	r3, r2
+ 711 000a 4360     		str	r3, [r0, #4]
+ 712 000c 03E0     		b	.L49
+ 713              	.L50:
+ 235:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 236:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ 237:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 238:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		U7816x->U7816FRC &= ~(U7816x_U7816FRC_FREN_Msk);
+ 714              		.loc 1 238 0
+ 715 000e 4368     		ldr	r3, [r0, #4]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 17
+
+
+ 716 0010 0822     		movs	r2, #8
+ 717 0012 9343     		bics	r3, r2
+ 718 0014 4360     		str	r3, [r0, #4]
+ 719              	.L49:
+ 239:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 240:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 720              		.loc 1 240 0
+ 721              		@ sp needed
+ 722 0016 7047     		bx	lr
+ 723              		.cfi_endproc
+ 724              	.LFE56:
+ 726              		.section	.text.U7816x_U7816FRC_FREN_Getable,"ax",%progbits
+ 727              		.align	2
+ 728              		.global	U7816x_U7816FRC_FREN_Getable
+ 729              		.code	16
+ 730              		.thumb_func
+ 732              	U7816x_U7816FRC_FREN_Getable:
+ 733              	.LFB57:
+ 241:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 242:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** FunState U7816x_U7816FRC_FREN_Getable(U7816x_Type* U7816x)
+ 243:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 734              		.loc 1 243 0
+ 735              		.cfi_startproc
+ 736              		@ args = 0, pretend = 0, frame = 0
+ 737              		@ frame_needed = 0, uses_anonymous_args = 0
+ 738              		@ link register save eliminated.
+ 739              	.LVL59:
+ 244:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (U7816x->U7816FRC & (U7816x_U7816FRC_FREN_Msk))
+ 740              		.loc 1 244 0
+ 741 0000 4368     		ldr	r3, [r0, #4]
+ 742 0002 1B07     		lsls	r3, r3, #28
+ 743 0004 01D5     		bpl	.L54
+ 245:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 246:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return ENABLE;
+ 744              		.loc 1 246 0
+ 745 0006 0120     		movs	r0, #1
+ 746              	.LVL60:
+ 747 0008 00E0     		b	.L53
+ 748              	.LVL61:
+ 749              	.L54:
+ 247:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 248:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ 249:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 250:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return DISABLE;
+ 750              		.loc 1 250 0
+ 751 000a 0020     		movs	r0, #0
+ 752              	.LVL62:
+ 753              	.L53:
+ 251:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 252:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 754              		.loc 1 252 0
+ 755              		@ sp needed
+ 756 000c 7047     		bx	lr
+ 757              		.cfi_endproc
+ 758              	.LFE57:
+ 760 000e C046     		.section	.text.U7816x_U7816FRC_TREPEN_Setable,"ax",%progbits
+ 761              		.align	2
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 18
+
+
+ 762              		.global	U7816x_U7816FRC_TREPEN_Setable
+ 763              		.code	16
+ 764              		.thumb_func
+ 766              	U7816x_U7816FRC_TREPEN_Setable:
+ 767              	.LFB58:
+ 253:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 254:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* »º·¢ËÍÊý¾ÝÆæÅ¼Ð£Ñé´íµÄ´¦Àí·½Ê½Ñ¡Ôñ Ïà¹Øº¯Êý */
+ 255:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** void U7816x_U7816FRC_TREPEN_Setable(U7816x_Type* U7816x, FunState NewState)
+ 256:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 768              		.loc 1 256 0
+ 769              		.cfi_startproc
+ 770              		@ args = 0, pretend = 0, frame = 0
+ 771              		@ frame_needed = 0, uses_anonymous_args = 0
+ 772              		@ link register save eliminated.
+ 773              	.LVL63:
+ 257:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (NewState == ENABLE)
+ 774              		.loc 1 257 0
+ 775 0000 0129     		cmp	r1, #1
+ 776 0002 04D1     		bne	.L56
+ 258:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 259:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		U7816x->U7816FRC |= (U7816x_U7816FRC_TREPEN_Msk);
+ 777              		.loc 1 259 0
+ 778 0004 4268     		ldr	r2, [r0, #4]
+ 779 0006 0423     		movs	r3, #4
+ 780 0008 1343     		orrs	r3, r2
+ 781 000a 4360     		str	r3, [r0, #4]
+ 782 000c 03E0     		b	.L55
+ 783              	.L56:
+ 260:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 261:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ 262:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 263:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		U7816x->U7816FRC &= ~(U7816x_U7816FRC_TREPEN_Msk);
+ 784              		.loc 1 263 0
+ 785 000e 4368     		ldr	r3, [r0, #4]
+ 786 0010 0422     		movs	r2, #4
+ 787 0012 9343     		bics	r3, r2
+ 788 0014 4360     		str	r3, [r0, #4]
+ 789              	.L55:
+ 264:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 265:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 790              		.loc 1 265 0
+ 791              		@ sp needed
+ 792 0016 7047     		bx	lr
+ 793              		.cfi_endproc
+ 794              	.LFE58:
+ 796              		.section	.text.U7816x_U7816FRC_TREPEN_Getable,"ax",%progbits
+ 797              		.align	2
+ 798              		.global	U7816x_U7816FRC_TREPEN_Getable
+ 799              		.code	16
+ 800              		.thumb_func
+ 802              	U7816x_U7816FRC_TREPEN_Getable:
+ 803              	.LFB59:
+ 266:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 267:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** FunState U7816x_U7816FRC_TREPEN_Getable(U7816x_Type* U7816x)
+ 268:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 804              		.loc 1 268 0
+ 805              		.cfi_startproc
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 19
+
+
+ 806              		@ args = 0, pretend = 0, frame = 0
+ 807              		@ frame_needed = 0, uses_anonymous_args = 0
+ 808              		@ link register save eliminated.
+ 809              	.LVL64:
+ 269:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (U7816x->U7816FRC & (U7816x_U7816FRC_TREPEN_Msk))
+ 810              		.loc 1 269 0
+ 811 0000 4368     		ldr	r3, [r0, #4]
+ 812 0002 5B07     		lsls	r3, r3, #29
+ 813 0004 01D5     		bpl	.L60
+ 270:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 271:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return ENABLE;
+ 814              		.loc 1 271 0
+ 815 0006 0120     		movs	r0, #1
+ 816              	.LVL65:
+ 817 0008 00E0     		b	.L59
+ 818              	.LVL66:
+ 819              	.L60:
+ 272:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 273:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ 274:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 275:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return DISABLE;
+ 820              		.loc 1 275 0
+ 821 000a 0020     		movs	r0, #0
+ 822              	.LVL67:
+ 823              	.L59:
+ 276:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 277:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 824              		.loc 1 277 0
+ 825              		@ sp needed
+ 826 000c 7047     		bx	lr
+ 827              		.cfi_endproc
+ 828              	.LFE59:
+ 830 000e C046     		.section	.text.U7816x_U7816FRC_RREPEN_Setable,"ax",%progbits
+ 831              		.align	2
+ 832              		.global	U7816x_U7816FRC_RREPEN_Setable
+ 833              		.code	16
+ 834              		.thumb_func
+ 836              	U7816x_U7816FRC_RREPEN_Setable:
+ 837              	.LFB60:
+ 278:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 279:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* ½ÓÊÕÊý¾ÝÆæÅ¼Ð£Ñé´íµÄ´¦Àí·½Ê½Ñ¡Ôñ Ïà¹Øº¯Êý */
+ 280:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** void U7816x_U7816FRC_RREPEN_Setable(U7816x_Type* U7816x, FunState NewState)
+ 281:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 838              		.loc 1 281 0
+ 839              		.cfi_startproc
+ 840              		@ args = 0, pretend = 0, frame = 0
+ 841              		@ frame_needed = 0, uses_anonymous_args = 0
+ 842              		@ link register save eliminated.
+ 843              	.LVL68:
+ 282:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (NewState == ENABLE)
+ 844              		.loc 1 282 0
+ 845 0000 0129     		cmp	r1, #1
+ 846 0002 04D1     		bne	.L62
+ 283:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 284:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		U7816x->U7816FRC |= (U7816x_U7816FRC_RREPEN_Msk);
+ 847              		.loc 1 284 0
+ 848 0004 4268     		ldr	r2, [r0, #4]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 20
+
+
+ 849 0006 0223     		movs	r3, #2
+ 850 0008 1343     		orrs	r3, r2
+ 851 000a 4360     		str	r3, [r0, #4]
+ 852 000c 03E0     		b	.L61
+ 853              	.L62:
+ 285:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 286:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ 287:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 288:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		U7816x->U7816FRC &= ~(U7816x_U7816FRC_RREPEN_Msk);
+ 854              		.loc 1 288 0
+ 855 000e 4368     		ldr	r3, [r0, #4]
+ 856 0010 0222     		movs	r2, #2
+ 857 0012 9343     		bics	r3, r2
+ 858 0014 4360     		str	r3, [r0, #4]
+ 859              	.L61:
+ 289:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 290:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 860              		.loc 1 290 0
+ 861              		@ sp needed
+ 862 0016 7047     		bx	lr
+ 863              		.cfi_endproc
+ 864              	.LFE60:
+ 866              		.section	.text.U7816x_U7816FRC_RREPEN_Getable,"ax",%progbits
+ 867              		.align	2
+ 868              		.global	U7816x_U7816FRC_RREPEN_Getable
+ 869              		.code	16
+ 870              		.thumb_func
+ 872              	U7816x_U7816FRC_RREPEN_Getable:
+ 873              	.LFB61:
+ 291:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 292:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** FunState U7816x_U7816FRC_RREPEN_Getable(U7816x_Type* U7816x)
+ 293:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 874              		.loc 1 293 0
+ 875              		.cfi_startproc
+ 876              		@ args = 0, pretend = 0, frame = 0
+ 877              		@ frame_needed = 0, uses_anonymous_args = 0
+ 878              		@ link register save eliminated.
+ 879              	.LVL69:
+ 294:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (U7816x->U7816FRC & (U7816x_U7816FRC_RREPEN_Msk))
+ 880              		.loc 1 294 0
+ 881 0000 4368     		ldr	r3, [r0, #4]
+ 882 0002 9B07     		lsls	r3, r3, #30
+ 883 0004 01D5     		bpl	.L66
+ 295:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 296:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return ENABLE;
+ 884              		.loc 1 296 0
+ 885 0006 0120     		movs	r0, #1
+ 886              	.LVL70:
+ 887 0008 00E0     		b	.L65
+ 888              	.LVL71:
+ 889              	.L66:
+ 297:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 298:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ 299:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 300:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return DISABLE;
+ 890              		.loc 1 300 0
+ 891 000a 0020     		movs	r0, #0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 21
+
+
+ 892              	.LVL72:
+ 893              	.L65:
+ 301:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 302:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 894              		.loc 1 302 0
+ 895              		@ sp needed
+ 896 000c 7047     		bx	lr
+ 897              		.cfi_endproc
+ 898              	.LFE61:
+ 900 000e C046     		.section	.text.U7816x_U7816FRC_DICONV_Setable,"ax",%progbits
+ 901              		.align	2
+ 902              		.global	U7816x_U7816FRC_DICONV_Setable
+ 903              		.code	16
+ 904              		.thumb_func
+ 906              	U7816x_U7816FRC_DICONV_Setable:
+ 907              	.LFB62:
+ 303:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 304:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* ´«Êä´ÎÐò·´Ïò±àÂëÊ¹ÄÜ Ïà¹Øº¯Êý */
+ 305:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** void U7816x_U7816FRC_DICONV_Setable(U7816x_Type* U7816x, FunState NewState)
+ 306:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 908              		.loc 1 306 0
+ 909              		.cfi_startproc
+ 910              		@ args = 0, pretend = 0, frame = 0
+ 911              		@ frame_needed = 0, uses_anonymous_args = 0
+ 912              		@ link register save eliminated.
+ 913              	.LVL73:
+ 307:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (NewState == ENABLE)
+ 914              		.loc 1 307 0
+ 915 0000 0129     		cmp	r1, #1
+ 916 0002 04D1     		bne	.L68
+ 308:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 309:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		U7816x->U7816FRC |= (U7816x_U7816FRC_DICONV_Msk);
+ 917              		.loc 1 309 0
+ 918 0004 4268     		ldr	r2, [r0, #4]
+ 919 0006 0123     		movs	r3, #1
+ 920 0008 1343     		orrs	r3, r2
+ 921 000a 4360     		str	r3, [r0, #4]
+ 922 000c 03E0     		b	.L67
+ 923              	.L68:
+ 310:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 311:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ 312:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 313:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		U7816x->U7816FRC &= ~(U7816x_U7816FRC_DICONV_Msk);
+ 924              		.loc 1 313 0
+ 925 000e 4368     		ldr	r3, [r0, #4]
+ 926 0010 0122     		movs	r2, #1
+ 927 0012 9343     		bics	r3, r2
+ 928 0014 4360     		str	r3, [r0, #4]
+ 929              	.L67:
+ 314:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 315:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 930              		.loc 1 315 0
+ 931              		@ sp needed
+ 932 0016 7047     		bx	lr
+ 933              		.cfi_endproc
+ 934              	.LFE62:
+ 936              		.section	.text.U7816x_U7816FRC_DICONV_Getable,"ax",%progbits
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 22
+
+
+ 937              		.align	2
+ 938              		.global	U7816x_U7816FRC_DICONV_Getable
+ 939              		.code	16
+ 940              		.thumb_func
+ 942              	U7816x_U7816FRC_DICONV_Getable:
+ 943              	.LFB63:
+ 316:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 317:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** FunState U7816x_U7816FRC_DICONV_Getable(U7816x_Type* U7816x)
+ 318:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 944              		.loc 1 318 0
+ 945              		.cfi_startproc
+ 946              		@ args = 0, pretend = 0, frame = 0
+ 947              		@ frame_needed = 0, uses_anonymous_args = 0
+ 948              		@ link register save eliminated.
+ 949              	.LVL74:
+ 319:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (U7816x->U7816FRC & (U7816x_U7816FRC_DICONV_Msk))
+ 950              		.loc 1 319 0
+ 951 0000 4368     		ldr	r3, [r0, #4]
+ 952 0002 DB07     		lsls	r3, r3, #31
+ 953 0004 01D5     		bpl	.L72
+ 320:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 321:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return ENABLE;
+ 954              		.loc 1 321 0
+ 955 0006 0120     		movs	r0, #1
+ 956              	.LVL75:
+ 957 0008 00E0     		b	.L71
+ 958              	.LVL76:
+ 959              	.L72:
+ 322:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 323:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ 324:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 325:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return DISABLE;
+ 960              		.loc 1 325 0
+ 961 000a 0020     		movs	r0, #0
+ 962              	.LVL77:
+ 963              	.L71:
+ 326:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 327:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 964              		.loc 1 327 0
+ 965              		@ sp needed
+ 966 000c 7047     		bx	lr
+ 967              		.cfi_endproc
+ 968              	.LFE63:
+ 970 000e C046     		.section	.text.U7816x_U7816EGT_Write,"ax",%progbits
+ 971              		.align	2
+ 972              		.global	U7816x_U7816EGT_Write
+ 973              		.code	16
+ 974              		.thumb_func
+ 976              	U7816x_U7816EGT_Write:
+ 977              	.LFB64:
+ 328:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 329:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* ·¢ËÍÊ±²åÈëµÄEGTÊ±¼ä£¨ÒÔETUÎªµ¥Î»£© Ïà¹Øº¯Êý */
+ 330:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** void U7816x_U7816EGT_Write(U7816x_Type* U7816x, uint32_t SetValue)
+ 331:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 978              		.loc 1 331 0
+ 979              		.cfi_startproc
+ 980              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 23
+
+
+ 981              		@ frame_needed = 0, uses_anonymous_args = 0
+ 982              		@ link register save eliminated.
+ 983              	.LVL78:
+ 332:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x->U7816EGT = (SetValue & U7816x_U7816EGT_TXEGT_Msk);
+ 984              		.loc 1 332 0
+ 985 0000 FF23     		movs	r3, #255
+ 986 0002 1940     		ands	r1, r3
+ 987              	.LVL79:
+ 988 0004 8160     		str	r1, [r0, #8]
+ 333:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 989              		.loc 1 333 0
+ 990              		@ sp needed
+ 991 0006 7047     		bx	lr
+ 992              		.cfi_endproc
+ 993              	.LFE64:
+ 995              		.section	.text.U7816x_U7816EGT_Read,"ax",%progbits
+ 996              		.align	2
+ 997              		.global	U7816x_U7816EGT_Read
+ 998              		.code	16
+ 999              		.thumb_func
+ 1001              	U7816x_U7816EGT_Read:
+ 1002              	.LFB65:
+ 334:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 335:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** uint32_t U7816x_U7816EGT_Read(U7816x_Type* U7816x)
+ 336:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 1003              		.loc 1 336 0
+ 1004              		.cfi_startproc
+ 1005              		@ args = 0, pretend = 0, frame = 0
+ 1006              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1007              		@ link register save eliminated.
+ 1008              	.LVL80:
+ 337:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	return (U7816x->U7816EGT & U7816x_U7816EGT_TXEGT_Msk);
+ 1009              		.loc 1 337 0
+ 1010 0000 8368     		ldr	r3, [r0, #8]
+ 1011 0002 FF20     		movs	r0, #255
+ 1012              	.LVL81:
+ 1013 0004 1840     		ands	r0, r3
+ 338:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 1014              		.loc 1 338 0
+ 1015              		@ sp needed
+ 1016 0006 7047     		bx	lr
+ 1017              		.cfi_endproc
+ 1018              	.LFE65:
+ 1020              		.section	.text.U7816x_U7816CLKDIV_Write,"ax",%progbits
+ 1021              		.align	2
+ 1022              		.global	U7816x_U7816CLKDIV_Write
+ 1023              		.code	16
+ 1024              		.thumb_func
+ 1026              	U7816x_U7816CLKDIV_Write:
+ 1027              	.LFB66:
+ 339:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 340:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* U7816Ê±ÖÓÊä³ö·ÖÆµ¿ØÖÆ¼Ä´æÆ÷ Ïà¹Øº¯Êý */
+ 341:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** void U7816x_U7816CLKDIV_Write(U7816x_Type* U7816x, uint32_t SetValue)
+ 342:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 1028              		.loc 1 342 0
+ 1029              		.cfi_startproc
+ 1030              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 24
+
+
+ 1031              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1032              		@ link register save eliminated.
+ 1033              	.LVL82:
+ 343:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x->U7816CLKDIV = (SetValue & U7816x_U7816CLKDIV_CLKDIV_Msk);
+ 1034              		.loc 1 343 0
+ 1035 0000 1F23     		movs	r3, #31
+ 1036 0002 1940     		ands	r1, r3
+ 1037              	.LVL83:
+ 1038 0004 C160     		str	r1, [r0, #12]
+ 344:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 1039              		.loc 1 344 0
+ 1040              		@ sp needed
+ 1041 0006 7047     		bx	lr
+ 1042              		.cfi_endproc
+ 1043              	.LFE66:
+ 1045              		.section	.text.U7816x_U7816CLKDIV_Read,"ax",%progbits
+ 1046              		.align	2
+ 1047              		.global	U7816x_U7816CLKDIV_Read
+ 1048              		.code	16
+ 1049              		.thumb_func
+ 1051              	U7816x_U7816CLKDIV_Read:
+ 1052              	.LFB67:
+ 345:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 346:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** uint32_t U7816x_U7816CLKDIV_Read(U7816x_Type* U7816x)
+ 347:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 1053              		.loc 1 347 0
+ 1054              		.cfi_startproc
+ 1055              		@ args = 0, pretend = 0, frame = 0
+ 1056              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1057              		@ link register save eliminated.
+ 1058              	.LVL84:
+ 348:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	return (U7816x->U7816CLKDIV & U7816x_U7816CLKDIV_CLKDIV_Msk);
+ 1059              		.loc 1 348 0
+ 1060 0000 C368     		ldr	r3, [r0, #12]
+ 1061 0002 1F20     		movs	r0, #31
+ 1062              	.LVL85:
+ 1063 0004 1840     		ands	r0, r3
+ 349:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 1064              		.loc 1 349 0
+ 1065              		@ sp needed
+ 1066 0006 7047     		bx	lr
+ 1067              		.cfi_endproc
+ 1068              	.LFE67:
+ 1070              		.section	.text.U7816x_U7816PDIV_Write,"ax",%progbits
+ 1071              		.align	2
+ 1072              		.global	U7816x_U7816PDIV_Write
+ 1073              		.code	16
+ 1074              		.thumb_func
+ 1076              	U7816x_U7816PDIV_Write:
+ 1077              	.LFB68:
+ 350:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 351:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* U7816Ô¤·ÖÆµ¿ØÖÆ¼Ä´æÆ÷£¬¿ØÖÆ7816Í¨ÐÅ·ÖÆµ±È£¨²¨ÌØÂÊ£© Ïà¹Øº¯Êý */
+ 352:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** void U7816x_U7816PDIV_Write(U7816x_Type* U7816x, uint32_t SetValue)
+ 353:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 1078              		.loc 1 353 0
+ 1079              		.cfi_startproc
+ 1080              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 25
+
+
+ 1081              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1082              		@ link register save eliminated.
+ 1083              	.LVL86:
+ 354:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x->U7816PDIV = (SetValue & U7816x_U7816PDIV_PDIV_Msk);
+ 1084              		.loc 1 354 0
+ 1085 0000 0905     		lsls	r1, r1, #20
+ 1086              	.LVL87:
+ 1087 0002 090D     		lsrs	r1, r1, #20
+ 1088 0004 0161     		str	r1, [r0, #16]
+ 355:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 1089              		.loc 1 355 0
+ 1090              		@ sp needed
+ 1091 0006 7047     		bx	lr
+ 1092              		.cfi_endproc
+ 1093              	.LFE68:
+ 1095              		.section	.text.U7816x_U7816PDIV_Read,"ax",%progbits
+ 1096              		.align	2
+ 1097              		.global	U7816x_U7816PDIV_Read
+ 1098              		.code	16
+ 1099              		.thumb_func
+ 1101              	U7816x_U7816PDIV_Read:
+ 1102              	.LFB69:
+ 356:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 357:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** uint32_t U7816x_U7816PDIV_Read(U7816x_Type* U7816x)
+ 358:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 1103              		.loc 1 358 0
+ 1104              		.cfi_startproc
+ 1105              		@ args = 0, pretend = 0, frame = 0
+ 1106              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1107              		@ link register save eliminated.
+ 1108              	.LVL88:
+ 359:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	return (U7816x->U7816PDIV & U7816x_U7816PDIV_PDIV_Msk);
+ 1109              		.loc 1 359 0
+ 1110 0000 0069     		ldr	r0, [r0, #16]
+ 1111              	.LVL89:
+ 1112 0002 0005     		lsls	r0, r0, #20
+ 1113 0004 000D     		lsrs	r0, r0, #20
+ 360:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 1114              		.loc 1 360 0
+ 1115              		@ sp needed
+ 1116 0006 7047     		bx	lr
+ 1117              		.cfi_endproc
+ 1118              	.LFE69:
+ 1120              		.section	.text.U7816x_U7816RXBUF_Read,"ax",%progbits
+ 1121              		.align	2
+ 1122              		.global	U7816x_U7816RXBUF_Read
+ 1123              		.code	16
+ 1124              		.thumb_func
+ 1126              	U7816x_U7816RXBUF_Read:
+ 1127              	.LFB70:
+ 361:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 362:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* U7816Êý¾Ý½ÓÊÕ»º´æ¼Ä´æÆ÷ Ïà¹Øº¯Êý */
+ 363:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** uint32_t U7816x_U7816RXBUF_Read(U7816x_Type* U7816x)
+ 364:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 1128              		.loc 1 364 0
+ 1129              		.cfi_startproc
+ 1130              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 26
+
+
+ 1131              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1132              		@ link register save eliminated.
+ 1133              	.LVL90:
+ 365:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	return (U7816x->U7816RXBUF & U7816x_U7816RXBUF_RXBUF_Msk);
+ 1134              		.loc 1 365 0
+ 1135 0000 4369     		ldr	r3, [r0, #20]
+ 1136 0002 FF20     		movs	r0, #255
+ 1137              	.LVL91:
+ 1138 0004 1840     		ands	r0, r3
+ 366:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 1139              		.loc 1 366 0
+ 1140              		@ sp needed
+ 1141 0006 7047     		bx	lr
+ 1142              		.cfi_endproc
+ 1143              	.LFE70:
+ 1145              		.section	.text.U7816x_U7816TXBUF_Write,"ax",%progbits
+ 1146              		.align	2
+ 1147              		.global	U7816x_U7816TXBUF_Write
+ 1148              		.code	16
+ 1149              		.thumb_func
+ 1151              	U7816x_U7816TXBUF_Write:
+ 1152              	.LFB71:
+ 367:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 368:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* U7816Êý¾Ý·¢ËÍ»º´æ¼Ä´æÆ÷ Ïà¹Øº¯Êý */
+ 369:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** void U7816x_U7816TXBUF_Write(U7816x_Type* U7816x, uint32_t SetValue)
+ 370:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 1153              		.loc 1 370 0
+ 1154              		.cfi_startproc
+ 1155              		@ args = 0, pretend = 0, frame = 0
+ 1156              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1157              		@ link register save eliminated.
+ 1158              	.LVL92:
+ 371:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x->U7816TXBUF = (SetValue & U7816x_U7816TXBUF_TXBUF_Msk);
+ 1159              		.loc 1 371 0
+ 1160 0000 FF23     		movs	r3, #255
+ 1161 0002 1940     		ands	r1, r3
+ 1162              	.LVL93:
+ 1163 0004 8161     		str	r1, [r0, #24]
+ 372:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 1164              		.loc 1 372 0
+ 1165              		@ sp needed
+ 1166 0006 7047     		bx	lr
+ 1167              		.cfi_endproc
+ 1168              	.LFE71:
+ 1170              		.section	.text.U7816x_U7816IE_RXIE_Setable,"ax",%progbits
+ 1171              		.align	2
+ 1172              		.global	U7816x_U7816IE_RXIE_Setable
+ 1173              		.code	16
+ 1174              		.thumb_func
+ 1176              	U7816x_U7816IE_RXIE_Setable:
+ 1177              	.LFB72:
+ 373:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 374:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* Êý¾Ý½ÓÊÕÖÐ¶ÏÊ¹ÄÜÎ»¡£¶ÔÓ¦RX_FLAGÖÐ¶Ï±êÖ¾Î» Ïà¹Øº¯Êý */
+ 375:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** void U7816x_U7816IE_RXIE_Setable(U7816x_Type* U7816x, FunState NewState)
+ 376:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 1178              		.loc 1 376 0
+ 1179              		.cfi_startproc
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 27
+
+
+ 1180              		@ args = 0, pretend = 0, frame = 0
+ 1181              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1182              		@ link register save eliminated.
+ 1183              	.LVL94:
+ 377:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (NewState == ENABLE)
+ 1184              		.loc 1 377 0
+ 1185 0000 0129     		cmp	r1, #1
+ 1186 0002 04D1     		bne	.L82
+ 378:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 379:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		U7816x->U7816IE |= (U7816x_U7816IE_RXIE_Msk);
+ 1187              		.loc 1 379 0
+ 1188 0004 C269     		ldr	r2, [r0, #28]
+ 1189 0006 0423     		movs	r3, #4
+ 1190 0008 1343     		orrs	r3, r2
+ 1191 000a C361     		str	r3, [r0, #28]
+ 1192 000c 03E0     		b	.L81
+ 1193              	.L82:
+ 380:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 381:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ 382:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 383:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		U7816x->U7816IE &= ~(U7816x_U7816IE_RXIE_Msk);
+ 1194              		.loc 1 383 0
+ 1195 000e C369     		ldr	r3, [r0, #28]
+ 1196 0010 0422     		movs	r2, #4
+ 1197 0012 9343     		bics	r3, r2
+ 1198 0014 C361     		str	r3, [r0, #28]
+ 1199              	.L81:
+ 384:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 385:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 1200              		.loc 1 385 0
+ 1201              		@ sp needed
+ 1202 0016 7047     		bx	lr
+ 1203              		.cfi_endproc
+ 1204              	.LFE72:
+ 1206              		.section	.text.U7816x_U7816IE_RXIE_Getable,"ax",%progbits
+ 1207              		.align	2
+ 1208              		.global	U7816x_U7816IE_RXIE_Getable
+ 1209              		.code	16
+ 1210              		.thumb_func
+ 1212              	U7816x_U7816IE_RXIE_Getable:
+ 1213              	.LFB73:
+ 386:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 387:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** FunState U7816x_U7816IE_RXIE_Getable(U7816x_Type* U7816x)
+ 388:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 1214              		.loc 1 388 0
+ 1215              		.cfi_startproc
+ 1216              		@ args = 0, pretend = 0, frame = 0
+ 1217              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1218              		@ link register save eliminated.
+ 1219              	.LVL95:
+ 389:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (U7816x->U7816IE & (U7816x_U7816IE_RXIE_Msk))
+ 1220              		.loc 1 389 0
+ 1221 0000 C369     		ldr	r3, [r0, #28]
+ 1222 0002 5B07     		lsls	r3, r3, #29
+ 1223 0004 01D5     		bpl	.L86
+ 390:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 391:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return ENABLE;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 28
+
+
+ 1224              		.loc 1 391 0
+ 1225 0006 0120     		movs	r0, #1
+ 1226              	.LVL96:
+ 1227 0008 00E0     		b	.L85
+ 1228              	.LVL97:
+ 1229              	.L86:
+ 392:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 393:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ 394:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 395:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return DISABLE;
+ 1230              		.loc 1 395 0
+ 1231 000a 0020     		movs	r0, #0
+ 1232              	.LVL98:
+ 1233              	.L85:
+ 396:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 397:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 1234              		.loc 1 397 0
+ 1235              		@ sp needed
+ 1236 000c 7047     		bx	lr
+ 1237              		.cfi_endproc
+ 1238              	.LFE73:
+ 1240 000e C046     		.section	.text.U7816x_U7816IE_TXIE_Setable,"ax",%progbits
+ 1241              		.align	2
+ 1242              		.global	U7816x_U7816IE_TXIE_Setable
+ 1243              		.code	16
+ 1244              		.thumb_func
+ 1246              	U7816x_U7816IE_TXIE_Setable:
+ 1247              	.LFB74:
+ 398:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 399:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* Êý¾Ý·¢ËÍÖÐ¶ÏÊ¹ÄÜÎ»¡£¶ÔÓ¦TX_FLAGÖÐ¶Ï±êÖ¾Î» Ïà¹Øº¯Êý */
+ 400:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** void U7816x_U7816IE_TXIE_Setable(U7816x_Type* U7816x, FunState NewState)
+ 401:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 1248              		.loc 1 401 0
+ 1249              		.cfi_startproc
+ 1250              		@ args = 0, pretend = 0, frame = 0
+ 1251              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1252              		@ link register save eliminated.
+ 1253              	.LVL99:
+ 402:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (NewState == ENABLE)
+ 1254              		.loc 1 402 0
+ 1255 0000 0129     		cmp	r1, #1
+ 1256 0002 04D1     		bne	.L88
+ 403:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 404:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		U7816x->U7816IE |= (U7816x_U7816IE_TXIE_Msk);
+ 1257              		.loc 1 404 0
+ 1258 0004 C269     		ldr	r2, [r0, #28]
+ 1259 0006 0223     		movs	r3, #2
+ 1260 0008 1343     		orrs	r3, r2
+ 1261 000a C361     		str	r3, [r0, #28]
+ 1262 000c 03E0     		b	.L87
+ 1263              	.L88:
+ 405:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 406:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ 407:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 408:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		U7816x->U7816IE &= ~(U7816x_U7816IE_TXIE_Msk);
+ 1264              		.loc 1 408 0
+ 1265 000e C369     		ldr	r3, [r0, #28]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 29
+
+
+ 1266 0010 0222     		movs	r2, #2
+ 1267 0012 9343     		bics	r3, r2
+ 1268 0014 C361     		str	r3, [r0, #28]
+ 1269              	.L87:
+ 409:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 410:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 1270              		.loc 1 410 0
+ 1271              		@ sp needed
+ 1272 0016 7047     		bx	lr
+ 1273              		.cfi_endproc
+ 1274              	.LFE74:
+ 1276              		.section	.text.U7816x_U7816IE_TXIE_Getable,"ax",%progbits
+ 1277              		.align	2
+ 1278              		.global	U7816x_U7816IE_TXIE_Getable
+ 1279              		.code	16
+ 1280              		.thumb_func
+ 1282              	U7816x_U7816IE_TXIE_Getable:
+ 1283              	.LFB75:
+ 411:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 412:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** FunState U7816x_U7816IE_TXIE_Getable(U7816x_Type* U7816x)
+ 413:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 1284              		.loc 1 413 0
+ 1285              		.cfi_startproc
+ 1286              		@ args = 0, pretend = 0, frame = 0
+ 1287              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1288              		@ link register save eliminated.
+ 1289              	.LVL100:
+ 414:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (U7816x->U7816IE & (U7816x_U7816IE_TXIE_Msk))
+ 1290              		.loc 1 414 0
+ 1291 0000 C369     		ldr	r3, [r0, #28]
+ 1292 0002 9B07     		lsls	r3, r3, #30
+ 1293 0004 01D5     		bpl	.L92
+ 415:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 416:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return ENABLE;
+ 1294              		.loc 1 416 0
+ 1295 0006 0120     		movs	r0, #1
+ 1296              	.LVL101:
+ 1297 0008 00E0     		b	.L91
+ 1298              	.LVL102:
+ 1299              	.L92:
+ 417:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 418:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ 419:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 420:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return DISABLE;
+ 1300              		.loc 1 420 0
+ 1301 000a 0020     		movs	r0, #0
+ 1302              	.LVL103:
+ 1303              	.L91:
+ 421:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 422:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 1304              		.loc 1 422 0
+ 1305              		@ sp needed
+ 1306 000c 7047     		bx	lr
+ 1307              		.cfi_endproc
+ 1308              	.LFE75:
+ 1310 000e C046     		.section	.text.U7816x_U7816IE_LSIE_Setable,"ax",%progbits
+ 1311              		.align	2
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 30
+
+
+ 1312              		.global	U7816x_U7816IE_LSIE_Setable
+ 1313              		.code	16
+ 1314              		.thumb_func
+ 1316              	U7816x_U7816IE_LSIE_Setable:
+ 1317              	.LFB76:
+ 423:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 424:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* ÏßÂ·×´Ì¬ÖÐ¶ÏÊ¹ÄÜÎ»¡£¶ÔÓ¦ERROR_FLAGÖÐ¶Ï±êÖ¾Î» Ïà¹Øº¯Êý */
+ 425:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** void U7816x_U7816IE_LSIE_Setable(U7816x_Type* U7816x, FunState NewState)
+ 426:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 1318              		.loc 1 426 0
+ 1319              		.cfi_startproc
+ 1320              		@ args = 0, pretend = 0, frame = 0
+ 1321              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1322              		@ link register save eliminated.
+ 1323              	.LVL104:
+ 427:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (NewState == ENABLE)
+ 1324              		.loc 1 427 0
+ 1325 0000 0129     		cmp	r1, #1
+ 1326 0002 04D1     		bne	.L94
+ 428:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 429:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		U7816x->U7816IE |= (U7816x_U7816IE_LSIE_Msk);
+ 1327              		.loc 1 429 0
+ 1328 0004 C269     		ldr	r2, [r0, #28]
+ 1329 0006 0123     		movs	r3, #1
+ 1330 0008 1343     		orrs	r3, r2
+ 1331 000a C361     		str	r3, [r0, #28]
+ 1332 000c 03E0     		b	.L93
+ 1333              	.L94:
+ 430:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 431:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ 432:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 433:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		U7816x->U7816IE &= ~(U7816x_U7816IE_LSIE_Msk);
+ 1334              		.loc 1 433 0
+ 1335 000e C369     		ldr	r3, [r0, #28]
+ 1336 0010 0122     		movs	r2, #1
+ 1337 0012 9343     		bics	r3, r2
+ 1338 0014 C361     		str	r3, [r0, #28]
+ 1339              	.L93:
+ 434:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 435:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 1340              		.loc 1 435 0
+ 1341              		@ sp needed
+ 1342 0016 7047     		bx	lr
+ 1343              		.cfi_endproc
+ 1344              	.LFE76:
+ 1346              		.section	.text.U7816x_U7816IE_LSIE_Getable,"ax",%progbits
+ 1347              		.align	2
+ 1348              		.global	U7816x_U7816IE_LSIE_Getable
+ 1349              		.code	16
+ 1350              		.thumb_func
+ 1352              	U7816x_U7816IE_LSIE_Getable:
+ 1353              	.LFB77:
+ 436:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 437:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** FunState U7816x_U7816IE_LSIE_Getable(U7816x_Type* U7816x)
+ 438:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 1354              		.loc 1 438 0
+ 1355              		.cfi_startproc
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 31
+
+
+ 1356              		@ args = 0, pretend = 0, frame = 0
+ 1357              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1358              		@ link register save eliminated.
+ 1359              	.LVL105:
+ 439:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (U7816x->U7816IE & (U7816x_U7816IE_LSIE_Msk))
+ 1360              		.loc 1 439 0
+ 1361 0000 C369     		ldr	r3, [r0, #28]
+ 1362 0002 DB07     		lsls	r3, r3, #31
+ 1363 0004 01D5     		bpl	.L98
+ 440:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 441:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return ENABLE;
+ 1364              		.loc 1 441 0
+ 1365 0006 0120     		movs	r0, #1
+ 1366              	.LVL106:
+ 1367 0008 00E0     		b	.L97
+ 1368              	.LVL107:
+ 1369              	.L98:
+ 442:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 443:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ 444:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 445:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return DISABLE;
+ 1370              		.loc 1 445 0
+ 1371 000a 0020     		movs	r0, #0
+ 1372              	.LVL108:
+ 1373              	.L97:
+ 446:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 447:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 1374              		.loc 1 447 0
+ 1375              		@ sp needed
+ 1376 000c 7047     		bx	lr
+ 1377              		.cfi_endproc
+ 1378              	.LFE77:
+ 1380 000e C046     		.section	.text.U7816x_U7816IF_ERRIF_Chk,"ax",%progbits
+ 1381              		.align	2
+ 1382              		.global	U7816x_U7816IF_ERRIF_Chk
+ 1383              		.code	16
+ 1384              		.thumb_func
+ 1386              	U7816x_U7816IF_ERRIF_Chk:
+ 1387              	.LFB78:
+ 448:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 449:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* ´íÎó±êÖ¾£¬¼Ä´æÆ÷ÅäÖÃ³ö´í»ò´«Êä¹ý³ÌÖÐ³ö´í¡£Ó²¼þÖÃÎ»£¬ÇåU7816ERRÖÐÏàÓ¦´íÎó±êÖ¾ÇåÁã Ïà¹Øº¯Êý */
+ 450:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** FlagStatus U7816x_U7816IF_ERRIF_Chk(U7816x_Type* U7816x)
+ 451:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 1388              		.loc 1 451 0
+ 1389              		.cfi_startproc
+ 1390              		@ args = 0, pretend = 0, frame = 0
+ 1391              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1392              		@ link register save eliminated.
+ 1393              	.LVL109:
+ 452:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (U7816x->U7816IF & U7816x_U7816IF_ERRIF_Msk)
+ 1394              		.loc 1 452 0
+ 1395 0000 036A     		ldr	r3, [r0, #32]
+ 1396 0002 5B07     		lsls	r3, r3, #29
+ 1397 0004 01D5     		bpl	.L101
+ 453:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 454:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return SET;
+ 1398              		.loc 1 454 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 32
+
+
+ 1399 0006 0120     		movs	r0, #1
+ 1400              	.LVL110:
+ 1401 0008 00E0     		b	.L100
+ 1402              	.LVL111:
+ 1403              	.L101:
+ 455:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 456:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ 457:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 458:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return RESET;
+ 1404              		.loc 1 458 0
+ 1405 000a 0020     		movs	r0, #0
+ 1406              	.LVL112:
+ 1407              	.L100:
+ 459:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 460:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 1408              		.loc 1 460 0
+ 1409              		@ sp needed
+ 1410 000c 7047     		bx	lr
+ 1411              		.cfi_endproc
+ 1412              	.LFE78:
+ 1414 000e C046     		.section	.text.U7816x_U7816IF_TXIF_Clr,"ax",%progbits
+ 1415              		.align	2
+ 1416              		.global	U7816x_U7816IF_TXIF_Clr
+ 1417              		.code	16
+ 1418              		.thumb_func
+ 1420              	U7816x_U7816IF_TXIF_Clr:
+ 1421              	.LFB79:
+ 461:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 462:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* ·¢ËÍ»º³åÇø¿Õ±êÖ¾ Ïà¹Øº¯Êý */
+ 463:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** void U7816x_U7816IF_TXIF_Clr(U7816x_Type* U7816x)
+ 464:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 1422              		.loc 1 464 0
+ 1423              		.cfi_startproc
+ 1424              		@ args = 0, pretend = 0, frame = 0
+ 1425              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1426              		@ link register save eliminated.
+ 1427              	.LVL113:
+ 465:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x->U7816IF = U7816x_U7816IF_TXIF_Msk;
+ 1428              		.loc 1 465 0
+ 1429 0000 0223     		movs	r3, #2
+ 1430 0002 0362     		str	r3, [r0, #32]
+ 466:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 1431              		.loc 1 466 0
+ 1432              		@ sp needed
+ 1433 0004 7047     		bx	lr
+ 1434              		.cfi_endproc
+ 1435              	.LFE79:
+ 1437 0006 C046     		.section	.text.U7816x_U7816IF_TXIF_Chk,"ax",%progbits
+ 1438              		.align	2
+ 1439              		.global	U7816x_U7816IF_TXIF_Chk
+ 1440              		.code	16
+ 1441              		.thumb_func
+ 1443              	U7816x_U7816IF_TXIF_Chk:
+ 1444              	.LFB80:
+ 467:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 468:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** FlagStatus U7816x_U7816IF_TXIF_Chk(U7816x_Type* U7816x)
+ 469:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 33
+
+
+ 1445              		.loc 1 469 0
+ 1446              		.cfi_startproc
+ 1447              		@ args = 0, pretend = 0, frame = 0
+ 1448              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1449              		@ link register save eliminated.
+ 1450              	.LVL114:
+ 470:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (U7816x->U7816IF & U7816x_U7816IF_TXIF_Msk)
+ 1451              		.loc 1 470 0
+ 1452 0000 036A     		ldr	r3, [r0, #32]
+ 1453 0002 9B07     		lsls	r3, r3, #30
+ 1454 0004 01D5     		bpl	.L105
+ 471:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 472:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return SET;
+ 1455              		.loc 1 472 0
+ 1456 0006 0120     		movs	r0, #1
+ 1457              	.LVL115:
+ 1458 0008 00E0     		b	.L104
+ 1459              	.LVL116:
+ 1460              	.L105:
+ 473:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 474:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ 475:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 476:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return RESET;
+ 1461              		.loc 1 476 0
+ 1462 000a 0020     		movs	r0, #0
+ 1463              	.LVL117:
+ 1464              	.L104:
+ 477:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 478:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 1465              		.loc 1 478 0
+ 1466              		@ sp needed
+ 1467 000c 7047     		bx	lr
+ 1468              		.cfi_endproc
+ 1469              	.LFE80:
+ 1471 000e C046     		.section	.text.U7816x_U7816IF_RXIF_Clr,"ax",%progbits
+ 1472              		.align	2
+ 1473              		.global	U7816x_U7816IF_RXIF_Clr
+ 1474              		.code	16
+ 1475              		.thumb_func
+ 1477              	U7816x_U7816IF_RXIF_Clr:
+ 1478              	.LFB81:
+ 479:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 480:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* ½ÓÊÕÍê³É±êÖ¾ Ïà¹Øº¯Êý */
+ 481:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** void U7816x_U7816IF_RXIF_Clr(U7816x_Type* U7816x)
+ 482:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 1479              		.loc 1 482 0
+ 1480              		.cfi_startproc
+ 1481              		@ args = 0, pretend = 0, frame = 0
+ 1482              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1483              		@ link register save eliminated.
+ 1484              	.LVL118:
+ 483:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x->U7816IF = U7816x_U7816IF_RXIF_Msk;
+ 1485              		.loc 1 483 0
+ 1486 0000 0123     		movs	r3, #1
+ 1487 0002 0362     		str	r3, [r0, #32]
+ 484:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 1488              		.loc 1 484 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 34
+
+
+ 1489              		@ sp needed
+ 1490 0004 7047     		bx	lr
+ 1491              		.cfi_endproc
+ 1492              	.LFE81:
+ 1494 0006 C046     		.section	.text.U7816x_U7816IF_RXIF_Chk,"ax",%progbits
+ 1495              		.align	2
+ 1496              		.global	U7816x_U7816IF_RXIF_Chk
+ 1497              		.code	16
+ 1498              		.thumb_func
+ 1500              	U7816x_U7816IF_RXIF_Chk:
+ 1501              	.LFB82:
+ 485:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 486:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** FlagStatus U7816x_U7816IF_RXIF_Chk(U7816x_Type* U7816x)
+ 487:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 1502              		.loc 1 487 0
+ 1503              		.cfi_startproc
+ 1504              		@ args = 0, pretend = 0, frame = 0
+ 1505              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1506              		@ link register save eliminated.
+ 1507              	.LVL119:
+ 488:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (U7816x->U7816IF & U7816x_U7816IF_RXIF_Msk)
+ 1508              		.loc 1 488 0
+ 1509 0000 036A     		ldr	r3, [r0, #32]
+ 1510 0002 DB07     		lsls	r3, r3, #31
+ 1511 0004 01D5     		bpl	.L109
+ 489:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 490:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return SET;
+ 1512              		.loc 1 490 0
+ 1513 0006 0120     		movs	r0, #1
+ 1514              	.LVL120:
+ 1515 0008 00E0     		b	.L108
+ 1516              	.LVL121:
+ 1517              	.L109:
+ 491:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 492:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ 493:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 494:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return RESET;
+ 1518              		.loc 1 494 0
+ 1519 000a 0020     		movs	r0, #0
+ 1520              	.LVL122:
+ 1521              	.L108:
+ 495:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 496:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 1522              		.loc 1 496 0
+ 1523              		@ sp needed
+ 1524 000c 7047     		bx	lr
+ 1525              		.cfi_endproc
+ 1526              	.LFE82:
+ 1528 000e C046     		.section	.text.U7816x_U7816ERR_TPARERR_Clr,"ax",%progbits
+ 1529              		.align	2
+ 1530              		.global	U7816x_U7816ERR_TPARERR_Clr
+ 1531              		.code	16
+ 1532              		.thumb_func
+ 1534              	U7816x_U7816ERR_TPARERR_Clr:
+ 1535              	.LFB83:
+ 497:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 498:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* ·¢ËÍÊý¾ÝÆæÅ¼Ð£Ñé´íÎó±êÖ¾Î» Ïà¹Øº¯Êý */
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 35
+
+
+ 499:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** void U7816x_U7816ERR_TPARERR_Clr(U7816x_Type* U7816x)
+ 500:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 1536              		.loc 1 500 0
+ 1537              		.cfi_startproc
+ 1538              		@ args = 0, pretend = 0, frame = 0
+ 1539              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1540              		@ link register save eliminated.
+ 1541              	.LVL123:
+ 501:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x->U7816ERR = U7816x_U7816ERR_TPARERR_Msk;
+ 1542              		.loc 1 501 0
+ 1543 0000 0823     		movs	r3, #8
+ 1544 0002 4362     		str	r3, [r0, #36]
+ 502:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 1545              		.loc 1 502 0
+ 1546              		@ sp needed
+ 1547 0004 7047     		bx	lr
+ 1548              		.cfi_endproc
+ 1549              	.LFE83:
+ 1551 0006 C046     		.section	.text.U7816x_U7816ERR_TPARERR_Chk,"ax",%progbits
+ 1552              		.align	2
+ 1553              		.global	U7816x_U7816ERR_TPARERR_Chk
+ 1554              		.code	16
+ 1555              		.thumb_func
+ 1557              	U7816x_U7816ERR_TPARERR_Chk:
+ 1558              	.LFB84:
+ 503:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 504:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** FlagStatus U7816x_U7816ERR_TPARERR_Chk(U7816x_Type* U7816x)
+ 505:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 1559              		.loc 1 505 0
+ 1560              		.cfi_startproc
+ 1561              		@ args = 0, pretend = 0, frame = 0
+ 1562              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1563              		@ link register save eliminated.
+ 1564              	.LVL124:
+ 506:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (U7816x->U7816ERR & U7816x_U7816ERR_TPARERR_Msk)
+ 1565              		.loc 1 506 0
+ 1566 0000 436A     		ldr	r3, [r0, #36]
+ 1567 0002 1B07     		lsls	r3, r3, #28
+ 1568 0004 01D5     		bpl	.L113
+ 507:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 508:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return SET;
+ 1569              		.loc 1 508 0
+ 1570 0006 0120     		movs	r0, #1
+ 1571              	.LVL125:
+ 1572 0008 00E0     		b	.L112
+ 1573              	.LVL126:
+ 1574              	.L113:
+ 509:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 510:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ 511:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 512:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return RESET;
+ 1575              		.loc 1 512 0
+ 1576 000a 0020     		movs	r0, #0
+ 1577              	.LVL127:
+ 1578              	.L112:
+ 513:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 514:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 36
+
+
+ 1579              		.loc 1 514 0
+ 1580              		@ sp needed
+ 1581 000c 7047     		bx	lr
+ 1582              		.cfi_endproc
+ 1583              	.LFE84:
+ 1585 000e C046     		.section	.text.U7816x_U7816ERR_RPARERR_Clr,"ax",%progbits
+ 1586              		.align	2
+ 1587              		.global	U7816x_U7816ERR_RPARERR_Clr
+ 1588              		.code	16
+ 1589              		.thumb_func
+ 1591              	U7816x_U7816ERR_RPARERR_Clr:
+ 1592              	.LFB85:
+ 515:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 516:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* ½ÓÊÕÊý¾ÝÆæÅ¼Ð£Ñé´íÎó±êÖ¾Î» Ïà¹Øº¯Êý */
+ 517:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** void U7816x_U7816ERR_RPARERR_Clr(U7816x_Type* U7816x)
+ 518:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 1593              		.loc 1 518 0
+ 1594              		.cfi_startproc
+ 1595              		@ args = 0, pretend = 0, frame = 0
+ 1596              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1597              		@ link register save eliminated.
+ 1598              	.LVL128:
+ 519:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x->U7816ERR = U7816x_U7816ERR_RPARERR_Msk;
+ 1599              		.loc 1 519 0
+ 1600 0000 0423     		movs	r3, #4
+ 1601 0002 4362     		str	r3, [r0, #36]
+ 520:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 1602              		.loc 1 520 0
+ 1603              		@ sp needed
+ 1604 0004 7047     		bx	lr
+ 1605              		.cfi_endproc
+ 1606              	.LFE85:
+ 1608 0006 C046     		.section	.text.U7816x_U7816ERR_RPARERR_Chk,"ax",%progbits
+ 1609              		.align	2
+ 1610              		.global	U7816x_U7816ERR_RPARERR_Chk
+ 1611              		.code	16
+ 1612              		.thumb_func
+ 1614              	U7816x_U7816ERR_RPARERR_Chk:
+ 1615              	.LFB86:
+ 521:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 522:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** FlagStatus U7816x_U7816ERR_RPARERR_Chk(U7816x_Type* U7816x)
+ 523:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 1616              		.loc 1 523 0
+ 1617              		.cfi_startproc
+ 1618              		@ args = 0, pretend = 0, frame = 0
+ 1619              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1620              		@ link register save eliminated.
+ 1621              	.LVL129:
+ 524:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (U7816x->U7816ERR & U7816x_U7816ERR_RPARERR_Msk)
+ 1622              		.loc 1 524 0
+ 1623 0000 436A     		ldr	r3, [r0, #36]
+ 1624 0002 5B07     		lsls	r3, r3, #29
+ 1625 0004 01D5     		bpl	.L117
+ 525:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 526:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return SET;
+ 1626              		.loc 1 526 0
+ 1627 0006 0120     		movs	r0, #1
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 37
+
+
+ 1628              	.LVL130:
+ 1629 0008 00E0     		b	.L116
+ 1630              	.LVL131:
+ 1631              	.L117:
+ 527:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 528:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ 529:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 530:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return RESET;
+ 1632              		.loc 1 530 0
+ 1633 000a 0020     		movs	r0, #0
+ 1634              	.LVL132:
+ 1635              	.L116:
+ 531:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 532:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 1636              		.loc 1 532 0
+ 1637              		@ sp needed
+ 1638 000c 7047     		bx	lr
+ 1639              		.cfi_endproc
+ 1640              	.LFE86:
+ 1642 000e C046     		.section	.text.U7816x_U7816ERR_FRERR_Clr,"ax",%progbits
+ 1643              		.align	2
+ 1644              		.global	U7816x_U7816ERR_FRERR_Clr
+ 1645              		.code	16
+ 1646              		.thumb_func
+ 1648              	U7816x_U7816ERR_FRERR_Clr:
+ 1649              	.LFB87:
+ 533:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 534:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* ½ÓÊÕÖ¡¸ñÊ½´íÎó±êÖ¾Î» Ïà¹Øº¯Êý */
+ 535:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** void U7816x_U7816ERR_FRERR_Clr(U7816x_Type* U7816x)
+ 536:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 1650              		.loc 1 536 0
+ 1651              		.cfi_startproc
+ 1652              		@ args = 0, pretend = 0, frame = 0
+ 1653              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1654              		@ link register save eliminated.
+ 1655              	.LVL133:
+ 537:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x->U7816ERR = U7816x_U7816ERR_FRERR_Msk;
+ 1656              		.loc 1 537 0
+ 1657 0000 0223     		movs	r3, #2
+ 1658 0002 4362     		str	r3, [r0, #36]
+ 538:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 1659              		.loc 1 538 0
+ 1660              		@ sp needed
+ 1661 0004 7047     		bx	lr
+ 1662              		.cfi_endproc
+ 1663              	.LFE87:
+ 1665 0006 C046     		.section	.text.U7816x_U7816ERR_FRERR_Chk,"ax",%progbits
+ 1666              		.align	2
+ 1667              		.global	U7816x_U7816ERR_FRERR_Chk
+ 1668              		.code	16
+ 1669              		.thumb_func
+ 1671              	U7816x_U7816ERR_FRERR_Chk:
+ 1672              	.LFB88:
+ 539:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 540:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** FlagStatus U7816x_U7816ERR_FRERR_Chk(U7816x_Type* U7816x)
+ 541:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 1673              		.loc 1 541 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 38
+
+
+ 1674              		.cfi_startproc
+ 1675              		@ args = 0, pretend = 0, frame = 0
+ 1676              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1677              		@ link register save eliminated.
+ 1678              	.LVL134:
+ 542:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (U7816x->U7816ERR & U7816x_U7816ERR_FRERR_Msk)
+ 1679              		.loc 1 542 0
+ 1680 0000 436A     		ldr	r3, [r0, #36]
+ 1681 0002 9B07     		lsls	r3, r3, #30
+ 1682 0004 01D5     		bpl	.L121
+ 543:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 544:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return SET;
+ 1683              		.loc 1 544 0
+ 1684 0006 0120     		movs	r0, #1
+ 1685              	.LVL135:
+ 1686 0008 00E0     		b	.L120
+ 1687              	.LVL136:
+ 1688              	.L121:
+ 545:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 546:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ 547:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 548:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return RESET;
+ 1689              		.loc 1 548 0
+ 1690 000a 0020     		movs	r0, #0
+ 1691              	.LVL137:
+ 1692              	.L120:
+ 549:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 550:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 1693              		.loc 1 550 0
+ 1694              		@ sp needed
+ 1695 000c 7047     		bx	lr
+ 1696              		.cfi_endproc
+ 1697              	.LFE88:
+ 1699 000e C046     		.section	.text.U7816x_U7816ERR_OVERR_Clr,"ax",%progbits
+ 1700              		.align	2
+ 1701              		.global	U7816x_U7816ERR_OVERR_Clr
+ 1702              		.code	16
+ 1703              		.thumb_func
+ 1705              	U7816x_U7816ERR_OVERR_Clr:
+ 1706              	.LFB89:
+ 551:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 552:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* ½ÓÊÕÒç³ö´íÎó±êÖ¾Î» Ïà¹Øº¯Êý */
+ 553:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** void U7816x_U7816ERR_OVERR_Clr(U7816x_Type* U7816x)
+ 554:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 1707              		.loc 1 554 0
+ 1708              		.cfi_startproc
+ 1709              		@ args = 0, pretend = 0, frame = 0
+ 1710              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1711              		@ link register save eliminated.
+ 1712              	.LVL138:
+ 555:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x->U7816ERR = U7816x_U7816ERR_OVERR_Msk;
+ 1713              		.loc 1 555 0
+ 1714 0000 0123     		movs	r3, #1
+ 1715 0002 4362     		str	r3, [r0, #36]
+ 556:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 1716              		.loc 1 556 0
+ 1717              		@ sp needed
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 39
+
+
+ 1718 0004 7047     		bx	lr
+ 1719              		.cfi_endproc
+ 1720              	.LFE89:
+ 1722 0006 C046     		.section	.text.U7816x_U7816ERR_OVERR_Chk,"ax",%progbits
+ 1723              		.align	2
+ 1724              		.global	U7816x_U7816ERR_OVERR_Chk
+ 1725              		.code	16
+ 1726              		.thumb_func
+ 1728              	U7816x_U7816ERR_OVERR_Chk:
+ 1729              	.LFB90:
+ 557:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 558:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** FlagStatus U7816x_U7816ERR_OVERR_Chk(U7816x_Type* U7816x)
+ 559:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 1730              		.loc 1 559 0
+ 1731              		.cfi_startproc
+ 1732              		@ args = 0, pretend = 0, frame = 0
+ 1733              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1734              		@ link register save eliminated.
+ 1735              	.LVL139:
+ 560:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (U7816x->U7816ERR & U7816x_U7816ERR_OVERR_Msk)
+ 1736              		.loc 1 560 0
+ 1737 0000 436A     		ldr	r3, [r0, #36]
+ 1738 0002 DB07     		lsls	r3, r3, #31
+ 1739 0004 01D5     		bpl	.L125
+ 561:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 562:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return SET;
+ 1740              		.loc 1 562 0
+ 1741 0006 0120     		movs	r0, #1
+ 1742              	.LVL140:
+ 1743 0008 00E0     		b	.L124
+ 1744              	.LVL141:
+ 1745              	.L125:
+ 563:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 564:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ 565:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 566:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return RESET;
+ 1746              		.loc 1 566 0
+ 1747 000a 0020     		movs	r0, #0
+ 1748              	.LVL142:
+ 1749              	.L124:
+ 567:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 568:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 1750              		.loc 1 568 0
+ 1751              		@ sp needed
+ 1752 000c 7047     		bx	lr
+ 1753              		.cfi_endproc
+ 1754              	.LFE90:
+ 1756 000e C046     		.section	.text.U7816x_U7816STA_WAIT_RPT_Chk,"ax",%progbits
+ 1757              		.align	2
+ 1758              		.global	U7816x_U7816STA_WAIT_RPT_Chk
+ 1759              		.code	16
+ 1760              		.thumb_func
+ 1762              	U7816x_U7816STA_WAIT_RPT_Chk:
+ 1763              	.LFB91:
+ 569:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 570:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* U7816½Ó¿Ú·¢ËÍÁË´íÎóÐÅºÅ£¬ÕýÔÚµÈ´ý¶Ô·½ÖØ·¢Êý¾Ý.×´Ì¬»ú½øÈë·¢ËÍ´íÎóÐÅºÅ×´Ì¬Ê±ÖÃÎ»£¬ÊÕµ½Êý¾ÝÆðÊ¼Î»»ò
+ 571:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c ****  Ïà¹Øº¯Êý */
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 40
+
+
+ 572:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** FlagStatus U7816x_U7816STA_WAIT_RPT_Chk(U7816x_Type* U7816x)
+ 573:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 1764              		.loc 1 573 0
+ 1765              		.cfi_startproc
+ 1766              		@ args = 0, pretend = 0, frame = 0
+ 1767              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1768              		@ link register save eliminated.
+ 1769              	.LVL143:
+ 574:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (U7816x->U7816STA & U7816x_U7816STA_WAIT_RPT_Msk)
+ 1770              		.loc 1 574 0
+ 1771 0000 836A     		ldr	r3, [r0, #40]
+ 1772 0002 5B07     		lsls	r3, r3, #29
+ 1773 0004 01D5     		bpl	.L128
+ 575:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 576:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return SET;
+ 1774              		.loc 1 576 0
+ 1775 0006 0120     		movs	r0, #1
+ 1776              	.LVL144:
+ 1777 0008 00E0     		b	.L127
+ 1778              	.LVL145:
+ 1779              	.L128:
+ 577:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 578:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ 579:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 580:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return RESET;
+ 1780              		.loc 1 580 0
+ 1781 000a 0020     		movs	r0, #0
+ 1782              	.LVL146:
+ 1783              	.L127:
+ 581:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 582:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 1784              		.loc 1 582 0
+ 1785              		@ sp needed
+ 1786 000c 7047     		bx	lr
+ 1787              		.cfi_endproc
+ 1788              	.LFE91:
+ 1790 000e C046     		.section	.text.U7816x_U7816STA_TXBUSY_Chk,"ax",%progbits
+ 1791              		.align	2
+ 1792              		.global	U7816x_U7816STA_TXBUSY_Chk
+ 1793              		.code	16
+ 1794              		.thumb_func
+ 1796              	U7816x_U7816STA_TXBUSY_Chk:
+ 1797              	.LFB92:
+ 583:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 584:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* ·¢ËÍÊý¾ÝÃ¦±êÖ¾ Ïà¹Øº¯Êý */
+ 585:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** FlagStatus U7816x_U7816STA_TXBUSY_Chk(U7816x_Type* U7816x)
+ 586:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 1798              		.loc 1 586 0
+ 1799              		.cfi_startproc
+ 1800              		@ args = 0, pretend = 0, frame = 0
+ 1801              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1802              		@ link register save eliminated.
+ 1803              	.LVL147:
+ 587:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (U7816x->U7816STA & U7816x_U7816STA_TXBUSY_Msk)
+ 1804              		.loc 1 587 0
+ 1805 0000 836A     		ldr	r3, [r0, #40]
+ 1806 0002 9B07     		lsls	r3, r3, #30
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 41
+
+
+ 1807 0004 01D5     		bpl	.L131
+ 588:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 589:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return SET;
+ 1808              		.loc 1 589 0
+ 1809 0006 0120     		movs	r0, #1
+ 1810              	.LVL148:
+ 1811 0008 00E0     		b	.L130
+ 1812              	.LVL149:
+ 1813              	.L131:
+ 590:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 591:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ 592:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 593:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return RESET;
+ 1814              		.loc 1 593 0
+ 1815 000a 0020     		movs	r0, #0
+ 1816              	.LVL150:
+ 1817              	.L130:
+ 594:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 595:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 1818              		.loc 1 595 0
+ 1819              		@ sp needed
+ 1820 000c 7047     		bx	lr
+ 1821              		.cfi_endproc
+ 1822              	.LFE92:
+ 1824 000e C046     		.section	.text.U7816x_U7816STA_RXBUSY_Chk,"ax",%progbits
+ 1825              		.align	2
+ 1826              		.global	U7816x_U7816STA_RXBUSY_Chk
+ 1827              		.code	16
+ 1828              		.thumb_func
+ 1830              	U7816x_U7816STA_RXBUSY_Chk:
+ 1831              	.LFB93:
+ 596:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 597:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* ½ÓÊÕÊý¾ÝÃ¦±êÖ¾ Ïà¹Øº¯Êý */
+ 598:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** FlagStatus U7816x_U7816STA_RXBUSY_Chk(U7816x_Type* U7816x)
+ 599:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 1832              		.loc 1 599 0
+ 1833              		.cfi_startproc
+ 1834              		@ args = 0, pretend = 0, frame = 0
+ 1835              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1836              		@ link register save eliminated.
+ 1837              	.LVL151:
+ 600:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	if (U7816x->U7816STA & U7816x_U7816STA_RXBUSY_Msk)
+ 1838              		.loc 1 600 0
+ 1839 0000 836A     		ldr	r3, [r0, #40]
+ 1840 0002 DB07     		lsls	r3, r3, #31
+ 1841 0004 01D5     		bpl	.L134
+ 601:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ 602:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return SET;
+ 1842              		.loc 1 602 0
+ 1843 0006 0120     		movs	r0, #1
+ 1844              	.LVL152:
+ 1845 0008 00E0     		b	.L133
+ 1846              	.LVL153:
+ 1847              	.L134:
+ 603:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 604:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	else
+ 605:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	{
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 42
+
+
+ 606:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 		return RESET;
+ 1848              		.loc 1 606 0
+ 1849 000a 0020     		movs	r0, #0
+ 1850              	.LVL154:
+ 1851              	.L133:
+ 607:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	}
+ 608:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 1852              		.loc 1 608 0
+ 1853              		@ sp needed
+ 1854 000c 7047     		bx	lr
+ 1855              		.cfi_endproc
+ 1856              	.LFE93:
+ 1858 000e C046     		.section	.text.U7816x_Deinit,"ax",%progbits
+ 1859              		.align	2
+ 1860              		.global	U7816x_Deinit
+ 1861              		.code	16
+ 1862              		.thumb_func
+ 1864              	U7816x_Deinit:
+ 1865              	.LFB94:
+ 609:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 610:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 611:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** void U7816x_Deinit(U7816x_Type* U7816x)
+ 612:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 1866              		.loc 1 612 0
+ 1867              		.cfi_startproc
+ 1868              		@ args = 0, pretend = 0, frame = 0
+ 1869              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1870              		@ link register save eliminated.
+ 1871              	.LVL155:
+ 613:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x->U7816CTRL = 0x00000000;
+ 1872              		.loc 1 613 0
+ 1873 0000 0023     		movs	r3, #0
+ 1874 0002 0360     		str	r3, [r0]
+ 614:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x->U7816FRC = 0x00000006;
+ 1875              		.loc 1 614 0
+ 1876 0004 0622     		movs	r2, #6
+ 1877 0006 4260     		str	r2, [r0, #4]
+ 615:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x->U7816EGT = 0x00000000;
+ 1878              		.loc 1 615 0
+ 1879 0008 8360     		str	r3, [r0, #8]
+ 616:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x->U7816CLKDIV = 0x00000003;
+ 1880              		.loc 1 616 0
+ 1881 000a 033A     		subs	r2, r2, #3
+ 1882 000c C260     		str	r2, [r0, #12]
+ 617:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x->U7816PDIV = 0x00000173;
+ 1883              		.loc 1 617 0
+ 1884 000e 7422     		movs	r2, #116
+ 1885 0010 FF32     		adds	r2, r2, #255
+ 1886 0012 0261     		str	r2, [r0, #16]
+ 618:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	//U7816x->U7816RXBUF = ;
+ 619:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	//U7816x->U7816TXBUF = ;
+ 620:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x->U7816IE = 0x00000000;
+ 1887              		.loc 1 620 0
+ 1888 0014 C361     		str	r3, [r0, #28]
+ 621:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	//U7816x->U7816IF = 0x00000002;
+ 622:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	//U7816x->U7816ERR = 0x00000000;
+ 623:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	//U7816x->U7816STA = 0x00000000;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 43
+
+
+ 624:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 1889              		.loc 1 624 0
+ 1890              		@ sp needed
+ 1891 0016 7047     		bx	lr
+ 1892              		.cfi_endproc
+ 1893              	.LFE94:
+ 1895              		.section	.text.U7816_Init,"ax",%progbits
+ 1896              		.align	2
+ 1897              		.global	U7816_Init
+ 1898              		.code	16
+ 1899              		.thumb_func
+ 1901              	U7816_Init:
+ 1902              	.LFB95:
+ 625:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** //Code_End
+ 626:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 627:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 
+ 628:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** /* U7816ÍêÕû²ÎÊý³õÊ¼»¯º¯Êý */
+ 629:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** void U7816_Init(U7816x_Type* U7816x, U7816_InitTypeDef* para)
+ 630:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** {
+ 1903              		.loc 1 630 0
+ 1904              		.cfi_startproc
+ 1905              		@ args = 0, pretend = 0, frame = 0
+ 1906              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1907              	.LVL156:
+ 1908 0000 70B5     		push	{r4, r5, r6, lr}
+ 1909              	.LCFI0:
+ 1910              		.cfi_def_cfa_offset 16
+ 1911              		.cfi_offset 4, -16
+ 1912              		.cfi_offset 5, -12
+ 1913              		.cfi_offset 6, -8
+ 1914              		.cfi_offset 14, -4
+ 1915 0002 0400     		movs	r4, r0
+ 1916 0004 0D00     		movs	r5, r1
+ 631:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x_U7816CTRL_TXEN_Setable(U7816x, para->TXEN);		//·¢ËÍÊ¹ÄÜ
+ 1917              		.loc 1 631 0
+ 1918 0006 0978     		ldrb	r1, [r1]
+ 1919              	.LVL157:
+ 1920 0008 FFF7FEFF 		bl	U7816x_U7816CTRL_TXEN_Setable
+ 1921              	.LVL158:
+ 632:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x_U7816CTRL_RXEN_Setable(U7816x, para->RXEN);		//½ÓÊÜÊ¹ÄÜ
+ 1922              		.loc 1 632 0
+ 1923 000c 6978     		ldrb	r1, [r5, #1]
+ 1924 000e 2000     		movs	r0, r4
+ 1925 0010 FFF7FEFF 		bl	U7816x_U7816CTRL_RXEN_Setable
+ 1926              	.LVL159:
+ 633:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x_U7816CTRL_CKOEN_Setable(U7816x, para->CKOEN);		//U7816Ê±ÖÓCLKÊä³öÊ¹ÄÜ¿ØÖÆ
+ 1927              		.loc 1 633 0
+ 1928 0014 A978     		ldrb	r1, [r5, #2]
+ 1929 0016 2000     		movs	r0, r4
+ 1930 0018 FFF7FEFF 		bl	U7816x_U7816CTRL_CKOEN_Setable
+ 1931              	.LVL160:
+ 634:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x_U7816CTRL_HPUAT_Setable(U7816x, para->HPUAT);		//U7816Í¨µÀÊý¾Ý·¢ËÍÇ¿ÉÏÀ­µç×è×Ô¶¯ÓÐÐ§¿ØÖÆ
+ 1932              		.loc 1 634 0
+ 1933 001c E978     		ldrb	r1, [r5, #3]
+ 1934 001e 2000     		movs	r0, r4
+ 1935 0020 FFF7FEFF 		bl	U7816x_U7816CTRL_HPUAT_Setable
+ 1936              	.LVL161:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 44
+
+
+ 635:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x_U7816CTRL_HPUEN_Setable(U7816x, para->HPUEN);		//U7816Í¨µÀÇ¿ÉÏÀ­Ê¹ÄÜ¿ØÖÆ
+ 1937              		.loc 1 635 0
+ 1938 0024 2979     		ldrb	r1, [r5, #4]
+ 1939 0026 2000     		movs	r0, r4
+ 1940 0028 FFF7FEFF 		bl	U7816x_U7816CTRL_HPUEN_Setable
+ 1941              	.LVL162:
+ 636:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	
+ 637:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x_U7816FRC_ERSW_Set(U7816x, para->ERSW);		//ERROR SIGNAL¿í¶ÈÑ¡Ôñ
+ 1942              		.loc 1 637 0
+ 1943 002c A968     		ldr	r1, [r5, #8]
+ 1944 002e 2000     		movs	r0, r4
+ 1945 0030 FFF7FEFF 		bl	U7816x_U7816FRC_ERSW_Set
+ 1946              	.LVL163:
+ 638:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x_U7816FRC_ERSGD_Set(U7816x, para->ERSGD);		//ERROR SIGNALºóGUARDTIME¿í¶ÈÑ¡Ôñ£¨½öÔÚ·¢ËÍÊ±ÓÐÐ§
+ 1947              		.loc 1 638 0
+ 1948 0034 E968     		ldr	r1, [r5, #12]
+ 1949 0036 2000     		movs	r0, r4
+ 1950 0038 FFF7FEFF 		bl	U7816x_U7816FRC_ERSGD_Set
+ 1951              	.LVL164:
+ 639:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x_U7816FRC_BGTEN_Setable(U7816x, para->BGTEN);		//BGT£¨block guard time£©¿ØÖÆ
+ 1952              		.loc 1 639 0
+ 1953 003c 297C     		ldrb	r1, [r5, #16]
+ 1954 003e 2000     		movs	r0, r4
+ 1955 0040 FFF7FEFF 		bl	U7816x_U7816FRC_BGTEN_Setable
+ 1956              	.LVL165:
+ 640:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x_U7816FRC_REP_T_Set(U7816x, para->REP_T);		//¿ØÖÆ½ÓÊÕÊý¾ÝÆæÅ¼Ð£Ñé³ö´íÊ±×Ô¶¯ÖØ·¢´ÎÊý
+ 1957              		.loc 1 640 0
+ 1958 0044 6969     		ldr	r1, [r5, #20]
+ 1959 0046 2000     		movs	r0, r4
+ 1960 0048 FFF7FEFF 		bl	U7816x_U7816FRC_REP_T_Set
+ 1961              	.LVL166:
+ 641:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x_U7816FRC_PAR_Set(U7816x, para->PAR);		//ÆæÅ¼Ð£ÑéÀàÐÍÑ¡Ôñ
+ 1962              		.loc 1 641 0
+ 1963 004c A969     		ldr	r1, [r5, #24]
+ 1964 004e 2000     		movs	r0, r4
+ 1965 0050 FFF7FEFF 		bl	U7816x_U7816FRC_PAR_Set
+ 1966              	.LVL167:
+ 642:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x_U7816FRC_FREN_Setable(U7816x, para->FREN);		//Guard Time³¤¶È¿ØÖÆÎ»£¨·¢ËÍÊ±ÑÏ¸ñ°´ÕÕÐ­Òé2etu£
+ 1967              		.loc 1 642 0
+ 1968 0054 297F     		ldrb	r1, [r5, #28]
+ 1969 0056 2000     		movs	r0, r4
+ 1970 0058 FFF7FEFF 		bl	U7816x_U7816FRC_FREN_Setable
+ 1971              	.LVL168:
+ 643:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x_U7816FRC_TREPEN_Setable(U7816x, para->TREPEN);		//»º·¢ËÍÊý¾ÝÆæÅ¼Ð£Ñé´íµÄ´¦Àí·½Ê½Ñ¡Ôñ
+ 1972              		.loc 1 643 0
+ 1973 005c 697F     		ldrb	r1, [r5, #29]
+ 1974 005e 2000     		movs	r0, r4
+ 1975 0060 FFF7FEFF 		bl	U7816x_U7816FRC_TREPEN_Setable
+ 1976              	.LVL169:
+ 644:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x_U7816FRC_RREPEN_Setable(U7816x, para->RREPEN);		//½ÓÊÕÊý¾ÝÆæÅ¼Ð£Ñé´íµÄ´¦Àí·½Ê½Ñ¡Ôñ
+ 1977              		.loc 1 644 0
+ 1978 0064 A97F     		ldrb	r1, [r5, #30]
+ 1979 0066 2000     		movs	r0, r4
+ 1980 0068 FFF7FEFF 		bl	U7816x_U7816FRC_RREPEN_Setable
+ 1981              	.LVL170:
+ 645:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x_U7816FRC_DICONV_Setable(U7816x, para->DICONV);		//´«Êä´ÎÐò·´Ïò±àÂëÊ¹ÄÜ
+ 1982              		.loc 1 645 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 45
+
+
+ 1983 006c E97F     		ldrb	r1, [r5, #31]
+ 1984 006e 2000     		movs	r0, r4
+ 1985 0070 FFF7FEFF 		bl	U7816x_U7816FRC_DICONV_Setable
+ 1986              	.LVL171:
+ 646:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	
+ 647:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x_U7816EGT_Write(U7816x, para->TXEGT);		//·¢ËÍÊ±²åÈëµÄEGTÊ±¼ä£¨ÒÔETUÎªµ¥Î»£©
+ 1987              		.loc 1 647 0
+ 1988 0074 296A     		ldr	r1, [r5, #32]
+ 1989 0076 2000     		movs	r0, r4
+ 1990 0078 FFF7FEFF 		bl	U7816x_U7816EGT_Write
+ 1991              	.LVL172:
+ 648:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x_U7816CLKDIV_Write(U7816x, para->CLKDIV);		//U7816Ê±ÖÓÊä³ö·ÖÆµ¿ØÖÆ¼Ä´æÆ÷
+ 1992              		.loc 1 648 0
+ 1993 007c 696A     		ldr	r1, [r5, #36]
+ 1994 007e 2000     		movs	r0, r4
+ 1995 0080 FFF7FEFF 		bl	U7816x_U7816CLKDIV_Write
+ 1996              	.LVL173:
+ 649:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x_U7816PDIV_Write(U7816x, para->PDIV);		//U7816Ô¤·ÖÆµ¿ØÖÆ¼Ä´æÆ÷£¬¿ØÖÆ7816Í¨ÐÅ·ÖÆµ±È£¨²¨ÌØÂÊ£©
+ 1997              		.loc 1 649 0
+ 1998 0084 A96A     		ldr	r1, [r5, #40]
+ 1999 0086 2000     		movs	r0, r4
+ 2000 0088 FFF7FEFF 		bl	U7816x_U7816PDIV_Write
+ 2001              	.LVL174:
+ 650:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	
+ 651:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x_U7816IE_RXIE_Setable(U7816x, para->RXIE);		//Êý¾Ý½ÓÊÕÖÐ¶ÏÊ¹ÄÜÎ»¡£¶ÔÓ¦RX_FLAGÖÐ¶Ï±êÖ¾Î»
+ 2002              		.loc 1 651 0
+ 2003 008c 2C23     		movs	r3, #44
+ 2004 008e E95C     		ldrb	r1, [r5, r3]
+ 2005 0090 2000     		movs	r0, r4
+ 2006 0092 FFF7FEFF 		bl	U7816x_U7816IE_RXIE_Setable
+ 2007              	.LVL175:
+ 652:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x_U7816IE_TXIE_Setable(U7816x, para->TXIE);		//Êý¾Ý·¢ËÍÖÐ¶ÏÊ¹ÄÜÎ»¡£¶ÔÓ¦TX_FLAGÖÐ¶Ï±êÖ¾Î»
+ 2008              		.loc 1 652 0
+ 2009 0096 2D23     		movs	r3, #45
+ 2010 0098 E95C     		ldrb	r1, [r5, r3]
+ 2011 009a 2000     		movs	r0, r4
+ 2012 009c FFF7FEFF 		bl	U7816x_U7816IE_TXIE_Setable
+ 2013              	.LVL176:
+ 653:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** 	U7816x_U7816IE_LSIE_Setable(U7816x, para->LSIE);		//ÏßÂ·×´Ì¬ÖÐ¶ÏÊ¹ÄÜÎ»¡£¶ÔÓ¦ERROR_FLAGÖÐ¶Ï±êÖ¾Î»
+ 2014              		.loc 1 653 0
+ 2015 00a0 2E23     		movs	r3, #46
+ 2016 00a2 E95C     		ldrb	r1, [r5, r3]
+ 2017 00a4 2000     		movs	r0, r4
+ 2018 00a6 FFF7FEFF 		bl	U7816x_U7816IE_LSIE_Setable
+ 2019              	.LVL177:
+ 654:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_u7816.c **** }
+ 2020              		.loc 1 654 0
+ 2021              		@ sp needed
+ 2022              	.LVL178:
+ 2023              	.LVL179:
+ 2024 00aa 70BD     		pop	{r4, r5, r6, pc}
+ 2025              		.cfi_endproc
+ 2026              	.LFE95:
+ 2028              		.text
+ 2029              	.Letext0:
+ 2030              		.file 2 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\device\\include\\fm33a0xx.h"
+ 2031              		.file 3 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\machine\\_default_types.h
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 46
+
+
+ 2032              		.file 4 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 2033              		.file 5 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\drivers\\FM33A0XX_u7816.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 47
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 fm33a0xx_u7816.c
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:20     .text.U7816x_U7816CTRL_TXEN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:25     .text.U7816x_U7816CTRL_TXEN_Setable:00000000 U7816x_U7816CTRL_TXEN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:57     .text.U7816x_U7816CTRL_TXEN_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:62     .text.U7816x_U7816CTRL_TXEN_Getable:00000000 U7816x_U7816CTRL_TXEN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:91     .text.U7816x_U7816CTRL_RXEN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:96     .text.U7816x_U7816CTRL_RXEN_Setable:00000000 U7816x_U7816CTRL_RXEN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:127    .text.U7816x_U7816CTRL_RXEN_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:132    .text.U7816x_U7816CTRL_RXEN_Getable:00000000 U7816x_U7816CTRL_RXEN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:161    .text.U7816x_U7816CTRL_CKOEN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:166    .text.U7816x_U7816CTRL_CKOEN_Setable:00000000 U7816x_U7816CTRL_CKOEN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:197    .text.U7816x_U7816CTRL_CKOEN_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:202    .text.U7816x_U7816CTRL_CKOEN_Getable:00000000 U7816x_U7816CTRL_CKOEN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:231    .text.U7816x_U7816CTRL_HPUAT_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:236    .text.U7816x_U7816CTRL_HPUAT_Setable:00000000 U7816x_U7816CTRL_HPUAT_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:267    .text.U7816x_U7816CTRL_HPUAT_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:272    .text.U7816x_U7816CTRL_HPUAT_Getable:00000000 U7816x_U7816CTRL_HPUAT_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:301    .text.U7816x_U7816CTRL_HPUEN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:306    .text.U7816x_U7816CTRL_HPUEN_Setable:00000000 U7816x_U7816CTRL_HPUEN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:337    .text.U7816x_U7816CTRL_HPUEN_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:342    .text.U7816x_U7816CTRL_HPUEN_Getable:00000000 U7816x_U7816CTRL_HPUEN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:371    .text.U7816x_U7816FRC_ERSW_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:376    .text.U7816x_U7816FRC_ERSW_Set:00000000 U7816x_U7816FRC_ERSW_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:406    .text.U7816x_U7816FRC_ERSW_Set:00000014 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:411    .text.U7816x_U7816FRC_ERSW_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:416    .text.U7816x_U7816FRC_ERSW_Get:00000000 U7816x_U7816FRC_ERSW_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:437    .text.U7816x_U7816FRC_ERSGD_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:442    .text.U7816x_U7816FRC_ERSGD_Set:00000000 U7816x_U7816FRC_ERSGD_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:472    .text.U7816x_U7816FRC_ERSGD_Set:00000014 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:477    .text.U7816x_U7816FRC_ERSGD_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:482    .text.U7816x_U7816FRC_ERSGD_Get:00000000 U7816x_U7816FRC_ERSGD_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:503    .text.U7816x_U7816FRC_BGTEN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:508    .text.U7816x_U7816FRC_BGTEN_Setable:00000000 U7816x_U7816FRC_BGTEN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:539    .text.U7816x_U7816FRC_BGTEN_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:544    .text.U7816x_U7816FRC_BGTEN_Getable:00000000 U7816x_U7816FRC_BGTEN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:573    .text.U7816x_U7816FRC_REP_T_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:578    .text.U7816x_U7816FRC_REP_T_Set:00000000 U7816x_U7816FRC_REP_T_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:607    .text.U7816x_U7816FRC_REP_T_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:612    .text.U7816x_U7816FRC_REP_T_Get:00000000 U7816x_U7816FRC_REP_T_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:632    .text.U7816x_U7816FRC_PAR_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:637    .text.U7816x_U7816FRC_PAR_Set:00000000 U7816x_U7816FRC_PAR_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:666    .text.U7816x_U7816FRC_PAR_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:671    .text.U7816x_U7816FRC_PAR_Get:00000000 U7816x_U7816FRC_PAR_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:691    .text.U7816x_U7816FRC_FREN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:696    .text.U7816x_U7816FRC_FREN_Setable:00000000 U7816x_U7816FRC_FREN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:727    .text.U7816x_U7816FRC_FREN_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:732    .text.U7816x_U7816FRC_FREN_Getable:00000000 U7816x_U7816FRC_FREN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:761    .text.U7816x_U7816FRC_TREPEN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:766    .text.U7816x_U7816FRC_TREPEN_Setable:00000000 U7816x_U7816FRC_TREPEN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:797    .text.U7816x_U7816FRC_TREPEN_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:802    .text.U7816x_U7816FRC_TREPEN_Getable:00000000 U7816x_U7816FRC_TREPEN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:831    .text.U7816x_U7816FRC_RREPEN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:836    .text.U7816x_U7816FRC_RREPEN_Setable:00000000 U7816x_U7816FRC_RREPEN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:867    .text.U7816x_U7816FRC_RREPEN_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:872    .text.U7816x_U7816FRC_RREPEN_Getable:00000000 U7816x_U7816FRC_RREPEN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:901    .text.U7816x_U7816FRC_DICONV_Setable:00000000 $t
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 48
+
+
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:906    .text.U7816x_U7816FRC_DICONV_Setable:00000000 U7816x_U7816FRC_DICONV_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:937    .text.U7816x_U7816FRC_DICONV_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:942    .text.U7816x_U7816FRC_DICONV_Getable:00000000 U7816x_U7816FRC_DICONV_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:971    .text.U7816x_U7816EGT_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:976    .text.U7816x_U7816EGT_Write:00000000 U7816x_U7816EGT_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:996    .text.U7816x_U7816EGT_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1001   .text.U7816x_U7816EGT_Read:00000000 U7816x_U7816EGT_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1021   .text.U7816x_U7816CLKDIV_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1026   .text.U7816x_U7816CLKDIV_Write:00000000 U7816x_U7816CLKDIV_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1046   .text.U7816x_U7816CLKDIV_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1051   .text.U7816x_U7816CLKDIV_Read:00000000 U7816x_U7816CLKDIV_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1071   .text.U7816x_U7816PDIV_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1076   .text.U7816x_U7816PDIV_Write:00000000 U7816x_U7816PDIV_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1096   .text.U7816x_U7816PDIV_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1101   .text.U7816x_U7816PDIV_Read:00000000 U7816x_U7816PDIV_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1121   .text.U7816x_U7816RXBUF_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1126   .text.U7816x_U7816RXBUF_Read:00000000 U7816x_U7816RXBUF_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1146   .text.U7816x_U7816TXBUF_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1151   .text.U7816x_U7816TXBUF_Write:00000000 U7816x_U7816TXBUF_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1171   .text.U7816x_U7816IE_RXIE_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1176   .text.U7816x_U7816IE_RXIE_Setable:00000000 U7816x_U7816IE_RXIE_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1207   .text.U7816x_U7816IE_RXIE_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1212   .text.U7816x_U7816IE_RXIE_Getable:00000000 U7816x_U7816IE_RXIE_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1241   .text.U7816x_U7816IE_TXIE_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1246   .text.U7816x_U7816IE_TXIE_Setable:00000000 U7816x_U7816IE_TXIE_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1277   .text.U7816x_U7816IE_TXIE_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1282   .text.U7816x_U7816IE_TXIE_Getable:00000000 U7816x_U7816IE_TXIE_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1311   .text.U7816x_U7816IE_LSIE_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1316   .text.U7816x_U7816IE_LSIE_Setable:00000000 U7816x_U7816IE_LSIE_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1347   .text.U7816x_U7816IE_LSIE_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1352   .text.U7816x_U7816IE_LSIE_Getable:00000000 U7816x_U7816IE_LSIE_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1381   .text.U7816x_U7816IF_ERRIF_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1386   .text.U7816x_U7816IF_ERRIF_Chk:00000000 U7816x_U7816IF_ERRIF_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1415   .text.U7816x_U7816IF_TXIF_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1420   .text.U7816x_U7816IF_TXIF_Clr:00000000 U7816x_U7816IF_TXIF_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1438   .text.U7816x_U7816IF_TXIF_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1443   .text.U7816x_U7816IF_TXIF_Chk:00000000 U7816x_U7816IF_TXIF_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1472   .text.U7816x_U7816IF_RXIF_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1477   .text.U7816x_U7816IF_RXIF_Clr:00000000 U7816x_U7816IF_RXIF_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1495   .text.U7816x_U7816IF_RXIF_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1500   .text.U7816x_U7816IF_RXIF_Chk:00000000 U7816x_U7816IF_RXIF_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1529   .text.U7816x_U7816ERR_TPARERR_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1534   .text.U7816x_U7816ERR_TPARERR_Clr:00000000 U7816x_U7816ERR_TPARERR_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1552   .text.U7816x_U7816ERR_TPARERR_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1557   .text.U7816x_U7816ERR_TPARERR_Chk:00000000 U7816x_U7816ERR_TPARERR_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1586   .text.U7816x_U7816ERR_RPARERR_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1591   .text.U7816x_U7816ERR_RPARERR_Clr:00000000 U7816x_U7816ERR_RPARERR_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1609   .text.U7816x_U7816ERR_RPARERR_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1614   .text.U7816x_U7816ERR_RPARERR_Chk:00000000 U7816x_U7816ERR_RPARERR_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1643   .text.U7816x_U7816ERR_FRERR_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1648   .text.U7816x_U7816ERR_FRERR_Clr:00000000 U7816x_U7816ERR_FRERR_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1666   .text.U7816x_U7816ERR_FRERR_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1671   .text.U7816x_U7816ERR_FRERR_Chk:00000000 U7816x_U7816ERR_FRERR_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1700   .text.U7816x_U7816ERR_OVERR_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1705   .text.U7816x_U7816ERR_OVERR_Clr:00000000 U7816x_U7816ERR_OVERR_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1723   .text.U7816x_U7816ERR_OVERR_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1728   .text.U7816x_U7816ERR_OVERR_Chk:00000000 U7816x_U7816ERR_OVERR_Chk
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s 			page 49
+
+
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1757   .text.U7816x_U7816STA_WAIT_RPT_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1762   .text.U7816x_U7816STA_WAIT_RPT_Chk:00000000 U7816x_U7816STA_WAIT_RPT_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1791   .text.U7816x_U7816STA_TXBUSY_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1796   .text.U7816x_U7816STA_TXBUSY_Chk:00000000 U7816x_U7816STA_TXBUSY_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1825   .text.U7816x_U7816STA_RXBUSY_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1830   .text.U7816x_U7816STA_RXBUSY_Chk:00000000 U7816x_U7816STA_RXBUSY_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1859   .text.U7816x_Deinit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1864   .text.U7816x_Deinit:00000000 U7816x_Deinit
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1896   .text.U7816_Init:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccBQ1v72.s:1901   .text.U7816_Init:00000000 U7816_Init
+                     .debug_frame:00000010 $d
+
+NO UNDEFINED SYMBOLS

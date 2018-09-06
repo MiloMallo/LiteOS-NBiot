@@ -1,0 +1,1698 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"los_hw_tick.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	__aeabi_uidiv
+  20              		.section	.text.osTickStart,"ax",%progbits
+  21              		.align	2
+  22              		.global	osTickStart
+  23              		.code	16
+  24              		.thumb_func
+  26              	osTickStart:
+  27              	.LFB43:
+  28              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src/los_hw_tick.c"
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** /*----------------------------------------------------------------------------
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  * Copyright (c) <2013-2018>, <Huawei Technologies Co., Ltd>
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  * All rights reserved.
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  * are permitted provided that the following conditions are met:
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  * conditions and the following disclaimer.
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  * provided with the distribution.
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  * permission.
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  *---------------------------------------------------------------------------*/
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** /*----------------------------------------------------------------------------
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  * Notice of Export Control Law
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  * ===============================================
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s 			page 2
+
+
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  * applicable export control laws and regulations.
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****  *---------------------------------------------------------------------------*/
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** #include "los_tick.ph"
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** #include "los_base.h"
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** #include "los_task.ph"
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** #include "los_swtmr.h"
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** #include "los_hwi.h"
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** #ifdef __cplusplus
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** #if __cplusplus
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** extern "C" {
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** #endif /* __cpluscplus */
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** #endif /* __cpluscplus */
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** /*****************************************************************************
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** Function   : osTickStart
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** Description: Configure Tick Interrupt Start
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** Input   : none
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** output  : none
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** return  : LOS_OK - Success , or LOS_ERRNO_TICK_CFG_INVALID - failed
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** *****************************************************************************/
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** LITE_OS_SEC_TEXT_INIT UINT32 osTickStart(VOID)
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** {
+  29              		.loc 1 55 0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 70B5     		push	{r4, r5, r6, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 16
+  36              		.cfi_offset 4, -16
+  37              		.cfi_offset 5, -12
+  38              		.cfi_offset 6, -8
+  39              		.cfi_offset 14, -4
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     UINT32 uwRet;
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     if ((0 == OS_SYS_CLOCK)
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****         || (0 == LOSCFG_BASE_CORE_TICK_PER_SECOND)
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****         || (LOSCFG_BASE_CORE_TICK_PER_SECOND > OS_SYS_CLOCK))/*lint !e506*/
+  40              		.loc 1 60 0
+  41 0002 184B     		ldr	r3, .L7
+  42 0004 1868     		ldr	r0, [r3]
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****         || (0 == LOSCFG_BASE_CORE_TICK_PER_SECOND)
+  43              		.loc 1 58 0
+  44 0006 184B     		ldr	r3, .L7+4
+  45 0008 9842     		cmp	r0, r3
+  46 000a 26D9     		bls	.L4
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     {
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****         return LOS_ERRNO_TICK_CFG_INVALID;
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     }
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** #if (LOSCFG_PLATFORM_HWI == YES)
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** #if (OS_HWI_WITH_ARG == YES)
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     osSetVector(SysTick_IRQn, (HWI_PROC_FUNC)osTickHandler, NULL);
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** #else
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s 			page 3
+
+
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     osSetVector(SysTick_IRQn, osTickHandler);
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** #endif
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** #endif
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     g_uwCyclesPerTick = OS_SYS_CLOCK / LOSCFG_BASE_CORE_TICK_PER_SECOND;
+  47              		.loc 1 73 0
+  48 000c FA21     		movs	r1, #250
+  49 000e 8900     		lsls	r1, r1, #2
+  50 0010 FFF7FEFF 		bl	__aeabi_uidiv
+  51              	.LVL0:
+  52 0014 154B     		ldr	r3, .L7+8
+  53 0016 1860     		str	r0, [r3]
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     g_ullTickCount = 0;
+  54              		.loc 1 74 0
+  55 0018 0024     		movs	r4, #0
+  56 001a 0025     		movs	r5, #0
+  57 001c 144B     		ldr	r3, .L7+12
+  58 001e 1C60     		str	r4, [r3]
+  59 0020 5D60     		str	r5, [r3, #4]
+  60              	.LVL1:
+  61              	.LBB8:
+  62              	.LBB9:
+  63              		.file 2 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\device\\include\\core_cm0plus.h"
+   1:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**************************************************************************//**
+   2:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  * @file     core_cm0plus.h
+   3:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  * @brief    CMSIS Cortex-M0+ Core Peripheral Access Layer Header File
+   4:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  * @version  V5.00
+   5:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  * @date     29. April 2016
+   6:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  ******************************************************************************/
+   7:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /*
+   8:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  * Copyright (c) 2009-2016 ARM Limited. All rights reserved.
+   9:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  *
+  10:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  * SPDX-License-Identifier: Apache-2.0
+  11:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  *
+  12:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  * Licensed under the Apache License, Version 2.0 (the License); you may
+  13:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  * not use this file except in compliance with the License.
+  14:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  * You may obtain a copy of the License at
+  15:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  *
+  16:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  * http://www.apache.org/licenses/LICENSE-2.0
+  17:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  *
+  18:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  * Unless required by applicable law or agreed to in writing, software
+  19:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  * distributed under the License is distributed on an AS IS BASIS, WITHOUT
+  20:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  21:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  * See the License for the specific language governing permissions and
+  22:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  * limitations under the License.
+  23:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+  24:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+  25:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #if   defined ( __ICCARM__ )
+  26:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  #pragma system_include         /* treat file as system include file for MISRA check */
+  27:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #elif defined (__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+  28:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #pragma clang system_header   /* treat file as system include file */
+  29:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #endif
+  30:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+  31:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #ifndef __CORE_CM0PLUS_H_GENERIC
+  32:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define __CORE_CM0PLUS_H_GENERIC
+  33:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+  34:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #include <stdint.h>
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s 			page 4
+
+
+  35:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+  36:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #ifdef __cplusplus
+  37:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  extern "C" {
+  38:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #endif
+  39:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+  40:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+  41:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \page CMSIS_MISRA_Exceptions  MISRA-C:2004 Compliance Exceptions
+  42:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   CMSIS violates the following MISRA-C:2004 rules:
+  43:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+  44:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****    \li Required Rule 8.5, object/function definition in header file.<br>
+  45:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****      Function definitions in header files are used to allow 'inlining'.
+  46:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+  47:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****    \li Required Rule 18.4, declaration of union type or object of union type: '{...}'.<br>
+  48:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****      Unions are used for effective representation of core registers.
+  49:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+  50:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****    \li Advisory Rule 19.7, Function-like macro defined.<br>
+  51:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****      Function-like macros are used to allow more efficient code.
+  52:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+  53:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+  54:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+  55:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /*******************************************************************************
+  56:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  *                 CMSIS definitions
+  57:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  ******************************************************************************/
+  58:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+  59:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \ingroup Cortex-M0+
+  60:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   @{
+  61:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+  62:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+  63:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /*  CMSIS CM0+ definitions */
+  64:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define __CM0PLUS_CMSIS_VERSION_MAIN ( 5U)                                      /*!< [31:16] CMSIS 
+  65:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define __CM0PLUS_CMSIS_VERSION_SUB  ( 0U)                                      /*!< [15:0]  CMSIS 
+  66:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define __CM0PLUS_CMSIS_VERSION      ((__CM0PLUS_CMSIS_VERSION_MAIN << 16U) | \
+  67:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****                                        __CM0PLUS_CMSIS_VERSION_SUB           )  /*!< CMSIS HAL vers
+  68:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+  69:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define __CORTEX_M                   (0U)                                       /*!< Cortex-M Core 
+  70:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+  71:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /* Common defines in core_*.h files
+  72:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   - #define __ASM               Compiler keyword for asm
+  73:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   - #define __INLINE            Compiler keyword for inline
+  74:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   - #define __STATIC_INLINE     Compiler keyword for static inline
+  75:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   - #define __NO_RETURN         function that never returns
+  76:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   - #define __USED              function or variable that is not optimized away
+  77:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   - #define __WEAK              weak function or variable
+  78:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   - #define __UNALIGNED_UINT32  pointer to unaligned uint32_t variable
+  79:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+  80:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #if   defined ( __CC_ARM )                                            /* ARM Compiler 4/5 */
+  81:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __ASM                     __asm
+  82:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __INLINE                  __inline
+  83:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __STATIC_INLINE           static __inline
+  84:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __NO_RETURN               __declspec(noreturn)
+  85:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __USED                    __attribute__((used))
+  86:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __WEAK                    __attribute__((weak))
+  87:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __UNALIGNED_UINT32(x)     (*((__packed uint32_t *)(x)))
+  88:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+  89:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #elif defined (__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)       /* ARM Compiler 6 */
+  90:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __ASM                     __asm
+  91:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __INLINE                  __inline
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s 			page 5
+
+
+  92:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __STATIC_INLINE           static __inline
+  93:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __NO_RETURN               __attribute__((noreturn))
+  94:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __USED                    __attribute__((used))
+  95:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __WEAK                    __attribute__((weak))
+  96:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #pragma clang diagnostic push
+  97:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #pragma clang diagnostic ignored "-Wpacked"
+  98:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   struct __attribute__((packed)) T_UINT32 { uint32_t v; };
+  99:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #pragma clang diagnostic pop
+ 100:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __UNALIGNED_UINT32(x)     (((struct T_UINT32 *)(x))->v)
+ 101:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 102:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #elif defined ( __GNUC__ )                                            /* GNU Compiler */
+ 103:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __ASM                     __asm
+ 104:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __INLINE                  inline
+ 105:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __STATIC_INLINE           static inline
+ 106:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __NO_RETURN               __attribute__((noreturn))
+ 107:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __USED                    __attribute__((used))
+ 108:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __WEAK                    __attribute__((weak))
+ 109:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   struct __attribute__((packed)) T_UINT32 { uint32_t v; };
+ 110:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __UNALIGNED_UINT32(x)     (((struct T_UINT32 *)(x))->v)
+ 111:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 112:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #elif defined ( __ICCARM__ )                                          /* IAR Compiler */
+ 113:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __ASM                     __asm
+ 114:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __INLINE                  inline
+ 115:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __STATIC_INLINE           static inline
+ 116:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __NO_RETURN               __noreturn
+ 117:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __USED
+ 118:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __WEAK                    __weak
+ 119:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   struct __packed T_UINT32 { uint32_t v; };
+ 120:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __UNALIGNED_UINT32(x)     (((struct T_UINT32 *)(x))->v)
+ 121:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 122:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #elif defined ( __TI_ARM__ )                                          /* TI ARM Compiler */
+ 123:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __ASM                     __asm
+ 124:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __INLINE                  inline
+ 125:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __STATIC_INLINE           static inline
+ 126:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __NO_RETURN               __attribute__((noreturn))
+ 127:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __USED                    __attribute__((used))
+ 128:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __WEAK                    __attribute__((weak))
+ 129:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   struct __attribute__((packed)) T_UINT32 { uint32_t v; };
+ 130:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __UNALIGNED_UINT32(x)     (((struct T_UINT32 *)(x))->v)
+ 131:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 132:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #elif defined ( __TASKING__ )                                         /* TASKING Compiler */
+ 133:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __ASM                     __asm
+ 134:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __INLINE                  inline
+ 135:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __STATIC_INLINE           static inline
+ 136:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __NO_RETURN               __attribute__((noreturn))
+ 137:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __USED                    __attribute__((used))
+ 138:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __WEAK                    __attribute__((weak))
+ 139:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   struct __packed__ T_UINT32 { uint32_t v; };
+ 140:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __UNALIGNED_UINT32(x)     (((struct T_UINT32 *)(x))->v)
+ 141:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 142:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #elif defined ( __CSMC__ )                                            /* COSMIC Compiler */
+ 143:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __packed
+ 144:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __ASM                     _asm
+ 145:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __INLINE                  inline
+ 146:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __STATIC_INLINE           static inline
+ 147:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __NO_RETURN
+ 148:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __USED
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s 			page 6
+
+
+ 149:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __WEAK
+ 150:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define __UNALIGNED_UINT32(x)     (*x)
+ 151:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 152:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #else
+ 153:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #error Unknown compiler
+ 154:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #endif
+ 155:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 156:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /** __FPU_USED indicates whether an FPU is used or not.
+ 157:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     This core does not support an FPU at all
+ 158:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** */
+ 159:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define __FPU_USED       0U
+ 160:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 161:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #if defined ( __CC_ARM )
+ 162:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #if defined __TARGET_FPU_VFP
+ 163:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+ 164:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #endif
+ 165:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 166:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #elif defined (__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
+ 167:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #if defined __ARM_PCS_VFP
+ 168:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+ 169:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #endif
+ 170:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 171:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #elif defined ( __GNUC__ )
+ 172:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #if defined (__VFP_FP__) && !defined(__SOFTFP__)
+ 173:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+ 174:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #endif
+ 175:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 176:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #elif defined ( __ICCARM__ )
+ 177:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #if defined __ARMVFP__
+ 178:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+ 179:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #endif
+ 180:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 181:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #elif defined ( __TI_ARM__ )
+ 182:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #if defined __TI_VFP_SUPPORT__
+ 183:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+ 184:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #endif
+ 185:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 186:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #elif defined ( __TASKING__ )
+ 187:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #if defined __FPU_VFP__
+ 188:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+ 189:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #endif
+ 190:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 191:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #elif defined ( __CSMC__ )
+ 192:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #if ( __CSMC__ & 0x400U)
+ 193:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+ 194:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #endif
+ 195:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 196:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #endif
+ 197:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 198:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #include "core_cminstr.h"                /* Core Instruction Access */
+ 199:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #include "core_cmfunc.h"                 /* Core Function Access */
+ 200:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 201:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #ifdef __cplusplus
+ 202:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** }
+ 203:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #endif
+ 204:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 205:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #endif /* __CORE_CM0PLUS_H_GENERIC */
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s 			page 7
+
+
+ 206:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 207:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #ifndef __CMSIS_GENERIC
+ 208:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 209:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #ifndef __CORE_CM0PLUS_H_DEPENDANT
+ 210:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define __CORE_CM0PLUS_H_DEPENDANT
+ 211:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 212:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #ifdef __cplusplus
+ 213:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  extern "C" {
+ 214:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #endif
+ 215:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 216:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /* check device defines and use defaults */
+ 217:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #if defined __CHECK_DEVICE_DEFINES
+ 218:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #ifndef __CM0PLUS_REV
+ 219:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     #define __CM0PLUS_REV             0x0000U
+ 220:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     #warning "__CM0PLUS_REV not defined in device header file; using default!"
+ 221:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #endif
+ 222:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 223:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #ifndef __MPU_PRESENT
+ 224:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     #define __MPU_PRESENT             0U
+ 225:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     #warning "__MPU_PRESENT not defined in device header file; using default!"
+ 226:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #endif
+ 227:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 228:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #ifndef __VTOR_PRESENT
+ 229:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     #define __VTOR_PRESENT            0U
+ 230:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     #warning "__VTOR_PRESENT not defined in device header file; using default!"
+ 231:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #endif
+ 232:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 233:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #ifndef __NVIC_PRIO_BITS
+ 234:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     #define __NVIC_PRIO_BITS          2U
+ 235:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     #warning "__NVIC_PRIO_BITS not defined in device header file; using default!"
+ 236:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #endif
+ 237:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 238:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #ifndef __Vendor_SysTickConfig
+ 239:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     #define __Vendor_SysTickConfig    0U
+ 240:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     #warning "__Vendor_SysTickConfig not defined in device header file; using default!"
+ 241:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #endif
+ 242:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #endif
+ 243:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 244:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /* IO definitions (access restrictions to peripheral registers) */
+ 245:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 246:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     \defgroup CMSIS_glob_defs CMSIS Global Defines
+ 247:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 248:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     <strong>IO Type Qualifiers</strong> are used
+ 249:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     \li to specify the access to peripheral variables.
+ 250:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     \li for automatic generation of peripheral register debug information.
+ 251:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** */
+ 252:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #ifdef __cplusplus
+ 253:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define   __I     volatile             /*!< Defines 'read only' permissions */
+ 254:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #else
+ 255:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define   __I     volatile const       /*!< Defines 'read only' permissions */
+ 256:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #endif
+ 257:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define     __O     volatile             /*!< Defines 'write only' permissions */
+ 258:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define     __IO    volatile             /*!< Defines 'read / write' permissions */
+ 259:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 260:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /* following defines should be used for structure members */
+ 261:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define     __IM     volatile const      /*! Defines 'read only' structure member permissions */
+ 262:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define     __OM     volatile            /*! Defines 'write only' structure member permissions */
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s 			page 8
+
+
+ 263:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define     __IOM    volatile            /*! Defines 'read / write' structure member permissions */
+ 264:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 265:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /*@} end of group Cortex-M0+ */
+ 266:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 267:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 268:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 269:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /*******************************************************************************
+ 270:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  *                 Register Abstraction
+ 271:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   Core Register contain:
+ 272:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   - Core Register
+ 273:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   - Core NVIC Register
+ 274:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   - Core SCB Register
+ 275:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   - Core SysTick Register
+ 276:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   - Core MPU Register
+ 277:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  ******************************************************************************/
+ 278:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 279:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \defgroup CMSIS_core_register Defines and Type Definitions
+ 280:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief Type definitions and defines for Cortex-M processor based devices.
+ 281:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** */
+ 282:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 283:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 284:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \ingroup    CMSIS_core_register
+ 285:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \defgroup   CMSIS_CORE  Status and Control Registers
+ 286:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief      Core Register type definitions.
+ 287:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   @{
+ 288:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+ 289:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 290:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 291:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief  Union type to access the Application Program Status Register (APSR).
+ 292:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+ 293:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** typedef union
+ 294:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** {
+ 295:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   struct
+ 296:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   {
+ 297:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     uint32_t _reserved0:28;              /*!< bit:  0..27  Reserved */
+ 298:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     uint32_t V:1;                        /*!< bit:     28  Overflow condition code flag */
+ 299:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     uint32_t C:1;                        /*!< bit:     29  Carry condition code flag */
+ 300:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     uint32_t Z:1;                        /*!< bit:     30  Zero condition code flag */
+ 301:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     uint32_t N:1;                        /*!< bit:     31  Negative condition code flag */
+ 302:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   } b;                                   /*!< Structure used for bit  access */
+ 303:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   uint32_t w;                            /*!< Type      used for word access */
+ 304:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** } APSR_Type;
+ 305:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 306:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /* APSR Register Definitions */
+ 307:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define APSR_N_Pos                         31U                                            /*!< APSR
+ 308:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define APSR_N_Msk                         (1UL << APSR_N_Pos)                            /*!< APSR
+ 309:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 310:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define APSR_Z_Pos                         30U                                            /*!< APSR
+ 311:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define APSR_Z_Msk                         (1UL << APSR_Z_Pos)                            /*!< APSR
+ 312:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 313:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define APSR_C_Pos                         29U                                            /*!< APSR
+ 314:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define APSR_C_Msk                         (1UL << APSR_C_Pos)                            /*!< APSR
+ 315:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 316:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define APSR_V_Pos                         28U                                            /*!< APSR
+ 317:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define APSR_V_Msk                         (1UL << APSR_V_Pos)                            /*!< APSR
+ 318:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 319:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s 			page 9
+
+
+ 320:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 321:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief  Union type to access the Interrupt Program Status Register (IPSR).
+ 322:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+ 323:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** typedef union
+ 324:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** {
+ 325:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   struct
+ 326:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   {
+ 327:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     uint32_t ISR:9;                      /*!< bit:  0.. 8  Exception number */
+ 328:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     uint32_t _reserved0:23;              /*!< bit:  9..31  Reserved */
+ 329:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   } b;                                   /*!< Structure used for bit  access */
+ 330:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   uint32_t w;                            /*!< Type      used for word access */
+ 331:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** } IPSR_Type;
+ 332:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 333:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /* IPSR Register Definitions */
+ 334:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define IPSR_ISR_Pos                        0U                                            /*!< IPSR
+ 335:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define IPSR_ISR_Msk                       (0x1FFUL /*<< IPSR_ISR_Pos*/)                  /*!< IPSR
+ 336:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 337:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 338:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 339:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief  Union type to access the Special-Purpose Program Status Registers (xPSR).
+ 340:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+ 341:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** typedef union
+ 342:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** {
+ 343:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   struct
+ 344:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   {
+ 345:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     uint32_t ISR:9;                      /*!< bit:  0.. 8  Exception number */
+ 346:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     uint32_t _reserved0:15;              /*!< bit:  9..23  Reserved */
+ 347:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     uint32_t T:1;                        /*!< bit:     24  Thumb bit        (read 0) */
+ 348:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     uint32_t _reserved1:3;               /*!< bit: 25..27  Reserved */
+ 349:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     uint32_t V:1;                        /*!< bit:     28  Overflow condition code flag */
+ 350:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     uint32_t C:1;                        /*!< bit:     29  Carry condition code flag */
+ 351:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     uint32_t Z:1;                        /*!< bit:     30  Zero condition code flag */
+ 352:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     uint32_t N:1;                        /*!< bit:     31  Negative condition code flag */
+ 353:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   } b;                                   /*!< Structure used for bit  access */
+ 354:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   uint32_t w;                            /*!< Type      used for word access */
+ 355:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** } xPSR_Type;
+ 356:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 357:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /* xPSR Register Definitions */
+ 358:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define xPSR_N_Pos                         31U                                            /*!< xPSR
+ 359:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define xPSR_N_Msk                         (1UL << xPSR_N_Pos)                            /*!< xPSR
+ 360:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 361:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define xPSR_Z_Pos                         30U                                            /*!< xPSR
+ 362:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define xPSR_Z_Msk                         (1UL << xPSR_Z_Pos)                            /*!< xPSR
+ 363:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 364:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define xPSR_C_Pos                         29U                                            /*!< xPSR
+ 365:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define xPSR_C_Msk                         (1UL << xPSR_C_Pos)                            /*!< xPSR
+ 366:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 367:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define xPSR_V_Pos                         28U                                            /*!< xPSR
+ 368:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define xPSR_V_Msk                         (1UL << xPSR_V_Pos)                            /*!< xPSR
+ 369:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 370:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define xPSR_T_Pos                         24U                                            /*!< xPSR
+ 371:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define xPSR_T_Msk                         (1UL << xPSR_T_Pos)                            /*!< xPSR
+ 372:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 373:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define xPSR_ISR_Pos                        0U                                            /*!< xPSR
+ 374:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define xPSR_ISR_Msk                       (0x1FFUL /*<< xPSR_ISR_Pos*/)                  /*!< xPSR
+ 375:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 376:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s 			page 10
+
+
+ 377:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 378:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief  Union type to access the Control Registers (CONTROL).
+ 379:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+ 380:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** typedef union
+ 381:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** {
+ 382:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   struct
+ 383:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   {
+ 384:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     uint32_t nPRIV:1;                    /*!< bit:      0  Execution privilege in Thread mode */
+ 385:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     uint32_t SPSEL:1;                    /*!< bit:      1  Stack to be used */
+ 386:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     uint32_t _reserved1:30;              /*!< bit:  2..31  Reserved */
+ 387:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   } b;                                   /*!< Structure used for bit  access */
+ 388:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   uint32_t w;                            /*!< Type      used for word access */
+ 389:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** } CONTROL_Type;
+ 390:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 391:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /* CONTROL Register Definitions */
+ 392:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define CONTROL_SPSEL_Pos                   1U                                            /*!< CONT
+ 393:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define CONTROL_SPSEL_Msk                  (1UL << CONTROL_SPSEL_Pos)                     /*!< CONT
+ 394:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 395:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define CONTROL_nPRIV_Pos                   0U                                            /*!< CONT
+ 396:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define CONTROL_nPRIV_Msk                  (1UL /*<< CONTROL_nPRIV_Pos*/)                 /*!< CONT
+ 397:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 398:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /*@} end of group CMSIS_CORE */
+ 399:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 400:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 401:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 402:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \ingroup    CMSIS_core_register
+ 403:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \defgroup   CMSIS_NVIC  Nested Vectored Interrupt Controller (NVIC)
+ 404:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief      Type definitions for the NVIC Registers
+ 405:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   @{
+ 406:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+ 407:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 408:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 409:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief  Structure type to access the Nested Vectored Interrupt Controller (NVIC).
+ 410:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+ 411:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** typedef struct
+ 412:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** {
+ 413:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   __IOM uint32_t ISER[1U];               /*!< Offset: 0x000 (R/W)  Interrupt Set Enable Register */
+ 414:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****         uint32_t RESERVED0[31U];
+ 415:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   __IOM uint32_t ICER[1U];               /*!< Offset: 0x080 (R/W)  Interrupt Clear Enable Register 
+ 416:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****         uint32_t RSERVED1[31U];
+ 417:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   __IOM uint32_t ISPR[1U];               /*!< Offset: 0x100 (R/W)  Interrupt Set Pending Register *
+ 418:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****         uint32_t RESERVED2[31U];
+ 419:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   __IOM uint32_t ICPR[1U];               /*!< Offset: 0x180 (R/W)  Interrupt Clear Pending Register
+ 420:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****         uint32_t RESERVED3[31U];
+ 421:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****         uint32_t RESERVED4[64U];
+ 422:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   __IOM uint32_t IP[8U];                 /*!< Offset: 0x300 (R/W)  Interrupt Priority Register */
+ 423:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** }  NVIC_Type;
+ 424:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 425:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /*@} end of group CMSIS_NVIC */
+ 426:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 427:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 428:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 429:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \ingroup  CMSIS_core_register
+ 430:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \defgroup CMSIS_SCB     System Control Block (SCB)
+ 431:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief    Type definitions for the System Control Block Registers
+ 432:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   @{
+ 433:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s 			page 11
+
+
+ 434:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 435:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 436:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief  Structure type to access the System Control Block (SCB).
+ 437:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+ 438:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** typedef struct
+ 439:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** {
+ 440:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   __IM  uint32_t CPUID;                  /*!< Offset: 0x000 (R/ )  CPUID Base Register */
+ 441:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   __IOM uint32_t ICSR;                   /*!< Offset: 0x004 (R/W)  Interrupt Control and State Regi
+ 442:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #if defined (__VTOR_PRESENT) && (__VTOR_PRESENT == 1U)
+ 443:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   __IOM uint32_t VTOR;                   /*!< Offset: 0x008 (R/W)  Vector Table Offset Register */
+ 444:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #else
+ 445:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****         uint32_t RESERVED0;
+ 446:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #endif
+ 447:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   __IOM uint32_t AIRCR;                  /*!< Offset: 0x00C (R/W)  Application Interrupt and Reset 
+ 448:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   __IOM uint32_t SCR;                    /*!< Offset: 0x010 (R/W)  System Control Register */
+ 449:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   __IOM uint32_t CCR;                    /*!< Offset: 0x014 (R/W)  Configuration Control Register *
+ 450:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****         uint32_t RESERVED1;
+ 451:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   __IOM uint32_t SHP[2U];                /*!< Offset: 0x01C (R/W)  System Handlers Priority Registe
+ 452:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   __IOM uint32_t SHCSR;                  /*!< Offset: 0x024 (R/W)  System Handler Control and State
+ 453:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** } SCB_Type;
+ 454:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 455:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /* SCB CPUID Register Definitions */
+ 456:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_CPUID_IMPLEMENTER_Pos          24U                                            /*!< SCB 
+ 457:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_CPUID_IMPLEMENTER_Msk          (0xFFUL << SCB_CPUID_IMPLEMENTER_Pos)          /*!< SCB 
+ 458:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 459:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_CPUID_VARIANT_Pos              20U                                            /*!< SCB 
+ 460:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_CPUID_VARIANT_Msk              (0xFUL << SCB_CPUID_VARIANT_Pos)               /*!< SCB 
+ 461:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 462:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_CPUID_ARCHITECTURE_Pos         16U                                            /*!< SCB 
+ 463:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_CPUID_ARCHITECTURE_Msk         (0xFUL << SCB_CPUID_ARCHITECTURE_Pos)          /*!< SCB 
+ 464:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 465:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_CPUID_PARTNO_Pos                4U                                            /*!< SCB 
+ 466:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_CPUID_PARTNO_Msk               (0xFFFUL << SCB_CPUID_PARTNO_Pos)              /*!< SCB 
+ 467:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 468:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_CPUID_REVISION_Pos              0U                                            /*!< SCB 
+ 469:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_CPUID_REVISION_Msk             (0xFUL /*<< SCB_CPUID_REVISION_Pos*/)          /*!< SCB 
+ 470:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 471:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /* SCB Interrupt Control State Register Definitions */
+ 472:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_ICSR_NMIPENDSET_Pos            31U                                            /*!< SCB 
+ 473:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_ICSR_NMIPENDSET_Msk            (1UL << SCB_ICSR_NMIPENDSET_Pos)               /*!< SCB 
+ 474:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 475:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_ICSR_PENDSVSET_Pos             28U                                            /*!< SCB 
+ 476:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_ICSR_PENDSVSET_Msk             (1UL << SCB_ICSR_PENDSVSET_Pos)                /*!< SCB 
+ 477:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 478:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_ICSR_PENDSVCLR_Pos             27U                                            /*!< SCB 
+ 479:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_ICSR_PENDSVCLR_Msk             (1UL << SCB_ICSR_PENDSVCLR_Pos)                /*!< SCB 
+ 480:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 481:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_ICSR_PENDSTSET_Pos             26U                                            /*!< SCB 
+ 482:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_ICSR_PENDSTSET_Msk             (1UL << SCB_ICSR_PENDSTSET_Pos)                /*!< SCB 
+ 483:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 484:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_ICSR_PENDSTCLR_Pos             25U                                            /*!< SCB 
+ 485:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_ICSR_PENDSTCLR_Msk             (1UL << SCB_ICSR_PENDSTCLR_Pos)                /*!< SCB 
+ 486:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 487:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_ICSR_ISRPREEMPT_Pos            23U                                            /*!< SCB 
+ 488:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_ICSR_ISRPREEMPT_Msk            (1UL << SCB_ICSR_ISRPREEMPT_Pos)               /*!< SCB 
+ 489:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 490:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_ICSR_ISRPENDING_Pos            22U                                            /*!< SCB 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s 			page 12
+
+
+ 491:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_ICSR_ISRPENDING_Msk            (1UL << SCB_ICSR_ISRPENDING_Pos)               /*!< SCB 
+ 492:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 493:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_ICSR_VECTPENDING_Pos           12U                                            /*!< SCB 
+ 494:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_ICSR_VECTPENDING_Msk           (0x1FFUL << SCB_ICSR_VECTPENDING_Pos)          /*!< SCB 
+ 495:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 496:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_ICSR_VECTACTIVE_Pos             0U                                            /*!< SCB 
+ 497:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_ICSR_VECTACTIVE_Msk            (0x1FFUL /*<< SCB_ICSR_VECTACTIVE_Pos*/)       /*!< SCB 
+ 498:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 499:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #if defined (__VTOR_PRESENT) && (__VTOR_PRESENT == 1U)
+ 500:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /* SCB Interrupt Control State Register Definitions */
+ 501:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_VTOR_TBLOFF_Pos                 8U                                            /*!< SCB 
+ 502:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_VTOR_TBLOFF_Msk                (0xFFFFFFUL << SCB_VTOR_TBLOFF_Pos)            /*!< SCB 
+ 503:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #endif
+ 504:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 505:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /* SCB Application Interrupt and Reset Control Register Definitions */
+ 506:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_AIRCR_VECTKEY_Pos              16U                                            /*!< SCB 
+ 507:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_AIRCR_VECTKEY_Msk              (0xFFFFUL << SCB_AIRCR_VECTKEY_Pos)            /*!< SCB 
+ 508:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 509:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_AIRCR_VECTKEYSTAT_Pos          16U                                            /*!< SCB 
+ 510:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_AIRCR_VECTKEYSTAT_Msk          (0xFFFFUL << SCB_AIRCR_VECTKEYSTAT_Pos)        /*!< SCB 
+ 511:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 512:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_AIRCR_ENDIANESS_Pos            15U                                            /*!< SCB 
+ 513:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_AIRCR_ENDIANESS_Msk            (1UL << SCB_AIRCR_ENDIANESS_Pos)               /*!< SCB 
+ 514:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 515:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_AIRCR_SYSRESETREQ_Pos           2U                                            /*!< SCB 
+ 516:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_AIRCR_SYSRESETREQ_Msk          (1UL << SCB_AIRCR_SYSRESETREQ_Pos)             /*!< SCB 
+ 517:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 518:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_AIRCR_VECTCLRACTIVE_Pos         1U                                            /*!< SCB 
+ 519:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_AIRCR_VECTCLRACTIVE_Msk        (1UL << SCB_AIRCR_VECTCLRACTIVE_Pos)           /*!< SCB 
+ 520:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 521:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /* SCB System Control Register Definitions */
+ 522:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_SCR_SEVONPEND_Pos               4U                                            /*!< SCB 
+ 523:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_SCR_SEVONPEND_Msk              (1UL << SCB_SCR_SEVONPEND_Pos)                 /*!< SCB 
+ 524:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 525:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_SCR_SLEEPDEEP_Pos               2U                                            /*!< SCB 
+ 526:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_SCR_SLEEPDEEP_Msk              (1UL << SCB_SCR_SLEEPDEEP_Pos)                 /*!< SCB 
+ 527:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 528:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_SCR_SLEEPONEXIT_Pos             1U                                            /*!< SCB 
+ 529:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_SCR_SLEEPONEXIT_Msk            (1UL << SCB_SCR_SLEEPONEXIT_Pos)               /*!< SCB 
+ 530:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 531:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /* SCB Configuration Control Register Definitions */
+ 532:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_CCR_STKALIGN_Pos                9U                                            /*!< SCB 
+ 533:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_CCR_STKALIGN_Msk               (1UL << SCB_CCR_STKALIGN_Pos)                  /*!< SCB 
+ 534:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 535:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_CCR_UNALIGN_TRP_Pos             3U                                            /*!< SCB 
+ 536:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_CCR_UNALIGN_TRP_Msk            (1UL << SCB_CCR_UNALIGN_TRP_Pos)               /*!< SCB 
+ 537:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 538:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /* SCB System Handler Control and State Register Definitions */
+ 539:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_SHCSR_SVCALLPENDED_Pos         15U                                            /*!< SCB 
+ 540:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_SHCSR_SVCALLPENDED_Msk         (1UL << SCB_SHCSR_SVCALLPENDED_Pos)            /*!< SCB 
+ 541:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 542:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /*@} end of group CMSIS_SCB */
+ 543:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 544:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 545:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 546:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \ingroup  CMSIS_core_register
+ 547:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \defgroup CMSIS_SysTick     System Tick Timer (SysTick)
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s 			page 13
+
+
+ 548:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief    Type definitions for the System Timer Registers.
+ 549:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   @{
+ 550:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+ 551:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 552:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 553:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief  Structure type to access the System Timer (SysTick).
+ 554:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+ 555:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** typedef struct
+ 556:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** {
+ 557:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   __IOM uint32_t CTRL;                   /*!< Offset: 0x000 (R/W)  SysTick Control and Status Regis
+ 558:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   __IOM uint32_t LOAD;                   /*!< Offset: 0x004 (R/W)  SysTick Reload Value Register */
+ 559:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   __IOM uint32_t VAL;                    /*!< Offset: 0x008 (R/W)  SysTick Current Value Register *
+ 560:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   __IM  uint32_t CALIB;                  /*!< Offset: 0x00C (R/ )  SysTick Calibration Register */
+ 561:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** } SysTick_Type;
+ 562:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 563:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /* SysTick Control / Status Register Definitions */
+ 564:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SysTick_CTRL_COUNTFLAG_Pos         16U                                            /*!< SysT
+ 565:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SysTick_CTRL_COUNTFLAG_Msk         (1UL << SysTick_CTRL_COUNTFLAG_Pos)            /*!< SysT
+ 566:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 567:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SysTick_CTRL_CLKSOURCE_Pos          2U                                            /*!< SysT
+ 568:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SysTick_CTRL_CLKSOURCE_Msk         (1UL << SysTick_CTRL_CLKSOURCE_Pos)            /*!< SysT
+ 569:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 570:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SysTick_CTRL_TICKINT_Pos            1U                                            /*!< SysT
+ 571:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SysTick_CTRL_TICKINT_Msk           (1UL << SysTick_CTRL_TICKINT_Pos)              /*!< SysT
+ 572:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 573:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SysTick_CTRL_ENABLE_Pos             0U                                            /*!< SysT
+ 574:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SysTick_CTRL_ENABLE_Msk            (1UL /*<< SysTick_CTRL_ENABLE_Pos*/)           /*!< SysT
+ 575:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 576:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /* SysTick Reload Register Definitions */
+ 577:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SysTick_LOAD_RELOAD_Pos             0U                                            /*!< SysT
+ 578:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SysTick_LOAD_RELOAD_Msk            (0xFFFFFFUL /*<< SysTick_LOAD_RELOAD_Pos*/)    /*!< SysT
+ 579:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 580:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /* SysTick Current Register Definitions */
+ 581:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SysTick_VAL_CURRENT_Pos             0U                                            /*!< SysT
+ 582:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SysTick_VAL_CURRENT_Msk            (0xFFFFFFUL /*<< SysTick_VAL_CURRENT_Pos*/)    /*!< SysT
+ 583:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 584:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /* SysTick Calibration Register Definitions */
+ 585:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SysTick_CALIB_NOREF_Pos            31U                                            /*!< SysT
+ 586:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SysTick_CALIB_NOREF_Msk            (1UL << SysTick_CALIB_NOREF_Pos)               /*!< SysT
+ 587:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 588:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SysTick_CALIB_SKEW_Pos             30U                                            /*!< SysT
+ 589:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SysTick_CALIB_SKEW_Msk             (1UL << SysTick_CALIB_SKEW_Pos)                /*!< SysT
+ 590:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 591:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SysTick_CALIB_TENMS_Pos             0U                                            /*!< SysT
+ 592:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SysTick_CALIB_TENMS_Msk            (0xFFFFFFUL /*<< SysTick_CALIB_TENMS_Pos*/)    /*!< SysT
+ 593:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 594:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /*@} end of group CMSIS_SysTick */
+ 595:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 596:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #if defined (__MPU_PRESENT) && (__MPU_PRESENT == 1U)
+ 597:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 598:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \ingroup  CMSIS_core_register
+ 599:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \defgroup CMSIS_MPU     Memory Protection Unit (MPU)
+ 600:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief    Type definitions for the Memory Protection Unit (MPU)
+ 601:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   @{
+ 602:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+ 603:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 604:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s 			page 14
+
+
+ 605:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief  Structure type to access the Memory Protection Unit (MPU).
+ 606:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+ 607:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** typedef struct
+ 608:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** {
+ 609:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   __IM  uint32_t TYPE;                   /*!< Offset: 0x000 (R/ )  MPU Type Register */
+ 610:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   __IOM uint32_t CTRL;                   /*!< Offset: 0x004 (R/W)  MPU Control Register */
+ 611:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   __IOM uint32_t RNR;                    /*!< Offset: 0x008 (R/W)  MPU Region RNRber Register */
+ 612:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   __IOM uint32_t RBAR;                   /*!< Offset: 0x00C (R/W)  MPU Region Base Address Register
+ 613:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   __IOM uint32_t RASR;                   /*!< Offset: 0x010 (R/W)  MPU Region Attribute and Size Re
+ 614:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** } MPU_Type;
+ 615:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 616:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /* MPU Type Register Definitions */
+ 617:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_TYPE_IREGION_Pos               16U                                            /*!< MPU 
+ 618:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_TYPE_IREGION_Msk               (0xFFUL << MPU_TYPE_IREGION_Pos)               /*!< MPU 
+ 619:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 620:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_TYPE_DREGION_Pos                8U                                            /*!< MPU 
+ 621:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_TYPE_DREGION_Msk               (0xFFUL << MPU_TYPE_DREGION_Pos)               /*!< MPU 
+ 622:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 623:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_TYPE_SEPARATE_Pos               0U                                            /*!< MPU 
+ 624:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_TYPE_SEPARATE_Msk              (1UL /*<< MPU_TYPE_SEPARATE_Pos*/)             /*!< MPU 
+ 625:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 626:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /* MPU Control Register Definitions */
+ 627:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_CTRL_PRIVDEFENA_Pos             2U                                            /*!< MPU 
+ 628:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_CTRL_PRIVDEFENA_Msk            (1UL << MPU_CTRL_PRIVDEFENA_Pos)               /*!< MPU 
+ 629:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 630:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_CTRL_HFNMIENA_Pos               1U                                            /*!< MPU 
+ 631:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_CTRL_HFNMIENA_Msk              (1UL << MPU_CTRL_HFNMIENA_Pos)                 /*!< MPU 
+ 632:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 633:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_CTRL_ENABLE_Pos                 0U                                            /*!< MPU 
+ 634:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_CTRL_ENABLE_Msk                (1UL /*<< MPU_CTRL_ENABLE_Pos*/)               /*!< MPU 
+ 635:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 636:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /* MPU Region Number Register Definitions */
+ 637:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_RNR_REGION_Pos                  0U                                            /*!< MPU 
+ 638:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_RNR_REGION_Msk                 (0xFFUL /*<< MPU_RNR_REGION_Pos*/)             /*!< MPU 
+ 639:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 640:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /* MPU Region Base Address Register Definitions */
+ 641:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_RBAR_ADDR_Pos                   8U                                            /*!< MPU 
+ 642:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_RBAR_ADDR_Msk                  (0xFFFFFFUL << MPU_RBAR_ADDR_Pos)              /*!< MPU 
+ 643:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 644:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_RBAR_VALID_Pos                  4U                                            /*!< MPU 
+ 645:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_RBAR_VALID_Msk                 (1UL << MPU_RBAR_VALID_Pos)                    /*!< MPU 
+ 646:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 647:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_RBAR_REGION_Pos                 0U                                            /*!< MPU 
+ 648:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_RBAR_REGION_Msk                (0xFUL /*<< MPU_RBAR_REGION_Pos*/)             /*!< MPU 
+ 649:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 650:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /* MPU Region Attribute and Size Register Definitions */
+ 651:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_RASR_ATTRS_Pos                 16U                                            /*!< MPU 
+ 652:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_RASR_ATTRS_Msk                 (0xFFFFUL << MPU_RASR_ATTRS_Pos)               /*!< MPU 
+ 653:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 654:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_RASR_XN_Pos                    28U                                            /*!< MPU 
+ 655:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_RASR_XN_Msk                    (1UL << MPU_RASR_XN_Pos)                       /*!< MPU 
+ 656:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 657:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_RASR_AP_Pos                    24U                                            /*!< MPU 
+ 658:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_RASR_AP_Msk                    (0x7UL << MPU_RASR_AP_Pos)                     /*!< MPU 
+ 659:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 660:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_RASR_TEX_Pos                   19U                                            /*!< MPU 
+ 661:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_RASR_TEX_Msk                   (0x7UL << MPU_RASR_TEX_Pos)                    /*!< MPU 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s 			page 15
+
+
+ 662:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 663:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_RASR_S_Pos                     18U                                            /*!< MPU 
+ 664:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_RASR_S_Msk                     (1UL << MPU_RASR_S_Pos)                        /*!< MPU 
+ 665:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 666:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_RASR_C_Pos                     17U                                            /*!< MPU 
+ 667:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_RASR_C_Msk                     (1UL << MPU_RASR_C_Pos)                        /*!< MPU 
+ 668:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 669:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_RASR_B_Pos                     16U                                            /*!< MPU 
+ 670:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_RASR_B_Msk                     (1UL << MPU_RASR_B_Pos)                        /*!< MPU 
+ 671:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 672:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_RASR_SRD_Pos                    8U                                            /*!< MPU 
+ 673:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_RASR_SRD_Msk                   (0xFFUL << MPU_RASR_SRD_Pos)                   /*!< MPU 
+ 674:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 675:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_RASR_SIZE_Pos                   1U                                            /*!< MPU 
+ 676:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_RASR_SIZE_Msk                  (0x1FUL << MPU_RASR_SIZE_Pos)                  /*!< MPU 
+ 677:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 678:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_RASR_ENABLE_Pos                 0U                                            /*!< MPU 
+ 679:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define MPU_RASR_ENABLE_Msk                (1UL /*<< MPU_RASR_ENABLE_Pos*/)               /*!< MPU 
+ 680:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 681:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /*@} end of group CMSIS_MPU */
+ 682:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #endif
+ 683:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 684:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 685:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 686:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \ingroup  CMSIS_core_register
+ 687:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \defgroup CMSIS_CoreDebug       Core Debug Registers (CoreDebug)
+ 688:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief    Cortex-M0+ Core Debug Registers (DCB registers, SHCSR, and DFSR) are only accessible ov
+ 689:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****             Therefore they are not covered by the Cortex-M0+ header file.
+ 690:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   @{
+ 691:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+ 692:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /*@} end of group CMSIS_CoreDebug */
+ 693:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 694:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 695:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 696:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \ingroup    CMSIS_core_register
+ 697:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \defgroup   CMSIS_core_bitfield     Core register bit field macros
+ 698:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief      Macros for use with bit field definitions (xxx_Pos, xxx_Msk).
+ 699:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   @{
+ 700:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+ 701:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 702:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 703:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief   Mask and shift a bit field value for use in a register bit range.
+ 704:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \param[in] field  Name of the register bit field.
+ 705:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \param[in] value  Value of the bit field. This parameter is interpreted as an uint32_t type.
+ 706:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \return           Masked and shifted value.
+ 707:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** */
+ 708:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define _VAL2FLD(field, value)    (((uint32_t)(value) << field ## _Pos) & field ## _Msk)
+ 709:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 710:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 711:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief     Mask and shift a register value to extract a bit filed value.
+ 712:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \param[in] field  Name of the register bit field.
+ 713:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \param[in] value  Value of register. This parameter is interpreted as an uint32_t type.
+ 714:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \return           Masked and shifted bit field value.
+ 715:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** */
+ 716:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define _FLD2VAL(field, value)    (((uint32_t)(value) & field ## _Msk) >> field ## _Pos)
+ 717:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 718:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /*@} end of group CMSIS_core_bitfield */
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s 			page 16
+
+
+ 719:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 720:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 721:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 722:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \ingroup    CMSIS_core_register
+ 723:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \defgroup   CMSIS_core_base     Core Definitions
+ 724:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief      Definitions for base addresses, unions, and structures.
+ 725:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   @{
+ 726:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+ 727:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 728:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /* Memory mapping of Cortex-M0+ Hardware */
+ 729:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCS_BASE            (0xE000E000UL)                            /*!< System Control Space Bas
+ 730:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SysTick_BASE        (SCS_BASE +  0x0010UL)                    /*!< SysTick Base Address */
+ 731:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define NVIC_BASE           (SCS_BASE +  0x0100UL)                    /*!< NVIC Base Address */
+ 732:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB_BASE            (SCS_BASE +  0x0D00UL)                    /*!< System Control Block Bas
+ 733:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 734:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SCB                 ((SCB_Type       *)     SCB_BASE      )   /*!< SCB configuration struct
+ 735:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define SysTick             ((SysTick_Type   *)     SysTick_BASE  )   /*!< SysTick configuration st
+ 736:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define NVIC                ((NVIC_Type      *)     NVIC_BASE     )   /*!< NVIC configuration struc
+ 737:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 738:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #if defined (__MPU_PRESENT) && (__MPU_PRESENT == 1U)
+ 739:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define MPU_BASE          (SCS_BASE +  0x0D90UL)                    /*!< Memory Protection Unit *
+ 740:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   #define MPU               ((MPU_Type       *)     MPU_BASE      )   /*!< Memory Protection Unit *
+ 741:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #endif
+ 742:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 743:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /*@} */
+ 744:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 745:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 746:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 747:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /*******************************************************************************
+ 748:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  *                Hardware Abstraction Layer
+ 749:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   Core Function Interface contains:
+ 750:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   - Core NVIC Functions
+ 751:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   - Core SysTick Functions
+ 752:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   - Core Register Access Functions
+ 753:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  ******************************************************************************/
+ 754:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 755:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \defgroup CMSIS_Core_FunctionInterface Functions and Instructions Reference
+ 756:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** */
+ 757:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 758:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 759:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 760:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /* ##########################   NVIC functions  #################################### */
+ 761:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 762:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \ingroup  CMSIS_Core_FunctionInterface
+ 763:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \defgroup CMSIS_Core_NVICFunctions NVIC Functions
+ 764:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief    Functions that manage interrupts and exceptions via the NVIC.
+ 765:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   @{
+ 766:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+ 767:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 768:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /* Interrupt Priorities are WORD accessible only under ARMv6M                   */
+ 769:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /* The following MACROS handle generation of the register offset and byte masks */
+ 770:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define _BIT_SHIFT(IRQn)         (  ((((uint32_t)(int32_t)(IRQn))         )      &  0x03UL) * 8UL)
+ 771:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define _SHP_IDX(IRQn)           ( (((((uint32_t)(int32_t)(IRQn)) & 0x0FUL)-8UL) >>    2UL)      )
+ 772:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #define _IP_IDX(IRQn)            (   (((uint32_t)(int32_t)(IRQn))                >>    2UL)      )
+ 773:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 774:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 775:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s 			page 17
+
+
+ 776:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief   Enable Interrupt
+ 777:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \details Enables a device specific interrupt in the NVIC interrupt controller.
+ 778:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \param [in]      IRQn  Device specific interrupt number.
+ 779:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \note    IRQn must not be nagative.
+ 780:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+ 781:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** __STATIC_INLINE void NVIC_EnableIRQ(IRQn_Type IRQn)
+ 782:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** {
+ 783:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   if ((int32_t)(IRQn) >= 0)
+ 784:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   {
+ 785:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     NVIC->ISER[0U] = (uint32_t)(1UL << (((uint32_t)(int32_t)IRQn) & 0x1FUL));
+ 786:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   }
+ 787:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** }
+ 788:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 789:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 790:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 791:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief   Disable Interrupt
+ 792:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \details Disables a device specific interrupt in the NVIC interrupt controller.
+ 793:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \param [in]      IRQn  Device specific interrupt number.
+ 794:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \note    IRQn must not be nagative.
+ 795:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+ 796:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** __STATIC_INLINE void NVIC_DisableIRQ(IRQn_Type IRQn)
+ 797:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** {
+ 798:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   if ((int32_t)(IRQn) >= 0)
+ 799:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   {
+ 800:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     NVIC->ICER[0U] = (uint32_t)(1UL << (((uint32_t)(int32_t)IRQn) & 0x1FUL));
+ 801:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   }
+ 802:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** }
+ 803:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 804:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 805:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 806:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief   Get Pending Interrupt
+ 807:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \details Reads the NVIC pending register and returns the pending bit for the specified device spe
+ 808:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \param [in]      IRQn  Device specific interrupt number.
+ 809:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \return             0  Interrupt status is not pending.
+ 810:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \return             1  Interrupt status is pending.
+ 811:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \note    IRQn must not be nagative.
+ 812:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+ 813:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** __STATIC_INLINE uint32_t NVIC_GetPendingIRQ(IRQn_Type IRQn)
+ 814:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** {
+ 815:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   if ((int32_t)(IRQn) >= 0)
+ 816:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   {
+ 817:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     return((uint32_t)(((NVIC->ISPR[0U] & (1UL << (((uint32_t)(int32_t)IRQn) & 0x1FUL))) != 0UL) ? 1
+ 818:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   }
+ 819:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   else
+ 820:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   {
+ 821:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     return(0U);
+ 822:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   }
+ 823:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** }
+ 824:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 825:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 826:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 827:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief   Set Pending Interrupt
+ 828:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \details Sets the pending bit of a device specific interrupt in the NVIC pending register.
+ 829:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \param [in]      IRQn  Device specific interrupt number.
+ 830:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \note    IRQn must not be nagative.
+ 831:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+ 832:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** __STATIC_INLINE void NVIC_SetPendingIRQ(IRQn_Type IRQn)
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s 			page 18
+
+
+ 833:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** {
+ 834:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   if ((int32_t)(IRQn) >= 0)
+ 835:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   {
+ 836:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     NVIC->ISPR[0U] = (uint32_t)(1UL << (((uint32_t)(int32_t)IRQn) & 0x1FUL));
+ 837:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   }
+ 838:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** }
+ 839:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 840:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 841:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 842:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief   Clear Pending Interrupt
+ 843:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \details Clears the pending bit of a device specific interrupt in the NVIC pending register.
+ 844:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \param [in]      IRQn  Device specific interrupt number.
+ 845:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \note    IRQn must not be nagative.
+ 846:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+ 847:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** __STATIC_INLINE void NVIC_ClearPendingIRQ(IRQn_Type IRQn)
+ 848:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** {
+ 849:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   if ((int32_t)(IRQn) >= 0)
+ 850:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   {
+ 851:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     NVIC->ICPR[0U] = (uint32_t)(1UL << (((uint32_t)(int32_t)IRQn) & 0x1FUL));
+ 852:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   }
+ 853:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** }
+ 854:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 855:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 856:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 857:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief   Set Interrupt Priority
+ 858:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \details Sets the priority of a device specific interrupt or a processor exception.
+ 859:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****            The interrupt number can be positive to specify a device specific interrupt,
+ 860:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****            or negative to specify a processor exception.
+ 861:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \param [in]      IRQn  Interrupt number.
+ 862:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \param [in]  priority  Priority to set.
+ 863:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \note    The priority cannot be set for every processor exception.
+ 864:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+ 865:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** __STATIC_INLINE void NVIC_SetPriority(IRQn_Type IRQn, uint32_t priority)
+ 866:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** {
+ 867:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   if ((int32_t)(IRQn) >= 0)
+ 868:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   {
+ 869:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     NVIC->IP[_IP_IDX(IRQn)]  = ((uint32_t)(NVIC->IP[_IP_IDX(IRQn)]  & ~(0xFFUL << _BIT_SHIFT(IRQn))
+ 870:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****        (((priority << (8U - __NVIC_PRIO_BITS)) & (uint32_t)0xFFUL) << _BIT_SHIFT(IRQn)));
+ 871:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   }
+ 872:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   else
+ 873:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   {
+ 874:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     SCB->SHP[_SHP_IDX(IRQn)] = ((uint32_t)(SCB->SHP[_SHP_IDX(IRQn)] & ~(0xFFUL << _BIT_SHIFT(IRQn))
+ 875:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****        (((priority << (8U - __NVIC_PRIO_BITS)) & (uint32_t)0xFFUL) << _BIT_SHIFT(IRQn)));
+ 876:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   }
+ 877:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** }
+ 878:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 879:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 880:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 881:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief   Get Interrupt Priority
+ 882:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \details Reads the priority of a device specific interrupt or a processor exception.
+ 883:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****            The interrupt number can be positive to specify a device specific interrupt,
+ 884:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****            or negative to specify a processor exception.
+ 885:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \param [in]   IRQn  Interrupt number.
+ 886:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \return             Interrupt Priority.
+ 887:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****                       Value is aligned automatically to the implemented priority bits of the microc
+ 888:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+ 889:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** __STATIC_INLINE uint32_t NVIC_GetPriority(IRQn_Type IRQn)
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s 			page 19
+
+
+ 890:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** {
+ 891:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 892:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   if ((int32_t)(IRQn) >= 0)
+ 893:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   {
+ 894:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     return((uint32_t)(((NVIC->IP[ _IP_IDX(IRQn)] >> _BIT_SHIFT(IRQn) ) & (uint32_t)0xFFUL) >> (8U -
+ 895:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   }
+ 896:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   else
+ 897:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   {
+ 898:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     return((uint32_t)(((SCB->SHP[_SHP_IDX(IRQn)] >> _BIT_SHIFT(IRQn) ) & (uint32_t)0xFFUL) >> (8U -
+ 899:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   }
+ 900:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** }
+ 901:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 902:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 903:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 904:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief   System Reset
+ 905:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \details Initiates a system reset request to reset the MCU.
+ 906:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+ 907:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** __STATIC_INLINE void NVIC_SystemReset(void)
+ 908:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** {
+ 909:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   __DSB();                                                          /* Ensure all outstanding memor
+ 910:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****                                                                        buffered write are completed
+ 911:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   SCB->AIRCR  = ((0x5FAUL << SCB_AIRCR_VECTKEY_Pos) |
+ 912:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****                  SCB_AIRCR_SYSRESETREQ_Msk);
+ 913:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   __DSB();                                                          /* Ensure completion of memory 
+ 914:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 915:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   for(;;)                                                           /* wait until reset */
+ 916:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   {
+ 917:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     __NOP();
+ 918:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   }
+ 919:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** }
+ 920:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 921:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /*@} end of CMSIS_Core_NVICFunctions */
+ 922:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 923:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 924:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /* ##########################  FPU functions  #################################### */
+ 925:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 926:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \ingroup  CMSIS_Core_FunctionInterface
+ 927:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \defgroup CMSIS_Core_FpuFunctions FPU Functions
+ 928:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief    Function that provides FPU type.
+ 929:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   @{
+ 930:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+ 931:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 932:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 933:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief   get FPU type
+ 934:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \details returns the FPU type
+ 935:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \returns
+ 936:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****    - \b  0: No FPU
+ 937:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****    - \b  1: Single precision FPU
+ 938:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****    - \b  2: Double + Single precision FPU
+ 939:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+ 940:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** __STATIC_INLINE uint32_t SCB_GetFPUType(void)
+ 941:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** {
+ 942:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     return 0U;           /* No FPU */
+ 943:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** }
+ 944:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 945:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 946:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /*@} end of CMSIS_Core_FpuFunctions */
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s 			page 20
+
+
+ 947:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 948:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 949:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 950:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /* ##################################    SysTick function  ########################################
+ 951:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 952:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \ingroup  CMSIS_Core_FunctionInterface
+ 953:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \defgroup CMSIS_Core_SysTickFunctions SysTick Functions
+ 954:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief    Functions that configure the System.
+ 955:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   @{
+ 956:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+ 957:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 958:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** #if defined (__Vendor_SysTickConfig) && (__Vendor_SysTickConfig == 0U)
+ 959:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 960:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** /**
+ 961:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \brief   System Tick Configuration
+ 962:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \details Initializes the System Timer and its interrupt, and starts the System Tick Timer.
+ 963:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****            Counter is in free running mode to generate periodic interrupts.
+ 964:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \param [in]  ticks  Number of ticks between two interrupts.
+ 965:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \return          0  Function succeeded.
+ 966:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \return          1  Function failed.
+ 967:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   \note    When the variable <b>__Vendor_SysTickConfig</b> is set to 1, then the
+ 968:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****            function <b>SysTick_Config</b> is not included. In this case, the file <b><i>device</i>.
+ 969:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****            must contain a vendor-specific implementation of this function.
+ 970:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****  */
+ 971:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** __STATIC_INLINE uint32_t SysTick_Config(uint32_t ticks)
+ 972:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** {
+ 973:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   if ((ticks - 1UL) > SysTick_LOAD_RELOAD_Msk)
+  64              		.loc 2 973 0
+  65 0022 0138     		subs	r0, r0, #1
+  66              	.LVL2:
+  67 0024 134B     		ldr	r3, .L7+16
+  68 0026 9842     		cmp	r0, r3
+  69 0028 0FD8     		bhi	.L5
+ 974:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   {
+ 975:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****     return (1UL);                                                   /* Reload value impossible */
+ 976:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   }
+ 977:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h **** 
+ 978:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   SysTick->LOAD  = (uint32_t)(ticks - 1UL);                         /* set reload register */
+  70              		.loc 2 978 0
+  71 002a 134A     		ldr	r2, .L7+20
+  72 002c 5060     		str	r0, [r2, #4]
+  73              	.LVL3:
+  74              	.LBB10:
+  75              	.LBB11:
+ 874:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****        (((priority << (8U - __NVIC_PRIO_BITS)) & (uint32_t)0xFFUL) << _BIT_SHIFT(IRQn)));
+  76              		.loc 2 874 0
+  77 002e 1349     		ldr	r1, .L7+24
+  78 0030 0B6A     		ldr	r3, [r1, #32]
+  79 0032 1B02     		lsls	r3, r3, #8
+  80 0034 1B0A     		lsrs	r3, r3, #8
+  81 0036 C020     		movs	r0, #192
+  82              	.LVL4:
+  83 0038 0006     		lsls	r0, r0, #24
+  84 003a 0343     		orrs	r3, r0
+  85 003c 0B62     		str	r3, [r1, #32]
+  86              	.LVL5:
+  87              	.LBE11:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s 			page 21
+
+
+  88              	.LBE10:
+ 979:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   NVIC_SetPriority (SysTick_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL); /* set Priority for Systick Int
+ 980:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   SysTick->VAL   = 0UL;                                             /* Load the SysTick Counter Val
+  89              		.loc 2 980 0
+  90 003e 0023     		movs	r3, #0
+  91 0040 9360     		str	r3, [r2, #8]
+ 981:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   SysTick->CTRL  = SysTick_CTRL_CLKSOURCE_Msk |
+  92              		.loc 2 981 0
+  93 0042 0733     		adds	r3, r3, #7
+  94 0044 1360     		str	r3, [r2]
+ 982:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****                    SysTick_CTRL_TICKINT_Msk   |
+ 983:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****                    SysTick_CTRL_ENABLE_Msk;                         /* Enable SysTick IRQ and SysTi
+ 984:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   return (0UL);                                                     /* Function successful */
+  95              		.loc 2 984 0
+  96 0046 0023     		movs	r3, #0
+  97 0048 00E0     		b	.L3
+  98              	.LVL6:
+  99              	.L5:
+ 975:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cm0plus.h ****   }
+ 100              		.loc 2 975 0
+ 101 004a 0123     		movs	r3, #1
+ 102              	.LVL7:
+ 103              	.L3:
+ 104              	.LBE9:
+ 105              	.LBE8:
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     uwRet = SysTick_Config(OS_SYS_CLOCK/LOSCFG_BASE_CORE_TICK_PER_SECOND);
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     if (uwRet == 1)
+ 106              		.loc 1 77 0
+ 107 004c 012B     		cmp	r3, #1
+ 108 004e 06D0     		beq	.L6
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     {
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****         return LOS_ERRNO_TICK_PER_SEC_TOO_SMALL;
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     }
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     g_bSysTickStart = TRUE;
+ 109              		.loc 1 82 0
+ 110 0050 0122     		movs	r2, #1
+ 111 0052 0B4B     		ldr	r3, .L7+28
+ 112 0054 1A60     		str	r2, [r3]
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     return LOS_OK;
+ 113              		.loc 1 84 0
+ 114 0056 0020     		movs	r0, #0
+ 115 0058 02E0     		b	.L2
+ 116              	.L4:
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     }
+ 117              		.loc 1 62 0
+ 118 005a 0A48     		ldr	r0, .L7+32
+ 119 005c 00E0     		b	.L2
+ 120              	.L6:
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     }
+ 121              		.loc 1 79 0
+ 122 005e 0A48     		ldr	r0, .L7+36
+ 123              	.L2:
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** }
+ 124              		.loc 1 85 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s 			page 22
+
+
+ 125              		@ sp needed
+ 126 0060 70BD     		pop	{r4, r5, r6, pc}
+ 127              	.L8:
+ 128 0062 C046     		.align	2
+ 129              	.L7:
+ 130 0064 00000000 		.word	SystemCoreClock
+ 131 0068 E7030000 		.word	999
+ 132 006c 00000000 		.word	g_uwCyclesPerTick
+ 133 0070 00000000 		.word	g_ullTickCount
+ 134 0074 FFFFFF00 		.word	16777215
+ 135 0078 10E000E0 		.word	-536813552
+ 136 007c 00ED00E0 		.word	-536810240
+ 137 0080 00000000 		.word	g_bSysTickStart
+ 138 0084 00040002 		.word	33555456
+ 139 0088 02040002 		.word	33555458
+ 140              		.cfi_endproc
+ 141              	.LFE43:
+ 143              		.section	.text.LOS_SysTickCurrCycleGet,"ax",%progbits
+ 144              		.align	2
+ 145              		.global	LOS_SysTickCurrCycleGet
+ 146              		.code	16
+ 147              		.thumb_func
+ 149              	LOS_SysTickCurrCycleGet:
+ 150              	.LFB44:
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** #if (LOSCFG_KERNEL_TICKLESS == YES)
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** /*****************************************************************************
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** Function   : LOS_SysTickReload
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** Description: reconfig systick, and clear SysTick_IRQn
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** Input   : none
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** output  : none
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** return  : none
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** *****************************************************************************/
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** LITE_OS_SEC_TEXT_MINOR VOID LOS_SysTickReload(UINT32 uwCyclesPerTick)
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** {
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     SysTick->CTRL &= ~SysTick_CTRL_ENABLE_Msk;
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     NVIC_ClearPendingIRQ(SysTick_IRQn);
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     SysTick->LOAD  = (uint32_t)(uwCyclesPerTick - 1UL);               /* set reload register */
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     SysTick->VAL   = 0UL;                                             /* Load the SysTick Counter V
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** }
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** #endif
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** /*****************************************************************************
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** Function   : LOS_SysTickCurrCycleGet
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** Description: Get System cycle count
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** Input   : none
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** output  : SysTick->VAL
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** return  : none
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** *****************************************************************************/
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** LITE_OS_SEC_TEXT_MINOR UINT32 LOS_SysTickCurrCycleGet(VOID)
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** {
+ 151              		.loc 1 113 0
+ 152              		.cfi_startproc
+ 153              		@ args = 0, pretend = 0, frame = 0
+ 154              		@ frame_needed = 0, uses_anonymous_args = 0
+ 155 0000 10B5     		push	{r4, lr}
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s 			page 23
+
+
+ 156              	.LCFI1:
+ 157              		.cfi_def_cfa_offset 8
+ 158              		.cfi_offset 4, -8
+ 159              		.cfi_offset 14, -4
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     UINT32 uwHwCycle;
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     UINTPTR uvIntSave;
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     uvIntSave = LOS_IntLock();
+ 160              		.loc 1 117 0
+ 161 0002 FFF7FEFF 		bl	LOS_IntLock
+ 162              	.LVL8:
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     uwHwCycle = SysTick->VAL;
+ 163              		.loc 1 118 0
+ 164 0006 074B     		ldr	r3, .L11
+ 165 0008 9C68     		ldr	r4, [r3, #8]
+ 166              	.LVL9:
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     /*tick has come, but may interrupt environment, not counting the Tick interrupt response, to do
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     if (((SCB->ICSR & 0x4000000) != 0))
+ 167              		.loc 1 121 0
+ 168 000a 074B     		ldr	r3, .L11+4
+ 169 000c 5B68     		ldr	r3, [r3, #4]
+ 170 000e 5B01     		lsls	r3, r3, #5
+ 171 0010 04D5     		bpl	.L10
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     {
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****         uwHwCycle = SysTick->VAL;
+ 172              		.loc 1 123 0
+ 173 0012 044B     		ldr	r3, .L11
+ 174 0014 9C68     		ldr	r4, [r3, #8]
+ 175              	.LVL10:
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****         uwHwCycle += g_uwCyclesPerTick;
+ 176              		.loc 1 124 0
+ 177 0016 054B     		ldr	r3, .L11+8
+ 178 0018 1B68     		ldr	r3, [r3]
+ 179 001a E418     		adds	r4, r4, r3
+ 180              	.LVL11:
+ 181              	.L10:
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     }
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     LOS_IntRestore(uvIntSave);
+ 182              		.loc 1 127 0
+ 183 001c FFF7FEFF 		bl	LOS_IntRestore
+ 184              	.LVL12:
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     return uwHwCycle;
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** }
+ 185              		.loc 1 130 0
+ 186 0020 2000     		movs	r0, r4
+ 187              		@ sp needed
+ 188              	.LVL13:
+ 189 0022 10BD     		pop	{r4, pc}
+ 190              	.L12:
+ 191              		.align	2
+ 192              	.L11:
+ 193 0024 10E000E0 		.word	-536813552
+ 194 0028 00ED00E0 		.word	-536810240
+ 195 002c 00000000 		.word	g_uwCyclesPerTick
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s 			page 24
+
+
+ 196              		.cfi_endproc
+ 197              	.LFE44:
+ 199              		.global	__aeabi_lmul
+ 200              		.section	.text.LOS_GetCpuCycle,"ax",%progbits
+ 201              		.align	2
+ 202              		.global	LOS_GetCpuCycle
+ 203              		.code	16
+ 204              		.thumb_func
+ 206              	LOS_GetCpuCycle:
+ 207              	.LFB45:
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** /*****************************************************************************
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** Function   : LOS_GetCpuCycle
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** Description: Get System cycle count
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** Input   : none
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** output  : puwCntHi  --- CpuTick High 4 byte
+ 137:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****           puwCntLo  --- CpuTick Low 4 byte
+ 138:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** return  : none
+ 139:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** *****************************************************************************/
+ 140:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** LITE_OS_SEC_TEXT_MINOR VOID LOS_GetCpuCycle(UINT32 *puwCntHi, UINT32 *puwCntLo)
+ 141:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** {
+ 208              		.loc 1 141 0
+ 209              		.cfi_startproc
+ 210              		@ args = 0, pretend = 0, frame = 8
+ 211              		@ frame_needed = 0, uses_anonymous_args = 0
+ 212              	.LVL14:
+ 213 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 214              	.LCFI2:
+ 215              		.cfi_def_cfa_offset 20
+ 216              		.cfi_offset 4, -20
+ 217              		.cfi_offset 5, -16
+ 218              		.cfi_offset 6, -12
+ 219              		.cfi_offset 7, -8
+ 220              		.cfi_offset 14, -4
+ 221 0002 83B0     		sub	sp, sp, #12
+ 222              	.LCFI3:
+ 223              		.cfi_def_cfa_offset 32
+ 224 0004 0400     		movs	r4, r0
+ 225 0006 0F00     		movs	r7, r1
+ 142:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     UINT64 ullSwTick;
+ 143:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     UINT64 ullCycle;
+ 144:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     UINT32 uwHwCycle;
+ 145:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     UINTPTR uvIntSave;
+ 146:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+ 147:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     uvIntSave = LOS_IntLock();
+ 226              		.loc 1 147 0
+ 227 0008 FFF7FEFF 		bl	LOS_IntLock
+ 228              	.LVL15:
+ 229 000c 0190     		str	r0, [sp, #4]
+ 230              	.LVL16:
+ 148:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+ 149:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     ullSwTick = g_ullTickCount;
+ 231              		.loc 1 149 0
+ 232 000e 104B     		ldr	r3, .L15
+ 233 0010 1A68     		ldr	r2, [r3]
+ 234 0012 5B68     		ldr	r3, [r3, #4]
+ 235              	.LVL17:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s 			page 25
+
+
+ 150:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     uwHwCycle = SysTick->VAL;
+ 236              		.loc 1 150 0
+ 237 0014 0F49     		ldr	r1, .L15+4
+ 238 0016 8E68     		ldr	r6, [r1, #8]
+ 239              	.LVL18:
+ 151:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+ 152:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     /*tick has come, but may interrupt environment, not counting the Tick interrupt response, to do
+ 153:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     if (((SCB->ICSR & 0x4000000) != 0))
+ 240              		.loc 1 153 0
+ 241 0018 0F49     		ldr	r1, .L15+8
+ 242 001a 4968     		ldr	r1, [r1, #4]
+ 243 001c 4901     		lsls	r1, r1, #5
+ 244 001e 05D5     		bpl	.L14
+ 154:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     {
+ 155:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****         uwHwCycle = SysTick->VAL;
+ 245              		.loc 1 155 0
+ 246 0020 0C49     		ldr	r1, .L15+4
+ 247 0022 8E68     		ldr	r6, [r1, #8]
+ 248              	.LVL19:
+ 156:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****         ullSwTick++;
+ 249              		.loc 1 156 0
+ 250 0024 0120     		movs	r0, #1
+ 251              	.LVL20:
+ 252 0026 0021     		movs	r1, #0
+ 253 0028 1218     		adds	r2, r2, r0
+ 254 002a 4B41     		adcs	r3, r3, r1
+ 255              	.LVL21:
+ 256              	.L14:
+ 157:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     }
+ 158:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+ 159:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     ullCycle = (((ullSwTick) * g_uwCyclesPerTick) + (g_uwCyclesPerTick - uwHwCycle));
+ 257              		.loc 1 159 0
+ 258 002c 0B49     		ldr	r1, .L15+12
+ 259 002e 0D68     		ldr	r5, [r1]
+ 260 0030 2800     		movs	r0, r5
+ 261 0032 0021     		movs	r1, #0
+ 262 0034 FFF7FEFF 		bl	__aeabi_lmul
+ 263              	.LVL22:
+ 264 0038 AA1B     		subs	r2, r5, r6
+ 265 003a 0023     		movs	r3, #0
+ 266 003c 1218     		adds	r2, r2, r0
+ 267 003e 4B41     		adcs	r3, r3, r1
+ 268              	.LVL23:
+ 160:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+ 161:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     *puwCntHi = ullCycle >> 32;
+ 269              		.loc 1 161 0
+ 270 0040 2360     		str	r3, [r4]
+ 162:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     *puwCntLo = ullCycle & 0xFFFFFFFFU;
+ 271              		.loc 1 162 0
+ 272 0042 3A60     		str	r2, [r7]
+ 163:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+ 164:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     LOS_IntRestore(uvIntSave);
+ 273              		.loc 1 164 0
+ 274 0044 0198     		ldr	r0, [sp, #4]
+ 275 0046 FFF7FEFF 		bl	LOS_IntRestore
+ 276              	.LVL24:
+ 165:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s 			page 26
+
+
+ 166:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     return;
+ 167:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** }
+ 277              		.loc 1 167 0
+ 278 004a 03B0     		add	sp, sp, #12
+ 279              		@ sp needed
+ 280              	.LVL25:
+ 281              	.LVL26:
+ 282              	.LVL27:
+ 283 004c F0BD     		pop	{r4, r5, r6, r7, pc}
+ 284              	.L16:
+ 285 004e C046     		.align	2
+ 286              	.L15:
+ 287 0050 00000000 		.word	g_ullTickCount
+ 288 0054 10E000E0 		.word	-536813552
+ 289 0058 00ED00E0 		.word	-536810240
+ 290 005c 00000000 		.word	g_uwCyclesPerTick
+ 291              		.cfi_endproc
+ 292              	.LFE45:
+ 294              		.section	.text.LOS_GetSystickCycle,"ax",%progbits
+ 295              		.align	2
+ 296              		.global	LOS_GetSystickCycle
+ 297              		.code	16
+ 298              		.thumb_func
+ 300              	LOS_GetSystickCycle:
+ 301              	.LFB46:
+ 168:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+ 169:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** /*****************************************************************************
+ 170:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** Function   : LOS_GetSystickCycle
+ 171:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** Description: Get Sys tick cycle count
+ 172:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** Input   : none
+ 173:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** output  : puwCntHi  --- SysTick count High 4 byte
+ 174:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****           puwCntLo  --- SysTick count Low 4 byte
+ 175:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** return  : none
+ 176:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** *****************************************************************************/
+ 177:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** LITE_OS_SEC_TEXT_MINOR VOID LOS_GetSystickCycle(UINT32 *puwCntHi, UINT32 *puwCntLo)
+ 178:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** {
+ 302              		.loc 1 178 0
+ 303              		.cfi_startproc
+ 304              		@ args = 0, pretend = 0, frame = 8
+ 305              		@ frame_needed = 0, uses_anonymous_args = 0
+ 306              	.LVL28:
+ 307 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 308              	.LCFI4:
+ 309              		.cfi_def_cfa_offset 20
+ 310              		.cfi_offset 4, -20
+ 311              		.cfi_offset 5, -16
+ 312              		.cfi_offset 6, -12
+ 313              		.cfi_offset 7, -8
+ 314              		.cfi_offset 14, -4
+ 315 0002 83B0     		sub	sp, sp, #12
+ 316              	.LCFI5:
+ 317              		.cfi_def_cfa_offset 32
+ 318 0004 0400     		movs	r4, r0
+ 319 0006 0D00     		movs	r5, r1
+ 179:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     UINT64 ullSwTick;
+ 180:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     UINT64 ullCycle;
+ 181:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     UINT32 uwHwCycle;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s 			page 27
+
+
+ 182:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     UINTPTR uvIntSave;
+ 183:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     UINT32 uwSystickLoad;
+ 184:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     UINT32 uwSystickCur;
+ 185:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+ 186:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     uvIntSave = LOS_IntLock();
+ 320              		.loc 1 186 0
+ 321 0008 FFF7FEFF 		bl	LOS_IntLock
+ 322              	.LVL29:
+ 323 000c 0190     		str	r0, [sp, #4]
+ 324              	.LVL30:
+ 187:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+ 188:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     ullSwTick = g_ullTickCount;
+ 325              		.loc 1 188 0
+ 326 000e 0E4B     		ldr	r3, .L19
+ 327 0010 1A68     		ldr	r2, [r3]
+ 328 0012 5B68     		ldr	r3, [r3, #4]
+ 329              	.LVL31:
+ 189:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+ 190:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     uwSystickLoad = SysTick->LOAD;
+ 330              		.loc 1 190 0
+ 331 0014 0D49     		ldr	r1, .L19+4
+ 332 0016 4868     		ldr	r0, [r1, #4]
+ 333              	.LVL32:
+ 191:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     uwSystickCur = SysTick->VAL;
+ 334              		.loc 1 191 0
+ 335 0018 8968     		ldr	r1, [r1, #8]
+ 336              	.LVL33:
+ 192:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     uwHwCycle = uwSystickLoad - uwSystickCur;
+ 337              		.loc 1 192 0
+ 338 001a 411A     		subs	r1, r0, r1
+ 339              	.LVL34:
+ 193:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+ 194:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     /*tick has come, but may interrupt environment, not counting the Tick interrupt response, to do
+ 195:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     if (((SCB->ICSR & 0x4000000) != 0))
+ 340              		.loc 1 195 0
+ 341 001c 0C4E     		ldr	r6, .L19+8
+ 342 001e 7668     		ldr	r6, [r6, #4]
+ 343 0020 7601     		lsls	r6, r6, #5
+ 344 0022 03D5     		bpl	.L18
+ 196:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     {
+ 197:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****         uwHwCycle = uwSystickLoad - uwSystickCur;
+ 198:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****         ullSwTick++;
+ 345              		.loc 1 198 0
+ 346 0024 0126     		movs	r6, #1
+ 347 0026 0027     		movs	r7, #0
+ 348 0028 9219     		adds	r2, r2, r6
+ 349 002a 7B41     		adcs	r3, r3, r7
+ 350              	.LVL35:
+ 351              	.L18:
+ 199:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     }
+ 200:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+ 201:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     ullCycle = uwHwCycle + ullSwTick * uwSystickLoad;
+ 352              		.loc 1 201 0
+ 353 002c 0E00     		movs	r6, r1
+ 354 002e 0027     		movs	r7, #0
+ 355 0030 0021     		movs	r1, #0
+ 356              	.LVL36:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s 			page 28
+
+
+ 357 0032 FFF7FEFF 		bl	__aeabi_lmul
+ 358              	.LVL37:
+ 359 0036 8019     		adds	r0, r0, r6
+ 360 0038 7941     		adcs	r1, r1, r7
+ 361              	.LVL38:
+ 202:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     *puwCntHi = ullCycle >> 32;
+ 362              		.loc 1 202 0
+ 363 003a 2160     		str	r1, [r4]
+ 203:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     *puwCntLo = ullCycle & 0xFFFFFFFFU;
+ 364              		.loc 1 203 0
+ 365 003c 2860     		str	r0, [r5]
+ 204:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+ 205:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     LOS_IntRestore(uvIntSave);
+ 366              		.loc 1 205 0
+ 367 003e 0198     		ldr	r0, [sp, #4]
+ 368              	.LVL39:
+ 369 0040 FFF7FEFF 		bl	LOS_IntRestore
+ 370              	.LVL40:
+ 206:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** 
+ 207:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c ****     return;
+ 208:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../arch/arm/arm-m/src\los_hw_tick.c **** }
+ 371              		.loc 1 208 0
+ 372 0044 03B0     		add	sp, sp, #12
+ 373              		@ sp needed
+ 374              	.LVL41:
+ 375              	.LVL42:
+ 376              	.LVL43:
+ 377 0046 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 378              	.L20:
+ 379              		.align	2
+ 380              	.L19:
+ 381 0048 00000000 		.word	g_ullTickCount
+ 382 004c 10E000E0 		.word	-536813552
+ 383 0050 00ED00E0 		.word	-536810240
+ 384              		.cfi_endproc
+ 385              	.LFE46:
+ 387              		.text
+ 388              	.Letext0:
+ 389              		.file 3 "e:\\liteos\\liteos\\kernel\\include\\los_typedef.h"
+ 390              		.file 4 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\device\\include\\fm33a0xx.h"
+ 391              		.file 5 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\machine\\_default_types.h
+ 392              		.file 6 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 393              		.file 7 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\device\\include\\system_FM33A0XX.h"
+ 394              		.file 8 "e:\\liteos\\liteos\\kernel\\include\\los_tick.h"
+ 395              		.file 9 "e:\\liteos\\liteos\\kernel\\base\\include\\los_tick.ph"
+ 396              		.file 10 "e:\\liteos\\liteos\\arch\\arm\\arm-m\\include\\los_hwi.h"
+ 397              		.file 11 "e:\\liteos\\liteos\\kernel\\include\\los_err.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s 			page 29
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 los_hw_tick.c
+C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s:21     .text.osTickStart:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s:26     .text.osTickStart:00000000 osTickStart
+C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s:130    .text.osTickStart:00000064 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s:144    .text.LOS_SysTickCurrCycleGet:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s:149    .text.LOS_SysTickCurrCycleGet:00000000 LOS_SysTickCurrCycleGet
+C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s:193    .text.LOS_SysTickCurrCycleGet:00000024 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s:201    .text.LOS_GetCpuCycle:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s:206    .text.LOS_GetCpuCycle:00000000 LOS_GetCpuCycle
+C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s:287    .text.LOS_GetCpuCycle:00000050 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s:295    .text.LOS_GetSystickCycle:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s:300    .text.LOS_GetSystickCycle:00000000 LOS_GetSystickCycle
+C:\Users\WANGBI~1\AppData\Local\Temp\cckaVnfa.s:381    .text.LOS_GetSystickCycle:00000048 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+__aeabi_uidiv
+SystemCoreClock
+g_uwCyclesPerTick
+g_ullTickCount
+g_bSysTickStart
+LOS_IntLock
+LOS_IntRestore
+__aeabi_lmul

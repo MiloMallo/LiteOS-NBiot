@@ -1,0 +1,688 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccM9pseO.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"los_api_mutex.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.Example_MutexTask2,"ax",%progbits
+  20              		.align	2
+  21              		.code	16
+  22              		.thumb_func
+  24              	Example_MutexTask2:
+  25              	.LFB44:
+  26              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api/los_api_mutex.c"
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** /*----------------------------------------------------------------------------
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  * Copyright (c) <2016-2018>, <Huawei Technologies Co., Ltd>
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  * All rights reserved.
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  * are permitted provided that the following conditions are met:
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  * conditions and the following disclaimer.
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  * provided with the distribution.
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  * permission.
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  *---------------------------------------------------------------------------*/
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  /*----------------------------------------------------------------------------
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  * Notice of Export Control Law
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  * ===============================================
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  * applicable export control laws and regulations.
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccM9pseO.s 			page 2
+
+
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****  *---------------------------------------------------------------------------*/
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** 
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** #include "los_mux.h"
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** #include "los_task.h"
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** #include "los_api_mutex.h"
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** #include "los_inspect_entry.h"
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** 
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** #ifdef LOSCFG_LIB_LIBC
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** #include "string.h"
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** #endif
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** 
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** #ifdef __cplusplus
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** #if __cplusplus
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** extern "C" {
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** #endif /* __cpluscplus */
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** #endif /* __cpluscplus */
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** 
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** /* mux handle id */
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** static UINT32 g_Testmux01;
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** 
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** /* task pid */
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** static UINT32 g_TestTaskID01;
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** static UINT32 g_TestTaskID02;
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** 
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** static VOID Example_MutexTask1(VOID)
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** {
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     UINT32 uwRet;
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** 
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     dprintf("task1 try to get mutex, wait 10 Tick. \r\n");
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     /* get mux */
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     uwRet = LOS_MuxPend(g_Testmux01, 10);
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** 
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     if (uwRet == LOS_OK)
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     {
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****         dprintf("task1 get mutex g_Testmux01. \r\n");
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****         /* release mux */
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****         LOS_MuxPost(g_Testmux01);
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****         return;
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     }
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     else if (uwRet == LOS_ERRNO_MUX_TIMEOUT)
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     {
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****         dprintf("task1 timeout and try to get  mutex, wait forever. \r\n");
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****         /* LOS_WAIT_FOREVER type get mux, LOS_MuxPend return until has been get mux */
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****         uwRet = LOS_MuxPend(g_Testmux01, LOS_WAIT_FOREVER);
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****         if (uwRet == LOS_OK)
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****         {
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****             dprintf("task1 wait forever,got mutex g_Testmux01 success. \r\n");
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****             /* release mux */
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****             LOS_MuxPost(g_Testmux01);
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****             uwRet = LOS_InspectStatusSetByID(LOS_INSPECT_MUTEX, LOS_INSPECT_STU_SUCCESS);
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****             if (LOS_OK != uwRet)
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****             {
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****                 dprintf("Set Inspect Status Err \r\n");
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****             }
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****             return;
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****         }
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     }
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccM9pseO.s 			page 3
+
+
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     return;
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** }
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** 
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** static VOID Example_MutexTask2(VOID)
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** {
+  27              		.loc 1 94 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 10B5     		push	{r4, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     UINT32 uwRet;
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** 
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     dprintf("task2 try to get mutex, wait forever. \r\n");
+  36              		.loc 1 97 0
+  37 0002 0E48     		ldr	r0, .L4
+  38 0004 FFF7FEFF 		bl	dprintf_none
+  39              	.LVL0:
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     /* get mux */
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     uwRet = LOS_MuxPend(g_Testmux01, LOS_WAIT_FOREVER);
+  40              		.loc 1 99 0
+  41 0008 0D4B     		ldr	r3, .L4+4
+  42 000a 1868     		ldr	r0, [r3]
+  43 000c 0121     		movs	r1, #1
+  44 000e 4942     		rsbs	r1, r1, #0
+  45 0010 FFF7FEFF 		bl	LOS_MuxPend
+  46              	.LVL1:
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     if(uwRet != LOS_OK)
+  47              		.loc 1 100 0
+  48 0014 0028     		cmp	r0, #0
+  49 0016 03D0     		beq	.L2
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     {
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****         dprintf("task2 LOS_MuxPend failed . \r\n");
+  50              		.loc 1 102 0
+  51 0018 0A48     		ldr	r0, .L4+8
+  52              	.LVL2:
+  53 001a FFF7FEFF 		bl	dprintf_none
+  54              	.LVL3:
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****         return;
+  55              		.loc 1 103 0
+  56 001e 0CE0     		b	.L1
+  57              	.LVL4:
+  58              	.L2:
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     }
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** 
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     dprintf("task2 get mutex g_Testmux01 and suspend 100 Tick. \r\n");
+  59              		.loc 1 106 0
+  60 0020 0948     		ldr	r0, .L4+12
+  61              	.LVL5:
+  62 0022 FFF7FEFF 		bl	dprintf_none
+  63              	.LVL6:
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** 
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     /* task delay 100 ticks */
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     LOS_TaskDelay(100);
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccM9pseO.s 			page 4
+
+
+  64              		.loc 1 109 0
+  65 0026 6420     		movs	r0, #100
+  66 0028 FFF7FEFF 		bl	LOS_TaskDelay
+  67              	.LVL7:
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** 
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     dprintf("task2 resumed and post the g_Testmux01 \r\n");
+  68              		.loc 1 111 0
+  69 002c 0748     		ldr	r0, .L4+16
+  70 002e FFF7FEFF 		bl	dprintf_none
+  71              	.LVL8:
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     /* release mux */
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     LOS_MuxPost(g_Testmux01);
+  72              		.loc 1 113 0
+  73 0032 034B     		ldr	r3, .L4+4
+  74 0034 1868     		ldr	r0, [r3]
+  75 0036 FFF7FEFF 		bl	LOS_MuxPost
+  76              	.LVL9:
+  77              	.L1:
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     return;
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** }
+  78              		.loc 1 115 0
+  79              		@ sp needed
+  80 003a 10BD     		pop	{r4, pc}
+  81              	.L5:
+  82              		.align	2
+  83              	.L4:
+  84 003c 00000000 		.word	.LC0
+  85 0040 00000000 		.word	.LANCHOR0
+  86 0044 2C000000 		.word	.LC3
+  87 0048 4C000000 		.word	.LC5
+  88 004c 84000000 		.word	.LC7
+  89              		.cfi_endproc
+  90              	.LFE44:
+  92              		.section	.text.Example_MutexTask1,"ax",%progbits
+  93              		.align	2
+  94              		.code	16
+  95              		.thumb_func
+  97              	Example_MutexTask1:
+  98              	.LFB43:
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     UINT32 uwRet;
+  99              		.loc 1 58 0
+ 100              		.cfi_startproc
+ 101              		@ args = 0, pretend = 0, frame = 0
+ 102              		@ frame_needed = 0, uses_anonymous_args = 0
+ 103 0000 10B5     		push	{r4, lr}
+ 104              	.LCFI1:
+ 105              		.cfi_def_cfa_offset 8
+ 106              		.cfi_offset 4, -8
+ 107              		.cfi_offset 14, -4
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     /* get mux */
+ 108              		.loc 1 61 0
+ 109 0002 1848     		ldr	r0, .L9
+ 110 0004 FFF7FEFF 		bl	dprintf_none
+ 111              	.LVL10:
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** 
+ 112              		.loc 1 63 0
+ 113 0008 174B     		ldr	r3, .L9+4
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccM9pseO.s 			page 5
+
+
+ 114 000a 1868     		ldr	r0, [r3]
+ 115 000c 0A21     		movs	r1, #10
+ 116 000e FFF7FEFF 		bl	LOS_MuxPend
+ 117              	.LVL11:
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     {
+ 118              		.loc 1 65 0
+ 119 0012 0028     		cmp	r0, #0
+ 120 0014 07D1     		bne	.L7
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****         /* release mux */
+ 121              		.loc 1 67 0
+ 122 0016 1548     		ldr	r0, .L9+8
+ 123              	.LVL12:
+ 124 0018 FFF7FEFF 		bl	dprintf_none
+ 125              	.LVL13:
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****         return;
+ 126              		.loc 1 69 0
+ 127 001c 124B     		ldr	r3, .L9+4
+ 128 001e 1868     		ldr	r0, [r3]
+ 129 0020 FFF7FEFF 		bl	LOS_MuxPost
+ 130              	.LVL14:
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     }
+ 131              		.loc 1 70 0
+ 132 0024 1DE0     		b	.L6
+ 133              	.LVL15:
+ 134              	.L7:
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     {
+ 135              		.loc 1 72 0
+ 136 0026 124B     		ldr	r3, .L9+12
+ 137 0028 9842     		cmp	r0, r3
+ 138 002a 1AD1     		bne	.L6
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****         /* LOS_WAIT_FOREVER type get mux, LOS_MuxPend return until has been get mux */
+ 139              		.loc 1 74 0
+ 140 002c 1148     		ldr	r0, .L9+16
+ 141              	.LVL16:
+ 142 002e FFF7FEFF 		bl	dprintf_none
+ 143              	.LVL17:
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****         if (uwRet == LOS_OK)
+ 144              		.loc 1 76 0
+ 145 0032 0D4B     		ldr	r3, .L9+4
+ 146 0034 1868     		ldr	r0, [r3]
+ 147 0036 0121     		movs	r1, #1
+ 148 0038 4942     		rsbs	r1, r1, #0
+ 149 003a FFF7FEFF 		bl	LOS_MuxPend
+ 150              	.LVL18:
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****         {
+ 151              		.loc 1 77 0
+ 152 003e 0028     		cmp	r0, #0
+ 153 0040 0FD1     		bne	.L6
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****             /* release mux */
+ 154              		.loc 1 79 0
+ 155 0042 0D48     		ldr	r0, .L9+20
+ 156              	.LVL19:
+ 157 0044 FFF7FEFF 		bl	dprintf_none
+ 158              	.LVL20:
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****             uwRet = LOS_InspectStatusSetByID(LOS_INSPECT_MUTEX, LOS_INSPECT_STU_SUCCESS);
+ 159              		.loc 1 81 0
+ 160 0048 074B     		ldr	r3, .L9+4
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccM9pseO.s 			page 6
+
+
+ 161 004a 1868     		ldr	r0, [r3]
+ 162 004c FFF7FEFF 		bl	LOS_MuxPost
+ 163              	.LVL21:
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****             if (LOS_OK != uwRet)
+ 164              		.loc 1 82 0
+ 165 0050 0021     		movs	r1, #0
+ 166 0052 0420     		movs	r0, #4
+ 167 0054 FFF7FEFF 		bl	LOS_InspectStatusSetByID
+ 168              	.LVL22:
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****             {
+ 169              		.loc 1 83 0
+ 170 0058 0028     		cmp	r0, #0
+ 171 005a 02D0     		beq	.L6
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****             }
+ 172              		.loc 1 85 0
+ 173 005c 0748     		ldr	r0, .L9+24
+ 174              	.LVL23:
+ 175 005e FFF7FEFF 		bl	dprintf_none
+ 176              	.LVL24:
+ 177              	.L6:
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** 
+ 178              		.loc 1 91 0
+ 179              		@ sp needed
+ 180 0062 10BD     		pop	{r4, pc}
+ 181              	.L10:
+ 182              		.align	2
+ 183              	.L9:
+ 184 0064 B0000000 		.word	.LC9
+ 185 0068 00000000 		.word	.LANCHOR0
+ 186 006c DC000000 		.word	.LC12
+ 187 0070 071D0002 		.word	33561863
+ 188 0074 FC000000 		.word	.LC14
+ 189 0078 34010000 		.word	.LC16
+ 190 007c 6C010000 		.word	.LC18
+ 191              		.cfi_endproc
+ 192              	.LFE43:
+ 194              		.section	.text.Example_MutexLock,"ax",%progbits
+ 195              		.align	2
+ 196              		.global	Example_MutexLock
+ 197              		.code	16
+ 198              		.thumb_func
+ 200              	Example_MutexLock:
+ 201              	.LFB45:
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** 
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** UINT32 Example_MutexLock(VOID)
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** {
+ 202              		.loc 1 118 0
+ 203              		.cfi_startproc
+ 204              		@ args = 0, pretend = 0, frame = 48
+ 205              		@ frame_needed = 0, uses_anonymous_args = 0
+ 206 0000 10B5     		push	{r4, lr}
+ 207              	.LCFI2:
+ 208              		.cfi_def_cfa_offset 8
+ 209              		.cfi_offset 4, -8
+ 210              		.cfi_offset 14, -4
+ 211 0002 8CB0     		sub	sp, sp, #48
+ 212              	.LCFI3:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccM9pseO.s 			page 7
+
+
+ 213              		.cfi_def_cfa_offset 56
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     UINT32 uwRet;
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     TSK_INIT_PARAM_S stTask1;
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     TSK_INIT_PARAM_S stTask2;
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** 
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     /* create mux */
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     LOS_MuxCreate(&g_Testmux01);
+ 214              		.loc 1 124 0
+ 215 0004 2248     		ldr	r0, .L15
+ 216 0006 FFF7FEFF 		bl	LOS_MuxCreate
+ 217              	.LVL25:
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** 
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     /* lock task schedue */
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     LOS_TaskLock();
+ 218              		.loc 1 127 0
+ 219 000a FFF7FEFF 		bl	LOS_TaskLock
+ 220              	.LVL26:
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** 
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     /* create task1 */
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     memset(&stTask1, 0, sizeof(TSK_INIT_PARAM_S));
+ 221              		.loc 1 130 0
+ 222 000e 06AC     		add	r4, sp, #24
+ 223 0010 1822     		movs	r2, #24
+ 224 0012 0021     		movs	r1, #0
+ 225 0014 2000     		movs	r0, r4
+ 226 0016 FFF7FEFF 		bl	memset
+ 227              	.LVL27:
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     stTask1.pfnTaskEntry = (TSK_ENTRY_FUNC)Example_MutexTask1;
+ 228              		.loc 1 131 0
+ 229 001a 1E4B     		ldr	r3, .L15+4
+ 230 001c 0693     		str	r3, [sp, #24]
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     stTask1.pcName       = "MutexTsk1";
+ 231              		.loc 1 132 0
+ 232 001e 1E4B     		ldr	r3, .L15+8
+ 233 0020 2361     		str	r3, [r4, #16]
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     stTask1.uwStackSize  = LOSCFG_BASE_CORE_TSK_DEFAULT_STACK_SIZE;
+ 234              		.loc 1 133 0
+ 235 0022 B423     		movs	r3, #180
+ 236 0024 9B00     		lsls	r3, r3, #2
+ 237 0026 E360     		str	r3, [r4, #12]
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     stTask1.usTaskPrio   = 5;
+ 238              		.loc 1 134 0
+ 239 0028 0523     		movs	r3, #5
+ 240 002a A380     		strh	r3, [r4, #4]
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     uwRet = LOS_TaskCreate(&g_TestTaskID01, &stTask1);
+ 241              		.loc 1 135 0
+ 242 002c 2100     		movs	r1, r4
+ 243 002e 1B48     		ldr	r0, .L15+12
+ 244 0030 FFF7FEFF 		bl	LOS_TaskCreate
+ 245              	.LVL28:
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     if (uwRet != LOS_OK)
+ 246              		.loc 1 136 0
+ 247 0034 0028     		cmp	r0, #0
+ 248 0036 04D0     		beq	.L12
+ 137:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     {
+ 138:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****         dprintf("task1 create failed . \r\n");
+ 249              		.loc 1 138 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccM9pseO.s 			page 8
+
+
+ 250 0038 1948     		ldr	r0, .L15+16
+ 251              	.LVL29:
+ 252 003a FFF7FEFF 		bl	dprintf_none
+ 253              	.LVL30:
+ 139:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****         return LOS_NOK;
+ 254              		.loc 1 139 0
+ 255 003e 0120     		movs	r0, #1
+ 256 0040 24E0     		b	.L13
+ 257              	.LVL31:
+ 258              	.L12:
+ 140:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     }
+ 141:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** 
+ 142:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     /* create task2 */
+ 143:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     memset(&stTask2, 0, sizeof(TSK_INIT_PARAM_S));
+ 259              		.loc 1 143 0
+ 260 0042 1822     		movs	r2, #24
+ 261 0044 0021     		movs	r1, #0
+ 262 0046 6846     		mov	r0, sp
+ 263              	.LVL32:
+ 264 0048 FFF7FEFF 		bl	memset
+ 265              	.LVL33:
+ 144:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     stTask2.pfnTaskEntry = (TSK_ENTRY_FUNC)Example_MutexTask2;
+ 266              		.loc 1 144 0
+ 267 004c 154B     		ldr	r3, .L15+20
+ 268 004e 0093     		str	r3, [sp]
+ 145:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     stTask2.pcName       = "MutexTsk2";
+ 269              		.loc 1 145 0
+ 270 0050 154B     		ldr	r3, .L15+24
+ 271 0052 0493     		str	r3, [sp, #16]
+ 146:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     stTask2.uwStackSize  = LOSCFG_BASE_CORE_TSK_DEFAULT_STACK_SIZE;
+ 272              		.loc 1 146 0
+ 273 0054 B423     		movs	r3, #180
+ 274 0056 9B00     		lsls	r3, r3, #2
+ 275 0058 0393     		str	r3, [sp, #12]
+ 147:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     stTask2.usTaskPrio   = 4;
+ 276              		.loc 1 147 0
+ 277 005a 0423     		movs	r3, #4
+ 278 005c 6A46     		mov	r2, sp
+ 279 005e 9380     		strh	r3, [r2, #4]
+ 148:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     uwRet = LOS_TaskCreate(&g_TestTaskID02, &stTask2);
+ 280              		.loc 1 148 0
+ 281 0060 6946     		mov	r1, sp
+ 282 0062 1248     		ldr	r0, .L15+28
+ 283 0064 FFF7FEFF 		bl	LOS_TaskCreate
+ 284              	.LVL34:
+ 149:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     if (uwRet != LOS_OK)
+ 285              		.loc 1 149 0
+ 286 0068 0028     		cmp	r0, #0
+ 287 006a 04D0     		beq	.L14
+ 150:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     {
+ 151:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****         dprintf("task2 create failed . \r\n");
+ 288              		.loc 1 151 0
+ 289 006c 1048     		ldr	r0, .L15+32
+ 290              	.LVL35:
+ 291 006e FFF7FEFF 		bl	dprintf_none
+ 292              	.LVL36:
+ 152:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****         return LOS_NOK;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccM9pseO.s 			page 9
+
+
+ 293              		.loc 1 152 0
+ 294 0072 0120     		movs	r0, #1
+ 295 0074 0AE0     		b	.L13
+ 296              	.LVL37:
+ 297              	.L14:
+ 153:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     }
+ 154:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** 
+ 155:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     /* unlock task schedue */
+ 156:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     LOS_TaskUnlock();
+ 298              		.loc 1 156 0
+ 299 0076 FFF7FEFF 		bl	LOS_TaskUnlock
+ 300              	.LVL38:
+ 157:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     /* task delay 300 ticks */
+ 158:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     LOS_TaskDelay(300);
+ 301              		.loc 1 158 0
+ 302 007a 9620     		movs	r0, #150
+ 303 007c 4000     		lsls	r0, r0, #1
+ 304 007e FFF7FEFF 		bl	LOS_TaskDelay
+ 305              	.LVL39:
+ 159:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** 
+ 160:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     /* delete mux */
+ 161:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     LOS_MuxDelete(g_Testmux01);
+ 306              		.loc 1 161 0
+ 307 0082 034B     		ldr	r3, .L15
+ 308 0084 1868     		ldr	r0, [r3]
+ 309 0086 FFF7FEFF 		bl	LOS_MuxDelete
+ 310              	.LVL40:
+ 162:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** 
+ 163:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c ****     return LOS_OK;
+ 311              		.loc 1 163 0
+ 312 008a 0020     		movs	r0, #0
+ 313              	.L13:
+ 164:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_mutex.c **** }
+ 314              		.loc 1 164 0
+ 315 008c 0CB0     		add	sp, sp, #48
+ 316              		@ sp needed
+ 317 008e 10BD     		pop	{r4, pc}
+ 318              	.L16:
+ 319              		.align	2
+ 320              	.L15:
+ 321 0090 00000000 		.word	.LANCHOR0
+ 322 0094 00000000 		.word	Example_MutexTask1
+ 323 0098 88010000 		.word	.LC22
+ 324 009c 00000000 		.word	.LANCHOR1
+ 325 00a0 94010000 		.word	.LC25
+ 326 00a4 00000000 		.word	Example_MutexTask2
+ 327 00a8 B0010000 		.word	.LC28
+ 328 00ac 00000000 		.word	.LANCHOR2
+ 329 00b0 BC010000 		.word	.LC31
+ 330              		.cfi_endproc
+ 331              	.LFE45:
+ 333              		.section	.bss.g_Testmux01,"aw",%nobits
+ 334              		.align	2
+ 335              		.set	.LANCHOR0,. + 0
+ 338              	g_Testmux01:
+ 339 0000 00000000 		.space	4
+ 340              		.section	.bss.g_TestTaskID01,"aw",%nobits
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccM9pseO.s 			page 10
+
+
+ 341              		.align	2
+ 342              		.set	.LANCHOR1,. + 0
+ 345              	g_TestTaskID01:
+ 346 0000 00000000 		.space	4
+ 347              		.section	.bss.g_TestTaskID02,"aw",%nobits
+ 348              		.align	2
+ 349              		.set	.LANCHOR2,. + 0
+ 352              	g_TestTaskID02:
+ 353 0000 00000000 		.space	4
+ 354              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 355              		.align	2
+ 356              	.LC0:
+ 357 0000 7461736B 		.ascii	"task2 try to get mutex, wait forever. \015\012\000"
+ 357      32207472 
+ 357      7920746F 
+ 357      20676574 
+ 357      206D7574 
+ 358 0029 000000   		.space	3
+ 359              	.LC3:
+ 360 002c 7461736B 		.ascii	"task2 LOS_MuxPend failed . \015\012\000"
+ 360      32204C4F 
+ 360      535F4D75 
+ 360      7850656E 
+ 360      64206661 
+ 361 004a 0000     		.space	2
+ 362              	.LC5:
+ 363 004c 7461736B 		.ascii	"task2 get mutex g_Testmux01 and suspend 100 Tick. \015"
+ 363      32206765 
+ 363      74206D75 
+ 363      74657820 
+ 363      675F5465 
+ 364 007f 0A00     		.ascii	"\012\000"
+ 365 0081 000000   		.space	3
+ 366              	.LC7:
+ 367 0084 7461736B 		.ascii	"task2 resumed and post the g_Testmux01 \015\012\000"
+ 367      32207265 
+ 367      73756D65 
+ 367      6420616E 
+ 367      6420706F 
+ 368 00ae 0000     		.space	2
+ 369              	.LC9:
+ 370 00b0 7461736B 		.ascii	"task1 try to get mutex, wait 10 Tick. \015\012\000"
+ 370      31207472 
+ 370      7920746F 
+ 370      20676574 
+ 370      206D7574 
+ 371 00d9 000000   		.space	3
+ 372              	.LC12:
+ 373 00dc 7461736B 		.ascii	"task1 get mutex g_Testmux01. \015\012\000"
+ 373      31206765 
+ 373      74206D75 
+ 373      74657820 
+ 373      675F5465 
+ 374              	.LC14:
+ 375 00fc 7461736B 		.ascii	"task1 timeout and try to get  mutex, wait forever. "
+ 375      31207469 
+ 375      6D656F75 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccM9pseO.s 			page 11
+
+
+ 375      7420616E 
+ 375      64207472 
+ 376 012f 0D0A00   		.ascii	"\015\012\000"
+ 377 0132 0000     		.space	2
+ 378              	.LC16:
+ 379 0134 7461736B 		.ascii	"task1 wait forever,got mutex g_Testmux01 success. \015"
+ 379      31207761 
+ 379      69742066 
+ 379      6F726576 
+ 379      65722C67 
+ 380 0167 0A00     		.ascii	"\012\000"
+ 381 0169 000000   		.space	3
+ 382              	.LC18:
+ 383 016c 53657420 		.ascii	"Set Inspect Status Err \015\012\000"
+ 383      496E7370 
+ 383      65637420 
+ 383      53746174 
+ 383      75732045 
+ 384 0186 0000     		.space	2
+ 385              	.LC22:
+ 386 0188 4D757465 		.ascii	"MutexTsk1\000"
+ 386      7854736B 
+ 386      3100
+ 387 0192 0000     		.space	2
+ 388              	.LC25:
+ 389 0194 7461736B 		.ascii	"task1 create failed . \015\012\000"
+ 389      31206372 
+ 389      65617465 
+ 389      20666169 
+ 389      6C656420 
+ 390 01ad 000000   		.space	3
+ 391              	.LC28:
+ 392 01b0 4D757465 		.ascii	"MutexTsk2\000"
+ 392      7854736B 
+ 392      3200
+ 393 01ba 0000     		.space	2
+ 394              	.LC31:
+ 395 01bc 7461736B 		.ascii	"task2 create failed . \015\012\000"
+ 395      32206372 
+ 395      65617465 
+ 395      20666169 
+ 395      6C656420 
+ 396              		.text
+ 397              	.Letext0:
+ 398              		.file 2 "e:\\liteos\\liteos\\kernel\\include\\los_typedef.h"
+ 399              		.file 3 "e:\\liteos\\liteos\\kernel\\include\\los_task.h"
+ 400              		.file 4 "e:\\liteos\\liteos\\examples\\include\\los_inspect_entry.h"
+ 401              		.file 5 "e:\\liteos\\liteos\\examples\\include\\los_demo_debug.h"
+ 402              		.file 6 "e:\\liteos\\liteos\\kernel\\include\\los_mux.h"
+ 403              		.file 7 "e:\\liteos\\liteos\\kernel\\include\\los_err.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccM9pseO.s 			page 12
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 los_api_mutex.c
+C:\Users\WANGBI~1\AppData\Local\Temp\ccM9pseO.s:20     .text.Example_MutexTask2:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccM9pseO.s:24     .text.Example_MutexTask2:00000000 Example_MutexTask2
+C:\Users\WANGBI~1\AppData\Local\Temp\ccM9pseO.s:84     .text.Example_MutexTask2:0000003c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccM9pseO.s:93     .text.Example_MutexTask1:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccM9pseO.s:97     .text.Example_MutexTask1:00000000 Example_MutexTask1
+C:\Users\WANGBI~1\AppData\Local\Temp\ccM9pseO.s:184    .text.Example_MutexTask1:00000064 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccM9pseO.s:195    .text.Example_MutexLock:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccM9pseO.s:200    .text.Example_MutexLock:00000000 Example_MutexLock
+C:\Users\WANGBI~1\AppData\Local\Temp\ccM9pseO.s:321    .text.Example_MutexLock:00000090 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccM9pseO.s:334    .bss.g_Testmux01:00000000 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccM9pseO.s:338    .bss.g_Testmux01:00000000 g_Testmux01
+C:\Users\WANGBI~1\AppData\Local\Temp\ccM9pseO.s:341    .bss.g_TestTaskID01:00000000 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccM9pseO.s:345    .bss.g_TestTaskID01:00000000 g_TestTaskID01
+C:\Users\WANGBI~1\AppData\Local\Temp\ccM9pseO.s:348    .bss.g_TestTaskID02:00000000 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccM9pseO.s:352    .bss.g_TestTaskID02:00000000 g_TestTaskID02
+C:\Users\WANGBI~1\AppData\Local\Temp\ccM9pseO.s:355    .rodata.str1.4:00000000 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+dprintf_none
+LOS_MuxPend
+LOS_TaskDelay
+LOS_MuxPost
+LOS_InspectStatusSetByID
+LOS_MuxCreate
+LOS_TaskLock
+memset
+LOS_TaskCreate
+LOS_TaskUnlock
+LOS_MuxDelete

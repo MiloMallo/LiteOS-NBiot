@@ -1,0 +1,2741 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"fm33a0xx_rcc.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.RCC_SYSCLKSEL_LPM_RCLP_OFF_Setable,"ax",%progbits
+  20              		.align	2
+  21              		.global	RCC_SYSCLKSEL_LPM_RCLP_OFF_Setable
+  22              		.code	16
+  23              		.thumb_func
+  25              	RCC_SYSCLKSEL_LPM_RCLP_OFF_Setable:
+  26              	.LFB36:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers/fm33a
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /**
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****   ******************************************************************************
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****   * @file    fm33a0xx_rcc.c
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****   * @author  FM33a0xx Application Team
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****   * @version V2.0.1
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****   * @date    24-12-2017
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****   * @brief   This file provides firmware functions to manage the following 
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****   *          functionalities of the clock control (RCC) peripheral:
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****   *           + Internal/external clocks, PLL, CSS and MCO configuration
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****   *           + System, AHB and APB busses clocks configuration
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****   *           + Peripheral clocks configuration
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****   *           + Interrupts and flags management
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****   *
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** */
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* Includes ------------------------------------------------------------------*/
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** #include "fm33A0xx_rcc.h" 
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /** @addtogroup fm33a0xx_StdPeriph_Driver
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****   * @{
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****   */
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /** @defgroup RCC 
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****   * @brief RCC driver modules
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****   * @{
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****   */ 
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* Private typedef -----------------------------------------------------------*/
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* Private define ------------------------------------------------------------*/
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* Private macro -------------------------------------------------------------*/
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 2
+
+
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* Private variables ---------------------------------------------------------*/
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* Private function prototypes -----------------------------------------------*/
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* Private functions ---------------------------------------------------------*/
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /** @defgroup RCC_Private_Functions
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****   * @{
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****   */
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****  
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** //Code_Start
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** //2018-04-02-13-22-07
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** //FM33A0XX_Driver_Gen_V1.4
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* Sleep/DeepSleep模式下禁止RCLP，仅在无晶体配置下有效 相关函数 */
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** void RCC_SYSCLKSEL_LPM_RCLP_OFF_Setable(FunState NewState)
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+  28              		.loc 1 48 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	if (NewState == ENABLE)
+  34              		.loc 1 49 0
+  35 0000 0128     		cmp	r0, #1
+  36 0002 06D1     		bne	.L2
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	{
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		RCC->SYSCLKSEL |= (RCC_SYSCLKSEL_LPM_RCLP_OFF_Msk);
+  37              		.loc 1 51 0
+  38 0004 064A     		ldr	r2, .L4
+  39 0006 D368     		ldr	r3, [r2, #12]
+  40 0008 8021     		movs	r1, #128
+  41 000a 0906     		lsls	r1, r1, #24
+  42 000c 0B43     		orrs	r3, r1
+  43 000e D360     		str	r3, [r2, #12]
+  44 0010 04E0     		b	.L1
+  45              	.L2:
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	}
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	else
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	{
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		RCC->SYSCLKSEL &= ~(RCC_SYSCLKSEL_LPM_RCLP_OFF_Msk);
+  46              		.loc 1 55 0
+  47 0012 034A     		ldr	r2, .L4
+  48 0014 D368     		ldr	r3, [r2, #12]
+  49 0016 5B00     		lsls	r3, r3, #1
+  50 0018 5B08     		lsrs	r3, r3, #1
+  51 001a D360     		str	r3, [r2, #12]
+  52              	.L1:
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	}
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+  53              		.loc 1 57 0
+  54              		@ sp needed
+  55 001c 7047     		bx	lr
+  56              	.L5:
+  57 001e C046     		.align	2
+  58              	.L4:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 3
+
+
+  59 0020 00020040 		.word	1073742336
+  60              		.cfi_endproc
+  61              	.LFE36:
+  63              		.section	.text.RCC_SYSCLKSEL_LPM_RCLP_OFF_Getable,"ax",%progbits
+  64              		.align	2
+  65              		.global	RCC_SYSCLKSEL_LPM_RCLP_OFF_Getable
+  66              		.code	16
+  67              		.thumb_func
+  69              	RCC_SYSCLKSEL_LPM_RCLP_OFF_Getable:
+  70              	.LFB37:
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** FunState RCC_SYSCLKSEL_LPM_RCLP_OFF_Getable(void)
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+  71              		.loc 1 60 0
+  72              		.cfi_startproc
+  73              		@ args = 0, pretend = 0, frame = 0
+  74              		@ frame_needed = 0, uses_anonymous_args = 0
+  75              		@ link register save eliminated.
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	if (RCC->SYSCLKSEL & (RCC_SYSCLKSEL_LPM_RCLP_OFF_Msk))
+  76              		.loc 1 61 0
+  77 0000 034B     		ldr	r3, .L9
+  78 0002 DB68     		ldr	r3, [r3, #12]
+  79 0004 002B     		cmp	r3, #0
+  80 0006 01DA     		bge	.L8
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	{
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		return ENABLE;
+  81              		.loc 1 63 0
+  82 0008 0120     		movs	r0, #1
+  83 000a 00E0     		b	.L7
+  84              	.L8:
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	}
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	else
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	{
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		return DISABLE;
+  85              		.loc 1 67 0
+  86 000c 0020     		movs	r0, #0
+  87              	.L7:
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	}
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+  88              		.loc 1 69 0
+  89              		@ sp needed
+  90 000e 7047     		bx	lr
+  91              	.L10:
+  92              		.align	2
+  93              	.L9:
+  94 0010 00020040 		.word	1073742336
+  95              		.cfi_endproc
+  96              	.LFE37:
+  98              		.section	.text.RCC_SYSCLKSEL_SLP_ENEXTI_Setable,"ax",%progbits
+  99              		.align	2
+ 100              		.global	RCC_SYSCLKSEL_SLP_ENEXTI_Setable
+ 101              		.code	16
+ 102              		.thumb_func
+ 104              	RCC_SYSCLKSEL_SLP_ENEXTI_Setable:
+ 105              	.LFB38:
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* Sleep/DeepSleep模式下EXTI采样设置 相关函数 */
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 4
+
+
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** void RCC_SYSCLKSEL_SLP_ENEXTI_Setable(FunState NewState)
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 106              		.loc 1 73 0
+ 107              		.cfi_startproc
+ 108              		@ args = 0, pretend = 0, frame = 0
+ 109              		@ frame_needed = 0, uses_anonymous_args = 0
+ 110              		@ link register save eliminated.
+ 111              	.LVL1:
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	if (NewState == ENABLE)
+ 112              		.loc 1 74 0
+ 113 0000 0128     		cmp	r0, #1
+ 114 0002 06D1     		bne	.L12
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	{
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		RCC->SYSCLKSEL |= (RCC_SYSCLKSEL_SLP_ENEXTI_Msk);
+ 115              		.loc 1 76 0
+ 116 0004 064A     		ldr	r2, .L14
+ 117 0006 D368     		ldr	r3, [r2, #12]
+ 118 0008 8021     		movs	r1, #128
+ 119 000a 8904     		lsls	r1, r1, #18
+ 120 000c 0B43     		orrs	r3, r1
+ 121 000e D360     		str	r3, [r2, #12]
+ 122 0010 04E0     		b	.L11
+ 123              	.L12:
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	}
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	else
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	{
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		RCC->SYSCLKSEL &= ~(RCC_SYSCLKSEL_SLP_ENEXTI_Msk);
+ 124              		.loc 1 80 0
+ 125 0012 034A     		ldr	r2, .L14
+ 126 0014 D168     		ldr	r1, [r2, #12]
+ 127 0016 034B     		ldr	r3, .L14+4
+ 128 0018 0B40     		ands	r3, r1
+ 129 001a D360     		str	r3, [r2, #12]
+ 130              	.L11:
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	}
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 131              		.loc 1 82 0
+ 132              		@ sp needed
+ 133 001c 7047     		bx	lr
+ 134              	.L15:
+ 135 001e C046     		.align	2
+ 136              	.L14:
+ 137 0020 00020040 		.word	1073742336
+ 138 0024 FFFFFFFD 		.word	-33554433
+ 139              		.cfi_endproc
+ 140              	.LFE38:
+ 142              		.section	.text.RCC_SYSCLKSEL_SLP_ENEXTI_Getable,"ax",%progbits
+ 143              		.align	2
+ 144              		.global	RCC_SYSCLKSEL_SLP_ENEXTI_Getable
+ 145              		.code	16
+ 146              		.thumb_func
+ 148              	RCC_SYSCLKSEL_SLP_ENEXTI_Getable:
+ 149              	.LFB39:
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** FunState RCC_SYSCLKSEL_SLP_ENEXTI_Getable(void)
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 150              		.loc 1 85 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 5
+
+
+ 151              		.cfi_startproc
+ 152              		@ args = 0, pretend = 0, frame = 0
+ 153              		@ frame_needed = 0, uses_anonymous_args = 0
+ 154              		@ link register save eliminated.
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	if (RCC->SYSCLKSEL & (RCC_SYSCLKSEL_SLP_ENEXTI_Msk))
+ 155              		.loc 1 86 0
+ 156 0000 034B     		ldr	r3, .L19
+ 157 0002 DB68     		ldr	r3, [r3, #12]
+ 158 0004 9B01     		lsls	r3, r3, #6
+ 159 0006 01D5     		bpl	.L18
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	{
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		return ENABLE;
+ 160              		.loc 1 88 0
+ 161 0008 0120     		movs	r0, #1
+ 162 000a 00E0     		b	.L17
+ 163              	.L18:
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	}
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	else
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	{
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		return DISABLE;
+ 164              		.loc 1 92 0
+ 165 000c 0020     		movs	r0, #0
+ 166              	.L17:
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	}
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 167              		.loc 1 94 0
+ 168              		@ sp needed
+ 169 000e 7047     		bx	lr
+ 170              	.L20:
+ 171              		.align	2
+ 172              	.L19:
+ 173 0010 00020040 		.word	1073742336
+ 174              		.cfi_endproc
+ 175              	.LFE39:
+ 177              		.section	.text.RCC_SYSCLKSEL_EXTICKSEL_Set,"ax",%progbits
+ 178              		.align	2
+ 179              		.global	RCC_SYSCLKSEL_EXTICKSEL_Set
+ 180              		.code	16
+ 181              		.thumb_func
+ 183              	RCC_SYSCLKSEL_EXTICKSEL_Set:
+ 184              	.LFB40:
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* EXTI中断与数字滤波采样时钟选择 相关函数 */
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** void RCC_SYSCLKSEL_EXTICKSEL_Set(uint32_t SetValue)
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 185              		.loc 1 98 0
+ 186              		.cfi_startproc
+ 187              		@ args = 0, pretend = 0, frame = 0
+ 188              		@ frame_needed = 0, uses_anonymous_args = 0
+ 189              		@ link register save eliminated.
+ 190              	.LVL2:
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	uint32_t tmpreg;
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg = RCC->SYSCLKSEL;
+ 191              		.loc 1 100 0
+ 192 0000 0449     		ldr	r1, .L22
+ 193 0002 CA68     		ldr	r2, [r1, #12]
+ 194              	.LVL3:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 6
+
+
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg &= ~(RCC_SYSCLKSEL_EXTICKSEL_Msk);
+ 195              		.loc 1 101 0
+ 196 0004 044B     		ldr	r3, .L22+4
+ 197 0006 1A40     		ands	r2, r3
+ 198              	.LVL4:
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg |= (SetValue & RCC_SYSCLKSEL_EXTICKSEL_Msk);
+ 199              		.loc 1 102 0
+ 200 0008 8023     		movs	r3, #128
+ 201 000a 5B04     		lsls	r3, r3, #17
+ 202 000c 1840     		ands	r0, r3
+ 203              	.LVL5:
+ 204 000e 1043     		orrs	r0, r2
+ 205              	.LVL6:
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC->SYSCLKSEL = tmpreg;
+ 206              		.loc 1 103 0
+ 207 0010 C860     		str	r0, [r1, #12]
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 208              		.loc 1 104 0
+ 209              		@ sp needed
+ 210 0012 7047     		bx	lr
+ 211              	.L23:
+ 212              		.align	2
+ 213              	.L22:
+ 214 0014 00020040 		.word	1073742336
+ 215 0018 FFFFFFFE 		.word	-16777217
+ 216              		.cfi_endproc
+ 217              	.LFE40:
+ 219              		.section	.text.RCC_SYSCLKSEL_EXTICKSEL_Get,"ax",%progbits
+ 220              		.align	2
+ 221              		.global	RCC_SYSCLKSEL_EXTICKSEL_Get
+ 222              		.code	16
+ 223              		.thumb_func
+ 225              	RCC_SYSCLKSEL_EXTICKSEL_Get:
+ 226              	.LFB41:
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** uint32_t RCC_SYSCLKSEL_EXTICKSEL_Get(void)
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 227              		.loc 1 107 0
+ 228              		.cfi_startproc
+ 229              		@ args = 0, pretend = 0, frame = 0
+ 230              		@ frame_needed = 0, uses_anonymous_args = 0
+ 231              		@ link register save eliminated.
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	return (RCC->SYSCLKSEL & RCC_SYSCLKSEL_EXTICKSEL_Msk);
+ 232              		.loc 1 108 0
+ 233 0000 024B     		ldr	r3, .L25
+ 234 0002 D868     		ldr	r0, [r3, #12]
+ 235 0004 8023     		movs	r3, #128
+ 236 0006 5B04     		lsls	r3, r3, #17
+ 237 0008 1840     		ands	r0, r3
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 238              		.loc 1 109 0
+ 239              		@ sp needed
+ 240 000a 7047     		bx	lr
+ 241              	.L26:
+ 242              		.align	2
+ 243              	.L25:
+ 244 000c 00020040 		.word	1073742336
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 7
+
+
+ 245              		.cfi_endproc
+ 246              	.LFE41:
+ 248              		.section	.text.RCC_SYSCLKSEL_APBPRES_Set,"ax",%progbits
+ 249              		.align	2
+ 250              		.global	RCC_SYSCLKSEL_APBPRES_Set
+ 251              		.code	16
+ 252              		.thumb_func
+ 254              	RCC_SYSCLKSEL_APBPRES_Set:
+ 255              	.LFB42:
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* APB时钟分频选择 相关函数 */
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** void RCC_SYSCLKSEL_APBPRES_Set(uint32_t SetValue)
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 256              		.loc 1 113 0
+ 257              		.cfi_startproc
+ 258              		@ args = 0, pretend = 0, frame = 0
+ 259              		@ frame_needed = 0, uses_anonymous_args = 0
+ 260              		@ link register save eliminated.
+ 261              	.LVL7:
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	uint32_t tmpreg;
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg = RCC->SYSCLKSEL;
+ 262              		.loc 1 115 0
+ 263 0000 0449     		ldr	r1, .L28
+ 264 0002 CA68     		ldr	r2, [r1, #12]
+ 265              	.LVL8:
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg &= ~(RCC_SYSCLKSEL_APBPRES_Msk);
+ 266              		.loc 1 116 0
+ 267 0004 044B     		ldr	r3, .L28+4
+ 268 0006 1A40     		ands	r2, r3
+ 269              	.LVL9:
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg |= (SetValue & RCC_SYSCLKSEL_APBPRES_Msk);
+ 270              		.loc 1 117 0
+ 271 0008 E023     		movs	r3, #224
+ 272 000a DB02     		lsls	r3, r3, #11
+ 273 000c 1840     		ands	r0, r3
+ 274              	.LVL10:
+ 275 000e 1043     		orrs	r0, r2
+ 276              	.LVL11:
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC->SYSCLKSEL = tmpreg;
+ 277              		.loc 1 118 0
+ 278 0010 C860     		str	r0, [r1, #12]
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 279              		.loc 1 119 0
+ 280              		@ sp needed
+ 281 0012 7047     		bx	lr
+ 282              	.L29:
+ 283              		.align	2
+ 284              	.L28:
+ 285 0014 00020040 		.word	1073742336
+ 286 0018 FFFFF8FF 		.word	-458753
+ 287              		.cfi_endproc
+ 288              	.LFE42:
+ 290              		.section	.text.RCC_SYSCLKSEL_APBPRES_Get,"ax",%progbits
+ 291              		.align	2
+ 292              		.global	RCC_SYSCLKSEL_APBPRES_Get
+ 293              		.code	16
+ 294              		.thumb_func
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 8
+
+
+ 296              	RCC_SYSCLKSEL_APBPRES_Get:
+ 297              	.LFB43:
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** uint32_t RCC_SYSCLKSEL_APBPRES_Get(void)
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 298              		.loc 1 122 0
+ 299              		.cfi_startproc
+ 300              		@ args = 0, pretend = 0, frame = 0
+ 301              		@ frame_needed = 0, uses_anonymous_args = 0
+ 302              		@ link register save eliminated.
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	return (RCC->SYSCLKSEL & RCC_SYSCLKSEL_APBPRES_Msk);
+ 303              		.loc 1 123 0
+ 304 0000 024B     		ldr	r3, .L31
+ 305 0002 D868     		ldr	r0, [r3, #12]
+ 306 0004 E023     		movs	r3, #224
+ 307 0006 DB02     		lsls	r3, r3, #11
+ 308 0008 1840     		ands	r0, r3
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 309              		.loc 1 124 0
+ 310              		@ sp needed
+ 311 000a 7047     		bx	lr
+ 312              	.L32:
+ 313              		.align	2
+ 314              	.L31:
+ 315 000c 00020040 		.word	1073742336
+ 316              		.cfi_endproc
+ 317              	.LFE43:
+ 319              		.section	.text.RCC_SYSCLKSEL_AHBPRES_Set,"ax",%progbits
+ 320              		.align	2
+ 321              		.global	RCC_SYSCLKSEL_AHBPRES_Set
+ 322              		.code	16
+ 323              		.thumb_func
+ 325              	RCC_SYSCLKSEL_AHBPRES_Set:
+ 326              	.LFB44:
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* AHB时钟分频选择 相关函数 */
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** void RCC_SYSCLKSEL_AHBPRES_Set(uint32_t SetValue)
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 327              		.loc 1 128 0
+ 328              		.cfi_startproc
+ 329              		@ args = 0, pretend = 0, frame = 0
+ 330              		@ frame_needed = 0, uses_anonymous_args = 0
+ 331              		@ link register save eliminated.
+ 332              	.LVL12:
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	uint32_t tmpreg;
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg = RCC->SYSCLKSEL;
+ 333              		.loc 1 130 0
+ 334 0000 0449     		ldr	r1, .L34
+ 335 0002 CA68     		ldr	r2, [r1, #12]
+ 336              	.LVL13:
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg &= ~(RCC_SYSCLKSEL_AHBPRES_Msk);
+ 337              		.loc 1 131 0
+ 338 0004 044B     		ldr	r3, .L34+4
+ 339 0006 1A40     		ands	r2, r3
+ 340              	.LVL14:
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg |= (SetValue & RCC_SYSCLKSEL_AHBPRES_Msk);
+ 341              		.loc 1 132 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 9
+
+
+ 342 0008 E023     		movs	r3, #224
+ 343 000a DB00     		lsls	r3, r3, #3
+ 344 000c 1840     		ands	r0, r3
+ 345              	.LVL15:
+ 346 000e 1043     		orrs	r0, r2
+ 347              	.LVL16:
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC->SYSCLKSEL = tmpreg;
+ 348              		.loc 1 133 0
+ 349 0010 C860     		str	r0, [r1, #12]
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 350              		.loc 1 134 0
+ 351              		@ sp needed
+ 352 0012 7047     		bx	lr
+ 353              	.L35:
+ 354              		.align	2
+ 355              	.L34:
+ 356 0014 00020040 		.word	1073742336
+ 357 0018 FFF8FFFF 		.word	-1793
+ 358              		.cfi_endproc
+ 359              	.LFE44:
+ 361              		.section	.text.RCC_SYSCLKSEL_AHBPRES_Get,"ax",%progbits
+ 362              		.align	2
+ 363              		.global	RCC_SYSCLKSEL_AHBPRES_Get
+ 364              		.code	16
+ 365              		.thumb_func
+ 367              	RCC_SYSCLKSEL_AHBPRES_Get:
+ 368              	.LFB45:
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** uint32_t RCC_SYSCLKSEL_AHBPRES_Get(void)
+ 137:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 369              		.loc 1 137 0
+ 370              		.cfi_startproc
+ 371              		@ args = 0, pretend = 0, frame = 0
+ 372              		@ frame_needed = 0, uses_anonymous_args = 0
+ 373              		@ link register save eliminated.
+ 138:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	return (RCC->SYSCLKSEL & RCC_SYSCLKSEL_AHBPRES_Msk);
+ 374              		.loc 1 138 0
+ 375 0000 024B     		ldr	r3, .L37
+ 376 0002 D868     		ldr	r0, [r3, #12]
+ 377 0004 E023     		movs	r3, #224
+ 378 0006 DB00     		lsls	r3, r3, #3
+ 379 0008 1840     		ands	r0, r3
+ 139:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 380              		.loc 1 139 0
+ 381              		@ sp needed
+ 382 000a 7047     		bx	lr
+ 383              	.L38:
+ 384              		.align	2
+ 385              	.L37:
+ 386 000c 00020040 		.word	1073742336
+ 387              		.cfi_endproc
+ 388              	.LFE45:
+ 390              		.section	.text.RCC_SYSCLKSEL_SYSCLKSEL_Set,"ax",%progbits
+ 391              		.align	2
+ 392              		.global	RCC_SYSCLKSEL_SYSCLKSEL_Set
+ 393              		.code	16
+ 394              		.thumb_func
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 10
+
+
+ 396              	RCC_SYSCLKSEL_SYSCLKSEL_Set:
+ 397              	.LFB46:
+ 140:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 141:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* 系统时钟源选择 相关函数 */
+ 142:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** void RCC_SYSCLKSEL_SYSCLKSEL_Set(uint32_t SetValue)
+ 143:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 398              		.loc 1 143 0
+ 399              		.cfi_startproc
+ 400              		@ args = 0, pretend = 0, frame = 0
+ 401              		@ frame_needed = 0, uses_anonymous_args = 0
+ 402              		@ link register save eliminated.
+ 403              	.LVL17:
+ 144:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	uint32_t tmpreg;
+ 145:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg = RCC->SYSCLKSEL;
+ 404              		.loc 1 145 0
+ 405 0000 034A     		ldr	r2, .L40
+ 406 0002 D368     		ldr	r3, [r2, #12]
+ 407              	.LVL18:
+ 146:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg &= ~(RCC_SYSCLKSEL_SYSCLKSEL_Msk);
+ 408              		.loc 1 146 0
+ 409 0004 0321     		movs	r1, #3
+ 410 0006 8B43     		bics	r3, r1
+ 411              	.LVL19:
+ 147:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg |= (SetValue & RCC_SYSCLKSEL_SYSCLKSEL_Msk);
+ 412              		.loc 1 147 0
+ 413 0008 0840     		ands	r0, r1
+ 414              	.LVL20:
+ 415 000a 1843     		orrs	r0, r3
+ 416              	.LVL21:
+ 148:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC->SYSCLKSEL = tmpreg;
+ 417              		.loc 1 148 0
+ 418 000c D060     		str	r0, [r2, #12]
+ 149:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 419              		.loc 1 149 0
+ 420              		@ sp needed
+ 421 000e 7047     		bx	lr
+ 422              	.L41:
+ 423              		.align	2
+ 424              	.L40:
+ 425 0010 00020040 		.word	1073742336
+ 426              		.cfi_endproc
+ 427              	.LFE46:
+ 429              		.section	.text.RCC_SYSCLKSEL_SYSCLKSEL_Get,"ax",%progbits
+ 430              		.align	2
+ 431              		.global	RCC_SYSCLKSEL_SYSCLKSEL_Get
+ 432              		.code	16
+ 433              		.thumb_func
+ 435              	RCC_SYSCLKSEL_SYSCLKSEL_Get:
+ 436              	.LFB47:
+ 150:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 151:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** uint32_t RCC_SYSCLKSEL_SYSCLKSEL_Get(void)
+ 152:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 437              		.loc 1 152 0
+ 438              		.cfi_startproc
+ 439              		@ args = 0, pretend = 0, frame = 0
+ 440              		@ frame_needed = 0, uses_anonymous_args = 0
+ 441              		@ link register save eliminated.
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 11
+
+
+ 153:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	return (RCC->SYSCLKSEL & RCC_SYSCLKSEL_SYSCLKSEL_Msk);
+ 442              		.loc 1 153 0
+ 443 0000 024B     		ldr	r3, .L43
+ 444 0002 DB68     		ldr	r3, [r3, #12]
+ 445 0004 0320     		movs	r0, #3
+ 446 0006 1840     		ands	r0, r3
+ 154:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 447              		.loc 1 154 0
+ 448              		@ sp needed
+ 449 0008 7047     		bx	lr
+ 450              	.L44:
+ 451 000a C046     		.align	2
+ 452              	.L43:
+ 453 000c 00020040 		.word	1073742336
+ 454              		.cfi_endproc
+ 455              	.LFE47:
+ 457              		.section	.text.RCC_RCHFCON_FSEL_Set,"ax",%progbits
+ 458              		.align	2
+ 459              		.global	RCC_RCHFCON_FSEL_Set
+ 460              		.code	16
+ 461              		.thumb_func
+ 463              	RCC_RCHFCON_FSEL_Set:
+ 464              	.LFB48:
+ 155:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 156:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* RCHF频率选择寄存器 相关函数 */
+ 157:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** void RCC_RCHFCON_FSEL_Set(uint32_t SetValue)
+ 158:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 465              		.loc 1 158 0
+ 466              		.cfi_startproc
+ 467              		@ args = 0, pretend = 0, frame = 0
+ 468              		@ frame_needed = 0, uses_anonymous_args = 0
+ 469              		@ link register save eliminated.
+ 470              	.LVL22:
+ 159:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	uint32_t tmpreg;
+ 160:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg = RCC->RCHFCON;
+ 471              		.loc 1 160 0
+ 472 0000 0449     		ldr	r1, .L46
+ 473 0002 0A69     		ldr	r2, [r1, #16]
+ 474              	.LVL23:
+ 161:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg &= ~(RCC_RCHFCON_FSEL_Msk);
+ 475              		.loc 1 161 0
+ 476 0004 044B     		ldr	r3, .L46+4
+ 477 0006 1A40     		ands	r2, r3
+ 478              	.LVL24:
+ 162:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg |= (SetValue & RCC_RCHFCON_FSEL_Msk);
+ 479              		.loc 1 162 0
+ 480 0008 C023     		movs	r3, #192
+ 481 000a 9B02     		lsls	r3, r3, #10
+ 482 000c 1840     		ands	r0, r3
+ 483              	.LVL25:
+ 484 000e 1043     		orrs	r0, r2
+ 485              	.LVL26:
+ 163:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC->RCHFCON = tmpreg;
+ 486              		.loc 1 163 0
+ 487 0010 0861     		str	r0, [r1, #16]
+ 164:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 488              		.loc 1 164 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 12
+
+
+ 489              		@ sp needed
+ 490 0012 7047     		bx	lr
+ 491              	.L47:
+ 492              		.align	2
+ 493              	.L46:
+ 494 0014 00020040 		.word	1073742336
+ 495 0018 FFFFFCFF 		.word	-196609
+ 496              		.cfi_endproc
+ 497              	.LFE48:
+ 499              		.section	.text.RCC_RCHFCON_FSEL_Get,"ax",%progbits
+ 500              		.align	2
+ 501              		.global	RCC_RCHFCON_FSEL_Get
+ 502              		.code	16
+ 503              		.thumb_func
+ 505              	RCC_RCHFCON_FSEL_Get:
+ 506              	.LFB49:
+ 165:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 166:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** uint32_t RCC_RCHFCON_FSEL_Get(void)
+ 167:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 507              		.loc 1 167 0
+ 508              		.cfi_startproc
+ 509              		@ args = 0, pretend = 0, frame = 0
+ 510              		@ frame_needed = 0, uses_anonymous_args = 0
+ 511              		@ link register save eliminated.
+ 168:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	return (RCC->RCHFCON & RCC_RCHFCON_FSEL_Msk);
+ 512              		.loc 1 168 0
+ 513 0000 024B     		ldr	r3, .L49
+ 514 0002 1869     		ldr	r0, [r3, #16]
+ 515 0004 C023     		movs	r3, #192
+ 516 0006 9B02     		lsls	r3, r3, #10
+ 517 0008 1840     		ands	r0, r3
+ 169:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 518              		.loc 1 169 0
+ 519              		@ sp needed
+ 520 000a 7047     		bx	lr
+ 521              	.L50:
+ 522              		.align	2
+ 523              	.L49:
+ 524 000c 00020040 		.word	1073742336
+ 525              		.cfi_endproc
+ 526              	.LFE49:
+ 528              		.section	.text.RCC_RCHFCON_RCHFEN_Setable,"ax",%progbits
+ 529              		.align	2
+ 530              		.global	RCC_RCHFCON_RCHFEN_Setable
+ 531              		.code	16
+ 532              		.thumb_func
+ 534              	RCC_RCHFCON_RCHFEN_Setable:
+ 535              	.LFB50:
+ 170:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 171:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* RCHF使能寄存器 相关函数 */
+ 172:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** void RCC_RCHFCON_RCHFEN_Setable(FunState NewState)
+ 173:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 536              		.loc 1 173 0
+ 537              		.cfi_startproc
+ 538              		@ args = 0, pretend = 0, frame = 0
+ 539              		@ frame_needed = 0, uses_anonymous_args = 0
+ 540              		@ link register save eliminated.
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 13
+
+
+ 541              	.LVL27:
+ 174:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	if (NewState == ENABLE)
+ 542              		.loc 1 174 0
+ 543 0000 0128     		cmp	r0, #1
+ 544 0002 05D1     		bne	.L52
+ 175:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	{
+ 176:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		RCC->RCHFCON |= (RCC_RCHFCON_RCHFEN_Msk);
+ 545              		.loc 1 176 0
+ 546 0004 054A     		ldr	r2, .L54
+ 547 0006 1169     		ldr	r1, [r2, #16]
+ 548 0008 0123     		movs	r3, #1
+ 549 000a 0B43     		orrs	r3, r1
+ 550 000c 1361     		str	r3, [r2, #16]
+ 551 000e 04E0     		b	.L51
+ 552              	.L52:
+ 177:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	}
+ 178:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	else
+ 179:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	{
+ 180:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		RCC->RCHFCON &= ~(RCC_RCHFCON_RCHFEN_Msk);
+ 553              		.loc 1 180 0
+ 554 0010 024A     		ldr	r2, .L54
+ 555 0012 1369     		ldr	r3, [r2, #16]
+ 556 0014 0121     		movs	r1, #1
+ 557 0016 8B43     		bics	r3, r1
+ 558 0018 1361     		str	r3, [r2, #16]
+ 559              	.L51:
+ 181:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	}
+ 182:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 560              		.loc 1 182 0
+ 561              		@ sp needed
+ 562 001a 7047     		bx	lr
+ 563              	.L55:
+ 564              		.align	2
+ 565              	.L54:
+ 566 001c 00020040 		.word	1073742336
+ 567              		.cfi_endproc
+ 568              	.LFE50:
+ 570              		.section	.text.RCC_RCHFCON_RCHFEN_Getable,"ax",%progbits
+ 571              		.align	2
+ 572              		.global	RCC_RCHFCON_RCHFEN_Getable
+ 573              		.code	16
+ 574              		.thumb_func
+ 576              	RCC_RCHFCON_RCHFEN_Getable:
+ 577              	.LFB51:
+ 183:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 184:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** FunState RCC_RCHFCON_RCHFEN_Getable(void)
+ 185:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 578              		.loc 1 185 0
+ 579              		.cfi_startproc
+ 580              		@ args = 0, pretend = 0, frame = 0
+ 581              		@ frame_needed = 0, uses_anonymous_args = 0
+ 582              		@ link register save eliminated.
+ 186:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	if (RCC->RCHFCON & (RCC_RCHFCON_RCHFEN_Msk))
+ 583              		.loc 1 186 0
+ 584 0000 034B     		ldr	r3, .L59
+ 585 0002 1B69     		ldr	r3, [r3, #16]
+ 586 0004 DB07     		lsls	r3, r3, #31
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 14
+
+
+ 587 0006 01D5     		bpl	.L58
+ 187:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	{
+ 188:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		return ENABLE;
+ 588              		.loc 1 188 0
+ 589 0008 0120     		movs	r0, #1
+ 590 000a 00E0     		b	.L57
+ 591              	.L58:
+ 189:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	}
+ 190:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	else
+ 191:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	{
+ 192:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		return DISABLE;
+ 592              		.loc 1 192 0
+ 593 000c 0020     		movs	r0, #0
+ 594              	.L57:
+ 193:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	}
+ 194:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 595              		.loc 1 194 0
+ 596              		@ sp needed
+ 597 000e 7047     		bx	lr
+ 598              	.L60:
+ 599              		.align	2
+ 600              	.L59:
+ 601 0010 00020040 		.word	1073742336
+ 602              		.cfi_endproc
+ 603              	.LFE51:
+ 605              		.section	.text.RCC_RCHFTRIM_Write,"ax",%progbits
+ 606              		.align	2
+ 607              		.global	RCC_RCHFTRIM_Write
+ 608              		.code	16
+ 609              		.thumb_func
+ 611              	RCC_RCHFTRIM_Write:
+ 612              	.LFB52:
+ 195:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 196:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* RCHF频率调校寄存器 相关函数 */
+ 197:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** void RCC_RCHFTRIM_Write(uint32_t SetValue)
+ 198:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 613              		.loc 1 198 0
+ 614              		.cfi_startproc
+ 615              		@ args = 0, pretend = 0, frame = 0
+ 616              		@ frame_needed = 0, uses_anonymous_args = 0
+ 617              		@ link register save eliminated.
+ 618              	.LVL28:
+ 199:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC->RCHFTRIM = (SetValue & RCC_RCHFTRIM_RCHFTRIM_Msk);
+ 619              		.loc 1 199 0
+ 620 0000 7F23     		movs	r3, #127
+ 621 0002 1840     		ands	r0, r3
+ 622              	.LVL29:
+ 623 0004 014B     		ldr	r3, .L62
+ 624 0006 5861     		str	r0, [r3, #20]
+ 200:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 625              		.loc 1 200 0
+ 626              		@ sp needed
+ 627 0008 7047     		bx	lr
+ 628              	.L63:
+ 629 000a C046     		.align	2
+ 630              	.L62:
+ 631 000c 00020040 		.word	1073742336
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 15
+
+
+ 632              		.cfi_endproc
+ 633              	.LFE52:
+ 635              		.section	.text.RCC_RCHFTRIM_Read,"ax",%progbits
+ 636              		.align	2
+ 637              		.global	RCC_RCHFTRIM_Read
+ 638              		.code	16
+ 639              		.thumb_func
+ 641              	RCC_RCHFTRIM_Read:
+ 642              	.LFB53:
+ 201:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 202:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** uint32_t RCC_RCHFTRIM_Read(void)
+ 203:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 643              		.loc 1 203 0
+ 644              		.cfi_startproc
+ 645              		@ args = 0, pretend = 0, frame = 0
+ 646              		@ frame_needed = 0, uses_anonymous_args = 0
+ 647              		@ link register save eliminated.
+ 204:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	return (RCC->RCHFTRIM & RCC_RCHFTRIM_RCHFTRIM_Msk);
+ 648              		.loc 1 204 0
+ 649 0000 024B     		ldr	r3, .L65
+ 650 0002 5B69     		ldr	r3, [r3, #20]
+ 651 0004 7F20     		movs	r0, #127
+ 652 0006 1840     		ands	r0, r3
+ 205:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 653              		.loc 1 205 0
+ 654              		@ sp needed
+ 655 0008 7047     		bx	lr
+ 656              	.L66:
+ 657 000a C046     		.align	2
+ 658              	.L65:
+ 659 000c 00020040 		.word	1073742336
+ 660              		.cfi_endproc
+ 661              	.LFE53:
+ 663              		.section	.text.RCC_PLLCON_PLLDB_Set,"ax",%progbits
+ 664              		.align	2
+ 665              		.global	RCC_PLLCON_PLLDB_Set
+ 666              		.code	16
+ 667              		.thumb_func
+ 669              	RCC_PLLCON_PLLDB_Set:
+ 670              	.LFB54:
+ 206:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 207:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* PLL倍频数 相关函数 */
+ 208:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** void RCC_PLLCON_PLLDB_Set(uint32_t SetValue)
+ 209:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 671              		.loc 1 209 0
+ 672              		.cfi_startproc
+ 673              		@ args = 0, pretend = 0, frame = 0
+ 674              		@ frame_needed = 0, uses_anonymous_args = 0
+ 675              		@ link register save eliminated.
+ 676              	.LVL30:
+ 210:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	uint32_t tmpreg;
+ 211:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg = RCC->PLLCON;
+ 677              		.loc 1 211 0
+ 678 0000 0449     		ldr	r1, .L68
+ 679 0002 8A69     		ldr	r2, [r1, #24]
+ 680              	.LVL31:
+ 212:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg &= ~(RCC_PLLCON_PLLDB_Msk);
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 16
+
+
+ 681              		.loc 1 212 0
+ 682 0004 044B     		ldr	r3, .L68+4
+ 683 0006 1A40     		ands	r2, r3
+ 684              	.LVL32:
+ 213:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg |= (SetValue & RCC_PLLCON_PLLDB_Msk);
+ 685              		.loc 1 213 0
+ 686 0008 044B     		ldr	r3, .L68+8
+ 687 000a 1840     		ands	r0, r3
+ 688              	.LVL33:
+ 689 000c 1043     		orrs	r0, r2
+ 690              	.LVL34:
+ 214:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC->PLLCON = tmpreg;
+ 691              		.loc 1 214 0
+ 692 000e 8861     		str	r0, [r1, #24]
+ 215:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 693              		.loc 1 215 0
+ 694              		@ sp needed
+ 695 0010 7047     		bx	lr
+ 696              	.L69:
+ 697 0012 C046     		.align	2
+ 698              	.L68:
+ 699 0014 00020040 		.word	1073742336
+ 700 0018 FFFF00FC 		.word	-67043329
+ 701 001c 0000FF03 		.word	67043328
+ 702              		.cfi_endproc
+ 703              	.LFE54:
+ 705              		.section	.text.RCC_PLLCON_PLLDB_Get,"ax",%progbits
+ 706              		.align	2
+ 707              		.global	RCC_PLLCON_PLLDB_Get
+ 708              		.code	16
+ 709              		.thumb_func
+ 711              	RCC_PLLCON_PLLDB_Get:
+ 712              	.LFB55:
+ 216:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 217:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** uint32_t RCC_PLLCON_PLLDB_Get(void)
+ 218:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 713              		.loc 1 218 0
+ 714              		.cfi_startproc
+ 715              		@ args = 0, pretend = 0, frame = 0
+ 716              		@ frame_needed = 0, uses_anonymous_args = 0
+ 717              		@ link register save eliminated.
+ 219:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	return (RCC->PLLCON & RCC_PLLCON_PLLDB_Msk);
+ 718              		.loc 1 219 0
+ 719 0000 024B     		ldr	r3, .L71
+ 720 0002 9869     		ldr	r0, [r3, #24]
+ 721 0004 024B     		ldr	r3, .L71+4
+ 722 0006 1840     		ands	r0, r3
+ 220:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 723              		.loc 1 220 0
+ 724              		@ sp needed
+ 725 0008 7047     		bx	lr
+ 726              	.L72:
+ 727 000a C046     		.align	2
+ 728              	.L71:
+ 729 000c 00020040 		.word	1073742336
+ 730 0010 0000FF03 		.word	67043328
+ 731              		.cfi_endproc
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 17
+
+
+ 732              	.LFE55:
+ 734              		.section	.text.RCC_PLLCON_PLLOSEL_Set,"ax",%progbits
+ 735              		.align	2
+ 736              		.global	RCC_PLLCON_PLLOSEL_Set
+ 737              		.code	16
+ 738              		.thumb_func
+ 740              	RCC_PLLCON_PLLOSEL_Set:
+ 741              	.LFB56:
+ 221:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 222:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* PLL输出选择寄存器 相关函数 */
+ 223:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** void RCC_PLLCON_PLLOSEL_Set(uint32_t SetValue)
+ 224:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 742              		.loc 1 224 0
+ 743              		.cfi_startproc
+ 744              		@ args = 0, pretend = 0, frame = 0
+ 745              		@ frame_needed = 0, uses_anonymous_args = 0
+ 746              		@ link register save eliminated.
+ 747              	.LVL35:
+ 225:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	uint32_t tmpreg;
+ 226:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg = RCC->PLLCON;
+ 748              		.loc 1 226 0
+ 749 0000 034A     		ldr	r2, .L74
+ 750 0002 9369     		ldr	r3, [r2, #24]
+ 751              	.LVL36:
+ 227:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg &= ~(RCC_PLLCON_PLLOSEL_Msk);
+ 752              		.loc 1 227 0
+ 753 0004 0821     		movs	r1, #8
+ 754 0006 8B43     		bics	r3, r1
+ 755              	.LVL37:
+ 228:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg |= (SetValue & RCC_PLLCON_PLLOSEL_Msk);
+ 756              		.loc 1 228 0
+ 757 0008 0840     		ands	r0, r1
+ 758              	.LVL38:
+ 759 000a 1843     		orrs	r0, r3
+ 760              	.LVL39:
+ 229:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC->PLLCON = tmpreg;
+ 761              		.loc 1 229 0
+ 762 000c 9061     		str	r0, [r2, #24]
+ 230:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 763              		.loc 1 230 0
+ 764              		@ sp needed
+ 765 000e 7047     		bx	lr
+ 766              	.L75:
+ 767              		.align	2
+ 768              	.L74:
+ 769 0010 00020040 		.word	1073742336
+ 770              		.cfi_endproc
+ 771              	.LFE56:
+ 773              		.section	.text.RCC_PLLCON_PLLOSEL_Get,"ax",%progbits
+ 774              		.align	2
+ 775              		.global	RCC_PLLCON_PLLOSEL_Get
+ 776              		.code	16
+ 777              		.thumb_func
+ 779              	RCC_PLLCON_PLLOSEL_Get:
+ 780              	.LFB57:
+ 231:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 232:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** uint32_t RCC_PLLCON_PLLOSEL_Get(void)
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 18
+
+
+ 233:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 781              		.loc 1 233 0
+ 782              		.cfi_startproc
+ 783              		@ args = 0, pretend = 0, frame = 0
+ 784              		@ frame_needed = 0, uses_anonymous_args = 0
+ 785              		@ link register save eliminated.
+ 234:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	return (RCC->PLLCON & RCC_PLLCON_PLLOSEL_Msk);
+ 786              		.loc 1 234 0
+ 787 0000 024B     		ldr	r3, .L77
+ 788 0002 9B69     		ldr	r3, [r3, #24]
+ 789 0004 0820     		movs	r0, #8
+ 790 0006 1840     		ands	r0, r3
+ 235:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 791              		.loc 1 235 0
+ 792              		@ sp needed
+ 793 0008 7047     		bx	lr
+ 794              	.L78:
+ 795 000a C046     		.align	2
+ 796              	.L77:
+ 797 000c 00020040 		.word	1073742336
+ 798              		.cfi_endproc
+ 799              	.LFE57:
+ 801              		.section	.text.RCC_PLLCON_PLLINSEL_Set,"ax",%progbits
+ 802              		.align	2
+ 803              		.global	RCC_PLLCON_PLLINSEL_Set
+ 804              		.code	16
+ 805              		.thumb_func
+ 807              	RCC_PLLCON_PLLINSEL_Set:
+ 808              	.LFB58:
+ 236:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 237:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* PLL输入选择寄存器 相关函数 */
+ 238:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** void RCC_PLLCON_PLLINSEL_Set(uint32_t SetValue)
+ 239:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 809              		.loc 1 239 0
+ 810              		.cfi_startproc
+ 811              		@ args = 0, pretend = 0, frame = 0
+ 812              		@ frame_needed = 0, uses_anonymous_args = 0
+ 813              		@ link register save eliminated.
+ 814              	.LVL40:
+ 240:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	uint32_t tmpreg;
+ 241:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg = RCC->PLLCON;
+ 815              		.loc 1 241 0
+ 816 0000 034A     		ldr	r2, .L80
+ 817 0002 9369     		ldr	r3, [r2, #24]
+ 818              	.LVL41:
+ 242:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg &= ~(RCC_PLLCON_PLLINSEL_Msk);
+ 819              		.loc 1 242 0
+ 820 0004 0621     		movs	r1, #6
+ 821 0006 8B43     		bics	r3, r1
+ 822              	.LVL42:
+ 243:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg |= (SetValue & RCC_PLLCON_PLLINSEL_Msk);
+ 823              		.loc 1 243 0
+ 824 0008 0840     		ands	r0, r1
+ 825              	.LVL43:
+ 826 000a 1843     		orrs	r0, r3
+ 827              	.LVL44:
+ 244:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC->PLLCON = tmpreg;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 19
+
+
+ 828              		.loc 1 244 0
+ 829 000c 9061     		str	r0, [r2, #24]
+ 245:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 830              		.loc 1 245 0
+ 831              		@ sp needed
+ 832 000e 7047     		bx	lr
+ 833              	.L81:
+ 834              		.align	2
+ 835              	.L80:
+ 836 0010 00020040 		.word	1073742336
+ 837              		.cfi_endproc
+ 838              	.LFE58:
+ 840              		.section	.text.RCC_PLLCON_PLLINSEL_Get,"ax",%progbits
+ 841              		.align	2
+ 842              		.global	RCC_PLLCON_PLLINSEL_Get
+ 843              		.code	16
+ 844              		.thumb_func
+ 846              	RCC_PLLCON_PLLINSEL_Get:
+ 847              	.LFB59:
+ 246:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 247:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** uint32_t RCC_PLLCON_PLLINSEL_Get(void)
+ 248:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 848              		.loc 1 248 0
+ 849              		.cfi_startproc
+ 850              		@ args = 0, pretend = 0, frame = 0
+ 851              		@ frame_needed = 0, uses_anonymous_args = 0
+ 852              		@ link register save eliminated.
+ 249:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	return (RCC->PLLCON & RCC_PLLCON_PLLINSEL_Msk);
+ 853              		.loc 1 249 0
+ 854 0000 024B     		ldr	r3, .L83
+ 855 0002 9B69     		ldr	r3, [r3, #24]
+ 856 0004 0620     		movs	r0, #6
+ 857 0006 1840     		ands	r0, r3
+ 250:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 858              		.loc 1 250 0
+ 859              		@ sp needed
+ 860 0008 7047     		bx	lr
+ 861              	.L84:
+ 862 000a C046     		.align	2
+ 863              	.L83:
+ 864 000c 00020040 		.word	1073742336
+ 865              		.cfi_endproc
+ 866              	.LFE59:
+ 868              		.section	.text.RCC_PLLCON_PLLEN_Setable,"ax",%progbits
+ 869              		.align	2
+ 870              		.global	RCC_PLLCON_PLLEN_Setable
+ 871              		.code	16
+ 872              		.thumb_func
+ 874              	RCC_PLLCON_PLLEN_Setable:
+ 875              	.LFB60:
+ 251:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 252:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* PLL使能寄存器 相关函数 */
+ 253:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** void RCC_PLLCON_PLLEN_Setable(FunState NewState)
+ 254:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 876              		.loc 1 254 0
+ 877              		.cfi_startproc
+ 878              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 20
+
+
+ 879              		@ frame_needed = 0, uses_anonymous_args = 0
+ 880              		@ link register save eliminated.
+ 881              	.LVL45:
+ 255:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	if (NewState == ENABLE)
+ 882              		.loc 1 255 0
+ 883 0000 0128     		cmp	r0, #1
+ 884 0002 05D1     		bne	.L86
+ 256:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	{
+ 257:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		RCC->PLLCON |= (RCC_PLLCON_PLLEN_Msk);
+ 885              		.loc 1 257 0
+ 886 0004 054A     		ldr	r2, .L88
+ 887 0006 9169     		ldr	r1, [r2, #24]
+ 888 0008 0123     		movs	r3, #1
+ 889 000a 0B43     		orrs	r3, r1
+ 890 000c 9361     		str	r3, [r2, #24]
+ 891 000e 04E0     		b	.L85
+ 892              	.L86:
+ 258:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	}
+ 259:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	else
+ 260:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	{
+ 261:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		RCC->PLLCON &= ~(RCC_PLLCON_PLLEN_Msk);
+ 893              		.loc 1 261 0
+ 894 0010 024A     		ldr	r2, .L88
+ 895 0012 9369     		ldr	r3, [r2, #24]
+ 896 0014 0121     		movs	r1, #1
+ 897 0016 8B43     		bics	r3, r1
+ 898 0018 9361     		str	r3, [r2, #24]
+ 899              	.L85:
+ 262:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	}
+ 263:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 900              		.loc 1 263 0
+ 901              		@ sp needed
+ 902 001a 7047     		bx	lr
+ 903              	.L89:
+ 904              		.align	2
+ 905              	.L88:
+ 906 001c 00020040 		.word	1073742336
+ 907              		.cfi_endproc
+ 908              	.LFE60:
+ 910              		.section	.text.RCC_PLLCON_PLLEN_Getable,"ax",%progbits
+ 911              		.align	2
+ 912              		.global	RCC_PLLCON_PLLEN_Getable
+ 913              		.code	16
+ 914              		.thumb_func
+ 916              	RCC_PLLCON_PLLEN_Getable:
+ 917              	.LFB61:
+ 264:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 265:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** FunState RCC_PLLCON_PLLEN_Getable(void)
+ 266:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 918              		.loc 1 266 0
+ 919              		.cfi_startproc
+ 920              		@ args = 0, pretend = 0, frame = 0
+ 921              		@ frame_needed = 0, uses_anonymous_args = 0
+ 922              		@ link register save eliminated.
+ 267:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	if (RCC->PLLCON & (RCC_PLLCON_PLLEN_Msk))
+ 923              		.loc 1 267 0
+ 924 0000 034B     		ldr	r3, .L93
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 21
+
+
+ 925 0002 9B69     		ldr	r3, [r3, #24]
+ 926 0004 DB07     		lsls	r3, r3, #31
+ 927 0006 01D5     		bpl	.L92
+ 268:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	{
+ 269:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		return ENABLE;
+ 928              		.loc 1 269 0
+ 929 0008 0120     		movs	r0, #1
+ 930 000a 00E0     		b	.L91
+ 931              	.L92:
+ 270:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	}
+ 271:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	else
+ 272:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	{
+ 273:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		return DISABLE;
+ 932              		.loc 1 273 0
+ 933 000c 0020     		movs	r0, #0
+ 934              	.L91:
+ 274:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	}
+ 275:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 935              		.loc 1 275 0
+ 936              		@ sp needed
+ 937 000e 7047     		bx	lr
+ 938              	.L94:
+ 939              		.align	2
+ 940              	.L93:
+ 941 0010 00020040 		.word	1073742336
+ 942              		.cfi_endproc
+ 943              	.LFE61:
+ 945              		.section	.text.RCC_RCLPCON_RCLP_EN_B_Chk,"ax",%progbits
+ 946              		.align	2
+ 947              		.global	RCC_RCLPCON_RCLP_EN_B_Chk
+ 948              		.code	16
+ 949              		.thumb_func
+ 951              	RCC_RCLPCON_RCLP_EN_B_Chk:
+ 952              	.LFB62:
+ 276:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 277:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* RCLP使能状态，只读 相关函数 */
+ 278:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** FlagStatus RCC_RCLPCON_RCLP_EN_B_Chk(void)
+ 279:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 953              		.loc 1 279 0
+ 954              		.cfi_startproc
+ 955              		@ args = 0, pretend = 0, frame = 0
+ 956              		@ frame_needed = 0, uses_anonymous_args = 0
+ 957              		@ link register save eliminated.
+ 280:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	if (RCC->RCLPCON & RCC_RCLPCON_RCLP_EN_B_Msk)
+ 958              		.loc 1 280 0
+ 959 0000 034B     		ldr	r3, .L98
+ 960 0002 DB69     		ldr	r3, [r3, #28]
+ 961 0004 DB07     		lsls	r3, r3, #31
+ 962 0006 01D5     		bpl	.L97
+ 281:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	{
+ 282:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		return SET;
+ 963              		.loc 1 282 0
+ 964 0008 0120     		movs	r0, #1
+ 965 000a 00E0     		b	.L96
+ 966              	.L97:
+ 283:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	}
+ 284:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	else
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 22
+
+
+ 285:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	{
+ 286:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		return RESET;
+ 967              		.loc 1 286 0
+ 968 000c 0020     		movs	r0, #0
+ 969              	.L96:
+ 287:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	}
+ 288:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 970              		.loc 1 288 0
+ 971              		@ sp needed
+ 972 000e 7047     		bx	lr
+ 973              	.L99:
+ 974              		.align	2
+ 975              	.L98:
+ 976 0010 00020040 		.word	1073742336
+ 977              		.cfi_endproc
+ 978              	.LFE62:
+ 980              		.section	.text.RCC_RCLPTRIM_Write,"ax",%progbits
+ 981              		.align	2
+ 982              		.global	RCC_RCLPTRIM_Write
+ 983              		.code	16
+ 984              		.thumb_func
+ 986              	RCC_RCLPTRIM_Write:
+ 987              	.LFB63:
+ 289:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 290:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* RCLP频率调校寄存器，调校步长约4% 相关函数 */
+ 291:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** void RCC_RCLPTRIM_Write(uint32_t SetValue)
+ 292:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 988              		.loc 1 292 0
+ 989              		.cfi_startproc
+ 990              		@ args = 0, pretend = 0, frame = 0
+ 991              		@ frame_needed = 0, uses_anonymous_args = 0
+ 992              		@ link register save eliminated.
+ 993              	.LVL46:
+ 293:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC->RCLPTRIM = (SetValue & RCC_RCLPTRIM_RCLPTRIM_Msk);
+ 994              		.loc 1 293 0
+ 995 0000 0F23     		movs	r3, #15
+ 996 0002 1840     		ands	r0, r3
+ 997              	.LVL47:
+ 998 0004 014B     		ldr	r3, .L101
+ 999 0006 1862     		str	r0, [r3, #32]
+ 294:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 1000              		.loc 1 294 0
+ 1001              		@ sp needed
+ 1002 0008 7047     		bx	lr
+ 1003              	.L102:
+ 1004 000a C046     		.align	2
+ 1005              	.L101:
+ 1006 000c 00020040 		.word	1073742336
+ 1007              		.cfi_endproc
+ 1008              	.LFE63:
+ 1010              		.section	.text.RCC_RCLPTRIM_Read,"ax",%progbits
+ 1011              		.align	2
+ 1012              		.global	RCC_RCLPTRIM_Read
+ 1013              		.code	16
+ 1014              		.thumb_func
+ 1016              	RCC_RCLPTRIM_Read:
+ 1017              	.LFB64:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 23
+
+
+ 295:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 296:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** uint32_t RCC_RCLPTRIM_Read(void)
+ 297:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 1018              		.loc 1 297 0
+ 1019              		.cfi_startproc
+ 1020              		@ args = 0, pretend = 0, frame = 0
+ 1021              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1022              		@ link register save eliminated.
+ 298:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	return (RCC->RCLPTRIM & RCC_RCLPTRIM_RCLPTRIM_Msk);
+ 1023              		.loc 1 298 0
+ 1024 0000 024B     		ldr	r3, .L104
+ 1025 0002 1B6A     		ldr	r3, [r3, #32]
+ 1026 0004 0F20     		movs	r0, #15
+ 1027 0006 1840     		ands	r0, r3
+ 299:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 1028              		.loc 1 299 0
+ 1029              		@ sp needed
+ 1030 0008 7047     		bx	lr
+ 1031              	.L105:
+ 1032 000a C046     		.align	2
+ 1033              	.L104:
+ 1034 000c 00020040 		.word	1073742336
+ 1035              		.cfi_endproc
+ 1036              	.LFE64:
+ 1038              		.section	.text.RCC_XTLFIPW_XTLFIPW_Set,"ax",%progbits
+ 1039              		.align	2
+ 1040              		.global	RCC_XTLFIPW_XTLFIPW_Set
+ 1041              		.code	16
+ 1042              		.thumb_func
+ 1044              	RCC_XTLFIPW_XTLFIPW_Set:
+ 1045              	.LFB65:
+ 300:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 301:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* XTLF工作电流选择 相关函数 */
+ 302:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** void RCC_XTLFIPW_XTLFIPW_Set(uint32_t SetValue)
+ 303:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 1046              		.loc 1 303 0
+ 1047              		.cfi_startproc
+ 1048              		@ args = 0, pretend = 0, frame = 0
+ 1049              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1050              		@ link register save eliminated.
+ 1051              	.LVL48:
+ 304:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	uint32_t tmpreg;
+ 305:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg = RCC->XTLFIPW;
+ 1052              		.loc 1 305 0
+ 1053 0000 034A     		ldr	r2, .L107
+ 1054 0002 536A     		ldr	r3, [r2, #36]
+ 1055              	.LVL49:
+ 306:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg &= ~(RCC_XTLFIPW_XTLFIPW_Msk);
+ 1056              		.loc 1 306 0
+ 1057 0004 0721     		movs	r1, #7
+ 1058 0006 8B43     		bics	r3, r1
+ 1059              	.LVL50:
+ 307:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg |= (SetValue & RCC_XTLFIPW_XTLFIPW_Msk);
+ 1060              		.loc 1 307 0
+ 1061 0008 0840     		ands	r0, r1
+ 1062              	.LVL51:
+ 1063 000a 1843     		orrs	r0, r3
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 24
+
+
+ 1064              	.LVL52:
+ 308:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC->XTLFIPW = tmpreg;
+ 1065              		.loc 1 308 0
+ 1066 000c 5062     		str	r0, [r2, #36]
+ 309:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 1067              		.loc 1 309 0
+ 1068              		@ sp needed
+ 1069 000e 7047     		bx	lr
+ 1070              	.L108:
+ 1071              		.align	2
+ 1072              	.L107:
+ 1073 0010 00020040 		.word	1073742336
+ 1074              		.cfi_endproc
+ 1075              	.LFE65:
+ 1077              		.section	.text.RCC_XTLFIPW_XTLFIPW_Get,"ax",%progbits
+ 1078              		.align	2
+ 1079              		.global	RCC_XTLFIPW_XTLFIPW_Get
+ 1080              		.code	16
+ 1081              		.thumb_func
+ 1083              	RCC_XTLFIPW_XTLFIPW_Get:
+ 1084              	.LFB66:
+ 310:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 311:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** uint32_t RCC_XTLFIPW_XTLFIPW_Get(void)
+ 312:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 1085              		.loc 1 312 0
+ 1086              		.cfi_startproc
+ 1087              		@ args = 0, pretend = 0, frame = 0
+ 1088              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1089              		@ link register save eliminated.
+ 313:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	return (RCC->XTLFIPW & RCC_XTLFIPW_XTLFIPW_Msk);
+ 1090              		.loc 1 313 0
+ 1091 0000 024B     		ldr	r3, .L110
+ 1092 0002 5B6A     		ldr	r3, [r3, #36]
+ 1093 0004 0720     		movs	r0, #7
+ 1094 0006 1840     		ands	r0, r3
+ 314:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 1095              		.loc 1 314 0
+ 1096              		@ sp needed
+ 1097 0008 7047     		bx	lr
+ 1098              	.L111:
+ 1099 000a C046     		.align	2
+ 1100              	.L110:
+ 1101 000c 00020040 		.word	1073742336
+ 1102              		.cfi_endproc
+ 1103              	.LFE66:
+ 1105              		.section	.text.RCC_PERCLKCON2_ADCCKSEL_Set,"ax",%progbits
+ 1106              		.align	2
+ 1107              		.global	RCC_PERCLKCON2_ADCCKSEL_Set
+ 1108              		.code	16
+ 1109              		.thumb_func
+ 1111              	RCC_PERCLKCON2_ADCCKSEL_Set:
+ 1112              	.LFB67:
+ 315:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 316:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* ADC工作时钟选择 相关函数 */
+ 317:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** void RCC_PERCLKCON2_ADCCKSEL_Set(uint32_t SetValue)
+ 318:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 1113              		.loc 1 318 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 25
+
+
+ 1114              		.cfi_startproc
+ 1115              		@ args = 0, pretend = 0, frame = 0
+ 1116              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1117              		@ link register save eliminated.
+ 1118              	.LVL53:
+ 319:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	uint32_t tmpreg;
+ 320:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg = RCC->PERCLKCON2;
+ 1119              		.loc 1 320 0
+ 1120 0000 0449     		ldr	r1, .L113
+ 1121 0002 CA6A     		ldr	r2, [r1, #44]
+ 1122              	.LVL54:
+ 321:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg &= ~(RCC_PERCLKCON2_ADCCKSEL_Msk);
+ 1123              		.loc 1 321 0
+ 1124 0004 044B     		ldr	r3, .L113+4
+ 1125 0006 1A40     		ands	r2, r3
+ 1126              	.LVL55:
+ 322:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg |= (SetValue & RCC_PERCLKCON2_ADCCKSEL_Msk);
+ 1127              		.loc 1 322 0
+ 1128 0008 E023     		movs	r3, #224
+ 1129 000a DB02     		lsls	r3, r3, #11
+ 1130 000c 1840     		ands	r0, r3
+ 1131              	.LVL56:
+ 1132 000e 1043     		orrs	r0, r2
+ 1133              	.LVL57:
+ 323:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC->PERCLKCON2 = tmpreg;
+ 1134              		.loc 1 323 0
+ 1135 0010 C862     		str	r0, [r1, #44]
+ 324:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 1136              		.loc 1 324 0
+ 1137              		@ sp needed
+ 1138 0012 7047     		bx	lr
+ 1139              	.L114:
+ 1140              		.align	2
+ 1141              	.L113:
+ 1142 0014 00020040 		.word	1073742336
+ 1143 0018 FFFFF8FF 		.word	-458753
+ 1144              		.cfi_endproc
+ 1145              	.LFE67:
+ 1147              		.section	.text.RCC_PERCLKCON2_ADCCKSEL_Get,"ax",%progbits
+ 1148              		.align	2
+ 1149              		.global	RCC_PERCLKCON2_ADCCKSEL_Get
+ 1150              		.code	16
+ 1151              		.thumb_func
+ 1153              	RCC_PERCLKCON2_ADCCKSEL_Get:
+ 1154              	.LFB68:
+ 325:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 326:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** uint32_t RCC_PERCLKCON2_ADCCKSEL_Get(void)
+ 327:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 1155              		.loc 1 327 0
+ 1156              		.cfi_startproc
+ 1157              		@ args = 0, pretend = 0, frame = 0
+ 1158              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1159              		@ link register save eliminated.
+ 328:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	return (RCC->PERCLKCON2 & RCC_PERCLKCON2_ADCCKSEL_Msk);
+ 1160              		.loc 1 328 0
+ 1161 0000 024B     		ldr	r3, .L116
+ 1162 0002 D86A     		ldr	r0, [r3, #44]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 26
+
+
+ 1163 0004 E023     		movs	r3, #224
+ 1164 0006 DB02     		lsls	r3, r3, #11
+ 1165 0008 1840     		ands	r0, r3
+ 329:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 1166              		.loc 1 329 0
+ 1167              		@ sp needed
+ 1168 000a 7047     		bx	lr
+ 1169              	.L117:
+ 1170              		.align	2
+ 1171              	.L116:
+ 1172 000c 00020040 		.word	1073742336
+ 1173              		.cfi_endproc
+ 1174              	.LFE68:
+ 1176              		.section	.text.RCC_MPRIL_MPRIL_Set,"ax",%progbits
+ 1177              		.align	2
+ 1178              		.global	RCC_MPRIL_MPRIL_Set
+ 1179              		.code	16
+ 1180              		.thumb_func
+ 1182              	RCC_MPRIL_MPRIL_Set:
+ 1183              	.LFB69:
+ 330:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 331:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* AHB Master优先级配置 相关函数 */
+ 332:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** void RCC_MPRIL_MPRIL_Set(uint32_t SetValue)
+ 333:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 1184              		.loc 1 333 0
+ 1185              		.cfi_startproc
+ 1186              		@ args = 0, pretend = 0, frame = 0
+ 1187              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1188              		@ link register save eliminated.
+ 1189              	.LVL58:
+ 334:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	uint32_t tmpreg;
+ 335:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg = RCC->MPRIL;
+ 1190              		.loc 1 335 0
+ 1191 0000 034A     		ldr	r2, .L119
+ 1192 0002 536C     		ldr	r3, [r2, #68]
+ 1193              	.LVL59:
+ 336:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg &= ~(RCC_MPRIL_MPRIL_Msk);
+ 1194              		.loc 1 336 0
+ 1195 0004 0121     		movs	r1, #1
+ 1196 0006 8B43     		bics	r3, r1
+ 1197              	.LVL60:
+ 337:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg |= (SetValue & RCC_MPRIL_MPRIL_Msk);
+ 1198              		.loc 1 337 0
+ 1199 0008 0840     		ands	r0, r1
+ 1200              	.LVL61:
+ 1201 000a 1843     		orrs	r0, r3
+ 1202              	.LVL62:
+ 338:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC->MPRIL = tmpreg;
+ 1203              		.loc 1 338 0
+ 1204 000c 5064     		str	r0, [r2, #68]
+ 339:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 1205              		.loc 1 339 0
+ 1206              		@ sp needed
+ 1207 000e 7047     		bx	lr
+ 1208              	.L120:
+ 1209              		.align	2
+ 1210              	.L119:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 27
+
+
+ 1211 0010 00020040 		.word	1073742336
+ 1212              		.cfi_endproc
+ 1213              	.LFE69:
+ 1215              		.section	.text.RCC_MPRIL_MPRIL_Get,"ax",%progbits
+ 1216              		.align	2
+ 1217              		.global	RCC_MPRIL_MPRIL_Get
+ 1218              		.code	16
+ 1219              		.thumb_func
+ 1221              	RCC_MPRIL_MPRIL_Get:
+ 1222              	.LFB70:
+ 340:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 341:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** uint32_t RCC_MPRIL_MPRIL_Get(void)
+ 342:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 1223              		.loc 1 342 0
+ 1224              		.cfi_startproc
+ 1225              		@ args = 0, pretend = 0, frame = 0
+ 1226              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1227              		@ link register save eliminated.
+ 343:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	return (RCC->MPRIL & RCC_MPRIL_MPRIL_Msk);
+ 1228              		.loc 1 343 0
+ 1229 0000 024B     		ldr	r3, .L122
+ 1230 0002 5B6C     		ldr	r3, [r3, #68]
+ 1231 0004 0120     		movs	r0, #1
+ 1232 0006 1840     		ands	r0, r3
+ 344:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 1233              		.loc 1 344 0
+ 1234              		@ sp needed
+ 1235 0008 7047     		bx	lr
+ 1236              	.L123:
+ 1237 000a C046     		.align	2
+ 1238              	.L122:
+ 1239 000c 00020040 		.word	1073742336
+ 1240              		.cfi_endproc
+ 1241              	.LFE70:
+ 1243              		.section	.text.RCC_Deinit,"ax",%progbits
+ 1244              		.align	2
+ 1245              		.global	RCC_Deinit
+ 1246              		.code	16
+ 1247              		.thumb_func
+ 1249              	RCC_Deinit:
+ 1250              	.LFB71:
+ 345:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 346:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** void RCC_Deinit(void)
+ 347:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 1251              		.loc 1 347 0
+ 1252              		.cfi_startproc
+ 1253              		@ args = 0, pretend = 0, frame = 0
+ 1254              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1255              		@ link register save eliminated.
+ 348:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC->SYSCLKSEL = 0x02008300;
+ 1256              		.loc 1 348 0
+ 1257 0000 0A4B     		ldr	r3, .L125
+ 1258 0002 0B4A     		ldr	r2, .L125+4
+ 1259 0004 DA60     		str	r2, [r3, #12]
+ 349:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC->RCHFCON = 0x00000001;
+ 1260              		.loc 1 349 0
+ 1261 0006 0122     		movs	r2, #1
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 28
+
+
+ 1262 0008 1A61     		str	r2, [r3, #16]
+ 350:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	//RCC->RCHFTRIM = 0x00000040;
+ 351:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC->PLLCON = 0x01F30000;
+ 1263              		.loc 1 351 0
+ 1264 000a 0A4A     		ldr	r2, .L125+8
+ 1265 000c 9A61     		str	r2, [r3, #24]
+ 352:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	//RCC->RCLPCON = ;
+ 353:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC->RCLPTRIM = 0x00000008;
+ 1266              		.loc 1 353 0
+ 1267 000e 0822     		movs	r2, #8
+ 1268 0010 1A62     		str	r2, [r3, #32]
+ 354:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	//RCC->XTLFIPW = 0x00000000;
+ 355:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC->PERCLKCON1 = 0x80000058;
+ 1269              		.loc 1 355 0
+ 1270 0012 094A     		ldr	r2, .L125+12
+ 1271 0014 9A62     		str	r2, [r3, #40]
+ 356:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC->PERCLKCON2 = 0x00060000;
+ 1272              		.loc 1 356 0
+ 1273 0016 C022     		movs	r2, #192
+ 1274 0018 D202     		lsls	r2, r2, #11
+ 1275 001a DA62     		str	r2, [r3, #44]
+ 357:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC->PERCLKCON3 = 0x00000000;
+ 1276              		.loc 1 357 0
+ 1277 001c 0022     		movs	r2, #0
+ 1278 001e 1A63     		str	r2, [r3, #48]
+ 358:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC->PERCLKCON4 = 0x00000000;
+ 1279              		.loc 1 358 0
+ 1280 0020 5A63     		str	r2, [r3, #52]
+ 359:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC->MPRIL = 0x80000000;
+ 1281              		.loc 1 359 0
+ 1282 0022 8022     		movs	r2, #128
+ 1283 0024 1206     		lsls	r2, r2, #24
+ 1284 0026 5A64     		str	r2, [r3, #68]
+ 360:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 1285              		.loc 1 360 0
+ 1286              		@ sp needed
+ 1287 0028 7047     		bx	lr
+ 1288              	.L126:
+ 1289 002a C046     		.align	2
+ 1290              	.L125:
+ 1291 002c 00020040 		.word	1073742336
+ 1292 0030 00830002 		.word	33587968
+ 1293 0034 0000F301 		.word	32702464
+ 1294 0038 58000080 		.word	-2147483560
+ 1295              		.cfi_endproc
+ 1296              	.LFE71:
+ 1298              		.section	.text.RCC_GetClocksFreq,"ax",%progbits
+ 1299              		.align	2
+ 1300              		.global	RCC_GetClocksFreq
+ 1301              		.code	16
+ 1302              		.thumb_func
+ 1304              	RCC_GetClocksFreq:
+ 1305              	.LFB72:
+ 361:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** //Code_End
+ 362:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 363:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /** 
+ 364:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****  *  Returns the frequencies of different on chip clocks *
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 29
+
+
+ 365:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****  */
+ 366:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** void RCC_GetClocksFreq(RCC_ClocksType* para)
+ 367:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 1306              		.loc 1 367 0
+ 1307              		.cfi_startproc
+ 1308              		@ args = 0, pretend = 0, frame = 0
+ 1309              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1310              	.LVL63:
+ 1311 0000 70B5     		push	{r4, r5, r6, lr}
+ 1312              	.LCFI0:
+ 1313              		.cfi_def_cfa_offset 16
+ 1314              		.cfi_offset 4, -16
+ 1315              		.cfi_offset 5, -12
+ 1316              		.cfi_offset 6, -8
+ 1317              		.cfi_offset 14, -4
+ 1318 0002 0400     		movs	r4, r0
+ 1319              	.LVL64:
+ 368:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****     uint32_t tmp32 = 0,tmp_value = 0;
+ 369:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 370:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	para->RCHF_Frequency = 0;
+ 1320              		.loc 1 370 0
+ 1321 0004 0023     		movs	r3, #0
+ 1322 0006 C360     		str	r3, [r0, #12]
+ 371:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	para->PLL_Frequency = 0;
+ 1323              		.loc 1 371 0
+ 1324 0008 0361     		str	r3, [r0, #16]
+ 372:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	para->SYSCLK_Frequency = 0;
+ 1325              		.loc 1 372 0
+ 1326 000a 0360     		str	r3, [r0]
+ 373:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	para->AHBCLK_Frequency = 0;
+ 1327              		.loc 1 373 0
+ 1328 000c 4360     		str	r3, [r0, #4]
+ 374:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	para->APBCLK_Frequency = 0;
+ 1329              		.loc 1 374 0
+ 1330 000e 8360     		str	r3, [r0, #8]
+ 375:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	
+ 376:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	/* Get RCHF FSEL */
+ 377:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	if(ENABLE == RCC_RCHFCON_RCHFEN_Getable())
+ 1331              		.loc 1 377 0
+ 1332 0010 FFF7FEFF 		bl	RCC_RCHFCON_RCHFEN_Getable
+ 1333              	.LVL65:
+ 1334 0014 0128     		cmp	r0, #1
+ 1335 0016 06D1     		bne	.L128
+ 378:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	{
+ 379:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		tmp32 = RCC_RCHFCON_FSEL_Get();
+ 1336              		.loc 1 379 0
+ 1337 0018 FFF7FEFF 		bl	RCC_RCHFCON_FSEL_Get
+ 1338              	.LVL66:
+ 380:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		tmp32 = tmp32 >> RCC_RCHFCON_FSEL_Pos;  
+ 1339              		.loc 1 380 0
+ 1340 001c 000C     		lsrs	r0, r0, #16
+ 1341              	.LVL67:
+ 381:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		/* RCHF clock frequency */
+ 382:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		para->RCHF_Frequency = __RCHF_INITIAL_CLOCK * (tmp32 + 1);
+ 1342              		.loc 1 382 0
+ 1343 001e 0130     		adds	r0, r0, #1
+ 1344              	.LVL68:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 30
+
+
+ 1345 0020 3C4B     		ldr	r3, .L156
+ 1346 0022 5843     		muls	r0, r3
+ 1347              	.LVL69:
+ 1348 0024 E060     		str	r0, [r4, #12]
+ 1349              	.L128:
+ 383:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	}
+ 384:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 385:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	if(ENABLE == RCC_PLLCON_PLLEN_Getable())
+ 1350              		.loc 1 385 0
+ 1351 0026 FFF7FEFF 		bl	RCC_PLLCON_PLLEN_Getable
+ 1352              	.LVL70:
+ 1353 002a 0128     		cmp	r0, #1
+ 1354 002c 15D1     		bne	.L129
+ 386:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	{
+ 387:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		/* Get Pll frequency */
+ 388:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		tmp32 = RCC_PLLCON_PLLINSEL_Get();
+ 1355              		.loc 1 388 0
+ 1356 002e FFF7FEFF 		bl	RCC_PLLCON_PLLINSEL_Get
+ 1357              	.LVL71:
+ 389:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		tmp32 = tmp32 >> RCC_PLLCON_PLLINSEL_Pos;
+ 1358              		.loc 1 389 0
+ 1359 0032 4008     		lsrs	r0, r0, #1
+ 1360              	.LVL72:
+ 390:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		switch(tmp32)
+ 1361              		.loc 1 390 0
+ 1362 0034 0128     		cmp	r0, #1
+ 1363 0036 02D0     		beq	.L131
+ 1364 0038 0228     		cmp	r0, #2
+ 1365 003a 03D0     		beq	.L132
+ 1366 003c 05E0     		b	.L154
+ 1367              	.L131:
+ 391:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		{
+ 392:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 			case 0x01: //01:RCLP
+ 393:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 				tmp_value = __RCLP_CLOCK;
+ 1368              		.loc 1 393 0
+ 1369 003e FA25     		movs	r5, #250
+ 1370 0040 ED01     		lsls	r5, r5, #7
+ 1371 0042 04E0     		b	.L130
+ 1372              	.L132:
+ 394:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 				break;
+ 395:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 			case 0x02: //10:RCHF/256
+ 396:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 				tmp_value = para->RCHF_Frequency/256;
+ 1373              		.loc 1 396 0
+ 1374 0044 E368     		ldr	r3, [r4, #12]
+ 1375 0046 1D0A     		lsrs	r5, r3, #8
+ 1376              	.LVL73:
+ 397:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 				break;
+ 1377              		.loc 1 397 0
+ 1378 0048 01E0     		b	.L130
+ 1379              	.LVL74:
+ 1380              	.L154:
+ 398:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 			default: //00/11:XTLF
+ 399:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 				tmp_value = __XTLF_CLOCK;
+ 1381              		.loc 1 399 0
+ 1382 004a 8025     		movs	r5, #128
+ 1383 004c 2D02     		lsls	r5, r5, #8
+ 1384              	.LVL75:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 31
+
+
+ 1385              	.L130:
+ 400:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 				break;
+ 401:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		}
+ 402:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		tmp32 = RCC_PLLCON_PLLDB_Get();
+ 1386              		.loc 1 402 0
+ 1387 004e FFF7FEFF 		bl	RCC_PLLCON_PLLDB_Get
+ 1388              	.LVL76:
+ 403:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		tmp32 = tmp32 >> RCC_PLLCON_PLLDB_Pos;
+ 1389              		.loc 1 403 0
+ 1390 0052 000C     		lsrs	r0, r0, #16
+ 1391              	.LVL77:
+ 404:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		para->PLL_Frequency = (tmp32 + 1) * tmp_value;
+ 1392              		.loc 1 404 0
+ 1393 0054 0130     		adds	r0, r0, #1
+ 1394              	.LVL78:
+ 1395 0056 6843     		muls	r0, r5
+ 1396              	.LVL79:
+ 1397 0058 2061     		str	r0, [r4, #16]
+ 1398              	.LVL80:
+ 1399              	.L129:
+ 405:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	}
+ 406:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	
+ 407:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	/* Get SYSCLK source */
+ 408:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****     tmp32 = RCC_SYSCLKSEL_SYSCLKSEL_Get();
+ 1400              		.loc 1 408 0
+ 1401 005a FFF7FEFF 		bl	RCC_SYSCLKSEL_SYSCLKSEL_Get
+ 1402              	.LVL81:
+ 409:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****     tmp32 = tmp32 >> RCC_SYSCLKSEL_SYSCLKSEL_Pos;
+ 410:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****     switch (tmp32)
+ 1403              		.loc 1 410 0
+ 1404 005e 0128     		cmp	r0, #1
+ 1405 0060 09D0     		beq	.L134
+ 1406 0062 0028     		cmp	r0, #0
+ 1407 0064 04D0     		beq	.L135
+ 1408 0066 0228     		cmp	r0, #2
+ 1409 0068 09D0     		beq	.L136
+ 1410 006a 0328     		cmp	r0, #3
+ 1411 006c 0BD0     		beq	.L137
+ 1412 006e 0DE0     		b	.L155
+ 1413              	.L135:
+ 411:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****     {
+ 412:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****         case 0x00:  /* RCHF used as system clock source */
+ 413:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****             para->SYSCLK_Frequency = para->RCHF_Frequency;
+ 1414              		.loc 1 413 0
+ 1415 0070 E368     		ldr	r3, [r4, #12]
+ 1416 0072 2360     		str	r3, [r4]
+ 414:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****             break;
+ 1417              		.loc 1 414 0
+ 1418 0074 0CE0     		b	.L138
+ 1419              	.L134:
+ 415:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****         case 0x01:  /* RCLP used as system clock  source */
+ 416:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****             para->SYSCLK_Frequency = __RCLP_CLOCK;
+ 1420              		.loc 1 416 0
+ 1421 0076 FA23     		movs	r3, #250
+ 1422 0078 DB01     		lsls	r3, r3, #7
+ 1423 007a 2360     		str	r3, [r4]
+ 417:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****             break;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 32
+
+
+ 1424              		.loc 1 417 0
+ 1425 007c 08E0     		b	.L138
+ 1426              	.L136:
+ 418:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****         case 0x02:  /* LSCLK used as system clock  source */
+ 419:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****             para->SYSCLK_Frequency = __XTLF_CLOCK;
+ 1427              		.loc 1 419 0
+ 1428 007e 8023     		movs	r3, #128
+ 1429 0080 1B02     		lsls	r3, r3, #8
+ 1430 0082 2360     		str	r3, [r4]
+ 420:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****             break;
+ 1431              		.loc 1 420 0
+ 1432 0084 04E0     		b	.L138
+ 1433              	.L137:
+ 421:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****         case 0x03:  /* PLL used as system clock  source */
+ 422:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****             para->SYSCLK_Frequency = para->PLL_Frequency;
+ 1434              		.loc 1 422 0
+ 1435 0086 2369     		ldr	r3, [r4, #16]
+ 1436 0088 2360     		str	r3, [r4]
+ 423:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****             break;
+ 1437              		.loc 1 423 0
+ 1438 008a 01E0     		b	.L138
+ 1439              	.L155:
+ 424:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****         default:
+ 425:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****             para->SYSCLK_Frequency = para->RCHF_Frequency;
+ 1440              		.loc 1 425 0
+ 1441 008c E368     		ldr	r3, [r4, #12]
+ 1442 008e 2360     		str	r3, [r4]
+ 1443              	.L138:
+ 426:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****             break;
+ 427:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****     }
+ 428:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	
+ 429:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	/* Get AHB PRES */
+ 430:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****     tmp32 = RCC_SYSCLKSEL_AHBPRES_Get();
+ 1444              		.loc 1 430 0
+ 1445 0090 FFF7FEFF 		bl	RCC_SYSCLKSEL_AHBPRES_Get
+ 1446              	.LVL82:
+ 431:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****     tmp32 = tmp32 >> RCC_SYSCLKSEL_AHBPRES_Pos;  
+ 1447              		.loc 1 431 0
+ 1448 0094 000A     		lsrs	r0, r0, #8
+ 1449              	.LVL83:
+ 432:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****     switch(tmp32)
+ 1450              		.loc 1 432 0
+ 1451 0096 0528     		cmp	r0, #5
+ 1452 0098 0CD0     		beq	.L140
+ 1453 009a 02D8     		bhi	.L141
+ 1454 009c 0428     		cmp	r0, #4
+ 1455 009e 05D0     		beq	.L142
+ 1456 00a0 14E0     		b	.L139
+ 1457              	.L141:
+ 1458 00a2 0628     		cmp	r0, #6
+ 1459 00a4 0AD0     		beq	.L143
+ 1460 00a6 0728     		cmp	r0, #7
+ 1461 00a8 0CD0     		beq	.L144
+ 1462 00aa 0FE0     		b	.L139
+ 1463              	.L142:
+ 433:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****     {
+ 434:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****         case 0x04: //100:DIV2
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 33
+
+
+ 435:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****             para->AHBCLK_Frequency = para->SYSCLK_Frequency/2;
+ 1464              		.loc 1 435 0
+ 1465 00ac 2368     		ldr	r3, [r4]
+ 1466 00ae 5B08     		lsrs	r3, r3, #1
+ 1467 00b0 6360     		str	r3, [r4, #4]
+ 436:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****             break;
+ 1468              		.loc 1 436 0
+ 1469 00b2 0DE0     		b	.L145
+ 1470              	.L140:
+ 437:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****         case 0x05: //101:DIV4
+ 438:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****             para->AHBCLK_Frequency = para->SYSCLK_Frequency/4;
+ 1471              		.loc 1 438 0
+ 1472 00b4 2368     		ldr	r3, [r4]
+ 1473 00b6 9B08     		lsrs	r3, r3, #2
+ 1474 00b8 6360     		str	r3, [r4, #4]
+ 439:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****             break;
+ 1475              		.loc 1 439 0
+ 1476 00ba 09E0     		b	.L145
+ 1477              	.L143:
+ 440:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****         case 0x06: //110:DIV8
+ 441:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****             para->AHBCLK_Frequency = para->SYSCLK_Frequency/8;
+ 1478              		.loc 1 441 0
+ 1479 00bc 2368     		ldr	r3, [r4]
+ 1480 00be DB08     		lsrs	r3, r3, #3
+ 1481 00c0 6360     		str	r3, [r4, #4]
+ 442:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****             break;
+ 1482              		.loc 1 442 0
+ 1483 00c2 05E0     		b	.L145
+ 1484              	.L144:
+ 443:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****         case 0x07: //111:DIV16
+ 444:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****             para->AHBCLK_Frequency = para->SYSCLK_Frequency/16;
+ 1485              		.loc 1 444 0
+ 1486 00c4 2368     		ldr	r3, [r4]
+ 1487 00c6 1B09     		lsrs	r3, r3, #4
+ 1488 00c8 6360     		str	r3, [r4, #4]
+ 445:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****             break;
+ 1489              		.loc 1 445 0
+ 1490 00ca 01E0     		b	.L145
+ 1491              	.L139:
+ 446:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****         default: //0XX:DIV1
+ 447:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****             para->AHBCLK_Frequency = para->SYSCLK_Frequency;
+ 1492              		.loc 1 447 0
+ 1493 00cc 2368     		ldr	r3, [r4]
+ 1494 00ce 6360     		str	r3, [r4, #4]
+ 1495              	.L145:
+ 448:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****             break;
+ 449:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****     }
+ 450:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 451:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	/* Get APB PRES */
+ 452:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****     tmp32 = RCC_SYSCLKSEL_APBPRES_Get();
+ 1496              		.loc 1 452 0
+ 1497 00d0 FFF7FEFF 		bl	RCC_SYSCLKSEL_APBPRES_Get
+ 1498              	.LVL84:
+ 453:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****     tmp32 = tmp32 >> RCC_SYSCLKSEL_APBPRES_Pos; 
+ 1499              		.loc 1 453 0
+ 1500 00d4 000C     		lsrs	r0, r0, #16
+ 1501              	.LVL85:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 34
+
+
+ 454:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	/* APB clock frequency */
+ 455:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****     switch(tmp32)
+ 1502              		.loc 1 455 0
+ 1503 00d6 0528     		cmp	r0, #5
+ 1504 00d8 0CD0     		beq	.L147
+ 1505 00da 02D8     		bhi	.L148
+ 1506 00dc 0428     		cmp	r0, #4
+ 1507 00de 05D0     		beq	.L149
+ 1508 00e0 14E0     		b	.L146
+ 1509              	.L148:
+ 1510 00e2 0628     		cmp	r0, #6
+ 1511 00e4 0AD0     		beq	.L150
+ 1512 00e6 0728     		cmp	r0, #7
+ 1513 00e8 0CD0     		beq	.L151
+ 1514 00ea 0FE0     		b	.L146
+ 1515              	.L149:
+ 456:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****     {
+ 457:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****         case 0x04: //100:DIV2
+ 458:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****             para->APBCLK_Frequency = para->AHBCLK_Frequency/2;
+ 1516              		.loc 1 458 0
+ 1517 00ec 6368     		ldr	r3, [r4, #4]
+ 1518 00ee 5B08     		lsrs	r3, r3, #1
+ 1519 00f0 A360     		str	r3, [r4, #8]
+ 459:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****             break;
+ 1520              		.loc 1 459 0
+ 1521 00f2 0DE0     		b	.L127
+ 1522              	.L147:
+ 460:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****         case 0x05: //101:DIV4
+ 461:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****             para->APBCLK_Frequency = para->AHBCLK_Frequency/4;
+ 1523              		.loc 1 461 0
+ 1524 00f4 6368     		ldr	r3, [r4, #4]
+ 1525 00f6 9B08     		lsrs	r3, r3, #2
+ 1526 00f8 A360     		str	r3, [r4, #8]
+ 462:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****             break;
+ 1527              		.loc 1 462 0
+ 1528 00fa 09E0     		b	.L127
+ 1529              	.L150:
+ 463:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****         case 0x06: //110:DIV8
+ 464:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****             para->APBCLK_Frequency = para->AHBCLK_Frequency/8;
+ 1530              		.loc 1 464 0
+ 1531 00fc 6368     		ldr	r3, [r4, #4]
+ 1532 00fe DB08     		lsrs	r3, r3, #3
+ 1533 0100 A360     		str	r3, [r4, #8]
+ 465:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****             break;
+ 1534              		.loc 1 465 0
+ 1535 0102 05E0     		b	.L127
+ 1536              	.L151:
+ 466:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****         case 0x07: //111:DIV16
+ 467:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****             para->APBCLK_Frequency = para->AHBCLK_Frequency/16;
+ 1537              		.loc 1 467 0
+ 1538 0104 6368     		ldr	r3, [r4, #4]
+ 1539 0106 1B09     		lsrs	r3, r3, #4
+ 1540 0108 A360     		str	r3, [r4, #8]
+ 468:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****             break;
+ 1541              		.loc 1 468 0
+ 1542 010a 01E0     		b	.L127
+ 1543              	.L146:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 35
+
+
+ 469:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****         default: //0XX:DIV1
+ 470:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****             para->APBCLK_Frequency = para->AHBCLK_Frequency;
+ 1544              		.loc 1 470 0
+ 1545 010c 6368     		ldr	r3, [r4, #4]
+ 1546 010e A360     		str	r3, [r4, #8]
+ 1547              	.L127:
+ 471:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****             break;
+ 472:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****     }
+ 473:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 1548              		.loc 1 473 0
+ 1549              		@ sp needed
+ 1550              	.LVL86:
+ 1551 0110 70BD     		pop	{r4, r5, r6, pc}
+ 1552              	.L157:
+ 1553 0112 C046     		.align	2
+ 1554              	.L156:
+ 1555 0114 00127A00 		.word	8000000
+ 1556              		.cfi_endproc
+ 1557              	.LFE72:
+ 1559              		.section	.text.RCC_PERCLK_SetableEx,"ax",%progbits
+ 1560              		.align	2
+ 1561              		.global	RCC_PERCLK_SetableEx
+ 1562              		.code	16
+ 1563              		.thumb_func
+ 1565              	RCC_PERCLK_SetableEx:
+ 1566              	.LFB73:
+ 474:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 475:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* 外设时钟配置 */
+ 476:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** void RCC_PERCLK_SetableEx(uint32_t periph_def, FunState NewState)
+ 477:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 1567              		.loc 1 477 0
+ 1568              		.cfi_startproc
+ 1569              		@ args = 0, pretend = 0, frame = 0
+ 1570              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1571              		@ link register save eliminated.
+ 1572              	.LVL87:
+ 478:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	__IO uint32_t *p_reg = 0;
+ 479:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	uint32_t TempREG;
+ 480:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	
+ 481:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****     switch((periph_def & 0x0F000000))
+ 1573              		.loc 1 481 0
+ 1574 0000 F023     		movs	r3, #240
+ 1575 0002 1B05     		lsls	r3, r3, #20
+ 1576 0004 0340     		ands	r3, r0
+ 1577 0006 8022     		movs	r2, #128
+ 1578 0008 9204     		lsls	r2, r2, #18
+ 1579 000a 9342     		cmp	r3, r2
+ 1580 000c 0FD0     		beq	.L160
+ 1581 000e 04D8     		bhi	.L161
+ 1582 0010 8022     		movs	r2, #128
+ 1583 0012 5204     		lsls	r2, r2, #17
+ 1584 0014 9342     		cmp	r3, r2
+ 1585 0016 10D0     		beq	.L167
+ 1586 0018 07E0     		b	.L159
+ 1587              	.L161:
+ 1588 001a C022     		movs	r2, #192
+ 1589 001c 9204     		lsls	r2, r2, #18
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 36
+
+
+ 1590 001e 9342     		cmp	r3, r2
+ 1591 0020 07D0     		beq	.L163
+ 1592 0022 8022     		movs	r2, #128
+ 1593 0024 D204     		lsls	r2, r2, #19
+ 1594 0026 9342     		cmp	r3, r2
+ 1595 0028 05D0     		beq	.L164
+ 1596              	.L159:
+ 478:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	__IO uint32_t *p_reg = 0;
+ 1597              		.loc 1 478 0
+ 1598 002a 0023     		movs	r3, #0
+ 1599 002c 06E0     		b	.L162
+ 1600              	.L160:
+ 1601              	.LVL88:
+ 482:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****     {
+ 483:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		case 0x01000000:
+ 484:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 			p_reg = &(RCC->PERCLKCON1);
+ 485:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 			break;
+ 486:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		
+ 487:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		case 0x02000000:
+ 488:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 			p_reg = &(RCC->PERCLKCON2);
+ 1602              		.loc 1 488 0
+ 1603 002e 0B4B     		ldr	r3, .L168
+ 489:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 			break;
+ 1604              		.loc 1 489 0
+ 1605 0030 04E0     		b	.L162
+ 1606              	.LVL89:
+ 1607              	.L163:
+ 490:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		
+ 491:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		case 0x03000000:
+ 492:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 			p_reg = &(RCC->PERCLKCON3);
+ 1608              		.loc 1 492 0
+ 1609 0032 0B4B     		ldr	r3, .L168+4
+ 493:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 			break;
+ 1610              		.loc 1 493 0
+ 1611 0034 02E0     		b	.L162
+ 1612              	.LVL90:
+ 1613              	.L164:
+ 494:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		
+ 495:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		case 0x04000000:
+ 496:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 			p_reg = &(RCC->PERCLKCON4);
+ 1614              		.loc 1 496 0
+ 1615 0036 0B4B     		ldr	r3, .L168+8
+ 497:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 			break;
+ 1616              		.loc 1 497 0
+ 1617 0038 00E0     		b	.L162
+ 1618              	.LVL91:
+ 1619              	.L167:
+ 484:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 			break;
+ 1620              		.loc 1 484 0
+ 1621 003a 0B4B     		ldr	r3, .L168+12
+ 1622              	.LVL92:
+ 1623              	.L162:
+ 498:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		
+ 499:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		default:
+ 500:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 			break;
+ 501:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c ****     }
+ 502:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	if(p_reg)
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 37
+
+
+ 1624              		.loc 1 502 0
+ 1625 003c 002B     		cmp	r3, #0
+ 1626 003e 0CD0     		beq	.L158
+ 503:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	{
+ 504:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		periph_def &= 0x000000FF;
+ 1627              		.loc 1 504 0
+ 1628 0040 FF22     		movs	r2, #255
+ 1629 0042 1040     		ands	r0, r2
+ 1630              	.LVL93:
+ 505:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		TempREG = (0x1U << periph_def);
+ 1631              		.loc 1 505 0
+ 1632 0044 FE3A     		subs	r2, r2, #254
+ 1633 0046 8240     		lsls	r2, r2, r0
+ 1634              	.LVL94:
+ 506:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		
+ 507:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		if (NewState != DISABLE)
+ 1635              		.loc 1 507 0
+ 1636 0048 0029     		cmp	r1, #0
+ 1637 004a 03D0     		beq	.L166
+ 508:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		{
+ 509:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 			*p_reg |= TempREG;
+ 1638              		.loc 1 509 0
+ 1639 004c 1968     		ldr	r1, [r3]
+ 1640              	.LVL95:
+ 1641 004e 0A43     		orrs	r2, r1
+ 1642              	.LVL96:
+ 1643 0050 1A60     		str	r2, [r3]
+ 1644 0052 02E0     		b	.L158
+ 1645              	.LVL97:
+ 1646              	.L166:
+ 510:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		}
+ 511:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		else
+ 512:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		{
+ 513:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 			*p_reg &= ~TempREG;
+ 1647              		.loc 1 513 0
+ 1648 0054 1968     		ldr	r1, [r3]
+ 1649              	.LVL98:
+ 1650 0056 9143     		bics	r1, r2
+ 1651 0058 1960     		str	r1, [r3]
+ 1652              	.LVL99:
+ 1653              	.L158:
+ 514:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		}
+ 515:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	}
+ 516:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 1654              		.loc 1 516 0
+ 1655              		@ sp needed
+ 1656 005a 7047     		bx	lr
+ 1657              	.L169:
+ 1658              		.align	2
+ 1659              	.L168:
+ 1660 005c 2C020040 		.word	1073742380
+ 1661 0060 30020040 		.word	1073742384
+ 1662 0064 34020040 		.word	1073742388
+ 1663 0068 28020040 		.word	1073742376
+ 1664              		.cfi_endproc
+ 1665              	.LFE73:
+ 1667              		.section	.text.RCC_RCHF_Init,"ax",%progbits
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 38
+
+
+ 1668              		.align	2
+ 1669              		.global	RCC_RCHF_Init
+ 1670              		.code	16
+ 1671              		.thumb_func
+ 1673              	RCC_RCHF_Init:
+ 1674              	.LFB74:
+ 517:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 518:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* RCHF初始化 */
+ 519:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** void RCC_RCHF_Init(RCC_RCHF_InitTypeDef* para)
+ 520:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 1675              		.loc 1 520 0
+ 1676              		.cfi_startproc
+ 1677              		@ args = 0, pretend = 0, frame = 0
+ 1678              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1679              	.LVL100:
+ 1680 0000 10B5     		push	{r4, lr}
+ 1681              	.LCFI1:
+ 1682              		.cfi_def_cfa_offset 8
+ 1683              		.cfi_offset 4, -8
+ 1684              		.cfi_offset 14, -4
+ 1685 0002 0400     		movs	r4, r0
+ 521:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC_RCHFCON_FSEL_Set(para->FSEL);
+ 1686              		.loc 1 521 0
+ 1687 0004 0068     		ldr	r0, [r0]
+ 1688              	.LVL101:
+ 1689 0006 FFF7FEFF 		bl	RCC_RCHFCON_FSEL_Set
+ 1690              	.LVL102:
+ 522:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC_RCHFCON_RCHFEN_Setable(para->RCHFEN);
+ 1691              		.loc 1 522 0
+ 1692 000a 2079     		ldrb	r0, [r4, #4]
+ 1693 000c FFF7FEFF 		bl	RCC_RCHFCON_RCHFEN_Setable
+ 1694              	.LVL103:
+ 523:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 1695              		.loc 1 523 0
+ 1696              		@ sp needed
+ 1697              	.LVL104:
+ 1698 0010 10BD     		pop	{r4, pc}
+ 1699              		.cfi_endproc
+ 1700              	.LFE74:
+ 1702 0012 C046     		.section	.text.RCC_PLLDB_WriteEx,"ax",%progbits
+ 1703              		.align	2
+ 1704              		.global	RCC_PLLDB_WriteEx
+ 1705              		.code	16
+ 1706              		.thumb_func
+ 1708              	RCC_PLLDB_WriteEx:
+ 1709              	.LFB75:
+ 524:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 525:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* PLL倍频数 相关函数 */
+ 526:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** void RCC_PLLDB_WriteEx(uint32_t SetValue)
+ 527:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {	
+ 1710              		.loc 1 527 0
+ 1711              		.cfi_startproc
+ 1712              		@ args = 0, pretend = 0, frame = 0
+ 1713              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1714              	.LVL105:
+ 1715 0000 10B5     		push	{r4, lr}
+ 1716              	.LCFI2:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 39
+
+
+ 1717              		.cfi_def_cfa_offset 8
+ 1718              		.cfi_offset 4, -8
+ 1719              		.cfi_offset 14, -4
+ 528:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC_PLLCON_PLLDB_Set(SetValue<<RCC_PLLCON_PLLDB_Pos);
+ 1720              		.loc 1 528 0
+ 1721 0002 0004     		lsls	r0, r0, #16
+ 1722              	.LVL106:
+ 1723 0004 FFF7FEFF 		bl	RCC_PLLCON_PLLDB_Set
+ 1724              	.LVL107:
+ 529:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 1725              		.loc 1 529 0
+ 1726              		@ sp needed
+ 1727 0008 10BD     		pop	{r4, pc}
+ 1728              		.cfi_endproc
+ 1729              	.LFE75:
+ 1731 000a C046     		.section	.text.RCC_PLLDB_ReadEx,"ax",%progbits
+ 1732              		.align	2
+ 1733              		.global	RCC_PLLDB_ReadEx
+ 1734              		.code	16
+ 1735              		.thumb_func
+ 1737              	RCC_PLLDB_ReadEx:
+ 1738              	.LFB76:
+ 530:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 531:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** uint32_t RCC_PLLDB_ReadEx(void)
+ 532:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 1739              		.loc 1 532 0
+ 1740              		.cfi_startproc
+ 1741              		@ args = 0, pretend = 0, frame = 0
+ 1742              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1743 0000 10B5     		push	{r4, lr}
+ 1744              	.LCFI3:
+ 1745              		.cfi_def_cfa_offset 8
+ 1746              		.cfi_offset 4, -8
+ 1747              		.cfi_offset 14, -4
+ 533:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	uint32_t tmpreg;
+ 534:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	
+ 535:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	tmpreg = RCC_PLLCON_PLLDB_Get();
+ 1748              		.loc 1 535 0
+ 1749 0002 FFF7FEFF 		bl	RCC_PLLCON_PLLDB_Get
+ 1750              	.LVL108:
+ 536:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	return (tmpreg>>RCC_PLLCON_PLLDB_Pos);
+ 1751              		.loc 1 536 0
+ 1752 0006 000C     		lsrs	r0, r0, #16
+ 1753              	.LVL109:
+ 537:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 1754              		.loc 1 537 0
+ 1755              		@ sp needed
+ 1756 0008 10BD     		pop	{r4, pc}
+ 1757              		.cfi_endproc
+ 1758              	.LFE76:
+ 1760 000a C046     		.section	.text.RCC_PLL_Init,"ax",%progbits
+ 1761              		.align	2
+ 1762              		.global	RCC_PLL_Init
+ 1763              		.code	16
+ 1764              		.thumb_func
+ 1766              	RCC_PLL_Init:
+ 1767              	.LFB77:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 40
+
+
+ 538:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 539:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* PLL初始化 */
+ 540:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** void RCC_PLL_Init(RCC_PLL_InitTypeDef* para)
+ 541:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 1768              		.loc 1 541 0
+ 1769              		.cfi_startproc
+ 1770              		@ args = 0, pretend = 0, frame = 0
+ 1771              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1772              	.LVL110:
+ 1773 0000 10B5     		push	{r4, lr}
+ 1774              	.LCFI4:
+ 1775              		.cfi_def_cfa_offset 8
+ 1776              		.cfi_offset 4, -8
+ 1777              		.cfi_offset 14, -4
+ 1778 0002 0400     		movs	r4, r0
+ 542:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC_PLLDB_WriteEx(para->PLLDB);
+ 1779              		.loc 1 542 0
+ 1780 0004 0068     		ldr	r0, [r0]
+ 1781              	.LVL111:
+ 1782 0006 FFF7FEFF 		bl	RCC_PLLDB_WriteEx
+ 1783              	.LVL112:
+ 543:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC_PLLCON_PLLOSEL_Set(para->PLLOSEL);
+ 1784              		.loc 1 543 0
+ 1785 000a 6068     		ldr	r0, [r4, #4]
+ 1786 000c FFF7FEFF 		bl	RCC_PLLCON_PLLOSEL_Set
+ 1787              	.LVL113:
+ 544:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC_PLLCON_PLLINSEL_Set(para->PLLINSEL);
+ 1788              		.loc 1 544 0
+ 1789 0010 A068     		ldr	r0, [r4, #8]
+ 1790 0012 FFF7FEFF 		bl	RCC_PLLCON_PLLINSEL_Set
+ 1791              	.LVL114:
+ 545:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC_PLLCON_PLLEN_Setable(para->PLLEN);
+ 1792              		.loc 1 545 0
+ 1793 0016 207B     		ldrb	r0, [r4, #12]
+ 1794 0018 FFF7FEFF 		bl	RCC_PLLCON_PLLEN_Setable
+ 1795              	.LVL115:
+ 546:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 1796              		.loc 1 546 0
+ 1797              		@ sp needed
+ 1798              	.LVL116:
+ 1799 001c 10BD     		pop	{r4, pc}
+ 1800              		.cfi_endproc
+ 1801              	.LFE77:
+ 1803 001e C046     		.section	.text.RCC_SysClk_Init,"ax",%progbits
+ 1804              		.align	2
+ 1805              		.global	RCC_SysClk_Init
+ 1806              		.code	16
+ 1807              		.thumb_func
+ 1809              	RCC_SysClk_Init:
+ 1810              	.LFB78:
+ 547:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 548:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* 系统时钟初始化 */
+ 549:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** void RCC_SysClk_Init(RCC_SYSCLK_InitTypeDef* para)
+ 550:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 1811              		.loc 1 550 0
+ 1812              		.cfi_startproc
+ 1813              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 41
+
+
+ 1814              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1815              	.LVL117:
+ 1816 0000 10B5     		push	{r4, lr}
+ 1817              	.LCFI5:
+ 1818              		.cfi_def_cfa_offset 8
+ 1819              		.cfi_offset 4, -8
+ 1820              		.cfi_offset 14, -4
+ 1821 0002 0400     		movs	r4, r0
+ 551:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC_SYSCLKSEL_SYSCLKSEL_Set(para->SYSCLKSEL);
+ 1822              		.loc 1 551 0
+ 1823 0004 0068     		ldr	r0, [r0]
+ 1824              	.LVL118:
+ 1825 0006 FFF7FEFF 		bl	RCC_SYSCLKSEL_SYSCLKSEL_Set
+ 1826              	.LVL119:
+ 552:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC_SYSCLKSEL_AHBPRES_Set(para->AHBPRES);
+ 1827              		.loc 1 552 0
+ 1828 000a 6068     		ldr	r0, [r4, #4]
+ 1829 000c FFF7FEFF 		bl	RCC_SYSCLKSEL_AHBPRES_Set
+ 1830              	.LVL120:
+ 553:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC_SYSCLKSEL_APBPRES_Set(para->APBPRES);
+ 1831              		.loc 1 553 0
+ 1832 0010 A068     		ldr	r0, [r4, #8]
+ 1833 0012 FFF7FEFF 		bl	RCC_SYSCLKSEL_APBPRES_Set
+ 1834              	.LVL121:
+ 554:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC_SYSCLKSEL_EXTICKSEL_Set(para->EXTICKSEL);
+ 1835              		.loc 1 554 0
+ 1836 0016 E068     		ldr	r0, [r4, #12]
+ 1837 0018 FFF7FEFF 		bl	RCC_SYSCLKSEL_EXTICKSEL_Set
+ 1838              	.LVL122:
+ 555:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC_SYSCLKSEL_SLP_ENEXTI_Setable(para->SLP_ENEXTI);
+ 1839              		.loc 1 555 0
+ 1840 001c 207C     		ldrb	r0, [r4, #16]
+ 1841 001e FFF7FEFF 		bl	RCC_SYSCLKSEL_SLP_ENEXTI_Setable
+ 1842              	.LVL123:
+ 556:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	RCC_SYSCLKSEL_LPM_RCLP_OFF_Setable(para->LPM_RCLP_OFF);
+ 1843              		.loc 1 556 0
+ 1844 0022 607C     		ldrb	r0, [r4, #17]
+ 1845 0024 FFF7FEFF 		bl	RCC_SYSCLKSEL_LPM_RCLP_OFF_Setable
+ 1846              	.LVL124:
+ 557:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 1847              		.loc 1 557 0
+ 1848              		@ sp needed
+ 1849              	.LVL125:
+ 1850 0028 10BD     		pop	{r4, pc}
+ 1851              		.cfi_endproc
+ 1852              	.LFE78:
+ 1854 002a C046     		.section	.text.RCC_Init_RCHF_Trim,"ax",%progbits
+ 1855              		.align	2
+ 1856              		.global	RCC_Init_RCHF_Trim
+ 1857              		.code	16
+ 1858              		.thumb_func
+ 1860              	RCC_Init_RCHF_Trim:
+ 1861              	.LFB79:
+ 558:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 
+ 559:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** /* rchf常温校准值载入(芯片复位后自动载入8M的校准值) */
+ 560:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** //ClkMode 1 = 8M
+ 561:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** //ClkMode 2 = 16M
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 42
+
+
+ 562:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** //ClkMode 3 = 24M
+ 563:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** //ClkMode 4 = 32M
+ 564:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** void RCC_Init_RCHF_Trim( uint8_t ClkMode )
+ 565:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** {
+ 1862              		.loc 1 565 0
+ 1863              		.cfi_startproc
+ 1864              		@ args = 0, pretend = 0, frame = 0
+ 1865              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1866              	.LVL126:
+ 1867 0000 10B5     		push	{r4, lr}
+ 1868              	.LCFI6:
+ 1869              		.cfi_def_cfa_offset 8
+ 1870              		.cfi_offset 4, -8
+ 1871              		.cfi_offset 14, -4
+ 566:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	uint32_t Temp32;
+ 567:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	
+ 568:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	if( ClkMode == 1 )	//8M
+ 1872              		.loc 1 568 0
+ 1873 0002 0128     		cmp	r0, #1
+ 1874 0004 02D1     		bne	.L176
+ 569:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	{
+ 570:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		Temp32 = const_rchf_Trim8;
+ 1875              		.loc 1 570 0
+ 1876 0006 114B     		ldr	r3, .L183
+ 1877 0008 1868     		ldr	r0, [r3]
+ 1878              	.LVL127:
+ 1879 000a 10E0     		b	.L177
+ 1880              	.LVL128:
+ 1881              	.L176:
+ 571:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	}
+ 572:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	else if( ClkMode == 2 )//16M
+ 1882              		.loc 1 572 0
+ 1883 000c 0228     		cmp	r0, #2
+ 1884 000e 02D1     		bne	.L178
+ 573:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	{
+ 574:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		Temp32 = const_rchf_Trim16;
+ 1885              		.loc 1 574 0
+ 1886 0010 0F4B     		ldr	r3, .L183+4
+ 1887 0012 1868     		ldr	r0, [r3]
+ 1888              	.LVL129:
+ 1889 0014 0BE0     		b	.L177
+ 1890              	.LVL130:
+ 1891              	.L178:
+ 575:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	}
+ 576:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	else if( ClkMode == 3 )//24M
+ 1892              		.loc 1 576 0
+ 1893 0016 0328     		cmp	r0, #3
+ 1894 0018 02D1     		bne	.L179
+ 577:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	{
+ 578:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		Temp32 = const_rchf_Trim24;
+ 1895              		.loc 1 578 0
+ 1896 001a 0E4B     		ldr	r3, .L183+8
+ 1897 001c 1868     		ldr	r0, [r3]
+ 1898              	.LVL131:
+ 1899 001e 06E0     		b	.L177
+ 1900              	.LVL132:
+ 1901              	.L179:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 43
+
+
+ 579:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	}
+ 580:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	else if( ClkMode == 4 )//32M
+ 1902              		.loc 1 580 0
+ 1903 0020 0428     		cmp	r0, #4
+ 1904 0022 02D1     		bne	.L180
+ 581:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	{
+ 582:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		Temp32 = const_rchf_Trim32;
+ 1905              		.loc 1 582 0
+ 1906 0024 0C4B     		ldr	r3, .L183+12
+ 1907 0026 1868     		ldr	r0, [r3]
+ 1908              	.LVL133:
+ 1909 0028 01E0     		b	.L177
+ 1910              	.LVL134:
+ 1911              	.L180:
+ 583:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	}
+ 584:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	else//默认8M
+ 585:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	{
+ 586:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		Temp32 = const_rchf_Trim8;
+ 1912              		.loc 1 586 0
+ 1913 002a 084B     		ldr	r3, .L183
+ 1914 002c 1868     		ldr	r0, [r3]
+ 1915              	.LVL135:
+ 1916              	.L177:
+ 587:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	}
+ 588:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	
+ 589:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	if( ((Temp32>>16)&0x0000FFFF) == ((~Temp32)&0x0000FFFF) )	//正反码校验判断
+ 1917              		.loc 1 589 0
+ 1918 002e 020C     		lsrs	r2, r0, #16
+ 1919 0030 C343     		mvns	r3, r0
+ 1920 0032 1B04     		lsls	r3, r3, #16
+ 1921 0034 1B0C     		lsrs	r3, r3, #16
+ 1922 0036 9A42     		cmp	r2, r3
+ 1923 0038 04D1     		bne	.L181
+ 590:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	{
+ 591:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		RCC_RCHFTRIM_Write(Temp32&0x0000007F);
+ 1924              		.loc 1 591 0
+ 1925 003a 7F23     		movs	r3, #127
+ 1926 003c 1840     		ands	r0, r3
+ 1927              	.LVL136:
+ 1928 003e FFF7FEFF 		bl	RCC_RCHFTRIM_Write
+ 1929              	.LVL137:
+ 1930 0042 02E0     		b	.L175
+ 1931              	.LVL138:
+ 1932              	.L181:
+ 592:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	}	
+ 593:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	else
+ 594:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	{
+ 595:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 		RCC_RCHFTRIM_Write(0x00000040);
+ 1933              		.loc 1 595 0
+ 1934 0044 4020     		movs	r0, #64
+ 1935              	.LVL139:
+ 1936 0046 FFF7FEFF 		bl	RCC_RCHFTRIM_Write
+ 1937              	.LVL140:
+ 1938              	.L175:
+ 596:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** 	}
+ 597:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_rcc.c **** }
+ 1939              		.loc 1 597 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 44
+
+
+ 1940              		@ sp needed
+ 1941 004a 10BD     		pop	{r4, pc}
+ 1942              	.L184:
+ 1943              		.align	2
+ 1944              	.L183:
+ 1945 004c 40FDFF1F 		.word	536870208
+ 1946 0050 3CFDFF1F 		.word	536870204
+ 1947 0054 38FDFF1F 		.word	536870200
+ 1948 0058 34FDFF1F 		.word	536870196
+ 1949              		.cfi_endproc
+ 1950              	.LFE79:
+ 1952              		.text
+ 1953              	.Letext0:
+ 1954              		.file 2 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\device\\include\\fm33a0xx.h"
+ 1955              		.file 3 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\machine\\_default_types.h
+ 1956              		.file 4 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 1957              		.file 5 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\drivers\\fm33A0xx_rcc.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 45
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 fm33a0xx_rcc.c
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:20     .text.RCC_SYSCLKSEL_LPM_RCLP_OFF_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:25     .text.RCC_SYSCLKSEL_LPM_RCLP_OFF_Setable:00000000 RCC_SYSCLKSEL_LPM_RCLP_OFF_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:59     .text.RCC_SYSCLKSEL_LPM_RCLP_OFF_Setable:00000020 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:64     .text.RCC_SYSCLKSEL_LPM_RCLP_OFF_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:69     .text.RCC_SYSCLKSEL_LPM_RCLP_OFF_Getable:00000000 RCC_SYSCLKSEL_LPM_RCLP_OFF_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:94     .text.RCC_SYSCLKSEL_LPM_RCLP_OFF_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:99     .text.RCC_SYSCLKSEL_SLP_ENEXTI_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:104    .text.RCC_SYSCLKSEL_SLP_ENEXTI_Setable:00000000 RCC_SYSCLKSEL_SLP_ENEXTI_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:137    .text.RCC_SYSCLKSEL_SLP_ENEXTI_Setable:00000020 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:143    .text.RCC_SYSCLKSEL_SLP_ENEXTI_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:148    .text.RCC_SYSCLKSEL_SLP_ENEXTI_Getable:00000000 RCC_SYSCLKSEL_SLP_ENEXTI_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:173    .text.RCC_SYSCLKSEL_SLP_ENEXTI_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:178    .text.RCC_SYSCLKSEL_EXTICKSEL_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:183    .text.RCC_SYSCLKSEL_EXTICKSEL_Set:00000000 RCC_SYSCLKSEL_EXTICKSEL_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:214    .text.RCC_SYSCLKSEL_EXTICKSEL_Set:00000014 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:220    .text.RCC_SYSCLKSEL_EXTICKSEL_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:225    .text.RCC_SYSCLKSEL_EXTICKSEL_Get:00000000 RCC_SYSCLKSEL_EXTICKSEL_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:244    .text.RCC_SYSCLKSEL_EXTICKSEL_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:249    .text.RCC_SYSCLKSEL_APBPRES_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:254    .text.RCC_SYSCLKSEL_APBPRES_Set:00000000 RCC_SYSCLKSEL_APBPRES_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:285    .text.RCC_SYSCLKSEL_APBPRES_Set:00000014 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:291    .text.RCC_SYSCLKSEL_APBPRES_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:296    .text.RCC_SYSCLKSEL_APBPRES_Get:00000000 RCC_SYSCLKSEL_APBPRES_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:315    .text.RCC_SYSCLKSEL_APBPRES_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:320    .text.RCC_SYSCLKSEL_AHBPRES_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:325    .text.RCC_SYSCLKSEL_AHBPRES_Set:00000000 RCC_SYSCLKSEL_AHBPRES_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:356    .text.RCC_SYSCLKSEL_AHBPRES_Set:00000014 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:362    .text.RCC_SYSCLKSEL_AHBPRES_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:367    .text.RCC_SYSCLKSEL_AHBPRES_Get:00000000 RCC_SYSCLKSEL_AHBPRES_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:386    .text.RCC_SYSCLKSEL_AHBPRES_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:391    .text.RCC_SYSCLKSEL_SYSCLKSEL_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:396    .text.RCC_SYSCLKSEL_SYSCLKSEL_Set:00000000 RCC_SYSCLKSEL_SYSCLKSEL_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:425    .text.RCC_SYSCLKSEL_SYSCLKSEL_Set:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:430    .text.RCC_SYSCLKSEL_SYSCLKSEL_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:435    .text.RCC_SYSCLKSEL_SYSCLKSEL_Get:00000000 RCC_SYSCLKSEL_SYSCLKSEL_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:453    .text.RCC_SYSCLKSEL_SYSCLKSEL_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:458    .text.RCC_RCHFCON_FSEL_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:463    .text.RCC_RCHFCON_FSEL_Set:00000000 RCC_RCHFCON_FSEL_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:494    .text.RCC_RCHFCON_FSEL_Set:00000014 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:500    .text.RCC_RCHFCON_FSEL_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:505    .text.RCC_RCHFCON_FSEL_Get:00000000 RCC_RCHFCON_FSEL_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:524    .text.RCC_RCHFCON_FSEL_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:529    .text.RCC_RCHFCON_RCHFEN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:534    .text.RCC_RCHFCON_RCHFEN_Setable:00000000 RCC_RCHFCON_RCHFEN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:566    .text.RCC_RCHFCON_RCHFEN_Setable:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:571    .text.RCC_RCHFCON_RCHFEN_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:576    .text.RCC_RCHFCON_RCHFEN_Getable:00000000 RCC_RCHFCON_RCHFEN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:601    .text.RCC_RCHFCON_RCHFEN_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:606    .text.RCC_RCHFTRIM_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:611    .text.RCC_RCHFTRIM_Write:00000000 RCC_RCHFTRIM_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:631    .text.RCC_RCHFTRIM_Write:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:636    .text.RCC_RCHFTRIM_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:641    .text.RCC_RCHFTRIM_Read:00000000 RCC_RCHFTRIM_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:659    .text.RCC_RCHFTRIM_Read:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:664    .text.RCC_PLLCON_PLLDB_Set:00000000 $t
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 46
+
+
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:669    .text.RCC_PLLCON_PLLDB_Set:00000000 RCC_PLLCON_PLLDB_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:699    .text.RCC_PLLCON_PLLDB_Set:00000014 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:706    .text.RCC_PLLCON_PLLDB_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:711    .text.RCC_PLLCON_PLLDB_Get:00000000 RCC_PLLCON_PLLDB_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:729    .text.RCC_PLLCON_PLLDB_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:735    .text.RCC_PLLCON_PLLOSEL_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:740    .text.RCC_PLLCON_PLLOSEL_Set:00000000 RCC_PLLCON_PLLOSEL_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:769    .text.RCC_PLLCON_PLLOSEL_Set:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:774    .text.RCC_PLLCON_PLLOSEL_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:779    .text.RCC_PLLCON_PLLOSEL_Get:00000000 RCC_PLLCON_PLLOSEL_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:797    .text.RCC_PLLCON_PLLOSEL_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:802    .text.RCC_PLLCON_PLLINSEL_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:807    .text.RCC_PLLCON_PLLINSEL_Set:00000000 RCC_PLLCON_PLLINSEL_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:836    .text.RCC_PLLCON_PLLINSEL_Set:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:841    .text.RCC_PLLCON_PLLINSEL_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:846    .text.RCC_PLLCON_PLLINSEL_Get:00000000 RCC_PLLCON_PLLINSEL_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:864    .text.RCC_PLLCON_PLLINSEL_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:869    .text.RCC_PLLCON_PLLEN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:874    .text.RCC_PLLCON_PLLEN_Setable:00000000 RCC_PLLCON_PLLEN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:906    .text.RCC_PLLCON_PLLEN_Setable:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:911    .text.RCC_PLLCON_PLLEN_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:916    .text.RCC_PLLCON_PLLEN_Getable:00000000 RCC_PLLCON_PLLEN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:941    .text.RCC_PLLCON_PLLEN_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:946    .text.RCC_RCLPCON_RCLP_EN_B_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:951    .text.RCC_RCLPCON_RCLP_EN_B_Chk:00000000 RCC_RCLPCON_RCLP_EN_B_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:976    .text.RCC_RCLPCON_RCLP_EN_B_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:981    .text.RCC_RCLPTRIM_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:986    .text.RCC_RCLPTRIM_Write:00000000 RCC_RCLPTRIM_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1006   .text.RCC_RCLPTRIM_Write:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1011   .text.RCC_RCLPTRIM_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1016   .text.RCC_RCLPTRIM_Read:00000000 RCC_RCLPTRIM_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1034   .text.RCC_RCLPTRIM_Read:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1039   .text.RCC_XTLFIPW_XTLFIPW_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1044   .text.RCC_XTLFIPW_XTLFIPW_Set:00000000 RCC_XTLFIPW_XTLFIPW_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1073   .text.RCC_XTLFIPW_XTLFIPW_Set:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1078   .text.RCC_XTLFIPW_XTLFIPW_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1083   .text.RCC_XTLFIPW_XTLFIPW_Get:00000000 RCC_XTLFIPW_XTLFIPW_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1101   .text.RCC_XTLFIPW_XTLFIPW_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1106   .text.RCC_PERCLKCON2_ADCCKSEL_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1111   .text.RCC_PERCLKCON2_ADCCKSEL_Set:00000000 RCC_PERCLKCON2_ADCCKSEL_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1142   .text.RCC_PERCLKCON2_ADCCKSEL_Set:00000014 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1148   .text.RCC_PERCLKCON2_ADCCKSEL_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1153   .text.RCC_PERCLKCON2_ADCCKSEL_Get:00000000 RCC_PERCLKCON2_ADCCKSEL_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1172   .text.RCC_PERCLKCON2_ADCCKSEL_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1177   .text.RCC_MPRIL_MPRIL_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1182   .text.RCC_MPRIL_MPRIL_Set:00000000 RCC_MPRIL_MPRIL_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1211   .text.RCC_MPRIL_MPRIL_Set:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1216   .text.RCC_MPRIL_MPRIL_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1221   .text.RCC_MPRIL_MPRIL_Get:00000000 RCC_MPRIL_MPRIL_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1239   .text.RCC_MPRIL_MPRIL_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1244   .text.RCC_Deinit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1249   .text.RCC_Deinit:00000000 RCC_Deinit
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1291   .text.RCC_Deinit:0000002c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1299   .text.RCC_GetClocksFreq:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1304   .text.RCC_GetClocksFreq:00000000 RCC_GetClocksFreq
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1555   .text.RCC_GetClocksFreq:00000114 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1560   .text.RCC_PERCLK_SetableEx:00000000 $t
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s 			page 47
+
+
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1565   .text.RCC_PERCLK_SetableEx:00000000 RCC_PERCLK_SetableEx
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1660   .text.RCC_PERCLK_SetableEx:0000005c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1668   .text.RCC_RCHF_Init:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1673   .text.RCC_RCHF_Init:00000000 RCC_RCHF_Init
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1703   .text.RCC_PLLDB_WriteEx:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1708   .text.RCC_PLLDB_WriteEx:00000000 RCC_PLLDB_WriteEx
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1732   .text.RCC_PLLDB_ReadEx:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1737   .text.RCC_PLLDB_ReadEx:00000000 RCC_PLLDB_ReadEx
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1761   .text.RCC_PLL_Init:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1766   .text.RCC_PLL_Init:00000000 RCC_PLL_Init
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1804   .text.RCC_SysClk_Init:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1809   .text.RCC_SysClk_Init:00000000 RCC_SysClk_Init
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1855   .text.RCC_Init_RCHF_Trim:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1860   .text.RCC_Init_RCHF_Trim:00000000 RCC_Init_RCHF_Trim
+C:\Users\WANGBI~1\AppData\Local\Temp\ccphOQ2Z.s:1945   .text.RCC_Init_RCHF_Trim:0000004c $d
+                     .debug_frame:00000010 $d
+
+NO UNDEFINED SYMBOLS

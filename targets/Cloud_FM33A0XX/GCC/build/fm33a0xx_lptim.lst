@@ -1,0 +1,1964 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"fm33a0xx_lptim.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.LPTIM_LPTCFG_FLTEN_Setable,"ax",%progbits
+  20              		.align	2
+  21              		.global	LPTIM_LPTCFG_FLTEN_Setable
+  22              		.code	16
+  23              		.thumb_func
+  25              	LPTIM_LPTCFG_FLTEN_Setable:
+  26              	.LFB36:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers/fm33a
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** /**
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c ****   ******************************************************************************
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c ****   * @file    fm33a0xx_lptim.c
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c ****   * @author  FM33a0xx Application Team
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c ****   * @version V2.0.1
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c ****   * @date    
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c ****   * @brief   This file provides firmware functions to manage the following 
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c ****   *          functionalities of....:
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c ****   *
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** */
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** /* Includes ------------------------------------------------------------------*/
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** #include "fm33A0xx_lptim.h" 
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** /** @addtogroup fm33a0xx_StdPeriph_Driver
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c ****   * @{
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c ****   */
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** /** @defgroup LPTIM 
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c ****   * @brief LPTIM driver modules
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c ****   * @{
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c ****   */ 
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** /* Private typedef -----------------------------------------------------------*/
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** /* Private define ------------------------------------------------------------*/
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** /* Private macro -------------------------------------------------------------*/
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** /* Private variables ---------------------------------------------------------*/
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** /* Private function prototypes -----------------------------------------------*/
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 2
+
+
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** /* Private functions ---------------------------------------------------------*/
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** //Code_Start
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** //2018-04-02-13-22-48
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** //FM33A0XX_Driver_Gen_V1.4
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** /* 外部Trigger滤波使能 相关函数 */
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** void LPTIM_LPTCFG_FLTEN_Setable(FunState NewState)
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+  28              		.loc 1 41 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	if (NewState == ENABLE)
+  34              		.loc 1 42 0
+  35 0000 0128     		cmp	r0, #1
+  36 0002 05D1     		bne	.L2
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	{
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 		LPTIM->LPTCFG &= ~(LPTIM_LPTCFG_FLTEN_Msk);
+  37              		.loc 1 44 0
+  38 0004 064A     		ldr	r2, .L4
+  39 0006 1168     		ldr	r1, [r2]
+  40 0008 064B     		ldr	r3, .L4+4
+  41 000a 0B40     		ands	r3, r1
+  42 000c 1360     		str	r3, [r2]
+  43 000e 05E0     		b	.L1
+  44              	.L2:
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	}
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	else
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	{
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 		LPTIM->LPTCFG |= (LPTIM_LPTCFG_FLTEN_Msk);
+  45              		.loc 1 48 0
+  46 0010 034A     		ldr	r2, .L4
+  47 0012 1368     		ldr	r3, [r2]
+  48 0014 8021     		movs	r1, #128
+  49 0016 0902     		lsls	r1, r1, #8
+  50 0018 0B43     		orrs	r3, r1
+  51 001a 1360     		str	r3, [r2]
+  52              	.L1:
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	}
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+  53              		.loc 1 50 0
+  54              		@ sp needed
+  55 001c 7047     		bx	lr
+  56              	.L5:
+  57 001e C046     		.align	2
+  58              	.L4:
+  59 0020 00340140 		.word	1073820672
+  60 0024 FF7FFFFF 		.word	-32769
+  61              		.cfi_endproc
+  62              	.LFE36:
+  64              		.section	.text.LPTIM_LPTCFG_FLTEN_Getable,"ax",%progbits
+  65              		.align	2
+  66              		.global	LPTIM_LPTCFG_FLTEN_Getable
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 3
+
+
+  67              		.code	16
+  68              		.thumb_func
+  70              	LPTIM_LPTCFG_FLTEN_Getable:
+  71              	.LFB37:
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** FunState LPTIM_LPTCFG_FLTEN_Getable(void)
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+  72              		.loc 1 53 0
+  73              		.cfi_startproc
+  74              		@ args = 0, pretend = 0, frame = 0
+  75              		@ frame_needed = 0, uses_anonymous_args = 0
+  76              		@ link register save eliminated.
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	if (LPTIM->LPTCFG & (LPTIM_LPTCFG_FLTEN_Msk))
+  77              		.loc 1 54 0
+  78 0000 034B     		ldr	r3, .L9
+  79 0002 1B68     		ldr	r3, [r3]
+  80 0004 1B04     		lsls	r3, r3, #16
+  81 0006 01D5     		bpl	.L8
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	{
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 		return DISABLE;
+  82              		.loc 1 56 0
+  83 0008 0020     		movs	r0, #0
+  84 000a 00E0     		b	.L7
+  85              	.L8:
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	}
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	else
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	{
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 		return ENABLE;
+  86              		.loc 1 60 0
+  87 000c 0120     		movs	r0, #1
+  88              	.L7:
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	}
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+  89              		.loc 1 62 0
+  90              		@ sp needed
+  91 000e 7047     		bx	lr
+  92              	.L10:
+  93              		.align	2
+  94              	.L9:
+  95 0010 00340140 		.word	1073820672
+  96              		.cfi_endproc
+  97              	.LFE37:
+  99              		.section	.text.LPTIM_LPTCFG_DIVSEL_Set,"ax",%progbits
+ 100              		.align	2
+ 101              		.global	LPTIM_LPTCFG_DIVSEL_Set
+ 102              		.code	16
+ 103              		.thumb_func
+ 105              	LPTIM_LPTCFG_DIVSEL_Set:
+ 106              	.LFB38:
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** /* 计数时钟分频选择 相关函数 */
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** void LPTIM_LPTCFG_DIVSEL_Set(uint32_t SetValue)
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 107              		.loc 1 66 0
+ 108              		.cfi_startproc
+ 109              		@ args = 0, pretend = 0, frame = 0
+ 110              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 4
+
+
+ 111              		@ link register save eliminated.
+ 112              	.LVL1:
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	uint32_t tmpreg;
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	tmpreg = LPTIM->LPTCFG;
+ 113              		.loc 1 68 0
+ 114 0000 0449     		ldr	r1, .L12
+ 115 0002 0A68     		ldr	r2, [r1]
+ 116              	.LVL2:
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	tmpreg &= ~(LPTIM_LPTCFG_DIVSEL_Msk);
+ 117              		.loc 1 69 0
+ 118 0004 044B     		ldr	r3, .L12+4
+ 119 0006 1A40     		ands	r2, r3
+ 120              	.LVL3:
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	tmpreg |= (SetValue & LPTIM_LPTCFG_DIVSEL_Msk);
+ 121              		.loc 1 70 0
+ 122 0008 E023     		movs	r3, #224
+ 123 000a 5B01     		lsls	r3, r3, #5
+ 124 000c 1840     		ands	r0, r3
+ 125              	.LVL4:
+ 126 000e 1043     		orrs	r0, r2
+ 127              	.LVL5:
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	LPTIM->LPTCFG = tmpreg;
+ 128              		.loc 1 71 0
+ 129 0010 0860     		str	r0, [r1]
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 130              		.loc 1 72 0
+ 131              		@ sp needed
+ 132 0012 7047     		bx	lr
+ 133              	.L13:
+ 134              		.align	2
+ 135              	.L12:
+ 136 0014 00340140 		.word	1073820672
+ 137 0018 FFE3FFFF 		.word	-7169
+ 138              		.cfi_endproc
+ 139              	.LFE38:
+ 141              		.section	.text.LPTIM_LPTCFG_DIVSEL_Get,"ax",%progbits
+ 142              		.align	2
+ 143              		.global	LPTIM_LPTCFG_DIVSEL_Get
+ 144              		.code	16
+ 145              		.thumb_func
+ 147              	LPTIM_LPTCFG_DIVSEL_Get:
+ 148              	.LFB39:
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** uint32_t LPTIM_LPTCFG_DIVSEL_Get(void)
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 149              		.loc 1 75 0
+ 150              		.cfi_startproc
+ 151              		@ args = 0, pretend = 0, frame = 0
+ 152              		@ frame_needed = 0, uses_anonymous_args = 0
+ 153              		@ link register save eliminated.
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	return (LPTIM->LPTCFG & LPTIM_LPTCFG_DIVSEL_Msk);
+ 154              		.loc 1 76 0
+ 155 0000 024B     		ldr	r3, .L15
+ 156 0002 1868     		ldr	r0, [r3]
+ 157 0004 E023     		movs	r3, #224
+ 158 0006 5B01     		lsls	r3, r3, #5
+ 159 0008 1840     		ands	r0, r3
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 5
+
+
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 160              		.loc 1 77 0
+ 161              		@ sp needed
+ 162 000a 7047     		bx	lr
+ 163              	.L16:
+ 164              		.align	2
+ 165              	.L15:
+ 166 000c 00340140 		.word	1073820672
+ 167              		.cfi_endproc
+ 168              	.LFE39:
+ 170              		.section	.text.LPTIM_LPTCFG_CLKSEL_Set,"ax",%progbits
+ 171              		.align	2
+ 172              		.global	LPTIM_LPTCFG_CLKSEL_Set
+ 173              		.code	16
+ 174              		.thumb_func
+ 176              	LPTIM_LPTCFG_CLKSEL_Set:
+ 177              	.LFB40:
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** /* 时钟源选择 相关函数 */
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** void LPTIM_LPTCFG_CLKSEL_Set(uint32_t SetValue)
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 178              		.loc 1 81 0
+ 179              		.cfi_startproc
+ 180              		@ args = 0, pretend = 0, frame = 0
+ 181              		@ frame_needed = 0, uses_anonymous_args = 0
+ 182              		@ link register save eliminated.
+ 183              	.LVL6:
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	uint32_t tmpreg;
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	tmpreg = LPTIM->LPTCFG;
+ 184              		.loc 1 83 0
+ 185 0000 0449     		ldr	r1, .L18
+ 186 0002 0A68     		ldr	r2, [r1]
+ 187              	.LVL7:
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	tmpreg &= ~(LPTIM_LPTCFG_CLKSEL_Msk);
+ 188              		.loc 1 84 0
+ 189 0004 044B     		ldr	r3, .L18+4
+ 190 0006 1A40     		ands	r2, r3
+ 191              	.LVL8:
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	tmpreg |= (SetValue & LPTIM_LPTCFG_CLKSEL_Msk);
+ 192              		.loc 1 85 0
+ 193 0008 C023     		movs	r3, #192
+ 194 000a 9B00     		lsls	r3, r3, #2
+ 195 000c 1840     		ands	r0, r3
+ 196              	.LVL9:
+ 197 000e 1043     		orrs	r0, r2
+ 198              	.LVL10:
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	LPTIM->LPTCFG = tmpreg;
+ 199              		.loc 1 86 0
+ 200 0010 0860     		str	r0, [r1]
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 201              		.loc 1 87 0
+ 202              		@ sp needed
+ 203 0012 7047     		bx	lr
+ 204              	.L19:
+ 205              		.align	2
+ 206              	.L18:
+ 207 0014 00340140 		.word	1073820672
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 6
+
+
+ 208 0018 FFFCFFFF 		.word	-769
+ 209              		.cfi_endproc
+ 210              	.LFE40:
+ 212              		.section	.text.LPTIM_LPTCFG_CLKSEL_Get,"ax",%progbits
+ 213              		.align	2
+ 214              		.global	LPTIM_LPTCFG_CLKSEL_Get
+ 215              		.code	16
+ 216              		.thumb_func
+ 218              	LPTIM_LPTCFG_CLKSEL_Get:
+ 219              	.LFB41:
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** uint32_t LPTIM_LPTCFG_CLKSEL_Get(void)
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 220              		.loc 1 90 0
+ 221              		.cfi_startproc
+ 222              		@ args = 0, pretend = 0, frame = 0
+ 223              		@ frame_needed = 0, uses_anonymous_args = 0
+ 224              		@ link register save eliminated.
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	return (LPTIM->LPTCFG & LPTIM_LPTCFG_CLKSEL_Msk);
+ 225              		.loc 1 91 0
+ 226 0000 024B     		ldr	r3, .L21
+ 227 0002 1868     		ldr	r0, [r3]
+ 228 0004 C023     		movs	r3, #192
+ 229 0006 9B00     		lsls	r3, r3, #2
+ 230 0008 1840     		ands	r0, r3
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 231              		.loc 1 92 0
+ 232              		@ sp needed
+ 233 000a 7047     		bx	lr
+ 234              	.L22:
+ 235              		.align	2
+ 236              	.L21:
+ 237 000c 00340140 		.word	1073820672
+ 238              		.cfi_endproc
+ 239              	.LFE41:
+ 241              		.section	.text.LPTIM_LPTCFG_EDGESEL_Set,"ax",%progbits
+ 242              		.align	2
+ 243              		.global	LPTIM_LPTCFG_EDGESEL_Set
+ 244              		.code	16
+ 245              		.thumb_func
+ 247              	LPTIM_LPTCFG_EDGESEL_Set:
+ 248              	.LFB42:
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** /* LPTIN输入边沿选择 相关函数 */
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** void LPTIM_LPTCFG_EDGESEL_Set(uint32_t SetValue)
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 249              		.loc 1 96 0
+ 250              		.cfi_startproc
+ 251              		@ args = 0, pretend = 0, frame = 0
+ 252              		@ frame_needed = 0, uses_anonymous_args = 0
+ 253              		@ link register save eliminated.
+ 254              	.LVL11:
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	uint32_t tmpreg;
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	tmpreg = LPTIM->LPTCFG;
+ 255              		.loc 1 98 0
+ 256 0000 034A     		ldr	r2, .L24
+ 257 0002 1368     		ldr	r3, [r2]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 7
+
+
+ 258              	.LVL12:
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	tmpreg &= ~(LPTIM_LPTCFG_EDGESEL_Msk);
+ 259              		.loc 1 99 0
+ 260 0004 8021     		movs	r1, #128
+ 261 0006 8B43     		bics	r3, r1
+ 262              	.LVL13:
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	tmpreg |= (SetValue & LPTIM_LPTCFG_EDGESEL_Msk);
+ 263              		.loc 1 100 0
+ 264 0008 0840     		ands	r0, r1
+ 265              	.LVL14:
+ 266 000a 1843     		orrs	r0, r3
+ 267              	.LVL15:
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	LPTIM->LPTCFG = tmpreg;
+ 268              		.loc 1 101 0
+ 269 000c 1060     		str	r0, [r2]
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 270              		.loc 1 102 0
+ 271              		@ sp needed
+ 272 000e 7047     		bx	lr
+ 273              	.L25:
+ 274              		.align	2
+ 275              	.L24:
+ 276 0010 00340140 		.word	1073820672
+ 277              		.cfi_endproc
+ 278              	.LFE42:
+ 280              		.section	.text.LPTIM_LPTCFG_EDGESEL_Get,"ax",%progbits
+ 281              		.align	2
+ 282              		.global	LPTIM_LPTCFG_EDGESEL_Get
+ 283              		.code	16
+ 284              		.thumb_func
+ 286              	LPTIM_LPTCFG_EDGESEL_Get:
+ 287              	.LFB43:
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** uint32_t LPTIM_LPTCFG_EDGESEL_Get(void)
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 288              		.loc 1 105 0
+ 289              		.cfi_startproc
+ 290              		@ args = 0, pretend = 0, frame = 0
+ 291              		@ frame_needed = 0, uses_anonymous_args = 0
+ 292              		@ link register save eliminated.
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	return (LPTIM->LPTCFG & LPTIM_LPTCFG_EDGESEL_Msk);
+ 293              		.loc 1 106 0
+ 294 0000 024B     		ldr	r3, .L27
+ 295 0002 1B68     		ldr	r3, [r3]
+ 296 0004 8020     		movs	r0, #128
+ 297 0006 1840     		ands	r0, r3
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 298              		.loc 1 107 0
+ 299              		@ sp needed
+ 300 0008 7047     		bx	lr
+ 301              	.L28:
+ 302 000a C046     		.align	2
+ 303              	.L27:
+ 304 000c 00340140 		.word	1073820672
+ 305              		.cfi_endproc
+ 306              	.LFE43:
+ 308              		.section	.text.LPTIM_LPTCFG_TRIGCFG_Set,"ax",%progbits
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 8
+
+
+ 309              		.align	2
+ 310              		.global	LPTIM_LPTCFG_TRIGCFG_Set
+ 311              		.code	16
+ 312              		.thumb_func
+ 314              	LPTIM_LPTCFG_TRIGCFG_Set:
+ 315              	.LFB44:
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** /* 外部触发边沿选择 相关函数 */
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** void LPTIM_LPTCFG_TRIGCFG_Set(uint32_t SetValue)
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 316              		.loc 1 111 0
+ 317              		.cfi_startproc
+ 318              		@ args = 0, pretend = 0, frame = 0
+ 319              		@ frame_needed = 0, uses_anonymous_args = 0
+ 320              		@ link register save eliminated.
+ 321              	.LVL16:
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	uint32_t tmpreg;
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	tmpreg = LPTIM->LPTCFG;
+ 322              		.loc 1 113 0
+ 323 0000 034A     		ldr	r2, .L30
+ 324 0002 1368     		ldr	r3, [r2]
+ 325              	.LVL17:
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	tmpreg &= ~(LPTIM_LPTCFG_TRIGCFG_Msk);
+ 326              		.loc 1 114 0
+ 327 0004 6021     		movs	r1, #96
+ 328 0006 8B43     		bics	r3, r1
+ 329              	.LVL18:
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	tmpreg |= (SetValue & LPTIM_LPTCFG_TRIGCFG_Msk);
+ 330              		.loc 1 115 0
+ 331 0008 0840     		ands	r0, r1
+ 332              	.LVL19:
+ 333 000a 1843     		orrs	r0, r3
+ 334              	.LVL20:
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	LPTIM->LPTCFG = tmpreg;
+ 335              		.loc 1 116 0
+ 336 000c 1060     		str	r0, [r2]
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 337              		.loc 1 117 0
+ 338              		@ sp needed
+ 339 000e 7047     		bx	lr
+ 340              	.L31:
+ 341              		.align	2
+ 342              	.L30:
+ 343 0010 00340140 		.word	1073820672
+ 344              		.cfi_endproc
+ 345              	.LFE44:
+ 347              		.section	.text.LPTIM_LPTCFG_TRIGCFG_Get,"ax",%progbits
+ 348              		.align	2
+ 349              		.global	LPTIM_LPTCFG_TRIGCFG_Get
+ 350              		.code	16
+ 351              		.thumb_func
+ 353              	LPTIM_LPTCFG_TRIGCFG_Get:
+ 354              	.LFB45:
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** uint32_t LPTIM_LPTCFG_TRIGCFG_Get(void)
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 355              		.loc 1 120 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 9
+
+
+ 356              		.cfi_startproc
+ 357              		@ args = 0, pretend = 0, frame = 0
+ 358              		@ frame_needed = 0, uses_anonymous_args = 0
+ 359              		@ link register save eliminated.
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	return (LPTIM->LPTCFG & LPTIM_LPTCFG_TRIGCFG_Msk);
+ 360              		.loc 1 121 0
+ 361 0000 024B     		ldr	r3, .L33
+ 362 0002 1B68     		ldr	r3, [r3]
+ 363 0004 6020     		movs	r0, #96
+ 364 0006 1840     		ands	r0, r3
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 365              		.loc 1 122 0
+ 366              		@ sp needed
+ 367 0008 7047     		bx	lr
+ 368              	.L34:
+ 369 000a C046     		.align	2
+ 370              	.L33:
+ 371 000c 00340140 		.word	1073820672
+ 372              		.cfi_endproc
+ 373              	.LFE45:
+ 375              		.section	.text.LPTIM_LPTCFG_POLARITY_Set,"ax",%progbits
+ 376              		.align	2
+ 377              		.global	LPTIM_LPTCFG_POLARITY_Set
+ 378              		.code	16
+ 379              		.thumb_func
+ 381              	LPTIM_LPTCFG_POLARITY_Set:
+ 382              	.LFB46:
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** /* 输出波形极性选择 相关函数 */
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** void LPTIM_LPTCFG_POLARITY_Set(uint32_t SetValue)
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 383              		.loc 1 126 0
+ 384              		.cfi_startproc
+ 385              		@ args = 0, pretend = 0, frame = 0
+ 386              		@ frame_needed = 0, uses_anonymous_args = 0
+ 387              		@ link register save eliminated.
+ 388              	.LVL21:
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	uint32_t tmpreg;
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	tmpreg = LPTIM->LPTCFG;
+ 389              		.loc 1 128 0
+ 390 0000 034A     		ldr	r2, .L36
+ 391 0002 1368     		ldr	r3, [r2]
+ 392              	.LVL22:
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	tmpreg &= ~(LPTIM_LPTCFG_POLARITY_Msk);
+ 393              		.loc 1 129 0
+ 394 0004 1021     		movs	r1, #16
+ 395 0006 8B43     		bics	r3, r1
+ 396              	.LVL23:
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	tmpreg |= (SetValue & LPTIM_LPTCFG_POLARITY_Msk);
+ 397              		.loc 1 130 0
+ 398 0008 0840     		ands	r0, r1
+ 399              	.LVL24:
+ 400 000a 1843     		orrs	r0, r3
+ 401              	.LVL25:
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	LPTIM->LPTCFG = tmpreg;
+ 402              		.loc 1 131 0
+ 403 000c 1060     		str	r0, [r2]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 10
+
+
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 404              		.loc 1 132 0
+ 405              		@ sp needed
+ 406 000e 7047     		bx	lr
+ 407              	.L37:
+ 408              		.align	2
+ 409              	.L36:
+ 410 0010 00340140 		.word	1073820672
+ 411              		.cfi_endproc
+ 412              	.LFE46:
+ 414              		.section	.text.LPTIM_LPTCFG_POLARITY_Get,"ax",%progbits
+ 415              		.align	2
+ 416              		.global	LPTIM_LPTCFG_POLARITY_Get
+ 417              		.code	16
+ 418              		.thumb_func
+ 420              	LPTIM_LPTCFG_POLARITY_Get:
+ 421              	.LFB47:
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** uint32_t LPTIM_LPTCFG_POLARITY_Get(void)
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 422              		.loc 1 135 0
+ 423              		.cfi_startproc
+ 424              		@ args = 0, pretend = 0, frame = 0
+ 425              		@ frame_needed = 0, uses_anonymous_args = 0
+ 426              		@ link register save eliminated.
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	return (LPTIM->LPTCFG & LPTIM_LPTCFG_POLARITY_Msk);
+ 427              		.loc 1 136 0
+ 428 0000 024B     		ldr	r3, .L39
+ 429 0002 1B68     		ldr	r3, [r3]
+ 430 0004 1020     		movs	r0, #16
+ 431 0006 1840     		ands	r0, r3
+ 137:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 432              		.loc 1 137 0
+ 433              		@ sp needed
+ 434 0008 7047     		bx	lr
+ 435              	.L40:
+ 436 000a C046     		.align	2
+ 437              	.L39:
+ 438 000c 00340140 		.word	1073820672
+ 439              		.cfi_endproc
+ 440              	.LFE47:
+ 442              		.section	.text.LPTIM_LPTCFG_PWM_Set,"ax",%progbits
+ 443              		.align	2
+ 444              		.global	LPTIM_LPTCFG_PWM_Set
+ 445              		.code	16
+ 446              		.thumb_func
+ 448              	LPTIM_LPTCFG_PWM_Set:
+ 449              	.LFB48:
+ 138:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 139:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** /* 脉宽调制模式 相关函数 */
+ 140:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** void LPTIM_LPTCFG_PWM_Set(uint32_t SetValue)
+ 141:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 450              		.loc 1 141 0
+ 451              		.cfi_startproc
+ 452              		@ args = 0, pretend = 0, frame = 0
+ 453              		@ frame_needed = 0, uses_anonymous_args = 0
+ 454              		@ link register save eliminated.
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 11
+
+
+ 455              	.LVL26:
+ 142:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	uint32_t tmpreg;
+ 143:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	tmpreg = LPTIM->LPTCFG;
+ 456              		.loc 1 143 0
+ 457 0000 034A     		ldr	r2, .L42
+ 458 0002 1368     		ldr	r3, [r2]
+ 459              	.LVL27:
+ 144:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	tmpreg &= ~(LPTIM_LPTCFG_PWM_Msk);
+ 460              		.loc 1 144 0
+ 461 0004 0821     		movs	r1, #8
+ 462 0006 8B43     		bics	r3, r1
+ 463              	.LVL28:
+ 145:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	tmpreg |= (SetValue & LPTIM_LPTCFG_PWM_Msk);
+ 464              		.loc 1 145 0
+ 465 0008 0840     		ands	r0, r1
+ 466              	.LVL29:
+ 467 000a 1843     		orrs	r0, r3
+ 468              	.LVL30:
+ 146:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	LPTIM->LPTCFG = tmpreg;
+ 469              		.loc 1 146 0
+ 470 000c 1060     		str	r0, [r2]
+ 147:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 471              		.loc 1 147 0
+ 472              		@ sp needed
+ 473 000e 7047     		bx	lr
+ 474              	.L43:
+ 475              		.align	2
+ 476              	.L42:
+ 477 0010 00340140 		.word	1073820672
+ 478              		.cfi_endproc
+ 479              	.LFE48:
+ 481              		.section	.text.LPTIM_LPTCFG_PWM_Get,"ax",%progbits
+ 482              		.align	2
+ 483              		.global	LPTIM_LPTCFG_PWM_Get
+ 484              		.code	16
+ 485              		.thumb_func
+ 487              	LPTIM_LPTCFG_PWM_Get:
+ 488              	.LFB49:
+ 148:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 149:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** uint32_t LPTIM_LPTCFG_PWM_Get(void)
+ 150:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 489              		.loc 1 150 0
+ 490              		.cfi_startproc
+ 491              		@ args = 0, pretend = 0, frame = 0
+ 492              		@ frame_needed = 0, uses_anonymous_args = 0
+ 493              		@ link register save eliminated.
+ 151:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	return (LPTIM->LPTCFG & LPTIM_LPTCFG_PWM_Msk);
+ 494              		.loc 1 151 0
+ 495 0000 024B     		ldr	r3, .L45
+ 496 0002 1B68     		ldr	r3, [r3]
+ 497 0004 0820     		movs	r0, #8
+ 498 0006 1840     		ands	r0, r3
+ 152:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 499              		.loc 1 152 0
+ 500              		@ sp needed
+ 501 0008 7047     		bx	lr
+ 502              	.L46:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 12
+
+
+ 503 000a C046     		.align	2
+ 504              	.L45:
+ 505 000c 00340140 		.word	1073820672
+ 506              		.cfi_endproc
+ 507              	.LFE49:
+ 509              		.section	.text.LPTIM_LPTCFG_MODE_Set,"ax",%progbits
+ 510              		.align	2
+ 511              		.global	LPTIM_LPTCFG_MODE_Set
+ 512              		.code	16
+ 513              		.thumb_func
+ 515              	LPTIM_LPTCFG_MODE_Set:
+ 516              	.LFB50:
+ 153:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 154:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** /* 计数模式选择 相关函数 */
+ 155:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** void LPTIM_LPTCFG_MODE_Set(uint32_t SetValue)
+ 156:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 517              		.loc 1 156 0
+ 518              		.cfi_startproc
+ 519              		@ args = 0, pretend = 0, frame = 0
+ 520              		@ frame_needed = 0, uses_anonymous_args = 0
+ 521              		@ link register save eliminated.
+ 522              	.LVL31:
+ 157:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	uint32_t tmpreg;
+ 158:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	tmpreg = LPTIM->LPTCFG;
+ 523              		.loc 1 158 0
+ 524 0000 034A     		ldr	r2, .L48
+ 525 0002 1368     		ldr	r3, [r2]
+ 526              	.LVL32:
+ 159:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	tmpreg &= ~(LPTIM_LPTCFG_MODE_Msk);
+ 527              		.loc 1 159 0
+ 528 0004 0421     		movs	r1, #4
+ 529 0006 8B43     		bics	r3, r1
+ 530              	.LVL33:
+ 160:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	tmpreg |= (SetValue & LPTIM_LPTCFG_MODE_Msk);
+ 531              		.loc 1 160 0
+ 532 0008 0840     		ands	r0, r1
+ 533              	.LVL34:
+ 534 000a 1843     		orrs	r0, r3
+ 535              	.LVL35:
+ 161:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	LPTIM->LPTCFG = tmpreg;
+ 536              		.loc 1 161 0
+ 537 000c 1060     		str	r0, [r2]
+ 162:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 538              		.loc 1 162 0
+ 539              		@ sp needed
+ 540 000e 7047     		bx	lr
+ 541              	.L49:
+ 542              		.align	2
+ 543              	.L48:
+ 544 0010 00340140 		.word	1073820672
+ 545              		.cfi_endproc
+ 546              	.LFE50:
+ 548              		.section	.text.LPTIM_LPTCFG_MODE_Get,"ax",%progbits
+ 549              		.align	2
+ 550              		.global	LPTIM_LPTCFG_MODE_Get
+ 551              		.code	16
+ 552              		.thumb_func
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 13
+
+
+ 554              	LPTIM_LPTCFG_MODE_Get:
+ 555              	.LFB51:
+ 163:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 164:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** uint32_t LPTIM_LPTCFG_MODE_Get(void)
+ 165:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 556              		.loc 1 165 0
+ 557              		.cfi_startproc
+ 558              		@ args = 0, pretend = 0, frame = 0
+ 559              		@ frame_needed = 0, uses_anonymous_args = 0
+ 560              		@ link register save eliminated.
+ 166:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	return (LPTIM->LPTCFG & LPTIM_LPTCFG_MODE_Msk);
+ 561              		.loc 1 166 0
+ 562 0000 024B     		ldr	r3, .L51
+ 563 0002 1B68     		ldr	r3, [r3]
+ 564 0004 0420     		movs	r0, #4
+ 565 0006 1840     		ands	r0, r3
+ 167:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 566              		.loc 1 167 0
+ 567              		@ sp needed
+ 568 0008 7047     		bx	lr
+ 569              	.L52:
+ 570 000a C046     		.align	2
+ 571              	.L51:
+ 572 000c 00340140 		.word	1073820672
+ 573              		.cfi_endproc
+ 574              	.LFE51:
+ 576              		.section	.text.LPTIM_LPTCFG_TMODE_Set,"ax",%progbits
+ 577              		.align	2
+ 578              		.global	LPTIM_LPTCFG_TMODE_Set
+ 579              		.code	16
+ 580              		.thumb_func
+ 582              	LPTIM_LPTCFG_TMODE_Set:
+ 583              	.LFB52:
+ 168:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 169:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** /* 工作模式选择 相关函数 */
+ 170:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** void LPTIM_LPTCFG_TMODE_Set(uint32_t SetValue)
+ 171:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 584              		.loc 1 171 0
+ 585              		.cfi_startproc
+ 586              		@ args = 0, pretend = 0, frame = 0
+ 587              		@ frame_needed = 0, uses_anonymous_args = 0
+ 588              		@ link register save eliminated.
+ 589              	.LVL36:
+ 172:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	uint32_t tmpreg;
+ 173:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	tmpreg = LPTIM->LPTCFG;
+ 590              		.loc 1 173 0
+ 591 0000 034A     		ldr	r2, .L54
+ 592 0002 1368     		ldr	r3, [r2]
+ 593              	.LVL37:
+ 174:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	tmpreg &= ~(LPTIM_LPTCFG_TMODE_Msk);
+ 594              		.loc 1 174 0
+ 595 0004 0321     		movs	r1, #3
+ 596 0006 8B43     		bics	r3, r1
+ 597              	.LVL38:
+ 175:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	tmpreg |= (SetValue & LPTIM_LPTCFG_TMODE_Msk);
+ 598              		.loc 1 175 0
+ 599 0008 0840     		ands	r0, r1
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 14
+
+
+ 600              	.LVL39:
+ 601 000a 1843     		orrs	r0, r3
+ 602              	.LVL40:
+ 176:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	LPTIM->LPTCFG = tmpreg;
+ 603              		.loc 1 176 0
+ 604 000c 1060     		str	r0, [r2]
+ 177:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 605              		.loc 1 177 0
+ 606              		@ sp needed
+ 607 000e 7047     		bx	lr
+ 608              	.L55:
+ 609              		.align	2
+ 610              	.L54:
+ 611 0010 00340140 		.word	1073820672
+ 612              		.cfi_endproc
+ 613              	.LFE52:
+ 615              		.section	.text.LPTIM_LPTCFG_TMODE_Get,"ax",%progbits
+ 616              		.align	2
+ 617              		.global	LPTIM_LPTCFG_TMODE_Get
+ 618              		.code	16
+ 619              		.thumb_func
+ 621              	LPTIM_LPTCFG_TMODE_Get:
+ 622              	.LFB53:
+ 178:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 179:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** uint32_t LPTIM_LPTCFG_TMODE_Get(void)
+ 180:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 623              		.loc 1 180 0
+ 624              		.cfi_startproc
+ 625              		@ args = 0, pretend = 0, frame = 0
+ 626              		@ frame_needed = 0, uses_anonymous_args = 0
+ 627              		@ link register save eliminated.
+ 181:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	return (LPTIM->LPTCFG & LPTIM_LPTCFG_TMODE_Msk);
+ 628              		.loc 1 181 0
+ 629 0000 024B     		ldr	r3, .L57
+ 630 0002 1B68     		ldr	r3, [r3]
+ 631 0004 0320     		movs	r0, #3
+ 632 0006 1840     		ands	r0, r3
+ 182:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 633              		.loc 1 182 0
+ 634              		@ sp needed
+ 635 0008 7047     		bx	lr
+ 636              	.L58:
+ 637 000a C046     		.align	2
+ 638              	.L57:
+ 639 000c 00340140 		.word	1073820672
+ 640              		.cfi_endproc
+ 641              	.LFE53:
+ 643              		.section	.text.LPTIM_LPTCNT_Write,"ax",%progbits
+ 644              		.align	2
+ 645              		.global	LPTIM_LPTCNT_Write
+ 646              		.code	16
+ 647              		.thumb_func
+ 649              	LPTIM_LPTCNT_Write:
+ 650              	.LFB54:
+ 183:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 184:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** void LPTIM_LPTCNT_Write(uint32_t SetValue)
+ 185:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 15
+
+
+ 651              		.loc 1 185 0
+ 652              		.cfi_startproc
+ 653              		@ args = 0, pretend = 0, frame = 0
+ 654              		@ frame_needed = 0, uses_anonymous_args = 0
+ 655              		@ link register save eliminated.
+ 656              	.LVL41:
+ 186:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	LPTIM->LPTCNT = (SetValue & LPTIM_LPTCNT_CNT16_Msk);
+ 657              		.loc 1 186 0
+ 658 0000 0004     		lsls	r0, r0, #16
+ 659              	.LVL42:
+ 660 0002 000C     		lsrs	r0, r0, #16
+ 661 0004 014B     		ldr	r3, .L60
+ 662 0006 5860     		str	r0, [r3, #4]
+ 187:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 663              		.loc 1 187 0
+ 664              		@ sp needed
+ 665 0008 7047     		bx	lr
+ 666              	.L61:
+ 667 000a C046     		.align	2
+ 668              	.L60:
+ 669 000c 00340140 		.word	1073820672
+ 670              		.cfi_endproc
+ 671              	.LFE54:
+ 673              		.section	.text.LPTIM_LPTCNT_Read,"ax",%progbits
+ 674              		.align	2
+ 675              		.global	LPTIM_LPTCNT_Read
+ 676              		.code	16
+ 677              		.thumb_func
+ 679              	LPTIM_LPTCNT_Read:
+ 680              	.LFB55:
+ 188:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 189:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** uint32_t LPTIM_LPTCNT_Read(void)
+ 190:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 681              		.loc 1 190 0
+ 682              		.cfi_startproc
+ 683              		@ args = 0, pretend = 0, frame = 0
+ 684              		@ frame_needed = 0, uses_anonymous_args = 0
+ 685              		@ link register save eliminated.
+ 191:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	return (LPTIM->LPTCNT & LPTIM_LPTCNT_CNT16_Msk);
+ 686              		.loc 1 191 0
+ 687 0000 024B     		ldr	r3, .L63
+ 688 0002 5868     		ldr	r0, [r3, #4]
+ 689 0004 0004     		lsls	r0, r0, #16
+ 690 0006 000C     		lsrs	r0, r0, #16
+ 192:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 691              		.loc 1 192 0
+ 692              		@ sp needed
+ 693 0008 7047     		bx	lr
+ 694              	.L64:
+ 695 000a C046     		.align	2
+ 696              	.L63:
+ 697 000c 00340140 		.word	1073820672
+ 698              		.cfi_endproc
+ 699              	.LFE55:
+ 701              		.section	.text.LPTIM_LPTCMP_Write,"ax",%progbits
+ 702              		.align	2
+ 703              		.global	LPTIM_LPTCMP_Write
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 16
+
+
+ 704              		.code	16
+ 705              		.thumb_func
+ 707              	LPTIM_LPTCMP_Write:
+ 708              	.LFB56:
+ 193:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 194:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** void LPTIM_LPTCMP_Write(uint32_t SetValue)
+ 195:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 709              		.loc 1 195 0
+ 710              		.cfi_startproc
+ 711              		@ args = 0, pretend = 0, frame = 0
+ 712              		@ frame_needed = 0, uses_anonymous_args = 0
+ 713              		@ link register save eliminated.
+ 714              	.LVL43:
+ 196:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	LPTIM->LPTCMP = (SetValue & LPTIM_LPTCMP_COMPARE_REG_Msk);
+ 715              		.loc 1 196 0
+ 716 0000 0004     		lsls	r0, r0, #16
+ 717              	.LVL44:
+ 718 0002 000C     		lsrs	r0, r0, #16
+ 719 0004 014B     		ldr	r3, .L66
+ 720 0006 9860     		str	r0, [r3, #8]
+ 197:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 721              		.loc 1 197 0
+ 722              		@ sp needed
+ 723 0008 7047     		bx	lr
+ 724              	.L67:
+ 725 000a C046     		.align	2
+ 726              	.L66:
+ 727 000c 00340140 		.word	1073820672
+ 728              		.cfi_endproc
+ 729              	.LFE56:
+ 731              		.section	.text.LPTIM_LPTCMP_Read,"ax",%progbits
+ 732              		.align	2
+ 733              		.global	LPTIM_LPTCMP_Read
+ 734              		.code	16
+ 735              		.thumb_func
+ 737              	LPTIM_LPTCMP_Read:
+ 738              	.LFB57:
+ 198:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 199:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** uint32_t LPTIM_LPTCMP_Read(void)
+ 200:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 739              		.loc 1 200 0
+ 740              		.cfi_startproc
+ 741              		@ args = 0, pretend = 0, frame = 0
+ 742              		@ frame_needed = 0, uses_anonymous_args = 0
+ 743              		@ link register save eliminated.
+ 201:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	return (LPTIM->LPTCMP & LPTIM_LPTCMP_COMPARE_REG_Msk);
+ 744              		.loc 1 201 0
+ 745 0000 024B     		ldr	r3, .L69
+ 746 0002 9868     		ldr	r0, [r3, #8]
+ 747 0004 0004     		lsls	r0, r0, #16
+ 748 0006 000C     		lsrs	r0, r0, #16
+ 202:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 749              		.loc 1 202 0
+ 750              		@ sp needed
+ 751 0008 7047     		bx	lr
+ 752              	.L70:
+ 753 000a C046     		.align	2
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 17
+
+
+ 754              	.L69:
+ 755 000c 00340140 		.word	1073820672
+ 756              		.cfi_endproc
+ 757              	.LFE57:
+ 759              		.section	.text.LPTIM_LPTTARGET_Write,"ax",%progbits
+ 760              		.align	2
+ 761              		.global	LPTIM_LPTTARGET_Write
+ 762              		.code	16
+ 763              		.thumb_func
+ 765              	LPTIM_LPTTARGET_Write:
+ 766              	.LFB58:
+ 203:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 204:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** void LPTIM_LPTTARGET_Write(uint32_t SetValue)
+ 205:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 767              		.loc 1 205 0
+ 768              		.cfi_startproc
+ 769              		@ args = 0, pretend = 0, frame = 0
+ 770              		@ frame_needed = 0, uses_anonymous_args = 0
+ 771              		@ link register save eliminated.
+ 772              	.LVL45:
+ 206:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	LPTIM->LPTTARGET = (SetValue & LPTIM_LPTTARGET_TARGET_REG_Msk);
+ 773              		.loc 1 206 0
+ 774 0000 0004     		lsls	r0, r0, #16
+ 775              	.LVL46:
+ 776 0002 000C     		lsrs	r0, r0, #16
+ 777 0004 014B     		ldr	r3, .L72
+ 778 0006 D860     		str	r0, [r3, #12]
+ 207:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 779              		.loc 1 207 0
+ 780              		@ sp needed
+ 781 0008 7047     		bx	lr
+ 782              	.L73:
+ 783 000a C046     		.align	2
+ 784              	.L72:
+ 785 000c 00340140 		.word	1073820672
+ 786              		.cfi_endproc
+ 787              	.LFE58:
+ 789              		.section	.text.LPTIM_LPTTARGET_Read,"ax",%progbits
+ 790              		.align	2
+ 791              		.global	LPTIM_LPTTARGET_Read
+ 792              		.code	16
+ 793              		.thumb_func
+ 795              	LPTIM_LPTTARGET_Read:
+ 796              	.LFB59:
+ 208:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 209:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** uint32_t LPTIM_LPTTARGET_Read(void)
+ 210:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 797              		.loc 1 210 0
+ 798              		.cfi_startproc
+ 799              		@ args = 0, pretend = 0, frame = 0
+ 800              		@ frame_needed = 0, uses_anonymous_args = 0
+ 801              		@ link register save eliminated.
+ 211:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	return (LPTIM->LPTTARGET & LPTIM_LPTTARGET_TARGET_REG_Msk);
+ 802              		.loc 1 211 0
+ 803 0000 024B     		ldr	r3, .L75
+ 804 0002 D868     		ldr	r0, [r3, #12]
+ 805 0004 0004     		lsls	r0, r0, #16
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 18
+
+
+ 806 0006 000C     		lsrs	r0, r0, #16
+ 212:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 807              		.loc 1 212 0
+ 808              		@ sp needed
+ 809 0008 7047     		bx	lr
+ 810              	.L76:
+ 811 000a C046     		.align	2
+ 812              	.L75:
+ 813 000c 00340140 		.word	1073820672
+ 814              		.cfi_endproc
+ 815              	.LFE59:
+ 817              		.section	.text.LPTIM_LPTIE_TRIGIE_Setable,"ax",%progbits
+ 818              		.align	2
+ 819              		.global	LPTIM_LPTIE_TRIGIE_Setable
+ 820              		.code	16
+ 821              		.thumb_func
+ 823              	LPTIM_LPTIE_TRIGIE_Setable:
+ 824              	.LFB60:
+ 213:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 214:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** /* 外部触发中断 相关函数 */
+ 215:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** void LPTIM_LPTIE_TRIGIE_Setable(FunState NewState)
+ 216:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 825              		.loc 1 216 0
+ 826              		.cfi_startproc
+ 827              		@ args = 0, pretend = 0, frame = 0
+ 828              		@ frame_needed = 0, uses_anonymous_args = 0
+ 829              		@ link register save eliminated.
+ 830              	.LVL47:
+ 217:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	if (NewState == ENABLE)
+ 831              		.loc 1 217 0
+ 832 0000 0128     		cmp	r0, #1
+ 833 0002 05D1     		bne	.L78
+ 218:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	{
+ 219:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 		LPTIM->LPTIE |= (LPTIM_LPTIE_TRIGIE_Msk);
+ 834              		.loc 1 219 0
+ 835 0004 054A     		ldr	r2, .L80
+ 836 0006 1169     		ldr	r1, [r2, #16]
+ 837 0008 0423     		movs	r3, #4
+ 838 000a 0B43     		orrs	r3, r1
+ 839 000c 1361     		str	r3, [r2, #16]
+ 840 000e 04E0     		b	.L77
+ 841              	.L78:
+ 220:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	}
+ 221:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	else
+ 222:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	{
+ 223:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 		LPTIM->LPTIE &= ~(LPTIM_LPTIE_TRIGIE_Msk);
+ 842              		.loc 1 223 0
+ 843 0010 024A     		ldr	r2, .L80
+ 844 0012 1369     		ldr	r3, [r2, #16]
+ 845 0014 0421     		movs	r1, #4
+ 846 0016 8B43     		bics	r3, r1
+ 847 0018 1361     		str	r3, [r2, #16]
+ 848              	.L77:
+ 224:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	}
+ 225:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 849              		.loc 1 225 0
+ 850              		@ sp needed
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 19
+
+
+ 851 001a 7047     		bx	lr
+ 852              	.L81:
+ 853              		.align	2
+ 854              	.L80:
+ 855 001c 00340140 		.word	1073820672
+ 856              		.cfi_endproc
+ 857              	.LFE60:
+ 859              		.section	.text.LPTIM_LPTIE_TRIGIE_Getable,"ax",%progbits
+ 860              		.align	2
+ 861              		.global	LPTIM_LPTIE_TRIGIE_Getable
+ 862              		.code	16
+ 863              		.thumb_func
+ 865              	LPTIM_LPTIE_TRIGIE_Getable:
+ 866              	.LFB61:
+ 226:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 227:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** FunState LPTIM_LPTIE_TRIGIE_Getable(void)
+ 228:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 867              		.loc 1 228 0
+ 868              		.cfi_startproc
+ 869              		@ args = 0, pretend = 0, frame = 0
+ 870              		@ frame_needed = 0, uses_anonymous_args = 0
+ 871              		@ link register save eliminated.
+ 229:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	if (LPTIM->LPTIE & (LPTIM_LPTIE_TRIGIE_Msk))
+ 872              		.loc 1 229 0
+ 873 0000 034B     		ldr	r3, .L85
+ 874 0002 1B69     		ldr	r3, [r3, #16]
+ 875 0004 5B07     		lsls	r3, r3, #29
+ 876 0006 01D5     		bpl	.L84
+ 230:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	{
+ 231:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 		return ENABLE;
+ 877              		.loc 1 231 0
+ 878 0008 0120     		movs	r0, #1
+ 879 000a 00E0     		b	.L83
+ 880              	.L84:
+ 232:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	}
+ 233:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	else
+ 234:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	{
+ 235:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 		return DISABLE;
+ 881              		.loc 1 235 0
+ 882 000c 0020     		movs	r0, #0
+ 883              	.L83:
+ 236:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	}
+ 237:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 884              		.loc 1 237 0
+ 885              		@ sp needed
+ 886 000e 7047     		bx	lr
+ 887              	.L86:
+ 888              		.align	2
+ 889              	.L85:
+ 890 0010 00340140 		.word	1073820672
+ 891              		.cfi_endproc
+ 892              	.LFE61:
+ 894              		.section	.text.LPTIM_LPTIE_OVIE_Setable,"ax",%progbits
+ 895              		.align	2
+ 896              		.global	LPTIM_LPTIE_OVIE_Setable
+ 897              		.code	16
+ 898              		.thumb_func
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 20
+
+
+ 900              	LPTIM_LPTIE_OVIE_Setable:
+ 901              	.LFB62:
+ 238:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 239:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** /* 计数器溢出中断 相关函数 */
+ 240:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** void LPTIM_LPTIE_OVIE_Setable(FunState NewState)
+ 241:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 902              		.loc 1 241 0
+ 903              		.cfi_startproc
+ 904              		@ args = 0, pretend = 0, frame = 0
+ 905              		@ frame_needed = 0, uses_anonymous_args = 0
+ 906              		@ link register save eliminated.
+ 907              	.LVL48:
+ 242:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	if (NewState == ENABLE)
+ 908              		.loc 1 242 0
+ 909 0000 0128     		cmp	r0, #1
+ 910 0002 05D1     		bne	.L88
+ 243:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	{
+ 244:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 		LPTIM->LPTIE |= (LPTIM_LPTIE_OVIE_Msk);
+ 911              		.loc 1 244 0
+ 912 0004 054A     		ldr	r2, .L90
+ 913 0006 1169     		ldr	r1, [r2, #16]
+ 914 0008 0223     		movs	r3, #2
+ 915 000a 0B43     		orrs	r3, r1
+ 916 000c 1361     		str	r3, [r2, #16]
+ 917 000e 04E0     		b	.L87
+ 918              	.L88:
+ 245:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	}
+ 246:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	else
+ 247:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	{
+ 248:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 		LPTIM->LPTIE &= ~(LPTIM_LPTIE_OVIE_Msk);
+ 919              		.loc 1 248 0
+ 920 0010 024A     		ldr	r2, .L90
+ 921 0012 1369     		ldr	r3, [r2, #16]
+ 922 0014 0221     		movs	r1, #2
+ 923 0016 8B43     		bics	r3, r1
+ 924 0018 1361     		str	r3, [r2, #16]
+ 925              	.L87:
+ 249:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	}
+ 250:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 926              		.loc 1 250 0
+ 927              		@ sp needed
+ 928 001a 7047     		bx	lr
+ 929              	.L91:
+ 930              		.align	2
+ 931              	.L90:
+ 932 001c 00340140 		.word	1073820672
+ 933              		.cfi_endproc
+ 934              	.LFE62:
+ 936              		.section	.text.LPTIM_LPTIE_OVIE_Getable,"ax",%progbits
+ 937              		.align	2
+ 938              		.global	LPTIM_LPTIE_OVIE_Getable
+ 939              		.code	16
+ 940              		.thumb_func
+ 942              	LPTIM_LPTIE_OVIE_Getable:
+ 943              	.LFB63:
+ 251:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 252:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** FunState LPTIM_LPTIE_OVIE_Getable(void)
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 21
+
+
+ 253:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 944              		.loc 1 253 0
+ 945              		.cfi_startproc
+ 946              		@ args = 0, pretend = 0, frame = 0
+ 947              		@ frame_needed = 0, uses_anonymous_args = 0
+ 948              		@ link register save eliminated.
+ 254:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	if (LPTIM->LPTIE & (LPTIM_LPTIE_OVIE_Msk))
+ 949              		.loc 1 254 0
+ 950 0000 034B     		ldr	r3, .L95
+ 951 0002 1B69     		ldr	r3, [r3, #16]
+ 952 0004 9B07     		lsls	r3, r3, #30
+ 953 0006 01D5     		bpl	.L94
+ 255:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	{
+ 256:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 		return ENABLE;
+ 954              		.loc 1 256 0
+ 955 0008 0120     		movs	r0, #1
+ 956 000a 00E0     		b	.L93
+ 957              	.L94:
+ 257:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	}
+ 258:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	else
+ 259:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	{
+ 260:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 		return DISABLE;
+ 958              		.loc 1 260 0
+ 959 000c 0020     		movs	r0, #0
+ 960              	.L93:
+ 261:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	}
+ 262:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 961              		.loc 1 262 0
+ 962              		@ sp needed
+ 963 000e 7047     		bx	lr
+ 964              	.L96:
+ 965              		.align	2
+ 966              	.L95:
+ 967 0010 00340140 		.word	1073820672
+ 968              		.cfi_endproc
+ 969              	.LFE63:
+ 971              		.section	.text.LPTIM_LPTIE_COMPIE_Setable,"ax",%progbits
+ 972              		.align	2
+ 973              		.global	LPTIM_LPTIE_COMPIE_Setable
+ 974              		.code	16
+ 975              		.thumb_func
+ 977              	LPTIM_LPTIE_COMPIE_Setable:
+ 978              	.LFB64:
+ 263:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 264:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** /* 比较值匹配中断 相关函数 */
+ 265:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** void LPTIM_LPTIE_COMPIE_Setable(FunState NewState)
+ 266:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 979              		.loc 1 266 0
+ 980              		.cfi_startproc
+ 981              		@ args = 0, pretend = 0, frame = 0
+ 982              		@ frame_needed = 0, uses_anonymous_args = 0
+ 983              		@ link register save eliminated.
+ 984              	.LVL49:
+ 267:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	if (NewState == ENABLE)
+ 985              		.loc 1 267 0
+ 986 0000 0128     		cmp	r0, #1
+ 987 0002 05D1     		bne	.L98
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 22
+
+
+ 268:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	{
+ 269:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 		LPTIM->LPTIE |= (LPTIM_LPTIE_COMPIE_Msk);
+ 988              		.loc 1 269 0
+ 989 0004 054A     		ldr	r2, .L100
+ 990 0006 1169     		ldr	r1, [r2, #16]
+ 991 0008 0123     		movs	r3, #1
+ 992 000a 0B43     		orrs	r3, r1
+ 993 000c 1361     		str	r3, [r2, #16]
+ 994 000e 04E0     		b	.L97
+ 995              	.L98:
+ 270:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	}
+ 271:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	else
+ 272:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	{
+ 273:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 		LPTIM->LPTIE &= ~(LPTIM_LPTIE_COMPIE_Msk);
+ 996              		.loc 1 273 0
+ 997 0010 024A     		ldr	r2, .L100
+ 998 0012 1369     		ldr	r3, [r2, #16]
+ 999 0014 0121     		movs	r1, #1
+ 1000 0016 8B43     		bics	r3, r1
+ 1001 0018 1361     		str	r3, [r2, #16]
+ 1002              	.L97:
+ 274:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	}
+ 275:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 1003              		.loc 1 275 0
+ 1004              		@ sp needed
+ 1005 001a 7047     		bx	lr
+ 1006              	.L101:
+ 1007              		.align	2
+ 1008              	.L100:
+ 1009 001c 00340140 		.word	1073820672
+ 1010              		.cfi_endproc
+ 1011              	.LFE64:
+ 1013              		.section	.text.LPTIM_LPTIE_COMPIE_Getable,"ax",%progbits
+ 1014              		.align	2
+ 1015              		.global	LPTIM_LPTIE_COMPIE_Getable
+ 1016              		.code	16
+ 1017              		.thumb_func
+ 1019              	LPTIM_LPTIE_COMPIE_Getable:
+ 1020              	.LFB65:
+ 276:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 277:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** FunState LPTIM_LPTIE_COMPIE_Getable(void)
+ 278:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 1021              		.loc 1 278 0
+ 1022              		.cfi_startproc
+ 1023              		@ args = 0, pretend = 0, frame = 0
+ 1024              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1025              		@ link register save eliminated.
+ 279:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	if (LPTIM->LPTIE & (LPTIM_LPTIE_COMPIE_Msk))
+ 1026              		.loc 1 279 0
+ 1027 0000 034B     		ldr	r3, .L105
+ 1028 0002 1B69     		ldr	r3, [r3, #16]
+ 1029 0004 DB07     		lsls	r3, r3, #31
+ 1030 0006 01D5     		bpl	.L104
+ 280:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	{
+ 281:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 		return ENABLE;
+ 1031              		.loc 1 281 0
+ 1032 0008 0120     		movs	r0, #1
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 23
+
+
+ 1033 000a 00E0     		b	.L103
+ 1034              	.L104:
+ 282:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	}
+ 283:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	else
+ 284:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	{
+ 285:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 		return DISABLE;
+ 1035              		.loc 1 285 0
+ 1036 000c 0020     		movs	r0, #0
+ 1037              	.L103:
+ 286:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	}
+ 287:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 1038              		.loc 1 287 0
+ 1039              		@ sp needed
+ 1040 000e 7047     		bx	lr
+ 1041              	.L106:
+ 1042              		.align	2
+ 1043              	.L105:
+ 1044 0010 00340140 		.word	1073820672
+ 1045              		.cfi_endproc
+ 1046              	.LFE65:
+ 1048              		.section	.text.LPTIM_LPTIF_TRIGIF_Clr,"ax",%progbits
+ 1049              		.align	2
+ 1050              		.global	LPTIM_LPTIF_TRIGIF_Clr
+ 1051              		.code	16
+ 1052              		.thumb_func
+ 1054              	LPTIM_LPTIF_TRIGIF_Clr:
+ 1055              	.LFB66:
+ 288:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 289:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** /* 外部触发标志 相关函数 */
+ 290:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** void LPTIM_LPTIF_TRIGIF_Clr(void)
+ 291:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 1056              		.loc 1 291 0
+ 1057              		.cfi_startproc
+ 1058              		@ args = 0, pretend = 0, frame = 0
+ 1059              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1060              		@ link register save eliminated.
+ 292:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	LPTIM->LPTIF = LPTIM_LPTIF_TRIGIF_Msk;
+ 1061              		.loc 1 292 0
+ 1062 0000 0422     		movs	r2, #4
+ 1063 0002 014B     		ldr	r3, .L108
+ 1064 0004 5A61     		str	r2, [r3, #20]
+ 293:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 1065              		.loc 1 293 0
+ 1066              		@ sp needed
+ 1067 0006 7047     		bx	lr
+ 1068              	.L109:
+ 1069              		.align	2
+ 1070              	.L108:
+ 1071 0008 00340140 		.word	1073820672
+ 1072              		.cfi_endproc
+ 1073              	.LFE66:
+ 1075              		.section	.text.LPTIM_LPTIF_TRIGIF_Chk,"ax",%progbits
+ 1076              		.align	2
+ 1077              		.global	LPTIM_LPTIF_TRIGIF_Chk
+ 1078              		.code	16
+ 1079              		.thumb_func
+ 1081              	LPTIM_LPTIF_TRIGIF_Chk:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 24
+
+
+ 1082              	.LFB67:
+ 294:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 295:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** FlagStatus LPTIM_LPTIF_TRIGIF_Chk(void)
+ 296:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 1083              		.loc 1 296 0
+ 1084              		.cfi_startproc
+ 1085              		@ args = 0, pretend = 0, frame = 0
+ 1086              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1087              		@ link register save eliminated.
+ 297:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	if (LPTIM->LPTIF & LPTIM_LPTIF_TRIGIF_Msk)
+ 1088              		.loc 1 297 0
+ 1089 0000 034B     		ldr	r3, .L113
+ 1090 0002 5B69     		ldr	r3, [r3, #20]
+ 1091 0004 5B07     		lsls	r3, r3, #29
+ 1092 0006 01D5     		bpl	.L112
+ 298:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	{
+ 299:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 		return SET;
+ 1093              		.loc 1 299 0
+ 1094 0008 0120     		movs	r0, #1
+ 1095 000a 00E0     		b	.L111
+ 1096              	.L112:
+ 300:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	}
+ 301:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	else
+ 302:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	{
+ 303:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 		return RESET;
+ 1097              		.loc 1 303 0
+ 1098 000c 0020     		movs	r0, #0
+ 1099              	.L111:
+ 304:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	}
+ 305:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 1100              		.loc 1 305 0
+ 1101              		@ sp needed
+ 1102 000e 7047     		bx	lr
+ 1103              	.L114:
+ 1104              		.align	2
+ 1105              	.L113:
+ 1106 0010 00340140 		.word	1073820672
+ 1107              		.cfi_endproc
+ 1108              	.LFE67:
+ 1110              		.section	.text.LPTIM_LPTIF_OVIF_Clr,"ax",%progbits
+ 1111              		.align	2
+ 1112              		.global	LPTIM_LPTIF_OVIF_Clr
+ 1113              		.code	16
+ 1114              		.thumb_func
+ 1116              	LPTIM_LPTIF_OVIF_Clr:
+ 1117              	.LFB68:
+ 306:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 307:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** /* 计数器溢出标志 相关函数 */
+ 308:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** void LPTIM_LPTIF_OVIF_Clr(void)
+ 309:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 1118              		.loc 1 309 0
+ 1119              		.cfi_startproc
+ 1120              		@ args = 0, pretend = 0, frame = 0
+ 1121              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1122              		@ link register save eliminated.
+ 310:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	LPTIM->LPTIF = LPTIM_LPTIF_OVIF_Msk;
+ 1123              		.loc 1 310 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 25
+
+
+ 1124 0000 0222     		movs	r2, #2
+ 1125 0002 014B     		ldr	r3, .L116
+ 1126 0004 5A61     		str	r2, [r3, #20]
+ 311:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 1127              		.loc 1 311 0
+ 1128              		@ sp needed
+ 1129 0006 7047     		bx	lr
+ 1130              	.L117:
+ 1131              		.align	2
+ 1132              	.L116:
+ 1133 0008 00340140 		.word	1073820672
+ 1134              		.cfi_endproc
+ 1135              	.LFE68:
+ 1137              		.section	.text.LPTIM_LPTIF_OVIF_Chk,"ax",%progbits
+ 1138              		.align	2
+ 1139              		.global	LPTIM_LPTIF_OVIF_Chk
+ 1140              		.code	16
+ 1141              		.thumb_func
+ 1143              	LPTIM_LPTIF_OVIF_Chk:
+ 1144              	.LFB69:
+ 312:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 313:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** FlagStatus LPTIM_LPTIF_OVIF_Chk(void)
+ 314:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 1145              		.loc 1 314 0
+ 1146              		.cfi_startproc
+ 1147              		@ args = 0, pretend = 0, frame = 0
+ 1148              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1149              		@ link register save eliminated.
+ 315:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	if (LPTIM->LPTIF & LPTIM_LPTIF_OVIF_Msk)
+ 1150              		.loc 1 315 0
+ 1151 0000 034B     		ldr	r3, .L121
+ 1152 0002 5B69     		ldr	r3, [r3, #20]
+ 1153 0004 9B07     		lsls	r3, r3, #30
+ 1154 0006 01D5     		bpl	.L120
+ 316:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	{
+ 317:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 		return SET;
+ 1155              		.loc 1 317 0
+ 1156 0008 0120     		movs	r0, #1
+ 1157 000a 00E0     		b	.L119
+ 1158              	.L120:
+ 318:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	}
+ 319:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	else
+ 320:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	{
+ 321:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 		return RESET;
+ 1159              		.loc 1 321 0
+ 1160 000c 0020     		movs	r0, #0
+ 1161              	.L119:
+ 322:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	}
+ 323:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 1162              		.loc 1 323 0
+ 1163              		@ sp needed
+ 1164 000e 7047     		bx	lr
+ 1165              	.L122:
+ 1166              		.align	2
+ 1167              	.L121:
+ 1168 0010 00340140 		.word	1073820672
+ 1169              		.cfi_endproc
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 26
+
+
+ 1170              	.LFE69:
+ 1172              		.section	.text.LPTIM_LPTIF_COMPIF_Clr,"ax",%progbits
+ 1173              		.align	2
+ 1174              		.global	LPTIM_LPTIF_COMPIF_Clr
+ 1175              		.code	16
+ 1176              		.thumb_func
+ 1178              	LPTIM_LPTIF_COMPIF_Clr:
+ 1179              	.LFB70:
+ 324:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 325:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** /* 比较值匹配标志 相关函数 */
+ 326:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** void LPTIM_LPTIF_COMPIF_Clr(void)
+ 327:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 1180              		.loc 1 327 0
+ 1181              		.cfi_startproc
+ 1182              		@ args = 0, pretend = 0, frame = 0
+ 1183              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1184              		@ link register save eliminated.
+ 328:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	LPTIM->LPTIF = LPTIM_LPTIF_COMPIF_Msk;
+ 1185              		.loc 1 328 0
+ 1186 0000 0122     		movs	r2, #1
+ 1187 0002 014B     		ldr	r3, .L124
+ 1188 0004 5A61     		str	r2, [r3, #20]
+ 329:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 1189              		.loc 1 329 0
+ 1190              		@ sp needed
+ 1191 0006 7047     		bx	lr
+ 1192              	.L125:
+ 1193              		.align	2
+ 1194              	.L124:
+ 1195 0008 00340140 		.word	1073820672
+ 1196              		.cfi_endproc
+ 1197              	.LFE70:
+ 1199              		.section	.text.LPTIM_LPTIF_COMPIF_Chk,"ax",%progbits
+ 1200              		.align	2
+ 1201              		.global	LPTIM_LPTIF_COMPIF_Chk
+ 1202              		.code	16
+ 1203              		.thumb_func
+ 1205              	LPTIM_LPTIF_COMPIF_Chk:
+ 1206              	.LFB71:
+ 330:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 331:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** FlagStatus LPTIM_LPTIF_COMPIF_Chk(void)
+ 332:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 1207              		.loc 1 332 0
+ 1208              		.cfi_startproc
+ 1209              		@ args = 0, pretend = 0, frame = 0
+ 1210              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1211              		@ link register save eliminated.
+ 333:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	if (LPTIM->LPTIF & LPTIM_LPTIF_COMPIF_Msk)
+ 1212              		.loc 1 333 0
+ 1213 0000 034B     		ldr	r3, .L129
+ 1214 0002 5B69     		ldr	r3, [r3, #20]
+ 1215 0004 DB07     		lsls	r3, r3, #31
+ 1216 0006 01D5     		bpl	.L128
+ 334:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	{
+ 335:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 		return SET;
+ 1217              		.loc 1 335 0
+ 1218 0008 0120     		movs	r0, #1
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 27
+
+
+ 1219 000a 00E0     		b	.L127
+ 1220              	.L128:
+ 336:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	}
+ 337:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	else
+ 338:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	{
+ 339:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 		return RESET;
+ 1221              		.loc 1 339 0
+ 1222 000c 0020     		movs	r0, #0
+ 1223              	.L127:
+ 340:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	}
+ 341:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 1224              		.loc 1 341 0
+ 1225              		@ sp needed
+ 1226 000e 7047     		bx	lr
+ 1227              	.L130:
+ 1228              		.align	2
+ 1229              	.L129:
+ 1230 0010 00340140 		.word	1073820672
+ 1231              		.cfi_endproc
+ 1232              	.LFE71:
+ 1234              		.section	.text.LPTIM_LPTCTRL_LPTEN_Setable,"ax",%progbits
+ 1235              		.align	2
+ 1236              		.global	LPTIM_LPTCTRL_LPTEN_Setable
+ 1237              		.code	16
+ 1238              		.thumb_func
+ 1240              	LPTIM_LPTCTRL_LPTEN_Setable:
+ 1241              	.LFB72:
+ 342:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 343:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** /* LPT使能 相关函数 */
+ 344:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** void LPTIM_LPTCTRL_LPTEN_Setable(FunState NewState)
+ 345:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 1242              		.loc 1 345 0
+ 1243              		.cfi_startproc
+ 1244              		@ args = 0, pretend = 0, frame = 0
+ 1245              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1246              		@ link register save eliminated.
+ 1247              	.LVL50:
+ 346:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	if (NewState == ENABLE)
+ 1248              		.loc 1 346 0
+ 1249 0000 0128     		cmp	r0, #1
+ 1250 0002 05D1     		bne	.L132
+ 347:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	{
+ 348:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 		LPTIM->LPTCTRL |= (LPTIM_LPTCTRL_LPTEN_Msk);
+ 1251              		.loc 1 348 0
+ 1252 0004 054A     		ldr	r2, .L134
+ 1253 0006 9169     		ldr	r1, [r2, #24]
+ 1254 0008 0123     		movs	r3, #1
+ 1255 000a 0B43     		orrs	r3, r1
+ 1256 000c 9361     		str	r3, [r2, #24]
+ 1257 000e 04E0     		b	.L131
+ 1258              	.L132:
+ 349:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	}
+ 350:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	else
+ 351:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	{
+ 352:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 		LPTIM->LPTCTRL &= ~(LPTIM_LPTCTRL_LPTEN_Msk);
+ 1259              		.loc 1 352 0
+ 1260 0010 024A     		ldr	r2, .L134
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 28
+
+
+ 1261 0012 9369     		ldr	r3, [r2, #24]
+ 1262 0014 0121     		movs	r1, #1
+ 1263 0016 8B43     		bics	r3, r1
+ 1264 0018 9361     		str	r3, [r2, #24]
+ 1265              	.L131:
+ 353:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	}
+ 354:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 1266              		.loc 1 354 0
+ 1267              		@ sp needed
+ 1268 001a 7047     		bx	lr
+ 1269              	.L135:
+ 1270              		.align	2
+ 1271              	.L134:
+ 1272 001c 00340140 		.word	1073820672
+ 1273              		.cfi_endproc
+ 1274              	.LFE72:
+ 1276              		.section	.text.LPTIM_LPTCTRL_LPTEN_Getable,"ax",%progbits
+ 1277              		.align	2
+ 1278              		.global	LPTIM_LPTCTRL_LPTEN_Getable
+ 1279              		.code	16
+ 1280              		.thumb_func
+ 1282              	LPTIM_LPTCTRL_LPTEN_Getable:
+ 1283              	.LFB73:
+ 355:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 356:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** FunState LPTIM_LPTCTRL_LPTEN_Getable(void)
+ 357:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 1284              		.loc 1 357 0
+ 1285              		.cfi_startproc
+ 1286              		@ args = 0, pretend = 0, frame = 0
+ 1287              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1288              		@ link register save eliminated.
+ 358:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	if (LPTIM->LPTCTRL & (LPTIM_LPTCTRL_LPTEN_Msk))
+ 1289              		.loc 1 358 0
+ 1290 0000 034B     		ldr	r3, .L139
+ 1291 0002 9B69     		ldr	r3, [r3, #24]
+ 1292 0004 DB07     		lsls	r3, r3, #31
+ 1293 0006 01D5     		bpl	.L138
+ 359:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	{
+ 360:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 		return ENABLE;
+ 1294              		.loc 1 360 0
+ 1295 0008 0120     		movs	r0, #1
+ 1296 000a 00E0     		b	.L137
+ 1297              	.L138:
+ 361:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	}
+ 362:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	else
+ 363:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	{
+ 364:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 		return DISABLE;
+ 1298              		.loc 1 364 0
+ 1299 000c 0020     		movs	r0, #0
+ 1300              	.L137:
+ 365:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	}
+ 366:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 1301              		.loc 1 366 0
+ 1302              		@ sp needed
+ 1303 000e 7047     		bx	lr
+ 1304              	.L140:
+ 1305              		.align	2
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 29
+
+
+ 1306              	.L139:
+ 1307 0010 00340140 		.word	1073820672
+ 1308              		.cfi_endproc
+ 1309              	.LFE73:
+ 1311              		.section	.text.LPTIM_Deinit,"ax",%progbits
+ 1312              		.align	2
+ 1313              		.global	LPTIM_Deinit
+ 1314              		.code	16
+ 1315              		.thumb_func
+ 1317              	LPTIM_Deinit:
+ 1318              	.LFB74:
+ 367:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 368:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 369:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** void LPTIM_Deinit(void)
+ 370:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {
+ 1319              		.loc 1 370 0
+ 1320              		.cfi_startproc
+ 1321              		@ args = 0, pretend = 0, frame = 0
+ 1322              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1323              		@ link register save eliminated.
+ 371:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	LPTIM->LPTCFG = 0x00000000;
+ 1324              		.loc 1 371 0
+ 1325 0000 034B     		ldr	r3, .L142
+ 1326 0002 0022     		movs	r2, #0
+ 1327 0004 1A60     		str	r2, [r3]
+ 372:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	//LPTIM->LPTCNT = ;
+ 373:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	LPTIM->LPTCMP = 0x00000000;
+ 1328              		.loc 1 373 0
+ 1329 0006 9A60     		str	r2, [r3, #8]
+ 374:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	LPTIM->LPTTARGET = 0x00000000;
+ 1330              		.loc 1 374 0
+ 1331 0008 DA60     		str	r2, [r3, #12]
+ 375:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	LPTIM->LPTIE = 0x00000000;
+ 1332              		.loc 1 375 0
+ 1333 000a 1A61     		str	r2, [r3, #16]
+ 376:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	//LPTIM->LPTIF = ;
+ 377:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	LPTIM->LPTCTRL = 0x00000000;
+ 1334              		.loc 1 377 0
+ 1335 000c 9A61     		str	r2, [r3, #24]
+ 378:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 1336              		.loc 1 378 0
+ 1337              		@ sp needed
+ 1338 000e 7047     		bx	lr
+ 1339              	.L143:
+ 1340              		.align	2
+ 1341              	.L142:
+ 1342 0010 00340140 		.word	1073820672
+ 1343              		.cfi_endproc
+ 1344              	.LFE74:
+ 1346              		.section	.text.LPTIM_Init,"ax",%progbits
+ 1347              		.align	2
+ 1348              		.global	LPTIM_Init
+ 1349              		.code	16
+ 1350              		.thumb_func
+ 1352              	LPTIM_Init:
+ 1353              	.LFB75:
+ 379:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** //Code_End
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 30
+
+
+ 380:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 381:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 382:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** void LPTIM_Init(LPTIM_InitTypeDef* para)
+ 383:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** {	
+ 1354              		.loc 1 383 0
+ 1355              		.cfi_startproc
+ 1356              		@ args = 0, pretend = 0, frame = 0
+ 1357              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1358              	.LVL51:
+ 1359 0000 10B5     		push	{r4, lr}
+ 1360              	.LCFI0:
+ 1361              		.cfi_def_cfa_offset 8
+ 1362              		.cfi_offset 4, -8
+ 1363              		.cfi_offset 14, -4
+ 1364 0002 0400     		movs	r4, r0
+ 384:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	LPTIM_LPTCFG_FLTEN_Setable(para->LPTIM_FLTEN);
+ 1365              		.loc 1 384 0
+ 1366 0004 007D     		ldrb	r0, [r0, #20]
+ 1367              	.LVL52:
+ 1368 0006 FFF7FEFF 		bl	LPTIM_LPTCFG_FLTEN_Setable
+ 1369              	.LVL53:
+ 385:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	LPTIM_LPTCFG_DIVSEL_Set(para->LPTIM_CLK_DIV);
+ 1370              		.loc 1 385 0
+ 1371 000a 206A     		ldr	r0, [r4, #32]
+ 1372 000c FFF7FEFF 		bl	LPTIM_LPTCFG_DIVSEL_Set
+ 1373              	.LVL54:
+ 386:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	LPTIM_LPTCFG_CLKSEL_Set(para->LPTIM_CLK_SEL);
+ 1374              		.loc 1 386 0
+ 1375 0010 E069     		ldr	r0, [r4, #28]
+ 1376 0012 FFF7FEFF 		bl	LPTIM_LPTCFG_CLKSEL_Set
+ 1377              	.LVL55:
+ 387:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	LPTIM_LPTCFG_EDGESEL_Set(para->LPTIM_LPTIN_EDGE);
+ 1378              		.loc 1 387 0
+ 1379 0016 A069     		ldr	r0, [r4, #24]
+ 1380 0018 FFF7FEFF 		bl	LPTIM_LPTCFG_EDGESEL_Set
+ 1381              	.LVL56:
+ 388:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	LPTIM_LPTCFG_TRIGCFG_Set(para->LPTIM_TRIG_CFG);
+ 1382              		.loc 1 388 0
+ 1383 001c 2069     		ldr	r0, [r4, #16]
+ 1384 001e FFF7FEFF 		bl	LPTIM_LPTCFG_TRIGCFG_Set
+ 1385              	.LVL57:
+ 389:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	LPTIM_LPTCFG_POLARITY_Set(para->LPTIM_POLAR);
+ 1386              		.loc 1 389 0
+ 1387 0022 E068     		ldr	r0, [r4, #12]
+ 1388 0024 FFF7FEFF 		bl	LPTIM_LPTCFG_POLARITY_Set
+ 1389              	.LVL58:
+ 390:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	LPTIM_LPTCFG_PWM_Set(para->LPTIM_PWM);
+ 1390              		.loc 1 390 0
+ 1391 0028 A068     		ldr	r0, [r4, #8]
+ 1392 002a FFF7FEFF 		bl	LPTIM_LPTCFG_PWM_Set
+ 1393              	.LVL59:
+ 391:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	LPTIM_LPTCFG_MODE_Set(para->LPTIM_MODE);
+ 1394              		.loc 1 391 0
+ 1395 002e 6068     		ldr	r0, [r4, #4]
+ 1396 0030 FFF7FEFF 		bl	LPTIM_LPTCFG_MODE_Set
+ 1397              	.LVL60:
+ 392:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	LPTIM_LPTCFG_TMODE_Set(para->LPTIM_TMODE);
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 31
+
+
+ 1398              		.loc 1 392 0
+ 1399 0034 2068     		ldr	r0, [r4]
+ 1400 0036 FFF7FEFF 		bl	LPTIM_LPTCFG_TMODE_Set
+ 1401              	.LVL61:
+ 393:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 
+ 394:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	LPTIM_LPTCMP_Write(para->LPTIM_compare_value);
+ 1402              		.loc 1 394 0
+ 1403 003a 606A     		ldr	r0, [r4, #36]
+ 1404 003c FFF7FEFF 		bl	LPTIM_LPTCMP_Write
+ 1405              	.LVL62:
+ 395:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** 	LPTIM_LPTTARGET_Write(para->LPTIM_target_value);
+ 1406              		.loc 1 395 0
+ 1407 0040 A06A     		ldr	r0, [r4, #40]
+ 1408 0042 FFF7FEFF 		bl	LPTIM_LPTTARGET_Write
+ 1409              	.LVL63:
+ 396:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_lptim.c **** }
+ 1410              		.loc 1 396 0
+ 1411              		@ sp needed
+ 1412              	.LVL64:
+ 1413 0046 10BD     		pop	{r4, pc}
+ 1414              		.cfi_endproc
+ 1415              	.LFE75:
+ 1417              		.text
+ 1418              	.Letext0:
+ 1419              		.file 2 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\device\\include\\fm33a0xx.h"
+ 1420              		.file 3 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\machine\\_default_types.h
+ 1421              		.file 4 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 1422              		.file 5 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\drivers\\fm33A0xx_lptim.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 32
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 fm33a0xx_lptim.c
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:20     .text.LPTIM_LPTCFG_FLTEN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:25     .text.LPTIM_LPTCFG_FLTEN_Setable:00000000 LPTIM_LPTCFG_FLTEN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:59     .text.LPTIM_LPTCFG_FLTEN_Setable:00000020 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:65     .text.LPTIM_LPTCFG_FLTEN_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:70     .text.LPTIM_LPTCFG_FLTEN_Getable:00000000 LPTIM_LPTCFG_FLTEN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:95     .text.LPTIM_LPTCFG_FLTEN_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:100    .text.LPTIM_LPTCFG_DIVSEL_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:105    .text.LPTIM_LPTCFG_DIVSEL_Set:00000000 LPTIM_LPTCFG_DIVSEL_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:136    .text.LPTIM_LPTCFG_DIVSEL_Set:00000014 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:142    .text.LPTIM_LPTCFG_DIVSEL_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:147    .text.LPTIM_LPTCFG_DIVSEL_Get:00000000 LPTIM_LPTCFG_DIVSEL_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:166    .text.LPTIM_LPTCFG_DIVSEL_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:171    .text.LPTIM_LPTCFG_CLKSEL_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:176    .text.LPTIM_LPTCFG_CLKSEL_Set:00000000 LPTIM_LPTCFG_CLKSEL_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:207    .text.LPTIM_LPTCFG_CLKSEL_Set:00000014 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:213    .text.LPTIM_LPTCFG_CLKSEL_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:218    .text.LPTIM_LPTCFG_CLKSEL_Get:00000000 LPTIM_LPTCFG_CLKSEL_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:237    .text.LPTIM_LPTCFG_CLKSEL_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:242    .text.LPTIM_LPTCFG_EDGESEL_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:247    .text.LPTIM_LPTCFG_EDGESEL_Set:00000000 LPTIM_LPTCFG_EDGESEL_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:276    .text.LPTIM_LPTCFG_EDGESEL_Set:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:281    .text.LPTIM_LPTCFG_EDGESEL_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:286    .text.LPTIM_LPTCFG_EDGESEL_Get:00000000 LPTIM_LPTCFG_EDGESEL_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:304    .text.LPTIM_LPTCFG_EDGESEL_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:309    .text.LPTIM_LPTCFG_TRIGCFG_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:314    .text.LPTIM_LPTCFG_TRIGCFG_Set:00000000 LPTIM_LPTCFG_TRIGCFG_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:343    .text.LPTIM_LPTCFG_TRIGCFG_Set:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:348    .text.LPTIM_LPTCFG_TRIGCFG_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:353    .text.LPTIM_LPTCFG_TRIGCFG_Get:00000000 LPTIM_LPTCFG_TRIGCFG_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:371    .text.LPTIM_LPTCFG_TRIGCFG_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:376    .text.LPTIM_LPTCFG_POLARITY_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:381    .text.LPTIM_LPTCFG_POLARITY_Set:00000000 LPTIM_LPTCFG_POLARITY_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:410    .text.LPTIM_LPTCFG_POLARITY_Set:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:415    .text.LPTIM_LPTCFG_POLARITY_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:420    .text.LPTIM_LPTCFG_POLARITY_Get:00000000 LPTIM_LPTCFG_POLARITY_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:438    .text.LPTIM_LPTCFG_POLARITY_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:443    .text.LPTIM_LPTCFG_PWM_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:448    .text.LPTIM_LPTCFG_PWM_Set:00000000 LPTIM_LPTCFG_PWM_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:477    .text.LPTIM_LPTCFG_PWM_Set:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:482    .text.LPTIM_LPTCFG_PWM_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:487    .text.LPTIM_LPTCFG_PWM_Get:00000000 LPTIM_LPTCFG_PWM_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:505    .text.LPTIM_LPTCFG_PWM_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:510    .text.LPTIM_LPTCFG_MODE_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:515    .text.LPTIM_LPTCFG_MODE_Set:00000000 LPTIM_LPTCFG_MODE_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:544    .text.LPTIM_LPTCFG_MODE_Set:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:549    .text.LPTIM_LPTCFG_MODE_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:554    .text.LPTIM_LPTCFG_MODE_Get:00000000 LPTIM_LPTCFG_MODE_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:572    .text.LPTIM_LPTCFG_MODE_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:577    .text.LPTIM_LPTCFG_TMODE_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:582    .text.LPTIM_LPTCFG_TMODE_Set:00000000 LPTIM_LPTCFG_TMODE_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:611    .text.LPTIM_LPTCFG_TMODE_Set:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:616    .text.LPTIM_LPTCFG_TMODE_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:621    .text.LPTIM_LPTCFG_TMODE_Get:00000000 LPTIM_LPTCFG_TMODE_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:639    .text.LPTIM_LPTCFG_TMODE_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:644    .text.LPTIM_LPTCNT_Write:00000000 $t
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 33
+
+
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:649    .text.LPTIM_LPTCNT_Write:00000000 LPTIM_LPTCNT_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:669    .text.LPTIM_LPTCNT_Write:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:674    .text.LPTIM_LPTCNT_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:679    .text.LPTIM_LPTCNT_Read:00000000 LPTIM_LPTCNT_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:697    .text.LPTIM_LPTCNT_Read:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:702    .text.LPTIM_LPTCMP_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:707    .text.LPTIM_LPTCMP_Write:00000000 LPTIM_LPTCMP_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:727    .text.LPTIM_LPTCMP_Write:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:732    .text.LPTIM_LPTCMP_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:737    .text.LPTIM_LPTCMP_Read:00000000 LPTIM_LPTCMP_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:755    .text.LPTIM_LPTCMP_Read:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:760    .text.LPTIM_LPTTARGET_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:765    .text.LPTIM_LPTTARGET_Write:00000000 LPTIM_LPTTARGET_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:785    .text.LPTIM_LPTTARGET_Write:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:790    .text.LPTIM_LPTTARGET_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:795    .text.LPTIM_LPTTARGET_Read:00000000 LPTIM_LPTTARGET_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:813    .text.LPTIM_LPTTARGET_Read:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:818    .text.LPTIM_LPTIE_TRIGIE_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:823    .text.LPTIM_LPTIE_TRIGIE_Setable:00000000 LPTIM_LPTIE_TRIGIE_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:855    .text.LPTIM_LPTIE_TRIGIE_Setable:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:860    .text.LPTIM_LPTIE_TRIGIE_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:865    .text.LPTIM_LPTIE_TRIGIE_Getable:00000000 LPTIM_LPTIE_TRIGIE_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:890    .text.LPTIM_LPTIE_TRIGIE_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:895    .text.LPTIM_LPTIE_OVIE_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:900    .text.LPTIM_LPTIE_OVIE_Setable:00000000 LPTIM_LPTIE_OVIE_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:932    .text.LPTIM_LPTIE_OVIE_Setable:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:937    .text.LPTIM_LPTIE_OVIE_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:942    .text.LPTIM_LPTIE_OVIE_Getable:00000000 LPTIM_LPTIE_OVIE_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:967    .text.LPTIM_LPTIE_OVIE_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:972    .text.LPTIM_LPTIE_COMPIE_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:977    .text.LPTIM_LPTIE_COMPIE_Setable:00000000 LPTIM_LPTIE_COMPIE_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1009   .text.LPTIM_LPTIE_COMPIE_Setable:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1014   .text.LPTIM_LPTIE_COMPIE_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1019   .text.LPTIM_LPTIE_COMPIE_Getable:00000000 LPTIM_LPTIE_COMPIE_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1044   .text.LPTIM_LPTIE_COMPIE_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1049   .text.LPTIM_LPTIF_TRIGIF_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1054   .text.LPTIM_LPTIF_TRIGIF_Clr:00000000 LPTIM_LPTIF_TRIGIF_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1071   .text.LPTIM_LPTIF_TRIGIF_Clr:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1076   .text.LPTIM_LPTIF_TRIGIF_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1081   .text.LPTIM_LPTIF_TRIGIF_Chk:00000000 LPTIM_LPTIF_TRIGIF_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1106   .text.LPTIM_LPTIF_TRIGIF_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1111   .text.LPTIM_LPTIF_OVIF_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1116   .text.LPTIM_LPTIF_OVIF_Clr:00000000 LPTIM_LPTIF_OVIF_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1133   .text.LPTIM_LPTIF_OVIF_Clr:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1138   .text.LPTIM_LPTIF_OVIF_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1143   .text.LPTIM_LPTIF_OVIF_Chk:00000000 LPTIM_LPTIF_OVIF_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1168   .text.LPTIM_LPTIF_OVIF_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1173   .text.LPTIM_LPTIF_COMPIF_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1178   .text.LPTIM_LPTIF_COMPIF_Clr:00000000 LPTIM_LPTIF_COMPIF_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1195   .text.LPTIM_LPTIF_COMPIF_Clr:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1200   .text.LPTIM_LPTIF_COMPIF_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1205   .text.LPTIM_LPTIF_COMPIF_Chk:00000000 LPTIM_LPTIF_COMPIF_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1230   .text.LPTIM_LPTIF_COMPIF_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1235   .text.LPTIM_LPTCTRL_LPTEN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1240   .text.LPTIM_LPTCTRL_LPTEN_Setable:00000000 LPTIM_LPTCTRL_LPTEN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1272   .text.LPTIM_LPTCTRL_LPTEN_Setable:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1277   .text.LPTIM_LPTCTRL_LPTEN_Getable:00000000 $t
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s 			page 34
+
+
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1282   .text.LPTIM_LPTCTRL_LPTEN_Getable:00000000 LPTIM_LPTCTRL_LPTEN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1307   .text.LPTIM_LPTCTRL_LPTEN_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1312   .text.LPTIM_Deinit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1317   .text.LPTIM_Deinit:00000000 LPTIM_Deinit
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1342   .text.LPTIM_Deinit:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1347   .text.LPTIM_Init:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccOyjQgg.s:1352   .text.LPTIM_Init:00000000 LPTIM_Init
+                     .debug_frame:00000010 $d
+
+NO UNDEFINED SYMBOLS

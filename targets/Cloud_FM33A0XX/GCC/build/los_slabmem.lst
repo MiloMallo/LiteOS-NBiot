@@ -1,0 +1,1290 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"los_slabmem.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.osSlabBlockHeadFill,"ax",%progbits
+  20              		.align	2
+  21              		.global	osSlabBlockHeadFill
+  22              		.code	16
+  23              		.thumb_func
+  25              	osSlabBlockHeadFill:
+  26              	.LFB43:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common/los_slabmem.c
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** /*----------------------------------------------------------------------------
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  * Copyright (c) <2013-2017>, <Huawei Technologies Co., Ltd>
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  * All rights reserved.
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  * are permitted provided that the following conditions are met:
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  * conditions and the following disclaimer.
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  * provided with the distribution.
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  * permission.
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  *---------------------------------------------------------------------------*/
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** /*----------------------------------------------------------------------------
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  * Notice of Export Control Law
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  * ===============================================
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s 			page 2
+
+
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  * applicable export control laws and regulations.
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  *---------------------------------------------------------------------------*/
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** #define _LOS_SLAB_MEM_C_
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** #include <los_printf.h>
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** #include <los_slab.ph>
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** #include <los_hwi.h>
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** #if (LOSCFG_MEM_TASK_USED_STATISTICS == YES)
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** #include "los_memstat.inc"
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** #endif
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** VOID *osSlabBlockHeadFill(OS_SLAB_BLOCK_NODE *pstSlabNode, UINT32 uwBlkSz)
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** {
+  28              		.loc 1 45 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     OS_SLAB_BLOCK_MAGIC_SET(pstSlabNode);
+  34              		.loc 1 46 0
+  35 0000 034B     		ldr	r3, .L2
+  36 0002 0380     		strh	r3, [r0]
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     OS_SLAB_BLOCK_SIZE_SET(pstSlabNode, uwBlkSz);
+  37              		.loc 1 47 0
+  38 0004 8170     		strb	r1, [r0, #2]
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     OS_SLAB_BLOCK_ID_SET(pstSlabNode, 0);//now undefine how to use ID
+  39              		.loc 1 48 0
+  40 0006 0023     		movs	r3, #0
+  41 0008 C370     		strb	r3, [r0, #3]
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     return (VOID *)(pstSlabNode + 1);
+  42              		.loc 1 49 0
+  43 000a 0430     		adds	r0, r0, #4
+  44              	.LVL1:
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** }
+  45              		.loc 1 50 0
+  46              		@ sp needed
+  47 000c 7047     		bx	lr
+  48              	.L3:
+  49 000e C046     		.align	2
+  50              	.L2:
+  51 0010 DEDEFFFF 		.word	-8482
+  52              		.cfi_endproc
+  53              	.LFE43:
+  55              		.global	__aeabi_uidiv
+  56              		.section	.text.osSlabMemInit,"ax",%progbits
+  57              		.align	2
+  58              		.global	osSlabMemInit
+  59              		.code	16
+  60              		.thumb_func
+  62              	osSlabMemInit:
+  63              	.LFB44:
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** /*****************************************************************************
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  Function : osSlabMemInit
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  Description : To initialize the slab memory management
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s 			page 3
+
+
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  Input       : None
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  Output      : None
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  Return      : None
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** *****************************************************************************/
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** BOOL osSlabMemInit(VOID *pPool)
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** {
+  64              		.loc 1 60 0
+  65              		.cfi_startproc
+  66              		@ args = 0, pretend = 0, frame = 8
+  67              		@ frame_needed = 0, uses_anonymous_args = 0
+  68              	.LVL2:
+  69 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+  70              	.LCFI0:
+  71              		.cfi_def_cfa_offset 20
+  72              		.cfi_offset 4, -20
+  73              		.cfi_offset 5, -16
+  74              		.cfi_offset 6, -12
+  75              		.cfi_offset 7, -8
+  76              		.cfi_offset 14, -4
+  77 0002 83B0     		sub	sp, sp, #12
+  78              	.LCFI1:
+  79              		.cfi_def_cfa_offset 32
+  80 0004 0190     		str	r0, [sp, #4]
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     struct LOS_SLAB_CONTROL_HEADER *pstSlabMemHead = osSlabCtrlHdrGet(pPool);
+  81              		.loc 1 61 0
+  82 0006 FFF7FEFF 		bl	osSlabCtrlHdrGet
+  83              	.LVL3:
+  84 000a 0500     		movs	r5, r0
+  85              	.LVL4:
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     UINT32 uwIdx = 0;
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     UINT32 uwTmp = 0;
+  86              		.loc 1 63 0
+  87 000c 0027     		movs	r7, #0
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     UINT32 uwBlkSz = 0;
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     UINT32 uwBlkCnt = 0;
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     for (uwIdx = 0; uwIdx < SLAB_MEM_COUNT; uwIdx++)
+  88              		.loc 1 67 0
+  89 000e 0024     		movs	r4, #0
+  90 0010 1BE0     		b	.L5
+  91              	.LVL5:
+  92              	.L8:
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     {
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         uwBlkSz = (SLAB_MEM_CALSS_STEP_SIZE << uwIdx);
+  93              		.loc 1 69 0
+  94 0012 1026     		movs	r6, #16
+  95 0014 A640     		lsls	r6, r6, r4
+  96              	.LVL6:
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         uwBlkCnt = SLAB_MEM_ALLOCATOR_SIZE / uwBlkSz;
+  97              		.loc 1 70 0
+  98 0016 3100     		movs	r1, r6
+  99 0018 8020     		movs	r0, #128
+ 100 001a 8000     		lsls	r0, r0, #2
+ 101 001c FFF7FEFF 		bl	__aeabi_uidiv
+ 102              	.LVL7:
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         pstSlabMemHead->stSlabClass[uwIdx].blkSz = uwBlkSz;
+ 103              		.loc 1 71 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s 			page 4
+
+
+ 104 0020 2201     		lsls	r2, r4, #4
+ 105 0022 5651     		str	r6, [r2, r5]
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         pstSlabMemHead->stSlabClass[uwIdx].blkCnt = uwBlkCnt;
+ 106              		.loc 1 72 0
+ 107 0024 AA18     		adds	r2, r5, r2
+ 108 0026 5060     		str	r0, [r2, #4]
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         pstSlabMemHead->stSlabClass[uwIdx].blkUsedCnt = 0;
+ 109              		.loc 1 73 0
+ 110 0028 0023     		movs	r3, #0
+ 111 002a 9360     		str	r3, [r2, #8]
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         if (NULL != pstSlabMemHead->stSlabClass[uwIdx].alloc)
+ 112              		.loc 1 74 0
+ 113 002c D368     		ldr	r3, [r2, #12]
+ 114 002e 002B     		cmp	r3, #0
+ 115 0030 01D0     		beq	.L6
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         {
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             PRINT_WARN("SlabMemAllocator[%d] inited before\n", uwIdx);
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             uwTmp++;
+ 116              		.loc 1 77 0
+ 117 0032 0137     		adds	r7, r7, #1
+ 118              	.LVL8:
+ 119 0034 08E0     		b	.L7
+ 120              	.L6:
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         }
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         else
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         {
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             pstSlabMemHead->stSlabClass[uwIdx].alloc = osSlabAllocatorNew(pPool, uwBlkSz + sizeof(O
+ 121              		.loc 1 81 0
+ 122 0036 311D     		adds	r1, r6, #4
+ 123 0038 0300     		movs	r3, r0
+ 124 003a 0422     		movs	r2, #4
+ 125 003c 0198     		ldr	r0, [sp, #4]
+ 126              	.LVL9:
+ 127 003e FFF7FEFF 		bl	osSlabAllocatorNew
+ 128              	.LVL10:
+ 129 0042 2301     		lsls	r3, r4, #4
+ 130 0044 EB18     		adds	r3, r5, r3
+ 131 0046 D860     		str	r0, [r3, #12]
+ 132              	.L7:
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     {
+ 133              		.loc 1 67 0 discriminator 2
+ 134 0048 0134     		adds	r4, r4, #1
+ 135              	.LVL11:
+ 136              	.L5:
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     {
+ 137              		.loc 1 67 0 is_stmt 0 discriminator 1
+ 138 004a 032C     		cmp	r4, #3
+ 139 004c E1D9     		bls	.L8
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         }
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     }
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     return ((0 == uwTmp) ? TRUE : FALSE);
+ 140              		.loc 1 85 0 is_stmt 1
+ 141 004e 002F     		cmp	r7, #0
+ 142 0050 01D1     		bne	.L10
+ 143 0052 0120     		movs	r0, #1
+ 144 0054 00E0     		b	.L9
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s 			page 5
+
+
+ 145              	.L10:
+ 146 0056 0020     		movs	r0, #0
+ 147              	.L9:
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** }
+ 148              		.loc 1 86 0 discriminator 4
+ 149 0058 03B0     		add	sp, sp, #12
+ 150              		@ sp needed
+ 151              	.LVL12:
+ 152              	.LVL13:
+ 153              	.LVL14:
+ 154 005a F0BD     		pop	{r4, r5, r6, r7, pc}
+ 155              		.cfi_endproc
+ 156              	.LFE44:
+ 158              		.section	.text.osSlabMemAlloc,"ax",%progbits
+ 159              		.align	2
+ 160              		.global	osSlabMemAlloc
+ 161              		.code	16
+ 162              		.thumb_func
+ 164              	osSlabMemAlloc:
+ 165              	.LFB45:
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** /*****************************************************************************
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  Function : osSlabMemAlloc
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  Description : To alloc memory block
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  Input       :  UITN32 sz --- size of the  memory we want to alloc
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  Output      : None
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  Return      : pointer :the address of the memory we alloced
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** *****************************************************************************/
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** VOID *osSlabMemAlloc(VOID *pPool, UINT32 uwSz)
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** {
+ 166              		.loc 1 96 0
+ 167              		.cfi_startproc
+ 168              		@ args = 0, pretend = 0, frame = 0
+ 169              		@ frame_needed = 0, uses_anonymous_args = 0
+ 170              	.LVL15:
+ 171 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 172              	.LCFI2:
+ 173              		.cfi_def_cfa_offset 24
+ 174              		.cfi_offset 3, -24
+ 175              		.cfi_offset 4, -20
+ 176              		.cfi_offset 5, -16
+ 177              		.cfi_offset 6, -12
+ 178              		.cfi_offset 7, -8
+ 179              		.cfi_offset 14, -4
+ 180 0002 0D00     		movs	r5, r1
+ 181              	.LVL16:
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     VOID *pRet = NULL;
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     UINTPTR uvIntSave;
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     struct LOS_SLAB_CONTROL_HEADER *pstSlabMem = osSlabCtrlHdrGet(pPool);
+ 182              		.loc 1 99 0
+ 183 0004 FFF7FEFF 		bl	osSlabCtrlHdrGet
+ 184              	.LVL17:
+ 185 0008 0700     		movs	r7, r0
+ 186              	.LVL18:
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     OS_SLAB_MEM *pstSlabAlloc = NULL;
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     UINT32 uwIdx = 0;
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s 			page 6
+
+
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     if (uwSz > (SLAB_MEM_CALSS_STEP_SIZE << (SLAB_MEM_COUNT - 1)))
+ 187              		.loc 1 103 0
+ 188 000a 802D     		cmp	r5, #128
+ 189 000c 33D8     		bhi	.L19
+ 190 000e 0024     		movs	r4, #0
+ 191 0010 2DE0     		b	.L13
+ 192              	.LVL19:
+ 193              	.L18:
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     {
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         return NULL;
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     }
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     for (uwIdx = 0; uwIdx < SLAB_MEM_COUNT; uwIdx++)
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     {
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         if (uwSz<= pstSlabMem->stSlabClass[uwIdx].blkSz)
+ 194              		.loc 1 110 0
+ 195 0012 2301     		lsls	r3, r4, #4
+ 196 0014 DB59     		ldr	r3, [r3, r7]
+ 197 0016 9D42     		cmp	r5, r3
+ 198 0018 28D8     		bhi	.L14
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         {
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             uvIntSave = LOS_IntLock();
+ 199              		.loc 1 112 0
+ 200 001a FFF7FEFF 		bl	LOS_IntLock
+ 201              	.LVL20:
+ 202 001e 0600     		movs	r6, r0
+ 203              	.LVL21:
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             if (pstSlabMem->stSlabClass[uwIdx].blkUsedCnt >= pstSlabMem->stSlabClass[uwIdx].blkCnt)
+ 204              		.loc 1 114 0
+ 205 0020 2301     		lsls	r3, r4, #4
+ 206 0022 FB18     		adds	r3, r7, r3
+ 207 0024 9A68     		ldr	r2, [r3, #8]
+ 208 0026 5B68     		ldr	r3, [r3, #4]
+ 209 0028 9A42     		cmp	r2, r3
+ 210 002a 03D3     		bcc	.L15
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             {
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****                 (VOID)LOS_IntRestore(uvIntSave);
+ 211              		.loc 1 116 0
+ 212 002c FFF7FEFF 		bl	LOS_IntRestore
+ 213              	.LVL22:
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****                 return NULL;
+ 214              		.loc 1 117 0
+ 215 0030 0020     		movs	r0, #0
+ 216 0032 21E0     		b	.L12
+ 217              	.LVL23:
+ 218              	.L15:
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             }
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             if (NULL == pstSlabMem->stSlabClass[uwIdx].alloc)
+ 219              		.loc 1 120 0
+ 220 0034 2301     		lsls	r3, r4, #4
+ 221 0036 FB18     		adds	r3, r7, r3
+ 222 0038 D868     		ldr	r0, [r3, #12]
+ 223              	.LVL24:
+ 224 003a 0028     		cmp	r0, #0
+ 225 003c 04D1     		bne	.L16
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s 			page 7
+
+
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             {
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****                 (VOID)LOS_IntRestore(uvIntSave);
+ 226              		.loc 1 122 0
+ 227 003e 3000     		movs	r0, r6
+ 228 0040 FFF7FEFF 		bl	LOS_IntRestore
+ 229              	.LVL25:
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****                 return NULL;
+ 230              		.loc 1 123 0
+ 231 0044 0020     		movs	r0, #0
+ 232 0046 17E0     		b	.L12
+ 233              	.L16:
+ 234              	.LVL26:
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             }
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             pstSlabAlloc = &(pstSlabMem->stSlabClass[uwIdx]);
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             pRet = osSlabAllocatorAlloc(pstSlabAlloc->alloc);
+ 235              		.loc 1 127 0
+ 236 0048 FFF7FEFF 		bl	osSlabAllocatorAlloc
+ 237              	.LVL27:
+ 238 004c 051E     		subs	r5, r0, #0
+ 239              	.LVL28:
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             if (NULL != pRet)
+ 240              		.loc 1 128 0
+ 241 004e 08D0     		beq	.L17
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             {
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****                 /* alloc success */
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****                 pRet = osSlabBlockHeadFill((OS_SLAB_BLOCK_NODE *)pRet, pstSlabMem->stSlabClass[uwId
+ 242              		.loc 1 131 0
+ 243 0050 2401     		lsls	r4, r4, #4
+ 244              	.LVL29:
+ 245 0052 E159     		ldr	r1, [r4, r7]
+ 246 0054 FFF7FEFF 		bl	osSlabBlockHeadFill
+ 247              	.LVL30:
+ 248 0058 0500     		movs	r5, r0
+ 249              	.LVL31:
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****                 pstSlabMem->stSlabClass[uwIdx].blkUsedCnt++;
+ 250              		.loc 1 132 0
+ 251 005a 3C19     		adds	r4, r7, r4
+ 252              	.LVL32:
+ 253 005c A368     		ldr	r3, [r4, #8]
+ 254 005e 0133     		adds	r3, r3, #1
+ 255 0060 A360     		str	r3, [r4, #8]
+ 256              	.LVL33:
+ 257              	.L17:
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** #if (LOSCFG_MEM_TASK_USED_STATISTICS == YES)
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****                 OS_MEM_ADD_USED(pstSlabMem->stSlabClass[uwIdx].blkSz);
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** #endif
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             }
+ 137:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+ 138:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             (VOID)LOS_IntRestore(uvIntSave);
+ 258              		.loc 1 138 0
+ 259 0062 3000     		movs	r0, r6
+ 260              	.LVL34:
+ 261 0064 FFF7FEFF 		bl	LOS_IntRestore
+ 262              	.LVL35:
+ 139:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             return pRet;
+ 263              		.loc 1 139 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s 			page 8
+
+
+ 264 0068 2800     		movs	r0, r5
+ 265 006a 05E0     		b	.L12
+ 266              	.LVL36:
+ 267              	.L14:
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     {
+ 268              		.loc 1 108 0 discriminator 2
+ 269 006c 0134     		adds	r4, r4, #1
+ 270              	.LVL37:
+ 271              	.L13:
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     {
+ 272              		.loc 1 108 0 is_stmt 0 discriminator 1
+ 273 006e 032C     		cmp	r4, #3
+ 274 0070 CFD9     		bls	.L18
+ 140:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         }
+ 141:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     }
+ 142:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+ 143:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     return NULL;
+ 275              		.loc 1 143 0 is_stmt 1
+ 276 0072 0020     		movs	r0, #0
+ 277              	.LVL38:
+ 278 0074 00E0     		b	.L12
+ 279              	.LVL39:
+ 280              	.L19:
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     }
+ 281              		.loc 1 105 0
+ 282 0076 0020     		movs	r0, #0
+ 283              	.LVL40:
+ 284              	.L12:
+ 144:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** }
+ 285              		.loc 1 144 0
+ 286              		@ sp needed
+ 287              	.LVL41:
+ 288 0078 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 289              		.cfi_endproc
+ 290              	.LFE45:
+ 292 007a C046     		.section	.text.osSlabMemFree,"ax",%progbits
+ 293              		.align	2
+ 294              		.global	osSlabMemFree
+ 295              		.code	16
+ 296              		.thumb_func
+ 298              	osSlabMemFree:
+ 299              	.LFB46:
+ 145:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+ 146:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** /*****************************************************************************
+ 147:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  Function : osSlabMemFree
+ 148:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  Description : To free the  memory block
+ 149:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  Input       : VOID* pPtr: the pointer of heap memory we want to free
+ 150:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  Output      : None
+ 151:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  Return      : TRUE:success FALSE:error
+ 152:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** *****************************************************************************/
+ 153:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** BOOL osSlabMemFree(VOID *pPool, VOID* pPtr)
+ 154:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** {
+ 300              		.loc 1 154 0
+ 301              		.cfi_startproc
+ 302              		@ args = 0, pretend = 0, frame = 0
+ 303              		@ frame_needed = 0, uses_anonymous_args = 0
+ 304              	.LVL42:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s 			page 9
+
+
+ 305 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 306              	.LCFI3:
+ 307              		.cfi_def_cfa_offset 24
+ 308              		.cfi_offset 3, -24
+ 309              		.cfi_offset 4, -20
+ 310              		.cfi_offset 5, -16
+ 311              		.cfi_offset 6, -12
+ 312              		.cfi_offset 7, -8
+ 313              		.cfi_offset 14, -4
+ 314 0002 0D00     		movs	r5, r1
+ 155:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     UINTPTR uvIntSave;
+ 156:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     struct LOS_SLAB_CONTROL_HEADER *pstSlabMem = osSlabCtrlHdrGet(pPool);
+ 315              		.loc 1 156 0
+ 316 0004 FFF7FEFF 		bl	osSlabCtrlHdrGet
+ 317              	.LVL43:
+ 318 0008 0600     		movs	r6, r0
+ 319              	.LVL44:
+ 157:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     BOOL bRet = FALSE;
+ 158:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     OS_SLAB_MEM *pstSlabAlloc;
+ 159:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     UINT32 uwIdx = 0;
+ 160:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     OS_SLAB_BLOCK_NODE *pstSlabNode = OS_SLAB_BLOCK_HEAD_GET(pPtr);
+ 320              		.loc 1 160 0
+ 321 000a 2F1F     		subs	r7, r5, #4
+ 322              	.LVL45:
+ 161:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+ 162:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     if (!OS_ALLOC_FROM_SLAB_CHECK(pstSlabNode))
+ 323              		.loc 1 162 0
+ 324 000c 3A88     		ldrh	r2, [r7]
+ 325 000e 154B     		ldr	r3, .L28
+ 326 0010 9A42     		cmp	r2, r3
+ 327 0012 24D1     		bne	.L26
+ 328 0014 0024     		movs	r4, #0
+ 329 0016 1EE0     		b	.L22
+ 330              	.LVL46:
+ 331              	.L25:
+ 163:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     {
+ 164:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         return FALSE;
+ 165:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     }
+ 166:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     for (uwIdx = 0; uwIdx < SLAB_MEM_COUNT; uwIdx++)
+ 167:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     {
+ 168:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         if (OS_SLAB_BLOCK_SIZE_GET(pstSlabNode) <= pstSlabMem->stSlabClass[uwIdx].blkSz)
+ 332              		.loc 1 168 0
+ 333 0018 2B1F     		subs	r3, r5, #4
+ 334 001a 9A78     		ldrb	r2, [r3, #2]
+ 335 001c 2301     		lsls	r3, r4, #4
+ 336 001e 9B59     		ldr	r3, [r3, r6]
+ 337 0020 9A42     		cmp	r2, r3
+ 338 0022 17D8     		bhi	.L23
+ 169:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         {
+ 170:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             uvIntSave = LOS_IntLock();
+ 339              		.loc 1 170 0
+ 340 0024 FFF7FEFF 		bl	LOS_IntLock
+ 341              	.LVL47:
+ 342 0028 0500     		movs	r5, r0
+ 343              	.LVL48:
+ 171:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+ 172:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             pstSlabAlloc = &(pstSlabMem->stSlabClass[uwIdx]);
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s 			page 10
+
+
+ 173:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             if (TRUE == osSlabAllocatorFree(pstSlabAlloc->alloc, pstSlabNode))
+ 344              		.loc 1 173 0
+ 345 002a 2301     		lsls	r3, r4, #4
+ 346              	.LVL49:
+ 347 002c F318     		adds	r3, r6, r3
+ 348              	.LVL50:
+ 349 002e D868     		ldr	r0, [r3, #12]
+ 350              	.LVL51:
+ 351 0030 3900     		movs	r1, r7
+ 352 0032 FFF7FEFF 		bl	osSlabAllocatorFree
+ 353              	.LVL52:
+ 354 0036 0128     		cmp	r0, #1
+ 355 0038 06D1     		bne	.L27
+ 356              	.LVL53:
+ 174:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             {
+ 175:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****                 bRet = TRUE;
+ 176:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****                 pstSlabMem->stSlabClass[uwIdx].blkUsedCnt--;
+ 357              		.loc 1 176 0
+ 358 003a 2401     		lsls	r4, r4, #4
+ 359              	.LVL54:
+ 360 003c 3419     		adds	r4, r6, r4
+ 361              	.LVL55:
+ 362 003e A368     		ldr	r3, [r4, #8]
+ 363 0040 013B     		subs	r3, r3, #1
+ 364 0042 A360     		str	r3, [r4, #8]
+ 175:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****                 pstSlabMem->stSlabClass[uwIdx].blkUsedCnt--;
+ 365              		.loc 1 175 0
+ 366 0044 0124     		movs	r4, #1
+ 367              	.LVL56:
+ 368 0046 00E0     		b	.L24
+ 369              	.LVL57:
+ 370              	.L27:
+ 157:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     OS_SLAB_MEM *pstSlabAlloc;
+ 371              		.loc 1 157 0
+ 372 0048 0024     		movs	r4, #0
+ 373              	.LVL58:
+ 374              	.L24:
+ 177:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** #if (LOSCFG_MEM_TASK_USED_STATISTICS == YES)
+ 178:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****                 OS_MEM_REDUCE_USED(pstSlabMem->stSlabClass[uwIdx].blkSz);
+ 179:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** #endif
+ 180:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             }
+ 181:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+ 182:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             (VOID)LOS_IntRestore(uvIntSave);
+ 375              		.loc 1 182 0
+ 376 004a 2800     		movs	r0, r5
+ 377 004c FFF7FEFF 		bl	LOS_IntRestore
+ 378              	.LVL59:
+ 183:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             return bRet;
+ 379              		.loc 1 183 0
+ 380 0050 2000     		movs	r0, r4
+ 381 0052 05E0     		b	.L21
+ 382              	.LVL60:
+ 383              	.L23:
+ 166:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     {
+ 384              		.loc 1 166 0 discriminator 2
+ 385 0054 0134     		adds	r4, r4, #1
+ 386              	.LVL61:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s 			page 11
+
+
+ 387              	.L22:
+ 166:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     {
+ 388              		.loc 1 166 0 is_stmt 0 discriminator 1
+ 389 0056 032C     		cmp	r4, #3
+ 390 0058 DED9     		bls	.L25
+ 184:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         }
+ 185:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     }
+ 186:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     return FALSE;
+ 391              		.loc 1 186 0 is_stmt 1
+ 392 005a 0020     		movs	r0, #0
+ 393              	.LVL62:
+ 394 005c 00E0     		b	.L21
+ 395              	.LVL63:
+ 396              	.L26:
+ 164:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     }
+ 397              		.loc 1 164 0
+ 398 005e 0020     		movs	r0, #0
+ 399              	.LVL64:
+ 400              	.L21:
+ 187:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** }
+ 401              		.loc 1 187 0
+ 402              		@ sp needed
+ 403              	.LVL65:
+ 404              	.LVL66:
+ 405 0060 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 406              	.L29:
+ 407 0062 C046     		.align	2
+ 408              	.L28:
+ 409 0064 DEDE0000 		.word	57054
+ 410              		.cfi_endproc
+ 411              	.LFE46:
+ 413              		.section	.text.osSlabMemDeinit,"ax",%progbits
+ 414              		.align	2
+ 415              		.global	osSlabMemDeinit
+ 416              		.code	16
+ 417              		.thumb_func
+ 419              	osSlabMemDeinit:
+ 420              	.LFB47:
+ 188:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+ 189:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** /*****************************************************************************
+ 190:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  Function : osSlabMemDeinit
+ 191:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  Description :  deinitialize the slab memory ,set back to the original status
+ 192:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  Input       : None
+ 193:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  Output      : None
+ 194:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****  Return      : None
+ 195:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** *****************************************************************************/
+ 196:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** VOID osSlabMemDeinit(VOID *pPool)
+ 197:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** {
+ 421              		.loc 1 197 0
+ 422              		.cfi_startproc
+ 423              		@ args = 0, pretend = 0, frame = 0
+ 424              		@ frame_needed = 0, uses_anonymous_args = 0
+ 425              	.LVL67:
+ 426 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 427              	.LCFI4:
+ 428              		.cfi_def_cfa_offset 24
+ 429              		.cfi_offset 3, -24
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s 			page 12
+
+
+ 430              		.cfi_offset 4, -20
+ 431              		.cfi_offset 5, -16
+ 432              		.cfi_offset 6, -12
+ 433              		.cfi_offset 7, -8
+ 434              		.cfi_offset 14, -4
+ 435 0002 051E     		subs	r5, r0, #0
+ 436              	.LVL68:
+ 198:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     UINT32 uwIdx;
+ 199:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     struct LOS_SLAB_CONTROL_HEADER *pstSlabMem = NULL;
+ 200:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     OS_SLAB_MEM *pstSlabAlloc;
+ 201:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     UINT32 uwBlkSz;
+ 202:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     UINT32 uwBlkCnt;
+ 203:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+ 204:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     if (NULL == pPool)
+ 437              		.loc 1 204 0
+ 438 0004 1CD0     		beq	.L30
+ 205:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     {
+ 206:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         return ;
+ 207:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     }
+ 208:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     pstSlabMem = osSlabCtrlHdrGet(pPool);
+ 439              		.loc 1 208 0
+ 440 0006 FFF7FEFF 		bl	osSlabCtrlHdrGet
+ 441              	.LVL69:
+ 442 000a 0700     		movs	r7, r0
+ 443              	.LVL70:
+ 209:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+ 210:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     for (uwIdx = 0; uwIdx < SLAB_MEM_COUNT; uwIdx++)
+ 444              		.loc 1 210 0
+ 445 000c 0024     		movs	r4, #0
+ 446 000e 15E0     		b	.L32
+ 447              	.LVL71:
+ 448              	.L34:
+ 211:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     {
+ 212:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         uwBlkSz = (0x10 << uwIdx);
+ 449              		.loc 1 212 0
+ 450 0010 1026     		movs	r6, #16
+ 451 0012 A640     		lsls	r6, r6, r4
+ 452              	.LVL72:
+ 213:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         uwBlkCnt = SLAB_MEM_ALLOCATOR_SIZE / uwBlkSz;
+ 453              		.loc 1 213 0
+ 454 0014 3100     		movs	r1, r6
+ 455 0016 8020     		movs	r0, #128
+ 456 0018 8000     		lsls	r0, r0, #2
+ 457 001a FFF7FEFF 		bl	__aeabi_uidiv
+ 458              	.LVL73:
+ 214:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         pstSlabMem->stSlabClass[uwIdx].blkSz = uwBlkSz;
+ 459              		.loc 1 214 0
+ 460 001e 2301     		lsls	r3, r4, #4
+ 461 0020 DE51     		str	r6, [r3, r7]
+ 215:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         pstSlabMem->stSlabClass[uwIdx].blkCnt = uwBlkCnt;
+ 462              		.loc 1 215 0
+ 463 0022 FB18     		adds	r3, r7, r3
+ 464 0024 5860     		str	r0, [r3, #4]
+ 216:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         if (NULL != pstSlabMem->stSlabClass[uwIdx].alloc)
+ 465              		.loc 1 216 0
+ 466 0026 D968     		ldr	r1, [r3, #12]
+ 467 0028 0029     		cmp	r1, #0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s 			page 13
+
+
+ 468 002a 06D0     		beq	.L33
+ 469              	.LVL74:
+ 217:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         {
+ 218:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             pstSlabAlloc = &(pstSlabMem->stSlabClass[uwIdx]);
+ 219:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             osSlabAllocatorDestroy(pPool, pstSlabAlloc->alloc);
+ 470              		.loc 1 219 0
+ 471 002c 2800     		movs	r0, r5
+ 472              	.LVL75:
+ 473 002e FFF7FEFF 		bl	osSlabAllocatorDestroy
+ 474              	.LVL76:
+ 220:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             pstSlabMem->stSlabClass[uwIdx].alloc = NULL;
+ 475              		.loc 1 220 0
+ 476 0032 2301     		lsls	r3, r4, #4
+ 477              	.LVL77:
+ 478 0034 FB18     		adds	r3, r7, r3
+ 479              	.LVL78:
+ 480 0036 0022     		movs	r2, #0
+ 481 0038 DA60     		str	r2, [r3, #12]
+ 482              	.LVL79:
+ 483              	.L33:
+ 210:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     {
+ 484              		.loc 1 210 0 discriminator 2
+ 485 003a 0134     		adds	r4, r4, #1
+ 486              	.LVL80:
+ 487              	.L32:
+ 210:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     {
+ 488              		.loc 1 210 0 is_stmt 0 discriminator 1
+ 489 003c 032C     		cmp	r4, #3
+ 490 003e E7D9     		bls	.L34
+ 491              	.LVL81:
+ 492              	.L30:
+ 221:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         }
+ 222:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     }
+ 223:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     return ;
+ 224:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** }
+ 493              		.loc 1 224 0 is_stmt 1
+ 494              		@ sp needed
+ 495              	.LVL82:
+ 496 0040 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 497              		.cfi_endproc
+ 498              	.LFE47:
+ 500 0042 C046     		.section	.text.osSlabMemCheck,"ax",%progbits
+ 501              		.align	2
+ 502              		.global	osSlabMemCheck
+ 503              		.code	16
+ 504              		.thumb_func
+ 506              	osSlabMemCheck:
+ 507              	.LFB48:
+ 225:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+ 226:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** UINT32 osSlabMemCheck(VOID *pPool, VOID* pPtr)
+ 227:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** {
+ 508              		.loc 1 227 0
+ 509              		.cfi_startproc
+ 510              		@ args = 0, pretend = 0, frame = 8
+ 511              		@ frame_needed = 0, uses_anonymous_args = 0
+ 512              	.LVL83:
+ 513 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s 			page 14
+
+
+ 514              	.LCFI5:
+ 515              		.cfi_def_cfa_offset 20
+ 516              		.cfi_offset 4, -20
+ 517              		.cfi_offset 5, -16
+ 518              		.cfi_offset 6, -12
+ 519              		.cfi_offset 7, -8
+ 520              		.cfi_offset 14, -4
+ 521 0002 83B0     		sub	sp, sp, #12
+ 522              	.LCFI6:
+ 523              		.cfi_def_cfa_offset 32
+ 524 0004 0C00     		movs	r4, r1
+ 228:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     UINTPTR uvIntSave;
+ 229:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     struct LOS_SLAB_CONTROL_HEADER *pstSlabMem = osSlabCtrlHdrGet(pPool);
+ 525              		.loc 1 229 0
+ 526 0006 FFF7FEFF 		bl	osSlabCtrlHdrGet
+ 527              	.LVL84:
+ 528 000a 0600     		movs	r6, r0
+ 529              	.LVL85:
+ 230:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     UINT32 uwRetBlkSz = (UINT32)-1;
+ 231:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     OS_SLAB_MEM *pstSlabAlloc;
+ 232:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     UINT32 uwIdx = 0;
+ 233:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     OS_SLAB_BLOCK_NODE *pstSlabNode = OS_SLAB_BLOCK_HEAD_GET(pPtr);
+ 530              		.loc 1 233 0
+ 531 000c 251F     		subs	r5, r4, #4
+ 532              	.LVL86:
+ 234:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+ 235:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     if ((!OS_ALLOC_FROM_SLAB_CHECK(pstSlabNode))
+ 533              		.loc 1 235 0
+ 534 000e 2A88     		ldrh	r2, [r5]
+ 535 0010 134B     		ldr	r3, .L42
+ 536 0012 9A42     		cmp	r2, r3
+ 537 0014 1BD1     		bne	.L40
+ 236:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         || (OS_SLAB_BLOCK_SIZE_GET(pstSlabNode) > pstSlabMem->stSlabClass[SLAB_MEM_COUNT - 1].blkSz
+ 538              		.loc 1 236 0
+ 539 0016 AB78     		ldrb	r3, [r5, #2]
+ 540 0018 026B     		ldr	r2, [r0, #48]
+ 541 001a 9342     		cmp	r3, r2
+ 542 001c 1AD8     		bhi	.L41
+ 237:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     {
+ 238:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         return uwRetBlkSz;
+ 239:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     }
+ 240:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+ 241:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     uvIntSave = LOS_IntLock();
+ 543              		.loc 1 241 0
+ 544 001e FFF7FEFF 		bl	LOS_IntLock
+ 545              	.LVL87:
+ 546 0022 0190     		str	r0, [sp, #4]
+ 547              	.LVL88:
+ 242:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     for (uwIdx = 0; uwIdx < SLAB_MEM_COUNT; uwIdx++)
+ 548              		.loc 1 242 0
+ 549 0024 0027     		movs	r7, #0
+ 230:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     OS_SLAB_MEM *pstSlabAlloc;
+ 550              		.loc 1 230 0
+ 551 0026 0124     		movs	r4, #1
+ 552              	.LVL89:
+ 553 0028 6442     		rsbs	r4, r4, #0
+ 554              		.loc 1 242 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s 			page 15
+
+
+ 555 002a 0AE0     		b	.L37
+ 556              	.LVL90:
+ 557              	.L39:
+ 243:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     {
+ 244:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         pstSlabAlloc = &(pstSlabMem->stSlabClass[uwIdx]);
+ 245:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         if (osSlabAllocatorCheck(pstSlabAlloc->alloc, pstSlabNode) == TRUE)
+ 558              		.loc 1 245 0
+ 559 002c 3B01     		lsls	r3, r7, #4
+ 560 002e F318     		adds	r3, r6, r3
+ 561              	.LVL91:
+ 562 0030 D868     		ldr	r0, [r3, #12]
+ 563 0032 2900     		movs	r1, r5
+ 564 0034 FFF7FEFF 		bl	osSlabAllocatorCheck
+ 565              	.LVL92:
+ 566 0038 0128     		cmp	r0, #1
+ 567 003a 01D1     		bne	.L38
+ 246:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         {
+ 247:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             uwRetBlkSz = pstSlabMem->stSlabClass[uwIdx].blkSz;
+ 568              		.loc 1 247 0
+ 569 003c 3B01     		lsls	r3, r7, #4
+ 570 003e 9C59     		ldr	r4, [r3, r6]
+ 571              	.LVL93:
+ 572              	.L38:
+ 242:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     {
+ 573              		.loc 1 242 0 discriminator 2
+ 574 0040 0137     		adds	r7, r7, #1
+ 575              	.LVL94:
+ 576              	.L37:
+ 242:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     {
+ 577              		.loc 1 242 0 is_stmt 0 discriminator 1
+ 578 0042 032F     		cmp	r7, #3
+ 579 0044 F2D9     		bls	.L39
+ 248:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         }
+ 249:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     }
+ 250:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     (VOID)LOS_IntRestore(uvIntSave);
+ 580              		.loc 1 250 0 is_stmt 1
+ 581 0046 0198     		ldr	r0, [sp, #4]
+ 582 0048 FFF7FEFF 		bl	LOS_IntRestore
+ 583              	.LVL95:
+ 251:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+ 252:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     return uwRetBlkSz;
+ 584              		.loc 1 252 0
+ 585 004c 04E0     		b	.L36
+ 586              	.LVL96:
+ 587              	.L40:
+ 238:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     }
+ 588              		.loc 1 238 0
+ 589 004e 0124     		movs	r4, #1
+ 590              	.LVL97:
+ 591 0050 6442     		rsbs	r4, r4, #0
+ 592 0052 01E0     		b	.L36
+ 593              	.LVL98:
+ 594              	.L41:
+ 595 0054 0124     		movs	r4, #1
+ 596              	.LVL99:
+ 597 0056 6442     		rsbs	r4, r4, #0
+ 598              	.LVL100:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s 			page 16
+
+
+ 599              	.L36:
+ 253:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** }
+ 600              		.loc 1 253 0
+ 601 0058 2000     		movs	r0, r4
+ 602 005a 03B0     		add	sp, sp, #12
+ 603              		@ sp needed
+ 604              	.LVL101:
+ 605              	.LVL102:
+ 606 005c F0BD     		pop	{r4, r5, r6, r7, pc}
+ 607              	.L43:
+ 608 005e C046     		.align	2
+ 609              	.L42:
+ 610 0060 DEDE0000 		.word	57054
+ 611              		.cfi_endproc
+ 612              	.LFE48:
+ 614              		.section	.text.osSlabStatisticsGet,"ax",%progbits
+ 615              		.align	2
+ 616              		.global	osSlabStatisticsGet
+ 617              		.code	16
+ 618              		.thumb_func
+ 620              	osSlabStatisticsGet:
+ 621              	.LFB49:
+ 254:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+ 255:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** UINT32 osSlabStatisticsGet(VOID *pPool, LOS_SLAB_STATUS *pstStatus)
+ 256:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** {
+ 622              		.loc 1 256 0
+ 623              		.cfi_startproc
+ 624              		@ args = 0, pretend = 0, frame = 16
+ 625              		@ frame_needed = 0, uses_anonymous_args = 0
+ 626              	.LVL103:
+ 627 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 628              	.LCFI7:
+ 629              		.cfi_def_cfa_offset 20
+ 630              		.cfi_offset 4, -20
+ 631              		.cfi_offset 5, -16
+ 632              		.cfi_offset 6, -12
+ 633              		.cfi_offset 7, -8
+ 634              		.cfi_offset 14, -4
+ 635 0002 5F46     		mov	r7, fp
+ 636 0004 5646     		mov	r6, r10
+ 637 0006 4D46     		mov	r5, r9
+ 638 0008 4446     		mov	r4, r8
+ 639 000a F0B4     		push	{r4, r5, r6, r7}
+ 640              	.LCFI8:
+ 641              		.cfi_def_cfa_offset 36
+ 642              		.cfi_offset 8, -36
+ 643              		.cfi_offset 9, -32
+ 644              		.cfi_offset 10, -28
+ 645              		.cfi_offset 11, -24
+ 646 000c 85B0     		sub	sp, sp, #20
+ 647              	.LCFI9:
+ 648              		.cfi_def_cfa_offset 56
+ 649 000e 8A46     		mov	r10, r1
+ 650              	.LVL104:
+ 257:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     struct LOS_SLAB_CONTROL_HEADER *pstSlabMem = NULL;
+ 258:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     OS_SLAB_MEM *pstSlabAlloc;
+ 259:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     UINT32 uwItemSz = 0;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s 			page 17
+
+
+ 651              		.loc 1 259 0
+ 652 0010 0023     		movs	r3, #0
+ 653 0012 0393     		str	r3, [sp, #12]
+ 260:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     UINT32 uwItemCnt = 0;
+ 654              		.loc 1 260 0
+ 655 0014 0293     		str	r3, [sp, #8]
+ 261:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     UINT32 uwCurUsage = 0;
+ 656              		.loc 1 261 0
+ 657 0016 0193     		str	r3, [sp, #4]
+ 658              	.LVL105:
+ 262:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     UINT32 uwTotalUsage = 0;
+ 263:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     UINT32 uwTotalMem = 0;
+ 264:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     UINT32 uwTotalallocCount = 0;
+ 265:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     UINT32 uwTotalfreeCount = 0;
+ 266:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     UINT32 uwIdx = 0;
+ 267:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+ 268:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     if ((NULL == pstStatus) || (NULL == pPool))
+ 659              		.loc 1 268 0
+ 660 0018 0029     		cmp	r1, #0
+ 661 001a 2FD0     		beq	.L48
+ 662              		.loc 1 268 0 is_stmt 0 discriminator 1
+ 663 001c 0028     		cmp	r0, #0
+ 664 001e 2FD0     		beq	.L49
+ 269:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     {
+ 270:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         return LOS_NOK;
+ 271:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     }
+ 272:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     pstSlabMem = osSlabCtrlHdrGet(pPool);
+ 665              		.loc 1 272 0 is_stmt 1
+ 666 0020 FFF7FEFF 		bl	osSlabCtrlHdrGet
+ 667              	.LVL106:
+ 668 0024 8346     		mov	fp, r0
+ 669              	.LVL107:
+ 273:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+ 274:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     for (uwIdx = 0; uwIdx < SLAB_MEM_COUNT; uwIdx++)
+ 670              		.loc 1 274 0
+ 671 0026 0025     		movs	r5, #0
+ 265:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     UINT32 uwIdx = 0;
+ 672              		.loc 1 265 0
+ 673 0028 0023     		movs	r3, #0
+ 674 002a 9846     		mov	r8, r3
+ 264:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     UINT32 uwTotalfreeCount = 0;
+ 675              		.loc 1 264 0
+ 676 002c 9946     		mov	r9, r3
+ 263:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     UINT32 uwTotalallocCount = 0;
+ 677              		.loc 1 263 0
+ 678 002e 0026     		movs	r6, #0
+ 262:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     UINT32 uwTotalMem = 0;
+ 679              		.loc 1 262 0
+ 680 0030 0027     		movs	r7, #0
+ 681              		.loc 1 274 0
+ 682 0032 14E0     		b	.L46
+ 683              	.LVL108:
+ 684              	.L47:
+ 275:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     {
+ 276:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         pstSlabAlloc = &(pstSlabMem->stSlabClass[uwIdx]);
+ 277:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+ 278:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         osSlabAllocatorGetSlabInfo(pstSlabAlloc->alloc, &uwItemSz, &uwItemCnt, &uwCurUsage);
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s 			page 18
+
+
+ 685              		.loc 1 278 0 discriminator 3
+ 686 0034 2C01     		lsls	r4, r5, #4
+ 687 0036 5C44     		add	r4, r4, fp
+ 688              	.LVL109:
+ 689 0038 01AB     		add	r3, sp, #4
+ 690 003a 02AA     		add	r2, sp, #8
+ 691 003c 03A9     		add	r1, sp, #12
+ 692 003e E068     		ldr	r0, [r4, #12]
+ 693 0040 FFF7FEFF 		bl	osSlabAllocatorGetSlabInfo
+ 694              	.LVL110:
+ 279:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         uwTotalUsage += (uwCurUsage * uwItemSz);
+ 695              		.loc 1 279 0 discriminator 3
+ 696 0044 039B     		ldr	r3, [sp, #12]
+ 697 0046 019A     		ldr	r2, [sp, #4]
+ 698 0048 5A43     		muls	r2, r3
+ 699 004a BF18     		adds	r7, r7, r2
+ 700              	.LVL111:
+ 280:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         uwTotalMem += (uwItemCnt * uwItemSz);
+ 701              		.loc 1 280 0 discriminator 3
+ 702 004c 029A     		ldr	r2, [sp, #8]
+ 703 004e 5343     		muls	r3, r2
+ 704 0050 F618     		adds	r6, r6, r3
+ 705              	.LVL112:
+ 281:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         uwTotalallocCount += pstSlabMem->stSlabClass[uwIdx].blkUsedCnt;
+ 706              		.loc 1 281 0 discriminator 3
+ 707 0052 A268     		ldr	r2, [r4, #8]
+ 708 0054 9144     		add	r9, r9, r2
+ 709              	.LVL113:
+ 282:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         uwTotalfreeCount  += pstSlabMem->stSlabClass[uwIdx].blkCnt - pstSlabMem->stSlabClass[uwIdx]
+ 710              		.loc 1 282 0 discriminator 3
+ 711 0056 6368     		ldr	r3, [r4, #4]
+ 712 0058 9B1A     		subs	r3, r3, r2
+ 713 005a 9844     		add	r8, r8, r3
+ 714              	.LVL114:
+ 274:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     {
+ 715              		.loc 1 274 0 discriminator 3
+ 716 005c 0135     		adds	r5, r5, #1
+ 717              	.LVL115:
+ 718              	.L46:
+ 274:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     {
+ 719              		.loc 1 274 0 is_stmt 0 discriminator 1
+ 720 005e 032D     		cmp	r5, #3
+ 721 0060 E8D9     		bls	.L47
+ 283:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     }
+ 284:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+ 285:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     if (uwTotalMem < uwTotalUsage)
+ 722              		.loc 1 285 0 is_stmt 1
+ 723 0062 B742     		cmp	r7, r6
+ 724 0064 0ED8     		bhi	.L50
+ 286:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     {
+ 287:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         return LOS_NOK;
+ 288:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     }
+ 289:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+ 290:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     pstStatus->totalSize  = uwTotalMem;
+ 725              		.loc 1 290 0
+ 726 0066 5346     		mov	r3, r10
+ 727 0068 1E60     		str	r6, [r3]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s 			page 19
+
+
+ 291:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     pstStatus->usedSize   = uwTotalUsage;
+ 728              		.loc 1 291 0
+ 729 006a 5F60     		str	r7, [r3, #4]
+ 292:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     pstStatus->freeSize   = pstStatus->totalSize - pstStatus->usedSize;
+ 730              		.loc 1 292 0
+ 731 006c F61B     		subs	r6, r6, r7
+ 732              	.LVL116:
+ 733 006e 9E60     		str	r6, [r3, #8]
+ 293:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     pstStatus->allocCount = uwTotalallocCount;
+ 734              		.loc 1 293 0
+ 735 0070 4A46     		mov	r2, r9
+ 736 0072 DA60     		str	r2, [r3, #12]
+ 294:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     pstStatus->freeCount  = uwTotalfreeCount;
+ 737              		.loc 1 294 0
+ 738 0074 4246     		mov	r2, r8
+ 739 0076 1A61     		str	r2, [r3, #16]
+ 295:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     return LOS_OK;
+ 740              		.loc 1 295 0
+ 741 0078 0020     		movs	r0, #0
+ 742 007a 04E0     		b	.L45
+ 743              	.LVL117:
+ 744              	.L48:
+ 270:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     }
+ 745              		.loc 1 270 0
+ 746 007c 0120     		movs	r0, #1
+ 747              	.LVL118:
+ 748 007e 02E0     		b	.L45
+ 749              	.LVL119:
+ 750              	.L49:
+ 751 0080 0120     		movs	r0, #1
+ 752              	.LVL120:
+ 753 0082 00E0     		b	.L45
+ 754              	.LVL121:
+ 755              	.L50:
+ 287:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     }
+ 756              		.loc 1 287 0
+ 757 0084 0120     		movs	r0, #1
+ 758              	.LVL122:
+ 759              	.L45:
+ 296:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** }
+ 760              		.loc 1 296 0
+ 761 0086 05B0     		add	sp, sp, #20
+ 762              		@ sp needed
+ 763              	.LVL123:
+ 764 0088 3CBC     		pop	{r2, r3, r4, r5}
+ 765 008a 9046     		mov	r8, r2
+ 766 008c 9946     		mov	r9, r3
+ 767 008e A246     		mov	r10, r4
+ 768 0090 AB46     		mov	fp, r5
+ 769 0092 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 770              		.cfi_endproc
+ 771              	.LFE49:
+ 773              		.section	.text.osSlabGetMaxFreeBlkSize,"ax",%progbits
+ 774              		.align	2
+ 775              		.global	osSlabGetMaxFreeBlkSize
+ 776              		.code	16
+ 777              		.thumb_func
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s 			page 20
+
+
+ 779              	osSlabGetMaxFreeBlkSize:
+ 780              	.LFB50:
+ 297:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+ 298:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** UINT32 osSlabGetMaxFreeBlkSize(VOID *pPool)
+ 299:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** {
+ 781              		.loc 1 299 0
+ 782              		.cfi_startproc
+ 783              		@ args = 0, pretend = 0, frame = 16
+ 784              		@ frame_needed = 0, uses_anonymous_args = 0
+ 785              	.LVL124:
+ 786 0000 30B5     		push	{r4, r5, lr}
+ 787              	.LCFI10:
+ 788              		.cfi_def_cfa_offset 12
+ 789              		.cfi_offset 4, -12
+ 790              		.cfi_offset 5, -8
+ 791              		.cfi_offset 14, -4
+ 792 0002 85B0     		sub	sp, sp, #20
+ 793              	.LCFI11:
+ 794              		.cfi_def_cfa_offset 32
+ 300:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     struct LOS_SLAB_CONTROL_HEADER *pstSlabMem = osSlabCtrlHdrGet(pPool);
+ 795              		.loc 1 300 0
+ 796 0004 FFF7FEFF 		bl	osSlabCtrlHdrGet
+ 797              	.LVL125:
+ 798 0008 0500     		movs	r5, r0
+ 799              	.LVL126:
+ 301:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     OS_SLAB_MEM *pstSlabAlloc;
+ 302:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     UINT32 uwItemSz = 0;
+ 800              		.loc 1 302 0
+ 801 000a 0023     		movs	r3, #0
+ 802 000c 0393     		str	r3, [sp, #12]
+ 303:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     UINT32 uwItemCnt = 0;
+ 803              		.loc 1 303 0
+ 804 000e 0293     		str	r3, [sp, #8]
+ 304:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     UINT32 uwCurUsage = 0;
+ 805              		.loc 1 304 0
+ 806 0010 0193     		str	r3, [sp, #4]
+ 807              	.LVL127:
+ 305:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     int uwIdx = 0;
+ 306:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+ 307:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     for (uwIdx = SLAB_MEM_COUNT - 1; uwIdx >= 0; uwIdx--)
+ 808              		.loc 1 307 0
+ 809 0012 0324     		movs	r4, #3
+ 810 0014 10E0     		b	.L52
+ 811              	.LVL128:
+ 812              	.L55:
+ 308:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     {
+ 309:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         pstSlabAlloc = &(pstSlabMem->stSlabClass[uwIdx]);
+ 310:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         if (pstSlabAlloc->alloc)
+ 813              		.loc 1 310 0
+ 814 0016 2301     		lsls	r3, r4, #4
+ 815 0018 EB18     		adds	r3, r5, r3
+ 816              	.LVL129:
+ 817 001a D868     		ldr	r0, [r3, #12]
+ 818 001c 0028     		cmp	r0, #0
+ 819 001e 0AD0     		beq	.L53
+ 311:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         {
+ 312:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             osSlabAllocatorGetSlabInfo(pstSlabAlloc->alloc, &uwItemSz, &uwItemCnt, &uwCurUsage);
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s 			page 21
+
+
+ 820              		.loc 1 312 0
+ 821 0020 01AB     		add	r3, sp, #4
+ 822              	.LVL130:
+ 823 0022 02AA     		add	r2, sp, #8
+ 824 0024 03A9     		add	r1, sp, #12
+ 825 0026 FFF7FEFF 		bl	osSlabAllocatorGetSlabInfo
+ 826              	.LVL131:
+ 313:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             if (uwCurUsage != uwItemCnt)
+ 827              		.loc 1 313 0
+ 828 002a 019B     		ldr	r3, [sp, #4]
+ 829 002c 029A     		ldr	r2, [sp, #8]
+ 830 002e 9342     		cmp	r3, r2
+ 831 0030 01D0     		beq	.L53
+ 314:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             {
+ 315:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****                 return uwItemSz;
+ 832              		.loc 1 315 0
+ 833 0032 0398     		ldr	r0, [sp, #12]
+ 834 0034 03E0     		b	.L54
+ 835              	.L53:
+ 307:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     {
+ 836              		.loc 1 307 0 discriminator 2
+ 837 0036 013C     		subs	r4, r4, #1
+ 838              	.LVL132:
+ 839              	.L52:
+ 307:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     {
+ 840              		.loc 1 307 0 is_stmt 0 discriminator 1
+ 841 0038 002C     		cmp	r4, #0
+ 842 003a ECDA     		bge	.L55
+ 316:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****             }
+ 317:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****         }
+ 318:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     }
+ 319:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** 
+ 320:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c ****     return 0;
+ 843              		.loc 1 320 0 is_stmt 1
+ 844 003c 0020     		movs	r0, #0
+ 845              	.L54:
+ 321:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common\los_slabmem.c **** }
+ 846              		.loc 1 321 0
+ 847 003e 05B0     		add	sp, sp, #20
+ 848              		@ sp needed
+ 849              	.LVL133:
+ 850              	.LVL134:
+ 851 0040 30BD     		pop	{r4, r5, pc}
+ 852              		.cfi_endproc
+ 853              	.LFE50:
+ 855 0042 C046     		.text
+ 856              	.Letext0:
+ 857              		.file 2 "e:\\liteos\\liteos\\kernel\\include\\los_typedef.h"
+ 858              		.file 3 "e:\\liteos\\liteos\\kernel\\base\\include\\los_slab.ph"
+ 859              		.file 4 "e:\\liteos\\liteos\\arch\\arm\\arm-m\\include\\los_hwi.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s 			page 22
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 los_slabmem.c
+C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s:20     .text.osSlabBlockHeadFill:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s:25     .text.osSlabBlockHeadFill:00000000 osSlabBlockHeadFill
+C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s:51     .text.osSlabBlockHeadFill:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s:57     .text.osSlabMemInit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s:62     .text.osSlabMemInit:00000000 osSlabMemInit
+C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s:159    .text.osSlabMemAlloc:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s:164    .text.osSlabMemAlloc:00000000 osSlabMemAlloc
+C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s:293    .text.osSlabMemFree:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s:298    .text.osSlabMemFree:00000000 osSlabMemFree
+C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s:409    .text.osSlabMemFree:00000064 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s:414    .text.osSlabMemDeinit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s:419    .text.osSlabMemDeinit:00000000 osSlabMemDeinit
+C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s:501    .text.osSlabMemCheck:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s:506    .text.osSlabMemCheck:00000000 osSlabMemCheck
+C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s:610    .text.osSlabMemCheck:00000060 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s:615    .text.osSlabStatisticsGet:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s:620    .text.osSlabStatisticsGet:00000000 osSlabStatisticsGet
+C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s:774    .text.osSlabGetMaxFreeBlkSize:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccJYsB7S.s:779    .text.osSlabGetMaxFreeBlkSize:00000000 osSlabGetMaxFreeBlkSize
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+__aeabi_uidiv
+osSlabCtrlHdrGet
+osSlabAllocatorNew
+LOS_IntLock
+LOS_IntRestore
+osSlabAllocatorAlloc
+osSlabAllocatorFree
+osSlabAllocatorDestroy
+osSlabAllocatorCheck
+osSlabAllocatorGetSlabInfo

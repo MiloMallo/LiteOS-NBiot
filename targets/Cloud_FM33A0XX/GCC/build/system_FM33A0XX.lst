@@ -1,0 +1,201 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccDEYO4j.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"system_FM33A0XX.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.SystemCoreClockUpdate,"ax",%progbits
+  20              		.align	2
+  21              		.global	SystemCoreClockUpdate
+  22              		.code	16
+  23              		.thumb_func
+  25              	SystemCoreClockUpdate:
+  26              	.LFB36:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** /**************************************************************************//**
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****  * @file     system_<Device>.c
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****  * @brief    CMSIS Cortex-M# Device Peripheral Access Layer Source File for
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****  *           Device <Device>
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****  * @version  V3.10
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****  * @date     23. November 2012
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****  *
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****  * @note
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****  *
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****  ******************************************************************************/
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** /* Copyright (c) 2012 ARM LIMITED
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** 
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****    All rights reserved.
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****    Redistribution and use in source and binary forms, with or without
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****    modification, are permitted provided that the following conditions are met:
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****    - Redistributions of source code must retain the above copyright
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****      notice, this list of conditions and the following disclaimer.
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****    - Redistributions in binary form must reproduce the above copyright
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****      notice, this list of conditions and the following disclaimer in the
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****      documentation and/or other materials provided with the distribution.
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****    - Neither the name of ARM nor the names of its contributors may be used
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****      to endorse or promote products derived from this software without
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****      specific prior written permission.
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****    *
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****    IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****    ARE DISCLAIMED. IN NO EVENT SHALL COPYRIGHT HOLDERS AND CONTRIBUTORS BE
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****    LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****    CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****    SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccDEYO4j.s 			page 2
+
+
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****    INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****    CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****    ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****    POSSIBILITY OF SUCH DAMAGE.
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****    ---------------------------------------------------------------------------*/
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** 
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** 
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** #include <stdint.h>
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** #include "FM33A0XX.h"
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** 
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** 
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** /*----------------------------------------------------------------------------
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****   DEFINES
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****  *----------------------------------------------------------------------------*/
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** 
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** /*----------------------------------------------------------------------------
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****   Define clocks
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****  *----------------------------------------------------------------------------*/
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** /* ToDo: add here your necessary defines for device initialization
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****          following is an example for different system frequencies             */
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** //#define __SYSTEM_CLOCK    			(8000000)		/* Value of the INITIAL frequencies in Hz */
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** 
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** /*----------------------------------------------------------------------------
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****   Clock Variable definitions
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****  *----------------------------------------------------------------------------*/
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** /* ToDo: initialize SystemCoreClock with the system core clock frequency value
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****          achieved after system intitialization.
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****          This means system core clock frequency after call to SystemInit()    */
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** uint32_t SystemCoreClock = __SYSTEM_CLOCK;  /*!< System Clock Frequency (Core Clock)*/
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** 
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** 
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** /*----------------------------------------------------------------------------
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****   Clock functions
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****  *----------------------------------------------------------------------------*/
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** void SystemCoreClockUpdate (void)            /* Get Core Clock Frequency      */
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** {
+  28              		.loc 1 67 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** /* ToDo: add code to calculate the system frequency based upon the current
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****          register settings.
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****          This function can be used to retrieve the system core clock frequeny
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****          after user changed register sittings.                                */
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****   SystemCoreClock = __SYSTEM_CLOCK;
+  33              		.loc 1 72 0
+  34 0000 014A     		ldr	r2, .L2
+  35 0002 024B     		ldr	r3, .L2+4
+  36 0004 1A60     		str	r2, [r3]
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****   //return;
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** }
+  37              		.loc 1 74 0
+  38              		@ sp needed
+  39 0006 7047     		bx	lr
+  40              	.L3:
+  41              		.align	2
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccDEYO4j.s 			page 3
+
+
+  42              	.L2:
+  43 0008 00127A00 		.word	8000000
+  44 000c 00000000 		.word	.LANCHOR0
+  45              		.cfi_endproc
+  46              	.LFE36:
+  48              		.section	.text.SystemInit,"ax",%progbits
+  49              		.align	2
+  50              		.global	SystemInit
+  51              		.code	16
+  52              		.thumb_func
+  54              	SystemInit:
+  55              	.LFB37:
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** 
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** /**
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****  * Initialize the system
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****  *
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****  * @param  none
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****  * @return none
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****  *
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****  * @brief  Setup the microcontroller system.
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****  *         Initialize the System.
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****  */
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** void SystemInit (void)
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** {
+  56              		.loc 1 86 0
+  57              		.cfi_startproc
+  58              		@ args = 0, pretend = 0, frame = 0
+  59              		@ frame_needed = 0, uses_anonymous_args = 0
+  60              		@ link register save eliminated.
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** /* ToDo: add code to initialize the system
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****          do not use global variables because this function is called before
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****          reaching pre-main. RW section maybe overwritten afterwards.          */
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****   SystemCoreClock = __SYSTEM_CLOCK;
+  61              		.loc 1 90 0
+  62 0000 014A     		ldr	r2, .L5
+  63 0002 024B     		ldr	r3, .L5+4
+  64 0004 1A60     		str	r2, [r3]
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c ****   //return;
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Device/Source\system_FM33A0XX.c **** }
+  65              		.loc 1 92 0
+  66              		@ sp needed
+  67 0006 7047     		bx	lr
+  68              	.L6:
+  69              		.align	2
+  70              	.L5:
+  71 0008 00127A00 		.word	8000000
+  72 000c 00000000 		.word	.LANCHOR0
+  73              		.cfi_endproc
+  74              	.LFE37:
+  76              		.global	SystemCoreClock
+  77              		.section	.data.SystemCoreClock,"aw",%progbits
+  78              		.align	2
+  79              		.set	.LANCHOR0,. + 0
+  82              	SystemCoreClock:
+  83 0000 00127A00 		.word	8000000
+  84              		.text
+  85              	.Letext0:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccDEYO4j.s 			page 4
+
+
+  86              		.file 2 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\machine\\_default_types.h
+  87              		.file 3 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\sys\\_stdint.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccDEYO4j.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 system_FM33A0XX.c
+C:\Users\WANGBI~1\AppData\Local\Temp\ccDEYO4j.s:20     .text.SystemCoreClockUpdate:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccDEYO4j.s:25     .text.SystemCoreClockUpdate:00000000 SystemCoreClockUpdate
+C:\Users\WANGBI~1\AppData\Local\Temp\ccDEYO4j.s:43     .text.SystemCoreClockUpdate:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccDEYO4j.s:49     .text.SystemInit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccDEYO4j.s:54     .text.SystemInit:00000000 SystemInit
+C:\Users\WANGBI~1\AppData\Local\Temp\ccDEYO4j.s:71     .text.SystemInit:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccDEYO4j.s:82     .data.SystemCoreClock:00000000 SystemCoreClock
+C:\Users\WANGBI~1\AppData\Local\Temp\ccDEYO4j.s:78     .data.SystemCoreClock:00000000 $d
+                     .debug_frame:00000010 $d
+
+NO UNDEFINED SYMBOLS

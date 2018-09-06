@@ -1,0 +1,1519 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"los_memory.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.osSlabCtrlHdrGet,"ax",%progbits
+  20              		.align	2
+  21              		.global	osSlabCtrlHdrGet
+  22              		.code	16
+  23              		.thumb_func
+  25              	osSlabCtrlHdrGet:
+  26              	.LFB43:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little/los_m
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** /*----------------------------------------------------------------------------
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  * Copyright (c) <2013-2017>, <Huawei Technologies Co., Ltd>
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  * All rights reserved.
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  * are permitted provided that the following conditions are met:
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  * conditions and the following disclaimer.
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  * provided with the distribution.
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  * permission.
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  *---------------------------------------------------------------------------*/
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** /*----------------------------------------------------------------------------
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  * Notice of Export Control Law
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  * ===============================================
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s 			page 2
+
+
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  * applicable export control laws and regulations.
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  *---------------------------------------------------------------------------*/
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #include "string.h"
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #include "los_typedef.h"
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #include "los_memory.ph"
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #if (LOSCFG_KERNEL_MEM_SLAB == YES)
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #include "los_slab.ph"
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #endif
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #include "los_heap.ph"
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #include "los_hwi.h"
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #if (LOSCFG_PLATFORM_EXC == YES)
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #include "los_exc.ph"
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #endif
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #if (LOSCFG_PLATFORM_EXC == YES)
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #include "los_memcheck.ph"
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #endif
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #if (LOSCFG_MEM_MUL_POOL == YES)
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** VOID *g_pPoolHead = NULL;
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #endif
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #define OS_SLAB_CAST(_t, _exp) ((_t)(_exp))
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #define OS_MEM_POOL_BASE_ALIGN 4
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #define IS_POOL_ALIGNED(value, alignSize)  (0 == (((UINT32)(value)) & ((UINT32)(alignSize - 1))))
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** LITE_OS_SEC_TEXT_MINOR VOID *osSlabCtrlHdrGet(VOID *pPool)
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** {
+  28              		.loc 1 58 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #if (LOSCFG_KERNEL_MEM_SLAB == YES)
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     return (&(OS_SLAB_CAST(struct LOS_HEAP_MANAGER *, pPool)->stSlabCtrlHdr));
+  34              		.loc 1 60 0
+  35 0000 1030     		adds	r0, r0, #16
+  36              	.LVL1:
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #else
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     return NULL;
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #endif
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** }
+  37              		.loc 1 64 0
+  38              		@ sp needed
+  39 0002 7047     		bx	lr
+  40              		.cfi_endproc
+  41              	.LFE43:
+  43              		.section	.text.LOS_MemInit,"ax",%progbits
+  44              		.align	2
+  45              		.global	LOS_MemInit
+  46              		.code	16
+  47              		.thumb_func
+  49              	LOS_MemInit:
+  50              	.LFB44:
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** /*****************************************************************************
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  Function : LOS_MemInit
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s 			page 3
+
+
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  Description : Initialize Dynamic Memory pool
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  Input       : pPool    --- Pointer to memory pool
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****                uwSize  --- Size of memory in bytes to allocate
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  Output      : None
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  Return      : LOS_OK - Ok, LOS_NOK - Error
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** *****************************************************************************/
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** LITE_OS_SEC_TEXT_INIT UINT32 LOS_MemInit(VOID *pPool, UINT32 uwSize)
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** {
+  51              		.loc 1 75 0
+  52              		.cfi_startproc
+  53              		@ args = 0, pretend = 0, frame = 8
+  54              		@ frame_needed = 0, uses_anonymous_args = 0
+  55              	.LVL2:
+  56 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+  57              	.LCFI0:
+  58              		.cfi_def_cfa_offset 20
+  59              		.cfi_offset 4, -20
+  60              		.cfi_offset 5, -16
+  61              		.cfi_offset 6, -12
+  62              		.cfi_offset 7, -8
+  63              		.cfi_offset 14, -4
+  64 0002 4F46     		mov	r7, r9
+  65 0004 4646     		mov	r6, r8
+  66 0006 C0B4     		push	{r6, r7}
+  67              	.LCFI1:
+  68              		.cfi_def_cfa_offset 28
+  69              		.cfi_offset 8, -28
+  70              		.cfi_offset 9, -24
+  71 0008 85B0     		sub	sp, sp, #20
+  72              	.LCFI2:
+  73              		.cfi_def_cfa_offset 48
+  74 000a 071E     		subs	r7, r0, #0
+  75 000c 8946     		mov	r9, r1
+  76              	.LVL3:
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     BOOL bRet = TRUE;
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     UINTPTR uvIntSave;
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #if (LOSCFG_MEM_MUL_POOL == YES)
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     VOID *pNext = g_pPoolHead;
+  77              		.loc 1 79 0
+  78 000e 364B     		ldr	r3, .L16
+  79 0010 1C68     		ldr	r4, [r3]
+  80              	.LVL4:
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     VOID * pCur = g_pPoolHead;
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     UINT32 uwPoolEnd;
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #endif
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     if (!pPool || uwSize <= sizeof(struct LOS_HEAP_MANAGER))
+  81              		.loc 1 84 0
+  82 0012 5AD0     		beq	.L13
+  83              		.loc 1 84 0 is_stmt 0 discriminator 1
+  84 0014 5029     		cmp	r1, #80
+  85 0016 5BD9     		bls	.L14
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         return LOS_NOK;
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     if (!IS_POOL_ALIGNED(pPool, OS_MEM_POOL_BASE_ALIGN))
+  86              		.loc 1 87 0 is_stmt 1
+  87 0018 0500     		movs	r5, r0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s 			page 4
+
+
+  88 001a 0323     		movs	r3, #3
+  89 001c 0340     		ands	r3, r0
+  90 001e 9846     		mov	r8, r3
+  91 0020 59D1     		bne	.L15
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         return LOS_NOK;
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     uvIntSave = LOS_IntLock();
+  92              		.loc 1 90 0
+  93 0022 FFF7FEFF 		bl	LOS_IntLock
+  94              	.LVL5:
+  95 0026 0390     		str	r0, [sp, #12]
+  96              	.LVL6:
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     UINT32 uwPoolEnd;
+  97              		.loc 1 80 0
+  98 0028 2600     		movs	r6, r4
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #if (LOSCFG_MEM_MUL_POOL == YES)
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     while (pNext != NULL)
+  99              		.loc 1 93 0
+ 100 002a 24E0     		b	.L4
+ 101              	.LVL7:
+ 102              	.L8:
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     {
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         uwPoolEnd = (UINT32)pNext + ((struct LOS_HEAP_MANAGER *)pNext)->uwSize;
+ 103              		.loc 1 95 0
+ 104 002c 2600     		movs	r6, r4
+ 105              	.LVL8:
+ 106 002e A368     		ldr	r3, [r4, #8]
+ 107 0030 1B19     		adds	r3, r3, r4
+ 108              	.LVL9:
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         if ((pPool <= pNext && ((UINT32)pPool + uwSize) > (UINT32)pNext) ||
+ 109              		.loc 1 96 0
+ 110 0032 BC42     		cmp	r4, r7
+ 111 0034 03D3     		bcc	.L5
+ 112              		.loc 1 96 0 is_stmt 0 discriminator 1
+ 113 0036 4A46     		mov	r2, r9
+ 114 0038 5219     		adds	r2, r2, r5
+ 115 003a 9442     		cmp	r4, r2
+ 116 003c 05D3     		bcc	.L6
+ 117              	.L5:
+ 118              		.loc 1 96 0 discriminator 3
+ 119 003e 9D42     		cmp	r5, r3
+ 120 0040 17D2     		bcs	.L7
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****             ((UINT32)pPool < uwPoolEnd && ((UINT32)pPool + uwSize) >= uwPoolEnd))
+ 121              		.loc 1 97 0 is_stmt 1
+ 122 0042 4A46     		mov	r2, r9
+ 123 0044 5219     		adds	r2, r2, r5
+ 124 0046 9342     		cmp	r3, r2
+ 125 0048 13D8     		bhi	.L7
+ 126              	.L6:
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         {
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****             PRINT_ERR("pool [%p, 0x%x) conflict with pool [%p, 0x%x)\n",
+ 127              		.loc 1 99 0
+ 128 004a 2848     		ldr	r0, .L16+4
+ 129              	.LVL10:
+ 130 004c FFF7FEFF 		bl	printf
+ 131              	.LVL11:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s 			page 5
+
+
+ 132 0050 4B46     		mov	r3, r9
+ 133 0052 FA18     		adds	r2, r7, r3
+ 134 0054 A368     		ldr	r3, [r4, #8]
+ 135 0056 9C46     		mov	ip, r3
+ 136 0058 6644     		add	r6, r6, ip
+ 137 005a 0096     		str	r6, [sp]
+ 138 005c 2300     		movs	r3, r4
+ 139 005e 3900     		movs	r1, r7
+ 140 0060 2348     		ldr	r0, .L16+8
+ 141 0062 FFF7FEFF 		bl	printf
+ 142              	.LVL12:
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****                           pPool, (UINT32)pPool + uwSize,
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****                           pNext, (UINT32)pNext + ((struct LOS_HEAP_MANAGER *)pNext)->uwSize);
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****             LOS_IntRestore(uvIntSave);
+ 143              		.loc 1 103 0
+ 144 0066 0398     		ldr	r0, [sp, #12]
+ 145 0068 FFF7FEFF 		bl	LOS_IntRestore
+ 146              	.LVL13:
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****             return LOS_NOK;
+ 147              		.loc 1 104 0
+ 148 006c 0123     		movs	r3, #1
+ 149 006e 9846     		mov	r8, r3
+ 150 0070 33E0     		b	.L3
+ 151              	.LVL14:
+ 152              	.L7:
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         }
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         pCur = pNext;
+ 153              		.loc 1 106 0
+ 154 0072 2600     		movs	r6, r4
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         pNext = ((struct LOS_HEAP_MANAGER *)pNext)->pNextPool;
+ 155              		.loc 1 107 0
+ 156 0074 E468     		ldr	r4, [r4, #12]
+ 157              	.LVL15:
+ 158              	.L4:
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     {
+ 159              		.loc 1 93 0
+ 160 0076 002C     		cmp	r4, #0
+ 161 0078 D8D1     		bne	.L8
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     }
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #endif
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     bRet = osHeapInit(pPool, uwSize);
+ 162              		.loc 1 111 0
+ 163 007a 4946     		mov	r1, r9
+ 164 007c 3800     		movs	r0, r7
+ 165              	.LVL16:
+ 166 007e FFF7FEFF 		bl	osHeapInit
+ 167              	.LVL17:
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     if(!bRet)
+ 168              		.loc 1 112 0
+ 169 0082 0028     		cmp	r0, #0
+ 170 0084 05D1     		bne	.L9
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     {
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         LOS_IntRestore(uvIntSave);
+ 171              		.loc 1 114 0
+ 172 0086 0398     		ldr	r0, [sp, #12]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s 			page 6
+
+
+ 173              	.LVL18:
+ 174 0088 FFF7FEFF 		bl	LOS_IntRestore
+ 175              	.LVL19:
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         return LOS_NOK;
+ 176              		.loc 1 115 0
+ 177 008c 0123     		movs	r3, #1
+ 178 008e 9846     		mov	r8, r3
+ 179 0090 23E0     		b	.L3
+ 180              	.LVL20:
+ 181              	.L9:
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     }
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #if (LOSCFG_KERNEL_MEM_SLAB == YES)
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     if (uwSize >= SLAB_BASIC_NEED_SIZE)//if size of pool is small than size of slab need, don`t ini
+ 182              		.loc 1 118 0
+ 183 0092 184B     		ldr	r3, .L16+12
+ 184 0094 9945     		cmp	r9, r3
+ 185 0096 0AD9     		bls	.L10
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     {
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         bRet = osSlabMemInit(pPool);
+ 186              		.loc 1 120 0
+ 187 0098 3800     		movs	r0, r7
+ 188              	.LVL21:
+ 189 009a FFF7FEFF 		bl	osSlabMemInit
+ 190              	.LVL22:
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         if(!bRet)
+ 191              		.loc 1 121 0
+ 192 009e 0028     		cmp	r0, #0
+ 193 00a0 05D1     		bne	.L10
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         {
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****             LOS_IntRestore(uvIntSave);
+ 194              		.loc 1 123 0
+ 195 00a2 0398     		ldr	r0, [sp, #12]
+ 196              	.LVL23:
+ 197 00a4 FFF7FEFF 		bl	LOS_IntRestore
+ 198              	.LVL24:
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****             return LOS_NOK;
+ 199              		.loc 1 124 0
+ 200 00a8 0123     		movs	r3, #1
+ 201 00aa 9846     		mov	r8, r3
+ 202 00ac 15E0     		b	.L3
+ 203              	.LVL25:
+ 204              	.L10:
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         }
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     }
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #endif
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #if (LOSCFG_MEM_MUL_POOL == YES)
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     if (g_pPoolHead == NULL)
+ 205              		.loc 1 130 0
+ 206 00ae 0E4B     		ldr	r3, .L16
+ 207 00b0 1B68     		ldr	r3, [r3]
+ 208 00b2 002B     		cmp	r3, #0
+ 209 00b4 02D1     		bne	.L11
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     {
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         g_pPoolHead = pPool;
+ 210              		.loc 1 132 0
+ 211 00b6 0C4B     		ldr	r3, .L16
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s 			page 7
+
+
+ 212 00b8 1F60     		str	r7, [r3]
+ 213 00ba 00E0     		b	.L12
+ 214              	.L11:
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     }
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     else
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     {
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         ((struct LOS_HEAP_MANAGER *)pCur)->pNextPool = pPool;
+ 215              		.loc 1 136 0
+ 216 00bc F760     		str	r7, [r6, #12]
+ 217              	.L12:
+ 137:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     }
+ 138:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 139:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     ((struct LOS_HEAP_MANAGER *)pPool)->pNextPool = NULL;
+ 218              		.loc 1 139 0
+ 219 00be 0023     		movs	r3, #0
+ 220 00c0 FB60     		str	r3, [r7, #12]
+ 140:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #endif
+ 141:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 142:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #if ((LOSCFG_PLATFORM_EXC == YES) && (LOSCFG_SAVE_EXC_INFO == YES))
+ 143:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     osMemInfoUpdate(pPool, uwSize, MEM_MANG_MEMORY);
+ 144:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #endif
+ 145:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 146:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     LOS_IntRestore(uvIntSave);
+ 221              		.loc 1 146 0
+ 222 00c2 0398     		ldr	r0, [sp, #12]
+ 223              	.LVL26:
+ 224 00c4 FFF7FEFF 		bl	LOS_IntRestore
+ 225              	.LVL27:
+ 147:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     return LOS_OK;
+ 226              		.loc 1 147 0
+ 227 00c8 07E0     		b	.L3
+ 228              	.LVL28:
+ 229              	.L13:
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 230              		.loc 1 85 0
+ 231 00ca 0123     		movs	r3, #1
+ 232 00cc 9846     		mov	r8, r3
+ 233 00ce 04E0     		b	.L3
+ 234              	.L14:
+ 235 00d0 0123     		movs	r3, #1
+ 236 00d2 9846     		mov	r8, r3
+ 237 00d4 01E0     		b	.L3
+ 238              	.L15:
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 239              		.loc 1 88 0
+ 240 00d6 0123     		movs	r3, #1
+ 241 00d8 9846     		mov	r8, r3
+ 242              	.LVL29:
+ 243              	.L3:
+ 148:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** }
+ 244              		.loc 1 148 0
+ 245 00da 4046     		mov	r0, r8
+ 246 00dc 05B0     		add	sp, sp, #20
+ 247              		@ sp needed
+ 248              	.LVL30:
+ 249              	.LVL31:
+ 250              	.LVL32:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s 			page 8
+
+
+ 251 00de 0CBC     		pop	{r2, r3}
+ 252 00e0 9046     		mov	r8, r2
+ 253 00e2 9946     		mov	r9, r3
+ 254 00e4 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 255              	.L17:
+ 256 00e6 C046     		.align	2
+ 257              	.L16:
+ 258 00e8 00000000 		.word	.LANCHOR0
+ 259 00ec 00000000 		.word	.LC1
+ 260 00f0 08000000 		.word	.LC3
+ 261 00f4 FF0F0000 		.word	4095
+ 262              		.cfi_endproc
+ 263              	.LFE44:
+ 265              		.section	.text.osMemSystemInit,"ax",%progbits
+ 266              		.align	2
+ 267              		.global	osMemSystemInit
+ 268              		.code	16
+ 269              		.thumb_func
+ 271              	osMemSystemInit:
+ 272              	.LFB45:
+ 149:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 150:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** LITE_OS_SEC_TEXT_INIT UINT32 osMemSystemInit(VOID)
+ 151:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** {
+ 273              		.loc 1 151 0
+ 274              		.cfi_startproc
+ 275              		@ args = 0, pretend = 0, frame = 0
+ 276              		@ frame_needed = 0, uses_anonymous_args = 0
+ 277 0000 10B5     		push	{r4, lr}
+ 278              	.LCFI3:
+ 279              		.cfi_def_cfa_offset 8
+ 280              		.cfi_offset 4, -8
+ 281              		.cfi_offset 14, -4
+ 282              	.LVL33:
+ 152:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     UINT32 uwRet = LOS_OK;
+ 153:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 154:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     uwRet = LOS_MemInit((VOID *)OS_SYS_MEM_ADDR, OS_SYS_MEM_SIZE);
+ 283              		.loc 1 154 0
+ 284 0002 0649     		ldr	r1, .L19
+ 285 0004 064A     		ldr	r2, .L19+4
+ 286 0006 8818     		adds	r0, r1, r2
+ 287 0008 064B     		ldr	r3, .L19+8
+ 288 000a 5B42     		rsbs	r3, r3, #0
+ 289 000c 591A     		subs	r1, r3, r1
+ 290 000e 064B     		ldr	r3, .L19+12
+ 291 0010 9C46     		mov	ip, r3
+ 292 0012 6144     		add	r1, r1, ip
+ 293 0014 891A     		subs	r1, r1, r2
+ 294 0016 FFF7FEFF 		bl	LOS_MemInit
+ 295              	.LVL34:
+ 155:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 156:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #if ((LOSCFG_PLATFORM_EXC == YES) && (LOSCFG_SAVE_EXC_INFO == YES))
+ 157:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     osExcRegister(OS_EXC_TYPE_MEM, (EXC_INFO_SAVE_CALLBACK)LOS_MemExcInfoGet, g_aucMemMang);
+ 158:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #endif
+ 159:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     return uwRet;
+ 160:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** }
+ 296              		.loc 1 160 0
+ 297              		@ sp needed
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s 			page 9
+
+
+ 298 001a 10BD     		pop	{r4, pc}
+ 299              	.L20:
+ 300              		.align	2
+ 301              	.L19:
+ 302 001c 00000000 		.word	_ebss
+ 303 0020 00000000 		.word	_Min_Heap_Size
+ 304 0024 00000000 		.word	_Stack_Size
+ 305 0028 00800020 		.word	536903680
+ 306              		.cfi_endproc
+ 307              	.LFE45:
+ 309              		.section	.text.LOS_MemDeInit,"ax",%progbits
+ 310              		.align	2
+ 311              		.global	LOS_MemDeInit
+ 312              		.code	16
+ 313              		.thumb_func
+ 315              	LOS_MemDeInit:
+ 316              	.LFB46:
+ 161:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 162:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #if (LOSCFG_MEM_MUL_POOL == YES)
+ 163:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** LITE_OS_SEC_TEXT_INIT UINT32 LOS_MemDeInit(VOID *pPool)
+ 164:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** {
+ 317              		.loc 1 164 0
+ 318              		.cfi_startproc
+ 319              		@ args = 0, pretend = 0, frame = 0
+ 320              		@ frame_needed = 0, uses_anonymous_args = 0
+ 321              	.LVL35:
+ 322 0000 70B5     		push	{r4, r5, r6, lr}
+ 323              	.LCFI4:
+ 324              		.cfi_def_cfa_offset 16
+ 325              		.cfi_offset 4, -16
+ 326              		.cfi_offset 5, -12
+ 327              		.cfi_offset 6, -8
+ 328              		.cfi_offset 14, -4
+ 329 0002 041E     		subs	r4, r0, #0
+ 330              	.LVL36:
+ 165:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     UINTPTR uvIntSave, uvRet = LOS_NOK;
+ 166:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     VOID *pNext, *pCur;
+ 167:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 168:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     if (NULL == pPool)
+ 331              		.loc 1 168 0
+ 332 0004 1FD0     		beq	.L27
+ 169:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     {
+ 170:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         return uvRet;
+ 171:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     }
+ 172:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     uvIntSave = LOS_IntLock();
+ 333              		.loc 1 172 0
+ 334 0006 FFF7FEFF 		bl	LOS_IntLock
+ 335              	.LVL37:
+ 336 000a 0500     		movs	r5, r0
+ 337              	.LVL38:
+ 173:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     do
+ 174:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     {
+ 175:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         if (pPool == g_pPoolHead)
+ 338              		.loc 1 175 0
+ 339 000c 0F4B     		ldr	r3, .L29
+ 340 000e 1B68     		ldr	r3, [r3]
+ 341 0010 9C42     		cmp	r4, r3
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s 			page 10
+
+
+ 342 0012 0DD1     		bne	.L28
+ 176:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         {
+ 177:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****             g_pPoolHead = ((struct LOS_HEAP_MANAGER *)g_pPoolHead)->pNextPool;
+ 343              		.loc 1 177 0
+ 344 0014 DA68     		ldr	r2, [r3, #12]
+ 345 0016 0D4B     		ldr	r3, .L29
+ 346 0018 1A60     		str	r2, [r3]
+ 347              	.LVL39:
+ 178:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****             uvRet = LOS_OK;
+ 348              		.loc 1 178 0
+ 349 001a 0026     		movs	r6, #0
+ 179:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****             break;
+ 350              		.loc 1 179 0
+ 351 001c 0CE0     		b	.L24
+ 352              	.LVL40:
+ 353              	.L26:
+ 180:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         }
+ 181:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 182:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         pCur = g_pPoolHead;
+ 183:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         pNext = g_pPoolHead;
+ 184:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 185:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         while (pNext != NULL)
+ 186:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         {
+ 187:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****             if (pPool == pNext)
+ 354              		.loc 1 187 0
+ 355 001e A342     		cmp	r3, r4
+ 356 0020 03D1     		bne	.L25
+ 188:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****             {
+ 189:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****                 ((struct LOS_HEAP_MANAGER *)pCur)->pNextPool = ((struct LOS_HEAP_MANAGER *)pNext)->
+ 357              		.loc 1 189 0
+ 358 0022 DB68     		ldr	r3, [r3, #12]
+ 359              	.LVL41:
+ 360 0024 D360     		str	r3, [r2, #12]
+ 361              	.LVL42:
+ 190:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****                 uvRet = LOS_OK;
+ 362              		.loc 1 190 0
+ 363 0026 0026     		movs	r6, #0
+ 191:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****                 break;
+ 364              		.loc 1 191 0
+ 365 0028 06E0     		b	.L24
+ 366              	.LVL43:
+ 367              	.L25:
+ 192:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****             }
+ 193:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****             pCur = pNext;
+ 368              		.loc 1 193 0
+ 369 002a 1A00     		movs	r2, r3
+ 194:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****             pNext = ((struct LOS_HEAP_MANAGER *)pNext)->pNextPool;
+ 370              		.loc 1 194 0
+ 371 002c DB68     		ldr	r3, [r3, #12]
+ 372              	.LVL44:
+ 373 002e 00E0     		b	.L23
+ 374              	.LVL45:
+ 375              	.L28:
+ 376 0030 1A00     		movs	r2, r3
+ 377              	.L23:
+ 378              	.LVL46:
+ 185:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         {
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s 			page 11
+
+
+ 379              		.loc 1 185 0
+ 380 0032 002B     		cmp	r3, #0
+ 381 0034 F3D1     		bne	.L26
+ 165:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     VOID *pNext, *pCur;
+ 382              		.loc 1 165 0
+ 383 0036 0126     		movs	r6, #1
+ 384              	.LVL47:
+ 385              	.L24:
+ 195:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         }
+ 196:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     }while(0);
+ 197:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 198:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #if ((LOSCFG_PLATFORM_EXC == YES) && (LOSCFG_SAVE_EXC_INFO == YES))
+ 199:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     if (uvRet == LOS_OK)
+ 200:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         osMemInfoUpdate(pPool, 0, MEM_MANG_EMPTY);
+ 201:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #endif
+ 202:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #if (LOSCFG_KERNEL_MEM_SLAB == YES)
+ 203:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     osSlabMemDeinit(pPool);
+ 386              		.loc 1 203 0
+ 387 0038 2000     		movs	r0, r4
+ 388              	.LVL48:
+ 389 003a FFF7FEFF 		bl	osSlabMemDeinit
+ 390              	.LVL49:
+ 204:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #endif
+ 205:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     LOS_IntRestore(uvIntSave);
+ 391              		.loc 1 205 0
+ 392 003e 2800     		movs	r0, r5
+ 393 0040 FFF7FEFF 		bl	LOS_IntRestore
+ 394              	.LVL50:
+ 206:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     return uvRet;
+ 395              		.loc 1 206 0
+ 396 0044 00E0     		b	.L22
+ 397              	.LVL51:
+ 398              	.L27:
+ 170:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     }
+ 399              		.loc 1 170 0
+ 400 0046 0126     		movs	r6, #1
+ 401              	.LVL52:
+ 402              	.L22:
+ 207:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** }
+ 403              		.loc 1 207 0
+ 404 0048 3000     		movs	r0, r6
+ 405              		@ sp needed
+ 406              	.LVL53:
+ 407 004a 70BD     		pop	{r4, r5, r6, pc}
+ 408              	.L30:
+ 409              		.align	2
+ 410              	.L29:
+ 411 004c 00000000 		.word	.LANCHOR0
+ 412              		.cfi_endproc
+ 413              	.LFE46:
+ 415              		.section	.text.LOS_MemPoolList,"ax",%progbits
+ 416              		.align	2
+ 417              		.global	LOS_MemPoolList
+ 418              		.code	16
+ 419              		.thumb_func
+ 421              	LOS_MemPoolList:
+ 422              	.LFB47:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s 			page 12
+
+
+ 208:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 209:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** LITE_OS_SEC_TEXT_INIT UINT32 LOS_MemPoolList(VOID)
+ 210:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** {
+ 423              		.loc 1 210 0
+ 424              		.cfi_startproc
+ 425              		@ args = 0, pretend = 0, frame = 0
+ 426              		@ frame_needed = 0, uses_anonymous_args = 0
+ 427 0000 70B5     		push	{r4, r5, r6, lr}
+ 428              	.LCFI5:
+ 429              		.cfi_def_cfa_offset 16
+ 430              		.cfi_offset 4, -16
+ 431              		.cfi_offset 5, -12
+ 432              		.cfi_offset 6, -8
+ 433              		.cfi_offset 14, -4
+ 211:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     VOID *pNext = g_pPoolHead;
+ 434              		.loc 1 211 0
+ 435 0002 064B     		ldr	r3, .L34
+ 436 0004 1C68     		ldr	r4, [r3]
+ 437              	.LVL54:
+ 212:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     UINT32 uwIndex = 0;
+ 438              		.loc 1 212 0
+ 439 0006 0025     		movs	r5, #0
+ 213:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 214:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     while (pNext != NULL)
+ 440              		.loc 1 214 0
+ 441 0008 04E0     		b	.L32
+ 442              	.LVL55:
+ 443              	.L33:
+ 215:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     {
+ 216:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         uwIndex++;
+ 444              		.loc 1 216 0
+ 445 000a 0135     		adds	r5, r5, #1
+ 446              	.LVL56:
+ 217:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         osAlarmHeapInfo(pNext);
+ 447              		.loc 1 217 0
+ 448 000c 2000     		movs	r0, r4
+ 449 000e FFF7FEFF 		bl	osAlarmHeapInfo
+ 450              	.LVL57:
+ 218:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         pNext = ((struct LOS_HEAP_MANAGER *)pNext)->pNextPool;
+ 451              		.loc 1 218 0
+ 452 0012 E468     		ldr	r4, [r4, #12]
+ 453              	.LVL58:
+ 454              	.L32:
+ 214:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     {
+ 455              		.loc 1 214 0
+ 456 0014 002C     		cmp	r4, #0
+ 457 0016 F8D1     		bne	.L33
+ 219:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     }
+ 220:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     return uwIndex;
+ 221:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** }
+ 458              		.loc 1 221 0
+ 459 0018 2800     		movs	r0, r5
+ 460              		@ sp needed
+ 461              	.LVL59:
+ 462              	.LVL60:
+ 463 001a 70BD     		pop	{r4, r5, r6, pc}
+ 464              	.L35:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s 			page 13
+
+
+ 465              		.align	2
+ 466              	.L34:
+ 467 001c 00000000 		.word	.LANCHOR0
+ 468              		.cfi_endproc
+ 469              	.LFE47:
+ 471              		.section	.text.LOS_MemAlloc,"ax",%progbits
+ 472              		.align	2
+ 473              		.global	LOS_MemAlloc
+ 474              		.code	16
+ 475              		.thumb_func
+ 477              	LOS_MemAlloc:
+ 478              	.LFB48:
+ 222:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #endif
+ 223:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 224:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** /*****************************************************************************
+ 225:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  Function : LOS_MemAlloc
+ 226:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  Description : Allocate Memory from Memory pool
+ 227:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  Input       : pPool    --- Pointer to memory pool
+ 228:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****                uwSize   --- Size of memory in bytes to allocate
+ 229:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  Output      : None
+ 230:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  Return      : Pointer to allocated memory
+ 231:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** *****************************************************************************/
+ 232:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** LITE_OS_SEC_TEXT VOID *LOS_MemAlloc (VOID *pPool, UINT32 uwSize)
+ 233:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** {
+ 479              		.loc 1 233 0
+ 480              		.cfi_startproc
+ 481              		@ args = 0, pretend = 0, frame = 0
+ 482              		@ frame_needed = 0, uses_anonymous_args = 0
+ 483              	.LVL61:
+ 484 0000 70B5     		push	{r4, r5, r6, lr}
+ 485              	.LCFI6:
+ 486              		.cfi_def_cfa_offset 16
+ 487              		.cfi_offset 4, -16
+ 488              		.cfi_offset 5, -12
+ 489              		.cfi_offset 6, -8
+ 490              		.cfi_offset 14, -4
+ 491 0002 0400     		movs	r4, r0
+ 492 0004 0D00     		movs	r5, r1
+ 493              	.LVL62:
+ 234:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     VOID *pRet = NULL;
+ 235:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 236:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     if ((NULL == pPool) || (0 == uwSize))
+ 494              		.loc 1 236 0
+ 495 0006 0028     		cmp	r0, #0
+ 496 0008 0AD0     		beq	.L38
+ 497              		.loc 1 236 0 is_stmt 0 discriminator 1
+ 498 000a 0029     		cmp	r1, #0
+ 499 000c 0AD0     		beq	.L39
+ 237:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     {
+ 238:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         return pRet;
+ 239:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     }
+ 240:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 241:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #if (LOSCFG_KERNEL_MEM_SLAB == YES)
+ 242:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     pRet = osSlabMemAlloc(pPool, uwSize);
+ 500              		.loc 1 242 0 is_stmt 1
+ 501 000e FFF7FEFF 		bl	osSlabMemAlloc
+ 502              	.LVL63:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s 			page 14
+
+
+ 243:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     if(pRet == NULL)
+ 503              		.loc 1 243 0
+ 504 0012 0028     		cmp	r0, #0
+ 505 0014 07D1     		bne	.L37
+ 244:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #endif
+ 245:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         pRet = osHeapAlloc(pPool, uwSize);
+ 506              		.loc 1 245 0
+ 507 0016 2900     		movs	r1, r5
+ 508 0018 2000     		movs	r0, r4
+ 509              	.LVL64:
+ 510 001a FFF7FEFF 		bl	osHeapAlloc
+ 511              	.LVL65:
+ 512 001e 02E0     		b	.L37
+ 513              	.LVL66:
+ 514              	.L38:
+ 238:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     }
+ 515              		.loc 1 238 0
+ 516 0020 0020     		movs	r0, #0
+ 517              	.LVL67:
+ 518 0022 00E0     		b	.L37
+ 519              	.LVL68:
+ 520              	.L39:
+ 521 0024 0020     		movs	r0, #0
+ 522              	.LVL69:
+ 523              	.L37:
+ 246:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 247:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     return pRet;
+ 248:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** }
+ 524              		.loc 1 248 0
+ 525              		@ sp needed
+ 526              	.LVL70:
+ 527              	.LVL71:
+ 528 0026 70BD     		pop	{r4, r5, r6, pc}
+ 529              		.cfi_endproc
+ 530              	.LFE48:
+ 532              		.section	.text.LOS_MemAllocAlign,"ax",%progbits
+ 533              		.align	2
+ 534              		.global	LOS_MemAllocAlign
+ 535              		.code	16
+ 536              		.thumb_func
+ 538              	LOS_MemAllocAlign:
+ 539              	.LFB49:
+ 249:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** /*****************************************************************************
+ 250:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  Function : LOS_MemAllocAlign
+ 251:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  Description : align size then allocate node from Memory pool
+ 252:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  Input       : pPool        --- Pointer to memory pool
+ 253:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****                uwSize       --- Size of memory in bytes to allocate
+ 254:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****                uwBoundary   --- align form
+ 255:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  Output      : None
+ 256:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  Return      : Pointer to allocated memory node
+ 257:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** *****************************************************************************/
+ 258:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** LITE_OS_SEC_TEXT VOID *LOS_MemAllocAlign(VOID *pPool, UINT32 uwSize, UINT32 uwBoundary)
+ 259:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** {
+ 540              		.loc 1 259 0
+ 541              		.cfi_startproc
+ 542              		@ args = 0, pretend = 0, frame = 0
+ 543              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s 			page 15
+
+
+ 544              	.LVL72:
+ 545 0000 10B5     		push	{r4, lr}
+ 546              	.LCFI7:
+ 547              		.cfi_def_cfa_offset 8
+ 548              		.cfi_offset 4, -8
+ 549              		.cfi_offset 14, -4
+ 260:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     return osHeapAllocAlign(pPool, uwSize, uwBoundary);
+ 550              		.loc 1 260 0
+ 551 0002 FFF7FEFF 		bl	osHeapAllocAlign
+ 552              	.LVL73:
+ 261:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** }
+ 553              		.loc 1 261 0
+ 554              		@ sp needed
+ 555 0006 10BD     		pop	{r4, pc}
+ 556              		.cfi_endproc
+ 557              	.LFE49:
+ 559              		.section	.text.LOS_MemFree,"ax",%progbits
+ 560              		.align	2
+ 561              		.global	LOS_MemFree
+ 562              		.code	16
+ 563              		.thumb_func
+ 565              	LOS_MemFree:
+ 566              	.LFB51:
+ 262:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 263:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** /*****************************************************************************
+ 264:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  Function : LOS_MemRealloc
+ 265:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  Description : realloc memory from Memory pool
+ 266:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  Input       : pPool    --- Pointer to memory pool
+ 267:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****                pPtr     --- Pointer to memory
+ 268:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****                uwSize   --- new size
+ 269:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  Output      : None
+ 270:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  Return      : Pointer to allocated memory node
+ 271:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** *****************************************************************************/
+ 272:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** LITE_OS_SEC_TEXT_MINOR VOID *LOS_MemRealloc(VOID *pPool, VOID *pPtr, UINT32 uwSize)
+ 273:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** {
+ 274:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     VOID *p = NULL;
+ 275:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     UINTPTR uvIntSave;
+ 276:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     struct LOS_HEAP_NODE *pstNode;
+ 277:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     UINT32 uwCpySize = 0;
+ 278:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #if (LOSCFG_KERNEL_MEM_SLAB == YES)	
+ 279:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     UINT32 uwOldSize = (UINT32)-1;
+ 280:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #endif
+ 281:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     UINT32 uwGapSize = 0;
+ 282:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 283:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     if ((int)uwSize < 0)
+ 284:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     {
+ 285:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         return NULL;
+ 286:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     }
+ 287:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     uvIntSave = LOS_IntLock();
+ 288:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 289:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     /* Zero-size requests are treated as free. */
+ 290:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     if ((NULL != pPtr) && (0 == uwSize))
+ 291:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     {
+ 292:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         (VOID)LOS_MemFree(pPool, pPtr);
+ 293:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     }
+ 294:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     /* Requests with NULL pointers are treated as malloc. */
+ 295:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     else if (NULL == pPtr)
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s 			page 16
+
+
+ 296:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     {
+ 297:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         p = LOS_MemAlloc(pPool, uwSize);
+ 298:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     }
+ 299:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     else
+ 300:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     {
+ 301:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #if (LOSCFG_KERNEL_MEM_SLAB == YES)
+ 302:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         uwOldSize = osSlabMemCheck(pPool, pPtr);
+ 303:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         if (uwOldSize != (UINT32)-1)
+ 304:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         {
+ 305:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****             uwCpySize = uwSize > uwOldSize ? uwOldSize : uwSize;
+ 306:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         }
+ 307:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         else
+ 308:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #endif
+ 309:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         {
+ 310:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****             /* find the real ptr through gap size */
+ 311:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****             uwGapSize = *((UINT32 *)((UINT32)pPtr - 4));
+ 312:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****             if (OS_MEM_GET_ALIGN_FLAG(uwGapSize))
+ 313:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****             {
+ 314:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****                 return NULL;
+ 315:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****             }
+ 316:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 317:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****             pstNode = ((struct LOS_HEAP_NODE *)pPtr) - 1;
+ 318:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****             uwCpySize = uwSize > pstNode->uwSize ? pstNode->uwSize : uwSize;
+ 319:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         }
+ 320:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         p = LOS_MemAlloc(pPool, uwSize);
+ 321:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 322:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         if (p != NULL)
+ 323:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         {
+ 324:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****             (VOID)memcpy(p, pPtr, uwCpySize);
+ 325:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****             (VOID)LOS_MemFree(pPool, pPtr);
+ 326:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         }
+ 327:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     }
+ 328:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 329:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     LOS_IntRestore(uvIntSave);
+ 330:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     return p;
+ 331:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** }
+ 332:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 333:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** /*****************************************************************************
+ 334:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  Function : LOS_MemFree
+ 335:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  Description : Free Memory and return it to Memory pool
+ 336:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  Input       : pPool    --- Pointer to memory pool
+ 337:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****                pMem     --- Pointer to memory to free
+ 338:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  Output      : None
+ 339:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****  Return      : LOS_OK - OK, LOS_NOK - Error
+ 340:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** *****************************************************************************/
+ 341:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** LITE_OS_SEC_TEXT UINT32 LOS_MemFree (VOID *pPool, VOID *pMem)
+ 342:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** {
+ 567              		.loc 1 342 0
+ 568              		.cfi_startproc
+ 569              		@ args = 0, pretend = 0, frame = 0
+ 570              		@ frame_needed = 0, uses_anonymous_args = 0
+ 571              	.LVL74:
+ 572 0000 70B5     		push	{r4, r5, r6, lr}
+ 573              	.LCFI8:
+ 574              		.cfi_def_cfa_offset 16
+ 575              		.cfi_offset 4, -16
+ 576              		.cfi_offset 5, -12
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s 			page 17
+
+
+ 577              		.cfi_offset 6, -8
+ 578              		.cfi_offset 14, -4
+ 579 0002 0400     		movs	r4, r0
+ 580 0004 0D00     		movs	r5, r1
+ 581              	.LVL75:
+ 343:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     BOOL bRet = FALSE;
+ 344:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 345:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     if ((NULL == pPool) || (NULL == pMem))
+ 582              		.loc 1 345 0
+ 583 0006 0028     		cmp	r0, #0
+ 584 0008 0ED0     		beq	.L45
+ 585              		.loc 1 345 0 is_stmt 0 discriminator 1
+ 586 000a 0029     		cmp	r1, #0
+ 587 000c 0ED0     		beq	.L46
+ 346:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     {
+ 347:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         return LOS_NOK;
+ 348:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     }
+ 349:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 350:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #if (LOSCFG_KERNEL_MEM_SLAB == YES)
+ 351:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     bRet = osSlabMemFree(pPool, pMem);
+ 588              		.loc 1 351 0 is_stmt 1
+ 589 000e FFF7FEFF 		bl	osSlabMemFree
+ 590              	.LVL76:
+ 352:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     if(bRet != TRUE)
+ 591              		.loc 1 352 0
+ 592 0012 0128     		cmp	r0, #1
+ 593 0014 03D0     		beq	.L44
+ 353:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #endif
+ 354:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         bRet = osHeapFree(pPool, pMem);
+ 594              		.loc 1 354 0
+ 595 0016 2900     		movs	r1, r5
+ 596 0018 2000     		movs	r0, r4
+ 597              	.LVL77:
+ 598 001a FFF7FEFF 		bl	osHeapFree
+ 599              	.LVL78:
+ 600              	.L44:
+ 355:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 356:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     return (bRet == TRUE ? LOS_OK : LOS_NOK);
+ 601              		.loc 1 356 0
+ 602 001e 0138     		subs	r0, r0, #1
+ 603              	.LVL79:
+ 604 0020 431E     		subs	r3, r0, #1
+ 605 0022 9841     		sbcs	r0, r0, r3
+ 606              	.LVL80:
+ 607 0024 C0B2     		uxtb	r0, r0
+ 608 0026 02E0     		b	.L43
+ 609              	.LVL81:
+ 610              	.L45:
+ 347:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     }
+ 611              		.loc 1 347 0
+ 612 0028 0120     		movs	r0, #1
+ 613              	.LVL82:
+ 614 002a 00E0     		b	.L43
+ 615              	.LVL83:
+ 616              	.L46:
+ 617 002c 0120     		movs	r0, #1
+ 618              	.LVL84:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s 			page 18
+
+
+ 619              	.L43:
+ 357:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** }
+ 620              		.loc 1 357 0
+ 621              		@ sp needed
+ 622              	.LVL85:
+ 623              	.LVL86:
+ 624 002e 70BD     		pop	{r4, r5, r6, pc}
+ 625              		.cfi_endproc
+ 626              	.LFE51:
+ 628              		.section	.text.LOS_MemRealloc,"ax",%progbits
+ 629              		.align	2
+ 630              		.global	LOS_MemRealloc
+ 631              		.code	16
+ 632              		.thumb_func
+ 634              	LOS_MemRealloc:
+ 635              	.LFB50:
+ 273:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     VOID *p = NULL;
+ 636              		.loc 1 273 0
+ 637              		.cfi_startproc
+ 638              		@ args = 0, pretend = 0, frame = 8
+ 639              		@ frame_needed = 0, uses_anonymous_args = 0
+ 640              	.LVL87:
+ 641 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 642              	.LCFI9:
+ 643              		.cfi_def_cfa_offset 20
+ 644              		.cfi_offset 4, -20
+ 645              		.cfi_offset 5, -16
+ 646              		.cfi_offset 6, -12
+ 647              		.cfi_offset 7, -8
+ 648              		.cfi_offset 14, -4
+ 649 0002 83B0     		sub	sp, sp, #12
+ 650              	.LCFI10:
+ 651              		.cfi_def_cfa_offset 32
+ 652 0004 0600     		movs	r6, r0
+ 653 0006 0D00     		movs	r5, r1
+ 654 0008 141E     		subs	r4, r2, #0
+ 655              	.LVL88:
+ 283:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     {
+ 656              		.loc 1 283 0
+ 657 000a 3EDB     		blt	.L56
+ 287:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 658              		.loc 1 287 0
+ 659 000c FFF7FEFF 		bl	LOS_IntLock
+ 660              	.LVL89:
+ 661 0010 0700     		movs	r7, r0
+ 662              	.LVL90:
+ 290:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     {
+ 663              		.loc 1 290 0
+ 664 0012 002D     		cmp	r5, #0
+ 665 0014 06D0     		beq	.L49
+ 290:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     {
+ 666              		.loc 1 290 0 is_stmt 0 discriminator 1
+ 667 0016 002C     		cmp	r4, #0
+ 668 0018 04D1     		bne	.L49
+ 292:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     }
+ 669              		.loc 1 292 0 is_stmt 1
+ 670 001a 2900     		movs	r1, r5
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s 			page 19
+
+
+ 671 001c 3000     		movs	r0, r6
+ 672              	.LVL91:
+ 673 001e FFF7FEFF 		bl	LOS_MemFree
+ 674              	.LVL92:
+ 675 0022 2DE0     		b	.L50
+ 676              	.LVL93:
+ 677              	.L49:
+ 295:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     {
+ 678              		.loc 1 295 0
+ 679 0024 002D     		cmp	r5, #0
+ 680 0026 05D1     		bne	.L51
+ 297:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     }
+ 681              		.loc 1 297 0
+ 682 0028 2100     		movs	r1, r4
+ 683 002a 3000     		movs	r0, r6
+ 684              	.LVL94:
+ 685 002c FFF7FEFF 		bl	LOS_MemAlloc
+ 686              	.LVL95:
+ 687 0030 0400     		movs	r4, r0
+ 688              	.LVL96:
+ 689 0032 25E0     		b	.L50
+ 690              	.LVL97:
+ 691              	.L51:
+ 302:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         if (uwOldSize != (UINT32)-1)
+ 692              		.loc 1 302 0
+ 693 0034 2900     		movs	r1, r5
+ 694 0036 3000     		movs	r0, r6
+ 695              	.LVL98:
+ 696 0038 FFF7FEFF 		bl	osSlabMemCheck
+ 697              	.LVL99:
+ 303:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         {
+ 698              		.loc 1 303 0
+ 699 003c 431C     		adds	r3, r0, #1
+ 700 003e 04D0     		beq	.L52
+ 305:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         }
+ 701              		.loc 1 305 0
+ 702 0040 0194     		str	r4, [sp, #4]
+ 703 0042 8442     		cmp	r4, r0
+ 704 0044 0ED9     		bls	.L54
+ 705 0046 0190     		str	r0, [sp, #4]
+ 706              	.LVL100:
+ 707 0048 0CE0     		b	.L54
+ 708              	.LVL101:
+ 709              	.L52:
+ 311:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****             if (OS_MEM_GET_ALIGN_FLAG(uwGapSize))
+ 710              		.loc 1 311 0
+ 711 004a 2B1F     		subs	r3, r5, #4
+ 712 004c 1B68     		ldr	r3, [r3]
+ 713              	.LVL102:
+ 312:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****             {
+ 714              		.loc 1 312 0
+ 715 004e 002B     		cmp	r3, #0
+ 716 0050 1DDB     		blt	.L57
+ 717              	.LVL103:
+ 318:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         }
+ 718              		.loc 1 318 0
+ 719 0052 2B00     		movs	r3, r5
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s 			page 20
+
+
+ 720              	.LVL104:
+ 721 0054 083B     		subs	r3, r3, #8
+ 722              	.LVL105:
+ 723 0056 5B68     		ldr	r3, [r3, #4]
+ 724              	.LVL106:
+ 725 0058 9B00     		lsls	r3, r3, #2
+ 726 005a 9B08     		lsrs	r3, r3, #2
+ 727 005c 0194     		str	r4, [sp, #4]
+ 728 005e 9C42     		cmp	r4, r3
+ 729 0060 00D9     		bls	.L54
+ 730 0062 0193     		str	r3, [sp, #4]
+ 731              	.LVL107:
+ 732              	.L54:
+ 320:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 733              		.loc 1 320 0
+ 734 0064 2100     		movs	r1, r4
+ 735 0066 3000     		movs	r0, r6
+ 736              	.LVL108:
+ 737 0068 FFF7FEFF 		bl	LOS_MemAlloc
+ 738              	.LVL109:
+ 739 006c 041E     		subs	r4, r0, #0
+ 740              	.LVL110:
+ 322:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         {
+ 741              		.loc 1 322 0
+ 742 006e 07D0     		beq	.L50
+ 324:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****             (VOID)LOS_MemFree(pPool, pPtr);
+ 743              		.loc 1 324 0
+ 744 0070 019A     		ldr	r2, [sp, #4]
+ 745 0072 2900     		movs	r1, r5
+ 746 0074 FFF7FEFF 		bl	memcpy
+ 747              	.LVL111:
+ 325:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         }
+ 748              		.loc 1 325 0
+ 749 0078 2900     		movs	r1, r5
+ 750 007a 3000     		movs	r0, r6
+ 751 007c FFF7FEFF 		bl	LOS_MemFree
+ 752              	.LVL112:
+ 753              	.L50:
+ 329:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     return p;
+ 754              		.loc 1 329 0
+ 755 0080 3800     		movs	r0, r7
+ 756 0082 FFF7FEFF 		bl	LOS_IntRestore
+ 757              	.LVL113:
+ 330:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** }
+ 758              		.loc 1 330 0
+ 759 0086 2000     		movs	r0, r4
+ 760 0088 02E0     		b	.L48
+ 761              	.LVL114:
+ 762              	.L56:
+ 285:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     }
+ 763              		.loc 1 285 0
+ 764 008a 0020     		movs	r0, #0
+ 765              	.LVL115:
+ 766 008c 00E0     		b	.L48
+ 767              	.LVL116:
+ 768              	.L57:
+ 314:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****             }
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s 			page 21
+
+
+ 769              		.loc 1 314 0
+ 770 008e 0020     		movs	r0, #0
+ 771              	.LVL117:
+ 772              	.L48:
+ 331:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 773              		.loc 1 331 0
+ 774 0090 03B0     		add	sp, sp, #12
+ 775              		@ sp needed
+ 776              	.LVL118:
+ 777              	.LVL119:
+ 778 0092 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 779              		.cfi_endproc
+ 780              	.LFE50:
+ 782              		.section	.text.LOS_MemStatisticsGet,"ax",%progbits
+ 783              		.align	2
+ 784              		.global	LOS_MemStatisticsGet
+ 785              		.code	16
+ 786              		.thumb_func
+ 788              	LOS_MemStatisticsGet:
+ 789              	.LFB52:
+ 358:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 359:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** LITE_OS_SEC_TEXT UINT32 LOS_MemStatisticsGet(VOID *pPool, LOS_MEM_STATUS *pstStatus)
+ 360:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** {
+ 790              		.loc 1 360 0
+ 791              		.cfi_startproc
+ 792              		@ args = 0, pretend = 0, frame = 48
+ 793              		@ frame_needed = 0, uses_anonymous_args = 0
+ 794              	.LVL120:
+ 795 0000 30B5     		push	{r4, r5, lr}
+ 796              	.LCFI11:
+ 797              		.cfi_def_cfa_offset 12
+ 798              		.cfi_offset 4, -12
+ 799              		.cfi_offset 5, -8
+ 800              		.cfi_offset 14, -4
+ 801 0002 8DB0     		sub	sp, sp, #52
+ 802              	.LCFI12:
+ 803              		.cfi_def_cfa_offset 64
+ 804 0004 0500     		movs	r5, r0
+ 805 0006 0C00     		movs	r4, r1
+ 361:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     LOS_HEAP_STATUS stHeapStatus;
+ 362:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #if (LOSCFG_KERNEL_MEM_SLAB == YES)
+ 363:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     LOS_SLAB_STATUS stSlabStatus;
+ 364:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #endif
+ 365:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     UINT32 uwErr;
+ 366:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 367:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     uwErr = osHeapStatisticsGet(pPool, &stHeapStatus);
+ 806              		.loc 1 367 0
+ 807 0008 07A9     		add	r1, sp, #28
+ 808              	.LVL121:
+ 809 000a FFF7FEFF 		bl	osHeapStatisticsGet
+ 810              	.LVL122:
+ 368:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     if (uwErr != LOS_OK)
+ 811              		.loc 1 368 0
+ 812 000e 0028     		cmp	r0, #0
+ 813 0010 2AD1     		bne	.L60
+ 369:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     {
+ 370:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         return LOS_NOK;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s 			page 22
+
+
+ 371:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     }
+ 372:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 373:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     pstStatus->totalSize  = stHeapStatus.totalSize;
+ 814              		.loc 1 373 0
+ 815 0012 079B     		ldr	r3, [sp, #28]
+ 816 0014 2360     		str	r3, [r4]
+ 374:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     pstStatus->usedSize   = stHeapStatus.usedSize;
+ 817              		.loc 1 374 0
+ 818 0016 089B     		ldr	r3, [sp, #32]
+ 819 0018 6360     		str	r3, [r4, #4]
+ 375:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     pstStatus->freeSize   = stHeapStatus.freeSize;
+ 820              		.loc 1 375 0
+ 821 001a 099B     		ldr	r3, [sp, #36]
+ 822 001c A360     		str	r3, [r4, #8]
+ 376:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     pstStatus->allocCount = stHeapStatus.allocCount;
+ 823              		.loc 1 376 0
+ 824 001e 0A9B     		ldr	r3, [sp, #40]
+ 825 0020 0093     		str	r3, [sp]
+ 826 0022 E360     		str	r3, [r4, #12]
+ 377:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     pstStatus->freeCount  = stHeapStatus.freeCount;
+ 827              		.loc 1 377 0
+ 828 0024 0B9B     		ldr	r3, [sp, #44]
+ 829 0026 2361     		str	r3, [r4, #16]
+ 378:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 379:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #if (LOSCFG_KERNEL_MEM_SLAB == YES)
+ 380:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     uwErr = osSlabStatisticsGet(pPool, &stSlabStatus);
+ 830              		.loc 1 380 0
+ 831 0028 02A9     		add	r1, sp, #8
+ 832 002a 2800     		movs	r0, r5
+ 833              	.LVL123:
+ 834 002c FFF7FEFF 		bl	osSlabStatisticsGet
+ 835              	.LVL124:
+ 381:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     if (uwErr != LOS_OK)
+ 836              		.loc 1 381 0
+ 837 0030 0028     		cmp	r0, #0
+ 838 0032 1BD1     		bne	.L61
+ 382:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     {
+ 383:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****         return LOS_NOK;
+ 384:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     }
+ 385:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 386:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     pstStatus->totalSize  = stHeapStatus.totalSize;
+ 839              		.loc 1 386 0
+ 840 0034 079B     		ldr	r3, [sp, #28]
+ 841 0036 2360     		str	r3, [r4]
+ 387:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     pstStatus->usedSize   = stHeapStatus.usedSize - stSlabStatus.freeSize;  //all slab region insid
+ 842              		.loc 1 387 0
+ 843 0038 089B     		ldr	r3, [sp, #32]
+ 844 003a 0093     		str	r3, [sp]
+ 845 003c 049B     		ldr	r3, [sp, #16]
+ 846 003e 009A     		ldr	r2, [sp]
+ 847 0040 D21A     		subs	r2, r2, r3
+ 848 0042 6260     		str	r2, [r4, #4]
+ 388:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     pstStatus->freeSize   = stHeapStatus.freeSize + stSlabStatus.freeSize;
+ 849              		.loc 1 388 0
+ 850 0044 099A     		ldr	r2, [sp, #36]
+ 851 0046 9446     		mov	ip, r2
+ 852 0048 6344     		add	r3, r3, ip
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s 			page 23
+
+
+ 853 004a A360     		str	r3, [r4, #8]
+ 389:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     pstStatus->allocCount = stHeapStatus.allocCount + stSlabStatus.allocCount;
+ 854              		.loc 1 389 0
+ 855 004c 0A9B     		ldr	r3, [sp, #40]
+ 856 004e 0093     		str	r3, [sp]
+ 857 0050 059B     		ldr	r3, [sp, #20]
+ 858 0052 0193     		str	r3, [sp, #4]
+ 859 0054 009B     		ldr	r3, [sp]
+ 860 0056 019A     		ldr	r2, [sp, #4]
+ 861 0058 9446     		mov	ip, r2
+ 862 005a 6344     		add	r3, r3, ip
+ 863 005c E360     		str	r3, [r4, #12]
+ 390:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     pstStatus->freeCount  = stHeapStatus.freeCount + stSlabStatus.freeCount;
+ 864              		.loc 1 390 0
+ 865 005e 0B9A     		ldr	r2, [sp, #44]
+ 866 0060 069B     		ldr	r3, [sp, #24]
+ 867 0062 D318     		adds	r3, r2, r3
+ 868 0064 2361     		str	r3, [r4, #16]
+ 391:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #endif
+ 392:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     return LOS_OK;
+ 869              		.loc 1 392 0
+ 870 0066 02E0     		b	.L59
+ 871              	.L60:
+ 370:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     }
+ 872              		.loc 1 370 0
+ 873 0068 0120     		movs	r0, #1
+ 874              	.LVL125:
+ 875 006a 00E0     		b	.L59
+ 876              	.LVL126:
+ 877              	.L61:
+ 383:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     }
+ 878              		.loc 1 383 0
+ 879 006c 0120     		movs	r0, #1
+ 880              	.LVL127:
+ 881              	.L59:
+ 393:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** }
+ 882              		.loc 1 393 0
+ 883 006e 0DB0     		add	sp, sp, #52
+ 884              		@ sp needed
+ 885              	.LVL128:
+ 886              	.LVL129:
+ 887 0070 30BD     		pop	{r4, r5, pc}
+ 888              		.cfi_endproc
+ 889              	.LFE52:
+ 891 0072 C046     		.section	.text.LOS_MemGetMaxFreeBlkSize,"ax",%progbits
+ 892              		.align	2
+ 893              		.global	LOS_MemGetMaxFreeBlkSize
+ 894              		.code	16
+ 895              		.thumb_func
+ 897              	LOS_MemGetMaxFreeBlkSize:
+ 898              	.LFB53:
+ 394:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 395:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** LITE_OS_SEC_TEXT_MINOR UINT32 LOS_MemGetMaxFreeBlkSize(VOID *pPool)
+ 396:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** {
+ 899              		.loc 1 396 0
+ 900              		.cfi_startproc
+ 901              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s 			page 24
+
+
+ 902              		@ frame_needed = 0, uses_anonymous_args = 0
+ 903              	.LVL130:
+ 904 0000 70B5     		push	{r4, r5, r6, lr}
+ 905              	.LCFI13:
+ 906              		.cfi_def_cfa_offset 16
+ 907              		.cfi_offset 4, -16
+ 908              		.cfi_offset 5, -12
+ 909              		.cfi_offset 6, -8
+ 910              		.cfi_offset 14, -4
+ 911 0002 0500     		movs	r5, r0
+ 397:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     UINT32 uwMaxFreeSize = osHeapGetMaxFreeBlkSize(pPool);
+ 912              		.loc 1 397 0
+ 913 0004 FFF7FEFF 		bl	osHeapGetMaxFreeBlkSize
+ 914              	.LVL131:
+ 915 0008 0400     		movs	r4, r0
+ 916              	.LVL132:
+ 398:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     UINT32 uwMaxSlabFreeSize = 0;
+ 399:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #if (LOSCFG_KERNEL_MEM_SLAB == YES)
+ 400:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     uwMaxSlabFreeSize = osSlabGetMaxFreeBlkSize(pPool);
+ 917              		.loc 1 400 0
+ 918 000a 2800     		movs	r0, r5
+ 919              	.LVL133:
+ 920 000c FFF7FEFF 		bl	osSlabGetMaxFreeBlkSize
+ 921              	.LVL134:
+ 922 0010 0300     		movs	r3, r0
+ 923              	.LVL135:
+ 401:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #endif
+ 402:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** 
+ 403:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #ifndef MAX
+ 404:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #define MAX(x,y) (x)>(y)?(x):(y)
+ 405:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** #endif
+ 406:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c ****     return MAX(uwMaxFreeSize, uwMaxSlabFreeSize);
+ 924              		.loc 1 406 0
+ 925 0012 2000     		movs	r0, r4
+ 926              	.LVL136:
+ 927 0014 9C42     		cmp	r4, r3
+ 928 0016 00D2     		bcs	.L63
+ 929 0018 1800     		movs	r0, r3
+ 930              	.L63:
+ 407:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/bestfit_little\los_memory.c **** }
+ 931              		.loc 1 407 0
+ 932              		@ sp needed
+ 933              	.LVL137:
+ 934              	.LVL138:
+ 935 001a 70BD     		pop	{r4, r5, r6, pc}
+ 936              		.cfi_endproc
+ 937              	.LFE53:
+ 939              		.global	g_pPoolHead
+ 940              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 941              		.align	2
+ 942              	.LC1:
+ 943 0000 5B455252 		.ascii	"[ERR] \000"
+ 943      5D2000
+ 944 0007 00       		.space	1
+ 945              	.LC3:
+ 946 0008 706F6F6C 		.ascii	"pool [%p, 0x%x) conflict with pool [%p, 0x%x)\012\000"
+ 946      205B2570 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s 			page 25
+
+
+ 946      2C203078 
+ 946      25782920 
+ 946      636F6E66 
+ 947              		.section	.bss.g_pPoolHead,"aw",%nobits
+ 948              		.align	2
+ 949              		.set	.LANCHOR0,. + 0
+ 952              	g_pPoolHead:
+ 953 0000 00000000 		.space	4
+ 954              		.text
+ 955              	.Letext0:
+ 956              		.file 2 "e:\\liteos\\liteos\\kernel\\include\\los_typedef.h"
+ 957              		.file 3 "e:\\liteos\\liteos\\kernel\\base\\include\\los_slab.ph"
+ 958              		.file 4 "e:\\liteos\\liteos\\kernel\\include\\los_heap.h"
+ 959              		.file 5 "e:\\liteos\\liteos\\kernel\\base\\include\\los_heap.ph"
+ 960              		.file 6 "e:\\liteos\\liteos\\kernel\\include\\los_memory.h"
+ 961              		.file 7 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\os_config\\target_config.h"
+ 962              		.file 8 "e:\\liteos\\liteos\\arch\\arm\\arm-m\\include\\los_hwi.h"
+ 963              		.file 9 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\stdio.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s 			page 26
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 los_memory.c
+C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s:20     .text.osSlabCtrlHdrGet:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s:25     .text.osSlabCtrlHdrGet:00000000 osSlabCtrlHdrGet
+C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s:44     .text.LOS_MemInit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s:49     .text.LOS_MemInit:00000000 LOS_MemInit
+C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s:258    .text.LOS_MemInit:000000e8 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s:266    .text.osMemSystemInit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s:271    .text.osMemSystemInit:00000000 osMemSystemInit
+C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s:302    .text.osMemSystemInit:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s:310    .text.LOS_MemDeInit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s:315    .text.LOS_MemDeInit:00000000 LOS_MemDeInit
+C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s:411    .text.LOS_MemDeInit:0000004c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s:416    .text.LOS_MemPoolList:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s:421    .text.LOS_MemPoolList:00000000 LOS_MemPoolList
+C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s:467    .text.LOS_MemPoolList:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s:472    .text.LOS_MemAlloc:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s:477    .text.LOS_MemAlloc:00000000 LOS_MemAlloc
+C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s:533    .text.LOS_MemAllocAlign:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s:538    .text.LOS_MemAllocAlign:00000000 LOS_MemAllocAlign
+C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s:560    .text.LOS_MemFree:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s:565    .text.LOS_MemFree:00000000 LOS_MemFree
+C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s:629    .text.LOS_MemRealloc:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s:634    .text.LOS_MemRealloc:00000000 LOS_MemRealloc
+C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s:783    .text.LOS_MemStatisticsGet:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s:788    .text.LOS_MemStatisticsGet:00000000 LOS_MemStatisticsGet
+C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s:892    .text.LOS_MemGetMaxFreeBlkSize:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s:897    .text.LOS_MemGetMaxFreeBlkSize:00000000 LOS_MemGetMaxFreeBlkSize
+C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s:952    .bss.g_pPoolHead:00000000 g_pPoolHead
+C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s:941    .rodata.str1.4:00000000 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc1gPlv1.s:948    .bss.g_pPoolHead:00000000 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+LOS_IntLock
+printf
+LOS_IntRestore
+osHeapInit
+osSlabMemInit
+_ebss
+_Min_Heap_Size
+_Stack_Size
+osSlabMemDeinit
+osAlarmHeapInfo
+osSlabMemAlloc
+osHeapAlloc
+osHeapAllocAlign
+osSlabMemFree
+osHeapFree
+osSlabMemCheck
+memcpy
+osHeapStatisticsGet
+osSlabStatisticsGet
+osHeapGetMaxFreeBlkSize
+osSlabGetMaxFreeBlkSize

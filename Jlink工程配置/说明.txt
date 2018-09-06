@@ -1,0 +1,3 @@
+1. Segger版本为Jlink_V632H，测试可用
+2. FMSH文件夹添加到SEGGER\JLink_V632H\Devices路径下
+3. JLinkDevices.xml文件替换到SEGGERJlink_V632H路径下，覆盖原文件

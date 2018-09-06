@@ -1,0 +1,916 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"los_inspect_entry.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.LOS_InspectStatusSetByID,"ax",%progbits
+  20              		.align	2
+  21              		.global	LOS_InspectStatusSetByID
+  22              		.code	16
+  23              		.thumb_func
+  25              	LOS_InspectStatusSetByID:
+  26              	.LFB43:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api/los_inspect_entry.c"
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** /*----------------------------------------------------------------------------
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  * Copyright (c) <2016-2018>, <Huawei Technologies Co., Ltd>
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  * All rights reserved.
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  * are permitted provided that the following conditions are met:
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  * conditions and the following disclaimer.
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  * provided with the distribution.
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  * permission.
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  *---------------------------------------------------------------------------*/
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** /*----------------------------------------------------------------------------
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  * Notice of Export Control Law
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  * ===============================================
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s 			page 2
+
+
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  * applicable export control laws and regulations.
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  *---------------------------------------------------------------------------*/
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** #ifdef __cplusplus
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** #if __cplusplus
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** extern "C" {
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** #endif /* __cpluscplus */
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** #endif /* __cpluscplus */
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** /******************************************************************************
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     here include some special hearder file you need
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** ******************************************************************************/
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** #include <string.h>
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** #include "los_inspect_entry.h"
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** #include "los_task.h"
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** #include "los_demo_debug.h"
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** /* task schedule */
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** #include "los_api_task.h"
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** /* dynamic memory */
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** #include "los_api_dynamic_mem.h"
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** /* static memory */
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** #include "los_api_static_mem.h"
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** /* interrupt */
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** #include "los_api_interrupt.h"
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** /* message queue */
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** #include "los_api_msgqueue.h"
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** /* event  */
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** #include "los_api_event.h"
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** /* mutex */
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** #include "los_api_mutex.h"
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** /* semphore */
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** #include "los_api_sem.h"
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** /* sw timer */
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** #include "los_api_timer.h"
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** /* system tick */
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** #include "los_api_systick.h"
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** /* dlist */
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** #include "los_api_list.h"
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** /*****************************************************************************
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     global var
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  *****************************************************************************/
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** static UINT32 gInspectErrCnt = 0;
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** static UINT32 g_uwDemoTaskID;
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** static osInspect_Def gInspect[LOS_INSPECT_BUFF] = {
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     {LOS_INSPECT_TASK,LOS_INSPECT_STU_START,Example_TskCaseEntry,"TASK"},
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     {LOS_INSPECT_EVENT,LOS_INSPECT_STU_START,Example_SndRcvEvent,"EVENT"},
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     {LOS_INSPECT_MSG,LOS_INSPECT_STU_START,Example_MsgQueue,"MSG"},
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     {LOS_INSPECT_SEM,LOS_INSPECT_STU_START,Example_Semphore,"SEM"},
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     {LOS_INSPECT_MUTEX,LOS_INSPECT_STU_START,Example_MutexLock,"MUTEX"},
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s 			page 3
+
+
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     {LOS_INSPECT_SYSTIC,LOS_INSPECT_STU_START,Example_GetTick,"SYSTIC"},
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     {LOS_INSPECT_TIMER,LOS_INSPECT_STU_START,Example_swTimer,"TIMER"},
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     {LOS_INSPECT_LIST,LOS_INSPECT_STU_START,Example_list,"LIST"},
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     {LOS_INSPECT_SMEM,LOS_INSPECT_STU_START,Example_StaticMem,"S_MEM"},
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     {LOS_INSPECT_DMEM,LOS_INSPECT_STU_START,Example_Dyn_Mem,"D_MEM"},
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** #if (LOSCFG_PLATFORM_HWI == YES)
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     //{LOS_INSPECT_INTERRUPT,LOS_INSPECT_STU_START,Example_Interrupt},
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** #endif
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** };
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** /*****************************************************************************
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  Function    : LOS_InspectStatusSetByID
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  Description : Set Inspect Status ByID
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  Input       : enInspectID  InspectID
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****                enInspectStu InspectStu
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  Output      : None
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  Return      : None
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  *****************************************************************************/
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** UINT32 LOS_InspectStatusSetByID(enInspectID InspectID, enInspectStu InspectStu)
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** {
+  28              		.loc 1 115 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              	.LVL0:
+  33 0000 10B5     		push	{r4, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 4, -8
+  37              		.cfi_offset 14, -4
+  38              	.LVL1:
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     UINT32 ulIndex = 0;
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     if (InspectID >= LOS_INSPECT_BUFF)
+  39              		.loc 1 118 0
+  40 0002 0928     		cmp	r0, #9
+  41 0004 10D9     		bls	.L7
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     {
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****         dprintf("\r\nInspectID = [%d] Err.\r\n", InspectID);
+  42              		.loc 1 120 0
+  43 0006 0100     		movs	r1, r0
+  44              	.LVL2:
+  45 0008 0E48     		ldr	r0, .L9
+  46              	.LVL3:
+  47 000a FFF7FEFF 		bl	dprintf_none
+  48              	.LVL4:
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****         return LOS_NOK;
+  49              		.loc 1 121 0
+  50 000e 0120     		movs	r0, #1
+  51 0010 16E0     		b	.L3
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s 			page 4
+
+
+  52              	.LVL5:
+  53              	.L6:
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     }
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     for (ulIndex = 0; ulIndex < LOS_INSPECT_BUFF; ulIndex++)
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     {
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****         if (InspectID == gInspect[ulIndex].InspectID)
+  54              		.loc 1 126 0
+  55 0012 1A01     		lsls	r2, r3, #4
+  56 0014 0C4C     		ldr	r4, .L9+4
+  57 0016 125D     		ldrb	r2, [r2, r4]
+  58 0018 9042     		cmp	r0, r2
+  59 001a 03D1     		bne	.L4
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****         {
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****             gInspect[ulIndex].Status = InspectStu;
+  60              		.loc 1 128 0
+  61 001c 1A01     		lsls	r2, r3, #4
+  62 001e A218     		adds	r2, r4, r2
+  63 0020 5170     		strb	r1, [r2, #1]
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****             break;
+  64              		.loc 1 129 0
+  65 0022 04E0     		b	.L5
+  66              	.L4:
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     {
+  67              		.loc 1 124 0 discriminator 2
+  68 0024 0133     		adds	r3, r3, #1
+  69              	.LVL6:
+  70 0026 00E0     		b	.L2
+  71              	.LVL7:
+  72              	.L7:
+  73 0028 0023     		movs	r3, #0
+  74              	.LVL8:
+  75              	.L2:
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     {
+  76              		.loc 1 124 0 is_stmt 0 discriminator 1
+  77 002a 092B     		cmp	r3, #9
+  78 002c F1D9     		bls	.L6
+  79              	.L5:
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****         }
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     }
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     if (LOS_INSPECT_BUFF == ulIndex)
+  80              		.loc 1 133 0 is_stmt 1
+  81 002e 0A2B     		cmp	r3, #10
+  82 0030 05D1     		bne	.L8
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     {
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****         dprintf("\r\nInspectID = [%d] not find.\r\n",InspectID);
+  83              		.loc 1 135 0
+  84 0032 0100     		movs	r1, r0
+  85              	.LVL9:
+  86 0034 0548     		ldr	r0, .L9+8
+  87              	.LVL10:
+  88 0036 FFF7FEFF 		bl	dprintf_none
+  89              	.LVL11:
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****         return LOS_NOK;
+  90              		.loc 1 136 0
+  91 003a 0120     		movs	r0, #1
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s 			page 5
+
+
+  92 003c 00E0     		b	.L3
+  93              	.LVL12:
+  94              	.L8:
+ 137:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     }
+ 138:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     else
+ 139:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     {
+ 140:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****         return LOS_OK;
+  95              		.loc 1 140 0
+  96 003e 0020     		movs	r0, #0
+  97              	.LVL13:
+  98              	.L3:
+ 141:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     }
+ 142:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** }
+  99              		.loc 1 142 0
+ 100              		@ sp needed
+ 101 0040 10BD     		pop	{r4, pc}
+ 102              	.L10:
+ 103 0042 C046     		.align	2
+ 104              	.L9:
+ 105 0044 00000000 		.word	.LC0
+ 106 0048 00000000 		.word	.LANCHOR0
+ 107 004c 1C000000 		.word	.LC3
+ 108              		.cfi_endproc
+ 109              	.LFE43:
+ 111              		.section	.text.LOS_InspectByID,"ax",%progbits
+ 112              		.align	2
+ 113              		.global	LOS_InspectByID
+ 114              		.code	16
+ 115              		.thumb_func
+ 117              	LOS_InspectByID:
+ 118              	.LFB44:
+ 143:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+ 144:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** /*****************************************************************************
+ 145:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  Function    : LOS_InspectByID
+ 146:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  Description : Inspect function By ID
+ 147:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  Input       : enInspectID  InspectID
+ 148:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  Output      : None
+ 149:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  Return      : LOS_NOK/LOS_OK
+ 150:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  *****************************************************************************/
+ 151:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** UINT32 LOS_InspectByID(enInspectID InspectID)
+ 152:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** {
+ 119              		.loc 1 152 0
+ 120              		.cfi_startproc
+ 121              		@ args = 0, pretend = 0, frame = 0
+ 122              		@ frame_needed = 0, uses_anonymous_args = 0
+ 123              	.LVL14:
+ 124 0000 70B5     		push	{r4, r5, r6, lr}
+ 125              	.LCFI1:
+ 126              		.cfi_def_cfa_offset 16
+ 127              		.cfi_offset 4, -16
+ 128              		.cfi_offset 5, -12
+ 129              		.cfi_offset 6, -8
+ 130              		.cfi_offset 14, -4
+ 131              	.LVL15:
+ 153:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     UINT32 ulIndex,ulRet = LOS_OK;
+ 154:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     enInspectStu enCurStatus = LOS_INSPECT_STU_START;
+ 155:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s 			page 6
+
+
+ 156:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     if (InspectID >= LOS_INSPECT_BUFF)
+ 132              		.loc 1 156 0
+ 133 0002 0928     		cmp	r0, #9
+ 134 0004 44D9     		bls	.L21
+ 157:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     {
+ 158:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****         dprintf("\r\nInspectID = [%d] Err.\r\n",InspectID);
+ 135              		.loc 1 158 0
+ 136 0006 0100     		movs	r1, r0
+ 137 0008 2848     		ldr	r0, .L24
+ 138              	.LVL16:
+ 139 000a FFF7FEFF 		bl	dprintf_none
+ 140              	.LVL17:
+ 159:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****         return LOS_NOK;
+ 141              		.loc 1 159 0
+ 142 000e 0120     		movs	r0, #1
+ 143 0010 4BE0     		b	.L13
+ 144              	.LVL18:
+ 145              	.L20:
+ 160:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     }
+ 161:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+ 162:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     for (ulIndex = 0; ulIndex < LOS_INSPECT_BUFF; ulIndex++)
+ 163:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     {
+ 164:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****         if (InspectID == gInspect[ulIndex].InspectID)
+ 146              		.loc 1 164 0
+ 147 0012 2301     		lsls	r3, r4, #4
+ 148 0014 264A     		ldr	r2, .L24+4
+ 149 0016 9B5C     		ldrb	r3, [r3, r2]
+ 150 0018 9842     		cmp	r0, r3
+ 151 001a 37D1     		bne	.L14
+ 165:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****         {
+ 166:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****             if (NULL == gInspect[ulIndex].Inspectfunc)
+ 152              		.loc 1 166 0
+ 153 001c 2301     		lsls	r3, r4, #4
+ 154 001e D318     		adds	r3, r2, r3
+ 155 0020 5B68     		ldr	r3, [r3, #4]
+ 156 0022 002B     		cmp	r3, #0
+ 157 0024 05D1     		bne	.L15
+ 167:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****             {
+ 168:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****                 dprintf("InspectID = [%d] Err,Inspectfunc is NULL.\r\n\r\n", InspectID);
+ 158              		.loc 1 168 0
+ 159 0026 0100     		movs	r1, r0
+ 160 0028 2248     		ldr	r0, .L24+8
+ 161              	.LVL19:
+ 162 002a FFF7FEFF 		bl	dprintf_none
+ 163              	.LVL20:
+ 169:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****                 return LOS_NOK;
+ 164              		.loc 1 169 0
+ 165 002e 0120     		movs	r0, #1
+ 166 0030 3BE0     		b	.L13
+ 167              	.LVL21:
+ 168              	.L15:
+ 170:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****             }
+ 171:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+ 172:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****             ulRet = gInspect[ulIndex].Inspectfunc();
+ 169              		.loc 1 172 0
+ 170 0032 9847     		blx	r3
+ 171              	.LVL22:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s 			page 7
+
+
+ 172 0034 0600     		movs	r6, r0
+ 173              	.LVL23:
+ 154:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+ 174              		.loc 1 154 0
+ 175 0036 FF25     		movs	r5, #255
+ 176              	.LVL24:
+ 177              	.L18:
+ 173:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+ 174:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****             do{
+ 175:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****                 if ((LOS_INSPECT_STU_SUCCESS == gInspect[ulIndex].Status) && (ulRet == LOS_OK))
+ 178              		.loc 1 175 0
+ 179 0038 2301     		lsls	r3, r4, #4
+ 180 003a 1D4A     		ldr	r2, .L24+4
+ 181 003c D318     		adds	r3, r2, r3
+ 182 003e 5B78     		ldrb	r3, [r3, #1]
+ 183 0040 002B     		cmp	r3, #0
+ 184 0042 0AD1     		bne	.L16
+ 185              		.loc 1 175 0 is_stmt 0 discriminator 1
+ 186 0044 002E     		cmp	r6, #0
+ 187 0046 08D1     		bne	.L16
+ 176:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****                 {
+ 177:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****                     dprintf("Inspect %s success\r\n\r\n",gInspect[ulIndex].name);
+ 188              		.loc 1 177 0 is_stmt 1
+ 189 0048 2101     		lsls	r1, r4, #4
+ 190 004a 0B00     		movs	r3, r1
+ 191 004c 0833     		adds	r3, r3, #8
+ 192 004e D118     		adds	r1, r2, r3
+ 193 0050 1948     		ldr	r0, .L24+12
+ 194 0052 FFF7FEFF 		bl	dprintf_none
+ 195              	.LVL25:
+ 178:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****                     enCurStatus = LOS_INSPECT_STU_SUCCESS;
+ 196              		.loc 1 178 0
+ 197 0056 0025     		movs	r5, #0
+ 198 0058 0CE0     		b	.L17
+ 199              	.LVL26:
+ 200              	.L16:
+ 179:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****                 }
+ 180:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****                 else if (LOS_INSPECT_STU_ERROR == gInspect[ulIndex].Status)
+ 201              		.loc 1 180 0
+ 202 005a 012B     		cmp	r3, #1
+ 203 005c 0AD1     		bne	.L17
+ 204              	.LVL27:
+ 181:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****                 {
+ 182:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****                     enCurStatus = LOS_INSPECT_STU_ERROR;
+ 183:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****                     dprintf("Inspect %s error,gInspectErrCnt = [%d]\r\n\r\n", gInspect[ulIndex].nam
+ 205              		.loc 1 183 0
+ 206 005e 2101     		lsls	r1, r4, #4
+ 207 0060 0B00     		movs	r3, r1
+ 208 0062 0833     		adds	r3, r3, #8
+ 209 0064 1249     		ldr	r1, .L24+4
+ 210 0066 C918     		adds	r1, r1, r3
+ 211 0068 144B     		ldr	r3, .L24+16
+ 212 006a 1A68     		ldr	r2, [r3]
+ 213 006c 1448     		ldr	r0, .L24+20
+ 214 006e FFF7FEFF 		bl	dprintf_none
+ 215              	.LVL28:
+ 182:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****                     dprintf("Inspect %s error,gInspectErrCnt = [%d]\r\n\r\n", gInspect[ulIndex].nam
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s 			page 8
+
+
+ 216              		.loc 1 182 0
+ 217 0072 0125     		movs	r5, #1
+ 218              	.LVL29:
+ 219              	.L17:
+ 184:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****                 }
+ 185:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+ 186:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****                 (VOID)LOS_TaskDelay(100);
+ 220              		.loc 1 186 0
+ 221 0074 6420     		movs	r0, #100
+ 222 0076 FFF7FEFF 		bl	LOS_TaskDelay
+ 223              	.LVL30:
+ 187:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+ 188:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****             } while ((LOS_INSPECT_STU_START == gInspect[ulIndex].Status) || (enCurStatus != gInspec
+ 224              		.loc 1 188 0
+ 225 007a 2301     		lsls	r3, r4, #4
+ 226 007c 0C4A     		ldr	r2, .L24+4
+ 227 007e D318     		adds	r3, r2, r3
+ 228 0080 5B78     		ldrb	r3, [r3, #1]
+ 229 0082 FF2B     		cmp	r3, #255
+ 230 0084 D8D0     		beq	.L18
+ 231              		.loc 1 188 0 is_stmt 0 discriminator 1
+ 232 0086 9D42     		cmp	r5, r3
+ 233 0088 D6D1     		bne	.L18
+ 234 008a 05E0     		b	.L19
+ 235              	.LVL31:
+ 236              	.L14:
+ 162:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     {
+ 237              		.loc 1 162 0 is_stmt 1 discriminator 2
+ 238 008c 0134     		adds	r4, r4, #1
+ 239              	.LVL32:
+ 240 008e 00E0     		b	.L12
+ 241              	.LVL33:
+ 242              	.L21:
+ 243 0090 0024     		movs	r4, #0
+ 244              	.L12:
+ 245              	.LVL34:
+ 162:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     {
+ 246              		.loc 1 162 0 is_stmt 0 discriminator 1
+ 247 0092 092C     		cmp	r4, #9
+ 248 0094 BDD9     		bls	.L20
+ 154:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+ 249              		.loc 1 154 0 is_stmt 1
+ 250 0096 FF25     		movs	r5, #255
+ 251              	.LVL35:
+ 252              	.L19:
+ 189:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+ 190:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****             break;
+ 191:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****         }
+ 192:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     }
+ 193:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+ 194:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     if(LOS_INSPECT_BUFF == ulIndex)
+ 253              		.loc 1 194 0
+ 254 0098 0A2C     		cmp	r4, #10
+ 255 009a 03D0     		beq	.L22
+ 195:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     {
+ 196:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****         return LOS_NOK;
+ 197:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     }
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s 			page 9
+
+
+ 198:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     else
+ 199:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     {
+ 200:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****         return enCurStatus ? LOS_NOK : LOS_OK;
+ 256              		.loc 1 200 0
+ 257 009c 002D     		cmp	r5, #0
+ 258 009e 03D0     		beq	.L23
+ 259 00a0 0120     		movs	r0, #1
+ 260 00a2 02E0     		b	.L13
+ 261              	.L22:
+ 196:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     }
+ 262              		.loc 1 196 0
+ 263 00a4 0120     		movs	r0, #1
+ 264 00a6 00E0     		b	.L13
+ 265              	.L23:
+ 266              		.loc 1 200 0
+ 267 00a8 0020     		movs	r0, #0
+ 268              	.LVL36:
+ 269              	.L13:
+ 201:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     }
+ 202:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** }
+ 270              		.loc 1 202 0
+ 271              		@ sp needed
+ 272 00aa 70BD     		pop	{r4, r5, r6, pc}
+ 273              	.L25:
+ 274              		.align	2
+ 275              	.L24:
+ 276 00ac 00000000 		.word	.LC0
+ 277 00b0 00000000 		.word	.LANCHOR0
+ 278 00b4 3C000000 		.word	.LC7
+ 279 00b8 6C000000 		.word	.LC9
+ 280 00bc 00000000 		.word	.LANCHOR1
+ 281 00c0 84000000 		.word	.LC12
+ 282              		.cfi_endproc
+ 283              	.LFE44:
+ 285              		.section	.text.LOS_Inspect_TskDeal,"ax",%progbits
+ 286              		.align	2
+ 287              		.code	16
+ 288              		.thumb_func
+ 290              	LOS_Inspect_TskDeal:
+ 291              	.LFB45:
+ 203:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+ 204:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** /*****************************************************************************
+ 205:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  Function    : LOS_Inspect_TskDeal
+ 206:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  Description : Inspect Task Deal
+ 207:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  Input       : None
+ 208:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  Output      : None
+ 209:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  Return      : None
+ 210:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  *****************************************************************************/
+ 211:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** static VOID LOS_Inspect_TskDeal(VOID)
+ 212:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** {
+ 292              		.loc 1 212 0
+ 293              		.cfi_startproc
+ 294              		@ args = 0, pretend = 0, frame = 0
+ 295              		@ frame_needed = 0, uses_anonymous_args = 0
+ 296 0000 10B5     		push	{r4, lr}
+ 297              	.LCFI2:
+ 298              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s 			page 10
+
+
+ 299              		.cfi_offset 4, -8
+ 300              		.cfi_offset 14, -4
+ 301              	.LVL37:
+ 213:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     UINT32 ulRet = LOS_OK;
+ 214:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     UINT32 index;
+ 215:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     gInspectErrCnt = 0;
+ 302              		.loc 1 215 0
+ 303 0002 0022     		movs	r2, #0
+ 304 0004 0C4B     		ldr	r3, .L31
+ 305 0006 1A60     		str	r2, [r3]
+ 216:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+ 217:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     /* output a message on hyperterminal using printf function */
+ 218:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     dprintf("\r\nLos Inspect start.\r\n");
+ 306              		.loc 1 218 0
+ 307 0008 0C48     		ldr	r0, .L31+4
+ 308 000a FFF7FEFF 		bl	dprintf_none
+ 309              	.LVL38:
+ 219:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+ 220:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     for(index = 0;index < LOS_INSPECT_BUFF; index++)
+ 310              		.loc 1 220 0
+ 311 000e 0024     		movs	r4, #0
+ 312 0010 09E0     		b	.L27
+ 313              	.LVL39:
+ 314              	.L29:
+ 221:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     {
+ 222:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****         ulRet = LOS_InspectByID((enInspectID)index);
+ 315              		.loc 1 222 0
+ 316 0012 E0B2     		uxtb	r0, r4
+ 317 0014 FFF7FEFF 		bl	LOS_InspectByID
+ 318              	.LVL40:
+ 223:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****         if(LOS_OK != ulRet)
+ 319              		.loc 1 223 0
+ 320 0018 0028     		cmp	r0, #0
+ 321 001a 03D0     		beq	.L28
+ 224:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****         {
+ 225:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****             gInspectErrCnt++;
+ 322              		.loc 1 225 0
+ 323 001c 064A     		ldr	r2, .L31
+ 324 001e 1368     		ldr	r3, [r2]
+ 325 0020 0133     		adds	r3, r3, #1
+ 326 0022 1360     		str	r3, [r2]
+ 327              	.L28:
+ 220:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     {
+ 328              		.loc 1 220 0 discriminator 2
+ 329 0024 0134     		adds	r4, r4, #1
+ 330              	.LVL41:
+ 331              	.L27:
+ 220:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     {
+ 332              		.loc 1 220 0 is_stmt 0 discriminator 1
+ 333 0026 092C     		cmp	r4, #9
+ 334 0028 F3D9     		bls	.L29
+ 226:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****         }
+ 227:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     }
+ 228:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+ 229:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     dprintf("Inspect completed,gInspectErrCnt = [%d]\r\n\r\n", gInspectErrCnt);
+ 335              		.loc 1 229 0 is_stmt 1
+ 336 002a 034B     		ldr	r3, .L31
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s 			page 11
+
+
+ 337 002c 1968     		ldr	r1, [r3]
+ 338 002e 0448     		ldr	r0, .L31+8
+ 339 0030 FFF7FEFF 		bl	dprintf_none
+ 340              	.LVL42:
+ 341              	.L30:
+ 342 0034 FEE7     		b	.L30
+ 343              	.L32:
+ 344 0036 C046     		.align	2
+ 345              	.L31:
+ 346 0038 00000000 		.word	.LANCHOR1
+ 347 003c B0000000 		.word	.LC15
+ 348 0040 C8000000 		.word	.LC17
+ 349              		.cfi_endproc
+ 350              	.LFE45:
+ 352              		.section	.text.LOS_Inspect_Entry,"ax",%progbits
+ 353              		.align	2
+ 354              		.global	LOS_Inspect_Entry
+ 355              		.code	16
+ 356              		.thumb_func
+ 358              	LOS_Inspect_Entry:
+ 359              	.LFB46:
+ 230:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+ 231:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     while(1);
+ 232:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** }
+ 233:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+ 234:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** /*****************************************************************************
+ 235:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  Function    : LOS_Inspect_Entry
+ 236:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  Description : Create Inspect task
+ 237:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  Input       : None
+ 238:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  Output      : None
+ 239:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  Return      : None
+ 240:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****  *****************************************************************************/
+ 241:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** UINT32 LOS_Inspect_Entry(VOID)
+ 242:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** {
+ 360              		.loc 1 242 0
+ 361              		.cfi_startproc
+ 362              		@ args = 0, pretend = 0, frame = 24
+ 363              		@ frame_needed = 0, uses_anonymous_args = 0
+ 364 0000 00B5     		push	{lr}
+ 365              	.LCFI3:
+ 366              		.cfi_def_cfa_offset 4
+ 367              		.cfi_offset 14, -4
+ 368 0002 87B0     		sub	sp, sp, #28
+ 369              	.LCFI4:
+ 370              		.cfi_def_cfa_offset 32
+ 243:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     UINT32 uwRet;
+ 244:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     TSK_INIT_PARAM_S stTaskInitParam;
+ 245:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+ 246:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     (VOID)memset((VOID *)(&stTaskInitParam), 0, sizeof(TSK_INIT_PARAM_S));
+ 371              		.loc 1 246 0
+ 372 0004 1822     		movs	r2, #24
+ 373 0006 0021     		movs	r1, #0
+ 374 0008 6846     		mov	r0, sp
+ 375 000a FFF7FEFF 		bl	memset
+ 376              	.LVL43:
+ 247:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     stTaskInitParam.pfnTaskEntry = (TSK_ENTRY_FUNC)LOS_Inspect_TskDeal;
+ 377              		.loc 1 247 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s 			page 12
+
+
+ 378 000e 0A4B     		ldr	r3, .L36
+ 379 0010 0093     		str	r3, [sp]
+ 248:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     stTaskInitParam.uwStackSize = LOSCFG_BASE_CORE_TSK_DEFAULT_STACK_SIZE;
+ 380              		.loc 1 248 0
+ 381 0012 B423     		movs	r3, #180
+ 382 0014 9B00     		lsls	r3, r3, #2
+ 383 0016 0393     		str	r3, [sp, #12]
+ 249:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     stTaskInitParam.pcName = "InspectTsk";
+ 384              		.loc 1 249 0
+ 385 0018 084B     		ldr	r3, .L36+4
+ 386 001a 0493     		str	r3, [sp, #16]
+ 250:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     stTaskInitParam.usTaskPrio = 9;
+ 387              		.loc 1 250 0
+ 388 001c 0923     		movs	r3, #9
+ 389 001e 6A46     		mov	r2, sp
+ 390 0020 9380     		strh	r3, [r2, #4]
+ 251:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     uwRet = LOS_TaskCreate(&g_uwDemoTaskID, &stTaskInitParam);
+ 391              		.loc 1 251 0
+ 392 0022 6946     		mov	r1, sp
+ 393 0024 0648     		ldr	r0, .L36+8
+ 394 0026 FFF7FEFF 		bl	LOS_TaskCreate
+ 395              	.LVL44:
+ 252:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     if (uwRet != LOS_OK)
+ 396              		.loc 1 252 0
+ 397 002a 0028     		cmp	r0, #0
+ 398 002c 01D0     		beq	.L35
+ 253:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     {
+ 254:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****         return LOS_NOK;
+ 399              		.loc 1 254 0
+ 400 002e 0120     		movs	r0, #1
+ 401              	.LVL45:
+ 402 0030 00E0     		b	.L34
+ 403              	.LVL46:
+ 404              	.L35:
+ 255:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     }
+ 256:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** 
+ 257:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c ****     return LOS_OK;
+ 405              		.loc 1 257 0
+ 406 0032 0020     		movs	r0, #0
+ 407              	.LVL47:
+ 408              	.L34:
+ 258:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_inspect_entry.c **** }
+ 409              		.loc 1 258 0
+ 410 0034 07B0     		add	sp, sp, #28
+ 411              		@ sp needed
+ 412 0036 00BD     		pop	{pc}
+ 413              	.L37:
+ 414              		.align	2
+ 415              	.L36:
+ 416 0038 00000000 		.word	LOS_Inspect_TskDeal
+ 417 003c F4000000 		.word	.LC20
+ 418 0040 00000000 		.word	.LANCHOR2
+ 419              		.cfi_endproc
+ 420              	.LFE46:
+ 422              		.section	.data.gInspect,"aw",%progbits
+ 423              		.align	2
+ 424              		.set	.LANCHOR0,. + 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s 			page 13
+
+
+ 427              	gInspect:
+ 428 0000 00       		.byte	0
+ 429 0001 FF       		.byte	-1
+ 430 0002 0000     		.space	2
+ 431 0004 00000000 		.word	Example_TskCaseEntry
+ 432 0008 5441534B 		.ascii	"TASK\000"
+ 432      00
+ 433 000d 00       		.space	1
+ 434 000e 0000     		.space	2
+ 435 0010 01       		.byte	1
+ 436 0011 FF       		.byte	-1
+ 437 0012 0000     		.space	2
+ 438 0014 00000000 		.word	Example_SndRcvEvent
+ 439 0018 4556454E 		.ascii	"EVENT\000"
+ 439      5400
+ 440 001e 0000     		.space	2
+ 441 0020 02       		.byte	2
+ 442 0021 FF       		.byte	-1
+ 443 0022 0000     		.space	2
+ 444 0024 00000000 		.word	Example_MsgQueue
+ 445 0028 4D534700 		.ascii	"MSG\000"
+ 446 002c 0000     		.space	2
+ 447 002e 0000     		.space	2
+ 448 0030 03       		.byte	3
+ 449 0031 FF       		.byte	-1
+ 450 0032 0000     		.space	2
+ 451 0034 00000000 		.word	Example_Semphore
+ 452 0038 53454D00 		.ascii	"SEM\000"
+ 453 003c 0000     		.space	2
+ 454 003e 0000     		.space	2
+ 455 0040 04       		.byte	4
+ 456 0041 FF       		.byte	-1
+ 457 0042 0000     		.space	2
+ 458 0044 00000000 		.word	Example_MutexLock
+ 459 0048 4D555445 		.ascii	"MUTEX\000"
+ 459      5800
+ 460 004e 0000     		.space	2
+ 461 0050 05       		.byte	5
+ 462 0051 FF       		.byte	-1
+ 463 0052 0000     		.space	2
+ 464 0054 00000000 		.word	Example_GetTick
+ 465 0058 53595354 		.ascii	"SYSTIC"
+ 465      4943
+ 466 005e 0000     		.space	2
+ 467 0060 06       		.byte	6
+ 468 0061 FF       		.byte	-1
+ 469 0062 0000     		.space	2
+ 470 0064 00000000 		.word	Example_swTimer
+ 471 0068 54494D45 		.ascii	"TIMER\000"
+ 471      5200
+ 472 006e 0000     		.space	2
+ 473 0070 07       		.byte	7
+ 474 0071 FF       		.byte	-1
+ 475 0072 0000     		.space	2
+ 476 0074 00000000 		.word	Example_list
+ 477 0078 4C495354 		.ascii	"LIST\000"
+ 477      00
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s 			page 14
+
+
+ 478 007d 00       		.space	1
+ 479 007e 0000     		.space	2
+ 480 0080 08       		.byte	8
+ 481 0081 FF       		.byte	-1
+ 482 0082 0000     		.space	2
+ 483 0084 00000000 		.word	Example_StaticMem
+ 484 0088 535F4D45 		.ascii	"S_MEM\000"
+ 484      4D00
+ 485 008e 0000     		.space	2
+ 486 0090 09       		.byte	9
+ 487 0091 FF       		.byte	-1
+ 488 0092 0000     		.space	2
+ 489 0094 00000000 		.word	Example_Dyn_Mem
+ 490 0098 445F4D45 		.ascii	"D_MEM\000"
+ 490      4D00
+ 491 009e 0000     		.space	2
+ 492              		.section	.bss.gInspectErrCnt,"aw",%nobits
+ 493              		.align	2
+ 494              		.set	.LANCHOR1,. + 0
+ 497              	gInspectErrCnt:
+ 498 0000 00000000 		.space	4
+ 499              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 500              		.align	2
+ 501              	.LC0:
+ 502 0000 0D0A496E 		.ascii	"\015\012InspectID = [%d] Err.\015\012\000"
+ 502      73706563 
+ 502      74494420 
+ 502      3D205B25 
+ 502      645D2045 
+ 503 001a 0000     		.space	2
+ 504              	.LC3:
+ 505 001c 0D0A496E 		.ascii	"\015\012InspectID = [%d] not find.\015\012\000"
+ 505      73706563 
+ 505      74494420 
+ 505      3D205B25 
+ 505      645D206E 
+ 506 003b 00       		.space	1
+ 507              	.LC7:
+ 508 003c 496E7370 		.ascii	"InspectID = [%d] Err,Inspectfunc is NULL.\015\012\015"
+ 508      65637449 
+ 508      44203D20 
+ 508      5B25645D 
+ 508      20457272 
+ 509 0068 0A00     		.ascii	"\012\000"
+ 510 006a 0000     		.space	2
+ 511              	.LC9:
+ 512 006c 496E7370 		.ascii	"Inspect %s success\015\012\015\012\000"
+ 512      65637420 
+ 512      25732073 
+ 512      75636365 
+ 512      73730D0A 
+ 513 0083 00       		.space	1
+ 514              	.LC12:
+ 515 0084 496E7370 		.ascii	"Inspect %s error,gInspectErrCnt = [%d]\015\012\015\012"
+ 515      65637420 
+ 515      25732065 
+ 515      72726F72 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s 			page 15
+
+
+ 515      2C67496E 
+ 516 00ae 00       		.ascii	"\000"
+ 517 00af 00       		.space	1
+ 518              	.LC15:
+ 519 00b0 0D0A4C6F 		.ascii	"\015\012Los Inspect start.\015\012\000"
+ 519      7320496E 
+ 519      73706563 
+ 519      74207374 
+ 519      6172742E 
+ 520 00c7 00       		.space	1
+ 521              	.LC17:
+ 522 00c8 496E7370 		.ascii	"Inspect completed,gInspectErrCnt = [%d]\015\012\015"
+ 522      65637420 
+ 522      636F6D70 
+ 522      6C657465 
+ 522      642C6749 
+ 523 00f2 0A00     		.ascii	"\012\000"
+ 524              	.LC20:
+ 525 00f4 496E7370 		.ascii	"InspectTsk\000"
+ 525      65637454 
+ 525      736B00
+ 526              		.section	.bss.g_uwDemoTaskID,"aw",%nobits
+ 527              		.align	2
+ 528              		.set	.LANCHOR2,. + 0
+ 531              	g_uwDemoTaskID:
+ 532 0000 00000000 		.space	4
+ 533              		.text
+ 534              	.Letext0:
+ 535              		.file 2 "e:\\liteos\\liteos\\kernel\\include\\los_typedef.h"
+ 536              		.file 3 "e:\\liteos\\liteos\\examples\\include\\los_inspect_entry.h"
+ 537              		.file 4 "e:\\liteos\\liteos\\kernel\\include\\los_task.h"
+ 538              		.file 5 "e:\\liteos\\liteos\\examples\\include\\los_demo_debug.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s 			page 16
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 los_inspect_entry.c
+C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s:20     .text.LOS_InspectStatusSetByID:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s:25     .text.LOS_InspectStatusSetByID:00000000 LOS_InspectStatusSetByID
+C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s:105    .text.LOS_InspectStatusSetByID:00000044 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s:112    .text.LOS_InspectByID:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s:117    .text.LOS_InspectByID:00000000 LOS_InspectByID
+C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s:276    .text.LOS_InspectByID:000000ac $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s:286    .text.LOS_Inspect_TskDeal:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s:290    .text.LOS_Inspect_TskDeal:00000000 LOS_Inspect_TskDeal
+C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s:346    .text.LOS_Inspect_TskDeal:00000038 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s:353    .text.LOS_Inspect_Entry:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s:358    .text.LOS_Inspect_Entry:00000000 LOS_Inspect_Entry
+C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s:416    .text.LOS_Inspect_Entry:00000038 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s:423    .data.gInspect:00000000 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s:427    .data.gInspect:00000000 gInspect
+C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s:493    .bss.gInspectErrCnt:00000000 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s:497    .bss.gInspectErrCnt:00000000 gInspectErrCnt
+C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s:500    .rodata.str1.4:00000000 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s:527    .bss.g_uwDemoTaskID:00000000 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cctWn0hq.s:531    .bss.g_uwDemoTaskID:00000000 g_uwDemoTaskID
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+dprintf_none
+LOS_TaskDelay
+memset
+LOS_TaskCreate
+Example_TskCaseEntry
+Example_SndRcvEvent
+Example_MsgQueue
+Example_Semphore
+Example_MutexLock
+Example_GetTick
+Example_swTimer
+Example_list
+Example_StaticMem
+Example_Dyn_Mem

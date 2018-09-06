@@ -1,0 +1,270 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc4Rp4b4.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"los_tick.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.osTickHandler,"ax",%progbits
+  20              		.align	2
+  21              		.global	osTickHandler
+  22              		.code	16
+  23              		.thumb_func
+  25              	osTickHandler:
+  26              	.LFB43:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core/los_tick.c"
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** /*----------------------------------------------------------------------------
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  * Copyright (c) <2013-2015>, <Huawei Technologies Co., Ltd>
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  * All rights reserved.
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  * are permitted provided that the following conditions are met:
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  * conditions and the following disclaimer.
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  * provided with the distribution.
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  * permission.
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  *---------------------------------------------------------------------------*/
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** /*----------------------------------------------------------------------------
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  * Notice of Export Control Law
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  * ===============================================
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc4Rp4b4.s 			page 2
+
+
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  * applicable export control laws and regulations.
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  *---------------------------------------------------------------------------*/
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** 
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** #include "los_tick.inc"
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** #include "los_base.ph"
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** #include "los_swtmr.ph"
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** #include "los_task.ph"
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** #include "los_timeslice.ph"
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** #if (LOSCFG_KERNEL_TICKLESS == YES)
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** #include "los_tickless.ph"
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** #endif
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** 
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** #ifdef __cplusplus
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** #if __cplusplus
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** extern "C" {
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** #endif /* __cplusplus */
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** #endif /* __cplusplus */
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** 
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** 
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** LITE_OS_SEC_BSS UINT64      g_ullTickCount;
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** LITE_OS_SEC_BSS UINT32      g_uwTicksPerSec;
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** LITE_OS_SEC_BSS UINT32      g_uwCyclePerSec;
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** LITE_OS_SEC_BSS UINT32      g_uwCyclesPerTick;
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** LITE_OS_SEC_BSS UINT32      g_uwSysClock;
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** LITE_OS_SEC_DATA_INIT BOOL  g_bSysTickStart = FALSE;
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** 
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** #if (LOSCFG_KERNEL_TICKLESS == YES)
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** /*****************************************************************************
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  Description : Tick interruption handler
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  Input       : None
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  Output      : None
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  Return      : None
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  *****************************************************************************/
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** LITE_OS_SEC_TEXT VOID osTickHandlerLoop(UINT32 uwElapseTicks)
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** {
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****     UINT32 uwIndex;
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** 
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****     for (uwIndex = 0; uwIndex < uwElapseTicks; uwIndex++)
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****     {
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** #if (LOSCFG_BASE_CORE_TICK_HW_TIME == YES)
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****         platform_tick_handler();
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** #endif
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** 
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****         g_ullTickCount ++;
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** 
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** #if(LOSCFG_BASE_CORE_TIMESLICE == YES)
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****         osTimesliceCheck();
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** #endif
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****         osTaskScan();   //task timeout scan
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** #if (LOSCFG_BASE_CORE_SWTMR == YES)
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****         (VOID)osSwtmrScan();
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** #endif
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****     }
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** }
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** 
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** #endif
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc4Rp4b4.s 			page 3
+
+
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** /*****************************************************************************
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  Description : Tick interruption handler
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  Input       : None
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  Output      : None
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  Return      : None
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****  *****************************************************************************/
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** LITE_OS_SEC_TEXT VOID osTickHandler(VOID)
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** {
+  28              		.loc 1 96 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 70B5     		push	{r4, r5, r6, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 16
+  35              		.cfi_offset 4, -16
+  36              		.cfi_offset 5, -12
+  37              		.cfi_offset 6, -8
+  38              		.cfi_offset 14, -4
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** #if (LOSCFG_KERNEL_TICKLESS == YES)
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****     if (g_bReloadSysTickFlag)
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****     {
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****         LOS_SysTickReload(OS_SYS_CLOCK / LOSCFG_BASE_CORE_TICK_PER_SECOND);
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****         g_bReloadSysTickFlag = 0;
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****     }
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****     g_bTickIrqFlag = g_bTicklessFlag;
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** #endif
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** 
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** #if (LOSCFG_BASE_CORE_TICK_HW_TIME == YES)
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****     platform_tick_handler();
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** #endif
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** 
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****     g_ullTickCount ++;
+  39              		.loc 1 110 0
+  40 0002 0849     		ldr	r1, .L2
+  41 0004 0122     		movs	r2, #1
+  42 0006 0023     		movs	r3, #0
+  43 0008 0C68     		ldr	r4, [r1]
+  44 000a 4D68     		ldr	r5, [r1, #4]
+  45 000c 1219     		adds	r2, r2, r4
+  46 000e 6B41     		adcs	r3, r3, r5
+  47 0010 0A60     		str	r2, [r1]
+  48 0012 4B60     		str	r3, [r1, #4]
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** 
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** #if(LOSCFG_BASE_CORE_TIMESLICE == YES)
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****     osTimesliceCheck();
+  49              		.loc 1 113 0
+  50 0014 FFF7FEFF 		bl	osTimesliceCheck
+  51              	.LVL0:
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** #endif
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** 
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****     osTaskScan();   //task timeout scan
+  52              		.loc 1 116 0
+  53 0018 FFF7FEFF 		bl	osTaskScan
+  54              	.LVL1:
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** 
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** #if (LOSCFG_BASE_CORE_SWTMR == YES)
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc4Rp4b4.s 			page 4
+
+
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****     (VOID)osSwtmrScan();
+  55              		.loc 1 119 0
+  56 001c FFF7FEFF 		bl	osSwtmrScan
+  57              	.LVL2:
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** #endif
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** }
+  58              		.loc 1 121 0
+  59              		@ sp needed
+  60 0020 70BD     		pop	{r4, r5, r6, pc}
+  61              	.L3:
+  62 0022 C046     		.align	2
+  63              	.L2:
+  64 0024 00000000 		.word	g_ullTickCount
+  65              		.cfi_endproc
+  66              	.LFE43:
+  68              		.section	.text.LOS_SysClockGet,"ax",%progbits
+  69              		.align	2
+  70              		.global	LOS_SysClockGet
+  71              		.code	16
+  72              		.thumb_func
+  74              	LOS_SysClockGet:
+  75              	.LFB44:
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** 
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** LITE_OS_SEC_TEXT UINT32 LOS_SysClockGet(void)
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** {
+  76              		.loc 1 124 0
+  77              		.cfi_startproc
+  78              		@ args = 0, pretend = 0, frame = 0
+  79              		@ frame_needed = 0, uses_anonymous_args = 0
+  80              		@ link register save eliminated.
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c ****     return g_uwSysClock;
+  81              		.loc 1 125 0
+  82 0000 014B     		ldr	r3, .L5
+  83 0002 1868     		ldr	r0, [r3]
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_tick.c **** }
+  84              		.loc 1 126 0
+  85              		@ sp needed
+  86 0004 7047     		bx	lr
+  87              	.L6:
+  88 0006 C046     		.align	2
+  89              	.L5:
+  90 0008 00000000 		.word	g_uwSysClock
+  91              		.cfi_endproc
+  92              	.LFE44:
+  94              		.global	g_bSysTickStart
+  95              		.comm	g_uwSysClock,4,4
+  96              		.comm	g_uwCyclesPerTick,4,4
+  97              		.comm	g_uwCyclePerSec,4,4
+  98              		.comm	g_uwTicksPerSec,4,4
+  99              		.comm	g_ullTickCount,8,8
+ 100              		.section	.bss.g_bSysTickStart,"aw",%nobits
+ 101              		.align	2
+ 104              	g_bSysTickStart:
+ 105 0000 00000000 		.space	4
+ 106              		.text
+ 107              	.Letext0:
+ 108              		.file 2 "e:\\liteos\\liteos\\kernel\\include\\los_typedef.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc4Rp4b4.s 			page 5
+
+
+ 109              		.file 3 "e:\\liteos\\liteos\\kernel\\base\\include\\los_timeslice.ph"
+ 110              		.file 4 "e:\\liteos\\liteos\\kernel\\base\\include\\los_task.ph"
+ 111              		.file 5 "e:\\liteos\\liteos\\kernel\\base\\include\\los_swtmr.ph"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc4Rp4b4.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 los_tick.c
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4Rp4b4.s:20     .text.osTickHandler:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4Rp4b4.s:25     .text.osTickHandler:00000000 osTickHandler
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4Rp4b4.s:64     .text.osTickHandler:00000024 $d
+                            *COM*:00000008 g_ullTickCount
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4Rp4b4.s:69     .text.LOS_SysClockGet:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4Rp4b4.s:74     .text.LOS_SysClockGet:00000000 LOS_SysClockGet
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4Rp4b4.s:90     .text.LOS_SysClockGet:00000008 $d
+                            *COM*:00000004 g_uwSysClock
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4Rp4b4.s:104    .bss.g_bSysTickStart:00000000 g_bSysTickStart
+                            *COM*:00000004 g_uwCyclesPerTick
+                            *COM*:00000004 g_uwCyclePerSec
+                            *COM*:00000004 g_uwTicksPerSec
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4Rp4b4.s:101    .bss.g_bSysTickStart:00000000 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+osTimesliceCheck
+osTaskScan
+osSwtmrScan

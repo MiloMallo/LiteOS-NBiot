@@ -1,0 +1,658 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccN4HblI.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"ring.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.RingInit,"ax",%progbits
+  20              		.align	2
+  21              		.global	RingInit
+  22              		.code	16
+  23              		.thumb_func
+  25              	RingInit:
+  26              	.LFB1:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode/ring
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** #include <string.h>
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** #include "ring.h"
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** //ring:which to be initialized
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** //buf:you supplied for the ring
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** //len:the buf length
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** //return:0 means ok while -1 failed
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** int RingInit(tagRingBuf *ring,char *buf, int buflen,int offset,int datalen)
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** {
+  28              		.loc 1 8 0
+  29              		.cfi_startproc
+  30              		@ args = 4, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c ****     int ret = -1;
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c ****     if((NULL == ret))
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c ****     {
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c ****         return ret;
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c ****     }
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c ****     ring->buf     = buf;
+  34              		.loc 1 14 0
+  35 0000 0160     		str	r1, [r0]
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c ****     ring->buflen  = buflen;
+  36              		.loc 1 15 0
+  37 0002 4260     		str	r2, [r0, #4]
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c ****     ring->datalen = datalen;
+  38              		.loc 1 16 0
+  39 0004 009A     		ldr	r2, [sp]
+  40              	.LVL1:
+  41 0006 8260     		str	r2, [r0, #8]
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c ****     ring->dataoff = offset;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccN4HblI.s 			page 2
+
+
+  42              		.loc 1 17 0
+  43 0008 C360     		str	r3, [r0, #12]
+  44              	.LVL2:
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c ****     ret = 0;
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c ****     return ret;
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** }
+  45              		.loc 1 20 0
+  46 000a 0020     		movs	r0, #0
+  47              	.LVL3:
+  48              		@ sp needed
+  49 000c 7047     		bx	lr
+  50              		.cfi_endproc
+  51              	.LFE1:
+  53              		.global	__aeabi_idivmod
+  54 000e C046     		.section	.text.RingWrite,"ax",%progbits
+  55              		.align	2
+  56              		.global	RingWrite
+  57              		.code	16
+  58              		.thumb_func
+  60              	RingWrite:
+  61              	.LFB2:
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** //write len bytes data to the ring
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** //return:how many bytes has been written while -1 means something err
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** //write only changes the datalen and  data in  the ring
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** int RingWrite(tagRingBuf *ring,char *buf,unsigned int len)
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** {
+  62              		.loc 1 26 0
+  63              		.cfi_startproc
+  64              		@ args = 0, pretend = 0, frame = 0
+  65              		@ frame_needed = 0, uses_anonymous_args = 0
+  66              	.LVL4:
+  67 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  68              	.LCFI0:
+  69              		.cfi_def_cfa_offset 24
+  70              		.cfi_offset 3, -24
+  71              		.cfi_offset 4, -20
+  72              		.cfi_offset 5, -16
+  73              		.cfi_offset 6, -12
+  74              		.cfi_offset 7, -8
+  75              		.cfi_offset 14, -4
+  76 0002 0400     		movs	r4, r0
+  77 0004 0E00     		movs	r6, r1
+  78              	.LVL5:
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	int ret = -1;
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	int cpylen;  //the current time we should move
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	int lenleft;  //and how many data still left to move
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	int offset;
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	unsigned char *src;
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	unsigned char *dst;
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	if((NULL == ring)||(NULL == buf)||(0 == len))
+  79              		.loc 1 33 0
+  80 0006 0028     		cmp	r0, #0
+  81 0008 47D0     		beq	.L7
+  82              		.loc 1 33 0 is_stmt 0 discriminator 1
+  83 000a 0029     		cmp	r1, #0
+  84 000c 48D0     		beq	.L8
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccN4HblI.s 			page 3
+
+
+  85              		.loc 1 33 0 discriminator 2
+  86 000e 002A     		cmp	r2, #0
+  87 0010 49D0     		beq	.L9
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	{
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		return ret;//which means parameters error
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	}
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	if(ring->datalen == ring->buflen)
+  88              		.loc 1 37 0 is_stmt 1
+  89 0012 8068     		ldr	r0, [r0, #8]
+  90              	.LVL6:
+  91 0014 6168     		ldr	r1, [r4, #4]
+  92              	.LVL7:
+  93 0016 8842     		cmp	r0, r1
+  94 0018 48D0     		beq	.L10
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	{
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		ret = 0;
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		return  ret;//which means you could copy nothing here
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	}
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	ret = len > (ring->buflen-ring->datalen)?(ring->buflen-ring->datalen):len;
+  95              		.loc 1 42 0
+  96 001a 0F1A     		subs	r7, r1, r0
+  97 001c 9742     		cmp	r7, r2
+  98 001e 00D9     		bls	.L4
+  99 0020 1700     		movs	r7, r2
+ 100              	.L4:
+ 101 0022 3D00     		movs	r5, r7
+ 102              	.LVL8:
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	//now let us think the method to fill the data,take care of the roll back
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	lenleft = ret;
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	src = buf;
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	if((ring->dataoff+ring->datalen)>ring->buflen) //which means the data has roll back
+ 103              		.loc 1 46 0
+ 104 0024 E368     		ldr	r3, [r4, #12]
+ 105 0026 9C46     		mov	ip, r3
+ 106 0028 6044     		add	r0, r0, ip
+ 107 002a 8142     		cmp	r1, r0
+ 108 002c 0DDA     		bge	.L5
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	{
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		offset = (ring->dataoff+ring->datalen)%ring->buflen; //we could move it one time
+ 109              		.loc 1 48 0
+ 110 002e FFF7FEFF 		bl	__aeabi_idivmod
+ 111              	.LVL9:
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		cpylen = lenleft;
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		dst = ring->buf + offset;
+ 112              		.loc 1 50 0
+ 113 0032 2368     		ldr	r3, [r4]
+ 114 0034 5818     		adds	r0, r3, r1
+ 115              	.LVL10:
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		memcpy(dst,src,cpylen);
+ 116              		.loc 1 51 0
+ 117 0036 3A00     		movs	r2, r7
+ 118 0038 3100     		movs	r1, r6
+ 119              	.LVL11:
+ 120 003a FFF7FEFF 		bl	memcpy
+ 121              	.LVL12:
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		ring->datalen += cpylen;
+ 122              		.loc 1 52 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccN4HblI.s 			page 4
+
+
+ 123 003e A368     		ldr	r3, [r4, #8]
+ 124 0040 9C46     		mov	ip, r3
+ 125 0042 6744     		add	r7, r7, ip
+ 126 0044 A760     		str	r7, [r4, #8]
+ 127              	.LVL13:
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		lenleft -= cpylen;
+ 128              		.loc 1 53 0
+ 129 0046 0027     		movs	r7, #0
+ 130 0048 11E0     		b	.L6
+ 131              	.LVL14:
+ 132              	.L5:
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	}
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	else if((ring->dataoff+ring->datalen + lenleft)>ring->buflen) //which means the data will be roll 
+ 133              		.loc 1 55 0
+ 134 004a 3F18     		adds	r7, r7, r0
+ 135 004c B942     		cmp	r1, r7
+ 136 004e 0DDA     		bge	.L11
+ 137              	.LVL15:
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	{
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		//which means roll back,we should copy some here to the tail
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		offset = ring->dataoff + ring->datalen;
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		cpylen = ring->buflen - offset;
+ 138              		.loc 1 59 0
+ 139 0050 0F1A     		subs	r7, r1, r0
+ 140              	.LVL16:
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		dst = ring->buf + offset;
+ 141              		.loc 1 60 0
+ 142 0052 2368     		ldr	r3, [r4]
+ 143 0054 9C46     		mov	ip, r3
+ 144 0056 6044     		add	r0, r0, ip
+ 145              	.LVL17:
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		memcpy(dst,src,cpylen);
+ 146              		.loc 1 61 0
+ 147 0058 3A00     		movs	r2, r7
+ 148              	.LVL18:
+ 149 005a 3100     		movs	r1, r6
+ 150 005c FFF7FEFF 		bl	memcpy
+ 151              	.LVL19:
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		src += cpylen;
+ 152              		.loc 1 62 0
+ 153 0060 F619     		adds	r6, r6, r7
+ 154              	.LVL20:
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		ring->datalen += cpylen;
+ 155              		.loc 1 63 0
+ 156 0062 A368     		ldr	r3, [r4, #8]
+ 157 0064 DB19     		adds	r3, r3, r7
+ 158 0066 A360     		str	r3, [r4, #8]
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		lenleft -= cpylen;
+ 159              		.loc 1 64 0
+ 160 0068 EF1B     		subs	r7, r5, r7
+ 161              	.LVL21:
+ 162 006a 00E0     		b	.L6
+ 163              	.LVL22:
+ 164              	.L11:
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	src = buf;
+ 165              		.loc 1 44 0
+ 166 006c 2F00     		movs	r7, r5
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccN4HblI.s 			page 5
+
+
+ 167              	.LVL23:
+ 168              	.L6:
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	}
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	//here means we could move it by one time
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	if(lenleft > 0)
+ 169              		.loc 1 67 0
+ 170 006e 002F     		cmp	r7, #0
+ 171 0070 1EDD     		ble	.L12
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	{
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		offset = (ring->dataoff+ring->datalen)%ring->buflen; //we could move it one time
+ 172              		.loc 1 69 0
+ 173 0072 E368     		ldr	r3, [r4, #12]
+ 174 0074 A268     		ldr	r2, [r4, #8]
+ 175 0076 9446     		mov	ip, r2
+ 176 0078 6344     		add	r3, r3, ip
+ 177 007a 1800     		movs	r0, r3
+ 178 007c 6168     		ldr	r1, [r4, #4]
+ 179 007e FFF7FEFF 		bl	__aeabi_idivmod
+ 180              	.LVL24:
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		cpylen = lenleft;
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		dst = ring->buf + offset;
+ 181              		.loc 1 71 0
+ 182 0082 2368     		ldr	r3, [r4]
+ 183 0084 5818     		adds	r0, r3, r1
+ 184              	.LVL25:
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		memcpy(dst,src,cpylen);
+ 185              		.loc 1 72 0
+ 186 0086 3A00     		movs	r2, r7
+ 187 0088 3100     		movs	r1, r6
+ 188              	.LVL26:
+ 189 008a FFF7FEFF 		bl	memcpy
+ 190              	.LVL27:
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		ring->datalen += cpylen;
+ 191              		.loc 1 73 0
+ 192 008e A368     		ldr	r3, [r4, #8]
+ 193 0090 9C46     		mov	ip, r3
+ 194 0092 6744     		add	r7, r7, ip
+ 195              	.LVL28:
+ 196 0094 A760     		str	r7, [r4, #8]
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	}
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	return ret;
+ 197              		.loc 1 75 0
+ 198 0096 2800     		movs	r0, r5
+ 199 0098 0BE0     		b	.L3
+ 200              	.LVL29:
+ 201              	.L7:
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	}
+ 202              		.loc 1 35 0
+ 203 009a 0120     		movs	r0, #1
+ 204              	.LVL30:
+ 205 009c 4042     		rsbs	r0, r0, #0
+ 206 009e 08E0     		b	.L3
+ 207              	.LVL31:
+ 208              	.L8:
+ 209 00a0 0120     		movs	r0, #1
+ 210              	.LVL32:
+ 211 00a2 4042     		rsbs	r0, r0, #0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccN4HblI.s 			page 6
+
+
+ 212 00a4 05E0     		b	.L3
+ 213              	.LVL33:
+ 214              	.L9:
+ 215 00a6 0120     		movs	r0, #1
+ 216              	.LVL34:
+ 217 00a8 4042     		rsbs	r0, r0, #0
+ 218 00aa 02E0     		b	.L3
+ 219              	.LVL35:
+ 220              	.L10:
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	}
+ 221              		.loc 1 40 0
+ 222 00ac 0020     		movs	r0, #0
+ 223 00ae 00E0     		b	.L3
+ 224              	.LVL36:
+ 225              	.L12:
+ 226              		.loc 1 75 0
+ 227 00b0 2800     		movs	r0, r5
+ 228              	.LVL37:
+ 229              	.L3:
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** }
+ 230              		.loc 1 76 0
+ 231              		@ sp needed
+ 232              	.LVL38:
+ 233 00b2 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 234              		.cfi_endproc
+ 235              	.LFE2:
+ 237              		.section	.text.RingRead,"ax",%progbits
+ 238              		.align	2
+ 239              		.global	RingRead
+ 240              		.code	16
+ 241              		.thumb_func
+ 243              	RingRead:
+ 244              	.LFB3:
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** //read len bytes data from the ring
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** //return:how many bytes has been read while -1 means something err
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** //read effect the offset datalen and data in the ring
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** int RingRead(tagRingBuf *ring,char *buf,unsigned int len)
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** {
+ 245              		.loc 1 81 0
+ 246              		.cfi_startproc
+ 247              		@ args = 0, pretend = 0, frame = 8
+ 248              		@ frame_needed = 0, uses_anonymous_args = 0
+ 249              	.LVL39:
+ 250 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 251              	.LCFI1:
+ 252              		.cfi_def_cfa_offset 20
+ 253              		.cfi_offset 4, -20
+ 254              		.cfi_offset 5, -16
+ 255              		.cfi_offset 6, -12
+ 256              		.cfi_offset 7, -8
+ 257              		.cfi_offset 14, -4
+ 258 0002 83B0     		sub	sp, sp, #12
+ 259              	.LCFI2:
+ 260              		.cfi_def_cfa_offset 32
+ 261 0004 0500     		movs	r5, r0
+ 262 0006 0F00     		movs	r7, r1
+ 263              	.LVL40:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccN4HblI.s 			page 7
+
+
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	int ret = -1;
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	int cpylen;  //the current time we should move
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	int lenleft;  //and how many data still left to move
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	int offset;
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	unsigned char *src;
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	unsigned char *dst;
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	if((NULL == ring)||(NULL == buf)||(0 == len))
+ 264              		.loc 1 88 0
+ 265 0008 0028     		cmp	r0, #0
+ 266 000a 36D0     		beq	.L17
+ 267              		.loc 1 88 0 is_stmt 0 discriminator 1
+ 268 000c 0029     		cmp	r1, #0
+ 269 000e 37D0     		beq	.L18
+ 270              		.loc 1 88 0 discriminator 2
+ 271 0010 002A     		cmp	r2, #0
+ 272 0012 38D0     		beq	.L19
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	{
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		return ret;//which means parameters error
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	}
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	if(ring->datalen == 0)
+ 273              		.loc 1 92 0 is_stmt 1
+ 274 0014 8068     		ldr	r0, [r0, #8]
+ 275              	.LVL41:
+ 276 0016 0028     		cmp	r0, #0
+ 277 0018 39D0     		beq	.L14
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	{
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		ret = 0;
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		return  ret;//which means you could copy nothing here
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	}
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	ret = len > ring->datalen?ring->datalen:len;
+ 278              		.loc 1 97 0
+ 279 001a 0400     		movs	r4, r0
+ 280 001c 9042     		cmp	r0, r2
+ 281 001e 00D9     		bls	.L15
+ 282 0020 1400     		movs	r4, r2
+ 283              	.L15:
+ 284 0022 0194     		str	r4, [sp, #4]
+ 285              	.LVL42:
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	//now let us think the method to fill the data,take care of the roll back
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	lenleft = ret;
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	dst = buf;
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	if((ring->dataoff+ lenleft)>=ring->buflen) //which means the data has roll back
+ 286              		.loc 1 101 0
+ 287 0024 E968     		ldr	r1, [r5, #12]
+ 288              	.LVL43:
+ 289 0026 6318     		adds	r3, r4, r1
+ 290 0028 6A68     		ldr	r2, [r5, #4]
+ 291              	.LVL44:
+ 292 002a 9342     		cmp	r3, r2
+ 293 002c 12DB     		blt	.L16
+ 294              	.LVL45:
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	{
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		offset =ring->dataoff; //we cpy part
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		cpylen = ring->buflen - ring->dataoff;
+ 295              		.loc 1 104 0
+ 296 002e 561A     		subs	r6, r2, r1
+ 297              	.LVL46:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccN4HblI.s 			page 8
+
+
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		src = ring->buf + offset;
+ 298              		.loc 1 105 0
+ 299 0030 2B68     		ldr	r3, [r5]
+ 300 0032 9C46     		mov	ip, r3
+ 301 0034 6144     		add	r1, r1, ip
+ 302              	.LVL47:
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		memcpy(dst,src,cpylen);
+ 303              		.loc 1 106 0
+ 304 0036 3200     		movs	r2, r6
+ 305 0038 3800     		movs	r0, r7
+ 306 003a FFF7FEFF 		bl	memcpy
+ 307              	.LVL48:
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		ring->dataoff = (ring->dataoff + cpylen)%ring->buflen;
+ 308              		.loc 1 107 0
+ 309 003e EB68     		ldr	r3, [r5, #12]
+ 310 0040 F018     		adds	r0, r6, r3
+ 311 0042 6968     		ldr	r1, [r5, #4]
+ 312 0044 FFF7FEFF 		bl	__aeabi_idivmod
+ 313              	.LVL49:
+ 314 0048 E960     		str	r1, [r5, #12]
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		ring->datalen -= cpylen;
+ 315              		.loc 1 108 0
+ 316 004a AB68     		ldr	r3, [r5, #8]
+ 317 004c 9B1B     		subs	r3, r3, r6
+ 318 004e AB60     		str	r3, [r5, #8]
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		lenleft -= cpylen;
+ 319              		.loc 1 109 0
+ 320 0050 A41B     		subs	r4, r4, r6
+ 321              	.LVL50:
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		dst += cpylen;
+ 322              		.loc 1 110 0
+ 323 0052 BF19     		adds	r7, r7, r6
+ 324              	.LVL51:
+ 325              	.L16:
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	}
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	//here means we could move it by one time
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	if(lenleft > 0)
+ 326              		.loc 1 113 0
+ 327 0054 002C     		cmp	r4, #0
+ 328 0056 19DD     		ble	.L21
+ 329              	.LVL52:
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	{
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		offset =ring->dataoff; //we cpy part
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		cpylen = lenleft;
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		src = ring->buf + offset;
+ 330              		.loc 1 117 0
+ 331 0058 2B68     		ldr	r3, [r5]
+ 332 005a EA68     		ldr	r2, [r5, #12]
+ 333 005c 9446     		mov	ip, r2
+ 334 005e 6344     		add	r3, r3, ip
+ 335 0060 1900     		movs	r1, r3
+ 336              	.LVL53:
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		memcpy(dst,src,cpylen);
+ 337              		.loc 1 118 0
+ 338 0062 2200     		movs	r2, r4
+ 339 0064 3800     		movs	r0, r7
+ 340 0066 FFF7FEFF 		bl	memcpy
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccN4HblI.s 			page 9
+
+
+ 341              	.LVL54:
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		ring->dataoff = ring->dataoff + cpylen;
+ 342              		.loc 1 119 0
+ 343 006a EB68     		ldr	r3, [r5, #12]
+ 344 006c E318     		adds	r3, r4, r3
+ 345 006e EB60     		str	r3, [r5, #12]
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		ring->datalen -= cpylen;
+ 346              		.loc 1 120 0
+ 347 0070 AB68     		ldr	r3, [r5, #8]
+ 348 0072 1C1B     		subs	r4, r3, r4
+ 349              	.LVL55:
+ 350 0074 AC60     		str	r4, [r5, #8]
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	}
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	return ret;
+ 351              		.loc 1 122 0
+ 352 0076 0198     		ldr	r0, [sp, #4]
+ 353 0078 09E0     		b	.L14
+ 354              	.LVL56:
+ 355              	.L17:
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	}
+ 356              		.loc 1 90 0
+ 357 007a 0120     		movs	r0, #1
+ 358              	.LVL57:
+ 359 007c 4042     		rsbs	r0, r0, #0
+ 360 007e 06E0     		b	.L14
+ 361              	.LVL58:
+ 362              	.L18:
+ 363 0080 0120     		movs	r0, #1
+ 364              	.LVL59:
+ 365 0082 4042     		rsbs	r0, r0, #0
+ 366 0084 03E0     		b	.L14
+ 367              	.LVL60:
+ 368              	.L19:
+ 369 0086 0120     		movs	r0, #1
+ 370              	.LVL61:
+ 371 0088 4042     		rsbs	r0, r0, #0
+ 372 008a 00E0     		b	.L14
+ 373              	.LVL62:
+ 374              	.L21:
+ 375              		.loc 1 122 0
+ 376 008c 0198     		ldr	r0, [sp, #4]
+ 377              	.LVL63:
+ 378              	.L14:
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** }
+ 379              		.loc 1 123 0
+ 380 008e 03B0     		add	sp, sp, #12
+ 381              		@ sp needed
+ 382              	.LVL64:
+ 383 0090 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 384              		.cfi_endproc
+ 385              	.LFE3:
+ 387 0092 C046     		.section	.text.RingDataLen,"ax",%progbits
+ 388              		.align	2
+ 389              		.global	RingDataLen
+ 390              		.code	16
+ 391              		.thumb_func
+ 393              	RingDataLen:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccN4HblI.s 			page 10
+
+
+ 394              	.LFB4:
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** int RingDataLen(tagRingBuf *ring)
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** {
+ 395              		.loc 1 126 0
+ 396              		.cfi_startproc
+ 397              		@ args = 0, pretend = 0, frame = 0
+ 398              		@ frame_needed = 0, uses_anonymous_args = 0
+ 399              		@ link register save eliminated.
+ 400              	.LVL65:
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	int ret = -1;
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	if(NULL != ring)
+ 401              		.loc 1 128 0
+ 402 0000 0028     		cmp	r0, #0
+ 403 0002 01D0     		beq	.L24
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	{
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		ret = ring->datalen;
+ 404              		.loc 1 130 0
+ 405 0004 8068     		ldr	r0, [r0, #8]
+ 406              	.LVL66:
+ 407 0006 01E0     		b	.L23
+ 408              	.LVL67:
+ 409              	.L24:
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	int ret = -1;
+ 410              		.loc 1 127 0
+ 411 0008 0120     		movs	r0, #1
+ 412              	.LVL68:
+ 413 000a 4042     		rsbs	r0, r0, #0
+ 414              	.LVL69:
+ 415              	.L23:
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	}
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	return ret;
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** }
+ 416              		.loc 1 133 0
+ 417              		@ sp needed
+ 418 000c 7047     		bx	lr
+ 419              		.cfi_endproc
+ 420              	.LFE4:
+ 422 000e C046     		.section	.text.RingReset,"ax",%progbits
+ 423              		.align	2
+ 424              		.global	RingReset
+ 425              		.code	16
+ 426              		.thumb_func
+ 428              	RingReset:
+ 429              	.LFB5:
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** int RingReset(tagRingBuf *ring)
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** {
+ 430              		.loc 1 135 0
+ 431              		.cfi_startproc
+ 432              		@ args = 0, pretend = 0, frame = 0
+ 433              		@ frame_needed = 0, uses_anonymous_args = 0
+ 434              		@ link register save eliminated.
+ 435              	.LVL70:
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	int ret = -1;
+ 137:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	if(NULL != ring)
+ 436              		.loc 1 137 0
+ 437 0000 0028     		cmp	r0, #0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccN4HblI.s 			page 11
+
+
+ 438 0002 04D0     		beq	.L27
+ 138:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	{
+ 139:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		ring->datalen = 0;
+ 439              		.loc 1 139 0
+ 440 0004 0023     		movs	r3, #0
+ 441 0006 8360     		str	r3, [r0, #8]
+ 140:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		ring->dataoff = 0;
+ 442              		.loc 1 140 0
+ 443 0008 C360     		str	r3, [r0, #12]
+ 444              	.LVL71:
+ 141:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 		ret = 0;
+ 445              		.loc 1 141 0
+ 446 000a 0020     		movs	r0, #0
+ 447              	.LVL72:
+ 448 000c 01E0     		b	.L26
+ 449              	.LVL73:
+ 450              	.L27:
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	if(NULL != ring)
+ 451              		.loc 1 136 0
+ 452 000e 0120     		movs	r0, #1
+ 453              	.LVL74:
+ 454 0010 4042     		rsbs	r0, r0, #0
+ 455              	.LVL75:
+ 456              	.L26:
+ 142:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	}
+ 143:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** 	return ret;
+ 144:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\ring.c **** }
+ 457              		.loc 1 144 0
+ 458              		@ sp needed
+ 459 0012 7047     		bx	lr
+ 460              		.cfi_endproc
+ 461              	.LFE5:
+ 463              		.text
+ 464              	.Letext0:
+ 465              		.file 2 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\usercode\\ring.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccN4HblI.s 			page 12
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 ring.c
+C:\Users\WANGBI~1\AppData\Local\Temp\ccN4HblI.s:20     .text.RingInit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccN4HblI.s:25     .text.RingInit:00000000 RingInit
+C:\Users\WANGBI~1\AppData\Local\Temp\ccN4HblI.s:55     .text.RingWrite:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccN4HblI.s:60     .text.RingWrite:00000000 RingWrite
+C:\Users\WANGBI~1\AppData\Local\Temp\ccN4HblI.s:238    .text.RingRead:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccN4HblI.s:243    .text.RingRead:00000000 RingRead
+C:\Users\WANGBI~1\AppData\Local\Temp\ccN4HblI.s:388    .text.RingDataLen:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccN4HblI.s:393    .text.RingDataLen:00000000 RingDataLen
+C:\Users\WANGBI~1\AppData\Local\Temp\ccN4HblI.s:423    .text.RingReset:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccN4HblI.s:428    .text.RingReset:00000000 RingReset
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+__aeabi_idivmod
+memcpy

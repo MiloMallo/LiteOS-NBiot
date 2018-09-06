@@ -1,0 +1,391 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccoq9ET7.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"los_api_dynamic_mem.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.Example_Dyn_Mem,"ax",%progbits
+  20              		.align	2
+  21              		.global	Example_Dyn_Mem
+  22              		.code	16
+  23              		.thumb_func
+  25              	Example_Dyn_Mem:
+  26              	.LFB43:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api/los_api_dynamic_mem.c"
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c **** /*----------------------------------------------------------------------------
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  * Copyright (c) <2016-2018>, <Huawei Technologies Co., Ltd>
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  * All rights reserved.
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  * are permitted provided that the following conditions are met:
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  * conditions and the following disclaimer.
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  * provided with the distribution.
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  * permission.
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  *---------------------------------------------------------------------------*/
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  /*----------------------------------------------------------------------------
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  * Notice of Export Control Law
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  * ===============================================
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccoq9ET7.s 			page 2
+
+
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  * applicable export control laws and regulations.
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****  *---------------------------------------------------------------------------*/
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c **** 
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c **** #include <stdlib.h>
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c **** #include "los_config.h"
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c **** #include "los_memory.h"
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c **** #include "los_api_dynamic_mem.h"
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c **** #include "los_inspect_entry.h"
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c **** 
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c **** #ifdef __cplusplus
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c **** #if __cplusplus
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c **** extern "C" {
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c **** #endif /* __cpluscplus */
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c **** #endif /* __cpluscplus */
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c **** 
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c **** #define MEM_DYN_SIZE  256
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c **** static UINT32 pDynMem[MEM_DYN_SIZE/4];
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c **** extern UINT32 LOS_MemInit(VOID *pPool, UINT32 uwSize);
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c **** 
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c **** UINT32 Example_Dyn_Mem(VOID)
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c **** {
+  28              		.loc 1 52 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 10B5     		push	{r4, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 4, -8
+  36              		.cfi_offset 14, -4
+  37              	.LVL0:
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****     UINT32 *p_num = NULL;
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****     UINT32 uwRet;
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****     uwRet = LOS_MemInit(pDynMem, MEM_DYN_SIZE);
+  38              		.loc 1 55 0
+  39 0002 8021     		movs	r1, #128
+  40 0004 4900     		lsls	r1, r1, #1
+  41 0006 2448     		ldr	r0, .L10
+  42 0008 FFF7FEFF 		bl	LOS_MemInit
+  43              	.LVL1:
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****     if (LOS_OK == uwRet)
+  44              		.loc 1 56 0
+  45 000c 0028     		cmp	r0, #0
+  46 000e 09D1     		bne	.L2
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****     {
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****         dprintf("mempool init ok! \r\n");
+  47              		.loc 1 58 0
+  48 0010 2248     		ldr	r0, .L10+4
+  49              	.LVL2:
+  50 0012 FFF7FEFF 		bl	dprintf_none
+  51              	.LVL3:
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****     }
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****     else
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****     {
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****         dprintf("mempool init failed! \r\n");
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****         return LOS_NOK;
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****     }
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccoq9ET7.s 			page 3
+
+
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c **** 
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****     /* mem alloc */
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****     p_num = (UINT32 *)LOS_MemAlloc(pDynMem, 4);
+  52              		.loc 1 67 0
+  53 0016 0421     		movs	r1, #4
+  54 0018 1F48     		ldr	r0, .L10
+  55 001a FFF7FEFF 		bl	LOS_MemAlloc
+  56              	.LVL4:
+  57 001e 041E     		subs	r4, r0, #0
+  58              	.LVL5:
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****     if (NULL == p_num)
+  59              		.loc 1 68 0
+  60 0020 0AD1     		bne	.L9
+  61 0022 04E0     		b	.L3
+  62              	.LVL6:
+  63              	.L2:
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****         return LOS_NOK;
+  64              		.loc 1 62 0
+  65 0024 1E48     		ldr	r0, .L10+8
+  66              	.LVL7:
+  67 0026 FFF7FEFF 		bl	dprintf_none
+  68              	.LVL8:
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****     }
+  69              		.loc 1 63 0
+  70 002a 0120     		movs	r0, #1
+  71 002c 32E0     		b	.L5
+  72              	.LVL9:
+  73              	.L3:
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****     {
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****         dprintf("mem alloc failed! \r\n");
+  74              		.loc 1 70 0
+  75 002e 1D48     		ldr	r0, .L10+12
+  76              	.LVL10:
+  77 0030 FFF7FEFF 		bl	dprintf_none
+  78              	.LVL11:
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****         return LOS_NOK;
+  79              		.loc 1 71 0
+  80 0034 0120     		movs	r0, #1
+  81 0036 2DE0     		b	.L5
+  82              	.LVL12:
+  83              	.L9:
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****     }
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****     dprintf("mem alloc ok \r\n");
+  84              		.loc 1 73 0
+  85 0038 1B48     		ldr	r0, .L10+16
+  86              	.LVL13:
+  87 003a FFF7FEFF 		bl	dprintf_none
+  88              	.LVL14:
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c **** 
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****     /* assignment */
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****     *p_num = 828;
+  89              		.loc 1 76 0
+  90 003e CF21     		movs	r1, #207
+  91 0040 8900     		lsls	r1, r1, #2
+  92 0042 2160     		str	r1, [r4]
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****     dprintf("*p_num = %d \r\n", *p_num);
+  93              		.loc 1 77 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccoq9ET7.s 			page 4
+
+
+  94 0044 1948     		ldr	r0, .L10+20
+  95 0046 FFF7FEFF 		bl	dprintf_none
+  96              	.LVL15:
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c **** 
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****     /* mem free */
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****     uwRet = LOS_MemFree(pDynMem, p_num);
+  97              		.loc 1 80 0
+  98 004a 2100     		movs	r1, r4
+  99 004c 1248     		ldr	r0, .L10
+ 100 004e FFF7FEFF 		bl	LOS_MemFree
+ 101              	.LVL16:
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****     if (LOS_OK == uwRet)
+ 102              		.loc 1 81 0
+ 103 0052 0028     		cmp	r0, #0
+ 104 0054 0DD1     		bne	.L6
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****     {
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****         dprintf("mem free ok!\r\n");
+ 105              		.loc 1 83 0
+ 106 0056 1648     		ldr	r0, .L10+24
+ 107              	.LVL17:
+ 108 0058 FFF7FEFF 		bl	dprintf_none
+ 109              	.LVL18:
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****         uwRet = LOS_InspectStatusSetByID(LOS_INSPECT_DMEM, LOS_INSPECT_STU_SUCCESS);
+ 110              		.loc 1 84 0
+ 111 005c 0021     		movs	r1, #0
+ 112 005e 0920     		movs	r0, #9
+ 113 0060 FFF7FEFF 		bl	LOS_InspectStatusSetByID
+ 114              	.LVL19:
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****         if (LOS_OK != uwRet)
+ 115              		.loc 1 85 0
+ 116 0064 0028     		cmp	r0, #0
+ 117 0066 12D0     		beq	.L7
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****         {
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****             dprintf("Set Inspect Status Err \r\n");
+ 118              		.loc 1 87 0
+ 119 0068 1248     		ldr	r0, .L10+28
+ 120              	.LVL20:
+ 121 006a FFF7FEFF 		bl	dprintf_none
+ 122              	.LVL21:
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****         }
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****     }
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****     else
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****     {
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****         dprintf("mem free failed! \r\n");
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****         uwRet = LOS_InspectStatusSetByID(LOS_INSPECT_DMEM, LOS_INSPECT_STU_ERROR);
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****         if (LOS_OK != uwRet)
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****         {
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****             dprintf("Set Inspect Status Err \r\n");
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****         }
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****         return LOS_NOK;
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****     }
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****     return LOS_OK;
+ 123              		.loc 1 100 0
+ 124 006e 0020     		movs	r0, #0
+ 125 0070 10E0     		b	.L5
+ 126              	.LVL22:
+ 127              	.L6:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccoq9ET7.s 			page 5
+
+
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****         uwRet = LOS_InspectStatusSetByID(LOS_INSPECT_DMEM, LOS_INSPECT_STU_ERROR);
+ 128              		.loc 1 92 0
+ 129 0072 1148     		ldr	r0, .L10+32
+ 130              	.LVL23:
+ 131 0074 FFF7FEFF 		bl	dprintf_none
+ 132              	.LVL24:
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****         if (LOS_OK != uwRet)
+ 133              		.loc 1 93 0
+ 134 0078 0121     		movs	r1, #1
+ 135 007a 0920     		movs	r0, #9
+ 136 007c FFF7FEFF 		bl	LOS_InspectStatusSetByID
+ 137              	.LVL25:
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****         {
+ 138              		.loc 1 94 0
+ 139 0080 0028     		cmp	r0, #0
+ 140 0082 06D0     		beq	.L8
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****         }
+ 141              		.loc 1 96 0
+ 142 0084 0B48     		ldr	r0, .L10+28
+ 143              	.LVL26:
+ 144 0086 FFF7FEFF 		bl	dprintf_none
+ 145              	.LVL27:
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****     }
+ 146              		.loc 1 98 0
+ 147 008a 0120     		movs	r0, #1
+ 148 008c 02E0     		b	.L5
+ 149              	.LVL28:
+ 150              	.L7:
+ 151              		.loc 1 100 0
+ 152 008e 0020     		movs	r0, #0
+ 153              	.LVL29:
+ 154 0090 00E0     		b	.L5
+ 155              	.LVL30:
+ 156              	.L8:
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c ****     }
+ 157              		.loc 1 98 0
+ 158 0092 0120     		movs	r0, #1
+ 159              	.LVL31:
+ 160              	.L5:
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_dynamic_mem.c **** }
+ 161              		.loc 1 101 0
+ 162              		@ sp needed
+ 163 0094 10BD     		pop	{r4, pc}
+ 164              	.L11:
+ 165 0096 C046     		.align	2
+ 166              	.L10:
+ 167 0098 00000000 		.word	.LANCHOR0
+ 168 009c 00000000 		.word	.LC1
+ 169 00a0 14000000 		.word	.LC3
+ 170 00a4 2C000000 		.word	.LC5
+ 171 00a8 44000000 		.word	.LC7
+ 172 00ac 54000000 		.word	.LC9
+ 173 00b0 64000000 		.word	.LC11
+ 174 00b4 74000000 		.word	.LC13
+ 175 00b8 90000000 		.word	.LC15
+ 176              		.cfi_endproc
+ 177              	.LFE43:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccoq9ET7.s 			page 6
+
+
+ 179              		.section	.bss.pDynMem,"aw",%nobits
+ 180              		.align	2
+ 181              		.set	.LANCHOR0,. + 0
+ 184              	pDynMem:
+ 185 0000 00000000 		.space	256
+ 185      00000000 
+ 185      00000000 
+ 185      00000000 
+ 185      00000000 
+ 186              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 187              		.align	2
+ 188              	.LC1:
+ 189 0000 6D656D70 		.ascii	"mempool init ok! \015\012\000"
+ 189      6F6F6C20 
+ 189      696E6974 
+ 189      206F6B21 
+ 189      200D0A00 
+ 190              	.LC3:
+ 191 0014 6D656D70 		.ascii	"mempool init failed! \015\012\000"
+ 191      6F6F6C20 
+ 191      696E6974 
+ 191      20666169 
+ 191      6C656421 
+ 192              	.LC5:
+ 193 002c 6D656D20 		.ascii	"mem alloc failed! \015\012\000"
+ 193      616C6C6F 
+ 193      63206661 
+ 193      696C6564 
+ 193      21200D0A 
+ 194 0041 000000   		.space	3
+ 195              	.LC7:
+ 196 0044 6D656D20 		.ascii	"mem alloc ok \015\012\000"
+ 196      616C6C6F 
+ 196      63206F6B 
+ 196      200D0A00 
+ 197              	.LC9:
+ 198 0054 2A705F6E 		.ascii	"*p_num = %d \015\012\000"
+ 198      756D203D 
+ 198      20256420 
+ 198      0D0A00
+ 199 0063 00       		.space	1
+ 200              	.LC11:
+ 201 0064 6D656D20 		.ascii	"mem free ok!\015\012\000"
+ 201      66726565 
+ 201      206F6B21 
+ 201      0D0A00
+ 202 0073 00       		.space	1
+ 203              	.LC13:
+ 204 0074 53657420 		.ascii	"Set Inspect Status Err \015\012\000"
+ 204      496E7370 
+ 204      65637420 
+ 204      53746174 
+ 204      75732045 
+ 205 008e 0000     		.space	2
+ 206              	.LC15:
+ 207 0090 6D656D20 		.ascii	"mem free failed! \015\012\000"
+ 207      66726565 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccoq9ET7.s 			page 7
+
+
+ 207      20666169 
+ 207      6C656421 
+ 207      200D0A00 
+ 208              		.text
+ 209              	.Letext0:
+ 210              		.file 2 "e:\\liteos\\liteos\\examples\\include\\los_inspect_entry.h"
+ 211              		.file 3 "e:\\liteos\\liteos\\examples\\include\\los_demo_debug.h"
+ 212              		.file 4 "e:\\liteos\\liteos\\kernel\\include\\los_memory.h"
+ 213              		.file 5 "e:\\liteos\\liteos\\kernel\\include\\los_typedef.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccoq9ET7.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 los_api_dynamic_mem.c
+C:\Users\WANGBI~1\AppData\Local\Temp\ccoq9ET7.s:20     .text.Example_Dyn_Mem:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccoq9ET7.s:25     .text.Example_Dyn_Mem:00000000 Example_Dyn_Mem
+C:\Users\WANGBI~1\AppData\Local\Temp\ccoq9ET7.s:167    .text.Example_Dyn_Mem:00000098 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccoq9ET7.s:180    .bss.pDynMem:00000000 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccoq9ET7.s:184    .bss.pDynMem:00000000 pDynMem
+C:\Users\WANGBI~1\AppData\Local\Temp\ccoq9ET7.s:187    .rodata.str1.4:00000000 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+LOS_MemInit
+dprintf_none
+LOS_MemAlloc
+LOS_MemFree
+LOS_InspectStatusSetByID

@@ -1,0 +1,1511 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"fm33a0xx_dma.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.DMA_GLOBALCTRL_DMAEN_Setable,"ax",%progbits
+  20              		.align	2
+  21              		.global	DMA_GLOBALCTRL_DMAEN_Setable
+  22              		.code	16
+  23              		.thumb_func
+  25              	DMA_GLOBALCTRL_DMAEN_Setable:
+  26              	.LFB36:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers/fm33a
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** /**
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c ****   ******************************************************************************
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c ****   * @file    fm33a0xx_dma.c
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c ****   * @author  FM385 Application Team
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c ****   * @version V2.0.1
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c ****   * @date    27-3-2018
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c ****   * @brief   This file provides firmware functions to manage the following 
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c ****   *
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** */
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** /* Includes ------------------------------------------------------------------*/
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** #include "fm33A0xx_dma.h" 
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** /** @addtogroup fm33a0_StdPeriph_Driver
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c ****   * @{
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c ****   */
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** /** @defgroup DMA 
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c ****   * @brief DMA driver modules
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c ****   * @{
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c ****   */ 
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** /* Private typedef -----------------------------------------------------------*/
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** /* Private define ------------------------------------------------------------*/
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** /* Private macro -------------------------------------------------------------*/
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** /* Private variables ---------------------------------------------------------*/
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** /* Private function prototypes -----------------------------------------------*/
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** /* Private functions ---------------------------------------------------------*/
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** /** @defgroup DMA_Private_Functions
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s 			page 2
+
+
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c ****   * @{
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c ****   */ 
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** //Code_Start
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** //2018-03-02-15-19-03
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** //FM33A0XX_Driver_Gen_V1.3
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** /* DMA全局使能 相关函数 */
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** void DMA_GLOBALCTRL_DMAEN_Setable(FunState NewState)
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** {
+  28              		.loc 1 41 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	if (NewState == ENABLE)
+  34              		.loc 1 42 0
+  35 0000 0128     		cmp	r0, #1
+  36 0002 05D1     		bne	.L2
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	{
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 		DMA->GLOBALCTRL |= (DMA_GLOBALCTRL_DMAEN_Msk);
+  37              		.loc 1 44 0
+  38 0004 054A     		ldr	r2, .L4
+  39 0006 1168     		ldr	r1, [r2]
+  40 0008 0123     		movs	r3, #1
+  41 000a 0B43     		orrs	r3, r1
+  42 000c 1360     		str	r3, [r2]
+  43 000e 04E0     		b	.L1
+  44              	.L2:
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	}
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	else
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	{
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 		DMA->GLOBALCTRL &= ~(DMA_GLOBALCTRL_DMAEN_Msk);
+  45              		.loc 1 48 0
+  46 0010 024A     		ldr	r2, .L4
+  47 0012 1368     		ldr	r3, [r2]
+  48 0014 0121     		movs	r1, #1
+  49 0016 8B43     		bics	r3, r1
+  50 0018 1360     		str	r3, [r2]
+  51              	.L1:
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	}
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** }
+  52              		.loc 1 50 0
+  53              		@ sp needed
+  54 001a 7047     		bx	lr
+  55              	.L5:
+  56              		.align	2
+  57              	.L4:
+  58 001c 00040040 		.word	1073742848
+  59              		.cfi_endproc
+  60              	.LFE36:
+  62              		.section	.text.DMA_GLOBALCTRL_DMAEN_Getable,"ax",%progbits
+  63              		.align	2
+  64              		.global	DMA_GLOBALCTRL_DMAEN_Getable
+  65              		.code	16
+  66              		.thumb_func
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s 			page 3
+
+
+  68              	DMA_GLOBALCTRL_DMAEN_Getable:
+  69              	.LFB37:
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** FunState DMA_GLOBALCTRL_DMAEN_Getable(void)
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** {
+  70              		.loc 1 53 0
+  71              		.cfi_startproc
+  72              		@ args = 0, pretend = 0, frame = 0
+  73              		@ frame_needed = 0, uses_anonymous_args = 0
+  74              		@ link register save eliminated.
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	if (DMA->GLOBALCTRL & (DMA_GLOBALCTRL_DMAEN_Msk))
+  75              		.loc 1 54 0
+  76 0000 034B     		ldr	r3, .L9
+  77 0002 1B68     		ldr	r3, [r3]
+  78 0004 DB07     		lsls	r3, r3, #31
+  79 0006 01D5     		bpl	.L8
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	{
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 		return ENABLE;
+  80              		.loc 1 56 0
+  81 0008 0120     		movs	r0, #1
+  82 000a 00E0     		b	.L7
+  83              	.L8:
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	}
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	else
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	{
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 		return DISABLE;
+  84              		.loc 1 60 0
+  85 000c 0020     		movs	r0, #0
+  86              	.L7:
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	}
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** }
+  87              		.loc 1 62 0
+  88              		@ sp needed
+  89 000e 7047     		bx	lr
+  90              	.L10:
+  91              		.align	2
+  92              	.L9:
+  93 0010 00040040 		.word	1073742848
+  94              		.cfi_endproc
+  95              	.LFE37:
+  97              		.section	.text.DMA_CHxCTRL_TSIZE_Set,"ax",%progbits
+  98              		.align	2
+  99              		.global	DMA_CHxCTRL_TSIZE_Set
+ 100              		.code	16
+ 101              		.thumb_func
+ 103              	DMA_CHxCTRL_TSIZE_Set:
+ 104              	.LFB38:
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** /* Channelx传输长度 相关函数 */
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** void DMA_CHxCTRL_TSIZE_Set(DMA_CH_Type CHx, uint32_t SetValue)
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** {
+ 105              		.loc 1 67 0
+ 106              		.cfi_startproc
+ 107              		@ args = 0, pretend = 0, frame = 0
+ 108              		@ frame_needed = 0, uses_anonymous_args = 0
+ 109              		@ link register save eliminated.
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s 			page 4
+
+
+ 110              	.LVL1:
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	uint32_t *pREG;
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	uint32_t tmpreg;    
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	pREG = (uint32_t *)(0x40000404 + CHx*8);//DMA->CH0CTRL;
+ 111              		.loc 1 71 0
+ 112 0000 C000     		lsls	r0, r0, #3
+ 113              	.LVL2:
+ 114 0002 064B     		ldr	r3, .L12
+ 115 0004 9C46     		mov	ip, r3
+ 116 0006 6044     		add	r0, r0, ip
+ 117              	.LVL3:
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c ****     SetValue <<= DMA_CHxCTRL_TSIZE_Pos;//手工添加
+ 118              		.loc 1 73 0
+ 119 0008 0904     		lsls	r1, r1, #16
+ 120              	.LVL4:
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	tmpreg = *pREG;
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	tmpreg &= ~(DMA_CHxCTRL_TSIZE_Msk);
+ 121              		.loc 1 75 0
+ 122 000a 054A     		ldr	r2, .L12+4
+ 123 000c 0368     		ldr	r3, [r0]
+ 124 000e 1A40     		ands	r2, r3
+ 125              	.LVL5:
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	tmpreg |= (SetValue&DMA_CHxCTRL_TSIZE_Msk);
+ 126              		.loc 1 76 0
+ 127 0010 044B     		ldr	r3, .L12+8
+ 128 0012 1940     		ands	r1, r3
+ 129              	.LVL6:
+ 130 0014 1143     		orrs	r1, r2
+ 131              	.LVL7:
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	*pREG = tmpreg;
+ 132              		.loc 1 77 0
+ 133 0016 0160     		str	r1, [r0]
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** }
+ 134              		.loc 1 78 0
+ 135              		@ sp needed
+ 136 0018 7047     		bx	lr
+ 137              	.L13:
+ 138 001a C046     		.align	2
+ 139              	.L12:
+ 140 001c 04040040 		.word	1073742852
+ 141 0020 FFFF00E0 		.word	-536805377
+ 142 0024 0000FF1F 		.word	536805376
+ 143              		.cfi_endproc
+ 144              	.LFE38:
+ 146              		.section	.text.DMA_CHxCTRL_TSIZE_Get,"ax",%progbits
+ 147              		.align	2
+ 148              		.global	DMA_CHxCTRL_TSIZE_Get
+ 149              		.code	16
+ 150              		.thumb_func
+ 152              	DMA_CHxCTRL_TSIZE_Get:
+ 153              	.LFB39:
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** uint32_t DMA_CHxCTRL_TSIZE_Get(DMA_CH_Type CHx)
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** {
+ 154              		.loc 1 81 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s 			page 5
+
+
+ 155              		.cfi_startproc
+ 156              		@ args = 0, pretend = 0, frame = 0
+ 157              		@ frame_needed = 0, uses_anonymous_args = 0
+ 158              		@ link register save eliminated.
+ 159              	.LVL8:
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	uint32_t *pREG;
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c ****     uint32_t tmpsize;
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	pREG = (uint32_t *)(0x40000404 + CHx*8);
+ 160              		.loc 1 85 0
+ 161 0000 C000     		lsls	r0, r0, #3
+ 162              	.LVL9:
+ 163 0002 034B     		ldr	r3, .L15
+ 164 0004 9C46     		mov	ip, r3
+ 165 0006 6044     		add	r0, r0, ip
+ 166              	.LVL10:
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c ****     tmpsize = (*pREG & DMA_CHxCTRL_TSIZE_Msk);
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c ****     tmpsize >>= DMA_CHxCTRL_TSIZE_Pos;
+ 167              		.loc 1 88 0
+ 168 0008 4088     		ldrh	r0, [r0, #2]
+ 169              	.LVL11:
+ 170 000a C004     		lsls	r0, r0, #19
+ 171 000c C00C     		lsrs	r0, r0, #19
+ 172              	.LVL12:
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	return tmpsize;
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** }
+ 173              		.loc 1 90 0
+ 174              		@ sp needed
+ 175 000e 7047     		bx	lr
+ 176              	.L16:
+ 177              		.align	2
+ 178              	.L15:
+ 179 0010 04040040 		.word	1073742852
+ 180              		.cfi_endproc
+ 181              	.LFE39:
+ 183              		.section	.text.DMA_CHxCTRL_PRI_Set,"ax",%progbits
+ 184              		.align	2
+ 185              		.global	DMA_CHxCTRL_PRI_Set
+ 186              		.code	16
+ 187              		.thumb_func
+ 189              	DMA_CHxCTRL_PRI_Set:
+ 190              	.LFB40:
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** /* Channelx优先级 相关函数 */
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** void DMA_CHxCTRL_PRI_Set(DMA_CH_Type CHx, uint32_t SetValue)
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** {
+ 191              		.loc 1 94 0
+ 192              		.cfi_startproc
+ 193              		@ args = 0, pretend = 0, frame = 0
+ 194              		@ frame_needed = 0, uses_anonymous_args = 0
+ 195              		@ link register save eliminated.
+ 196              	.LVL13:
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	uint32_t *pREG;
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	uint32_t tmpreg;
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	pREG = (uint32_t *)(0x40000404 + CHx*8);
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s 			page 6
+
+
+ 197              		.loc 1 98 0
+ 198 0000 C000     		lsls	r0, r0, #3
+ 199              	.LVL14:
+ 200 0002 064B     		ldr	r3, .L18
+ 201 0004 9C46     		mov	ip, r3
+ 202 0006 6044     		add	r0, r0, ip
+ 203              	.LVL15:
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	tmpreg = *pREG;
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	tmpreg &= ~(DMA_CHxCTRL_PRI_Msk);
+ 204              		.loc 1 101 0
+ 205 0008 054A     		ldr	r2, .L18+4
+ 206 000a 0368     		ldr	r3, [r0]
+ 207 000c 1A40     		ands	r2, r3
+ 208              	.LVL16:
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	tmpreg |= (SetValue&DMA_CHxCTRL_PRI_Msk);
+ 209              		.loc 1 102 0
+ 210 000e C023     		movs	r3, #192
+ 211 0010 9B01     		lsls	r3, r3, #6
+ 212 0012 1940     		ands	r1, r3
+ 213              	.LVL17:
+ 214 0014 1143     		orrs	r1, r2
+ 215              	.LVL18:
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	*pREG = tmpreg;
+ 216              		.loc 1 103 0
+ 217 0016 0160     		str	r1, [r0]
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** }
+ 218              		.loc 1 104 0
+ 219              		@ sp needed
+ 220 0018 7047     		bx	lr
+ 221              	.L19:
+ 222 001a C046     		.align	2
+ 223              	.L18:
+ 224 001c 04040040 		.word	1073742852
+ 225 0020 FFCFFFFF 		.word	-12289
+ 226              		.cfi_endproc
+ 227              	.LFE40:
+ 229              		.section	.text.DMA_CHxCTRL_PRI_Get,"ax",%progbits
+ 230              		.align	2
+ 231              		.global	DMA_CHxCTRL_PRI_Get
+ 232              		.code	16
+ 233              		.thumb_func
+ 235              	DMA_CHxCTRL_PRI_Get:
+ 236              	.LFB41:
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** uint32_t DMA_CHxCTRL_PRI_Get(DMA_CH_Type CHx)
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** {
+ 237              		.loc 1 107 0
+ 238              		.cfi_startproc
+ 239              		@ args = 0, pretend = 0, frame = 0
+ 240              		@ frame_needed = 0, uses_anonymous_args = 0
+ 241              		@ link register save eliminated.
+ 242              	.LVL19:
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	uint32_t *pREG;
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	pREG = (uint32_t *)(0x40000404 + CHx*8);
+ 243              		.loc 1 110 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s 			page 7
+
+
+ 244 0000 C000     		lsls	r0, r0, #3
+ 245              	.LVL20:
+ 246 0002 044B     		ldr	r3, .L21
+ 247 0004 9C46     		mov	ip, r3
+ 248 0006 6044     		add	r0, r0, ip
+ 249              	.LVL21:
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	return (*pREG & DMA_CHxCTRL_PRI_Msk);
+ 250              		.loc 1 111 0
+ 251 0008 0068     		ldr	r0, [r0]
+ 252              	.LVL22:
+ 253 000a C023     		movs	r3, #192
+ 254 000c 9B01     		lsls	r3, r3, #6
+ 255 000e 1840     		ands	r0, r3
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** }
+ 256              		.loc 1 112 0
+ 257              		@ sp needed
+ 258 0010 7047     		bx	lr
+ 259              	.L22:
+ 260 0012 C046     		.align	2
+ 261              	.L21:
+ 262 0014 04040040 		.word	1073742852
+ 263              		.cfi_endproc
+ 264              	.LFE41:
+ 266              		.section	.text.DMA_CHxCTRL_INC_Set,"ax",%progbits
+ 267              		.align	2
+ 268              		.global	DMA_CHxCTRL_INC_Set
+ 269              		.code	16
+ 270              		.thumb_func
+ 272              	DMA_CHxCTRL_INC_Set:
+ 273              	.LFB42:
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** /* Channelx RAM地址增减设置 相关函数 */
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** void DMA_CHxCTRL_INC_Set(DMA_CH_Type CHx, uint32_t SetValue)
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** {
+ 274              		.loc 1 116 0
+ 275              		.cfi_startproc
+ 276              		@ args = 0, pretend = 0, frame = 0
+ 277              		@ frame_needed = 0, uses_anonymous_args = 0
+ 278              		@ link register save eliminated.
+ 279              	.LVL23:
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	uint32_t *pREG;
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	uint32_t tmpreg;
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	pREG = (uint32_t *)(0x40000404 + CHx*8);
+ 280              		.loc 1 120 0
+ 281 0000 C000     		lsls	r0, r0, #3
+ 282              	.LVL24:
+ 283 0002 064B     		ldr	r3, .L24
+ 284 0004 9C46     		mov	ip, r3
+ 285 0006 6044     		add	r0, r0, ip
+ 286              	.LVL25:
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	tmpreg = *pREG;
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	tmpreg &= ~(DMA_CHxCTRL_INC_Msk);
+ 287              		.loc 1 123 0
+ 288 0008 054A     		ldr	r2, .L24+4
+ 289 000a 0368     		ldr	r3, [r0]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s 			page 8
+
+
+ 290 000c 1A40     		ands	r2, r3
+ 291              	.LVL26:
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	tmpreg |= (SetValue&DMA_CHxCTRL_INC_Msk);
+ 292              		.loc 1 124 0
+ 293 000e 8023     		movs	r3, #128
+ 294 0010 1B01     		lsls	r3, r3, #4
+ 295 0012 1940     		ands	r1, r3
+ 296              	.LVL27:
+ 297 0014 1143     		orrs	r1, r2
+ 298              	.LVL28:
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	*pREG = tmpreg;
+ 299              		.loc 1 125 0
+ 300 0016 0160     		str	r1, [r0]
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** }
+ 301              		.loc 1 126 0
+ 302              		@ sp needed
+ 303 0018 7047     		bx	lr
+ 304              	.L25:
+ 305 001a C046     		.align	2
+ 306              	.L24:
+ 307 001c 04040040 		.word	1073742852
+ 308 0020 FFF7FFFF 		.word	-2049
+ 309              		.cfi_endproc
+ 310              	.LFE42:
+ 312              		.section	.text.DMA_CHxCTRL_INC_Get,"ax",%progbits
+ 313              		.align	2
+ 314              		.global	DMA_CHxCTRL_INC_Get
+ 315              		.code	16
+ 316              		.thumb_func
+ 318              	DMA_CHxCTRL_INC_Get:
+ 319              	.LFB43:
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** uint32_t DMA_CHxCTRL_INC_Get(DMA_CH_Type CHx)
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** {
+ 320              		.loc 1 129 0
+ 321              		.cfi_startproc
+ 322              		@ args = 0, pretend = 0, frame = 0
+ 323              		@ frame_needed = 0, uses_anonymous_args = 0
+ 324              		@ link register save eliminated.
+ 325              	.LVL29:
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	uint32_t *pREG;
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	pREG = (uint32_t *)(0x40000404 + CHx*8);
+ 326              		.loc 1 132 0
+ 327 0000 C000     		lsls	r0, r0, #3
+ 328              	.LVL30:
+ 329 0002 044B     		ldr	r3, .L27
+ 330 0004 9C46     		mov	ip, r3
+ 331 0006 6044     		add	r0, r0, ip
+ 332              	.LVL31:
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	return (*pREG & DMA_CHxCTRL_INC_Msk);
+ 333              		.loc 1 133 0
+ 334 0008 0068     		ldr	r0, [r0]
+ 335              	.LVL32:
+ 336 000a 8023     		movs	r3, #128
+ 337 000c 1B01     		lsls	r3, r3, #4
+ 338 000e 1840     		ands	r0, r3
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s 			page 9
+
+
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** }
+ 339              		.loc 1 134 0
+ 340              		@ sp needed
+ 341 0010 7047     		bx	lr
+ 342              	.L28:
+ 343 0012 C046     		.align	2
+ 344              	.L27:
+ 345 0014 04040040 		.word	1073742852
+ 346              		.cfi_endproc
+ 347              	.LFE43:
+ 349              		.section	.text.DMA_CHxCTRL_SSEL_Set,"ax",%progbits
+ 350              		.align	2
+ 351              		.global	DMA_CHxCTRL_SSEL_Set
+ 352              		.code	16
+ 353              		.thumb_func
+ 355              	DMA_CHxCTRL_SSEL_Set:
+ 356              	.LFB44:
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** /* Channelx外设通道选择 相关函数 */
+ 137:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** void DMA_CHxCTRL_SSEL_Set(DMA_CH_Type CHx, uint32_t SetValue)
+ 138:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** {
+ 357              		.loc 1 138 0
+ 358              		.cfi_startproc
+ 359              		@ args = 0, pretend = 0, frame = 0
+ 360              		@ frame_needed = 0, uses_anonymous_args = 0
+ 361              		@ link register save eliminated.
+ 362              	.LVL33:
+ 139:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	uint32_t *pREG;
+ 140:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	uint32_t tmpreg;
+ 141:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	
+ 142:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	pREG = (uint32_t *)(0x40000404 + CHx*8);
+ 363              		.loc 1 142 0
+ 364 0000 C000     		lsls	r0, r0, #3
+ 365              	.LVL34:
+ 366 0002 064B     		ldr	r3, .L30
+ 367 0004 9C46     		mov	ip, r3
+ 368 0006 6044     		add	r0, r0, ip
+ 369              	.LVL35:
+ 143:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	
+ 144:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	tmpreg = *pREG;
+ 145:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	tmpreg &= ~(DMA_CHxCTRL_SSEL_Msk);
+ 370              		.loc 1 145 0
+ 371 0008 054A     		ldr	r2, .L30+4
+ 372 000a 0368     		ldr	r3, [r0]
+ 373 000c 1A40     		ands	r2, r3
+ 374              	.LVL36:
+ 146:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	tmpreg |= (SetValue&DMA_CHxCTRL_SSEL_Msk);
+ 375              		.loc 1 146 0
+ 376 000e E023     		movs	r3, #224
+ 377 0010 DB00     		lsls	r3, r3, #3
+ 378 0012 1940     		ands	r1, r3
+ 379              	.LVL37:
+ 380 0014 1143     		orrs	r1, r2
+ 381              	.LVL38:
+ 147:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	*pREG = tmpreg;
+ 382              		.loc 1 147 0
+ 383 0016 0160     		str	r1, [r0]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s 			page 10
+
+
+ 148:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** }
+ 384              		.loc 1 148 0
+ 385              		@ sp needed
+ 386 0018 7047     		bx	lr
+ 387              	.L31:
+ 388 001a C046     		.align	2
+ 389              	.L30:
+ 390 001c 04040040 		.word	1073742852
+ 391 0020 FFF8FFFF 		.word	-1793
+ 392              		.cfi_endproc
+ 393              	.LFE44:
+ 395              		.section	.text.DMA_CHxCTRL_SSEL_Get,"ax",%progbits
+ 396              		.align	2
+ 397              		.global	DMA_CHxCTRL_SSEL_Get
+ 398              		.code	16
+ 399              		.thumb_func
+ 401              	DMA_CHxCTRL_SSEL_Get:
+ 402              	.LFB45:
+ 149:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+ 150:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** uint32_t DMA_CHxCTRL_SSEL_Get(DMA_CH_Type CHx)
+ 151:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** {
+ 403              		.loc 1 151 0
+ 404              		.cfi_startproc
+ 405              		@ args = 0, pretend = 0, frame = 0
+ 406              		@ frame_needed = 0, uses_anonymous_args = 0
+ 407              		@ link register save eliminated.
+ 408              	.LVL39:
+ 152:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	uint32_t *pREG;
+ 153:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	
+ 154:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	pREG = (uint32_t *)(0x40000404 + CHx*8);
+ 409              		.loc 1 154 0
+ 410 0000 C000     		lsls	r0, r0, #3
+ 411              	.LVL40:
+ 412 0002 044B     		ldr	r3, .L33
+ 413 0004 9C46     		mov	ip, r3
+ 414 0006 6044     		add	r0, r0, ip
+ 415              	.LVL41:
+ 155:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	return (*pREG & DMA_CHxCTRL_SSEL_Msk);
+ 416              		.loc 1 155 0
+ 417 0008 0068     		ldr	r0, [r0]
+ 418              	.LVL42:
+ 419 000a E023     		movs	r3, #224
+ 420 000c DB00     		lsls	r3, r3, #3
+ 421 000e 1840     		ands	r0, r3
+ 156:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** }
+ 422              		.loc 1 156 0
+ 423              		@ sp needed
+ 424 0010 7047     		bx	lr
+ 425              	.L34:
+ 426 0012 C046     		.align	2
+ 427              	.L33:
+ 428 0014 04040040 		.word	1073742852
+ 429              		.cfi_endproc
+ 430              	.LFE45:
+ 432              		.section	.text.DMA_CHxCTRL_FTIE_Setable,"ax",%progbits
+ 433              		.align	2
+ 434              		.global	DMA_CHxCTRL_FTIE_Setable
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s 			page 11
+
+
+ 435              		.code	16
+ 436              		.thumb_func
+ 438              	DMA_CHxCTRL_FTIE_Setable:
+ 439              	.LFB46:
+ 157:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+ 158:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** /* Channelx传输完成中断使能 相关函数 */
+ 159:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** void DMA_CHxCTRL_FTIE_Setable(DMA_CH_Type CHx, FunState NewState)
+ 160:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** {
+ 440              		.loc 1 160 0
+ 441              		.cfi_startproc
+ 442              		@ args = 0, pretend = 0, frame = 0
+ 443              		@ frame_needed = 0, uses_anonymous_args = 0
+ 444              		@ link register save eliminated.
+ 445              	.LVL43:
+ 161:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	uint32_t *pREG;
+ 162:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	
+ 163:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	pREG = (uint32_t *)(0x40000404 + CHx*8);
+ 446              		.loc 1 163 0
+ 447 0000 C000     		lsls	r0, r0, #3
+ 448              	.LVL44:
+ 449 0002 074B     		ldr	r3, .L38
+ 450 0004 9C46     		mov	ip, r3
+ 451 0006 6044     		add	r0, r0, ip
+ 452              	.LVL45:
+ 164:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	if (NewState == ENABLE)
+ 453              		.loc 1 164 0
+ 454 0008 0129     		cmp	r1, #1
+ 455 000a 04D1     		bne	.L36
+ 165:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	{
+ 166:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 		*pREG |= (DMA_CHxCTRL_FTIE_Msk);
+ 456              		.loc 1 166 0
+ 457 000c 0423     		movs	r3, #4
+ 458 000e 0268     		ldr	r2, [r0]
+ 459 0010 1343     		orrs	r3, r2
+ 460 0012 0360     		str	r3, [r0]
+ 461 0014 03E0     		b	.L35
+ 462              	.L36:
+ 167:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	}
+ 168:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	else
+ 169:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	{
+ 170:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 		*pREG &= ~(DMA_CHxCTRL_FTIE_Msk);
+ 463              		.loc 1 170 0
+ 464 0016 0423     		movs	r3, #4
+ 465 0018 0268     		ldr	r2, [r0]
+ 466 001a 9A43     		bics	r2, r3
+ 467 001c 0260     		str	r2, [r0]
+ 468              	.L35:
+ 171:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	}
+ 172:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** }
+ 469              		.loc 1 172 0
+ 470              		@ sp needed
+ 471 001e 7047     		bx	lr
+ 472              	.L39:
+ 473              		.align	2
+ 474              	.L38:
+ 475 0020 04040040 		.word	1073742852
+ 476              		.cfi_endproc
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s 			page 12
+
+
+ 477              	.LFE46:
+ 479              		.section	.text.DMA_CHxCTRL_FTIE_Getable,"ax",%progbits
+ 480              		.align	2
+ 481              		.global	DMA_CHxCTRL_FTIE_Getable
+ 482              		.code	16
+ 483              		.thumb_func
+ 485              	DMA_CHxCTRL_FTIE_Getable:
+ 486              	.LFB47:
+ 173:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+ 174:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** FunState DMA_CHxCTRL_FTIE_Getable(DMA_CH_Type CHx)
+ 175:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** {
+ 487              		.loc 1 175 0
+ 488              		.cfi_startproc
+ 489              		@ args = 0, pretend = 0, frame = 0
+ 490              		@ frame_needed = 0, uses_anonymous_args = 0
+ 491              		@ link register save eliminated.
+ 492              	.LVL46:
+ 176:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	uint32_t *pREG;
+ 177:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	
+ 178:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	pREG = (uint32_t *)(0x40000404 + CHx*8);
+ 493              		.loc 1 178 0
+ 494 0000 C000     		lsls	r0, r0, #3
+ 495              	.LVL47:
+ 496 0002 054B     		ldr	r3, .L43
+ 497 0004 9C46     		mov	ip, r3
+ 498 0006 6044     		add	r0, r0, ip
+ 499              	.LVL48:
+ 179:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	if (*pREG & (DMA_CHxCTRL_FTIE_Msk))
+ 500              		.loc 1 179 0
+ 501 0008 0368     		ldr	r3, [r0]
+ 502 000a 5B07     		lsls	r3, r3, #29
+ 503 000c 01D5     		bpl	.L42
+ 180:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	{
+ 181:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 		return ENABLE;
+ 504              		.loc 1 181 0
+ 505 000e 0120     		movs	r0, #1
+ 506              	.LVL49:
+ 507 0010 00E0     		b	.L41
+ 508              	.LVL50:
+ 509              	.L42:
+ 182:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	}
+ 183:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	else
+ 184:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	{
+ 185:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 		return DISABLE;
+ 510              		.loc 1 185 0
+ 511 0012 0020     		movs	r0, #0
+ 512              	.LVL51:
+ 513              	.L41:
+ 186:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	}
+ 187:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** }
+ 514              		.loc 1 187 0
+ 515              		@ sp needed
+ 516 0014 7047     		bx	lr
+ 517              	.L44:
+ 518 0016 C046     		.align	2
+ 519              	.L43:
+ 520 0018 04040040 		.word	1073742852
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s 			page 13
+
+
+ 521              		.cfi_endproc
+ 522              	.LFE47:
+ 524              		.section	.text.DMA_CHxCTRL_HTIE_Setable,"ax",%progbits
+ 525              		.align	2
+ 526              		.global	DMA_CHxCTRL_HTIE_Setable
+ 527              		.code	16
+ 528              		.thumb_func
+ 530              	DMA_CHxCTRL_HTIE_Setable:
+ 531              	.LFB48:
+ 188:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+ 189:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** /* Channelx半程传输完成中断使能 相关函数 */
+ 190:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** void DMA_CHxCTRL_HTIE_Setable(DMA_CH_Type CHx, FunState NewState)
+ 191:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** {
+ 532              		.loc 1 191 0
+ 533              		.cfi_startproc
+ 534              		@ args = 0, pretend = 0, frame = 0
+ 535              		@ frame_needed = 0, uses_anonymous_args = 0
+ 536              		@ link register save eliminated.
+ 537              	.LVL52:
+ 192:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	uint32_t *pREG;
+ 193:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	
+ 194:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	pREG = (uint32_t *)(0x40000404 + CHx*8);
+ 538              		.loc 1 194 0
+ 539 0000 C000     		lsls	r0, r0, #3
+ 540              	.LVL53:
+ 541 0002 074B     		ldr	r3, .L48
+ 542 0004 9C46     		mov	ip, r3
+ 543 0006 6044     		add	r0, r0, ip
+ 544              	.LVL54:
+ 195:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	if (NewState == ENABLE)
+ 545              		.loc 1 195 0
+ 546 0008 0129     		cmp	r1, #1
+ 547 000a 04D1     		bne	.L46
+ 196:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	{
+ 197:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 		*pREG |= (DMA_CHxCTRL_HTIE_Msk);
+ 548              		.loc 1 197 0
+ 549 000c 0223     		movs	r3, #2
+ 550 000e 0268     		ldr	r2, [r0]
+ 551 0010 1343     		orrs	r3, r2
+ 552 0012 0360     		str	r3, [r0]
+ 553 0014 03E0     		b	.L45
+ 554              	.L46:
+ 198:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	}
+ 199:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	else
+ 200:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	{
+ 201:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 		*pREG &= ~(DMA_CHxCTRL_HTIE_Msk);
+ 555              		.loc 1 201 0
+ 556 0016 0223     		movs	r3, #2
+ 557 0018 0268     		ldr	r2, [r0]
+ 558 001a 9A43     		bics	r2, r3
+ 559 001c 0260     		str	r2, [r0]
+ 560              	.L45:
+ 202:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	}
+ 203:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** }
+ 561              		.loc 1 203 0
+ 562              		@ sp needed
+ 563 001e 7047     		bx	lr
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s 			page 14
+
+
+ 564              	.L49:
+ 565              		.align	2
+ 566              	.L48:
+ 567 0020 04040040 		.word	1073742852
+ 568              		.cfi_endproc
+ 569              	.LFE48:
+ 571              		.section	.text.DMA_CHxCTRL_HTIE_Getable,"ax",%progbits
+ 572              		.align	2
+ 573              		.global	DMA_CHxCTRL_HTIE_Getable
+ 574              		.code	16
+ 575              		.thumb_func
+ 577              	DMA_CHxCTRL_HTIE_Getable:
+ 578              	.LFB49:
+ 204:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+ 205:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** FunState DMA_CHxCTRL_HTIE_Getable(DMA_CH_Type CHx)
+ 206:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** {
+ 579              		.loc 1 206 0
+ 580              		.cfi_startproc
+ 581              		@ args = 0, pretend = 0, frame = 0
+ 582              		@ frame_needed = 0, uses_anonymous_args = 0
+ 583              		@ link register save eliminated.
+ 584              	.LVL55:
+ 207:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	uint32_t *pREG;
+ 208:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	
+ 209:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	pREG = (uint32_t *)(0x40000404 + CHx*8);
+ 585              		.loc 1 209 0
+ 586 0000 C000     		lsls	r0, r0, #3
+ 587              	.LVL56:
+ 588 0002 054B     		ldr	r3, .L53
+ 589 0004 9C46     		mov	ip, r3
+ 590 0006 6044     		add	r0, r0, ip
+ 591              	.LVL57:
+ 210:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	if (*pREG & (DMA_CHxCTRL_HTIE_Msk))
+ 592              		.loc 1 210 0
+ 593 0008 0368     		ldr	r3, [r0]
+ 594 000a 9B07     		lsls	r3, r3, #30
+ 595 000c 01D5     		bpl	.L52
+ 211:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	{
+ 212:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 		return ENABLE;
+ 596              		.loc 1 212 0
+ 597 000e 0120     		movs	r0, #1
+ 598              	.LVL58:
+ 599 0010 00E0     		b	.L51
+ 600              	.LVL59:
+ 601              	.L52:
+ 213:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	}
+ 214:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	else
+ 215:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	{
+ 216:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 		return DISABLE;
+ 602              		.loc 1 216 0
+ 603 0012 0020     		movs	r0, #0
+ 604              	.LVL60:
+ 605              	.L51:
+ 217:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	}
+ 218:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** }
+ 606              		.loc 1 218 0
+ 607              		@ sp needed
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s 			page 15
+
+
+ 608 0014 7047     		bx	lr
+ 609              	.L54:
+ 610 0016 C046     		.align	2
+ 611              	.L53:
+ 612 0018 04040040 		.word	1073742852
+ 613              		.cfi_endproc
+ 614              	.LFE49:
+ 616              		.section	.text.DMA_CHxCTRL_EN_Setable,"ax",%progbits
+ 617              		.align	2
+ 618              		.global	DMA_CHxCTRL_EN_Setable
+ 619              		.code	16
+ 620              		.thumb_func
+ 622              	DMA_CHxCTRL_EN_Setable:
+ 623              	.LFB50:
+ 219:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+ 220:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** /* Channelx使能 相关函数 */
+ 221:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** void DMA_CHxCTRL_EN_Setable(DMA_CH_Type CHx, FunState NewState)
+ 222:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** {
+ 624              		.loc 1 222 0
+ 625              		.cfi_startproc
+ 626              		@ args = 0, pretend = 0, frame = 0
+ 627              		@ frame_needed = 0, uses_anonymous_args = 0
+ 628              		@ link register save eliminated.
+ 629              	.LVL61:
+ 223:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	uint32_t *pREG;
+ 224:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	
+ 225:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	pREG = (uint32_t *)(0x40000404 + CHx*8);
+ 630              		.loc 1 225 0
+ 631 0000 C000     		lsls	r0, r0, #3
+ 632              	.LVL62:
+ 633 0002 074B     		ldr	r3, .L58
+ 634 0004 9C46     		mov	ip, r3
+ 635 0006 6044     		add	r0, r0, ip
+ 636              	.LVL63:
+ 226:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	if (NewState == ENABLE)
+ 637              		.loc 1 226 0
+ 638 0008 0129     		cmp	r1, #1
+ 639 000a 04D1     		bne	.L56
+ 227:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	{
+ 228:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 		*pREG |= (DMA_CHxCTRL_EN_Msk);
+ 640              		.loc 1 228 0
+ 641 000c 0123     		movs	r3, #1
+ 642 000e 0268     		ldr	r2, [r0]
+ 643 0010 1343     		orrs	r3, r2
+ 644 0012 0360     		str	r3, [r0]
+ 645 0014 03E0     		b	.L55
+ 646              	.L56:
+ 229:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	}
+ 230:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	else
+ 231:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	{
+ 232:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 		*pREG &= ~(DMA_CHxCTRL_EN_Msk);
+ 647              		.loc 1 232 0
+ 648 0016 0123     		movs	r3, #1
+ 649 0018 0268     		ldr	r2, [r0]
+ 650 001a 9A43     		bics	r2, r3
+ 651 001c 0260     		str	r2, [r0]
+ 652              	.L55:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s 			page 16
+
+
+ 233:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	}
+ 234:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** }
+ 653              		.loc 1 234 0
+ 654              		@ sp needed
+ 655 001e 7047     		bx	lr
+ 656              	.L59:
+ 657              		.align	2
+ 658              	.L58:
+ 659 0020 04040040 		.word	1073742852
+ 660              		.cfi_endproc
+ 661              	.LFE50:
+ 663              		.section	.text.DMA_CHxRAMAD_Write,"ax",%progbits
+ 664              		.align	2
+ 665              		.global	DMA_CHxRAMAD_Write
+ 666              		.code	16
+ 667              		.thumb_func
+ 669              	DMA_CHxRAMAD_Write:
+ 670              	.LFB51:
+ 235:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+ 236:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** /* Channelx指针寄存器 相关函数 */
+ 237:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** void DMA_CHxRAMAD_Write(DMA_CH_Type CHx, uint32_t SetValue)
+ 238:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** {
+ 671              		.loc 1 238 0
+ 672              		.cfi_startproc
+ 673              		@ args = 0, pretend = 0, frame = 0
+ 674              		@ frame_needed = 0, uses_anonymous_args = 0
+ 675              		@ link register save eliminated.
+ 676              	.LVL64:
+ 239:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	uint32_t *pREG;
+ 240:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	
+ 241:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	pREG = (uint32_t *)(0x40000404 + 4 + CHx*8);
+ 677              		.loc 1 241 0
+ 678 0000 024B     		ldr	r3, .L61
+ 679 0002 9C46     		mov	ip, r3
+ 680 0004 6044     		add	r0, r0, ip
+ 681              	.LVL65:
+ 682 0006 C000     		lsls	r0, r0, #3
+ 683              	.LVL66:
+ 242:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	*pREG = SetValue;
+ 684              		.loc 1 242 0
+ 685 0008 0160     		str	r1, [r0]
+ 243:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** }
+ 686              		.loc 1 243 0
+ 687              		@ sp needed
+ 688 000a 7047     		bx	lr
+ 689              	.L62:
+ 690              		.align	2
+ 691              	.L61:
+ 692 000c 81000008 		.word	134217857
+ 693              		.cfi_endproc
+ 694              	.LFE51:
+ 696              		.section	.text.DMA_CH7FLSAD_Write,"ax",%progbits
+ 697              		.align	2
+ 698              		.global	DMA_CH7FLSAD_Write
+ 699              		.code	16
+ 700              		.thumb_func
+ 702              	DMA_CH7FLSAD_Write:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s 			page 17
+
+
+ 703              	.LFB52:
+ 244:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+ 245:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** //uint32_t DMA_CHxRAMAD_Read(DMA_CH_Type CHx)
+ 246:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** //{
+ 247:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** //	uint32_t *pREG;
+ 248:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** //	
+ 249:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** //	pREG = (uint32_t *)(0x40000404 + 4 + CHx*8);
+ 250:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** //	return (*pREG);
+ 251:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** //}
+ 252:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+ 253:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+ 254:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** /* Channel7FLASH指针地址 相关函数 */
+ 255:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** void DMA_CH7FLSAD_Write(uint32_t SetValue)
+ 256:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** {
+ 704              		.loc 1 256 0
+ 705              		.cfi_startproc
+ 706              		@ args = 0, pretend = 0, frame = 0
+ 707              		@ frame_needed = 0, uses_anonymous_args = 0
+ 708              		@ link register save eliminated.
+ 709              	.LVL67:
+ 257:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** //	DMA->CH7FLSAD = SetValue;
+ 258:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	DMA->CH7FLSAD = SetValue>>2;//CH7的flash地址是字地址，此处做了右移2bit处理，以便使用时可以使用普通
+ 710              		.loc 1 258 0
+ 711 0000 8008     		lsrs	r0, r0, #2
+ 712              	.LVL68:
+ 713 0002 014B     		ldr	r3, .L64
+ 714 0004 1864     		str	r0, [r3, #64]
+ 259:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** }
+ 715              		.loc 1 259 0
+ 716              		@ sp needed
+ 717 0006 7047     		bx	lr
+ 718              	.L65:
+ 719              		.align	2
+ 720              	.L64:
+ 721 0008 00040040 		.word	1073742848
+ 722              		.cfi_endproc
+ 723              	.LFE52:
+ 725              		.section	.text.DMA_CH7RAMAD_Write,"ax",%progbits
+ 726              		.align	2
+ 727              		.global	DMA_CH7RAMAD_Write
+ 728              		.code	16
+ 729              		.thumb_func
+ 731              	DMA_CH7RAMAD_Write:
+ 732              	.LFB53:
+ 260:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+ 261:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** //uint32_t DMA_CH7FLSAD_Read(void)
+ 262:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** //{
+ 263:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** //	return (DMA->CH7FLSAD);
+ 264:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** //}
+ 265:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+ 266:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** /* Channel7RAM字指针地址(word地址) 相关函数 */
+ 267:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** void DMA_CH7RAMAD_Write(uint32_t SetValue)
+ 268:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** {
+ 733              		.loc 1 268 0
+ 734              		.cfi_startproc
+ 735              		@ args = 0, pretend = 0, frame = 0
+ 736              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s 			page 18
+
+
+ 737              		@ link register save eliminated.
+ 738              	.LVL69:
+ 269:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** //	DMA->CH7RAMAD = SetValue;
+ 270:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	DMA->CH7RAMAD = SetValue>>2;//CH7的RAM地址是字地址，此处做了右移2bit处理，以便使用时可以使用普通地
+ 739              		.loc 1 270 0
+ 740 0000 8008     		lsrs	r0, r0, #2
+ 741              	.LVL70:
+ 742 0002 014B     		ldr	r3, .L67
+ 743 0004 5864     		str	r0, [r3, #68]
+ 271:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** }
+ 744              		.loc 1 271 0
+ 745              		@ sp needed
+ 746 0006 7047     		bx	lr
+ 747              	.L68:
+ 748              		.align	2
+ 749              	.L67:
+ 750 0008 00040040 		.word	1073742848
+ 751              		.cfi_endproc
+ 752              	.LFE53:
+ 754              		.section	.text.DMA_CHSTATUS_DMACHxHT_Clr,"ax",%progbits
+ 755              		.align	2
+ 756              		.global	DMA_CHSTATUS_DMACHxHT_Clr
+ 757              		.code	16
+ 758              		.thumb_func
+ 760              	DMA_CHSTATUS_DMACHxHT_Clr:
+ 761              	.LFB54:
+ 272:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+ 273:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** //uint32_t DMA_CH7RAMAD_Read(void)
+ 274:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** //{
+ 275:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** //	return (DMA->CH7RAMAD);
+ 276:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** //}
+ 277:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+ 278:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+ 279:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** /* Channelx传输半程标志 相关函数 */
+ 280:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** void DMA_CHSTATUS_DMACHxHT_Clr(DMA_CH_Type CHx)
+ 281:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** {
+ 762              		.loc 1 281 0
+ 763              		.cfi_startproc
+ 764              		@ args = 0, pretend = 0, frame = 0
+ 765              		@ frame_needed = 0, uses_anonymous_args = 0
+ 766              		@ link register save eliminated.
+ 767              	.LVL71:
+ 282:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	DMA->CHSTATUS = (0x1U<<CHx);
+ 768              		.loc 1 282 0
+ 769 0000 0123     		movs	r3, #1
+ 770 0002 8340     		lsls	r3, r3, r0
+ 771 0004 014A     		ldr	r2, .L70
+ 772 0006 9364     		str	r3, [r2, #72]
+ 283:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** }
+ 773              		.loc 1 283 0
+ 774              		@ sp needed
+ 775 0008 7047     		bx	lr
+ 776              	.L71:
+ 777 000a C046     		.align	2
+ 778              	.L70:
+ 779 000c 00040040 		.word	1073742848
+ 780              		.cfi_endproc
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s 			page 19
+
+
+ 781              	.LFE54:
+ 783              		.section	.text.DMA_CHSTATUS_DMACHxHT_Chk,"ax",%progbits
+ 784              		.align	2
+ 785              		.global	DMA_CHSTATUS_DMACHxHT_Chk
+ 786              		.code	16
+ 787              		.thumb_func
+ 789              	DMA_CHSTATUS_DMACHxHT_Chk:
+ 790              	.LFB55:
+ 284:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+ 285:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** FlagStatus DMA_CHSTATUS_DMACHxHT_Chk(DMA_CH_Type CHx)
+ 286:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** {
+ 791              		.loc 1 286 0
+ 792              		.cfi_startproc
+ 793              		@ args = 0, pretend = 0, frame = 0
+ 794              		@ frame_needed = 0, uses_anonymous_args = 0
+ 795              		@ link register save eliminated.
+ 796              	.LVL72:
+ 287:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	if (DMA->CHSTATUS & (0x1U<<CHx))
+ 797              		.loc 1 287 0
+ 798 0000 044B     		ldr	r3, .L75
+ 799 0002 9A6C     		ldr	r2, [r3, #72]
+ 800 0004 0123     		movs	r3, #1
+ 801 0006 8340     		lsls	r3, r3, r0
+ 802 0008 1342     		tst	r3, r2
+ 803 000a 01D0     		beq	.L74
+ 288:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	{
+ 289:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 		return SET;
+ 804              		.loc 1 289 0
+ 805 000c 0120     		movs	r0, #1
+ 806              	.LVL73:
+ 807 000e 00E0     		b	.L73
+ 808              	.LVL74:
+ 809              	.L74:
+ 290:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	}
+ 291:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	else
+ 292:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	{
+ 293:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 		return RESET;
+ 810              		.loc 1 293 0
+ 811 0010 0020     		movs	r0, #0
+ 812              	.LVL75:
+ 813              	.L73:
+ 294:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	}
+ 295:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** }
+ 814              		.loc 1 295 0
+ 815              		@ sp needed
+ 816 0012 7047     		bx	lr
+ 817              	.L76:
+ 818              		.align	2
+ 819              	.L75:
+ 820 0014 00040040 		.word	1073742848
+ 821              		.cfi_endproc
+ 822              	.LFE55:
+ 824              		.section	.text.DMA_CHSTATUS_DMACHxFT_Clr,"ax",%progbits
+ 825              		.align	2
+ 826              		.global	DMA_CHSTATUS_DMACHxFT_Clr
+ 827              		.code	16
+ 828              		.thumb_func
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s 			page 20
+
+
+ 830              	DMA_CHSTATUS_DMACHxFT_Clr:
+ 831              	.LFB56:
+ 296:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+ 297:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** /* Channelx传输完成标志 相关函数 */
+ 298:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** void DMA_CHSTATUS_DMACHxFT_Clr(DMA_CH_Type CHx)
+ 299:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** {
+ 832              		.loc 1 299 0
+ 833              		.cfi_startproc
+ 834              		@ args = 0, pretend = 0, frame = 0
+ 835              		@ frame_needed = 0, uses_anonymous_args = 0
+ 836              		@ link register save eliminated.
+ 837              	.LVL76:
+ 300:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	DMA->CHSTATUS = (0x100U<<CHx);
+ 838              		.loc 1 300 0
+ 839 0000 8023     		movs	r3, #128
+ 840 0002 5B00     		lsls	r3, r3, #1
+ 841 0004 8340     		lsls	r3, r3, r0
+ 842 0006 014A     		ldr	r2, .L78
+ 843 0008 9364     		str	r3, [r2, #72]
+ 301:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** }
+ 844              		.loc 1 301 0
+ 845              		@ sp needed
+ 846 000a 7047     		bx	lr
+ 847              	.L79:
+ 848              		.align	2
+ 849              	.L78:
+ 850 000c 00040040 		.word	1073742848
+ 851              		.cfi_endproc
+ 852              	.LFE56:
+ 854              		.section	.text.DMA_CHSTATUS_DMACHxFT_Chk,"ax",%progbits
+ 855              		.align	2
+ 856              		.global	DMA_CHSTATUS_DMACHxFT_Chk
+ 857              		.code	16
+ 858              		.thumb_func
+ 860              	DMA_CHSTATUS_DMACHxFT_Chk:
+ 861              	.LFB57:
+ 302:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+ 303:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** FlagStatus DMA_CHSTATUS_DMACHxFT_Chk(DMA_CH_Type CHx)
+ 304:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** {
+ 862              		.loc 1 304 0
+ 863              		.cfi_startproc
+ 864              		@ args = 0, pretend = 0, frame = 0
+ 865              		@ frame_needed = 0, uses_anonymous_args = 0
+ 866              		@ link register save eliminated.
+ 867              	.LVL77:
+ 305:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	if (DMA->CHSTATUS & (0x100U<<CHx))
+ 868              		.loc 1 305 0
+ 869 0000 054B     		ldr	r3, .L83
+ 870 0002 9A6C     		ldr	r2, [r3, #72]
+ 871 0004 8023     		movs	r3, #128
+ 872 0006 5B00     		lsls	r3, r3, #1
+ 873 0008 8340     		lsls	r3, r3, r0
+ 874 000a 1342     		tst	r3, r2
+ 875 000c 01D0     		beq	.L82
+ 306:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	{
+ 307:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 		return SET;
+ 876              		.loc 1 307 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s 			page 21
+
+
+ 877 000e 0120     		movs	r0, #1
+ 878              	.LVL78:
+ 879 0010 00E0     		b	.L81
+ 880              	.LVL79:
+ 881              	.L82:
+ 308:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	}
+ 309:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	else
+ 310:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	{
+ 311:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 		return RESET;
+ 882              		.loc 1 311 0
+ 883 0012 0020     		movs	r0, #0
+ 884              	.LVL80:
+ 885              	.L81:
+ 312:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	}
+ 313:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** }
+ 886              		.loc 1 313 0
+ 887              		@ sp needed
+ 888 0014 7047     		bx	lr
+ 889              	.L84:
+ 890 0016 C046     		.align	2
+ 891              	.L83:
+ 892 0018 00040040 		.word	1073742848
+ 893              		.cfi_endproc
+ 894              	.LFE57:
+ 896              		.section	.text.DMA_Deinit,"ax",%progbits
+ 897              		.align	2
+ 898              		.global	DMA_Deinit
+ 899              		.code	16
+ 900              		.thumb_func
+ 902              	DMA_Deinit:
+ 903              	.LFB58:
+ 314:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+ 315:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+ 316:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** void DMA_Deinit(void)
+ 317:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** {
+ 904              		.loc 1 317 0
+ 905              		.cfi_startproc
+ 906              		@ args = 0, pretend = 0, frame = 0
+ 907              		@ frame_needed = 0, uses_anonymous_args = 0
+ 908              		@ link register save eliminated.
+ 318:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	DMA->GLOBALCTRL = 0x00000000;
+ 909              		.loc 1 318 0
+ 910 0000 0A4B     		ldr	r3, .L86
+ 911 0002 0022     		movs	r2, #0
+ 912 0004 1A60     		str	r2, [r3]
+ 319:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	DMA->CH0CTRL = 0x00000000;
+ 913              		.loc 1 319 0
+ 914 0006 5A60     		str	r2, [r3, #4]
+ 320:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	DMA->CH0RAMAD = 0x00000000;
+ 915              		.loc 1 320 0
+ 916 0008 9A60     		str	r2, [r3, #8]
+ 321:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	DMA->CH1CTRL = 0x00000000;
+ 917              		.loc 1 321 0
+ 918 000a DA60     		str	r2, [r3, #12]
+ 322:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	DMA->CH1RAMAD = 0x00000000;
+ 919              		.loc 1 322 0
+ 920 000c 1A61     		str	r2, [r3, #16]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s 			page 22
+
+
+ 323:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	DMA->CH2CTRL = 0x00000000;
+ 921              		.loc 1 323 0
+ 922 000e 5A61     		str	r2, [r3, #20]
+ 324:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	DMA->CH2RAMAD = 0x00000000;
+ 923              		.loc 1 324 0
+ 924 0010 9A61     		str	r2, [r3, #24]
+ 325:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	DMA->CH3CTRL = 0x00000000;
+ 925              		.loc 1 325 0
+ 926 0012 DA61     		str	r2, [r3, #28]
+ 326:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	DMA->CH3RAMAD = 0x00000000;
+ 927              		.loc 1 326 0
+ 928 0014 1A62     		str	r2, [r3, #32]
+ 327:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	DMA->CH4CTRL = 0x00000000;
+ 929              		.loc 1 327 0
+ 930 0016 5A62     		str	r2, [r3, #36]
+ 328:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	DMA->CH4RAMAD = 0x00000000;
+ 931              		.loc 1 328 0
+ 932 0018 9A62     		str	r2, [r3, #40]
+ 329:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	DMA->CH5CTRL = 0x00000000;
+ 933              		.loc 1 329 0
+ 934 001a DA62     		str	r2, [r3, #44]
+ 330:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	DMA->CH5RAMAD = 0x00000000;
+ 935              		.loc 1 330 0
+ 936 001c 1A63     		str	r2, [r3, #48]
+ 331:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	DMA->CH6CTRL = 0x00000000;
+ 937              		.loc 1 331 0
+ 938 001e 5A63     		str	r2, [r3, #52]
+ 332:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	DMA->CH6RAMAD = 0x00000000;
+ 939              		.loc 1 332 0
+ 940 0020 9A63     		str	r2, [r3, #56]
+ 333:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	DMA->CH7CTRL = 0x00000000;
+ 941              		.loc 1 333 0
+ 942 0022 DA63     		str	r2, [r3, #60]
+ 334:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	DMA->CH7FLSAD = 0x00000000;
+ 943              		.loc 1 334 0
+ 944 0024 1A64     		str	r2, [r3, #64]
+ 335:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	DMA->CH7RAMAD = 0x00000000;
+ 945              		.loc 1 335 0
+ 946 0026 5A64     		str	r2, [r3, #68]
+ 336:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	DMA->CHSTATUS = 0x00000000;
+ 947              		.loc 1 336 0
+ 948 0028 9A64     		str	r2, [r3, #72]
+ 337:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** }
+ 949              		.loc 1 337 0
+ 950              		@ sp needed
+ 951 002a 7047     		bx	lr
+ 952              	.L87:
+ 953              		.align	2
+ 954              	.L86:
+ 955 002c 00040040 		.word	1073742848
+ 956              		.cfi_endproc
+ 957              	.LFE58:
+ 959              		.section	.text.DMA_Init,"ax",%progbits
+ 960              		.align	2
+ 961              		.global	DMA_Init
+ 962              		.code	16
+ 963              		.thumb_func
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s 			page 23
+
+
+ 965              	DMA_Init:
+ 966              	.LFB59:
+ 338:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** //Code_End
+ 339:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c ****           
+ 340:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 
+ 341:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** void DMA_Init(DMA_InitTypeDef* para)
+ 342:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** {
+ 967              		.loc 1 342 0
+ 968              		.cfi_startproc
+ 969              		@ args = 0, pretend = 0, frame = 0
+ 970              		@ frame_needed = 0, uses_anonymous_args = 0
+ 971              	.LVL81:
+ 972 0000 10B5     		push	{r4, lr}
+ 973              	.LCFI0:
+ 974              		.cfi_def_cfa_offset 8
+ 975              		.cfi_offset 4, -8
+ 976              		.cfi_offset 14, -4
+ 977 0002 0400     		movs	r4, r0
+ 343:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	if( DMA_CH7 == para->CHx )
+ 978              		.loc 1 343 0
+ 979 0004 0078     		ldrb	r0, [r0]
+ 980              	.LVL82:
+ 981 0006 0728     		cmp	r0, #7
+ 982 0008 06D1     		bne	.L89
+ 344:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	{
+ 345:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 		DMA_CH7RAMAD_Write(para->CHxRAMAD);//CH0~CH7通道RAM指针地址
+ 983              		.loc 1 345 0
+ 984 000a A069     		ldr	r0, [r4, #24]
+ 985 000c FFF7FEFF 		bl	DMA_CH7RAMAD_Write
+ 986              	.LVL83:
+ 346:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 		DMA_CH7FLSAD_Write(para->CH7FLSAD);//通道FLASH指针地址，仅针对通道7有意义
+ 987              		.loc 1 346 0
+ 988 0010 E069     		ldr	r0, [r4, #28]
+ 989 0012 FFF7FEFF 		bl	DMA_CH7FLSAD_Write
+ 990              	.LVL84:
+ 991 0016 02E0     		b	.L90
+ 992              	.L89:
+ 347:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	}
+ 348:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	else
+ 349:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	{
+ 350:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 		DMA_CHxRAMAD_Write(para->CHx, para->CHxRAMAD);//CH0~CH7通道RAM指针地址
+ 993              		.loc 1 350 0
+ 994 0018 A169     		ldr	r1, [r4, #24]
+ 995 001a FFF7FEFF 		bl	DMA_CHxRAMAD_Write
+ 996              	.LVL85:
+ 997              	.L90:
+ 351:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	}
+ 352:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	
+ 353:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	DMA_CHxCTRL_TSIZE_Set(para->CHx, para->CHxTSIZE);	//通道传输长度
+ 998              		.loc 1 353 0
+ 999 001e 2078     		ldrb	r0, [r4]
+ 1000 0020 6168     		ldr	r1, [r4, #4]
+ 1001 0022 FFF7FEFF 		bl	DMA_CHxCTRL_TSIZE_Set
+ 1002              	.LVL86:
+ 354:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	DMA_CHxCTRL_PRI_Set(para->CHx, para->CHxPRI);		//通道优先级
+ 1003              		.loc 1 354 0
+ 1004 0026 2078     		ldrb	r0, [r4]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s 			page 24
+
+
+ 1005 0028 A168     		ldr	r1, [r4, #8]
+ 1006 002a FFF7FEFF 		bl	DMA_CHxCTRL_PRI_Set
+ 1007              	.LVL87:
+ 355:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	DMA_CHxCTRL_INC_Set(para->CHx, para->CHxINC);		//通道地址增长方向
+ 1008              		.loc 1 355 0
+ 1009 002e 2078     		ldrb	r0, [r4]
+ 1010 0030 E168     		ldr	r1, [r4, #12]
+ 1011 0032 FFF7FEFF 		bl	DMA_CHxCTRL_INC_Set
+ 1012              	.LVL88:
+ 356:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	DMA_CHxCTRL_SSEL_Set(para->CHx, para->CHxSSEL);		//CH0~CH6外设通道选择,CH7传输方式选择
+ 1013              		.loc 1 356 0
+ 1014 0036 2078     		ldrb	r0, [r4]
+ 1015 0038 2169     		ldr	r1, [r4, #16]
+ 1016 003a FFF7FEFF 		bl	DMA_CHxCTRL_SSEL_Set
+ 1017              	.LVL89:
+ 357:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	DMA_CHxCTRL_FTIE_Setable(para->CHx, para->CHxFTIE);	//通道传输完成中断使能
+ 1018              		.loc 1 357 0
+ 1019 003e 217D     		ldrb	r1, [r4, #20]
+ 1020 0040 2078     		ldrb	r0, [r4]
+ 1021 0042 FFF7FEFF 		bl	DMA_CHxCTRL_FTIE_Setable
+ 1022              	.LVL90:
+ 358:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	DMA_CHxCTRL_HTIE_Setable(para->CHx, para->CHxHTIE);	//通道传输半程中断使能
+ 1023              		.loc 1 358 0
+ 1024 0046 617D     		ldrb	r1, [r4, #21]
+ 1025 0048 2078     		ldrb	r0, [r4]
+ 1026 004a FFF7FEFF 		bl	DMA_CHxCTRL_HTIE_Setable
+ 1027              	.LVL91:
+ 359:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** 	DMA_CHxCTRL_EN_Setable(para->CHx, para->CHxEN);		//通道使能
+ 1028              		.loc 1 359 0
+ 1029 004e A17D     		ldrb	r1, [r4, #22]
+ 1030 0050 2078     		ldrb	r0, [r4]
+ 1031 0052 FFF7FEFF 		bl	DMA_CHxCTRL_EN_Setable
+ 1032              	.LVL92:
+ 360:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_dma.c **** }
+ 1033              		.loc 1 360 0
+ 1034              		@ sp needed
+ 1035              	.LVL93:
+ 1036 0056 10BD     		pop	{r4, pc}
+ 1037              		.cfi_endproc
+ 1038              	.LFE59:
+ 1040              		.text
+ 1041              	.Letext0:
+ 1042              		.file 2 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\device\\include\\fm33a0xx.h"
+ 1043              		.file 3 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\machine\\_default_types.h
+ 1044              		.file 4 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 1045              		.file 5 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\drivers\\fm33A0xx_dma.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s 			page 25
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 fm33a0xx_dma.c
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:20     .text.DMA_GLOBALCTRL_DMAEN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:25     .text.DMA_GLOBALCTRL_DMAEN_Setable:00000000 DMA_GLOBALCTRL_DMAEN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:58     .text.DMA_GLOBALCTRL_DMAEN_Setable:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:63     .text.DMA_GLOBALCTRL_DMAEN_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:68     .text.DMA_GLOBALCTRL_DMAEN_Getable:00000000 DMA_GLOBALCTRL_DMAEN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:93     .text.DMA_GLOBALCTRL_DMAEN_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:98     .text.DMA_CHxCTRL_TSIZE_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:103    .text.DMA_CHxCTRL_TSIZE_Set:00000000 DMA_CHxCTRL_TSIZE_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:140    .text.DMA_CHxCTRL_TSIZE_Set:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:147    .text.DMA_CHxCTRL_TSIZE_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:152    .text.DMA_CHxCTRL_TSIZE_Get:00000000 DMA_CHxCTRL_TSIZE_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:179    .text.DMA_CHxCTRL_TSIZE_Get:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:184    .text.DMA_CHxCTRL_PRI_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:189    .text.DMA_CHxCTRL_PRI_Set:00000000 DMA_CHxCTRL_PRI_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:224    .text.DMA_CHxCTRL_PRI_Set:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:230    .text.DMA_CHxCTRL_PRI_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:235    .text.DMA_CHxCTRL_PRI_Get:00000000 DMA_CHxCTRL_PRI_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:262    .text.DMA_CHxCTRL_PRI_Get:00000014 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:267    .text.DMA_CHxCTRL_INC_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:272    .text.DMA_CHxCTRL_INC_Set:00000000 DMA_CHxCTRL_INC_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:307    .text.DMA_CHxCTRL_INC_Set:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:313    .text.DMA_CHxCTRL_INC_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:318    .text.DMA_CHxCTRL_INC_Get:00000000 DMA_CHxCTRL_INC_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:345    .text.DMA_CHxCTRL_INC_Get:00000014 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:350    .text.DMA_CHxCTRL_SSEL_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:355    .text.DMA_CHxCTRL_SSEL_Set:00000000 DMA_CHxCTRL_SSEL_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:390    .text.DMA_CHxCTRL_SSEL_Set:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:396    .text.DMA_CHxCTRL_SSEL_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:401    .text.DMA_CHxCTRL_SSEL_Get:00000000 DMA_CHxCTRL_SSEL_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:428    .text.DMA_CHxCTRL_SSEL_Get:00000014 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:433    .text.DMA_CHxCTRL_FTIE_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:438    .text.DMA_CHxCTRL_FTIE_Setable:00000000 DMA_CHxCTRL_FTIE_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:475    .text.DMA_CHxCTRL_FTIE_Setable:00000020 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:480    .text.DMA_CHxCTRL_FTIE_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:485    .text.DMA_CHxCTRL_FTIE_Getable:00000000 DMA_CHxCTRL_FTIE_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:520    .text.DMA_CHxCTRL_FTIE_Getable:00000018 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:525    .text.DMA_CHxCTRL_HTIE_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:530    .text.DMA_CHxCTRL_HTIE_Setable:00000000 DMA_CHxCTRL_HTIE_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:567    .text.DMA_CHxCTRL_HTIE_Setable:00000020 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:572    .text.DMA_CHxCTRL_HTIE_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:577    .text.DMA_CHxCTRL_HTIE_Getable:00000000 DMA_CHxCTRL_HTIE_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:612    .text.DMA_CHxCTRL_HTIE_Getable:00000018 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:617    .text.DMA_CHxCTRL_EN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:622    .text.DMA_CHxCTRL_EN_Setable:00000000 DMA_CHxCTRL_EN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:659    .text.DMA_CHxCTRL_EN_Setable:00000020 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:664    .text.DMA_CHxRAMAD_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:669    .text.DMA_CHxRAMAD_Write:00000000 DMA_CHxRAMAD_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:692    .text.DMA_CHxRAMAD_Write:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:697    .text.DMA_CH7FLSAD_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:702    .text.DMA_CH7FLSAD_Write:00000000 DMA_CH7FLSAD_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:721    .text.DMA_CH7FLSAD_Write:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:726    .text.DMA_CH7RAMAD_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:731    .text.DMA_CH7RAMAD_Write:00000000 DMA_CH7RAMAD_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:750    .text.DMA_CH7RAMAD_Write:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:755    .text.DMA_CHSTATUS_DMACHxHT_Clr:00000000 $t
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s 			page 26
+
+
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:760    .text.DMA_CHSTATUS_DMACHxHT_Clr:00000000 DMA_CHSTATUS_DMACHxHT_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:779    .text.DMA_CHSTATUS_DMACHxHT_Clr:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:784    .text.DMA_CHSTATUS_DMACHxHT_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:789    .text.DMA_CHSTATUS_DMACHxHT_Chk:00000000 DMA_CHSTATUS_DMACHxHT_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:820    .text.DMA_CHSTATUS_DMACHxHT_Chk:00000014 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:825    .text.DMA_CHSTATUS_DMACHxFT_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:830    .text.DMA_CHSTATUS_DMACHxFT_Clr:00000000 DMA_CHSTATUS_DMACHxFT_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:850    .text.DMA_CHSTATUS_DMACHxFT_Clr:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:855    .text.DMA_CHSTATUS_DMACHxFT_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:860    .text.DMA_CHSTATUS_DMACHxFT_Chk:00000000 DMA_CHSTATUS_DMACHxFT_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:892    .text.DMA_CHSTATUS_DMACHxFT_Chk:00000018 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:897    .text.DMA_Deinit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:902    .text.DMA_Deinit:00000000 DMA_Deinit
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:955    .text.DMA_Deinit:0000002c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:960    .text.DMA_Init:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccF5pC2R.s:965    .text.DMA_Init:00000000 DMA_Init
+                     .debug_frame:00000010 $d
+
+NO UNDEFINED SYMBOLS

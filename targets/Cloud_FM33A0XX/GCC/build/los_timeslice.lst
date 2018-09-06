@@ -1,0 +1,235 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccvL8wsf.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"los_timeslice.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.osTimesliceInit,"ax",%progbits
+  20              		.align	2
+  21              		.global	osTimesliceInit
+  22              		.code	16
+  23              		.thumb_func
+  25              	osTimesliceInit:
+  26              	.LFB45:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core/los_timeslice.c"
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c **** /*----------------------------------------------------------------------------
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  * Copyright (c) <2013-2015>, <Huawei Technologies Co., Ltd>
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  * All rights reserved.
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  * are permitted provided that the following conditions are met:
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  * conditions and the following disclaimer.
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  * provided with the distribution.
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  * permission.
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  *---------------------------------------------------------------------------*/
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c **** /*----------------------------------------------------------------------------
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  * Notice of Export Control Law
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  * ===============================================
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccvL8wsf.s 			page 2
+
+
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  * applicable export control laws and regulations.
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  *---------------------------------------------------------------------------*/
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c **** 
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c **** #include "los_sys.ph"
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c **** #include "los_task.ph"
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c **** #include "los_tick.ph"
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c **** #include "los_typedef.ph"
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c **** #include "los_timeslice.ph"
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c **** 
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c **** #ifdef __cplusplus
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c **** #if __cplusplus
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c **** extern "C" {
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c **** #endif /* __cplusplus */
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c **** #endif /* __cplusplus */
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c **** 
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c **** #if(LOSCFG_BASE_CORE_TIMESLICE == YES)
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c **** LITE_OS_SEC_BSS OS_TASK_ROBIN_S        g_stTaskTimeSlice;
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c **** 
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c **** /*****************************************************************************
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  Function     : osTimesliceInit
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  Description  : Initialztion Timeslice
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  Input        : None
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  Output       : None
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  Return       : None
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  *****************************************************************************/
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c **** LITE_OS_SEC_TEXT_INIT VOID osTimesliceInit(VOID)
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c **** {
+  28              		.loc 1 58 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****     g_stTaskTimeSlice.pstTask = (LOS_TASK_CB *)NULL;
+  33              		.loc 1 59 0
+  34 0000 024B     		ldr	r3, .L2
+  35 0002 0022     		movs	r2, #0
+  36 0004 1A60     		str	r2, [r3]
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****     g_stTaskTimeSlice.usTout = LOSCFG_BASE_CORE_TIMESLICE_TIMEOUT;
+  37              		.loc 1 60 0
+  38 0006 0A32     		adds	r2, r2, #10
+  39 0008 DA80     		strh	r2, [r3, #6]
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c **** }
+  40              		.loc 1 61 0
+  41              		@ sp needed
+  42 000a 7047     		bx	lr
+  43              	.L3:
+  44              		.align	2
+  45              	.L2:
+  46 000c 00000000 		.word	g_stTaskTimeSlice
+  47              		.cfi_endproc
+  48              	.LFE45:
+  50              		.section	.text.osTimesliceCheck,"ax",%progbits
+  51              		.align	2
+  52              		.global	osTimesliceCheck
+  53              		.code	16
+  54              		.thumb_func
+  56              	osTimesliceCheck:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccvL8wsf.s 			page 3
+
+
+  57              	.LFB46:
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c **** 
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c **** /*****************************************************************************
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  Function     : osTimesliceCheck
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  Description  : check Timeslice
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  Input        : None
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  Output       : None
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  Return       : None
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****  *****************************************************************************/
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c **** LITE_OS_SEC_TEXT VOID osTimesliceCheck(VOID)
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c **** {
+  58              		.loc 1 71 0
+  59              		.cfi_startproc
+  60              		@ args = 0, pretend = 0, frame = 0
+  61              		@ frame_needed = 0, uses_anonymous_args = 0
+  62 0000 10B5     		push	{r4, lr}
+  63              	.LCFI0:
+  64              		.cfi_def_cfa_offset 8
+  65              		.cfi_offset 4, -8
+  66              		.cfi_offset 14, -4
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****     if (g_stTaskTimeSlice.pstTask != g_stLosTask.pstRunTask)
+  67              		.loc 1 72 0
+  68 0002 0D4B     		ldr	r3, .L7
+  69 0004 1A68     		ldr	r2, [r3]
+  70 0006 0D4B     		ldr	r3, .L7+4
+  71 0008 1B68     		ldr	r3, [r3]
+  72 000a 9A42     		cmp	r2, r3
+  73 000c 07D0     		beq	.L5
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****     {
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****         g_stTaskTimeSlice.pstTask = g_stLosTask.pstRunTask;
+  74              		.loc 1 74 0
+  75 000e 0A4A     		ldr	r2, .L7
+  76 0010 1360     		str	r3, [r2]
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****         g_stTaskTimeSlice.usTime = (UINT16)g_ullTickCount + g_stTaskTimeSlice.usTout - 1;
+  77              		.loc 1 75 0
+  78 0012 0B4B     		ldr	r3, .L7+8
+  79 0014 1988     		ldrh	r1, [r3]
+  80 0016 D388     		ldrh	r3, [r2, #6]
+  81 0018 CB18     		adds	r3, r1, r3
+  82 001a 013B     		subs	r3, r3, #1
+  83 001c 9380     		strh	r3, [r2, #4]
+  84              	.L5:
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****     }
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c **** 
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****     if (g_stTaskTimeSlice.usTime == (UINT16)g_ullTickCount)
+  85              		.loc 1 78 0
+  86 001e 064B     		ldr	r3, .L7
+  87 0020 9A88     		ldrh	r2, [r3, #4]
+  88 0022 074B     		ldr	r3, .L7+8
+  89 0024 1B88     		ldrh	r3, [r3]
+  90 0026 9A42     		cmp	r2, r3
+  91 0028 04D1     		bne	.L4
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****     {
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****         g_stTaskTimeSlice.pstTask = (LOS_TASK_CB *)NULL;
+  92              		.loc 1 80 0
+  93 002a 0022     		movs	r2, #0
+  94 002c 024B     		ldr	r3, .L7
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccvL8wsf.s 			page 4
+
+
+  95 002e 1A60     		str	r2, [r3]
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****         if (LOS_TaskYield() != LOS_OK)
+  96              		.loc 1 81 0
+  97 0030 FFF7FEFF 		bl	LOS_TaskYield
+  98              	.LVL0:
+  99              	.L4:
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****         {
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****             PRINT_INFO("%s, %d\n", __FUNCTION__, __LINE__);
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****         }
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c ****     } /*lint !e548*/
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_timeslice.c **** }
+ 100              		.loc 1 86 0
+ 101              		@ sp needed
+ 102 0034 10BD     		pop	{r4, pc}
+ 103              	.L8:
+ 104 0036 C046     		.align	2
+ 105              	.L7:
+ 106 0038 00000000 		.word	g_stTaskTimeSlice
+ 107 003c 00000000 		.word	g_stLosTask
+ 108 0040 00000000 		.word	g_ullTickCount
+ 109              		.cfi_endproc
+ 110              	.LFE46:
+ 112              		.comm	g_stTaskTimeSlice,8,4
+ 113              		.text
+ 114              	.Letext0:
+ 115              		.file 2 "e:\\liteos\\liteos\\kernel\\include\\los_typedef.h"
+ 116              		.file 3 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\machine\\_default_types.h
+ 117              		.file 4 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 118              		.file 5 "e:\\liteos\\liteos\\kernel\\include\\los_list.h"
+ 119              		.file 6 "e:\\liteos\\liteos\\kernel\\include\\los_event.h"
+ 120              		.file 7 "e:\\liteos\\liteos\\kernel\\include\\los_task.h"
+ 121              		.file 8 "e:\\liteos\\liteos\\kernel\\base\\include\\los_task.ph"
+ 122              		.file 9 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\device\\include\\system_FM33A0XX.h"
+ 123              		.file 10 "e:\\liteos\\liteos\\kernel\\base\\include\\los_tick.ph"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccvL8wsf.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 los_timeslice.c
+C:\Users\WANGBI~1\AppData\Local\Temp\ccvL8wsf.s:20     .text.osTimesliceInit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccvL8wsf.s:25     .text.osTimesliceInit:00000000 osTimesliceInit
+C:\Users\WANGBI~1\AppData\Local\Temp\ccvL8wsf.s:46     .text.osTimesliceInit:0000000c $d
+                            *COM*:00000008 g_stTaskTimeSlice
+C:\Users\WANGBI~1\AppData\Local\Temp\ccvL8wsf.s:51     .text.osTimesliceCheck:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccvL8wsf.s:56     .text.osTimesliceCheck:00000000 osTimesliceCheck
+C:\Users\WANGBI~1\AppData\Local\Temp\ccvL8wsf.s:106    .text.osTimesliceCheck:00000038 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+LOS_TaskYield
+g_stLosTask
+g_ullTickCount

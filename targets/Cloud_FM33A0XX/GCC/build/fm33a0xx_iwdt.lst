@@ -1,0 +1,425 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"fm33a0xx_iwdt.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.IWDT_IWDTSERV_Write,"ax",%progbits
+  20              		.align	2
+  21              		.global	IWDT_IWDTSERV_Write
+  22              		.code	16
+  23              		.thumb_func
+  25              	IWDT_IWDTSERV_Write:
+  26              	.LFB36:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers/fm33a
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** /**
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c ****   ******************************************************************************
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c ****   * @file    fm33a00xx_iwdt.c
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c ****   * @author  FM33a0xx Application Team
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c ****   * @version V2.0.1
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c ****   * @date    
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c ****   * @brief   This file provides firmware functions to manage the following 
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c ****   *          functionalities of....:
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c ****   *
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** */
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** /* Includes ------------------------------------------------------------------*/
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** #include "FM33A0XX_iwdt.h"  
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** /** @addtogroup fm33a0xx_StdPeriph_Driver
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c ****   * @{
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c ****   */
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** /** @defgroup IWDT 
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c ****   * @brief IWDT driver modules
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c ****   * @{
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c ****   */ 
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** /* Private typedef -----------------------------------------------------------*/
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** /* Private define ------------------------------------------------------------*/
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** /* Private macro -------------------------------------------------------------*/
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** /* Private variables ---------------------------------------------------------*/
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** /* Private function prototypes -----------------------------------------------*/
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** /* Private functions ---------------------------------------------------------*/
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s 			page 2
+
+
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** /** @defgroup IWDT_Private_Functions
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c ****   * @{
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c ****   */ 
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** //Code_Start
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** //2018-04-02-13-21-26
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** //FM33A0XX_Driver_Gen_V1.4
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** /* IWDT清除寄存器 相关函数 */
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** void IWDT_IWDTSERV_Write(uint32_t SetValue)
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** {
+  28              		.loc 1 44 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 	IWDT->IWDTSERV = (SetValue);
+  34              		.loc 1 45 0
+  35 0000 014B     		ldr	r3, .L2
+  36 0002 1860     		str	r0, [r3]
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** }
+  37              		.loc 1 46 0
+  38              		@ sp needed
+  39 0004 7047     		bx	lr
+  40              	.L3:
+  41 0006 C046     		.align	2
+  42              	.L2:
+  43 0008 00140140 		.word	1073812480
+  44              		.cfi_endproc
+  45              	.LFE36:
+  47              		.section	.text.IWDT_IWDTCFG_IWDTSLP4096S_Setable,"ax",%progbits
+  48              		.align	2
+  49              		.global	IWDT_IWDTCFG_IWDTSLP4096S_Setable
+  50              		.code	16
+  51              		.thumb_func
+  53              	IWDT_IWDTCFG_IWDTSLP4096S_Setable:
+  54              	.LFB37:
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** /* IWDT休眠4096s配置 相关函数 */
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** void IWDT_IWDTCFG_IWDTSLP4096S_Setable(FunState NewState)
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** {
+  55              		.loc 1 50 0
+  56              		.cfi_startproc
+  57              		@ args = 0, pretend = 0, frame = 0
+  58              		@ frame_needed = 0, uses_anonymous_args = 0
+  59              		@ link register save eliminated.
+  60              	.LVL1:
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 	if (NewState == ENABLE)
+  61              		.loc 1 51 0
+  62 0000 0128     		cmp	r0, #1
+  63 0002 05D1     		bne	.L5
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 	{
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 		IWDT->IWDTCFG |= (IWDT_IWDTCFG_IWDTSLP4096S_Msk);
+  64              		.loc 1 53 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s 			page 3
+
+
+  65 0004 054A     		ldr	r2, .L7
+  66 0006 5168     		ldr	r1, [r2, #4]
+  67 0008 0423     		movs	r3, #4
+  68 000a 0B43     		orrs	r3, r1
+  69 000c 5360     		str	r3, [r2, #4]
+  70 000e 04E0     		b	.L4
+  71              	.L5:
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 	}
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 	else
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 	{
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 		IWDT->IWDTCFG &= ~(IWDT_IWDTCFG_IWDTSLP4096S_Msk);
+  72              		.loc 1 57 0
+  73 0010 024A     		ldr	r2, .L7
+  74 0012 5368     		ldr	r3, [r2, #4]
+  75 0014 0421     		movs	r1, #4
+  76 0016 8B43     		bics	r3, r1
+  77 0018 5360     		str	r3, [r2, #4]
+  78              	.L4:
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 	}
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** }
+  79              		.loc 1 59 0
+  80              		@ sp needed
+  81 001a 7047     		bx	lr
+  82              	.L8:
+  83              		.align	2
+  84              	.L7:
+  85 001c 00140140 		.word	1073812480
+  86              		.cfi_endproc
+  87              	.LFE37:
+  89              		.section	.text.IWDT_IWDTCFG_IWDTSLP4096S_Getable,"ax",%progbits
+  90              		.align	2
+  91              		.global	IWDT_IWDTCFG_IWDTSLP4096S_Getable
+  92              		.code	16
+  93              		.thumb_func
+  95              	IWDT_IWDTCFG_IWDTSLP4096S_Getable:
+  96              	.LFB38:
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** FunState IWDT_IWDTCFG_IWDTSLP4096S_Getable(void)
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** {
+  97              		.loc 1 62 0
+  98              		.cfi_startproc
+  99              		@ args = 0, pretend = 0, frame = 0
+ 100              		@ frame_needed = 0, uses_anonymous_args = 0
+ 101              		@ link register save eliminated.
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 	if (IWDT->IWDTCFG & (IWDT_IWDTCFG_IWDTSLP4096S_Msk))
+ 102              		.loc 1 63 0
+ 103 0000 034B     		ldr	r3, .L12
+ 104 0002 5B68     		ldr	r3, [r3, #4]
+ 105 0004 5B07     		lsls	r3, r3, #29
+ 106 0006 01D5     		bpl	.L11
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 	{
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 		return ENABLE;
+ 107              		.loc 1 65 0
+ 108 0008 0120     		movs	r0, #1
+ 109 000a 00E0     		b	.L10
+ 110              	.L11:
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 	}
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s 			page 4
+
+
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 	else
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 	{
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 		return DISABLE;
+ 111              		.loc 1 69 0
+ 112 000c 0020     		movs	r0, #0
+ 113              	.L10:
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 	}
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** }
+ 114              		.loc 1 71 0
+ 115              		@ sp needed
+ 116 000e 7047     		bx	lr
+ 117              	.L13:
+ 118              		.align	2
+ 119              	.L12:
+ 120 0010 00140140 		.word	1073812480
+ 121              		.cfi_endproc
+ 122              	.LFE38:
+ 124              		.section	.text.IWDT_IWDTCFG_IWDTOVP_Set,"ax",%progbits
+ 125              		.align	2
+ 126              		.global	IWDT_IWDTCFG_IWDTOVP_Set
+ 127              		.code	16
+ 128              		.thumb_func
+ 130              	IWDT_IWDTCFG_IWDTOVP_Set:
+ 131              	.LFB39:
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** /* IWDT溢出周期设置 相关函数 */
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** void IWDT_IWDTCFG_IWDTOVP_Set(uint32_t SetValue)
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** {
+ 132              		.loc 1 75 0
+ 133              		.cfi_startproc
+ 134              		@ args = 0, pretend = 0, frame = 0
+ 135              		@ frame_needed = 0, uses_anonymous_args = 0
+ 136              		@ link register save eliminated.
+ 137              	.LVL2:
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 	uint32_t tmpreg;
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 	tmpreg = IWDT->IWDTCFG;
+ 138              		.loc 1 77 0
+ 139 0000 034A     		ldr	r2, .L15
+ 140 0002 5368     		ldr	r3, [r2, #4]
+ 141              	.LVL3:
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 	tmpreg &= ~(IWDT_IWDTCFG_IWDTOVP_Msk);
+ 142              		.loc 1 78 0
+ 143 0004 0321     		movs	r1, #3
+ 144 0006 8B43     		bics	r3, r1
+ 145              	.LVL4:
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 	tmpreg |= (SetValue & IWDT_IWDTCFG_IWDTOVP_Msk);
+ 146              		.loc 1 79 0
+ 147 0008 0840     		ands	r0, r1
+ 148              	.LVL5:
+ 149 000a 1843     		orrs	r0, r3
+ 150              	.LVL6:
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 	IWDT->IWDTCFG = tmpreg;
+ 151              		.loc 1 80 0
+ 152 000c 5060     		str	r0, [r2, #4]
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** }
+ 153              		.loc 1 81 0
+ 154              		@ sp needed
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s 			page 5
+
+
+ 155 000e 7047     		bx	lr
+ 156              	.L16:
+ 157              		.align	2
+ 158              	.L15:
+ 159 0010 00140140 		.word	1073812480
+ 160              		.cfi_endproc
+ 161              	.LFE39:
+ 163              		.section	.text.IWDT_IWDTCFG_IWDTOVP_Get,"ax",%progbits
+ 164              		.align	2
+ 165              		.global	IWDT_IWDTCFG_IWDTOVP_Get
+ 166              		.code	16
+ 167              		.thumb_func
+ 169              	IWDT_IWDTCFG_IWDTOVP_Get:
+ 170              	.LFB40:
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** uint32_t IWDT_IWDTCFG_IWDTOVP_Get(void)
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** {
+ 171              		.loc 1 84 0
+ 172              		.cfi_startproc
+ 173              		@ args = 0, pretend = 0, frame = 0
+ 174              		@ frame_needed = 0, uses_anonymous_args = 0
+ 175              		@ link register save eliminated.
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 	return (IWDT->IWDTCFG & IWDT_IWDTCFG_IWDTOVP_Msk);
+ 176              		.loc 1 85 0
+ 177 0000 024B     		ldr	r3, .L18
+ 178 0002 5B68     		ldr	r3, [r3, #4]
+ 179 0004 0320     		movs	r0, #3
+ 180 0006 1840     		ands	r0, r3
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** }
+ 181              		.loc 1 86 0
+ 182              		@ sp needed
+ 183 0008 7047     		bx	lr
+ 184              	.L19:
+ 185 000a C046     		.align	2
+ 186              	.L18:
+ 187 000c 00140140 		.word	1073812480
+ 188              		.cfi_endproc
+ 189              	.LFE40:
+ 191              		.section	.text.IWDT_IWDTCNT_Read,"ax",%progbits
+ 192              		.align	2
+ 193              		.global	IWDT_IWDTCNT_Read
+ 194              		.code	16
+ 195              		.thumb_func
+ 197              	IWDT_IWDTCNT_Read:
+ 198              	.LFB41:
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** /* IWDT当前计数值 相关函数 */
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** uint32_t IWDT_IWDTCNT_Read(void)
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** {
+ 199              		.loc 1 90 0
+ 200              		.cfi_startproc
+ 201              		@ args = 0, pretend = 0, frame = 0
+ 202              		@ frame_needed = 0, uses_anonymous_args = 0
+ 203              		@ link register save eliminated.
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 	return (IWDT->IWDTCNT & IWDT_IWDTCNT_IWDTCNT_Msk);
+ 204              		.loc 1 91 0
+ 205 0000 024B     		ldr	r3, .L21
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s 			page 6
+
+
+ 206 0002 9868     		ldr	r0, [r3, #8]
+ 207 0004 8003     		lsls	r0, r0, #14
+ 208 0006 800B     		lsrs	r0, r0, #14
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** }
+ 209              		.loc 1 92 0
+ 210              		@ sp needed
+ 211 0008 7047     		bx	lr
+ 212              	.L22:
+ 213 000a C046     		.align	2
+ 214              	.L21:
+ 215 000c 00140140 		.word	1073812480
+ 216              		.cfi_endproc
+ 217              	.LFE41:
+ 219              		.section	.text.IWDT_Deinit,"ax",%progbits
+ 220              		.align	2
+ 221              		.global	IWDT_Deinit
+ 222              		.code	16
+ 223              		.thumb_func
+ 225              	IWDT_Deinit:
+ 226              	.LFB42:
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** void IWDT_Deinit(void)
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** {
+ 227              		.loc 1 96 0
+ 228              		.cfi_startproc
+ 229              		@ args = 0, pretend = 0, frame = 0
+ 230              		@ frame_needed = 0, uses_anonymous_args = 0
+ 231              		@ link register save eliminated.
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 	//IWDT->IWDTSERV = ;
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 	IWDT->IWDTCFG = 0x00000001;
+ 232              		.loc 1 98 0
+ 233 0000 0122     		movs	r2, #1
+ 234 0002 014B     		ldr	r3, .L24
+ 235 0004 5A60     		str	r2, [r3, #4]
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 	//IWDT->IWDTCNT = ;
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** }
+ 236              		.loc 1 100 0
+ 237              		@ sp needed
+ 238 0006 7047     		bx	lr
+ 239              	.L25:
+ 240              		.align	2
+ 241              	.L24:
+ 242 0008 00140140 		.word	1073812480
+ 243              		.cfi_endproc
+ 244              	.LFE42:
+ 246              		.section	.text.IWDT_Clr,"ax",%progbits
+ 247              		.align	2
+ 248              		.global	IWDT_Clr
+ 249              		.code	16
+ 250              		.thumb_func
+ 252              	IWDT_Clr:
+ 253              	.LFB43:
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** //Code_End
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s 			page 7
+
+
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** 
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** void IWDT_Clr(void)
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** {
+ 254              		.loc 1 107 0
+ 255              		.cfi_startproc
+ 256              		@ args = 0, pretend = 0, frame = 0
+ 257              		@ frame_needed = 0, uses_anonymous_args = 0
+ 258              		@ link register save eliminated.
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c ****     IWDT->IWDTSERV = WDTSERV_key;
+ 259              		.loc 1 108 0
+ 260 0000 014A     		ldr	r2, .L27
+ 261 0002 024B     		ldr	r3, .L27+4
+ 262 0004 1A60     		str	r2, [r3]
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** //	IWDT_IWDTSERV_Write(WDTSERV_key);
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_iwdt.c **** }
+ 263              		.loc 1 110 0
+ 264              		@ sp needed
+ 265 0006 7047     		bx	lr
+ 266              	.L28:
+ 267              		.align	2
+ 268              	.L27:
+ 269 0008 5A5A3412 		.word	305420890
+ 270 000c 00140140 		.word	1073812480
+ 271              		.cfi_endproc
+ 272              	.LFE43:
+ 274              		.text
+ 275              	.Letext0:
+ 276              		.file 2 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\device\\include\\fm33a0xx.h"
+ 277              		.file 3 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\machine\\_default_types.h
+ 278              		.file 4 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\sys\\_stdint.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 fm33a0xx_iwdt.c
+C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s:20     .text.IWDT_IWDTSERV_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s:25     .text.IWDT_IWDTSERV_Write:00000000 IWDT_IWDTSERV_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s:43     .text.IWDT_IWDTSERV_Write:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s:48     .text.IWDT_IWDTCFG_IWDTSLP4096S_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s:53     .text.IWDT_IWDTCFG_IWDTSLP4096S_Setable:00000000 IWDT_IWDTCFG_IWDTSLP4096S_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s:85     .text.IWDT_IWDTCFG_IWDTSLP4096S_Setable:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s:90     .text.IWDT_IWDTCFG_IWDTSLP4096S_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s:95     .text.IWDT_IWDTCFG_IWDTSLP4096S_Getable:00000000 IWDT_IWDTCFG_IWDTSLP4096S_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s:120    .text.IWDT_IWDTCFG_IWDTSLP4096S_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s:125    .text.IWDT_IWDTCFG_IWDTOVP_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s:130    .text.IWDT_IWDTCFG_IWDTOVP_Set:00000000 IWDT_IWDTCFG_IWDTOVP_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s:159    .text.IWDT_IWDTCFG_IWDTOVP_Set:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s:164    .text.IWDT_IWDTCFG_IWDTOVP_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s:169    .text.IWDT_IWDTCFG_IWDTOVP_Get:00000000 IWDT_IWDTCFG_IWDTOVP_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s:187    .text.IWDT_IWDTCFG_IWDTOVP_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s:192    .text.IWDT_IWDTCNT_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s:197    .text.IWDT_IWDTCNT_Read:00000000 IWDT_IWDTCNT_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s:215    .text.IWDT_IWDTCNT_Read:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s:220    .text.IWDT_Deinit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s:225    .text.IWDT_Deinit:00000000 IWDT_Deinit
+C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s:242    .text.IWDT_Deinit:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s:247    .text.IWDT_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s:252    .text.IWDT_Clr:00000000 IWDT_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccmO377m.s:269    .text.IWDT_Clr:00000008 $d
+                     .debug_frame:00000010 $d
+
+NO UNDEFINED SYMBOLS

@@ -1,0 +1,2819 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"fm33a0xx_spi.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.SPIx_SPICR1_MSPA_Set,"ax",%progbits
+  20              		.align	2
+  21              		.global	SPIx_SPICR1_MSPA_Set
+  22              		.code	16
+  23              		.thumb_func
+  25              	SPIx_SPICR1_MSPA_Set:
+  26              	.LFB36:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers/fm33a
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /**
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c ****   ******************************************************************************
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c ****   * @file    fm33a0xx_spi.c
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c ****   * @author  
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c ****   * @version V2.0.1
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c ****   * @date    
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c ****   * @brief   This file provides firmware functions to manage the following 
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c ****   *          functionalities of SPI:           
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c ****   *           
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c ****   ******************************************************************************  
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c ****   */ 
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /* Includes ------------------------------------------------------------------*/ 
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** #include "fm33A0xx_spi.h" 
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /* Private typedef -----------------------------------------------------------*/
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /* Private define ------------------------------------------------------------*/
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /* Private macro -------------------------------------------------------------*/
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /* Private variables ---------------------------------------------------------*/
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /* Private function prototypes -----------------------------------------------*/
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /* Private functions ---------------------------------------------------------*/
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** //Code_Start
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** //2018-04-02-13-22-56
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** //FM33A0XX_Driver_Gen_V1.4
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /* Master对MISO信号的采样位置调整，用于高速通信时补偿PCB走线延迟 相关函数 */
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPIx_SPICR1_MSPA_Set(SPIx_Type* SPIx, uint32_t SetValue)
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 2
+
+
+  28              		.loc 1 31 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	uint32_t tmpreg;
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg = SPIx->SPICR1;
+  34              		.loc 1 33 0
+  35 0000 0268     		ldr	r2, [r0]
+  36              	.LVL1:
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg &= ~(SPIx_SPICR1_MSPA_Msk);
+  37              		.loc 1 34 0
+  38 0002 044B     		ldr	r3, .L2
+  39 0004 1A40     		ands	r2, r3
+  40              	.LVL2:
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg |= (SetValue & SPIx_SPICR1_MSPA_Msk);
+  41              		.loc 1 35 0
+  42 0006 8023     		movs	r3, #128
+  43 0008 DB00     		lsls	r3, r3, #3
+  44 000a 1940     		ands	r1, r3
+  45              	.LVL3:
+  46 000c 1143     		orrs	r1, r2
+  47              	.LVL4:
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx->SPICR1 = tmpreg;
+  48              		.loc 1 36 0
+  49 000e 0160     		str	r1, [r0]
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+  50              		.loc 1 37 0
+  51              		@ sp needed
+  52 0010 7047     		bx	lr
+  53              	.L3:
+  54 0012 C046     		.align	2
+  55              	.L2:
+  56 0014 FFFBFFFF 		.word	-1025
+  57              		.cfi_endproc
+  58              	.LFE36:
+  60              		.section	.text.SPIx_SPICR1_MSPA_Get,"ax",%progbits
+  61              		.align	2
+  62              		.global	SPIx_SPICR1_MSPA_Get
+  63              		.code	16
+  64              		.thumb_func
+  66              	SPIx_SPICR1_MSPA_Get:
+  67              	.LFB37:
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** uint32_t SPIx_SPICR1_MSPA_Get(SPIx_Type* SPIx)
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+  68              		.loc 1 40 0
+  69              		.cfi_startproc
+  70              		@ args = 0, pretend = 0, frame = 0
+  71              		@ frame_needed = 0, uses_anonymous_args = 0
+  72              		@ link register save eliminated.
+  73              	.LVL5:
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	return (SPIx->SPICR1 & SPIx_SPICR1_MSPA_Msk);
+  74              		.loc 1 41 0
+  75 0000 0068     		ldr	r0, [r0]
+  76              	.LVL6:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 3
+
+
+  77 0002 8023     		movs	r3, #128
+  78 0004 DB00     		lsls	r3, r3, #3
+  79 0006 1840     		ands	r0, r3
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+  80              		.loc 1 42 0
+  81              		@ sp needed
+  82 0008 7047     		bx	lr
+  83              		.cfi_endproc
+  84              	.LFE37:
+  86 000a C046     		.section	.text.SPIx_SPICR1_SSPA_Set,"ax",%progbits
+  87              		.align	2
+  88              		.global	SPIx_SPICR1_SSPA_Set
+  89              		.code	16
+  90              		.thumb_func
+  92              	SPIx_SPICR1_SSPA_Set:
+  93              	.LFB38:
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /* Slave MISO发送位置调整 相关函数 */
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPIx_SPICR1_SSPA_Set(SPIx_Type* SPIx, uint32_t SetValue)
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+  94              		.loc 1 46 0
+  95              		.cfi_startproc
+  96              		@ args = 0, pretend = 0, frame = 0
+  97              		@ frame_needed = 0, uses_anonymous_args = 0
+  98              		@ link register save eliminated.
+  99              	.LVL7:
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	uint32_t tmpreg;
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg = SPIx->SPICR1;
+ 100              		.loc 1 48 0
+ 101 0000 0268     		ldr	r2, [r0]
+ 102              	.LVL8:
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg &= ~(SPIx_SPICR1_SSPA_Msk);
+ 103              		.loc 1 49 0
+ 104 0002 044B     		ldr	r3, .L6
+ 105 0004 1A40     		ands	r2, r3
+ 106              	.LVL9:
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg |= (SetValue & SPIx_SPICR1_SSPA_Msk);
+ 107              		.loc 1 50 0
+ 108 0006 8023     		movs	r3, #128
+ 109 0008 9B00     		lsls	r3, r3, #2
+ 110 000a 1940     		ands	r1, r3
+ 111              	.LVL10:
+ 112 000c 1143     		orrs	r1, r2
+ 113              	.LVL11:
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx->SPICR1 = tmpreg;
+ 114              		.loc 1 51 0
+ 115 000e 0160     		str	r1, [r0]
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 116              		.loc 1 52 0
+ 117              		@ sp needed
+ 118 0010 7047     		bx	lr
+ 119              	.L7:
+ 120 0012 C046     		.align	2
+ 121              	.L6:
+ 122 0014 FFFDFFFF 		.word	-513
+ 123              		.cfi_endproc
+ 124              	.LFE38:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 4
+
+
+ 126              		.section	.text.SPIx_SPICR1_SSPA_Get,"ax",%progbits
+ 127              		.align	2
+ 128              		.global	SPIx_SPICR1_SSPA_Get
+ 129              		.code	16
+ 130              		.thumb_func
+ 132              	SPIx_SPICR1_SSPA_Get:
+ 133              	.LFB39:
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** uint32_t SPIx_SPICR1_SSPA_Get(SPIx_Type* SPIx)
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 134              		.loc 1 55 0
+ 135              		.cfi_startproc
+ 136              		@ args = 0, pretend = 0, frame = 0
+ 137              		@ frame_needed = 0, uses_anonymous_args = 0
+ 138              		@ link register save eliminated.
+ 139              	.LVL12:
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	return (SPIx->SPICR1 & SPIx_SPICR1_SSPA_Msk);
+ 140              		.loc 1 56 0
+ 141 0000 0068     		ldr	r0, [r0]
+ 142              	.LVL13:
+ 143 0002 8023     		movs	r3, #128
+ 144 0004 9B00     		lsls	r3, r3, #2
+ 145 0006 1840     		ands	r0, r3
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 146              		.loc 1 57 0
+ 147              		@ sp needed
+ 148 0008 7047     		bx	lr
+ 149              		.cfi_endproc
+ 150              	.LFE39:
+ 152 000a C046     		.section	.text.SPIx_SPICR1_MM_Set,"ax",%progbits
+ 153              		.align	2
+ 154              		.global	SPIx_SPICR1_MM_Set
+ 155              		.code	16
+ 156              		.thumb_func
+ 158              	SPIx_SPICR1_MM_Set:
+ 159              	.LFB40:
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /* MASTER/SLAVE模式选择 相关函数 */
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPIx_SPICR1_MM_Set(SPIx_Type* SPIx, uint32_t SetValue)
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 160              		.loc 1 61 0
+ 161              		.cfi_startproc
+ 162              		@ args = 0, pretend = 0, frame = 0
+ 163              		@ frame_needed = 0, uses_anonymous_args = 0
+ 164              		@ link register save eliminated.
+ 165              	.LVL14:
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	uint32_t tmpreg;
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg = SPIx->SPICR1;
+ 166              		.loc 1 63 0
+ 167 0000 0268     		ldr	r2, [r0]
+ 168              	.LVL15:
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg &= ~(SPIx_SPICR1_MM_Msk);
+ 169              		.loc 1 64 0
+ 170 0002 044B     		ldr	r3, .L10
+ 171 0004 1A40     		ands	r2, r3
+ 172              	.LVL16:
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg |= (SetValue & SPIx_SPICR1_MM_Msk);
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 5
+
+
+ 173              		.loc 1 65 0
+ 174 0006 8023     		movs	r3, #128
+ 175 0008 5B00     		lsls	r3, r3, #1
+ 176 000a 1940     		ands	r1, r3
+ 177              	.LVL17:
+ 178 000c 1143     		orrs	r1, r2
+ 179              	.LVL18:
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx->SPICR1 = tmpreg;
+ 180              		.loc 1 66 0
+ 181 000e 0160     		str	r1, [r0]
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 182              		.loc 1 67 0
+ 183              		@ sp needed
+ 184 0010 7047     		bx	lr
+ 185              	.L11:
+ 186 0012 C046     		.align	2
+ 187              	.L10:
+ 188 0014 FFFEFFFF 		.word	-257
+ 189              		.cfi_endproc
+ 190              	.LFE40:
+ 192              		.section	.text.SPIx_SPICR1_MM_Get,"ax",%progbits
+ 193              		.align	2
+ 194              		.global	SPIx_SPICR1_MM_Get
+ 195              		.code	16
+ 196              		.thumb_func
+ 198              	SPIx_SPICR1_MM_Get:
+ 199              	.LFB41:
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** uint32_t SPIx_SPICR1_MM_Get(SPIx_Type* SPIx)
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 200              		.loc 1 70 0
+ 201              		.cfi_startproc
+ 202              		@ args = 0, pretend = 0, frame = 0
+ 203              		@ frame_needed = 0, uses_anonymous_args = 0
+ 204              		@ link register save eliminated.
+ 205              	.LVL19:
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	return (SPIx->SPICR1 & SPIx_SPICR1_MM_Msk);
+ 206              		.loc 1 71 0
+ 207 0000 0068     		ldr	r0, [r0]
+ 208              	.LVL20:
+ 209 0002 8023     		movs	r3, #128
+ 210 0004 5B00     		lsls	r3, r3, #1
+ 211 0006 1840     		ands	r0, r3
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 212              		.loc 1 72 0
+ 213              		@ sp needed
+ 214 0008 7047     		bx	lr
+ 215              		.cfi_endproc
+ 216              	.LFE41:
+ 218 000a C046     		.section	.text.SPIx_SPICR1_WAIT_Set,"ax",%progbits
+ 219              		.align	2
+ 220              		.global	SPIx_SPICR1_WAIT_Set
+ 221              		.code	16
+ 222              		.thumb_func
+ 224              	SPIx_SPICR1_WAIT_Set:
+ 225              	.LFB42:
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 6
+
+
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPIx_SPICR1_WAIT_Set(SPIx_Type* SPIx, uint32_t SetValue)
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 226              		.loc 1 75 0
+ 227              		.cfi_startproc
+ 228              		@ args = 0, pretend = 0, frame = 0
+ 229              		@ frame_needed = 0, uses_anonymous_args = 0
+ 230              		@ link register save eliminated.
+ 231              	.LVL21:
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	uint32_t tmpreg;
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg = SPIx->SPICR1;
+ 232              		.loc 1 77 0
+ 233 0000 0368     		ldr	r3, [r0]
+ 234              	.LVL22:
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg &= ~(SPIx_SPICR1_WAIT_Msk);
+ 235              		.loc 1 78 0
+ 236 0002 C022     		movs	r2, #192
+ 237 0004 9343     		bics	r3, r2
+ 238              	.LVL23:
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg |= (SetValue & SPIx_SPICR1_WAIT_Msk);
+ 239              		.loc 1 79 0
+ 240 0006 1140     		ands	r1, r2
+ 241              	.LVL24:
+ 242 0008 1943     		orrs	r1, r3
+ 243              	.LVL25:
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx->SPICR1 = tmpreg;
+ 244              		.loc 1 80 0
+ 245 000a 0160     		str	r1, [r0]
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 246              		.loc 1 81 0
+ 247              		@ sp needed
+ 248 000c 7047     		bx	lr
+ 249              		.cfi_endproc
+ 250              	.LFE42:
+ 252 000e C046     		.section	.text.SPIx_SPICR1_WAIT_Get,"ax",%progbits
+ 253              		.align	2
+ 254              		.global	SPIx_SPICR1_WAIT_Get
+ 255              		.code	16
+ 256              		.thumb_func
+ 258              	SPIx_SPICR1_WAIT_Get:
+ 259              	.LFB43:
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** uint32_t SPIx_SPICR1_WAIT_Get(SPIx_Type* SPIx)
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 260              		.loc 1 84 0
+ 261              		.cfi_startproc
+ 262              		@ args = 0, pretend = 0, frame = 0
+ 263              		@ frame_needed = 0, uses_anonymous_args = 0
+ 264              		@ link register save eliminated.
+ 265              	.LVL26:
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	return (SPIx->SPICR1 & SPIx_SPICR1_WAIT_Msk);
+ 266              		.loc 1 85 0
+ 267 0000 0368     		ldr	r3, [r0]
+ 268 0002 C020     		movs	r0, #192
+ 269              	.LVL27:
+ 270 0004 1840     		ands	r0, r3
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 271              		.loc 1 86 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 7
+
+
+ 272              		@ sp needed
+ 273 0006 7047     		bx	lr
+ 274              		.cfi_endproc
+ 275              	.LFE43:
+ 277              		.section	.text.SPIx_SPICR1_BAUD_Set,"ax",%progbits
+ 278              		.align	2
+ 279              		.global	SPIx_SPICR1_BAUD_Set
+ 280              		.code	16
+ 281              		.thumb_func
+ 283              	SPIx_SPICR1_BAUD_Set:
+ 284              	.LFB44:
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /* MASTER模式波特率配置 相关函数 */
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPIx_SPICR1_BAUD_Set(SPIx_Type* SPIx, uint32_t SetValue)
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 285              		.loc 1 90 0
+ 286              		.cfi_startproc
+ 287              		@ args = 0, pretend = 0, frame = 0
+ 288              		@ frame_needed = 0, uses_anonymous_args = 0
+ 289              		@ link register save eliminated.
+ 290              	.LVL28:
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	uint32_t tmpreg;
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg = SPIx->SPICR1;
+ 291              		.loc 1 92 0
+ 292 0000 0368     		ldr	r3, [r0]
+ 293              	.LVL29:
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg &= ~(SPIx_SPICR1_BAUD_Msk);
+ 294              		.loc 1 93 0
+ 295 0002 3822     		movs	r2, #56
+ 296 0004 9343     		bics	r3, r2
+ 297              	.LVL30:
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg |= (SetValue & SPIx_SPICR1_BAUD_Msk);
+ 298              		.loc 1 94 0
+ 299 0006 1140     		ands	r1, r2
+ 300              	.LVL31:
+ 301 0008 1943     		orrs	r1, r3
+ 302              	.LVL32:
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx->SPICR1 = tmpreg;
+ 303              		.loc 1 95 0
+ 304 000a 0160     		str	r1, [r0]
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 305              		.loc 1 96 0
+ 306              		@ sp needed
+ 307 000c 7047     		bx	lr
+ 308              		.cfi_endproc
+ 309              	.LFE44:
+ 311 000e C046     		.section	.text.SPIx_SPICR1_BAUD_Get,"ax",%progbits
+ 312              		.align	2
+ 313              		.global	SPIx_SPICR1_BAUD_Get
+ 314              		.code	16
+ 315              		.thumb_func
+ 317              	SPIx_SPICR1_BAUD_Get:
+ 318              	.LFB45:
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** uint32_t SPIx_SPICR1_BAUD_Get(SPIx_Type* SPIx)
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 319              		.loc 1 99 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 8
+
+
+ 320              		.cfi_startproc
+ 321              		@ args = 0, pretend = 0, frame = 0
+ 322              		@ frame_needed = 0, uses_anonymous_args = 0
+ 323              		@ link register save eliminated.
+ 324              	.LVL33:
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	return (SPIx->SPICR1 & SPIx_SPICR1_BAUD_Msk);
+ 325              		.loc 1 100 0
+ 326 0000 0368     		ldr	r3, [r0]
+ 327 0002 3820     		movs	r0, #56
+ 328              	.LVL34:
+ 329 0004 1840     		ands	r0, r3
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 330              		.loc 1 101 0
+ 331              		@ sp needed
+ 332 0006 7047     		bx	lr
+ 333              		.cfi_endproc
+ 334              	.LFE45:
+ 336              		.section	.text.SPIx_SPICR1_LSBF_Set,"ax",%progbits
+ 337              		.align	2
+ 338              		.global	SPIx_SPICR1_LSBF_Set
+ 339              		.code	16
+ 340              		.thumb_func
+ 342              	SPIx_SPICR1_LSBF_Set:
+ 343              	.LFB46:
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /* 帧格式 相关函数 */
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPIx_SPICR1_LSBF_Set(SPIx_Type* SPIx, uint32_t SetValue)
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 344              		.loc 1 105 0
+ 345              		.cfi_startproc
+ 346              		@ args = 0, pretend = 0, frame = 0
+ 347              		@ frame_needed = 0, uses_anonymous_args = 0
+ 348              		@ link register save eliminated.
+ 349              	.LVL35:
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	uint32_t tmpreg;
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg = SPIx->SPICR1;
+ 350              		.loc 1 107 0
+ 351 0000 0368     		ldr	r3, [r0]
+ 352              	.LVL36:
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg &= ~(SPIx_SPICR1_LSBF_Msk);
+ 353              		.loc 1 108 0
+ 354 0002 0422     		movs	r2, #4
+ 355 0004 9343     		bics	r3, r2
+ 356              	.LVL37:
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg |= (SetValue & SPIx_SPICR1_LSBF_Msk);
+ 357              		.loc 1 109 0
+ 358 0006 1140     		ands	r1, r2
+ 359              	.LVL38:
+ 360 0008 1943     		orrs	r1, r3
+ 361              	.LVL39:
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx->SPICR1 = tmpreg;
+ 362              		.loc 1 110 0
+ 363 000a 0160     		str	r1, [r0]
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 364              		.loc 1 111 0
+ 365              		@ sp needed
+ 366 000c 7047     		bx	lr
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 9
+
+
+ 367              		.cfi_endproc
+ 368              	.LFE46:
+ 370 000e C046     		.section	.text.SPIx_SPICR1_LSBF_Get,"ax",%progbits
+ 371              		.align	2
+ 372              		.global	SPIx_SPICR1_LSBF_Get
+ 373              		.code	16
+ 374              		.thumb_func
+ 376              	SPIx_SPICR1_LSBF_Get:
+ 377              	.LFB47:
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** uint32_t SPIx_SPICR1_LSBF_Get(SPIx_Type* SPIx)
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 378              		.loc 1 114 0
+ 379              		.cfi_startproc
+ 380              		@ args = 0, pretend = 0, frame = 0
+ 381              		@ frame_needed = 0, uses_anonymous_args = 0
+ 382              		@ link register save eliminated.
+ 383              	.LVL40:
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	return (SPIx->SPICR1 & SPIx_SPICR1_LSBF_Msk);
+ 384              		.loc 1 115 0
+ 385 0000 0368     		ldr	r3, [r0]
+ 386 0002 0420     		movs	r0, #4
+ 387              	.LVL41:
+ 388 0004 1840     		ands	r0, r3
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 389              		.loc 1 116 0
+ 390              		@ sp needed
+ 391 0006 7047     		bx	lr
+ 392              		.cfi_endproc
+ 393              	.LFE47:
+ 395              		.section	.text.SPIx_SPICR1_CPHOL_Set,"ax",%progbits
+ 396              		.align	2
+ 397              		.global	SPIx_SPICR1_CPHOL_Set
+ 398              		.code	16
+ 399              		.thumb_func
+ 401              	SPIx_SPICR1_CPHOL_Set:
+ 402              	.LFB48:
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /* 时钟极性选择 相关函数 */
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPIx_SPICR1_CPHOL_Set(SPIx_Type* SPIx, uint32_t SetValue)
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 403              		.loc 1 120 0
+ 404              		.cfi_startproc
+ 405              		@ args = 0, pretend = 0, frame = 0
+ 406              		@ frame_needed = 0, uses_anonymous_args = 0
+ 407              		@ link register save eliminated.
+ 408              	.LVL42:
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	uint32_t tmpreg;
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg = SPIx->SPICR1;
+ 409              		.loc 1 122 0
+ 410 0000 0368     		ldr	r3, [r0]
+ 411              	.LVL43:
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg &= ~(SPIx_SPICR1_CPHOL_Msk);
+ 412              		.loc 1 123 0
+ 413 0002 0222     		movs	r2, #2
+ 414 0004 9343     		bics	r3, r2
+ 415              	.LVL44:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 10
+
+
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg |= (SetValue & SPIx_SPICR1_CPHOL_Msk);
+ 416              		.loc 1 124 0
+ 417 0006 1140     		ands	r1, r2
+ 418              	.LVL45:
+ 419 0008 1943     		orrs	r1, r3
+ 420              	.LVL46:
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx->SPICR1 = tmpreg;
+ 421              		.loc 1 125 0
+ 422 000a 0160     		str	r1, [r0]
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 423              		.loc 1 126 0
+ 424              		@ sp needed
+ 425 000c 7047     		bx	lr
+ 426              		.cfi_endproc
+ 427              	.LFE48:
+ 429 000e C046     		.section	.text.SPIx_SPICR1_CPHOL_Get,"ax",%progbits
+ 430              		.align	2
+ 431              		.global	SPIx_SPICR1_CPHOL_Get
+ 432              		.code	16
+ 433              		.thumb_func
+ 435              	SPIx_SPICR1_CPHOL_Get:
+ 436              	.LFB49:
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** uint32_t SPIx_SPICR1_CPHOL_Get(SPIx_Type* SPIx)
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 437              		.loc 1 129 0
+ 438              		.cfi_startproc
+ 439              		@ args = 0, pretend = 0, frame = 0
+ 440              		@ frame_needed = 0, uses_anonymous_args = 0
+ 441              		@ link register save eliminated.
+ 442              	.LVL47:
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	return (SPIx->SPICR1 & SPIx_SPICR1_CPHOL_Msk);
+ 443              		.loc 1 130 0
+ 444 0000 0368     		ldr	r3, [r0]
+ 445 0002 0220     		movs	r0, #2
+ 446              	.LVL48:
+ 447 0004 1840     		ands	r0, r3
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 448              		.loc 1 131 0
+ 449              		@ sp needed
+ 450 0006 7047     		bx	lr
+ 451              		.cfi_endproc
+ 452              	.LFE49:
+ 454              		.section	.text.SPIx_SPICR1_CPHA_Set,"ax",%progbits
+ 455              		.align	2
+ 456              		.global	SPIx_SPICR1_CPHA_Set
+ 457              		.code	16
+ 458              		.thumb_func
+ 460              	SPIx_SPICR1_CPHA_Set:
+ 461              	.LFB50:
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /* 时钟相位选择 相关函数 */
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPIx_SPICR1_CPHA_Set(SPIx_Type* SPIx, uint32_t SetValue)
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 462              		.loc 1 135 0
+ 463              		.cfi_startproc
+ 464              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 11
+
+
+ 465              		@ frame_needed = 0, uses_anonymous_args = 0
+ 466              		@ link register save eliminated.
+ 467              	.LVL49:
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	uint32_t tmpreg;
+ 137:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg = SPIx->SPICR1;
+ 468              		.loc 1 137 0
+ 469 0000 0368     		ldr	r3, [r0]
+ 470              	.LVL50:
+ 138:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg &= ~(SPIx_SPICR1_CPHA_Msk);
+ 471              		.loc 1 138 0
+ 472 0002 0122     		movs	r2, #1
+ 473 0004 9343     		bics	r3, r2
+ 474              	.LVL51:
+ 139:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg |= (SetValue & SPIx_SPICR1_CPHA_Msk);
+ 475              		.loc 1 139 0
+ 476 0006 1140     		ands	r1, r2
+ 477              	.LVL52:
+ 478 0008 1943     		orrs	r1, r3
+ 479              	.LVL53:
+ 140:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx->SPICR1 = tmpreg;
+ 480              		.loc 1 140 0
+ 481 000a 0160     		str	r1, [r0]
+ 141:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 482              		.loc 1 141 0
+ 483              		@ sp needed
+ 484 000c 7047     		bx	lr
+ 485              		.cfi_endproc
+ 486              	.LFE50:
+ 488 000e C046     		.section	.text.SPIx_SPICR1_CPHA_Get,"ax",%progbits
+ 489              		.align	2
+ 490              		.global	SPIx_SPICR1_CPHA_Get
+ 491              		.code	16
+ 492              		.thumb_func
+ 494              	SPIx_SPICR1_CPHA_Get:
+ 495              	.LFB51:
+ 142:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 143:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** uint32_t SPIx_SPICR1_CPHA_Get(SPIx_Type* SPIx)
+ 144:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 496              		.loc 1 144 0
+ 497              		.cfi_startproc
+ 498              		@ args = 0, pretend = 0, frame = 0
+ 499              		@ frame_needed = 0, uses_anonymous_args = 0
+ 500              		@ link register save eliminated.
+ 501              	.LVL54:
+ 145:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	return (SPIx->SPICR1 & SPIx_SPICR1_CPHA_Msk);
+ 502              		.loc 1 145 0
+ 503 0000 0368     		ldr	r3, [r0]
+ 504 0002 0120     		movs	r0, #1
+ 505              	.LVL55:
+ 506 0004 1840     		ands	r0, r3
+ 146:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 507              		.loc 1 146 0
+ 508              		@ sp needed
+ 509 0006 7047     		bx	lr
+ 510              		.cfi_endproc
+ 511              	.LFE51:
+ 513              		.section	.text.SPIx_SPICR2_FLTEN_Setable,"ax",%progbits
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 12
+
+
+ 514              		.align	2
+ 515              		.global	SPIx_SPICR2_FLTEN_Setable
+ 516              		.code	16
+ 517              		.thumb_func
+ 519              	SPIx_SPICR2_FLTEN_Setable:
+ 520              	.LFB52:
+ 147:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 148:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /* Slave输入管脚滤波使能（SSN/SCK/MOSI） 相关函数 */
+ 149:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPIx_SPICR2_FLTEN_Setable(SPIx_Type* SPIx, FunState NewState)
+ 150:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 521              		.loc 1 150 0
+ 522              		.cfi_startproc
+ 523              		@ args = 0, pretend = 0, frame = 0
+ 524              		@ frame_needed = 0, uses_anonymous_args = 0
+ 525              		@ link register save eliminated.
+ 526              	.LVL56:
+ 151:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	if (NewState == ENABLE)
+ 527              		.loc 1 151 0
+ 528 0000 0129     		cmp	r1, #1
+ 529 0002 04D1     		bne	.L24
+ 152:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 153:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		SPIx->SPICR2 |= (SPIx_SPICR2_FLTEN_Msk);
+ 530              		.loc 1 153 0
+ 531 0004 4268     		ldr	r2, [r0, #4]
+ 532 0006 4023     		movs	r3, #64
+ 533 0008 1343     		orrs	r3, r2
+ 534 000a 4360     		str	r3, [r0, #4]
+ 535 000c 03E0     		b	.L23
+ 536              	.L24:
+ 154:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 155:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	else
+ 156:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 157:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		SPIx->SPICR2 &= ~(SPIx_SPICR2_FLTEN_Msk);
+ 537              		.loc 1 157 0
+ 538 000e 4368     		ldr	r3, [r0, #4]
+ 539 0010 4022     		movs	r2, #64
+ 540 0012 9343     		bics	r3, r2
+ 541 0014 4360     		str	r3, [r0, #4]
+ 542              	.L23:
+ 158:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 159:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 543              		.loc 1 159 0
+ 544              		@ sp needed
+ 545 0016 7047     		bx	lr
+ 546              		.cfi_endproc
+ 547              	.LFE52:
+ 549              		.section	.text.SPIx_SPICR2_FLTEN_Getable,"ax",%progbits
+ 550              		.align	2
+ 551              		.global	SPIx_SPICR2_FLTEN_Getable
+ 552              		.code	16
+ 553              		.thumb_func
+ 555              	SPIx_SPICR2_FLTEN_Getable:
+ 556              	.LFB53:
+ 160:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 161:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** FunState SPIx_SPICR2_FLTEN_Getable(SPIx_Type* SPIx)
+ 162:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 557              		.loc 1 162 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 13
+
+
+ 558              		.cfi_startproc
+ 559              		@ args = 0, pretend = 0, frame = 0
+ 560              		@ frame_needed = 0, uses_anonymous_args = 0
+ 561              		@ link register save eliminated.
+ 562              	.LVL57:
+ 163:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	if (SPIx->SPICR2 & (SPIx_SPICR2_FLTEN_Msk))
+ 563              		.loc 1 163 0
+ 564 0000 4368     		ldr	r3, [r0, #4]
+ 565 0002 5B06     		lsls	r3, r3, #25
+ 566 0004 01D5     		bpl	.L28
+ 164:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 165:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		return ENABLE;
+ 567              		.loc 1 165 0
+ 568 0006 0120     		movs	r0, #1
+ 569              	.LVL58:
+ 570 0008 00E0     		b	.L27
+ 571              	.LVL59:
+ 572              	.L28:
+ 166:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 167:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	else
+ 168:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 169:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		return DISABLE;
+ 573              		.loc 1 169 0
+ 574 000a 0020     		movs	r0, #0
+ 575              	.LVL60:
+ 576              	.L27:
+ 170:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 171:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 577              		.loc 1 171 0
+ 578              		@ sp needed
+ 579 000c 7047     		bx	lr
+ 580              		.cfi_endproc
+ 581              	.LFE53:
+ 583 000e C046     		.section	.text.SPIx_SPICR2_SSNM_Set,"ax",%progbits
+ 584              		.align	2
+ 585              		.global	SPIx_SPICR2_SSNM_Set
+ 586              		.code	16
+ 587              		.thumb_func
+ 589              	SPIx_SPICR2_SSNM_Set:
+ 590              	.LFB54:
+ 172:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 173:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /* Master模式下SSN控制模式选择 相关函数 */
+ 174:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPIx_SPICR2_SSNM_Set(SPIx_Type* SPIx, uint32_t SetValue)
+ 175:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 591              		.loc 1 175 0
+ 592              		.cfi_startproc
+ 593              		@ args = 0, pretend = 0, frame = 0
+ 594              		@ frame_needed = 0, uses_anonymous_args = 0
+ 595              		@ link register save eliminated.
+ 596              	.LVL61:
+ 176:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	uint32_t tmpreg;
+ 177:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg = SPIx->SPICR2;
+ 597              		.loc 1 177 0
+ 598 0000 4368     		ldr	r3, [r0, #4]
+ 599              	.LVL62:
+ 178:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg &= ~(SPIx_SPICR2_SSNM_Msk);
+ 600              		.loc 1 178 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 14
+
+
+ 601 0002 2022     		movs	r2, #32
+ 602 0004 9343     		bics	r3, r2
+ 603              	.LVL63:
+ 179:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg |= (SetValue & SPIx_SPICR2_SSNM_Msk);
+ 604              		.loc 1 179 0
+ 605 0006 1140     		ands	r1, r2
+ 606              	.LVL64:
+ 607 0008 1943     		orrs	r1, r3
+ 608              	.LVL65:
+ 180:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx->SPICR2 = tmpreg;
+ 609              		.loc 1 180 0
+ 610 000a 4160     		str	r1, [r0, #4]
+ 181:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 611              		.loc 1 181 0
+ 612              		@ sp needed
+ 613 000c 7047     		bx	lr
+ 614              		.cfi_endproc
+ 615              	.LFE54:
+ 617 000e C046     		.section	.text.SPIx_SPICR2_SSNM_Get,"ax",%progbits
+ 618              		.align	2
+ 619              		.global	SPIx_SPICR2_SSNM_Get
+ 620              		.code	16
+ 621              		.thumb_func
+ 623              	SPIx_SPICR2_SSNM_Get:
+ 624              	.LFB55:
+ 182:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 183:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** uint32_t SPIx_SPICR2_SSNM_Get(SPIx_Type* SPIx)
+ 184:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 625              		.loc 1 184 0
+ 626              		.cfi_startproc
+ 627              		@ args = 0, pretend = 0, frame = 0
+ 628              		@ frame_needed = 0, uses_anonymous_args = 0
+ 629              		@ link register save eliminated.
+ 630              	.LVL66:
+ 185:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	return (SPIx->SPICR2 & SPIx_SPICR2_SSNM_Msk);
+ 631              		.loc 1 185 0
+ 632 0000 4368     		ldr	r3, [r0, #4]
+ 633 0002 2020     		movs	r0, #32
+ 634              	.LVL67:
+ 635 0004 1840     		ands	r0, r3
+ 186:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 636              		.loc 1 186 0
+ 637              		@ sp needed
+ 638 0006 7047     		bx	lr
+ 639              		.cfi_endproc
+ 640              	.LFE55:
+ 642              		.section	.text.SPIx_SPICR2_TXO_AC_Set,"ax",%progbits
+ 643              		.align	2
+ 644              		.global	SPIx_SPICR2_TXO_AC_Set
+ 645              		.code	16
+ 646              		.thumb_func
+ 648              	SPIx_SPICR2_TXO_AC_Set:
+ 649              	.LFB56:
+ 187:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 188:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /* TXONLY硬件自动清空的使能 相关函数 */
+ 189:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPIx_SPICR2_TXO_AC_Set(SPIx_Type* SPIx, uint32_t SetValue)
+ 190:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 15
+
+
+ 650              		.loc 1 190 0
+ 651              		.cfi_startproc
+ 652              		@ args = 0, pretend = 0, frame = 0
+ 653              		@ frame_needed = 0, uses_anonymous_args = 0
+ 654              		@ link register save eliminated.
+ 655              	.LVL68:
+ 191:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	uint32_t tmpreg;
+ 192:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg = SPIx->SPICR2;
+ 656              		.loc 1 192 0
+ 657 0000 4368     		ldr	r3, [r0, #4]
+ 658              	.LVL69:
+ 193:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg &= ~(SPIx_SPICR2_TXO_AC_Msk);
+ 659              		.loc 1 193 0
+ 660 0002 1022     		movs	r2, #16
+ 661 0004 9343     		bics	r3, r2
+ 662              	.LVL70:
+ 194:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg |= (SetValue & SPIx_SPICR2_TXO_AC_Msk);
+ 663              		.loc 1 194 0
+ 664 0006 1140     		ands	r1, r2
+ 665              	.LVL71:
+ 666 0008 1943     		orrs	r1, r3
+ 667              	.LVL72:
+ 195:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx->SPICR2 = tmpreg;
+ 668              		.loc 1 195 0
+ 669 000a 4160     		str	r1, [r0, #4]
+ 196:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 670              		.loc 1 196 0
+ 671              		@ sp needed
+ 672 000c 7047     		bx	lr
+ 673              		.cfi_endproc
+ 674              	.LFE56:
+ 676 000e C046     		.section	.text.SPIx_SPICR2_TXO_AC_Get,"ax",%progbits
+ 677              		.align	2
+ 678              		.global	SPIx_SPICR2_TXO_AC_Get
+ 679              		.code	16
+ 680              		.thumb_func
+ 682              	SPIx_SPICR2_TXO_AC_Get:
+ 683              	.LFB57:
+ 197:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 198:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** uint32_t SPIx_SPICR2_TXO_AC_Get(SPIx_Type* SPIx)
+ 199:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 684              		.loc 1 199 0
+ 685              		.cfi_startproc
+ 686              		@ args = 0, pretend = 0, frame = 0
+ 687              		@ frame_needed = 0, uses_anonymous_args = 0
+ 688              		@ link register save eliminated.
+ 689              	.LVL73:
+ 200:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	return (SPIx->SPICR2 & SPIx_SPICR2_TXO_AC_Msk);
+ 690              		.loc 1 200 0
+ 691 0000 4368     		ldr	r3, [r0, #4]
+ 692 0002 1020     		movs	r0, #16
+ 693              	.LVL74:
+ 694 0004 1840     		ands	r0, r3
+ 201:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 695              		.loc 1 201 0
+ 696              		@ sp needed
+ 697 0006 7047     		bx	lr
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 16
+
+
+ 698              		.cfi_endproc
+ 699              	.LFE57:
+ 701              		.section	.text.SPIx_SPICR2_TXO_Setable,"ax",%progbits
+ 702              		.align	2
+ 703              		.global	SPIx_SPICR2_TXO_Setable
+ 704              		.code	16
+ 705              		.thumb_func
+ 707              	SPIx_SPICR2_TXO_Setable:
+ 708              	.LFB58:
+ 202:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 203:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /* TXONLY控制位 相关函数 */
+ 204:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPIx_SPICR2_TXO_Setable(SPIx_Type* SPIx, FunState NewState)
+ 205:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 709              		.loc 1 205 0
+ 710              		.cfi_startproc
+ 711              		@ args = 0, pretend = 0, frame = 0
+ 712              		@ frame_needed = 0, uses_anonymous_args = 0
+ 713              		@ link register save eliminated.
+ 714              	.LVL75:
+ 206:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	if (NewState == ENABLE)
+ 715              		.loc 1 206 0
+ 716 0000 0129     		cmp	r1, #1
+ 717 0002 04D1     		bne	.L34
+ 207:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 208:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		SPIx->SPICR2 |= (SPIx_SPICR2_TXO_Msk);
+ 718              		.loc 1 208 0
+ 719 0004 4268     		ldr	r2, [r0, #4]
+ 720 0006 0823     		movs	r3, #8
+ 721 0008 1343     		orrs	r3, r2
+ 722 000a 4360     		str	r3, [r0, #4]
+ 723 000c 03E0     		b	.L33
+ 724              	.L34:
+ 209:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 210:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	else
+ 211:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 212:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		SPIx->SPICR2 &= ~(SPIx_SPICR2_TXO_Msk);
+ 725              		.loc 1 212 0
+ 726 000e 4368     		ldr	r3, [r0, #4]
+ 727 0010 0822     		movs	r2, #8
+ 728 0012 9343     		bics	r3, r2
+ 729 0014 4360     		str	r3, [r0, #4]
+ 730              	.L33:
+ 213:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 214:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 731              		.loc 1 214 0
+ 732              		@ sp needed
+ 733 0016 7047     		bx	lr
+ 734              		.cfi_endproc
+ 735              	.LFE58:
+ 737              		.section	.text.SPIx_SPICR2_TXO_Getable,"ax",%progbits
+ 738              		.align	2
+ 739              		.global	SPIx_SPICR2_TXO_Getable
+ 740              		.code	16
+ 741              		.thumb_func
+ 743              	SPIx_SPICR2_TXO_Getable:
+ 744              	.LFB59:
+ 215:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 17
+
+
+ 216:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** FunState SPIx_SPICR2_TXO_Getable(SPIx_Type* SPIx)
+ 217:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 745              		.loc 1 217 0
+ 746              		.cfi_startproc
+ 747              		@ args = 0, pretend = 0, frame = 0
+ 748              		@ frame_needed = 0, uses_anonymous_args = 0
+ 749              		@ link register save eliminated.
+ 750              	.LVL76:
+ 218:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	if (SPIx->SPICR2 & (SPIx_SPICR2_TXO_Msk))
+ 751              		.loc 1 218 0
+ 752 0000 4368     		ldr	r3, [r0, #4]
+ 753 0002 1B07     		lsls	r3, r3, #28
+ 754 0004 01D5     		bpl	.L38
+ 219:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 220:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		return ENABLE;
+ 755              		.loc 1 220 0
+ 756 0006 0120     		movs	r0, #1
+ 757              	.LVL77:
+ 758 0008 00E0     		b	.L37
+ 759              	.LVL78:
+ 760              	.L38:
+ 221:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 222:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	else
+ 223:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 224:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		return DISABLE;
+ 761              		.loc 1 224 0
+ 762 000a 0020     		movs	r0, #0
+ 763              	.LVL79:
+ 764              	.L37:
+ 225:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 226:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 765              		.loc 1 226 0
+ 766              		@ sp needed
+ 767 000c 7047     		bx	lr
+ 768              		.cfi_endproc
+ 769              	.LFE59:
+ 771 000e C046     		.section	.text.SPIx_SPICR2_SSN_Set,"ax",%progbits
+ 772              		.align	2
+ 773              		.global	SPIx_SPICR2_SSN_Set
+ 774              		.code	16
+ 775              		.thumb_func
+ 777              	SPIx_SPICR2_SSN_Set:
+ 778              	.LFB60:
+ 227:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 228:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /* Master模式下，软件可以通过此位控制SSN输出电平 相关函数 */
+ 229:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPIx_SPICR2_SSN_Set(SPIx_Type* SPIx, uint32_t SetValue)
+ 230:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 779              		.loc 1 230 0
+ 780              		.cfi_startproc
+ 781              		@ args = 0, pretend = 0, frame = 0
+ 782              		@ frame_needed = 0, uses_anonymous_args = 0
+ 783              		@ link register save eliminated.
+ 784              	.LVL80:
+ 231:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	uint32_t tmpreg;
+ 232:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg = SPIx->SPICR2;
+ 785              		.loc 1 232 0
+ 786 0000 4368     		ldr	r3, [r0, #4]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 18
+
+
+ 787              	.LVL81:
+ 233:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg &= ~(SPIx_SPICR2_SSN_Msk);
+ 788              		.loc 1 233 0
+ 789 0002 0422     		movs	r2, #4
+ 790 0004 9343     		bics	r3, r2
+ 791              	.LVL82:
+ 234:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg |= (SetValue & SPIx_SPICR2_SSN_Msk);
+ 792              		.loc 1 234 0
+ 793 0006 1140     		ands	r1, r2
+ 794              	.LVL83:
+ 795 0008 1943     		orrs	r1, r3
+ 796              	.LVL84:
+ 235:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx->SPICR2 = tmpreg;
+ 797              		.loc 1 235 0
+ 798 000a 4160     		str	r1, [r0, #4]
+ 236:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 799              		.loc 1 236 0
+ 800              		@ sp needed
+ 801 000c 7047     		bx	lr
+ 802              		.cfi_endproc
+ 803              	.LFE60:
+ 805 000e C046     		.section	.text.SPIx_SPICR2_SSN_Get,"ax",%progbits
+ 806              		.align	2
+ 807              		.global	SPIx_SPICR2_SSN_Get
+ 808              		.code	16
+ 809              		.thumb_func
+ 811              	SPIx_SPICR2_SSN_Get:
+ 812              	.LFB61:
+ 237:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 238:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** uint32_t SPIx_SPICR2_SSN_Get(SPIx_Type* SPIx)
+ 239:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 813              		.loc 1 239 0
+ 814              		.cfi_startproc
+ 815              		@ args = 0, pretend = 0, frame = 0
+ 816              		@ frame_needed = 0, uses_anonymous_args = 0
+ 817              		@ link register save eliminated.
+ 818              	.LVL85:
+ 240:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	return (SPIx->SPICR2 & SPIx_SPICR2_SSN_Msk);
+ 819              		.loc 1 240 0
+ 820 0000 4368     		ldr	r3, [r0, #4]
+ 821 0002 0420     		movs	r0, #4
+ 822              	.LVL86:
+ 823 0004 1840     		ands	r0, r3
+ 241:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 824              		.loc 1 241 0
+ 825              		@ sp needed
+ 826 0006 7047     		bx	lr
+ 827              		.cfi_endproc
+ 828              	.LFE61:
+ 830              		.section	.text.SPIx_SPICR2_SSNSEN_Set,"ax",%progbits
+ 831              		.align	2
+ 832              		.global	SPIx_SPICR2_SSNSEN_Set
+ 833              		.code	16
+ 834              		.thumb_func
+ 836              	SPIx_SPICR2_SSNSEN_Set:
+ 837              	.LFB62:
+ 242:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 19
+
+
+ 243:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /* Master模式下，SSN的控制方式 相关函数 */
+ 244:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPIx_SPICR2_SSNSEN_Set(SPIx_Type* SPIx, uint32_t SetValue)
+ 245:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 838              		.loc 1 245 0
+ 839              		.cfi_startproc
+ 840              		@ args = 0, pretend = 0, frame = 0
+ 841              		@ frame_needed = 0, uses_anonymous_args = 0
+ 842              		@ link register save eliminated.
+ 843              	.LVL87:
+ 246:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	uint32_t tmpreg;
+ 247:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg = SPIx->SPICR2;
+ 844              		.loc 1 247 0
+ 845 0000 4368     		ldr	r3, [r0, #4]
+ 846              	.LVL88:
+ 248:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg &= ~(SPIx_SPICR2_SSNSEN_Msk);
+ 847              		.loc 1 248 0
+ 848 0002 0222     		movs	r2, #2
+ 849 0004 9343     		bics	r3, r2
+ 850              	.LVL89:
+ 249:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	tmpreg |= (SetValue & SPIx_SPICR2_SSNSEN_Msk);
+ 851              		.loc 1 249 0
+ 852 0006 1140     		ands	r1, r2
+ 853              	.LVL90:
+ 854 0008 1943     		orrs	r1, r3
+ 855              	.LVL91:
+ 250:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx->SPICR2 = tmpreg;
+ 856              		.loc 1 250 0
+ 857 000a 4160     		str	r1, [r0, #4]
+ 251:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 858              		.loc 1 251 0
+ 859              		@ sp needed
+ 860 000c 7047     		bx	lr
+ 861              		.cfi_endproc
+ 862              	.LFE62:
+ 864 000e C046     		.section	.text.SPIx_SPICR2_SSNSEN_Get,"ax",%progbits
+ 865              		.align	2
+ 866              		.global	SPIx_SPICR2_SSNSEN_Get
+ 867              		.code	16
+ 868              		.thumb_func
+ 870              	SPIx_SPICR2_SSNSEN_Get:
+ 871              	.LFB63:
+ 252:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 253:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** uint32_t SPIx_SPICR2_SSNSEN_Get(SPIx_Type* SPIx)
+ 254:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 872              		.loc 1 254 0
+ 873              		.cfi_startproc
+ 874              		@ args = 0, pretend = 0, frame = 0
+ 875              		@ frame_needed = 0, uses_anonymous_args = 0
+ 876              		@ link register save eliminated.
+ 877              	.LVL92:
+ 255:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	return (SPIx->SPICR2 & SPIx_SPICR2_SSNSEN_Msk);
+ 878              		.loc 1 255 0
+ 879 0000 4368     		ldr	r3, [r0, #4]
+ 880 0002 0220     		movs	r0, #2
+ 881              	.LVL93:
+ 882 0004 1840     		ands	r0, r3
+ 256:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 20
+
+
+ 883              		.loc 1 256 0
+ 884              		@ sp needed
+ 885 0006 7047     		bx	lr
+ 886              		.cfi_endproc
+ 887              	.LFE63:
+ 889              		.section	.text.SPIx_SPICR2_SPIEN_Setable,"ax",%progbits
+ 890              		.align	2
+ 891              		.global	SPIx_SPICR2_SPIEN_Setable
+ 892              		.code	16
+ 893              		.thumb_func
+ 895              	SPIx_SPICR2_SPIEN_Setable:
+ 896              	.LFB64:
+ 257:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 258:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /* SPI使能 相关函数 */
+ 259:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPIx_SPICR2_SPIEN_Setable(SPIx_Type* SPIx, FunState NewState)
+ 260:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 897              		.loc 1 260 0
+ 898              		.cfi_startproc
+ 899              		@ args = 0, pretend = 0, frame = 0
+ 900              		@ frame_needed = 0, uses_anonymous_args = 0
+ 901              		@ link register save eliminated.
+ 902              	.LVL94:
+ 261:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	if (NewState == ENABLE)
+ 903              		.loc 1 261 0
+ 904 0000 0129     		cmp	r1, #1
+ 905 0002 04D1     		bne	.L44
+ 262:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 263:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		SPIx->SPICR2 |= (SPIx_SPICR2_SPIEN_Msk);
+ 906              		.loc 1 263 0
+ 907 0004 4268     		ldr	r2, [r0, #4]
+ 908 0006 0123     		movs	r3, #1
+ 909 0008 1343     		orrs	r3, r2
+ 910 000a 4360     		str	r3, [r0, #4]
+ 911 000c 03E0     		b	.L43
+ 912              	.L44:
+ 264:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 265:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	else
+ 266:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 267:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		SPIx->SPICR2 &= ~(SPIx_SPICR2_SPIEN_Msk);
+ 913              		.loc 1 267 0
+ 914 000e 4368     		ldr	r3, [r0, #4]
+ 915 0010 0122     		movs	r2, #1
+ 916 0012 9343     		bics	r3, r2
+ 917 0014 4360     		str	r3, [r0, #4]
+ 918              	.L43:
+ 268:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 269:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 919              		.loc 1 269 0
+ 920              		@ sp needed
+ 921 0016 7047     		bx	lr
+ 922              		.cfi_endproc
+ 923              	.LFE64:
+ 925              		.section	.text.SPIx_SPICR2_SPIEN_Getable,"ax",%progbits
+ 926              		.align	2
+ 927              		.global	SPIx_SPICR2_SPIEN_Getable
+ 928              		.code	16
+ 929              		.thumb_func
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 21
+
+
+ 931              	SPIx_SPICR2_SPIEN_Getable:
+ 932              	.LFB65:
+ 270:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 271:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** FunState SPIx_SPICR2_SPIEN_Getable(SPIx_Type* SPIx)
+ 272:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 933              		.loc 1 272 0
+ 934              		.cfi_startproc
+ 935              		@ args = 0, pretend = 0, frame = 0
+ 936              		@ frame_needed = 0, uses_anonymous_args = 0
+ 937              		@ link register save eliminated.
+ 938              	.LVL95:
+ 273:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	if (SPIx->SPICR2 & (SPIx_SPICR2_SPIEN_Msk))
+ 939              		.loc 1 273 0
+ 940 0000 4368     		ldr	r3, [r0, #4]
+ 941 0002 DB07     		lsls	r3, r3, #31
+ 942 0004 01D5     		bpl	.L48
+ 274:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 275:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		return ENABLE;
+ 943              		.loc 1 275 0
+ 944 0006 0120     		movs	r0, #1
+ 945              	.LVL96:
+ 946 0008 00E0     		b	.L47
+ 947              	.LVL97:
+ 948              	.L48:
+ 276:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 277:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	else
+ 278:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 279:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		return DISABLE;
+ 949              		.loc 1 279 0
+ 950 000a 0020     		movs	r0, #0
+ 951              	.LVL98:
+ 952              	.L47:
+ 280:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 281:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 953              		.loc 1 281 0
+ 954              		@ sp needed
+ 955 000c 7047     		bx	lr
+ 956              		.cfi_endproc
+ 957              	.LFE65:
+ 959 000e C046     		.section	.text.SPIx_SPICR3_TXBFC_Clr,"ax",%progbits
+ 960              		.align	2
+ 961              		.global	SPIx_SPICR3_TXBFC_Clr
+ 962              		.code	16
+ 963              		.thumb_func
+ 965              	SPIx_SPICR3_TXBFC_Clr:
+ 966              	.LFB66:
+ 282:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 283:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPIx_SPICR3_TXBFC_Clr(SPIx_Type* SPIx)
+ 284:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 967              		.loc 1 284 0
+ 968              		.cfi_startproc
+ 969              		@ args = 0, pretend = 0, frame = 0
+ 970              		@ frame_needed = 0, uses_anonymous_args = 0
+ 971              		@ link register save eliminated.
+ 972              	.LVL99:
+ 285:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx->SPICR3 = SPIx_SPICR3_TXBFC_Msk;
+ 973              		.loc 1 285 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 22
+
+
+ 974 0000 0823     		movs	r3, #8
+ 975 0002 8360     		str	r3, [r0, #8]
+ 286:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 976              		.loc 1 286 0
+ 977              		@ sp needed
+ 978 0004 7047     		bx	lr
+ 979              		.cfi_endproc
+ 980              	.LFE66:
+ 982 0006 C046     		.section	.text.SPIx_SPICR3_RXBFC_Clr,"ax",%progbits
+ 983              		.align	2
+ 984              		.global	SPIx_SPICR3_RXBFC_Clr
+ 985              		.code	16
+ 986              		.thumb_func
+ 988              	SPIx_SPICR3_RXBFC_Clr:
+ 989              	.LFB67:
+ 287:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 288:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPIx_SPICR3_RXBFC_Clr(SPIx_Type* SPIx)
+ 289:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 990              		.loc 1 289 0
+ 991              		.cfi_startproc
+ 992              		@ args = 0, pretend = 0, frame = 0
+ 993              		@ frame_needed = 0, uses_anonymous_args = 0
+ 994              		@ link register save eliminated.
+ 995              	.LVL100:
+ 290:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx->SPICR3 = SPIx_SPICR3_RXBFC_Msk;
+ 996              		.loc 1 290 0
+ 997 0000 0423     		movs	r3, #4
+ 998 0002 8360     		str	r3, [r0, #8]
+ 291:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 999              		.loc 1 291 0
+ 1000              		@ sp needed
+ 1001 0004 7047     		bx	lr
+ 1002              		.cfi_endproc
+ 1003              	.LFE67:
+ 1005 0006 C046     		.section	.text.SPIx_SPICR3_MERRC_Clr,"ax",%progbits
+ 1006              		.align	2
+ 1007              		.global	SPIx_SPICR3_MERRC_Clr
+ 1008              		.code	16
+ 1009              		.thumb_func
+ 1011              	SPIx_SPICR3_MERRC_Clr:
+ 1012              	.LFB68:
+ 292:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 293:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPIx_SPICR3_MERRC_Clr(SPIx_Type* SPIx)
+ 294:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 1013              		.loc 1 294 0
+ 1014              		.cfi_startproc
+ 1015              		@ args = 0, pretend = 0, frame = 0
+ 1016              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1017              		@ link register save eliminated.
+ 1018              	.LVL101:
+ 295:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx->SPICR3 = SPIx_SPICR3_MERRC_Msk;
+ 1019              		.loc 1 295 0
+ 1020 0000 0223     		movs	r3, #2
+ 1021 0002 8360     		str	r3, [r0, #8]
+ 296:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 1022              		.loc 1 296 0
+ 1023              		@ sp needed
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 23
+
+
+ 1024 0004 7047     		bx	lr
+ 1025              		.cfi_endproc
+ 1026              	.LFE68:
+ 1028 0006 C046     		.section	.text.SPIx_SPICR3_SERRC_Clr,"ax",%progbits
+ 1029              		.align	2
+ 1030              		.global	SPIx_SPICR3_SERRC_Clr
+ 1031              		.code	16
+ 1032              		.thumb_func
+ 1034              	SPIx_SPICR3_SERRC_Clr:
+ 1035              	.LFB69:
+ 297:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 298:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPIx_SPICR3_SERRC_Clr(SPIx_Type* SPIx)
+ 299:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 1036              		.loc 1 299 0
+ 1037              		.cfi_startproc
+ 1038              		@ args = 0, pretend = 0, frame = 0
+ 1039              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1040              		@ link register save eliminated.
+ 1041              	.LVL102:
+ 300:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx->SPICR3 = SPIx_SPICR3_SERRC_Msk;
+ 1042              		.loc 1 300 0
+ 1043 0000 0123     		movs	r3, #1
+ 1044 0002 8360     		str	r3, [r0, #8]
+ 301:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 1045              		.loc 1 301 0
+ 1046              		@ sp needed
+ 1047 0004 7047     		bx	lr
+ 1048              		.cfi_endproc
+ 1049              	.LFE69:
+ 1051 0006 C046     		.section	.text.SPIx_SPIIE_ERRIE_Setable,"ax",%progbits
+ 1052              		.align	2
+ 1053              		.global	SPIx_SPIIE_ERRIE_Setable
+ 1054              		.code	16
+ 1055              		.thumb_func
+ 1057              	SPIx_SPIIE_ERRIE_Setable:
+ 1058              	.LFB70:
+ 302:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 303:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPIx_SPIIE_ERRIE_Setable(SPIx_Type* SPIx, FunState NewState)
+ 304:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 1059              		.loc 1 304 0
+ 1060              		.cfi_startproc
+ 1061              		@ args = 0, pretend = 0, frame = 0
+ 1062              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1063              		@ link register save eliminated.
+ 1064              	.LVL103:
+ 305:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	if (NewState == ENABLE)
+ 1065              		.loc 1 305 0
+ 1066 0000 0129     		cmp	r1, #1
+ 1067 0002 04D1     		bne	.L54
+ 306:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 307:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		SPIx->SPIIE |= (SPIx_SPIIE_ERRIE_Msk);
+ 1068              		.loc 1 307 0
+ 1069 0004 C268     		ldr	r2, [r0, #12]
+ 1070 0006 0423     		movs	r3, #4
+ 1071 0008 1343     		orrs	r3, r2
+ 1072 000a C360     		str	r3, [r0, #12]
+ 1073 000c 03E0     		b	.L53
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 24
+
+
+ 1074              	.L54:
+ 308:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 309:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	else
+ 310:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 311:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		SPIx->SPIIE &= ~(SPIx_SPIIE_ERRIE_Msk);
+ 1075              		.loc 1 311 0
+ 1076 000e C368     		ldr	r3, [r0, #12]
+ 1077 0010 0422     		movs	r2, #4
+ 1078 0012 9343     		bics	r3, r2
+ 1079 0014 C360     		str	r3, [r0, #12]
+ 1080              	.L53:
+ 312:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 313:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 1081              		.loc 1 313 0
+ 1082              		@ sp needed
+ 1083 0016 7047     		bx	lr
+ 1084              		.cfi_endproc
+ 1085              	.LFE70:
+ 1087              		.section	.text.SPIx_SPIIE_ERRIE_Getable,"ax",%progbits
+ 1088              		.align	2
+ 1089              		.global	SPIx_SPIIE_ERRIE_Getable
+ 1090              		.code	16
+ 1091              		.thumb_func
+ 1093              	SPIx_SPIIE_ERRIE_Getable:
+ 1094              	.LFB71:
+ 314:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 315:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** FunState SPIx_SPIIE_ERRIE_Getable(SPIx_Type* SPIx)
+ 316:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 1095              		.loc 1 316 0
+ 1096              		.cfi_startproc
+ 1097              		@ args = 0, pretend = 0, frame = 0
+ 1098              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1099              		@ link register save eliminated.
+ 1100              	.LVL104:
+ 317:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	if (SPIx->SPIIE & (SPIx_SPIIE_ERRIE_Msk))
+ 1101              		.loc 1 317 0
+ 1102 0000 C368     		ldr	r3, [r0, #12]
+ 1103 0002 5B07     		lsls	r3, r3, #29
+ 1104 0004 01D5     		bpl	.L58
+ 318:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 319:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		return ENABLE;
+ 1105              		.loc 1 319 0
+ 1106 0006 0120     		movs	r0, #1
+ 1107              	.LVL105:
+ 1108 0008 00E0     		b	.L57
+ 1109              	.LVL106:
+ 1110              	.L58:
+ 320:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 321:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	else
+ 322:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 323:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		return DISABLE;
+ 1111              		.loc 1 323 0
+ 1112 000a 0020     		movs	r0, #0
+ 1113              	.LVL107:
+ 1114              	.L57:
+ 324:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 325:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 25
+
+
+ 1115              		.loc 1 325 0
+ 1116              		@ sp needed
+ 1117 000c 7047     		bx	lr
+ 1118              		.cfi_endproc
+ 1119              	.LFE71:
+ 1121 000e C046     		.section	.text.SPIx_SPIIE_TXIE_Setable,"ax",%progbits
+ 1122              		.align	2
+ 1123              		.global	SPIx_SPIIE_TXIE_Setable
+ 1124              		.code	16
+ 1125              		.thumb_func
+ 1127              	SPIx_SPIIE_TXIE_Setable:
+ 1128              	.LFB72:
+ 326:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 327:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPIx_SPIIE_TXIE_Setable(SPIx_Type* SPIx, FunState NewState)
+ 328:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 1129              		.loc 1 328 0
+ 1130              		.cfi_startproc
+ 1131              		@ args = 0, pretend = 0, frame = 0
+ 1132              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1133              		@ link register save eliminated.
+ 1134              	.LVL108:
+ 329:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	if (NewState == ENABLE)
+ 1135              		.loc 1 329 0
+ 1136 0000 0129     		cmp	r1, #1
+ 1137 0002 04D1     		bne	.L60
+ 330:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 331:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		SPIx->SPIIE |= (SPIx_SPIIE_TXIE_Msk);
+ 1138              		.loc 1 331 0
+ 1139 0004 C268     		ldr	r2, [r0, #12]
+ 1140 0006 0223     		movs	r3, #2
+ 1141 0008 1343     		orrs	r3, r2
+ 1142 000a C360     		str	r3, [r0, #12]
+ 1143 000c 03E0     		b	.L59
+ 1144              	.L60:
+ 332:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 333:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	else
+ 334:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 335:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		SPIx->SPIIE &= ~(SPIx_SPIIE_TXIE_Msk);
+ 1145              		.loc 1 335 0
+ 1146 000e C368     		ldr	r3, [r0, #12]
+ 1147 0010 0222     		movs	r2, #2
+ 1148 0012 9343     		bics	r3, r2
+ 1149 0014 C360     		str	r3, [r0, #12]
+ 1150              	.L59:
+ 336:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 337:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 1151              		.loc 1 337 0
+ 1152              		@ sp needed
+ 1153 0016 7047     		bx	lr
+ 1154              		.cfi_endproc
+ 1155              	.LFE72:
+ 1157              		.section	.text.SPIx_SPIIE_TXIE_Getable,"ax",%progbits
+ 1158              		.align	2
+ 1159              		.global	SPIx_SPIIE_TXIE_Getable
+ 1160              		.code	16
+ 1161              		.thumb_func
+ 1163              	SPIx_SPIIE_TXIE_Getable:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 26
+
+
+ 1164              	.LFB73:
+ 338:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 339:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** FunState SPIx_SPIIE_TXIE_Getable(SPIx_Type* SPIx)
+ 340:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 1165              		.loc 1 340 0
+ 1166              		.cfi_startproc
+ 1167              		@ args = 0, pretend = 0, frame = 0
+ 1168              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1169              		@ link register save eliminated.
+ 1170              	.LVL109:
+ 341:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	if (SPIx->SPIIE & (SPIx_SPIIE_TXIE_Msk))
+ 1171              		.loc 1 341 0
+ 1172 0000 C368     		ldr	r3, [r0, #12]
+ 1173 0002 9B07     		lsls	r3, r3, #30
+ 1174 0004 01D5     		bpl	.L64
+ 342:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 343:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		return ENABLE;
+ 1175              		.loc 1 343 0
+ 1176 0006 0120     		movs	r0, #1
+ 1177              	.LVL110:
+ 1178 0008 00E0     		b	.L63
+ 1179              	.LVL111:
+ 1180              	.L64:
+ 344:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 345:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	else
+ 346:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 347:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		return DISABLE;
+ 1181              		.loc 1 347 0
+ 1182 000a 0020     		movs	r0, #0
+ 1183              	.LVL112:
+ 1184              	.L63:
+ 348:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 349:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 1185              		.loc 1 349 0
+ 1186              		@ sp needed
+ 1187 000c 7047     		bx	lr
+ 1188              		.cfi_endproc
+ 1189              	.LFE73:
+ 1191 000e C046     		.section	.text.SPIx_SPIIE_RXIE_Setable,"ax",%progbits
+ 1192              		.align	2
+ 1193              		.global	SPIx_SPIIE_RXIE_Setable
+ 1194              		.code	16
+ 1195              		.thumb_func
+ 1197              	SPIx_SPIIE_RXIE_Setable:
+ 1198              	.LFB74:
+ 350:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 351:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPIx_SPIIE_RXIE_Setable(SPIx_Type* SPIx, FunState NewState)
+ 352:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 1199              		.loc 1 352 0
+ 1200              		.cfi_startproc
+ 1201              		@ args = 0, pretend = 0, frame = 0
+ 1202              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1203              		@ link register save eliminated.
+ 1204              	.LVL113:
+ 353:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	if (NewState == ENABLE)
+ 1205              		.loc 1 353 0
+ 1206 0000 0129     		cmp	r1, #1
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 27
+
+
+ 1207 0002 04D1     		bne	.L66
+ 354:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 355:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		SPIx->SPIIE |= (SPIx_SPIIE_RXIE_Msk);
+ 1208              		.loc 1 355 0
+ 1209 0004 C268     		ldr	r2, [r0, #12]
+ 1210 0006 0123     		movs	r3, #1
+ 1211 0008 1343     		orrs	r3, r2
+ 1212 000a C360     		str	r3, [r0, #12]
+ 1213 000c 03E0     		b	.L65
+ 1214              	.L66:
+ 356:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 357:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	else
+ 358:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 359:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		SPIx->SPIIE &= ~(SPIx_SPIIE_RXIE_Msk);
+ 1215              		.loc 1 359 0
+ 1216 000e C368     		ldr	r3, [r0, #12]
+ 1217 0010 0122     		movs	r2, #1
+ 1218 0012 9343     		bics	r3, r2
+ 1219 0014 C360     		str	r3, [r0, #12]
+ 1220              	.L65:
+ 360:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 361:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 1221              		.loc 1 361 0
+ 1222              		@ sp needed
+ 1223 0016 7047     		bx	lr
+ 1224              		.cfi_endproc
+ 1225              	.LFE74:
+ 1227              		.section	.text.SPIx_SPIIE_RXIE_Getable,"ax",%progbits
+ 1228              		.align	2
+ 1229              		.global	SPIx_SPIIE_RXIE_Getable
+ 1230              		.code	16
+ 1231              		.thumb_func
+ 1233              	SPIx_SPIIE_RXIE_Getable:
+ 1234              	.LFB75:
+ 362:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 363:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** FunState SPIx_SPIIE_RXIE_Getable(SPIx_Type* SPIx)
+ 364:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 1235              		.loc 1 364 0
+ 1236              		.cfi_startproc
+ 1237              		@ args = 0, pretend = 0, frame = 0
+ 1238              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1239              		@ link register save eliminated.
+ 1240              	.LVL114:
+ 365:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	if (SPIx->SPIIE & (SPIx_SPIIE_RXIE_Msk))
+ 1241              		.loc 1 365 0
+ 1242 0000 C368     		ldr	r3, [r0, #12]
+ 1243 0002 DB07     		lsls	r3, r3, #31
+ 1244 0004 01D5     		bpl	.L70
+ 366:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 367:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		return ENABLE;
+ 1245              		.loc 1 367 0
+ 1246 0006 0120     		movs	r0, #1
+ 1247              	.LVL115:
+ 1248 0008 00E0     		b	.L69
+ 1249              	.LVL116:
+ 1250              	.L70:
+ 368:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 28
+
+
+ 369:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	else
+ 370:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 371:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		return DISABLE;
+ 1251              		.loc 1 371 0
+ 1252 000a 0020     		movs	r0, #0
+ 1253              	.LVL117:
+ 1254              	.L69:
+ 372:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 373:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 1255              		.loc 1 373 0
+ 1256              		@ sp needed
+ 1257 000c 7047     		bx	lr
+ 1258              		.cfi_endproc
+ 1259              	.LFE75:
+ 1261 000e C046     		.section	.text.SPIx_SPIIF_MERR_Chk,"ax",%progbits
+ 1262              		.align	2
+ 1263              		.global	SPIx_SPIIF_MERR_Chk
+ 1264              		.code	16
+ 1265              		.thumb_func
+ 1267              	SPIx_SPIIF_MERR_Chk:
+ 1268              	.LFB76:
+ 374:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 375:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /* Master Error标志 相关函数 */
+ 376:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** FlagStatus SPIx_SPIIF_MERR_Chk(SPIx_Type* SPIx)
+ 377:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 1269              		.loc 1 377 0
+ 1270              		.cfi_startproc
+ 1271              		@ args = 0, pretend = 0, frame = 0
+ 1272              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1273              		@ link register save eliminated.
+ 1274              	.LVL118:
+ 378:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	if (SPIx->SPIIF & SPIx_SPIIF_MERR_Msk)
+ 1275              		.loc 1 378 0
+ 1276 0000 0369     		ldr	r3, [r0, #16]
+ 1277 0002 5B06     		lsls	r3, r3, #25
+ 1278 0004 01D5     		bpl	.L73
+ 379:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 380:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		return SET;
+ 1279              		.loc 1 380 0
+ 1280 0006 0120     		movs	r0, #1
+ 1281              	.LVL119:
+ 1282 0008 00E0     		b	.L72
+ 1283              	.LVL120:
+ 1284              	.L73:
+ 381:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 382:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	else
+ 383:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 384:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		return RESET;
+ 1285              		.loc 1 384 0
+ 1286 000a 0020     		movs	r0, #0
+ 1287              	.LVL121:
+ 1288              	.L72:
+ 385:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 386:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 1289              		.loc 1 386 0
+ 1290              		@ sp needed
+ 1291 000c 7047     		bx	lr
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 29
+
+
+ 1292              		.cfi_endproc
+ 1293              	.LFE76:
+ 1295 000e C046     		.section	.text.SPIx_SPIIF_SERR_Chk,"ax",%progbits
+ 1296              		.align	2
+ 1297              		.global	SPIx_SPIIF_SERR_Chk
+ 1298              		.code	16
+ 1299              		.thumb_func
+ 1301              	SPIx_SPIIF_SERR_Chk:
+ 1302              	.LFB77:
+ 387:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 388:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /* Slave Error标志 相关函数 */
+ 389:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** FlagStatus SPIx_SPIIF_SERR_Chk(SPIx_Type* SPIx)
+ 390:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 1303              		.loc 1 390 0
+ 1304              		.cfi_startproc
+ 1305              		@ args = 0, pretend = 0, frame = 0
+ 1306              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1307              		@ link register save eliminated.
+ 1308              	.LVL122:
+ 391:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	if (SPIx->SPIIF & SPIx_SPIIF_SERR_Msk)
+ 1309              		.loc 1 391 0
+ 1310 0000 0369     		ldr	r3, [r0, #16]
+ 1311 0002 9B06     		lsls	r3, r3, #26
+ 1312 0004 01D5     		bpl	.L76
+ 392:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 393:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		return SET;
+ 1313              		.loc 1 393 0
+ 1314 0006 0120     		movs	r0, #1
+ 1315              	.LVL123:
+ 1316 0008 00E0     		b	.L75
+ 1317              	.LVL124:
+ 1318              	.L76:
+ 394:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 395:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	else
+ 396:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 397:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		return RESET;
+ 1319              		.loc 1 397 0
+ 1320 000a 0020     		movs	r0, #0
+ 1321              	.LVL125:
+ 1322              	.L75:
+ 398:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 399:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 1323              		.loc 1 399 0
+ 1324              		@ sp needed
+ 1325 000c 7047     		bx	lr
+ 1326              		.cfi_endproc
+ 1327              	.LFE77:
+ 1329 000e C046     		.section	.text.SPIx_SPIIF_RXCOL_Clr,"ax",%progbits
+ 1330              		.align	2
+ 1331              		.global	SPIx_SPIIF_RXCOL_Clr
+ 1332              		.code	16
+ 1333              		.thumb_func
+ 1335              	SPIx_SPIIF_RXCOL_Clr:
+ 1336              	.LFB78:
+ 400:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 401:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /* 接收缓存溢出，软件写1清零 相关函数 */
+ 402:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPIx_SPIIF_RXCOL_Clr(SPIx_Type* SPIx)
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 30
+
+
+ 403:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 1337              		.loc 1 403 0
+ 1338              		.cfi_startproc
+ 1339              		@ args = 0, pretend = 0, frame = 0
+ 1340              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1341              		@ link register save eliminated.
+ 1342              	.LVL126:
+ 404:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx->SPIIF = SPIx_SPIIF_RXCOL_Msk;
+ 1343              		.loc 1 404 0
+ 1344 0000 1023     		movs	r3, #16
+ 1345 0002 0361     		str	r3, [r0, #16]
+ 405:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 1346              		.loc 1 405 0
+ 1347              		@ sp needed
+ 1348 0004 7047     		bx	lr
+ 1349              		.cfi_endproc
+ 1350              	.LFE78:
+ 1352 0006 C046     		.section	.text.SPIx_SPIIF_RXCOL_Chk,"ax",%progbits
+ 1353              		.align	2
+ 1354              		.global	SPIx_SPIIF_RXCOL_Chk
+ 1355              		.code	16
+ 1356              		.thumb_func
+ 1358              	SPIx_SPIIF_RXCOL_Chk:
+ 1359              	.LFB79:
+ 406:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 407:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** FlagStatus SPIx_SPIIF_RXCOL_Chk(SPIx_Type* SPIx)
+ 408:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 1360              		.loc 1 408 0
+ 1361              		.cfi_startproc
+ 1362              		@ args = 0, pretend = 0, frame = 0
+ 1363              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1364              		@ link register save eliminated.
+ 1365              	.LVL127:
+ 409:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	if (SPIx->SPIIF & SPIx_SPIIF_RXCOL_Msk)
+ 1366              		.loc 1 409 0
+ 1367 0000 0369     		ldr	r3, [r0, #16]
+ 1368 0002 DB06     		lsls	r3, r3, #27
+ 1369 0004 01D5     		bpl	.L80
+ 410:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 411:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		return SET;
+ 1370              		.loc 1 411 0
+ 1371 0006 0120     		movs	r0, #1
+ 1372              	.LVL128:
+ 1373 0008 00E0     		b	.L79
+ 1374              	.LVL129:
+ 1375              	.L80:
+ 412:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 413:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	else
+ 414:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 415:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		return RESET;
+ 1376              		.loc 1 415 0
+ 1377 000a 0020     		movs	r0, #0
+ 1378              	.LVL130:
+ 1379              	.L79:
+ 416:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 417:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 1380              		.loc 1 417 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 31
+
+
+ 1381              		@ sp needed
+ 1382 000c 7047     		bx	lr
+ 1383              		.cfi_endproc
+ 1384              	.LFE79:
+ 1386 000e C046     		.section	.text.SPIx_SPIIF_TXCOL_Clr,"ax",%progbits
+ 1387              		.align	2
+ 1388              		.global	SPIx_SPIIF_TXCOL_Clr
+ 1389              		.code	16
+ 1390              		.thumb_func
+ 1392              	SPIx_SPIIF_TXCOL_Clr:
+ 1393              	.LFB80:
+ 418:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 419:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /* 发送缓存溢出，软件写1清零 相关函数 */
+ 420:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPIx_SPIIF_TXCOL_Clr(SPIx_Type* SPIx)
+ 421:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 1394              		.loc 1 421 0
+ 1395              		.cfi_startproc
+ 1396              		@ args = 0, pretend = 0, frame = 0
+ 1397              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1398              		@ link register save eliminated.
+ 1399              	.LVL131:
+ 422:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx->SPIIF = SPIx_SPIIF_TXCOL_Msk;
+ 1400              		.loc 1 422 0
+ 1401 0000 0823     		movs	r3, #8
+ 1402 0002 0361     		str	r3, [r0, #16]
+ 423:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 1403              		.loc 1 423 0
+ 1404              		@ sp needed
+ 1405 0004 7047     		bx	lr
+ 1406              		.cfi_endproc
+ 1407              	.LFE80:
+ 1409 0006 C046     		.section	.text.SPIx_SPIIF_TXCOL_Chk,"ax",%progbits
+ 1410              		.align	2
+ 1411              		.global	SPIx_SPIIF_TXCOL_Chk
+ 1412              		.code	16
+ 1413              		.thumb_func
+ 1415              	SPIx_SPIIF_TXCOL_Chk:
+ 1416              	.LFB81:
+ 424:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 425:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** FlagStatus SPIx_SPIIF_TXCOL_Chk(SPIx_Type* SPIx)
+ 426:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 1417              		.loc 1 426 0
+ 1418              		.cfi_startproc
+ 1419              		@ args = 0, pretend = 0, frame = 0
+ 1420              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1421              		@ link register save eliminated.
+ 1422              	.LVL132:
+ 427:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	if (SPIx->SPIIF & SPIx_SPIIF_TXCOL_Msk)
+ 1423              		.loc 1 427 0
+ 1424 0000 0369     		ldr	r3, [r0, #16]
+ 1425 0002 1B07     		lsls	r3, r3, #28
+ 1426 0004 01D5     		bpl	.L84
+ 428:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 429:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		return SET;
+ 1427              		.loc 1 429 0
+ 1428 0006 0120     		movs	r0, #1
+ 1429              	.LVL133:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 32
+
+
+ 1430 0008 00E0     		b	.L83
+ 1431              	.LVL134:
+ 1432              	.L84:
+ 430:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 431:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	else
+ 432:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 433:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		return RESET;
+ 1433              		.loc 1 433 0
+ 1434 000a 0020     		movs	r0, #0
+ 1435              	.LVL135:
+ 1436              	.L83:
+ 434:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 435:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 1437              		.loc 1 435 0
+ 1438              		@ sp needed
+ 1439 000c 7047     		bx	lr
+ 1440              		.cfi_endproc
+ 1441              	.LFE81:
+ 1443 000e C046     		.section	.text.SPIx_SPIIF_BUSY_Chk,"ax",%progbits
+ 1444              		.align	2
+ 1445              		.global	SPIx_SPIIF_BUSY_Chk
+ 1446              		.code	16
+ 1447              		.thumb_func
+ 1449              	SPIx_SPIIF_BUSY_Chk:
+ 1450              	.LFB82:
+ 436:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 437:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /* SPI空闲标志，只读 相关函数 */
+ 438:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** FlagStatus SPIx_SPIIF_BUSY_Chk(SPIx_Type* SPIx)
+ 439:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 1451              		.loc 1 439 0
+ 1452              		.cfi_startproc
+ 1453              		@ args = 0, pretend = 0, frame = 0
+ 1454              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1455              		@ link register save eliminated.
+ 1456              	.LVL136:
+ 440:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	if (SPIx->SPIIF & SPIx_SPIIF_BUSY_Msk)
+ 1457              		.loc 1 440 0
+ 1458 0000 0369     		ldr	r3, [r0, #16]
+ 1459 0002 5B07     		lsls	r3, r3, #29
+ 1460 0004 01D5     		bpl	.L87
+ 441:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 442:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		return SET;
+ 1461              		.loc 1 442 0
+ 1462 0006 0120     		movs	r0, #1
+ 1463              	.LVL137:
+ 1464 0008 00E0     		b	.L86
+ 1465              	.LVL138:
+ 1466              	.L87:
+ 443:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 444:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	else
+ 445:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 446:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		return RESET;
+ 1467              		.loc 1 446 0
+ 1468 000a 0020     		movs	r0, #0
+ 1469              	.LVL139:
+ 1470              	.L86:
+ 447:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 33
+
+
+ 448:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 1471              		.loc 1 448 0
+ 1472              		@ sp needed
+ 1473 000c 7047     		bx	lr
+ 1474              		.cfi_endproc
+ 1475              	.LFE82:
+ 1477 000e C046     		.section	.text.SPIx_SPIIF_TXBE_Chk,"ax",%progbits
+ 1478              		.align	2
+ 1479              		.global	SPIx_SPIIF_TXBE_Chk
+ 1480              		.code	16
+ 1481              		.thumb_func
+ 1483              	SPIx_SPIIF_TXBE_Chk:
+ 1484              	.LFB83:
+ 449:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 450:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /* TX Buffer Empty标志位 相关函数 */
+ 451:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** FlagStatus SPIx_SPIIF_TXBE_Chk(SPIx_Type* SPIx)
+ 452:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 1485              		.loc 1 452 0
+ 1486              		.cfi_startproc
+ 1487              		@ args = 0, pretend = 0, frame = 0
+ 1488              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1489              		@ link register save eliminated.
+ 1490              	.LVL140:
+ 453:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	if (SPIx->SPIIF & SPIx_SPIIF_TXBE_Msk)
+ 1491              		.loc 1 453 0
+ 1492 0000 0369     		ldr	r3, [r0, #16]
+ 1493 0002 9B07     		lsls	r3, r3, #30
+ 1494 0004 01D5     		bpl	.L90
+ 454:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 455:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		return SET;
+ 1495              		.loc 1 455 0
+ 1496 0006 0120     		movs	r0, #1
+ 1497              	.LVL141:
+ 1498 0008 00E0     		b	.L89
+ 1499              	.LVL142:
+ 1500              	.L90:
+ 456:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 457:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	else
+ 458:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 459:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		return RESET;
+ 1501              		.loc 1 459 0
+ 1502 000a 0020     		movs	r0, #0
+ 1503              	.LVL143:
+ 1504              	.L89:
+ 460:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 461:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 1505              		.loc 1 461 0
+ 1506              		@ sp needed
+ 1507 000c 7047     		bx	lr
+ 1508              		.cfi_endproc
+ 1509              	.LFE83:
+ 1511 000e C046     		.section	.text.SPIx_SPIIF_RXBF_Chk,"ax",%progbits
+ 1512              		.align	2
+ 1513              		.global	SPIx_SPIIF_RXBF_Chk
+ 1514              		.code	16
+ 1515              		.thumb_func
+ 1517              	SPIx_SPIIF_RXBF_Chk:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 34
+
+
+ 1518              	.LFB84:
+ 462:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 463:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /* RX Buffer Full标志位 相关函数 */
+ 464:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** FlagStatus SPIx_SPIIF_RXBF_Chk(SPIx_Type* SPIx)
+ 465:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 1519              		.loc 1 465 0
+ 1520              		.cfi_startproc
+ 1521              		@ args = 0, pretend = 0, frame = 0
+ 1522              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1523              		@ link register save eliminated.
+ 1524              	.LVL144:
+ 466:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	if (SPIx->SPIIF & SPIx_SPIIF_RXBF_Msk)
+ 1525              		.loc 1 466 0
+ 1526 0000 0369     		ldr	r3, [r0, #16]
+ 1527 0002 DB07     		lsls	r3, r3, #31
+ 1528 0004 01D5     		bpl	.L93
+ 467:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 468:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		return SET;
+ 1529              		.loc 1 468 0
+ 1530 0006 0120     		movs	r0, #1
+ 1531              	.LVL145:
+ 1532 0008 00E0     		b	.L92
+ 1533              	.LVL146:
+ 1534              	.L93:
+ 469:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 470:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	else
+ 471:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	{
+ 472:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		return RESET;
+ 1535              		.loc 1 472 0
+ 1536 000a 0020     		movs	r0, #0
+ 1537              	.LVL147:
+ 1538              	.L92:
+ 473:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	}
+ 474:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 1539              		.loc 1 474 0
+ 1540              		@ sp needed
+ 1541 000c 7047     		bx	lr
+ 1542              		.cfi_endproc
+ 1543              	.LFE84:
+ 1545 000e C046     		.section	.text.SPIx_SPITXBUF_Write,"ax",%progbits
+ 1546              		.align	2
+ 1547              		.global	SPIx_SPITXBUF_Write
+ 1548              		.code	16
+ 1549              		.thumb_func
+ 1551              	SPIx_SPITXBUF_Write:
+ 1552              	.LFB85:
+ 475:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 476:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /* SPI发送缓存 相关函数 */
+ 477:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPIx_SPITXBUF_Write(SPIx_Type* SPIx, uint32_t SetValue)
+ 478:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 1553              		.loc 1 478 0
+ 1554              		.cfi_startproc
+ 1555              		@ args = 0, pretend = 0, frame = 0
+ 1556              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1557              		@ link register save eliminated.
+ 1558              	.LVL148:
+ 479:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx->SPITXBUF = (SetValue & SPIx_SPITXBUF_TXBUF_Msk);
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 35
+
+
+ 1559              		.loc 1 479 0
+ 1560 0000 FF23     		movs	r3, #255
+ 1561 0002 1940     		ands	r1, r3
+ 1562              	.LVL149:
+ 1563 0004 4161     		str	r1, [r0, #20]
+ 480:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 1564              		.loc 1 480 0
+ 1565              		@ sp needed
+ 1566 0006 7047     		bx	lr
+ 1567              		.cfi_endproc
+ 1568              	.LFE85:
+ 1570              		.section	.text.SPIx_SPITXBUF_Read,"ax",%progbits
+ 1571              		.align	2
+ 1572              		.global	SPIx_SPITXBUF_Read
+ 1573              		.code	16
+ 1574              		.thumb_func
+ 1576              	SPIx_SPITXBUF_Read:
+ 1577              	.LFB86:
+ 481:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 482:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** uint32_t SPIx_SPITXBUF_Read(SPIx_Type* SPIx)
+ 483:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 1578              		.loc 1 483 0
+ 1579              		.cfi_startproc
+ 1580              		@ args = 0, pretend = 0, frame = 0
+ 1581              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1582              		@ link register save eliminated.
+ 1583              	.LVL150:
+ 484:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	return (SPIx->SPITXBUF & SPIx_SPITXBUF_TXBUF_Msk);
+ 1584              		.loc 1 484 0
+ 1585 0000 4369     		ldr	r3, [r0, #20]
+ 1586 0002 FF20     		movs	r0, #255
+ 1587              	.LVL151:
+ 1588 0004 1840     		ands	r0, r3
+ 485:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 1589              		.loc 1 485 0
+ 1590              		@ sp needed
+ 1591 0006 7047     		bx	lr
+ 1592              		.cfi_endproc
+ 1593              	.LFE86:
+ 1595              		.section	.text.SPIx_SPIRXBUF_Write,"ax",%progbits
+ 1596              		.align	2
+ 1597              		.global	SPIx_SPIRXBUF_Write
+ 1598              		.code	16
+ 1599              		.thumb_func
+ 1601              	SPIx_SPIRXBUF_Write:
+ 1602              	.LFB87:
+ 486:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 487:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** /* SPI接收缓存 相关函数 */
+ 488:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPIx_SPIRXBUF_Write(SPIx_Type* SPIx, uint32_t SetValue)
+ 489:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 1603              		.loc 1 489 0
+ 1604              		.cfi_startproc
+ 1605              		@ args = 0, pretend = 0, frame = 0
+ 1606              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1607              		@ link register save eliminated.
+ 1608              	.LVL152:
+ 490:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx->SPIRXBUF = (SetValue & SPIx_SPIRXBUF_RXBUF_Msk);
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 36
+
+
+ 1609              		.loc 1 490 0
+ 1610 0000 FF23     		movs	r3, #255
+ 1611 0002 1940     		ands	r1, r3
+ 1612              	.LVL153:
+ 1613 0004 8161     		str	r1, [r0, #24]
+ 491:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 1614              		.loc 1 491 0
+ 1615              		@ sp needed
+ 1616 0006 7047     		bx	lr
+ 1617              		.cfi_endproc
+ 1618              	.LFE87:
+ 1620              		.section	.text.SPIx_SPIRXBUF_Read,"ax",%progbits
+ 1621              		.align	2
+ 1622              		.global	SPIx_SPIRXBUF_Read
+ 1623              		.code	16
+ 1624              		.thumb_func
+ 1626              	SPIx_SPIRXBUF_Read:
+ 1627              	.LFB88:
+ 492:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 493:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** uint32_t SPIx_SPIRXBUF_Read(SPIx_Type* SPIx)
+ 494:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 1628              		.loc 1 494 0
+ 1629              		.cfi_startproc
+ 1630              		@ args = 0, pretend = 0, frame = 0
+ 1631              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1632              		@ link register save eliminated.
+ 1633              	.LVL154:
+ 495:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	return (SPIx->SPIRXBUF & SPIx_SPIRXBUF_RXBUF_Msk);
+ 1634              		.loc 1 495 0
+ 1635 0000 8369     		ldr	r3, [r0, #24]
+ 1636 0002 FF20     		movs	r0, #255
+ 1637              	.LVL155:
+ 1638 0004 1840     		ands	r0, r3
+ 496:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 1639              		.loc 1 496 0
+ 1640              		@ sp needed
+ 1641 0006 7047     		bx	lr
+ 1642              		.cfi_endproc
+ 1643              	.LFE88:
+ 1645              		.section	.text.SPIx_Deinit,"ax",%progbits
+ 1646              		.align	2
+ 1647              		.global	SPIx_Deinit
+ 1648              		.code	16
+ 1649              		.thumb_func
+ 1651              	SPIx_Deinit:
+ 1652              	.LFB89:
+ 497:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 498:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPIx_Deinit(SPIx_Type* SPIx)
+ 499:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 1653              		.loc 1 499 0
+ 1654              		.cfi_startproc
+ 1655              		@ args = 0, pretend = 0, frame = 0
+ 1656              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1657              		@ link register save eliminated.
+ 1658              	.LVL156:
+ 500:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx->SPICR1 = 0x00000108;
+ 1659              		.loc 1 500 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 37
+
+
+ 1660 0000 8423     		movs	r3, #132
+ 1661 0002 5B00     		lsls	r3, r3, #1
+ 1662 0004 0360     		str	r3, [r0]
+ 501:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx->SPICR2 = 0x00000054;
+ 1663              		.loc 1 501 0
+ 1664 0006 B43B     		subs	r3, r3, #180
+ 1665 0008 4360     		str	r3, [r0, #4]
+ 502:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx->SPICR3 = 0x00000000;
+ 1666              		.loc 1 502 0
+ 1667 000a 0023     		movs	r3, #0
+ 1668 000c 8360     		str	r3, [r0, #8]
+ 503:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx->SPIIE = 0x00000000;
+ 1669              		.loc 1 503 0
+ 1670 000e C360     		str	r3, [r0, #12]
+ 504:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	//SPIx->SPIIF = 0x00000002;
+ 505:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	//SPIx->SPITXBUF = 0x00000000;
+ 506:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	//SPIx->SPIRXBUF = 0x00000000;
+ 507:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 1671              		.loc 1 507 0
+ 1672              		@ sp needed
+ 1673 0010 7047     		bx	lr
+ 1674              		.cfi_endproc
+ 1675              	.LFE89:
+ 1677 0012 C046     		.section	.text.SPI_Master_Init,"ax",%progbits
+ 1678              		.align	2
+ 1679              		.global	SPI_Master_Init
+ 1680              		.code	16
+ 1681              		.thumb_func
+ 1683              	SPI_Master_Init:
+ 1684              	.LFB90:
+ 508:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** //Code_End
+ 509:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 510:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 511:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 512:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** //Code_Start_HandBy
+ 513:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** //void SPI_Master_Init(SPIx_Type* SPIx, SPI_Master_InitTypeDef* para)
+ 514:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPI_Master_Init(SPIx_Type* SPIx, SPI_Master_SInitTypeDef* para)
+ 515:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 1685              		.loc 1 515 0
+ 1686              		.cfi_startproc
+ 1687              		@ args = 0, pretend = 0, frame = 0
+ 1688              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1689              	.LVL157:
+ 1690 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 1691              	.LCFI0:
+ 1692              		.cfi_def_cfa_offset 20
+ 1693              		.cfi_offset 4, -20
+ 1694              		.cfi_offset 5, -16
+ 1695              		.cfi_offset 6, -12
+ 1696              		.cfi_offset 7, -8
+ 1697              		.cfi_offset 14, -4
+ 1698 0002 5746     		mov	r7, r10
+ 1699 0004 4E46     		mov	r6, r9
+ 1700 0006 4546     		mov	r5, r8
+ 1701 0008 E0B4     		push	{r5, r6, r7}
+ 1702              	.LCFI1:
+ 1703              		.cfi_def_cfa_offset 32
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 38
+
+
+ 1704              		.cfi_offset 8, -32
+ 1705              		.cfi_offset 9, -28
+ 1706              		.cfi_offset 10, -24
+ 1707 000a 0400     		movs	r4, r0
+ 1708 000c 0D00     		movs	r5, r1
+ 516:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPI_Master_InitTypeDef init_para;
+ 517:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 518:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx_Deinit(SPIx);
+ 1709              		.loc 1 518 0
+ 1710 000e FFF7FEFF 		bl	SPIx_Deinit
+ 1711              	.LVL158:
+ 519:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 520:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	init_para.MSPA = SPIx_SPICR1_MSPA_NORMAL;
+ 521:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	init_para.WAIT = SPIx_SPICR1_WAIT_WAIT_1;
+ 522:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	init_para.BAUD_RATE = para->BAUD_RATE;
+ 1712              		.loc 1 522 0
+ 1713 0012 2B68     		ldr	r3, [r5]
+ 1714 0014 9A46     		mov	r10, r3
+ 523:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	init_para.LSBF = para->LSBF;
+ 1715              		.loc 1 523 0
+ 1716 0016 6B68     		ldr	r3, [r5, #4]
+ 1717 0018 9946     		mov	r9, r3
+ 524:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	init_para.CPHOL = para->CPHOL;
+ 1718              		.loc 1 524 0
+ 1719 001a AB68     		ldr	r3, [r5, #8]
+ 1720 001c 9846     		mov	r8, r3
+ 525:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	init_para.CPHA = para->CPHA;
+ 1721              		.loc 1 525 0
+ 1722 001e EF68     		ldr	r7, [r5, #12]
+ 526:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	init_para.SSNM = para->SSNM;
+ 1723              		.loc 1 526 0
+ 1724 0020 2E69     		ldr	r6, [r5, #16]
+ 527:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	init_para.TXO = DISABLE;
+ 528:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	init_para.TXO_AC = SPIx_SPICR2_TXO_AC_CLR_AT_CLOSE;
+ 529:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	init_para.SSNSEN = para->SSNSEN;
+ 1725              		.loc 1 529 0
+ 1726 0022 6D69     		ldr	r5, [r5, #20]
+ 1727              	.LVL159:
+ 530:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 531:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	init_para.SPIEN = DISABLE;
+ 532:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	init_para.ERRIE = DISABLE;
+ 533:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	init_para.TXIE = DISABLE;
+ 534:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	init_para.RXIE = DISABLE;
+ 535:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	
+ 536:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx_SPICR1_MSPA_Set(SPIx, init_para.MSPA);
+ 1728              		.loc 1 536 0
+ 1729 0024 0021     		movs	r1, #0
+ 1730 0026 2000     		movs	r0, r4
+ 1731 0028 FFF7FEFF 		bl	SPIx_SPICR1_MSPA_Set
+ 1732              	.LVL160:
+ 537:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx_SPICR1_WAIT_Set(SPIx, init_para.WAIT);
+ 1733              		.loc 1 537 0
+ 1734 002c 0021     		movs	r1, #0
+ 1735 002e 2000     		movs	r0, r4
+ 1736 0030 FFF7FEFF 		bl	SPIx_SPICR1_WAIT_Set
+ 1737              	.LVL161:
+ 538:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx_SPICR1_BAUD_Set(SPIx, init_para.BAUD_RATE);
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 39
+
+
+ 1738              		.loc 1 538 0
+ 1739 0034 5146     		mov	r1, r10
+ 1740 0036 2000     		movs	r0, r4
+ 1741 0038 FFF7FEFF 		bl	SPIx_SPICR1_BAUD_Set
+ 1742              	.LVL162:
+ 539:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx_SPICR1_LSBF_Set(SPIx, init_para.LSBF);
+ 1743              		.loc 1 539 0
+ 1744 003c 4946     		mov	r1, r9
+ 1745 003e 2000     		movs	r0, r4
+ 1746 0040 FFF7FEFF 		bl	SPIx_SPICR1_LSBF_Set
+ 1747              	.LVL163:
+ 540:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx_SPICR1_CPHOL_Set(SPIx, init_para.CPHOL);
+ 1748              		.loc 1 540 0
+ 1749 0044 4146     		mov	r1, r8
+ 1750 0046 2000     		movs	r0, r4
+ 1751 0048 FFF7FEFF 		bl	SPIx_SPICR1_CPHOL_Set
+ 1752              	.LVL164:
+ 541:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx_SPICR1_CPHA_Set(SPIx, init_para.CPHA);
+ 1753              		.loc 1 541 0
+ 1754 004c 3900     		movs	r1, r7
+ 1755 004e 2000     		movs	r0, r4
+ 1756 0050 FFF7FEFF 		bl	SPIx_SPICR1_CPHA_Set
+ 1757              	.LVL165:
+ 542:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx_SPICR2_SSNM_Set(SPIx, init_para.SSNM);
+ 1758              		.loc 1 542 0
+ 1759 0054 3100     		movs	r1, r6
+ 1760 0056 2000     		movs	r0, r4
+ 1761 0058 FFF7FEFF 		bl	SPIx_SPICR2_SSNM_Set
+ 1762              	.LVL166:
+ 543:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx_SPICR2_TXO_Setable(SPIx, init_para.TXO);
+ 1763              		.loc 1 543 0
+ 1764 005c 0021     		movs	r1, #0
+ 1765 005e 2000     		movs	r0, r4
+ 1766 0060 FFF7FEFF 		bl	SPIx_SPICR2_TXO_Setable
+ 1767              	.LVL167:
+ 544:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx_SPICR2_TXO_AC_Set(SPIx, init_para.TXO_AC);
+ 1768              		.loc 1 544 0
+ 1769 0064 0021     		movs	r1, #0
+ 1770 0066 2000     		movs	r0, r4
+ 1771 0068 FFF7FEFF 		bl	SPIx_SPICR2_TXO_AC_Set
+ 1772              	.LVL168:
+ 545:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx_SPICR2_SSNSEN_Set(SPIx, init_para.SSNSEN);
+ 1773              		.loc 1 545 0
+ 1774 006c 2900     		movs	r1, r5
+ 1775 006e 2000     		movs	r0, r4
+ 1776 0070 FFF7FEFF 		bl	SPIx_SPICR2_SSNSEN_Set
+ 1777              	.LVL169:
+ 546:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 547:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx_SPICR1_MM_Set(SPIx, SPIx_SPICR1_MM_MASTER);//配置成主模式
+ 1778              		.loc 1 547 0
+ 1779 0074 8021     		movs	r1, #128
+ 1780 0076 4900     		lsls	r1, r1, #1
+ 1781 0078 2000     		movs	r0, r4
+ 1782 007a FFF7FEFF 		bl	SPIx_SPICR1_MM_Set
+ 1783              	.LVL170:
+ 548:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 1784              		.loc 1 548 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 40
+
+
+ 1785              		@ sp needed
+ 1786              	.LVL171:
+ 1787 007e 1CBC     		pop	{r2, r3, r4}
+ 1788 0080 9046     		mov	r8, r2
+ 1789 0082 9946     		mov	r9, r3
+ 1790 0084 A246     		mov	r10, r4
+ 1791 0086 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 1792              		.cfi_endproc
+ 1793              	.LFE90:
+ 1795              		.section	.text.SPI_Slave_Init,"ax",%progbits
+ 1796              		.align	2
+ 1797              		.global	SPI_Slave_Init
+ 1798              		.code	16
+ 1799              		.thumb_func
+ 1801              	SPI_Slave_Init:
+ 1802              	.LFB91:
+ 549:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 550:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 551:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPI_Slave_Init(SPIx_Type* SPIx, SPI_Slave_SInitTypeDef* para)
+ 552:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 1803              		.loc 1 552 0
+ 1804              		.cfi_startproc
+ 1805              		@ args = 0, pretend = 0, frame = 0
+ 1806              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1807              	.LVL172:
+ 1808 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 1809              	.LCFI2:
+ 1810              		.cfi_def_cfa_offset 24
+ 1811              		.cfi_offset 3, -24
+ 1812              		.cfi_offset 4, -20
+ 1813              		.cfi_offset 5, -16
+ 1814              		.cfi_offset 6, -12
+ 1815              		.cfi_offset 7, -8
+ 1816              		.cfi_offset 14, -4
+ 1817 0002 0400     		movs	r4, r0
+ 1818 0004 0D00     		movs	r5, r1
+ 553:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPI_Slave_InitTypeDef init_para;
+ 554:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 555:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx_Deinit(SPIx);
+ 1819              		.loc 1 555 0
+ 1820 0006 FFF7FEFF 		bl	SPIx_Deinit
+ 1821              	.LVL173:
+ 556:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 557:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	init_para.SSPA = SPIx_SPICR1_SSPA_NORMAL;
+ 558:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	init_para.FLTEN = ENABLE;
+ 559:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	init_para.LSBF = para->LSBF;
+ 1822              		.loc 1 559 0
+ 1823 000a 2F68     		ldr	r7, [r5]
+ 560:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	init_para.CPHOL = para->CPHOL;
+ 1824              		.loc 1 560 0
+ 1825 000c 6E68     		ldr	r6, [r5, #4]
+ 561:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	init_para.CPHA = para->CPHA;
+ 1826              		.loc 1 561 0
+ 1827 000e AD68     		ldr	r5, [r5, #8]
+ 1828              	.LVL174:
+ 562:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	init_para.TXO = DISABLE;
+ 563:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	init_para.TXO_AC = SPIx_SPICR2_TXO_AC_CLR_AT_CLOSE;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 41
+
+
+ 564:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 565:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	init_para.SPIEN = DISABLE;
+ 566:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	init_para.ERRIE = DISABLE;
+ 567:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	init_para.TXIE = DISABLE;
+ 568:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	init_para.RXIE = DISABLE;
+ 569:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	
+ 570:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx_SPICR1_SSPA_Set(SPIx, init_para.SSPA);
+ 1829              		.loc 1 570 0
+ 1830 0010 0021     		movs	r1, #0
+ 1831 0012 2000     		movs	r0, r4
+ 1832 0014 FFF7FEFF 		bl	SPIx_SPICR1_SSPA_Set
+ 1833              	.LVL175:
+ 571:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx_SPICR2_FLTEN_Setable(SPIx, init_para.FLTEN);
+ 1834              		.loc 1 571 0
+ 1835 0018 0121     		movs	r1, #1
+ 1836 001a 2000     		movs	r0, r4
+ 1837 001c FFF7FEFF 		bl	SPIx_SPICR2_FLTEN_Setable
+ 1838              	.LVL176:
+ 572:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx_SPICR1_LSBF_Set(SPIx, init_para.LSBF);
+ 1839              		.loc 1 572 0
+ 1840 0020 3900     		movs	r1, r7
+ 1841 0022 2000     		movs	r0, r4
+ 1842 0024 FFF7FEFF 		bl	SPIx_SPICR1_LSBF_Set
+ 1843              	.LVL177:
+ 573:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx_SPICR1_CPHOL_Set(SPIx, init_para.CPHOL);
+ 1844              		.loc 1 573 0
+ 1845 0028 3100     		movs	r1, r6
+ 1846 002a 2000     		movs	r0, r4
+ 1847 002c FFF7FEFF 		bl	SPIx_SPICR1_CPHOL_Set
+ 1848              	.LVL178:
+ 574:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx_SPICR1_CPHA_Set(SPIx, init_para.CPHA);
+ 1849              		.loc 1 574 0
+ 1850 0030 2900     		movs	r1, r5
+ 1851 0032 2000     		movs	r0, r4
+ 1852 0034 FFF7FEFF 		bl	SPIx_SPICR1_CPHA_Set
+ 1853              	.LVL179:
+ 575:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx_SPICR2_TXO_Setable(SPIx, init_para.TXO);
+ 1854              		.loc 1 575 0
+ 1855 0038 0021     		movs	r1, #0
+ 1856 003a 2000     		movs	r0, r4
+ 1857 003c FFF7FEFF 		bl	SPIx_SPICR2_TXO_Setable
+ 1858              	.LVL180:
+ 576:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx_SPICR2_TXO_AC_Set(SPIx, init_para.TXO_AC);
+ 1859              		.loc 1 576 0
+ 1860 0040 0021     		movs	r1, #0
+ 1861 0042 2000     		movs	r0, r4
+ 1862 0044 FFF7FEFF 		bl	SPIx_SPICR2_TXO_AC_Set
+ 1863              	.LVL181:
+ 577:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 578:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx_SPICR1_MM_Set(SPIx, SPIx_SPICR1_MM_SLAVE);//配置成从模式
+ 1864              		.loc 1 578 0
+ 1865 0048 0021     		movs	r1, #0
+ 1866 004a 2000     		movs	r0, r4
+ 1867 004c FFF7FEFF 		bl	SPIx_SPICR1_MM_Set
+ 1868              	.LVL182:
+ 579:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 1869              		.loc 1 579 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 42
+
+
+ 1870              		@ sp needed
+ 1871              	.LVL183:
+ 1872 0050 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 1873              		.cfi_endproc
+ 1874              	.LFE91:
+ 1876 0052 C046     		.section	.text.SPI_SSN_Set_Low,"ax",%progbits
+ 1877              		.align	2
+ 1878              		.global	SPI_SSN_Set_Low
+ 1879              		.code	16
+ 1880              		.thumb_func
+ 1882              	SPI_SSN_Set_Low:
+ 1883              	.LFB92:
+ 580:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 581:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 582:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPI_SSN_Set_Low(SPIx_Type* SPIx)//驱动级
+ 583:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 1884              		.loc 1 583 0
+ 1885              		.cfi_startproc
+ 1886              		@ args = 0, pretend = 0, frame = 0
+ 1887              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1888              	.LVL184:
+ 1889 0000 10B5     		push	{r4, lr}
+ 1890              	.LCFI3:
+ 1891              		.cfi_def_cfa_offset 8
+ 1892              		.cfi_offset 4, -8
+ 1893              		.cfi_offset 14, -4
+ 584:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx_SPICR2_SSN_Set(SPIx, SPIx_SPICR2_SSN_LOW);//拉低SSN信号
+ 1894              		.loc 1 584 0
+ 1895 0002 0021     		movs	r1, #0
+ 1896 0004 FFF7FEFF 		bl	SPIx_SPICR2_SSN_Set
+ 1897              	.LVL185:
+ 585:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 1898              		.loc 1 585 0
+ 1899              		@ sp needed
+ 1900 0008 10BD     		pop	{r4, pc}
+ 1901              		.cfi_endproc
+ 1902              	.LFE92:
+ 1904 000a C046     		.section	.text.SPI_SSN_Set_High,"ax",%progbits
+ 1905              		.align	2
+ 1906              		.global	SPI_SSN_Set_High
+ 1907              		.code	16
+ 1908              		.thumb_func
+ 1910              	SPI_SSN_Set_High:
+ 1911              	.LFB93:
+ 586:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 587:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPI_SSN_Set_High(SPIx_Type* SPIx)//驱动级
+ 588:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 1912              		.loc 1 588 0
+ 1913              		.cfi_startproc
+ 1914              		@ args = 0, pretend = 0, frame = 0
+ 1915              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1916              	.LVL186:
+ 1917 0000 10B5     		push	{r4, lr}
+ 1918              	.LCFI4:
+ 1919              		.cfi_def_cfa_offset 8
+ 1920              		.cfi_offset 4, -8
+ 1921              		.cfi_offset 14, -4
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 43
+
+
+ 589:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx_SPICR2_SSN_Set(SPIx, SPIx_SPICR2_SSN_HIGH);//拉高SSN信号
+ 1922              		.loc 1 589 0
+ 1923 0002 0421     		movs	r1, #4
+ 1924 0004 FFF7FEFF 		bl	SPIx_SPICR2_SSN_Set
+ 1925              	.LVL187:
+ 590:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 1926              		.loc 1 590 0
+ 1927              		@ sp needed
+ 1928 0008 10BD     		pop	{r4, pc}
+ 1929              		.cfi_endproc
+ 1930              	.LFE93:
+ 1932 000a C046     		.section	.text.SPI_Recv_Byte,"ax",%progbits
+ 1933              		.align	2
+ 1934              		.global	SPI_Recv_Byte
+ 1935              		.code	16
+ 1936              		.thumb_func
+ 1938              	SPI_Recv_Byte:
+ 1939              	.LFB94:
+ 591:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 592:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** unsigned char SPI_Recv_Byte(SPIx_Type* SPIx)//SPI接收一字节
+ 593:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 1940              		.loc 1 593 0
+ 1941              		.cfi_startproc
+ 1942              		@ args = 0, pretend = 0, frame = 0
+ 1943              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1944              	.LVL188:
+ 1945 0000 10B5     		push	{r4, lr}
+ 1946              	.LCFI5:
+ 1947              		.cfi_def_cfa_offset 8
+ 1948              		.cfi_offset 4, -8
+ 1949              		.cfi_offset 14, -4
+ 594:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	return SPIx_SPIRXBUF_Read(SPIx);
+ 1950              		.loc 1 594 0
+ 1951 0002 FFF7FEFF 		bl	SPIx_SPIRXBUF_Read
+ 1952              	.LVL189:
+ 1953 0006 C0B2     		uxtb	r0, r0
+ 595:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 1954              		.loc 1 595 0
+ 1955              		@ sp needed
+ 1956 0008 10BD     		pop	{r4, pc}
+ 1957              		.cfi_endproc
+ 1958              	.LFE94:
+ 1960 000a C046     		.section	.text.SPI_Send_Byte,"ax",%progbits
+ 1961              		.align	2
+ 1962              		.global	SPI_Send_Byte
+ 1963              		.code	16
+ 1964              		.thumb_func
+ 1966              	SPI_Send_Byte:
+ 1967              	.LFB95:
+ 596:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** void SPI_Send_Byte(SPIx_Type* SPIx, unsigned char data)//SPI发送一字节
+ 597:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 1968              		.loc 1 597 0
+ 1969              		.cfi_startproc
+ 1970              		@ args = 0, pretend = 0, frame = 0
+ 1971              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1972              	.LVL190:
+ 1973 0000 10B5     		push	{r4, lr}
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 44
+
+
+ 1974              	.LCFI6:
+ 1975              		.cfi_def_cfa_offset 8
+ 1976              		.cfi_offset 4, -8
+ 1977              		.cfi_offset 14, -4
+ 598:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 	SPIx_SPITXBUF_Write(SPIx, data);
+ 1978              		.loc 1 598 0
+ 1979 0002 FFF7FEFF 		bl	SPIx_SPITXBUF_Write
+ 1980              	.LVL191:
+ 599:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 1981              		.loc 1 599 0
+ 1982              		@ sp needed
+ 1983 0006 10BD     		pop	{r4, pc}
+ 1984              		.cfi_endproc
+ 1985              	.LFE95:
+ 1987              		.section	.text.SPI_RW_Byte,"ax",%progbits
+ 1988              		.align	2
+ 1989              		.global	SPI_RW_Byte
+ 1990              		.code	16
+ 1991              		.thumb_func
+ 1993              	SPI_RW_Byte:
+ 1994              	.LFB96:
+ 600:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** unsigned char SPI_RW_Byte(SPIx_Type* SPIx, unsigned char data)//SPI发送并接收一字节
+ 601:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** {
+ 1995              		.loc 1 601 0
+ 1996              		.cfi_startproc
+ 1997              		@ args = 0, pretend = 0, frame = 0
+ 1998              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1999              	.LVL192:
+ 2000 0000 70B5     		push	{r4, r5, r6, lr}
+ 2001              	.LCFI7:
+ 2002              		.cfi_def_cfa_offset 16
+ 2003              		.cfi_offset 4, -16
+ 2004              		.cfi_offset 5, -12
+ 2005              		.cfi_offset 6, -8
+ 2006              		.cfi_offset 14, -4
+ 2007 0002 0400     		movs	r4, r0
+ 2008 0004 0D00     		movs	r5, r1
+ 2009              	.LVL193:
+ 2010              	.L106:
+ 602:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c ****     unsigned char rx_data;
+ 603:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 604:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c ****     while(1)
+ 605:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c ****     {
+ 606:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c ****     	if (SPIx_SPIIF_TXBE_Chk(SPIx) == SET)
+ 2011              		.loc 1 606 0
+ 2012 0006 2000     		movs	r0, r4
+ 2013 0008 FFF7FEFF 		bl	SPIx_SPIIF_TXBE_Chk
+ 2014              	.LVL194:
+ 2015 000c 0128     		cmp	r0, #1
+ 2016 000e FAD1     		bne	.L106
+ 607:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		{
+ 608:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 			break;
+ 609:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 		}		
+ 610:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c ****     }
+ 611:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c ****     SPI_Send_Byte(SPIx, data);
+ 2017              		.loc 1 611 0
+ 2018 0010 2900     		movs	r1, r5
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 45
+
+
+ 2019 0012 2000     		movs	r0, r4
+ 2020 0014 FFF7FEFF 		bl	SPI_Send_Byte
+ 2021              	.LVL195:
+ 2022              	.L107:
+ 612:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** 
+ 613:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c ****     while(1)
+ 614:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c ****     {
+ 615:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c ****     	if (SPIx_SPIIF_RXBF_Chk(SPIx) == SET)
+ 2023              		.loc 1 615 0
+ 2024 0018 2000     		movs	r0, r4
+ 2025 001a FFF7FEFF 		bl	SPIx_SPIIF_RXBF_Chk
+ 2026              	.LVL196:
+ 2027 001e 0128     		cmp	r0, #1
+ 2028 0020 FAD1     		bne	.L107
+ 616:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c ****         {
+ 617:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c ****             break;
+ 618:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c ****         }
+ 619:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c ****     }
+ 620:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c ****     rx_data = SPI_Recv_Byte(SPIx);
+ 2029              		.loc 1 620 0
+ 2030 0022 2000     		movs	r0, r4
+ 2031 0024 FFF7FEFF 		bl	SPI_Recv_Byte
+ 2032              	.LVL197:
+ 621:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c ****     return rx_data;
+ 622:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_spi.c **** }
+ 2033              		.loc 1 622 0
+ 2034              		@ sp needed
+ 2035              	.LVL198:
+ 2036 0028 70BD     		pop	{r4, r5, r6, pc}
+ 2037              		.cfi_endproc
+ 2038              	.LFE96:
+ 2040 002a C046     		.text
+ 2041              	.Letext0:
+ 2042              		.file 2 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\device\\include\\fm33a0xx.h"
+ 2043              		.file 3 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\machine\\_default_types.h
+ 2044              		.file 4 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 2045              		.file 5 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\drivers\\fm33A0xx_spi.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 46
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 fm33a0xx_spi.c
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:20     .text.SPIx_SPICR1_MSPA_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:25     .text.SPIx_SPICR1_MSPA_Set:00000000 SPIx_SPICR1_MSPA_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:56     .text.SPIx_SPICR1_MSPA_Set:00000014 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:61     .text.SPIx_SPICR1_MSPA_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:66     .text.SPIx_SPICR1_MSPA_Get:00000000 SPIx_SPICR1_MSPA_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:87     .text.SPIx_SPICR1_SSPA_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:92     .text.SPIx_SPICR1_SSPA_Set:00000000 SPIx_SPICR1_SSPA_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:122    .text.SPIx_SPICR1_SSPA_Set:00000014 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:127    .text.SPIx_SPICR1_SSPA_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:132    .text.SPIx_SPICR1_SSPA_Get:00000000 SPIx_SPICR1_SSPA_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:153    .text.SPIx_SPICR1_MM_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:158    .text.SPIx_SPICR1_MM_Set:00000000 SPIx_SPICR1_MM_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:188    .text.SPIx_SPICR1_MM_Set:00000014 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:193    .text.SPIx_SPICR1_MM_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:198    .text.SPIx_SPICR1_MM_Get:00000000 SPIx_SPICR1_MM_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:219    .text.SPIx_SPICR1_WAIT_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:224    .text.SPIx_SPICR1_WAIT_Set:00000000 SPIx_SPICR1_WAIT_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:253    .text.SPIx_SPICR1_WAIT_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:258    .text.SPIx_SPICR1_WAIT_Get:00000000 SPIx_SPICR1_WAIT_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:278    .text.SPIx_SPICR1_BAUD_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:283    .text.SPIx_SPICR1_BAUD_Set:00000000 SPIx_SPICR1_BAUD_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:312    .text.SPIx_SPICR1_BAUD_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:317    .text.SPIx_SPICR1_BAUD_Get:00000000 SPIx_SPICR1_BAUD_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:337    .text.SPIx_SPICR1_LSBF_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:342    .text.SPIx_SPICR1_LSBF_Set:00000000 SPIx_SPICR1_LSBF_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:371    .text.SPIx_SPICR1_LSBF_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:376    .text.SPIx_SPICR1_LSBF_Get:00000000 SPIx_SPICR1_LSBF_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:396    .text.SPIx_SPICR1_CPHOL_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:401    .text.SPIx_SPICR1_CPHOL_Set:00000000 SPIx_SPICR1_CPHOL_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:430    .text.SPIx_SPICR1_CPHOL_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:435    .text.SPIx_SPICR1_CPHOL_Get:00000000 SPIx_SPICR1_CPHOL_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:455    .text.SPIx_SPICR1_CPHA_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:460    .text.SPIx_SPICR1_CPHA_Set:00000000 SPIx_SPICR1_CPHA_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:489    .text.SPIx_SPICR1_CPHA_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:494    .text.SPIx_SPICR1_CPHA_Get:00000000 SPIx_SPICR1_CPHA_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:514    .text.SPIx_SPICR2_FLTEN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:519    .text.SPIx_SPICR2_FLTEN_Setable:00000000 SPIx_SPICR2_FLTEN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:550    .text.SPIx_SPICR2_FLTEN_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:555    .text.SPIx_SPICR2_FLTEN_Getable:00000000 SPIx_SPICR2_FLTEN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:584    .text.SPIx_SPICR2_SSNM_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:589    .text.SPIx_SPICR2_SSNM_Set:00000000 SPIx_SPICR2_SSNM_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:618    .text.SPIx_SPICR2_SSNM_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:623    .text.SPIx_SPICR2_SSNM_Get:00000000 SPIx_SPICR2_SSNM_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:643    .text.SPIx_SPICR2_TXO_AC_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:648    .text.SPIx_SPICR2_TXO_AC_Set:00000000 SPIx_SPICR2_TXO_AC_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:677    .text.SPIx_SPICR2_TXO_AC_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:682    .text.SPIx_SPICR2_TXO_AC_Get:00000000 SPIx_SPICR2_TXO_AC_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:702    .text.SPIx_SPICR2_TXO_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:707    .text.SPIx_SPICR2_TXO_Setable:00000000 SPIx_SPICR2_TXO_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:738    .text.SPIx_SPICR2_TXO_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:743    .text.SPIx_SPICR2_TXO_Getable:00000000 SPIx_SPICR2_TXO_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:772    .text.SPIx_SPICR2_SSN_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:777    .text.SPIx_SPICR2_SSN_Set:00000000 SPIx_SPICR2_SSN_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:806    .text.SPIx_SPICR2_SSN_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:811    .text.SPIx_SPICR2_SSN_Get:00000000 SPIx_SPICR2_SSN_Get
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 47
+
+
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:831    .text.SPIx_SPICR2_SSNSEN_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:836    .text.SPIx_SPICR2_SSNSEN_Set:00000000 SPIx_SPICR2_SSNSEN_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:865    .text.SPIx_SPICR2_SSNSEN_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:870    .text.SPIx_SPICR2_SSNSEN_Get:00000000 SPIx_SPICR2_SSNSEN_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:890    .text.SPIx_SPICR2_SPIEN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:895    .text.SPIx_SPICR2_SPIEN_Setable:00000000 SPIx_SPICR2_SPIEN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:926    .text.SPIx_SPICR2_SPIEN_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:931    .text.SPIx_SPICR2_SPIEN_Getable:00000000 SPIx_SPICR2_SPIEN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:960    .text.SPIx_SPICR3_TXBFC_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:965    .text.SPIx_SPICR3_TXBFC_Clr:00000000 SPIx_SPICR3_TXBFC_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:983    .text.SPIx_SPICR3_RXBFC_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:988    .text.SPIx_SPICR3_RXBFC_Clr:00000000 SPIx_SPICR3_RXBFC_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1006   .text.SPIx_SPICR3_MERRC_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1011   .text.SPIx_SPICR3_MERRC_Clr:00000000 SPIx_SPICR3_MERRC_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1029   .text.SPIx_SPICR3_SERRC_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1034   .text.SPIx_SPICR3_SERRC_Clr:00000000 SPIx_SPICR3_SERRC_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1052   .text.SPIx_SPIIE_ERRIE_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1057   .text.SPIx_SPIIE_ERRIE_Setable:00000000 SPIx_SPIIE_ERRIE_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1088   .text.SPIx_SPIIE_ERRIE_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1093   .text.SPIx_SPIIE_ERRIE_Getable:00000000 SPIx_SPIIE_ERRIE_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1122   .text.SPIx_SPIIE_TXIE_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1127   .text.SPIx_SPIIE_TXIE_Setable:00000000 SPIx_SPIIE_TXIE_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1158   .text.SPIx_SPIIE_TXIE_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1163   .text.SPIx_SPIIE_TXIE_Getable:00000000 SPIx_SPIIE_TXIE_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1192   .text.SPIx_SPIIE_RXIE_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1197   .text.SPIx_SPIIE_RXIE_Setable:00000000 SPIx_SPIIE_RXIE_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1228   .text.SPIx_SPIIE_RXIE_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1233   .text.SPIx_SPIIE_RXIE_Getable:00000000 SPIx_SPIIE_RXIE_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1262   .text.SPIx_SPIIF_MERR_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1267   .text.SPIx_SPIIF_MERR_Chk:00000000 SPIx_SPIIF_MERR_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1296   .text.SPIx_SPIIF_SERR_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1301   .text.SPIx_SPIIF_SERR_Chk:00000000 SPIx_SPIIF_SERR_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1330   .text.SPIx_SPIIF_RXCOL_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1335   .text.SPIx_SPIIF_RXCOL_Clr:00000000 SPIx_SPIIF_RXCOL_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1353   .text.SPIx_SPIIF_RXCOL_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1358   .text.SPIx_SPIIF_RXCOL_Chk:00000000 SPIx_SPIIF_RXCOL_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1387   .text.SPIx_SPIIF_TXCOL_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1392   .text.SPIx_SPIIF_TXCOL_Clr:00000000 SPIx_SPIIF_TXCOL_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1410   .text.SPIx_SPIIF_TXCOL_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1415   .text.SPIx_SPIIF_TXCOL_Chk:00000000 SPIx_SPIIF_TXCOL_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1444   .text.SPIx_SPIIF_BUSY_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1449   .text.SPIx_SPIIF_BUSY_Chk:00000000 SPIx_SPIIF_BUSY_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1478   .text.SPIx_SPIIF_TXBE_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1483   .text.SPIx_SPIIF_TXBE_Chk:00000000 SPIx_SPIIF_TXBE_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1512   .text.SPIx_SPIIF_RXBF_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1517   .text.SPIx_SPIIF_RXBF_Chk:00000000 SPIx_SPIIF_RXBF_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1546   .text.SPIx_SPITXBUF_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1551   .text.SPIx_SPITXBUF_Write:00000000 SPIx_SPITXBUF_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1571   .text.SPIx_SPITXBUF_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1576   .text.SPIx_SPITXBUF_Read:00000000 SPIx_SPITXBUF_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1596   .text.SPIx_SPIRXBUF_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1601   .text.SPIx_SPIRXBUF_Write:00000000 SPIx_SPIRXBUF_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1621   .text.SPIx_SPIRXBUF_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1626   .text.SPIx_SPIRXBUF_Read:00000000 SPIx_SPIRXBUF_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1646   .text.SPIx_Deinit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1651   .text.SPIx_Deinit:00000000 SPIx_Deinit
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1678   .text.SPI_Master_Init:00000000 $t
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s 			page 48
+
+
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1683   .text.SPI_Master_Init:00000000 SPI_Master_Init
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1796   .text.SPI_Slave_Init:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1801   .text.SPI_Slave_Init:00000000 SPI_Slave_Init
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1877   .text.SPI_SSN_Set_Low:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1882   .text.SPI_SSN_Set_Low:00000000 SPI_SSN_Set_Low
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1905   .text.SPI_SSN_Set_High:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1910   .text.SPI_SSN_Set_High:00000000 SPI_SSN_Set_High
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1933   .text.SPI_Recv_Byte:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1938   .text.SPI_Recv_Byte:00000000 SPI_Recv_Byte
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1961   .text.SPI_Send_Byte:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1966   .text.SPI_Send_Byte:00000000 SPI_Send_Byte
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1988   .text.SPI_RW_Byte:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccqV0Skk.s:1993   .text.SPI_RW_Byte:00000000 SPI_RW_Byte
+                     .debug_frame:00000010 $d
+
+NO UNDEFINED SYMBOLS

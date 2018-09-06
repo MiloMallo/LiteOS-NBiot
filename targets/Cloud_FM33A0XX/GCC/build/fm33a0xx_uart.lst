@@ -1,0 +1,3073 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"fm33a0xx_uart.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.UART_IRCON_IRFLAG_Setable,"ax",%progbits
+  20              		.align	2
+  21              		.global	UART_IRCON_IRFLAG_Setable
+  22              		.code	16
+  23              		.thumb_func
+  25              	UART_IRCON_IRFLAG_Setable:
+  26              	.LFB36:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers/fm33a
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /**
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c ****   ******************************************************************************
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c ****   * @file    fm33a0xx_uart.c
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c ****   * @author  
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c ****   * @version V2.0.1
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c ****   * @date    
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c ****   * @brief   This file provides firmware functions to manage the following 
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c ****   *          functionalities of the Universal synchronous asynchronous receiver
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c ****   *          transmitter (UART):           
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c ****   *           
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c ****   ******************************************************************************  
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c ****   */ 
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* Includes ------------------------------------------------------------------*/
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** #include "fm33A0xx_uart.h" 
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* Private typedef -----------------------------------------------------------*/
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* Private define ------------------------------------------------------------*/
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* Private macro -------------------------------------------------------------*/
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* Private variables ---------------------------------------------------------*/
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* Private function prototypes -----------------------------------------------*/
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* Private functions ---------------------------------------------------------*/
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** //Code_Start
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** //2018-04-02-13-17-16
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** //FM33A0XX_Driver_Gen_V1.4
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* 红外调制发送数据反相 相关函数 */
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** void UART_IRCON_IRFLAG_Setable(FunState NewState)
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+  28              		.loc 1 30 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 2
+
+
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if (NewState == ENABLE)
+  34              		.loc 1 31 0
+  35 0000 0128     		cmp	r0, #1
+  36 0002 06D1     		bne	.L2
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		UART->IRCON |= (UART_IRCON_IRFLAG_Msk);
+  37              		.loc 1 33 0
+  38 0004 064A     		ldr	r2, .L4
+  39 0006 9368     		ldr	r3, [r2, #8]
+  40 0008 8021     		movs	r1, #128
+  41 000a 0902     		lsls	r1, r1, #8
+  42 000c 0B43     		orrs	r3, r1
+  43 000e 9360     		str	r3, [r2, #8]
+  44 0010 04E0     		b	.L1
+  45              	.L2:
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	else
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		UART->IRCON &= ~(UART_IRCON_IRFLAG_Msk);
+  46              		.loc 1 37 0
+  47 0012 034A     		ldr	r2, .L4
+  48 0014 9168     		ldr	r1, [r2, #8]
+  49 0016 034B     		ldr	r3, .L4+4
+  50 0018 0B40     		ands	r3, r1
+  51 001a 9360     		str	r3, [r2, #8]
+  52              	.L1:
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+  53              		.loc 1 39 0
+  54              		@ sp needed
+  55 001c 7047     		bx	lr
+  56              	.L5:
+  57 001e C046     		.align	2
+  58              	.L4:
+  59 0020 00200140 		.word	1073815552
+  60 0024 FF7FFFFF 		.word	-32769
+  61              		.cfi_endproc
+  62              	.LFE36:
+  64              		.section	.text.UART_IRCON_IRFLAG_Getable,"ax",%progbits
+  65              		.align	2
+  66              		.global	UART_IRCON_IRFLAG_Getable
+  67              		.code	16
+  68              		.thumb_func
+  70              	UART_IRCON_IRFLAG_Getable:
+  71              	.LFB37:
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** FunState UART_IRCON_IRFLAG_Getable(void)
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+  72              		.loc 1 42 0
+  73              		.cfi_startproc
+  74              		@ args = 0, pretend = 0, frame = 0
+  75              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 3
+
+
+  76              		@ link register save eliminated.
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if (UART->IRCON & (UART_IRCON_IRFLAG_Msk))
+  77              		.loc 1 43 0
+  78 0000 034B     		ldr	r3, .L9
+  79 0002 9B68     		ldr	r3, [r3, #8]
+  80 0004 1B04     		lsls	r3, r3, #16
+  81 0006 01D5     		bpl	.L8
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		return ENABLE;
+  82              		.loc 1 45 0
+  83 0008 0120     		movs	r0, #1
+  84 000a 00E0     		b	.L7
+  85              	.L8:
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	else
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		return DISABLE;
+  86              		.loc 1 49 0
+  87 000c 0020     		movs	r0, #0
+  88              	.L7:
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+  89              		.loc 1 51 0
+  90              		@ sp needed
+  91 000e 7047     		bx	lr
+  92              	.L10:
+  93              		.align	2
+  94              	.L9:
+  95 0010 00200140 		.word	1073815552
+  96              		.cfi_endproc
+  97              	.LFE37:
+  99              		.section	.text.UART_IRCON_TH_Set,"ax",%progbits
+ 100              		.align	2
+ 101              		.global	UART_IRCON_TH_Set
+ 102              		.code	16
+ 103              		.thumb_func
+ 105              	UART_IRCON_TH_Set:
+ 106              	.LFB38:
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* 红外占空比调制参数 相关函数 */
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** void UART_IRCON_TH_Set(uint32_t SetValue)
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 107              		.loc 1 55 0
+ 108              		.cfi_startproc
+ 109              		@ args = 0, pretend = 0, frame = 0
+ 110              		@ frame_needed = 0, uses_anonymous_args = 0
+ 111              		@ link register save eliminated.
+ 112              	.LVL1:
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	uint32_t tmpreg;
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	tmpreg = UART->IRCON;
+ 113              		.loc 1 57 0
+ 114 0000 0449     		ldr	r1, .L12
+ 115 0002 8A68     		ldr	r2, [r1, #8]
+ 116              	.LVL2:
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	tmpreg &= ~(UART_IRCON_TH_Msk);
+ 117              		.loc 1 58 0
+ 118 0004 044B     		ldr	r3, .L12+4
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 4
+
+
+ 119 0006 1A40     		ands	r2, r3
+ 120              	.LVL3:
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	tmpreg |= (SetValue & UART_IRCON_TH_Msk);
+ 121              		.loc 1 59 0
+ 122 0008 F023     		movs	r3, #240
+ 123 000a DB01     		lsls	r3, r3, #7
+ 124 000c 1840     		ands	r0, r3
+ 125              	.LVL4:
+ 126 000e 1043     		orrs	r0, r2
+ 127              	.LVL5:
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UART->IRCON = tmpreg;
+ 128              		.loc 1 60 0
+ 129 0010 8860     		str	r0, [r1, #8]
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 130              		.loc 1 61 0
+ 131              		@ sp needed
+ 132 0012 7047     		bx	lr
+ 133              	.L13:
+ 134              		.align	2
+ 135              	.L12:
+ 136 0014 00200140 		.word	1073815552
+ 137 0018 FF87FFFF 		.word	-30721
+ 138              		.cfi_endproc
+ 139              	.LFE38:
+ 141              		.section	.text.UART_IRCON_TH_Get,"ax",%progbits
+ 142              		.align	2
+ 143              		.global	UART_IRCON_TH_Get
+ 144              		.code	16
+ 145              		.thumb_func
+ 147              	UART_IRCON_TH_Get:
+ 148              	.LFB39:
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** uint32_t UART_IRCON_TH_Get(void)
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 149              		.loc 1 64 0
+ 150              		.cfi_startproc
+ 151              		@ args = 0, pretend = 0, frame = 0
+ 152              		@ frame_needed = 0, uses_anonymous_args = 0
+ 153              		@ link register save eliminated.
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	return (UART->IRCON & UART_IRCON_TH_Msk);
+ 154              		.loc 1 65 0
+ 155 0000 024B     		ldr	r3, .L15
+ 156 0002 9868     		ldr	r0, [r3, #8]
+ 157 0004 F023     		movs	r3, #240
+ 158 0006 DB01     		lsls	r3, r3, #7
+ 159 0008 1840     		ands	r0, r3
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 160              		.loc 1 66 0
+ 161              		@ sp needed
+ 162 000a 7047     		bx	lr
+ 163              	.L16:
+ 164              		.align	2
+ 165              	.L15:
+ 166 000c 00200140 		.word	1073815552
+ 167              		.cfi_endproc
+ 168              	.LFE39:
+ 170              		.section	.text.UART_IRCON_TZBRG_Set,"ax",%progbits
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 5
+
+
+ 171              		.align	2
+ 172              		.global	UART_IRCON_TZBRG_Set
+ 173              		.code	16
+ 174              		.thumb_func
+ 176              	UART_IRCON_TZBRG_Set:
+ 177              	.LFB40:
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* 红外调制频率 相关函数 */
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** void UART_IRCON_TZBRG_Set(uint32_t SetValue)
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 178              		.loc 1 70 0
+ 179              		.cfi_startproc
+ 180              		@ args = 0, pretend = 0, frame = 0
+ 181              		@ frame_needed = 0, uses_anonymous_args = 0
+ 182              		@ link register save eliminated.
+ 183              	.LVL6:
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	uint32_t tmpreg;
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	tmpreg = UART->IRCON;
+ 184              		.loc 1 72 0
+ 185 0000 044A     		ldr	r2, .L18
+ 186 0002 9368     		ldr	r3, [r2, #8]
+ 187              	.LVL7:
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	tmpreg &= ~(UART_IRCON_TZBRG_Msk);
+ 188              		.loc 1 73 0
+ 189 0004 DB0A     		lsrs	r3, r3, #11
+ 190              	.LVL8:
+ 191 0006 DB02     		lsls	r3, r3, #11
+ 192              	.LVL9:
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	tmpreg |= (SetValue & UART_IRCON_TZBRG_Msk);
+ 193              		.loc 1 74 0
+ 194 0008 4005     		lsls	r0, r0, #21
+ 195              	.LVL10:
+ 196 000a 400D     		lsrs	r0, r0, #21
+ 197 000c 1843     		orrs	r0, r3
+ 198              	.LVL11:
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UART->IRCON = tmpreg;
+ 199              		.loc 1 75 0
+ 200 000e 9060     		str	r0, [r2, #8]
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 201              		.loc 1 76 0
+ 202              		@ sp needed
+ 203 0010 7047     		bx	lr
+ 204              	.L19:
+ 205 0012 C046     		.align	2
+ 206              	.L18:
+ 207 0014 00200140 		.word	1073815552
+ 208              		.cfi_endproc
+ 209              	.LFE40:
+ 211              		.section	.text.UART_IRCON_TZBRG_Get,"ax",%progbits
+ 212              		.align	2
+ 213              		.global	UART_IRCON_TZBRG_Get
+ 214              		.code	16
+ 215              		.thumb_func
+ 217              	UART_IRCON_TZBRG_Get:
+ 218              	.LFB41:
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** uint32_t UART_IRCON_TZBRG_Get(void)
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 6
+
+
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 219              		.loc 1 79 0
+ 220              		.cfi_startproc
+ 221              		@ args = 0, pretend = 0, frame = 0
+ 222              		@ frame_needed = 0, uses_anonymous_args = 0
+ 223              		@ link register save eliminated.
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	return (UART->IRCON & UART_IRCON_TZBRG_Msk);
+ 224              		.loc 1 80 0
+ 225 0000 024B     		ldr	r3, .L21
+ 226 0002 9868     		ldr	r0, [r3, #8]
+ 227 0004 4005     		lsls	r0, r0, #21
+ 228 0006 400D     		lsrs	r0, r0, #21
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 229              		.loc 1 81 0
+ 230              		@ sp needed
+ 231 0008 7047     		bx	lr
+ 232              	.L22:
+ 233 000a C046     		.align	2
+ 234              	.L21:
+ 235 000c 00200140 		.word	1073815552
+ 236              		.cfi_endproc
+ 237              	.LFE41:
+ 239              		.section	.text.UARTx_RXSTA_PDSEL_Set,"ax",%progbits
+ 240              		.align	2
+ 241              		.global	UARTx_RXSTA_PDSEL_Set
+ 242              		.code	16
+ 243              		.thumb_func
+ 245              	UARTx_RXSTA_PDSEL_Set:
+ 246              	.LFB42:
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* 模式选择位 相关函数 */
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** void UARTx_RXSTA_PDSEL_Set(UARTx_Type* UARTx, uint32_t SetValue)
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 247              		.loc 1 85 0
+ 248              		.cfi_startproc
+ 249              		@ args = 0, pretend = 0, frame = 0
+ 250              		@ frame_needed = 0, uses_anonymous_args = 0
+ 251              		@ link register save eliminated.
+ 252              	.LVL12:
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	uint32_t tmpreg;
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	tmpreg = UARTx->RXSTA;
+ 253              		.loc 1 87 0
+ 254 0000 0368     		ldr	r3, [r0]
+ 255              	.LVL13:
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	tmpreg &= ~(UARTx_RXSTA_PDSEL_Msk);
+ 256              		.loc 1 88 0
+ 257 0002 C022     		movs	r2, #192
+ 258 0004 9343     		bics	r3, r2
+ 259              	.LVL14:
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	tmpreg |= (SetValue & UARTx_RXSTA_PDSEL_Msk);
+ 260              		.loc 1 89 0
+ 261 0006 1140     		ands	r1, r2
+ 262              	.LVL15:
+ 263 0008 1943     		orrs	r1, r3
+ 264              	.LVL16:
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx->RXSTA = tmpreg;
+ 265              		.loc 1 90 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 7
+
+
+ 266 000a 0160     		str	r1, [r0]
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 267              		.loc 1 91 0
+ 268              		@ sp needed
+ 269 000c 7047     		bx	lr
+ 270              		.cfi_endproc
+ 271              	.LFE42:
+ 273 000e C046     		.section	.text.UARTx_RXSTA_PDSEL_Get,"ax",%progbits
+ 274              		.align	2
+ 275              		.global	UARTx_RXSTA_PDSEL_Get
+ 276              		.code	16
+ 277              		.thumb_func
+ 279              	UARTx_RXSTA_PDSEL_Get:
+ 280              	.LFB43:
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** uint32_t UARTx_RXSTA_PDSEL_Get(UARTx_Type* UARTx)
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 281              		.loc 1 94 0
+ 282              		.cfi_startproc
+ 283              		@ args = 0, pretend = 0, frame = 0
+ 284              		@ frame_needed = 0, uses_anonymous_args = 0
+ 285              		@ link register save eliminated.
+ 286              	.LVL17:
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	return (UARTx->RXSTA & UARTx_RXSTA_PDSEL_Msk);
+ 287              		.loc 1 95 0
+ 288 0000 0368     		ldr	r3, [r0]
+ 289 0002 C020     		movs	r0, #192
+ 290              	.LVL18:
+ 291 0004 1840     		ands	r0, r3
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 292              		.loc 1 96 0
+ 293              		@ sp needed
+ 294 0006 7047     		bx	lr
+ 295              		.cfi_endproc
+ 296              	.LFE43:
+ 298              		.section	.text.UARTx_RXSTA_ERRIE_Setable,"ax",%progbits
+ 299              		.align	2
+ 300              		.global	UARTx_RXSTA_ERRIE_Setable
+ 301              		.code	16
+ 302              		.thumb_func
+ 304              	UARTx_RXSTA_ERRIE_Setable:
+ 305              	.LFB44:
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* 错误中断允许位,包括奇偶校验错，帧格式错，溢出错 相关函数 */
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** void UARTx_RXSTA_ERRIE_Setable(UARTx_Type* UARTx, FunState NewState)
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 306              		.loc 1 100 0
+ 307              		.cfi_startproc
+ 308              		@ args = 0, pretend = 0, frame = 0
+ 309              		@ frame_needed = 0, uses_anonymous_args = 0
+ 310              		@ link register save eliminated.
+ 311              	.LVL19:
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if (NewState == ENABLE)
+ 312              		.loc 1 101 0
+ 313 0000 0129     		cmp	r1, #1
+ 314 0002 04D1     		bne	.L26
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 8
+
+
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		UARTx->RXSTA |= (UARTx_RXSTA_ERRIE_Msk);
+ 315              		.loc 1 103 0
+ 316 0004 0268     		ldr	r2, [r0]
+ 317 0006 2023     		movs	r3, #32
+ 318 0008 1343     		orrs	r3, r2
+ 319 000a 0360     		str	r3, [r0]
+ 320 000c 03E0     		b	.L25
+ 321              	.L26:
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	else
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		UARTx->RXSTA &= ~(UARTx_RXSTA_ERRIE_Msk);
+ 322              		.loc 1 107 0
+ 323 000e 0368     		ldr	r3, [r0]
+ 324 0010 2022     		movs	r2, #32
+ 325 0012 9343     		bics	r3, r2
+ 326 0014 0360     		str	r3, [r0]
+ 327              	.L25:
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 328              		.loc 1 109 0
+ 329              		@ sp needed
+ 330 0016 7047     		bx	lr
+ 331              		.cfi_endproc
+ 332              	.LFE44:
+ 334              		.section	.text.UARTx_RXSTA_ERRIE_Getable,"ax",%progbits
+ 335              		.align	2
+ 336              		.global	UARTx_RXSTA_ERRIE_Getable
+ 337              		.code	16
+ 338              		.thumb_func
+ 340              	UARTx_RXSTA_ERRIE_Getable:
+ 341              	.LFB45:
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** FunState UARTx_RXSTA_ERRIE_Getable(UARTx_Type* UARTx)
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 342              		.loc 1 112 0
+ 343              		.cfi_startproc
+ 344              		@ args = 0, pretend = 0, frame = 0
+ 345              		@ frame_needed = 0, uses_anonymous_args = 0
+ 346              		@ link register save eliminated.
+ 347              	.LVL20:
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if (UARTx->RXSTA & (UARTx_RXSTA_ERRIE_Msk))
+ 348              		.loc 1 113 0
+ 349 0000 0368     		ldr	r3, [r0]
+ 350 0002 9B06     		lsls	r3, r3, #26
+ 351 0004 01D5     		bpl	.L30
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		return ENABLE;
+ 352              		.loc 1 115 0
+ 353 0006 0120     		movs	r0, #1
+ 354              	.LVL21:
+ 355 0008 00E0     		b	.L29
+ 356              	.LVL22:
+ 357              	.L30:
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	else
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 9
+
+
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		return DISABLE;
+ 358              		.loc 1 119 0
+ 359 000a 0020     		movs	r0, #0
+ 360              	.LVL23:
+ 361              	.L29:
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 362              		.loc 1 121 0
+ 363              		@ sp needed
+ 364 000c 7047     		bx	lr
+ 365              		.cfi_endproc
+ 366              	.LFE45:
+ 368 000e C046     		.section	.text.UARTx_RXSTA_RXEN_Setable,"ax",%progbits
+ 369              		.align	2
+ 370              		.global	UARTx_RXSTA_RXEN_Setable
+ 371              		.code	16
+ 372              		.thumb_func
+ 374              	UARTx_RXSTA_RXEN_Setable:
+ 375              	.LFB46:
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* 接收模块使能位 相关函数 */
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** void UARTx_RXSTA_RXEN_Setable(UARTx_Type* UARTx, FunState NewState)
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 376              		.loc 1 125 0
+ 377              		.cfi_startproc
+ 378              		@ args = 0, pretend = 0, frame = 0
+ 379              		@ frame_needed = 0, uses_anonymous_args = 0
+ 380              		@ link register save eliminated.
+ 381              	.LVL24:
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if (NewState == ENABLE)
+ 382              		.loc 1 126 0
+ 383 0000 0129     		cmp	r1, #1
+ 384 0002 04D1     		bne	.L32
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		UARTx->RXSTA |= (UARTx_RXSTA_RXEN_Msk);
+ 385              		.loc 1 128 0
+ 386 0004 0268     		ldr	r2, [r0]
+ 387 0006 1023     		movs	r3, #16
+ 388 0008 1343     		orrs	r3, r2
+ 389 000a 0360     		str	r3, [r0]
+ 390 000c 03E0     		b	.L31
+ 391              	.L32:
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	else
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		UARTx->RXSTA &= ~(UARTx_RXSTA_RXEN_Msk);
+ 392              		.loc 1 132 0
+ 393 000e 0368     		ldr	r3, [r0]
+ 394 0010 1022     		movs	r2, #16
+ 395 0012 9343     		bics	r3, r2
+ 396 0014 0360     		str	r3, [r0]
+ 397              	.L31:
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 398              		.loc 1 134 0
+ 399              		@ sp needed
+ 400 0016 7047     		bx	lr
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 10
+
+
+ 401              		.cfi_endproc
+ 402              	.LFE46:
+ 404              		.section	.text.UARTx_RXSTA_RXEN_Getable,"ax",%progbits
+ 405              		.align	2
+ 406              		.global	UARTx_RXSTA_RXEN_Getable
+ 407              		.code	16
+ 408              		.thumb_func
+ 410              	UARTx_RXSTA_RXEN_Getable:
+ 411              	.LFB47:
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** FunState UARTx_RXSTA_RXEN_Getable(UARTx_Type* UARTx)
+ 137:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 412              		.loc 1 137 0
+ 413              		.cfi_startproc
+ 414              		@ args = 0, pretend = 0, frame = 0
+ 415              		@ frame_needed = 0, uses_anonymous_args = 0
+ 416              		@ link register save eliminated.
+ 417              	.LVL25:
+ 138:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if (UARTx->RXSTA & (UARTx_RXSTA_RXEN_Msk))
+ 418              		.loc 1 138 0
+ 419 0000 0368     		ldr	r3, [r0]
+ 420 0002 DB06     		lsls	r3, r3, #27
+ 421 0004 01D5     		bpl	.L36
+ 139:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 140:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		return ENABLE;
+ 422              		.loc 1 140 0
+ 423 0006 0120     		movs	r0, #1
+ 424              	.LVL26:
+ 425 0008 00E0     		b	.L35
+ 426              	.LVL27:
+ 427              	.L36:
+ 141:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 142:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	else
+ 143:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 144:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		return DISABLE;
+ 428              		.loc 1 144 0
+ 429 000a 0020     		movs	r0, #0
+ 430              	.LVL28:
+ 431              	.L35:
+ 145:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 146:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 432              		.loc 1 146 0
+ 433              		@ sp needed
+ 434 000c 7047     		bx	lr
+ 435              		.cfi_endproc
+ 436              	.LFE47:
+ 438 000e C046     		.section	.text.UARTx_RXSTA_PERR_Clr,"ax",%progbits
+ 439              		.align	2
+ 440              		.global	UARTx_RXSTA_PERR_Clr
+ 441              		.code	16
+ 442              		.thumb_func
+ 444              	UARTx_RXSTA_PERR_Clr:
+ 445              	.LFB48:
+ 147:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 148:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* 奇偶校验错标志位 相关函数 */
+ 149:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** void UARTx_RXSTA_PERR_Clr(UARTx_Type* UARTx)
+ 150:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 11
+
+
+ 446              		.loc 1 150 0
+ 447              		.cfi_startproc
+ 448              		@ args = 0, pretend = 0, frame = 0
+ 449              		@ frame_needed = 0, uses_anonymous_args = 0
+ 450              		@ link register save eliminated.
+ 451              	.LVL29:
+ 151:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx->RXSTA &= ~(UARTx_RXSTA_PERR_Msk);
+ 452              		.loc 1 151 0
+ 453 0000 0368     		ldr	r3, [r0]
+ 454 0002 0822     		movs	r2, #8
+ 455 0004 9343     		bics	r3, r2
+ 456 0006 0360     		str	r3, [r0]
+ 152:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 457              		.loc 1 152 0
+ 458              		@ sp needed
+ 459 0008 7047     		bx	lr
+ 460              		.cfi_endproc
+ 461              	.LFE48:
+ 463              		.section	.text.UARTx_RXSTA_PERR_Chk,"ax",%progbits
+ 464              		.align	2
+ 465              		.global	UARTx_RXSTA_PERR_Chk
+ 466              		.code	16
+ 467              		.thumb_func
+ 469              	UARTx_RXSTA_PERR_Chk:
+ 470              	.LFB49:
+ 153:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 154:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** FlagStatus UARTx_RXSTA_PERR_Chk(UARTx_Type* UARTx)
+ 155:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 471              		.loc 1 155 0
+ 472              		.cfi_startproc
+ 473              		@ args = 0, pretend = 0, frame = 0
+ 474              		@ frame_needed = 0, uses_anonymous_args = 0
+ 475              		@ link register save eliminated.
+ 476              	.LVL30:
+ 156:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if (UARTx->RXSTA & UARTx_RXSTA_PERR_Msk)
+ 477              		.loc 1 156 0
+ 478 0000 0368     		ldr	r3, [r0]
+ 479 0002 1B07     		lsls	r3, r3, #28
+ 480 0004 01D5     		bpl	.L40
+ 157:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 158:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		return SET;
+ 481              		.loc 1 158 0
+ 482 0006 0120     		movs	r0, #1
+ 483              	.LVL31:
+ 484 0008 00E0     		b	.L39
+ 485              	.LVL32:
+ 486              	.L40:
+ 159:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 160:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	else
+ 161:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 162:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		return RESET;
+ 487              		.loc 1 162 0
+ 488 000a 0020     		movs	r0, #0
+ 489              	.LVL33:
+ 490              	.L39:
+ 163:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 164:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 12
+
+
+ 491              		.loc 1 164 0
+ 492              		@ sp needed
+ 493 000c 7047     		bx	lr
+ 494              		.cfi_endproc
+ 495              	.LFE49:
+ 497 000e C046     		.section	.text.UARTx_RXSTA_FERR_Clr,"ax",%progbits
+ 498              		.align	2
+ 499              		.global	UARTx_RXSTA_FERR_Clr
+ 500              		.code	16
+ 501              		.thumb_func
+ 503              	UARTx_RXSTA_FERR_Clr:
+ 504              	.LFB50:
+ 165:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 166:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* 帧格式错标志位 相关函数 */
+ 167:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** void UARTx_RXSTA_FERR_Clr(UARTx_Type* UARTx)
+ 168:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 505              		.loc 1 168 0
+ 506              		.cfi_startproc
+ 507              		@ args = 0, pretend = 0, frame = 0
+ 508              		@ frame_needed = 0, uses_anonymous_args = 0
+ 509              		@ link register save eliminated.
+ 510              	.LVL34:
+ 169:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx->RXSTA &= ~(UARTx_RXSTA_FERR_Msk);
+ 511              		.loc 1 169 0
+ 512 0000 0368     		ldr	r3, [r0]
+ 513 0002 0422     		movs	r2, #4
+ 514 0004 9343     		bics	r3, r2
+ 515 0006 0360     		str	r3, [r0]
+ 170:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 516              		.loc 1 170 0
+ 517              		@ sp needed
+ 518 0008 7047     		bx	lr
+ 519              		.cfi_endproc
+ 520              	.LFE50:
+ 522              		.section	.text.UARTx_RXSTA_FERR_Chk,"ax",%progbits
+ 523              		.align	2
+ 524              		.global	UARTx_RXSTA_FERR_Chk
+ 525              		.code	16
+ 526              		.thumb_func
+ 528              	UARTx_RXSTA_FERR_Chk:
+ 529              	.LFB51:
+ 171:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 172:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** FlagStatus UARTx_RXSTA_FERR_Chk(UARTx_Type* UARTx)
+ 173:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 530              		.loc 1 173 0
+ 531              		.cfi_startproc
+ 532              		@ args = 0, pretend = 0, frame = 0
+ 533              		@ frame_needed = 0, uses_anonymous_args = 0
+ 534              		@ link register save eliminated.
+ 535              	.LVL35:
+ 174:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if (UARTx->RXSTA & UARTx_RXSTA_FERR_Msk)
+ 536              		.loc 1 174 0
+ 537 0000 0368     		ldr	r3, [r0]
+ 538 0002 5B07     		lsls	r3, r3, #29
+ 539 0004 01D5     		bpl	.L44
+ 175:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 176:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		return SET;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 13
+
+
+ 540              		.loc 1 176 0
+ 541 0006 0120     		movs	r0, #1
+ 542              	.LVL36:
+ 543 0008 00E0     		b	.L43
+ 544              	.LVL37:
+ 545              	.L44:
+ 177:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 178:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	else
+ 179:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 180:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		return RESET;
+ 546              		.loc 1 180 0
+ 547 000a 0020     		movs	r0, #0
+ 548              	.LVL38:
+ 549              	.L43:
+ 181:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 182:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 550              		.loc 1 182 0
+ 551              		@ sp needed
+ 552 000c 7047     		bx	lr
+ 553              		.cfi_endproc
+ 554              	.LFE51:
+ 556 000e C046     		.section	.text.UARTx_RXSTA_OERR_Clr,"ax",%progbits
+ 557              		.align	2
+ 558              		.global	UARTx_RXSTA_OERR_Clr
+ 559              		.code	16
+ 560              		.thumb_func
+ 562              	UARTx_RXSTA_OERR_Clr:
+ 563              	.LFB52:
+ 183:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 184:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* 溢出错标志位 相关函数 */
+ 185:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** void UARTx_RXSTA_OERR_Clr(UARTx_Type* UARTx)
+ 186:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 564              		.loc 1 186 0
+ 565              		.cfi_startproc
+ 566              		@ args = 0, pretend = 0, frame = 0
+ 567              		@ frame_needed = 0, uses_anonymous_args = 0
+ 568              		@ link register save eliminated.
+ 569              	.LVL39:
+ 187:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx->RXSTA &= ~(UARTx_RXSTA_OERR_Msk);
+ 570              		.loc 1 187 0
+ 571 0000 0368     		ldr	r3, [r0]
+ 572 0002 0222     		movs	r2, #2
+ 573 0004 9343     		bics	r3, r2
+ 574 0006 0360     		str	r3, [r0]
+ 188:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 575              		.loc 1 188 0
+ 576              		@ sp needed
+ 577 0008 7047     		bx	lr
+ 578              		.cfi_endproc
+ 579              	.LFE52:
+ 581              		.section	.text.UARTx_RXSTA_OERR_Chk,"ax",%progbits
+ 582              		.align	2
+ 583              		.global	UARTx_RXSTA_OERR_Chk
+ 584              		.code	16
+ 585              		.thumb_func
+ 587              	UARTx_RXSTA_OERR_Chk:
+ 588              	.LFB53:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 14
+
+
+ 189:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 190:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** FlagStatus UARTx_RXSTA_OERR_Chk(UARTx_Type* UARTx)
+ 191:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 589              		.loc 1 191 0
+ 590              		.cfi_startproc
+ 591              		@ args = 0, pretend = 0, frame = 0
+ 592              		@ frame_needed = 0, uses_anonymous_args = 0
+ 593              		@ link register save eliminated.
+ 594              	.LVL40:
+ 192:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if (UARTx->RXSTA & UARTx_RXSTA_OERR_Msk)
+ 595              		.loc 1 192 0
+ 596 0000 0368     		ldr	r3, [r0]
+ 597 0002 9B07     		lsls	r3, r3, #30
+ 598 0004 01D5     		bpl	.L48
+ 193:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 194:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		return SET;
+ 599              		.loc 1 194 0
+ 600 0006 0120     		movs	r0, #1
+ 601              	.LVL41:
+ 602 0008 00E0     		b	.L47
+ 603              	.LVL42:
+ 604              	.L48:
+ 195:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 196:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	else
+ 197:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 198:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		return RESET;
+ 605              		.loc 1 198 0
+ 606 000a 0020     		movs	r0, #0
+ 607              	.LVL43:
+ 608              	.L47:
+ 199:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 200:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 609              		.loc 1 200 0
+ 610              		@ sp needed
+ 611 000c 7047     		bx	lr
+ 612              		.cfi_endproc
+ 613              	.LFE53:
+ 615 000e C046     		.section	.text.UARTx_RXSTA_RX9D_Chk,"ax",%progbits
+ 616              		.align	2
+ 617              		.global	UARTx_RXSTA_RX9D_Chk
+ 618              		.code	16
+ 619              		.thumb_func
+ 621              	UARTx_RXSTA_RX9D_Chk:
+ 622              	.LFB54:
+ 201:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 202:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* 接收数据的第9位 相关函数 */
+ 203:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** FlagStatus UARTx_RXSTA_RX9D_Chk(UARTx_Type* UARTx)
+ 204:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 623              		.loc 1 204 0
+ 624              		.cfi_startproc
+ 625              		@ args = 0, pretend = 0, frame = 0
+ 626              		@ frame_needed = 0, uses_anonymous_args = 0
+ 627              		@ link register save eliminated.
+ 628              	.LVL44:
+ 205:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if (UARTx->RXSTA & UARTx_RXSTA_RX9D_Msk)
+ 629              		.loc 1 205 0
+ 630 0000 0368     		ldr	r3, [r0]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 15
+
+
+ 631 0002 DB07     		lsls	r3, r3, #31
+ 632 0004 01D5     		bpl	.L51
+ 206:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 207:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		return SET;
+ 633              		.loc 1 207 0
+ 634 0006 0120     		movs	r0, #1
+ 635              	.LVL45:
+ 636 0008 00E0     		b	.L50
+ 637              	.LVL46:
+ 638              	.L51:
+ 208:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 209:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	else
+ 210:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 211:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		return RESET;
+ 639              		.loc 1 211 0
+ 640 000a 0020     		movs	r0, #0
+ 641              	.LVL47:
+ 642              	.L50:
+ 212:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 213:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 643              		.loc 1 213 0
+ 644              		@ sp needed
+ 645 000c 7047     		bx	lr
+ 646              		.cfi_endproc
+ 647              	.LFE54:
+ 649 000e C046     		.section	.text.UARTx_TXSTA_STOPSEL_Set,"ax",%progbits
+ 650              		.align	2
+ 651              		.global	UARTx_TXSTA_STOPSEL_Set
+ 652              		.code	16
+ 653              		.thumb_func
+ 655              	UARTx_TXSTA_STOPSEL_Set:
+ 656              	.LFB55:
+ 214:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 215:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* 停止位选择位 相关函数 */
+ 216:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** void UARTx_TXSTA_STOPSEL_Set(UARTx_Type* UARTx, uint32_t SetValue)
+ 217:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 657              		.loc 1 217 0
+ 658              		.cfi_startproc
+ 659              		@ args = 0, pretend = 0, frame = 0
+ 660              		@ frame_needed = 0, uses_anonymous_args = 0
+ 661              		@ link register save eliminated.
+ 662              	.LVL48:
+ 218:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	uint32_t tmpreg;
+ 219:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	tmpreg = UARTx->TXSTA;
+ 663              		.loc 1 219 0
+ 664 0000 4368     		ldr	r3, [r0, #4]
+ 665              	.LVL49:
+ 220:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	tmpreg &= ~(UARTx_TXSTA_STOPSEL_Msk);
+ 666              		.loc 1 220 0
+ 667 0002 4022     		movs	r2, #64
+ 668 0004 9343     		bics	r3, r2
+ 669              	.LVL50:
+ 221:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	tmpreg |= (SetValue & UARTx_TXSTA_STOPSEL_Msk);
+ 670              		.loc 1 221 0
+ 671 0006 1140     		ands	r1, r2
+ 672              	.LVL51:
+ 673 0008 1943     		orrs	r1, r3
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 16
+
+
+ 674              	.LVL52:
+ 222:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx->TXSTA = tmpreg;
+ 675              		.loc 1 222 0
+ 676 000a 4160     		str	r1, [r0, #4]
+ 223:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 677              		.loc 1 223 0
+ 678              		@ sp needed
+ 679 000c 7047     		bx	lr
+ 680              		.cfi_endproc
+ 681              	.LFE55:
+ 683 000e C046     		.section	.text.UARTx_TXSTA_STOPSEL_Get,"ax",%progbits
+ 684              		.align	2
+ 685              		.global	UARTx_TXSTA_STOPSEL_Get
+ 686              		.code	16
+ 687              		.thumb_func
+ 689              	UARTx_TXSTA_STOPSEL_Get:
+ 690              	.LFB56:
+ 224:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 225:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** uint32_t UARTx_TXSTA_STOPSEL_Get(UARTx_Type* UARTx)
+ 226:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 691              		.loc 1 226 0
+ 692              		.cfi_startproc
+ 693              		@ args = 0, pretend = 0, frame = 0
+ 694              		@ frame_needed = 0, uses_anonymous_args = 0
+ 695              		@ link register save eliminated.
+ 696              	.LVL53:
+ 227:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	return (UARTx->TXSTA & UARTx_TXSTA_STOPSEL_Msk);
+ 697              		.loc 1 227 0
+ 698 0000 4368     		ldr	r3, [r0, #4]
+ 699 0002 4020     		movs	r0, #64
+ 700              	.LVL54:
+ 701 0004 1840     		ands	r0, r3
+ 228:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 702              		.loc 1 228 0
+ 703              		@ sp needed
+ 704 0006 7047     		bx	lr
+ 705              		.cfi_endproc
+ 706              	.LFE56:
+ 708              		.section	.text.UARTx_TXSTA_TXIS_Set,"ax",%progbits
+ 709              		.align	2
+ 710              		.global	UARTx_TXSTA_TXIS_Set
+ 711              		.code	16
+ 712              		.thumb_func
+ 714              	UARTx_TXSTA_TXIS_Set:
+ 715              	.LFB57:
+ 229:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 230:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* TX_INTSEL=0时，发送中断选择位 相关函数 */
+ 231:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** void UARTx_TXSTA_TXIS_Set(UARTx_Type* UARTx, uint32_t SetValue)
+ 232:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 716              		.loc 1 232 0
+ 717              		.cfi_startproc
+ 718              		@ args = 0, pretend = 0, frame = 0
+ 719              		@ frame_needed = 0, uses_anonymous_args = 0
+ 720              		@ link register save eliminated.
+ 721              	.LVL55:
+ 233:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	uint32_t tmpreg;
+ 234:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	tmpreg = UARTx->TXSTA;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 17
+
+
+ 722              		.loc 1 234 0
+ 723 0000 4368     		ldr	r3, [r0, #4]
+ 724              	.LVL56:
+ 235:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	tmpreg &= ~(UARTx_TXSTA_TXIS_Msk);
+ 725              		.loc 1 235 0
+ 726 0002 2022     		movs	r2, #32
+ 727 0004 9343     		bics	r3, r2
+ 728              	.LVL57:
+ 236:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	tmpreg |= (SetValue & UARTx_TXSTA_TXIS_Msk);
+ 729              		.loc 1 236 0
+ 730 0006 1140     		ands	r1, r2
+ 731              	.LVL58:
+ 732 0008 1943     		orrs	r1, r3
+ 733              	.LVL59:
+ 237:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx->TXSTA = tmpreg;
+ 734              		.loc 1 237 0
+ 735 000a 4160     		str	r1, [r0, #4]
+ 238:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 736              		.loc 1 238 0
+ 737              		@ sp needed
+ 738 000c 7047     		bx	lr
+ 739              		.cfi_endproc
+ 740              	.LFE57:
+ 742 000e C046     		.section	.text.UARTx_TXSTA_TXIS_Get,"ax",%progbits
+ 743              		.align	2
+ 744              		.global	UARTx_TXSTA_TXIS_Get
+ 745              		.code	16
+ 746              		.thumb_func
+ 748              	UARTx_TXSTA_TXIS_Get:
+ 749              	.LFB58:
+ 239:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 240:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** uint32_t UARTx_TXSTA_TXIS_Get(UARTx_Type* UARTx)
+ 241:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 750              		.loc 1 241 0
+ 751              		.cfi_startproc
+ 752              		@ args = 0, pretend = 0, frame = 0
+ 753              		@ frame_needed = 0, uses_anonymous_args = 0
+ 754              		@ link register save eliminated.
+ 755              	.LVL60:
+ 242:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	return (UARTx->TXSTA & UARTx_TXSTA_TXIS_Msk);
+ 756              		.loc 1 242 0
+ 757 0000 4368     		ldr	r3, [r0, #4]
+ 758 0002 2020     		movs	r0, #32
+ 759              	.LVL61:
+ 760 0004 1840     		ands	r0, r3
+ 243:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 761              		.loc 1 243 0
+ 762              		@ sp needed
+ 763 0006 7047     		bx	lr
+ 764              		.cfi_endproc
+ 765              	.LFE58:
+ 767              		.section	.text.UARTx_TXSTA_TXEN_Setable,"ax",%progbits
+ 768              		.align	2
+ 769              		.global	UARTx_TXSTA_TXEN_Setable
+ 770              		.code	16
+ 771              		.thumb_func
+ 773              	UARTx_TXSTA_TXEN_Setable:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 18
+
+
+ 774              	.LFB59:
+ 244:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 245:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* 发送模块使能位 相关函数 */
+ 246:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** void UARTx_TXSTA_TXEN_Setable(UARTx_Type* UARTx, FunState NewState)
+ 247:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 775              		.loc 1 247 0
+ 776              		.cfi_startproc
+ 777              		@ args = 0, pretend = 0, frame = 0
+ 778              		@ frame_needed = 0, uses_anonymous_args = 0
+ 779              		@ link register save eliminated.
+ 780              	.LVL62:
+ 248:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if (NewState == ENABLE)
+ 781              		.loc 1 248 0
+ 782 0000 0129     		cmp	r1, #1
+ 783 0002 04D1     		bne	.L57
+ 249:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 250:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		UARTx->TXSTA |= (UARTx_TXSTA_TXEN_Msk);
+ 784              		.loc 1 250 0
+ 785 0004 4268     		ldr	r2, [r0, #4]
+ 786 0006 1023     		movs	r3, #16
+ 787 0008 1343     		orrs	r3, r2
+ 788 000a 4360     		str	r3, [r0, #4]
+ 789 000c 03E0     		b	.L56
+ 790              	.L57:
+ 251:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 252:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	else
+ 253:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 254:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		UARTx->TXSTA &= ~(UARTx_TXSTA_TXEN_Msk);
+ 791              		.loc 1 254 0
+ 792 000e 4368     		ldr	r3, [r0, #4]
+ 793 0010 1022     		movs	r2, #16
+ 794 0012 9343     		bics	r3, r2
+ 795 0014 4360     		str	r3, [r0, #4]
+ 796              	.L56:
+ 255:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 256:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 797              		.loc 1 256 0
+ 798              		@ sp needed
+ 799 0016 7047     		bx	lr
+ 800              		.cfi_endproc
+ 801              	.LFE59:
+ 803              		.section	.text.UARTx_TXSTA_TXEN_Getable,"ax",%progbits
+ 804              		.align	2
+ 805              		.global	UARTx_TXSTA_TXEN_Getable
+ 806              		.code	16
+ 807              		.thumb_func
+ 809              	UARTx_TXSTA_TXEN_Getable:
+ 810              	.LFB60:
+ 257:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 258:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** FunState UARTx_TXSTA_TXEN_Getable(UARTx_Type* UARTx)
+ 259:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 811              		.loc 1 259 0
+ 812              		.cfi_startproc
+ 813              		@ args = 0, pretend = 0, frame = 0
+ 814              		@ frame_needed = 0, uses_anonymous_args = 0
+ 815              		@ link register save eliminated.
+ 816              	.LVL63:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 19
+
+
+ 260:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if (UARTx->TXSTA & (UARTx_TXSTA_TXEN_Msk))
+ 817              		.loc 1 260 0
+ 818 0000 4368     		ldr	r3, [r0, #4]
+ 819 0002 DB06     		lsls	r3, r3, #27
+ 820 0004 01D5     		bpl	.L61
+ 261:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 262:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		return ENABLE;
+ 821              		.loc 1 262 0
+ 822 0006 0120     		movs	r0, #1
+ 823              	.LVL64:
+ 824 0008 00E0     		b	.L60
+ 825              	.LVL65:
+ 826              	.L61:
+ 263:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 264:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	else
+ 265:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 266:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		return DISABLE;
+ 827              		.loc 1 266 0
+ 828 000a 0020     		movs	r0, #0
+ 829              	.LVL66:
+ 830              	.L60:
+ 267:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 268:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 831              		.loc 1 268 0
+ 832              		@ sp needed
+ 833 000c 7047     		bx	lr
+ 834              		.cfi_endproc
+ 835              	.LFE60:
+ 837 000e C046     		.section	.text.UARTx_TXSTA_IREN_Setable,"ax",%progbits
+ 838              		.align	2
+ 839              		.global	UARTx_TXSTA_IREN_Setable
+ 840              		.code	16
+ 841              		.thumb_func
+ 843              	UARTx_TXSTA_IREN_Setable:
+ 844              	.LFB61:
+ 269:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 270:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* 发送红外调制使能位 相关函数 */
+ 271:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** void UARTx_TXSTA_IREN_Setable(UARTx_Type* UARTx, FunState NewState)
+ 272:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 845              		.loc 1 272 0
+ 846              		.cfi_startproc
+ 847              		@ args = 0, pretend = 0, frame = 0
+ 848              		@ frame_needed = 0, uses_anonymous_args = 0
+ 849              		@ link register save eliminated.
+ 850              	.LVL67:
+ 273:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if (NewState == ENABLE)
+ 851              		.loc 1 273 0
+ 852 0000 0129     		cmp	r1, #1
+ 853 0002 04D1     		bne	.L63
+ 274:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 275:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		UARTx->TXSTA |= (UARTx_TXSTA_IREN_Msk);
+ 854              		.loc 1 275 0
+ 855 0004 4268     		ldr	r2, [r0, #4]
+ 856 0006 0823     		movs	r3, #8
+ 857 0008 1343     		orrs	r3, r2
+ 858 000a 4360     		str	r3, [r0, #4]
+ 859 000c 03E0     		b	.L62
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 20
+
+
+ 860              	.L63:
+ 276:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 277:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	else
+ 278:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 279:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		UARTx->TXSTA &= ~(UARTx_TXSTA_IREN_Msk);
+ 861              		.loc 1 279 0
+ 862 000e 4368     		ldr	r3, [r0, #4]
+ 863 0010 0822     		movs	r2, #8
+ 864 0012 9343     		bics	r3, r2
+ 865 0014 4360     		str	r3, [r0, #4]
+ 866              	.L62:
+ 280:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 281:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 867              		.loc 1 281 0
+ 868              		@ sp needed
+ 869 0016 7047     		bx	lr
+ 870              		.cfi_endproc
+ 871              	.LFE61:
+ 873              		.section	.text.UARTx_TXSTA_IREN_Getable,"ax",%progbits
+ 874              		.align	2
+ 875              		.global	UARTx_TXSTA_IREN_Getable
+ 876              		.code	16
+ 877              		.thumb_func
+ 879              	UARTx_TXSTA_IREN_Getable:
+ 880              	.LFB62:
+ 282:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 283:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** FunState UARTx_TXSTA_IREN_Getable(UARTx_Type* UARTx)
+ 284:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 881              		.loc 1 284 0
+ 882              		.cfi_startproc
+ 883              		@ args = 0, pretend = 0, frame = 0
+ 884              		@ frame_needed = 0, uses_anonymous_args = 0
+ 885              		@ link register save eliminated.
+ 886              	.LVL68:
+ 285:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if (UARTx->TXSTA & (UARTx_TXSTA_IREN_Msk))
+ 887              		.loc 1 285 0
+ 888 0000 4368     		ldr	r3, [r0, #4]
+ 889 0002 1B07     		lsls	r3, r3, #28
+ 890 0004 01D5     		bpl	.L67
+ 286:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 287:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		return ENABLE;
+ 891              		.loc 1 287 0
+ 892 0006 0120     		movs	r0, #1
+ 893              	.LVL69:
+ 894 0008 00E0     		b	.L66
+ 895              	.LVL70:
+ 896              	.L67:
+ 288:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 289:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	else
+ 290:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 291:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		return DISABLE;
+ 897              		.loc 1 291 0
+ 898 000a 0020     		movs	r0, #0
+ 899              	.LVL71:
+ 900              	.L66:
+ 292:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 293:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 21
+
+
+ 901              		.loc 1 293 0
+ 902              		@ sp needed
+ 903 000c 7047     		bx	lr
+ 904              		.cfi_endproc
+ 905              	.LFE62:
+ 907 000e C046     		.section	.text.UARTx_TXSTA_TX9D_Set,"ax",%progbits
+ 908              		.align	2
+ 909              		.global	UARTx_TXSTA_TX9D_Set
+ 910              		.code	16
+ 911              		.thumb_func
+ 913              	UARTx_TXSTA_TX9D_Set:
+ 914              	.LFB63:
+ 294:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 295:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* 发送数据的第9位 相关函数 */
+ 296:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** void UARTx_TXSTA_TX9D_Set(UARTx_Type* UARTx, uint32_t SetValue)
+ 297:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 915              		.loc 1 297 0
+ 916              		.cfi_startproc
+ 917              		@ args = 0, pretend = 0, frame = 0
+ 918              		@ frame_needed = 0, uses_anonymous_args = 0
+ 919              		@ link register save eliminated.
+ 920              	.LVL72:
+ 298:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	uint32_t tmpreg;
+ 299:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	tmpreg = UARTx->TXSTA;
+ 921              		.loc 1 299 0
+ 922 0000 4368     		ldr	r3, [r0, #4]
+ 923              	.LVL73:
+ 300:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	tmpreg &= ~(UARTx_TXSTA_TX9D_Msk);
+ 924              		.loc 1 300 0
+ 925 0002 0122     		movs	r2, #1
+ 926 0004 9343     		bics	r3, r2
+ 927              	.LVL74:
+ 301:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	tmpreg |= (SetValue & UARTx_TXSTA_TX9D_Msk);
+ 928              		.loc 1 301 0
+ 929 0006 1140     		ands	r1, r2
+ 930              	.LVL75:
+ 931 0008 1943     		orrs	r1, r3
+ 932              	.LVL76:
+ 302:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx->TXSTA = tmpreg;
+ 933              		.loc 1 302 0
+ 934 000a 4160     		str	r1, [r0, #4]
+ 303:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 935              		.loc 1 303 0
+ 936              		@ sp needed
+ 937 000c 7047     		bx	lr
+ 938              		.cfi_endproc
+ 939              	.LFE63:
+ 941 000e C046     		.section	.text.UARTx_RXREG_Read,"ax",%progbits
+ 942              		.align	2
+ 943              		.global	UARTx_RXREG_Read
+ 944              		.code	16
+ 945              		.thumb_func
+ 947              	UARTx_RXREG_Read:
+ 948              	.LFB64:
+ 304:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 305:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* 接收数据缓冲寄存器 相关函数 */
+ 306:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** uint32_t UARTx_RXREG_Read(UARTx_Type* UARTx)
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 22
+
+
+ 307:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 949              		.loc 1 307 0
+ 950              		.cfi_startproc
+ 951              		@ args = 0, pretend = 0, frame = 0
+ 952              		@ frame_needed = 0, uses_anonymous_args = 0
+ 953              		@ link register save eliminated.
+ 954              	.LVL77:
+ 308:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	return (UARTx->RXREG & UARTx_RXREG_RXREG_Msk);
+ 955              		.loc 1 308 0
+ 956 0000 8368     		ldr	r3, [r0, #8]
+ 957 0002 FF20     		movs	r0, #255
+ 958              	.LVL78:
+ 959 0004 1840     		ands	r0, r3
+ 309:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 960              		.loc 1 309 0
+ 961              		@ sp needed
+ 962 0006 7047     		bx	lr
+ 963              		.cfi_endproc
+ 964              	.LFE64:
+ 966              		.section	.text.UARTx_TXREG_Write,"ax",%progbits
+ 967              		.align	2
+ 968              		.global	UARTx_TXREG_Write
+ 969              		.code	16
+ 970              		.thumb_func
+ 972              	UARTx_TXREG_Write:
+ 973              	.LFB65:
+ 310:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 311:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* 发送数据缓冲寄存器 相关函数 */
+ 312:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** void UARTx_TXREG_Write(UARTx_Type* UARTx, uint32_t SetValue)
+ 313:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 974              		.loc 1 313 0
+ 975              		.cfi_startproc
+ 976              		@ args = 0, pretend = 0, frame = 0
+ 977              		@ frame_needed = 0, uses_anonymous_args = 0
+ 978              		@ link register save eliminated.
+ 979              	.LVL79:
+ 314:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx->TXREG = (SetValue & UARTx_TXREG_TXREG_Msk);
+ 980              		.loc 1 314 0
+ 981 0000 FF23     		movs	r3, #255
+ 982 0002 1940     		ands	r1, r3
+ 983              	.LVL80:
+ 984 0004 C160     		str	r1, [r0, #12]
+ 315:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 985              		.loc 1 315 0
+ 986              		@ sp needed
+ 987 0006 7047     		bx	lr
+ 988              		.cfi_endproc
+ 989              	.LFE65:
+ 991              		.section	.text.UARTx_SPBRG_Write,"ax",%progbits
+ 992              		.align	2
+ 993              		.global	UARTx_SPBRG_Write
+ 994              		.code	16
+ 995              		.thumb_func
+ 997              	UARTx_SPBRG_Write:
+ 998              	.LFB66:
+ 316:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 317:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* 波特率产生器寄存器 相关函数 */
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 23
+
+
+ 318:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** void UARTx_SPBRG_Write(UARTx_Type* UARTx, uint32_t SetValue)
+ 319:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 999              		.loc 1 319 0
+ 1000              		.cfi_startproc
+ 1001              		@ args = 0, pretend = 0, frame = 0
+ 1002              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1003              		@ link register save eliminated.
+ 1004              	.LVL81:
+ 320:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx->SPBRG = (SetValue & UARTx_SPBRG_SPBRG_Msk);
+ 1005              		.loc 1 320 0
+ 1006 0000 0904     		lsls	r1, r1, #16
+ 1007              	.LVL82:
+ 1008 0002 090C     		lsrs	r1, r1, #16
+ 1009 0004 0161     		str	r1, [r0, #16]
+ 321:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 1010              		.loc 1 321 0
+ 1011              		@ sp needed
+ 1012 0006 7047     		bx	lr
+ 1013              		.cfi_endproc
+ 1014              	.LFE66:
+ 1016              		.section	.text.UARTx_SPBRG_Read,"ax",%progbits
+ 1017              		.align	2
+ 1018              		.global	UARTx_SPBRG_Read
+ 1019              		.code	16
+ 1020              		.thumb_func
+ 1022              	UARTx_SPBRG_Read:
+ 1023              	.LFB67:
+ 322:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 323:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** uint32_t UARTx_SPBRG_Read(UARTx_Type* UARTx)
+ 324:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 1024              		.loc 1 324 0
+ 1025              		.cfi_startproc
+ 1026              		@ args = 0, pretend = 0, frame = 0
+ 1027              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1028              		@ link register save eliminated.
+ 1029              	.LVL83:
+ 325:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	return (UARTx->SPBRG & UARTx_SPBRG_SPBRG_Msk);
+ 1030              		.loc 1 325 0
+ 1031 0000 0069     		ldr	r0, [r0, #16]
+ 1032              	.LVL84:
+ 1033 0002 0004     		lsls	r0, r0, #16
+ 1034 0004 000C     		lsrs	r0, r0, #16
+ 326:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 1035              		.loc 1 326 0
+ 1036              		@ sp needed
+ 1037 0006 7047     		bx	lr
+ 1038              		.cfi_endproc
+ 1039              	.LFE67:
+ 1041              		.section	.text.UARTx_TXBUFSTA_TX_INTSEL_Set,"ax",%progbits
+ 1042              		.align	2
+ 1043              		.global	UARTx_TXBUFSTA_TX_INTSEL_Set
+ 1044              		.code	16
+ 1045              		.thumb_func
+ 1047              	UARTx_TXBUFSTA_TX_INTSEL_Set:
+ 1048              	.LFB68:
+ 327:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 328:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* 发送中断选择位 相关函数 */
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 24
+
+
+ 329:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** void UARTx_TXBUFSTA_TX_INTSEL_Set(UARTx_Type* UARTx, uint32_t SetValue)
+ 330:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 1049              		.loc 1 330 0
+ 1050              		.cfi_startproc
+ 1051              		@ args = 0, pretend = 0, frame = 0
+ 1052              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1053              		@ link register save eliminated.
+ 1054              	.LVL85:
+ 331:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	uint32_t tmpreg;
+ 332:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	tmpreg = UARTx->TXBUFSTA;
+ 1055              		.loc 1 332 0
+ 1056 0000 4369     		ldr	r3, [r0, #20]
+ 1057              	.LVL86:
+ 333:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	tmpreg &= ~(UARTx_TXBUFSTA_TX_INTSEL_Msk);
+ 1058              		.loc 1 333 0
+ 1059 0002 0C22     		movs	r2, #12
+ 1060 0004 9343     		bics	r3, r2
+ 1061              	.LVL87:
+ 334:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	tmpreg |= (SetValue & UARTx_TXBUFSTA_TX_INTSEL_Msk);
+ 1062              		.loc 1 334 0
+ 1063 0006 1140     		ands	r1, r2
+ 1064              	.LVL88:
+ 1065 0008 1943     		orrs	r1, r3
+ 1066              	.LVL89:
+ 335:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx->TXBUFSTA = tmpreg;
+ 1067              		.loc 1 335 0
+ 1068 000a 4161     		str	r1, [r0, #20]
+ 336:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 1069              		.loc 1 336 0
+ 1070              		@ sp needed
+ 1071 000c 7047     		bx	lr
+ 1072              		.cfi_endproc
+ 1073              	.LFE68:
+ 1075 000e C046     		.section	.text.UARTx_TXBUFSTA_TX_INTSEL_Get,"ax",%progbits
+ 1076              		.align	2
+ 1077              		.global	UARTx_TXBUFSTA_TX_INTSEL_Get
+ 1078              		.code	16
+ 1079              		.thumb_func
+ 1081              	UARTx_TXBUFSTA_TX_INTSEL_Get:
+ 1082              	.LFB69:
+ 337:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 338:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** uint32_t UARTx_TXBUFSTA_TX_INTSEL_Get(UARTx_Type* UARTx)
+ 339:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 1083              		.loc 1 339 0
+ 1084              		.cfi_startproc
+ 1085              		@ args = 0, pretend = 0, frame = 0
+ 1086              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1087              		@ link register save eliminated.
+ 1088              	.LVL90:
+ 340:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	return (UARTx->TXBUFSTA & UARTx_TXBUFSTA_TX_INTSEL_Msk);
+ 1089              		.loc 1 340 0
+ 1090 0000 4369     		ldr	r3, [r0, #20]
+ 1091 0002 0C20     		movs	r0, #12
+ 1092              	.LVL91:
+ 1093 0004 1840     		ands	r0, r3
+ 341:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 1094              		.loc 1 341 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 25
+
+
+ 1095              		@ sp needed
+ 1096 0006 7047     		bx	lr
+ 1097              		.cfi_endproc
+ 1098              	.LFE69:
+ 1100              		.section	.text.UARTx_TXBUFSTA_TXFF_Chk,"ax",%progbits
+ 1101              		.align	2
+ 1102              		.global	UARTx_TXBUFSTA_TXFF_Chk
+ 1103              		.code	16
+ 1104              		.thumb_func
+ 1106              	UARTx_TXBUFSTA_TXFF_Chk:
+ 1107              	.LFB70:
+ 342:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 343:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* TXBUF状态位 相关函数 */
+ 344:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** FlagStatus UARTx_TXBUFSTA_TXFF_Chk(UARTx_Type* UARTx)
+ 345:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 1108              		.loc 1 345 0
+ 1109              		.cfi_startproc
+ 1110              		@ args = 0, pretend = 0, frame = 0
+ 1111              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1112              		@ link register save eliminated.
+ 1113              	.LVL92:
+ 346:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if (UARTx->TXBUFSTA & UARTx_TXBUFSTA_TXFF_Msk)
+ 1114              		.loc 1 346 0
+ 1115 0000 4369     		ldr	r3, [r0, #20]
+ 1116 0002 DB07     		lsls	r3, r3, #31
+ 1117 0004 01D5     		bpl	.L77
+ 347:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 348:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		return SET;
+ 1118              		.loc 1 348 0
+ 1119 0006 0120     		movs	r0, #1
+ 1120              	.LVL93:
+ 1121 0008 00E0     		b	.L76
+ 1122              	.LVL94:
+ 1123              	.L77:
+ 349:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 350:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	else
+ 351:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 352:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		return RESET;
+ 1124              		.loc 1 352 0
+ 1125 000a 0020     		movs	r0, #0
+ 1126              	.LVL95:
+ 1127              	.L76:
+ 353:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 354:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 1128              		.loc 1 354 0
+ 1129              		@ sp needed
+ 1130 000c 7047     		bx	lr
+ 1131              		.cfi_endproc
+ 1132              	.LFE70:
+ 1134 000e C046     		.section	.text.UARTx_RXBUFSTA_RXFF_Chk,"ax",%progbits
+ 1135              		.align	2
+ 1136              		.global	UARTx_RXBUFSTA_RXFF_Chk
+ 1137              		.code	16
+ 1138              		.thumb_func
+ 1140              	UARTx_RXBUFSTA_RXFF_Chk:
+ 1141              	.LFB71:
+ 355:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 26
+
+
+ 356:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* RXBUF状态位 相关函数 */
+ 357:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** FlagStatus UARTx_RXBUFSTA_RXFF_Chk(UARTx_Type* UARTx)
+ 358:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 1142              		.loc 1 358 0
+ 1143              		.cfi_startproc
+ 1144              		@ args = 0, pretend = 0, frame = 0
+ 1145              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1146              		@ link register save eliminated.
+ 1147              	.LVL96:
+ 359:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if (UARTx->RXBUFSTA & UARTx_RXBUFSTA_RXFF_Msk)
+ 1148              		.loc 1 359 0
+ 1149 0000 8369     		ldr	r3, [r0, #24]
+ 1150 0002 DB07     		lsls	r3, r3, #31
+ 1151 0004 01D5     		bpl	.L80
+ 360:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 361:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		return SET;
+ 1152              		.loc 1 361 0
+ 1153 0006 0120     		movs	r0, #1
+ 1154              	.LVL97:
+ 1155 0008 00E0     		b	.L79
+ 1156              	.LVL98:
+ 1157              	.L80:
+ 362:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 363:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	else
+ 364:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 365:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		return RESET;
+ 1158              		.loc 1 365 0
+ 1159 000a 0020     		movs	r0, #0
+ 1160              	.LVL99:
+ 1161              	.L79:
+ 366:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 367:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 1162              		.loc 1 367 0
+ 1163              		@ sp needed
+ 1164 000c 7047     		bx	lr
+ 1165              		.cfi_endproc
+ 1166              	.LFE71:
+ 1168 000e C046     		.section	.text.UARTx_RTXCON_RTX7EN_Setable,"ax",%progbits
+ 1169              		.align	2
+ 1170              		.global	UARTx_RTXCON_RTX7EN_Setable
+ 1171              		.code	16
+ 1172              		.thumb_func
+ 1174              	UARTx_RTXCON_RTX7EN_Setable:
+ 1175              	.LFB72:
+ 368:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 369:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* 收发7bit数据使能(覆盖PDSEL) 相关函数 */
+ 370:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** void UARTx_RTXCON_RTX7EN_Setable(UARTx_Type* UARTx, FunState NewState)
+ 371:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 1176              		.loc 1 371 0
+ 1177              		.cfi_startproc
+ 1178              		@ args = 0, pretend = 0, frame = 0
+ 1179              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1180              		@ link register save eliminated.
+ 1181              	.LVL100:
+ 372:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if (NewState == ENABLE)
+ 1182              		.loc 1 372 0
+ 1183 0000 0129     		cmp	r1, #1
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 27
+
+
+ 1184 0002 04D1     		bne	.L82
+ 373:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 374:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		UARTx->RTXCON |= (UARTx_RTXCON_RTX7EN_Msk);
+ 1185              		.loc 1 374 0
+ 1186 0004 C269     		ldr	r2, [r0, #28]
+ 1187 0006 0423     		movs	r3, #4
+ 1188 0008 1343     		orrs	r3, r2
+ 1189 000a C361     		str	r3, [r0, #28]
+ 1190 000c 03E0     		b	.L81
+ 1191              	.L82:
+ 375:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 376:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	else
+ 377:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 378:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		UARTx->RTXCON &= ~(UARTx_RTXCON_RTX7EN_Msk);
+ 1192              		.loc 1 378 0
+ 1193 000e C369     		ldr	r3, [r0, #28]
+ 1194 0010 0422     		movs	r2, #4
+ 1195 0012 9343     		bics	r3, r2
+ 1196 0014 C361     		str	r3, [r0, #28]
+ 1197              	.L81:
+ 379:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 380:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 1198              		.loc 1 380 0
+ 1199              		@ sp needed
+ 1200 0016 7047     		bx	lr
+ 1201              		.cfi_endproc
+ 1202              	.LFE72:
+ 1204              		.section	.text.UARTx_RTXCON_RTX7EN_Getable,"ax",%progbits
+ 1205              		.align	2
+ 1206              		.global	UARTx_RTXCON_RTX7EN_Getable
+ 1207              		.code	16
+ 1208              		.thumb_func
+ 1210              	UARTx_RTXCON_RTX7EN_Getable:
+ 1211              	.LFB73:
+ 381:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 382:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** FunState UARTx_RTXCON_RTX7EN_Getable(UARTx_Type* UARTx)
+ 383:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 1212              		.loc 1 383 0
+ 1213              		.cfi_startproc
+ 1214              		@ args = 0, pretend = 0, frame = 0
+ 1215              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1216              		@ link register save eliminated.
+ 1217              	.LVL101:
+ 384:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if (UARTx->RTXCON & (UARTx_RTXCON_RTX7EN_Msk))
+ 1218              		.loc 1 384 0
+ 1219 0000 C369     		ldr	r3, [r0, #28]
+ 1220 0002 5B07     		lsls	r3, r3, #29
+ 1221 0004 01D5     		bpl	.L86
+ 385:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 386:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		return ENABLE;
+ 1222              		.loc 1 386 0
+ 1223 0006 0120     		movs	r0, #1
+ 1224              	.LVL102:
+ 1225 0008 00E0     		b	.L85
+ 1226              	.LVL103:
+ 1227              	.L86:
+ 387:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 28
+
+
+ 388:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	else
+ 389:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 390:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		return DISABLE;
+ 1228              		.loc 1 390 0
+ 1229 000a 0020     		movs	r0, #0
+ 1230              	.LVL104:
+ 1231              	.L85:
+ 391:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 392:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 1232              		.loc 1 392 0
+ 1233              		@ sp needed
+ 1234 000c 7047     		bx	lr
+ 1235              		.cfi_endproc
+ 1236              	.LFE73:
+ 1238 000e C046     		.section	.text.UARTx_RTXCON_RXDFLAG_Setable,"ax",%progbits
+ 1239              		.align	2
+ 1240              		.global	UARTx_RTXCON_RXDFLAG_Setable
+ 1241              		.code	16
+ 1242              		.thumb_func
+ 1244              	UARTx_RTXCON_RXDFLAG_Setable:
+ 1245              	.LFB74:
+ 393:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 394:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* 接收数据取反控制位 相关函数 */
+ 395:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** void UARTx_RTXCON_RXDFLAG_Setable(UARTx_Type* UARTx, FunState NewState)
+ 396:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 1246              		.loc 1 396 0
+ 1247              		.cfi_startproc
+ 1248              		@ args = 0, pretend = 0, frame = 0
+ 1249              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1250              		@ link register save eliminated.
+ 1251              	.LVL105:
+ 397:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if (NewState == ENABLE)
+ 1252              		.loc 1 397 0
+ 1253 0000 0129     		cmp	r1, #1
+ 1254 0002 04D1     		bne	.L88
+ 398:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 399:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		UARTx->RTXCON |= (UARTx_RTXCON_RXDFLAG_Msk);
+ 1255              		.loc 1 399 0
+ 1256 0004 C269     		ldr	r2, [r0, #28]
+ 1257 0006 0223     		movs	r3, #2
+ 1258 0008 1343     		orrs	r3, r2
+ 1259 000a C361     		str	r3, [r0, #28]
+ 1260 000c 03E0     		b	.L87
+ 1261              	.L88:
+ 400:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 401:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	else
+ 402:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 403:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		UARTx->RTXCON &= ~(UARTx_RTXCON_RXDFLAG_Msk);
+ 1262              		.loc 1 403 0
+ 1263 000e C369     		ldr	r3, [r0, #28]
+ 1264 0010 0222     		movs	r2, #2
+ 1265 0012 9343     		bics	r3, r2
+ 1266 0014 C361     		str	r3, [r0, #28]
+ 1267              	.L87:
+ 404:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 405:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 1268              		.loc 1 405 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 29
+
+
+ 1269              		@ sp needed
+ 1270 0016 7047     		bx	lr
+ 1271              		.cfi_endproc
+ 1272              	.LFE74:
+ 1274              		.section	.text.UARTx_RTXCON_RXDFLAG_Getable,"ax",%progbits
+ 1275              		.align	2
+ 1276              		.global	UARTx_RTXCON_RXDFLAG_Getable
+ 1277              		.code	16
+ 1278              		.thumb_func
+ 1280              	UARTx_RTXCON_RXDFLAG_Getable:
+ 1281              	.LFB75:
+ 406:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 407:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** FunState UARTx_RTXCON_RXDFLAG_Getable(UARTx_Type* UARTx)
+ 408:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 1282              		.loc 1 408 0
+ 1283              		.cfi_startproc
+ 1284              		@ args = 0, pretend = 0, frame = 0
+ 1285              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1286              		@ link register save eliminated.
+ 1287              	.LVL106:
+ 409:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if (UARTx->RTXCON & (UARTx_RTXCON_RXDFLAG_Msk))
+ 1288              		.loc 1 409 0
+ 1289 0000 C369     		ldr	r3, [r0, #28]
+ 1290 0002 9B07     		lsls	r3, r3, #30
+ 1291 0004 01D5     		bpl	.L92
+ 410:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 411:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		return ENABLE;
+ 1292              		.loc 1 411 0
+ 1293 0006 0120     		movs	r0, #1
+ 1294              	.LVL107:
+ 1295 0008 00E0     		b	.L91
+ 1296              	.LVL108:
+ 1297              	.L92:
+ 412:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 413:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	else
+ 414:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 415:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		return DISABLE;
+ 1298              		.loc 1 415 0
+ 1299 000a 0020     		movs	r0, #0
+ 1300              	.LVL109:
+ 1301              	.L91:
+ 416:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 417:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 1302              		.loc 1 417 0
+ 1303              		@ sp needed
+ 1304 000c 7047     		bx	lr
+ 1305              		.cfi_endproc
+ 1306              	.LFE75:
+ 1308 000e C046     		.section	.text.UARTx_RTXCON_TXDFLAG_Setable,"ax",%progbits
+ 1309              		.align	2
+ 1310              		.global	UARTx_RTXCON_TXDFLAG_Setable
+ 1311              		.code	16
+ 1312              		.thumb_func
+ 1314              	UARTx_RTXCON_TXDFLAG_Setable:
+ 1315              	.LFB76:
+ 418:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 419:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* 发送数据取反控制位 相关函数 */
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 30
+
+
+ 420:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** void UARTx_RTXCON_TXDFLAG_Setable(UARTx_Type* UARTx, FunState NewState)
+ 421:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 1316              		.loc 1 421 0
+ 1317              		.cfi_startproc
+ 1318              		@ args = 0, pretend = 0, frame = 0
+ 1319              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1320              		@ link register save eliminated.
+ 1321              	.LVL110:
+ 422:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if (NewState == ENABLE)
+ 1322              		.loc 1 422 0
+ 1323 0000 0129     		cmp	r1, #1
+ 1324 0002 04D1     		bne	.L94
+ 423:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 424:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		UARTx->RTXCON |= (UARTx_RTXCON_TXDFLAG_Msk);
+ 1325              		.loc 1 424 0
+ 1326 0004 C269     		ldr	r2, [r0, #28]
+ 1327 0006 0123     		movs	r3, #1
+ 1328 0008 1343     		orrs	r3, r2
+ 1329 000a C361     		str	r3, [r0, #28]
+ 1330 000c 03E0     		b	.L93
+ 1331              	.L94:
+ 425:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 426:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	else
+ 427:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 428:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		UARTx->RTXCON &= ~(UARTx_RTXCON_TXDFLAG_Msk);
+ 1332              		.loc 1 428 0
+ 1333 000e C369     		ldr	r3, [r0, #28]
+ 1334 0010 0122     		movs	r2, #1
+ 1335 0012 9343     		bics	r3, r2
+ 1336 0014 C361     		str	r3, [r0, #28]
+ 1337              	.L93:
+ 429:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 430:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 1338              		.loc 1 430 0
+ 1339              		@ sp needed
+ 1340 0016 7047     		bx	lr
+ 1341              		.cfi_endproc
+ 1342              	.LFE76:
+ 1344              		.section	.text.UARTx_RTXCON_TXDFLAG_Getable,"ax",%progbits
+ 1345              		.align	2
+ 1346              		.global	UARTx_RTXCON_TXDFLAG_Getable
+ 1347              		.code	16
+ 1348              		.thumb_func
+ 1350              	UARTx_RTXCON_TXDFLAG_Getable:
+ 1351              	.LFB77:
+ 431:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 432:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** FunState UARTx_RTXCON_TXDFLAG_Getable(UARTx_Type* UARTx)
+ 433:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 1352              		.loc 1 433 0
+ 1353              		.cfi_startproc
+ 1354              		@ args = 0, pretend = 0, frame = 0
+ 1355              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1356              		@ link register save eliminated.
+ 1357              	.LVL111:
+ 434:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if (UARTx->RTXCON & (UARTx_RTXCON_TXDFLAG_Msk))
+ 1358              		.loc 1 434 0
+ 1359 0000 C369     		ldr	r3, [r0, #28]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 31
+
+
+ 1360 0002 DB07     		lsls	r3, r3, #31
+ 1361 0004 01D5     		bpl	.L98
+ 435:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 436:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		return ENABLE;
+ 1362              		.loc 1 436 0
+ 1363 0006 0120     		movs	r0, #1
+ 1364              	.LVL112:
+ 1365 0008 00E0     		b	.L97
+ 1366              	.LVL113:
+ 1367              	.L98:
+ 437:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 438:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	else
+ 439:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 440:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		return DISABLE;
+ 1368              		.loc 1 440 0
+ 1369 000a 0020     		movs	r0, #0
+ 1370              	.LVL114:
+ 1371              	.L97:
+ 441:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 442:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 1372              		.loc 1 442 0
+ 1373              		@ sp needed
+ 1374 000c 7047     		bx	lr
+ 1375              		.cfi_endproc
+ 1376              	.LFE77:
+ 1378 000e C046     		.section	.text.UART_Deinit,"ax",%progbits
+ 1379              		.align	2
+ 1380              		.global	UART_Deinit
+ 1381              		.code	16
+ 1382              		.thumb_func
+ 1384              	UART_Deinit:
+ 1385              	.LFB78:
+ 443:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 444:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 445:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** void UART_Deinit(void)
+ 446:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 1386              		.loc 1 446 0
+ 1387              		.cfi_startproc
+ 1388              		@ args = 0, pretend = 0, frame = 0
+ 1389              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1390              		@ link register save eliminated.
+ 447:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UART->UARTIE = 0x00000000;
+ 1391              		.loc 1 447 0
+ 1392 0000 024B     		ldr	r3, .L100
+ 1393 0002 0022     		movs	r2, #0
+ 1394 0004 1A60     		str	r2, [r3]
+ 448:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	//UART->UARTIF = ;
+ 449:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UART->IRCON = 0x000000D2;
+ 1395              		.loc 1 449 0
+ 1396 0006 D232     		adds	r2, r2, #210
+ 1397 0008 9A60     		str	r2, [r3, #8]
+ 450:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 1398              		.loc 1 450 0
+ 1399              		@ sp needed
+ 1400 000a 7047     		bx	lr
+ 1401              	.L101:
+ 1402              		.align	2
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 32
+
+
+ 1403              	.L100:
+ 1404 000c 00200140 		.word	1073815552
+ 1405              		.cfi_endproc
+ 1406              	.LFE78:
+ 1408              		.section	.text.UARTx_Deinit,"ax",%progbits
+ 1409              		.align	2
+ 1410              		.global	UARTx_Deinit
+ 1411              		.code	16
+ 1412              		.thumb_func
+ 1414              	UARTx_Deinit:
+ 1415              	.LFB79:
+ 451:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** void UARTx_Deinit(UARTx_Type* UARTx)
+ 452:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 1416              		.loc 1 452 0
+ 1417              		.cfi_startproc
+ 1418              		@ args = 0, pretend = 0, frame = 0
+ 1419              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1420              		@ link register save eliminated.
+ 1421              	.LVL115:
+ 453:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx->RXSTA = 0x00000000;
+ 1422              		.loc 1 453 0
+ 1423 0000 0023     		movs	r3, #0
+ 1424 0002 0360     		str	r3, [r0]
+ 454:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx->TXSTA = 0x00000002;
+ 1425              		.loc 1 454 0
+ 1426 0004 0222     		movs	r2, #2
+ 1427 0006 4260     		str	r2, [r0, #4]
+ 455:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	//UARTx->RXREG = ;
+ 456:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	//UARTx->TXREG = ;
+ 457:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx->SPBRG = 0x00000341;
+ 1428              		.loc 1 457 0
+ 1429 0008 034A     		ldr	r2, .L103
+ 1430 000a 0261     		str	r2, [r0, #16]
+ 458:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx->TXBUFSTA = 0x00000000;
+ 1431              		.loc 1 458 0
+ 1432 000c 4361     		str	r3, [r0, #20]
+ 459:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx->RXBUFSTA = 0x00000040;
+ 1433              		.loc 1 459 0
+ 1434 000e 4022     		movs	r2, #64
+ 1435 0010 8261     		str	r2, [r0, #24]
+ 460:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx->RTXCON = 0x00000000;
+ 1436              		.loc 1 460 0
+ 1437 0012 C361     		str	r3, [r0, #28]
+ 461:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 1438              		.loc 1 461 0
+ 1439              		@ sp needed
+ 1440 0014 7047     		bx	lr
+ 1441              	.L104:
+ 1442 0016 C046     		.align	2
+ 1443              	.L103:
+ 1444 0018 41030000 		.word	833
+ 1445              		.cfi_endproc
+ 1446              	.LFE79:
+ 1448              		.section	.text.UART_All_Deinit,"ax",%progbits
+ 1449              		.align	2
+ 1450              		.global	UART_All_Deinit
+ 1451              		.code	16
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 33
+
+
+ 1452              		.thumb_func
+ 1454              	UART_All_Deinit:
+ 1455              	.LFB80:
+ 462:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** //Code_End
+ 463:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 464:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 465:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 466:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** void UART_All_Deinit(void)
+ 467:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 1456              		.loc 1 467 0
+ 1457              		.cfi_startproc
+ 1458              		@ args = 0, pretend = 0, frame = 0
+ 1459              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1460 0000 10B5     		push	{r4, lr}
+ 1461              	.LCFI0:
+ 1462              		.cfi_def_cfa_offset 8
+ 1463              		.cfi_offset 4, -8
+ 1464              		.cfi_offset 14, -4
+ 468:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UART_Deinit();
+ 1465              		.loc 1 468 0
+ 1466 0002 FFF7FEFF 		bl	UART_Deinit
+ 1467              	.LVL116:
+ 469:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx_Deinit(UART0);
+ 1468              		.loc 1 469 0
+ 1469 0006 0948     		ldr	r0, .L106
+ 1470 0008 FFF7FEFF 		bl	UARTx_Deinit
+ 1471              	.LVL117:
+ 470:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx_Deinit(UART1);
+ 1472              		.loc 1 470 0
+ 1473 000c 0848     		ldr	r0, .L106+4
+ 1474 000e FFF7FEFF 		bl	UARTx_Deinit
+ 1475              	.LVL118:
+ 471:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx_Deinit(UART2);
+ 1476              		.loc 1 471 0
+ 1477 0012 0848     		ldr	r0, .L106+8
+ 1478 0014 FFF7FEFF 		bl	UARTx_Deinit
+ 1479              	.LVL119:
+ 472:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx_Deinit(UART3);
+ 1480              		.loc 1 472 0
+ 1481 0018 0748     		ldr	r0, .L106+12
+ 1482 001a FFF7FEFF 		bl	UARTx_Deinit
+ 1483              	.LVL120:
+ 473:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx_Deinit(UART4);
+ 1484              		.loc 1 473 0
+ 1485 001e 0748     		ldr	r0, .L106+16
+ 1486 0020 FFF7FEFF 		bl	UARTx_Deinit
+ 1487              	.LVL121:
+ 474:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx_Deinit(UART5);
+ 1488              		.loc 1 474 0
+ 1489 0024 0648     		ldr	r0, .L106+20
+ 1490 0026 FFF7FEFF 		bl	UARTx_Deinit
+ 1491              	.LVL122:
+ 475:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 1492              		.loc 1 475 0
+ 1493              		@ sp needed
+ 1494 002a 10BD     		pop	{r4, pc}
+ 1495              	.L107:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 34
+
+
+ 1496              		.align	2
+ 1497              	.L106:
+ 1498 002c 0C200140 		.word	1073815564
+ 1499 0030 2C200140 		.word	1073815596
+ 1500 0034 4C200140 		.word	1073815628
+ 1501 0038 6C200140 		.word	1073815660
+ 1502 003c 8C200140 		.word	1073815692
+ 1503 0040 AC200140 		.word	1073815724
+ 1504              		.cfi_endproc
+ 1505              	.LFE80:
+ 1507              		.section	.text.UART_UARTIE_RxTxIE_SetableEx,"ax",%progbits
+ 1508              		.align	2
+ 1509              		.global	UART_UARTIE_RxTxIE_SetableEx
+ 1510              		.code	16
+ 1511              		.thumb_func
+ 1513              	UART_UARTIE_RxTxIE_SetableEx:
+ 1514              	.LFB81:
+ 476:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 477:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* uart 接收 发送 中断使能配置函数 */
+ 478:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** void UART_UARTIE_RxTxIE_SetableEx(UARTx_Type* UARTx, UART_IntTypeDef IntType, FunState NewState)
+ 479:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 1515              		.loc 1 479 0
+ 1516              		.cfi_startproc
+ 1517              		@ args = 0, pretend = 0, frame = 0
+ 1518              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1519              		@ link register save eliminated.
+ 1520              	.LVL123:
+ 480:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	uint32_t shiftbit;
+ 481:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	
+ 482:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	shiftbit = ((uint32_t)UARTx - UART0_BASE)>>4;
+ 1521              		.loc 1 482 0
+ 1522 0000 0B4B     		ldr	r3, .L112
+ 1523 0002 9C46     		mov	ip, r3
+ 1524 0004 6044     		add	r0, r0, ip
+ 1525              	.LVL124:
+ 1526 0006 0009     		lsrs	r0, r0, #4
+ 1527              	.LVL125:
+ 483:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	
+ 484:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if( RxInt == IntType)
+ 1528              		.loc 1 484 0
+ 1529 0008 0029     		cmp	r1, #0
+ 1530 000a 00D1     		bne	.L109
+ 485:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 486:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		shiftbit = shiftbit + 1;
+ 1531              		.loc 1 486 0
+ 1532 000c 0130     		adds	r0, r0, #1
+ 1533              	.LVL126:
+ 1534              	.L109:
+ 487:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 488:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 489:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if( ENABLE == NewState )
+ 1535              		.loc 1 489 0
+ 1536 000e 012A     		cmp	r2, #1
+ 1537 0010 06D1     		bne	.L110
+ 490:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 491:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		UART->UARTIE |= 0x00000001<<shiftbit;
+ 1538              		.loc 1 491 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 35
+
+
+ 1539 0012 0849     		ldr	r1, .L112+4
+ 1540              	.LVL127:
+ 1541 0014 0A68     		ldr	r2, [r1]
+ 1542              	.LVL128:
+ 1543 0016 0123     		movs	r3, #1
+ 1544 0018 8340     		lsls	r3, r3, r0
+ 1545 001a 1343     		orrs	r3, r2
+ 1546 001c 0B60     		str	r3, [r1]
+ 1547 001e 05E0     		b	.L108
+ 1548              	.LVL129:
+ 1549              	.L110:
+ 492:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 493:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	else
+ 494:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 495:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		UART->UARTIE &= ~(0x00000001<<shiftbit);
+ 1550              		.loc 1 495 0
+ 1551 0020 0449     		ldr	r1, .L112+4
+ 1552              	.LVL130:
+ 1553 0022 0B68     		ldr	r3, [r1]
+ 1554 0024 0122     		movs	r2, #1
+ 1555              	.LVL131:
+ 1556 0026 8240     		lsls	r2, r2, r0
+ 1557 0028 9343     		bics	r3, r2
+ 1558 002a 0B60     		str	r3, [r1]
+ 1559              	.L108:
+ 496:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 497:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 1560              		.loc 1 497 0
+ 1561              		@ sp needed
+ 1562 002c 7047     		bx	lr
+ 1563              	.L113:
+ 1564 002e C046     		.align	2
+ 1565              	.L112:
+ 1566 0030 F4DFFEBF 		.word	-1073815564
+ 1567 0034 00200140 		.word	1073815552
+ 1568              		.cfi_endproc
+ 1569              	.LFE81:
+ 1571              		.section	.text.UART_UARTIE_RxTxIE_GetableEx,"ax",%progbits
+ 1572              		.align	2
+ 1573              		.global	UART_UARTIE_RxTxIE_GetableEx
+ 1574              		.code	16
+ 1575              		.thumb_func
+ 1577              	UART_UARTIE_RxTxIE_GetableEx:
+ 1578              	.LFB82:
+ 498:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 499:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* uart 接收 发送 中断使能读取函数 */
+ 500:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** FunState UART_UARTIE_RxTxIE_GetableEx(UARTx_Type* UARTx, UART_IntTypeDef IntType)
+ 501:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 1579              		.loc 1 501 0
+ 1580              		.cfi_startproc
+ 1581              		@ args = 0, pretend = 0, frame = 0
+ 1582              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1583              		@ link register save eliminated.
+ 1584              	.LVL132:
+ 502:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	FunState tmpstate;
+ 503:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	uint32_t shiftbit;
+ 504:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 36
+
+
+ 505:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	shiftbit = ((uint32_t)UARTx - UART0_BASE)>>4;
+ 1585              		.loc 1 505 0
+ 1586 0000 084B     		ldr	r3, .L118
+ 1587 0002 9C46     		mov	ip, r3
+ 1588 0004 6044     		add	r0, r0, ip
+ 1589              	.LVL133:
+ 1590 0006 0009     		lsrs	r0, r0, #4
+ 1591              	.LVL134:
+ 506:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	
+ 507:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if( RxInt == IntType)
+ 1592              		.loc 1 507 0
+ 1593 0008 0029     		cmp	r1, #0
+ 1594 000a 00D1     		bne	.L115
+ 508:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 509:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		shiftbit = shiftbit + 1;
+ 1595              		.loc 1 509 0
+ 1596 000c 0130     		adds	r0, r0, #1
+ 1597              	.LVL135:
+ 1598              	.L115:
+ 510:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 511:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 512:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if(UART->UARTIE & (0x00000001<<shiftbit))
+ 1599              		.loc 1 512 0
+ 1600 000e 064B     		ldr	r3, .L118+4
+ 1601 0010 1A68     		ldr	r2, [r3]
+ 1602 0012 0123     		movs	r3, #1
+ 1603 0014 8340     		lsls	r3, r3, r0
+ 1604 0016 1A42     		tst	r2, r3
+ 1605 0018 01D0     		beq	.L117
+ 513:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 514:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		tmpstate = ENABLE;
+ 1606              		.loc 1 514 0
+ 1607 001a 0120     		movs	r0, #1
+ 1608              	.LVL136:
+ 1609 001c 00E0     		b	.L116
+ 1610              	.LVL137:
+ 1611              	.L117:
+ 515:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 516:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	else
+ 517:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 518:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		tmpstate = DISABLE;
+ 1612              		.loc 1 518 0
+ 1613 001e 0020     		movs	r0, #0
+ 1614              	.LVL138:
+ 1615              	.L116:
+ 519:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 520:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	
+ 521:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	return tmpstate;
+ 522:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 1616              		.loc 1 522 0
+ 1617              		@ sp needed
+ 1618 0020 7047     		bx	lr
+ 1619              	.L119:
+ 1620 0022 C046     		.align	2
+ 1621              	.L118:
+ 1622 0024 F4DFFEBF 		.word	-1073815564
+ 1623 0028 00200140 		.word	1073815552
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 37
+
+
+ 1624              		.cfi_endproc
+ 1625              	.LFE82:
+ 1627              		.section	.text.UART_UARTIF_RxTxIF_ClrEx,"ax",%progbits
+ 1628              		.align	2
+ 1629              		.global	UART_UARTIF_RxTxIF_ClrEx
+ 1630              		.code	16
+ 1631              		.thumb_func
+ 1633              	UART_UARTIF_RxTxIF_ClrEx:
+ 1634              	.LFB83:
+ 523:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 524:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* uart 发送 中断标志清零函数
+ 525:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	接收中断标志 只能 通过读rxreg清零
+ 526:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	发送中断标志可通过写txreg或者txif写1清零
+ 527:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** */
+ 528:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** void UART_UARTIF_RxTxIF_ClrEx(UARTx_Type* UARTx)
+ 529:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 1635              		.loc 1 529 0
+ 1636              		.cfi_startproc
+ 1637              		@ args = 0, pretend = 0, frame = 0
+ 1638              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1639              		@ link register save eliminated.
+ 1640              	.LVL139:
+ 530:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	uint32_t shiftbit;
+ 531:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	
+ 532:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	shiftbit = ((uint32_t)UARTx - UART0_BASE)>>4;
+ 1641              		.loc 1 532 0
+ 1642 0000 044B     		ldr	r3, .L121
+ 1643 0002 9C46     		mov	ip, r3
+ 1644 0004 6044     		add	r0, r0, ip
+ 1645              	.LVL140:
+ 1646 0006 0009     		lsrs	r0, r0, #4
+ 1647              	.LVL141:
+ 533:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	
+ 534:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UART->UARTIF = 0x00000001<<shiftbit;
+ 1648              		.loc 1 534 0
+ 1649 0008 0123     		movs	r3, #1
+ 1650 000a 8340     		lsls	r3, r3, r0
+ 1651 000c 024A     		ldr	r2, .L121+4
+ 1652 000e 5360     		str	r3, [r2, #4]
+ 535:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 1653              		.loc 1 535 0
+ 1654              		@ sp needed
+ 1655 0010 7047     		bx	lr
+ 1656              	.L122:
+ 1657 0012 C046     		.align	2
+ 1658              	.L121:
+ 1659 0014 F4DFFEBF 		.word	-1073815564
+ 1660 0018 00200140 		.word	1073815552
+ 1661              		.cfi_endproc
+ 1662              	.LFE83:
+ 1664              		.section	.text.UART_UARTIF_RxTxIF_ChkEx,"ax",%progbits
+ 1665              		.align	2
+ 1666              		.global	UART_UARTIF_RxTxIF_ChkEx
+ 1667              		.code	16
+ 1668              		.thumb_func
+ 1670              	UART_UARTIF_RxTxIF_ChkEx:
+ 1671              	.LFB84:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 38
+
+
+ 536:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 537:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* uart 接收 发送 中断标志读取函数 */
+ 538:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** FlagStatus UART_UARTIF_RxTxIF_ChkEx(UARTx_Type* UARTx, UART_IntTypeDef IntType)
+ 539:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 1672              		.loc 1 539 0
+ 1673              		.cfi_startproc
+ 1674              		@ args = 0, pretend = 0, frame = 0
+ 1675              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1676              		@ link register save eliminated.
+ 1677              	.LVL142:
+ 540:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	FlagStatus tmpstate;
+ 541:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	uint32_t shiftbit;
+ 542:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	
+ 543:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	shiftbit = ((uint32_t)UARTx - UART0_BASE)>>4;
+ 1678              		.loc 1 543 0
+ 1679 0000 084B     		ldr	r3, .L127
+ 1680 0002 9C46     		mov	ip, r3
+ 1681 0004 6044     		add	r0, r0, ip
+ 1682              	.LVL143:
+ 1683 0006 0009     		lsrs	r0, r0, #4
+ 1684              	.LVL144:
+ 544:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	
+ 545:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if( RxInt == IntType)
+ 1685              		.loc 1 545 0
+ 1686 0008 0029     		cmp	r1, #0
+ 1687 000a 00D1     		bne	.L124
+ 546:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 547:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		shiftbit = shiftbit + 1;
+ 1688              		.loc 1 547 0
+ 1689 000c 0130     		adds	r0, r0, #1
+ 1690              	.LVL145:
+ 1691              	.L124:
+ 548:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 549:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 550:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if(UART->UARTIF & (0x00000001<<shiftbit))
+ 1692              		.loc 1 550 0
+ 1693 000e 064B     		ldr	r3, .L127+4
+ 1694 0010 5A68     		ldr	r2, [r3, #4]
+ 1695 0012 0123     		movs	r3, #1
+ 1696 0014 8340     		lsls	r3, r3, r0
+ 1697 0016 1A42     		tst	r2, r3
+ 1698 0018 01D0     		beq	.L126
+ 551:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 552:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		tmpstate = SET;
+ 1699              		.loc 1 552 0
+ 1700 001a 0120     		movs	r0, #1
+ 1701              	.LVL146:
+ 1702 001c 00E0     		b	.L125
+ 1703              	.LVL147:
+ 1704              	.L126:
+ 553:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 554:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	else
+ 555:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 556:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		tmpstate = RESET;
+ 1705              		.loc 1 556 0
+ 1706 001e 0020     		movs	r0, #0
+ 1707              	.LVL148:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 39
+
+
+ 1708              	.L125:
+ 557:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 558:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	
+ 559:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	return tmpstate;
+ 560:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 1709              		.loc 1 560 0
+ 1710              		@ sp needed
+ 1711 0020 7047     		bx	lr
+ 1712              	.L128:
+ 1713 0022 C046     		.align	2
+ 1714              	.L127:
+ 1715 0024 F4DFFEBF 		.word	-1073815564
+ 1716 0028 00200140 		.word	1073815552
+ 1717              		.cfi_endproc
+ 1718              	.LFE84:
+ 1720              		.global	__aeabi_ui2f
+ 1721              		.global	__aeabi_fdiv
+ 1722              		.global	__aeabi_f2d
+ 1723              		.global	__aeabi_dadd
+ 1724              		.global	__aeabi_d2uiz
+ 1725              		.global	__aeabi_ddiv
+ 1726              		.global	__aeabi_dmul
+ 1727              		.section	.text.UART_IRModulation_Init,"ax",%progbits
+ 1728              		.align	2
+ 1729              		.global	UART_IRModulation_Init
+ 1730              		.code	16
+ 1731              		.thumb_func
+ 1733              	UART_IRModulation_Init:
+ 1734              	.LFB85:
+ 561:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 562:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* 红外调制频率，占空比 配置 */
+ 563:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** void UART_IRModulation_Init( uint32_t ModuFreq, uint8_t ModuDutyCycle, uint32_t APBClk )
+ 564:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 1735              		.loc 1 564 0
+ 1736              		.cfi_startproc
+ 1737              		@ args = 0, pretend = 0, frame = 8
+ 1738              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1739              	.LVL149:
+ 1740 0000 70B5     		push	{r4, r5, r6, lr}
+ 1741              	.LCFI1:
+ 1742              		.cfi_def_cfa_offset 16
+ 1743              		.cfi_offset 4, -16
+ 1744              		.cfi_offset 5, -12
+ 1745              		.cfi_offset 6, -8
+ 1746              		.cfi_offset 14, -4
+ 1747 0002 82B0     		sub	sp, sp, #8
+ 1748              	.LCFI2:
+ 1749              		.cfi_def_cfa_offset 24
+ 1750 0004 0400     		movs	r4, r0
+ 1751 0006 0D00     		movs	r5, r1
+ 565:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	uint32_t tempTZBRG, tempTH;
+ 566:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	
+ 567:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if((ModuFreq > 0)&&(APBClk >= ModuFreq)&&(ModuDutyCycle < 100))
+ 1752              		.loc 1 567 0
+ 1753 0008 0028     		cmp	r0, #0
+ 1754 000a 61D0     		beq	.L129
+ 1755              		.loc 1 567 0 is_stmt 0 discriminator 1
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 40
+
+
+ 1756 000c 9042     		cmp	r0, r2
+ 1757 000e 5FD8     		bhi	.L129
+ 1758              		.loc 1 567 0 discriminator 2
+ 1759 0010 6329     		cmp	r1, #99
+ 1760 0012 5DD8     		bhi	.L129
+ 568:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 569:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		tempTZBRG = (uint32_t)((float)APBClk/(float)ModuFreq + 0.5) - 1;
+ 1761              		.loc 1 569 0 is_stmt 1
+ 1762 0014 1000     		movs	r0, r2
+ 1763              	.LVL150:
+ 1764 0016 FFF7FEFF 		bl	__aeabi_ui2f
+ 1765              	.LVL151:
+ 1766 001a 061C     		adds	r6, r0, #0
+ 1767 001c 2000     		movs	r0, r4
+ 1768 001e FFF7FEFF 		bl	__aeabi_ui2f
+ 1769              	.LVL152:
+ 1770 0022 011C     		adds	r1, r0, #0
+ 1771 0024 301C     		adds	r0, r6, #0
+ 1772 0026 FFF7FEFF 		bl	__aeabi_fdiv
+ 1773              	.LVL153:
+ 1774 002a FFF7FEFF 		bl	__aeabi_f2d
+ 1775              	.LVL154:
+ 1776 002e 0022     		movs	r2, #0
+ 1777 0030 284B     		ldr	r3, .L133
+ 1778 0032 FFF7FEFF 		bl	__aeabi_dadd
+ 1779              	.LVL155:
+ 1780 0036 FFF7FEFF 		bl	__aeabi_d2uiz
+ 1781              	.LVL156:
+ 1782 003a 0600     		movs	r6, r0
+ 1783 003c 441E     		subs	r4, r0, #1
+ 1784              	.LVL157:
+ 570:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		UART_IRCON_TZBRG_Set((tempTZBRG&UART_IRCON_TZBRG_Msk)<<UART_IRCON_TZBRG_Pos);//红外调制频率配置
+ 1785              		.loc 1 570 0
+ 1786 003e 6005     		lsls	r0, r4, #21
+ 1787 0040 400D     		lsrs	r0, r0, #21
+ 1788 0042 FFF7FEFF 		bl	UART_IRCON_TZBRG_Set
+ 1789              	.LVL158:
+ 571:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		
+ 572:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		if((tempTZBRG>>4) != 0)
+ 1790              		.loc 1 572 0
+ 1791 0046 2409     		lsrs	r4, r4, #4
+ 1792              	.LVL159:
+ 1793 0048 22D0     		beq	.L131
+ 573:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		{
+ 574:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 			
+ 575:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 			tempTH = (uint32_t)(((float)ModuDutyCycle/100.0)*((float)(tempTZBRG + 1)/(float)(tempTZBRG>>4)) 
+ 1794              		.loc 1 575 0
+ 1795 004a 2800     		movs	r0, r5
+ 1796 004c FFF7FEFF 		bl	__aeabi_ui2f
+ 1797              	.LVL160:
+ 1798 0050 FFF7FEFF 		bl	__aeabi_f2d
+ 1799              	.LVL161:
+ 1800 0054 0022     		movs	r2, #0
+ 1801 0056 204B     		ldr	r3, .L133+4
+ 1802 0058 FFF7FEFF 		bl	__aeabi_ddiv
+ 1803              	.LVL162:
+ 1804 005c 0090     		str	r0, [sp]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 41
+
+
+ 1805 005e 0191     		str	r1, [sp, #4]
+ 1806 0060 3000     		movs	r0, r6
+ 1807 0062 FFF7FEFF 		bl	__aeabi_ui2f
+ 1808              	.LVL163:
+ 1809 0066 051C     		adds	r5, r0, #0
+ 1810 0068 2000     		movs	r0, r4
+ 1811 006a FFF7FEFF 		bl	__aeabi_ui2f
+ 1812              	.LVL164:
+ 1813 006e 011C     		adds	r1, r0, #0
+ 1814 0070 281C     		adds	r0, r5, #0
+ 1815 0072 FFF7FEFF 		bl	__aeabi_fdiv
+ 1816              	.LVL165:
+ 1817 0076 FFF7FEFF 		bl	__aeabi_f2d
+ 1818              	.LVL166:
+ 1819 007a 009A     		ldr	r2, [sp]
+ 1820 007c 019B     		ldr	r3, [sp, #4]
+ 1821 007e FFF7FEFF 		bl	__aeabi_dmul
+ 1822              	.LVL167:
+ 1823 0082 0022     		movs	r2, #0
+ 1824 0084 134B     		ldr	r3, .L133
+ 1825 0086 FFF7FEFF 		bl	__aeabi_dadd
+ 1826              	.LVL168:
+ 1827 008a FFF7FEFF 		bl	__aeabi_d2uiz
+ 1828              	.LVL169:
+ 1829 008e 19E0     		b	.L132
+ 1830              	.LVL170:
+ 1831              	.L131:
+ 576:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		}
+ 577:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		else
+ 578:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		{
+ 579:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 			tempTH = (uint32_t)(((float)ModuDutyCycle/100.0)*(float)(tempTZBRG + 1) + 0.5);
+ 1832              		.loc 1 579 0
+ 1833 0090 2800     		movs	r0, r5
+ 1834 0092 FFF7FEFF 		bl	__aeabi_ui2f
+ 1835              	.LVL171:
+ 1836 0096 FFF7FEFF 		bl	__aeabi_f2d
+ 1837              	.LVL172:
+ 1838 009a 0022     		movs	r2, #0
+ 1839 009c 0E4B     		ldr	r3, .L133+4
+ 1840 009e FFF7FEFF 		bl	__aeabi_ddiv
+ 1841              	.LVL173:
+ 1842 00a2 0400     		movs	r4, r0
+ 1843 00a4 0D00     		movs	r5, r1
+ 1844 00a6 3000     		movs	r0, r6
+ 1845 00a8 FFF7FEFF 		bl	__aeabi_ui2f
+ 1846              	.LVL174:
+ 1847 00ac FFF7FEFF 		bl	__aeabi_f2d
+ 1848              	.LVL175:
+ 1849 00b0 2200     		movs	r2, r4
+ 1850 00b2 2B00     		movs	r3, r5
+ 1851 00b4 FFF7FEFF 		bl	__aeabi_dmul
+ 1852              	.LVL176:
+ 1853 00b8 0022     		movs	r2, #0
+ 1854 00ba 064B     		ldr	r3, .L133
+ 1855 00bc FFF7FEFF 		bl	__aeabi_dadd
+ 1856              	.LVL177:
+ 1857 00c0 FFF7FEFF 		bl	__aeabi_d2uiz
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 42
+
+
+ 1858              	.LVL178:
+ 1859              	.L132:
+ 580:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 			
+ 581:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		}
+ 582:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		UART_IRCON_TH_Set((tempTH<<UART_IRCON_TH_Pos)&UART_IRCON_TH_Msk);//红外调制占空比配置
+ 1860              		.loc 1 582 0
+ 1861 00c4 C002     		lsls	r0, r0, #11
+ 1862              	.LVL179:
+ 1863 00c6 F023     		movs	r3, #240
+ 1864 00c8 DB01     		lsls	r3, r3, #7
+ 1865 00ca 1840     		ands	r0, r3
+ 1866 00cc FFF7FEFF 		bl	UART_IRCON_TH_Set
+ 1867              	.LVL180:
+ 1868              	.L129:
+ 583:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 584:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 1869              		.loc 1 584 0
+ 1870 00d0 02B0     		add	sp, sp, #8
+ 1871              		@ sp needed
+ 1872 00d2 70BD     		pop	{r4, r5, r6, pc}
+ 1873              	.L134:
+ 1874              		.align	2
+ 1875              	.L133:
+ 1876 00d4 0000E03F 		.word	1071644672
+ 1877 00d8 00005940 		.word	1079574528
+ 1878              		.cfi_endproc
+ 1879              	.LFE85:
+ 1881              		.section	.text.UART_Init,"ax",%progbits
+ 1882              		.align	2
+ 1883              		.global	UART_Init
+ 1884              		.code	16
+ 1885              		.thumb_func
+ 1887              	UART_Init:
+ 1888              	.LFB86:
+ 585:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 586:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* UART完整参数初始化函数 */
+ 587:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** void UART_Init(UARTx_Type* UARTx, UART_InitTypeDef* para)
+ 588:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 1889              		.loc 1 588 0
+ 1890              		.cfi_startproc
+ 1891              		@ args = 0, pretend = 0, frame = 0
+ 1892              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1893              	.LVL181:
+ 1894 0000 70B5     		push	{r4, r5, r6, lr}
+ 1895              	.LCFI3:
+ 1896              		.cfi_def_cfa_offset 16
+ 1897              		.cfi_offset 4, -16
+ 1898              		.cfi_offset 5, -12
+ 1899              		.cfi_offset 6, -8
+ 1900              		.cfi_offset 14, -4
+ 1901 0002 0400     		movs	r4, r0
+ 1902 0004 0D00     		movs	r5, r1
+ 589:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx_SPBRG_Write(UARTx, para->SPBRG);		//波特率产生器寄存器
+ 1903              		.loc 1 589 0
+ 1904 0006 4968     		ldr	r1, [r1, #4]
+ 1905              	.LVL182:
+ 1906 0008 FFF7FEFF 		bl	UARTx_SPBRG_Write
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 43
+
+
+ 1907              	.LVL183:
+ 590:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 591:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx_RXSTA_PDSEL_Set(UARTx, para->PDSEL);		//模式选择，00 = 8位数据，无奇偶校验；01 = 8位数据，偶
+ 1908              		.loc 1 591 0
+ 1909 000c A968     		ldr	r1, [r5, #8]
+ 1910 000e 2000     		movs	r0, r4
+ 1911 0010 FFF7FEFF 		bl	UARTx_RXSTA_PDSEL_Set
+ 1912              	.LVL184:
+ 592:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx_RTXCON_RTX7EN_Setable(UARTx, para->RTX7EN);		//收发7bit数据使能(覆盖PDSEL)
+ 1913              		.loc 1 592 0
+ 1914 0014 2023     		movs	r3, #32
+ 1915 0016 E95C     		ldrb	r1, [r5, r3]
+ 1916 0018 2000     		movs	r0, r4
+ 1917 001a FFF7FEFF 		bl	UARTx_RTXCON_RTX7EN_Setable
+ 1918              	.LVL185:
+ 593:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	
+ 594:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx_TXSTA_STOPSEL_Set(UARTx, para->STOPSEL);	//停止位选择
+ 1919              		.loc 1 594 0
+ 1920 001e 2969     		ldr	r1, [r5, #16]
+ 1921 0020 2000     		movs	r0, r4
+ 1922 0022 FFF7FEFF 		bl	UARTx_TXSTA_STOPSEL_Set
+ 1923              	.LVL186:
+ 595:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	
+ 596:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx_RXSTA_ERRIE_Setable(UARTx, para->ERRIE);		//错误中断使能控制
+ 1924              		.loc 1 596 0
+ 1925 0026 297B     		ldrb	r1, [r5, #12]
+ 1926 0028 2000     		movs	r0, r4
+ 1927 002a FFF7FEFF 		bl	UARTx_RXSTA_ERRIE_Setable
+ 1928              	.LVL187:
+ 597:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx_TXSTA_TXIS_Set(UARTx, para->TXIS);		//TX_INTSEL=0时，发送中断选择位
+ 1929              		.loc 1 597 0
+ 1930 002e 6969     		ldr	r1, [r5, #20]
+ 1931 0030 2000     		movs	r0, r4
+ 1932 0032 FFF7FEFF 		bl	UARTx_TXSTA_TXIS_Set
+ 1933              	.LVL188:
+ 598:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx_TXBUFSTA_TX_INTSEL_Set(UARTx, para->TX_INTSEL);	//发送中断选择位
+ 1934              		.loc 1 598 0
+ 1935 0036 E969     		ldr	r1, [r5, #28]
+ 1936 0038 2000     		movs	r0, r4
+ 1937 003a FFF7FEFF 		bl	UARTx_TXBUFSTA_TX_INTSEL_Set
+ 1938              	.LVL189:
+ 599:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 600:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UART_UARTIE_RxTxIE_SetableEx(UARTx, RxInt, para->RXIE);		//接收中断
+ 1939              		.loc 1 600 0
+ 1940 003e 2A78     		ldrb	r2, [r5]
+ 1941 0040 0021     		movs	r1, #0
+ 1942 0042 2000     		movs	r0, r4
+ 1943 0044 FFF7FEFF 		bl	UART_UARTIE_RxTxIE_SetableEx
+ 1944              	.LVL190:
+ 601:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UART_UARTIE_RxTxIE_SetableEx(UARTx, TxInt, para->TXIE);		//发送中断
+ 1945              		.loc 1 601 0
+ 1946 0048 6A78     		ldrb	r2, [r5, #1]
+ 1947 004a 0121     		movs	r1, #1
+ 1948 004c 2000     		movs	r0, r4
+ 1949 004e FFF7FEFF 		bl	UART_UARTIE_RxTxIE_SetableEx
+ 1950              	.LVL191:
+ 602:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 44
+
+
+ 603:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx_RTXCON_RXDFLAG_Setable(UARTx, para->RXDFLAG);	//接收数据取反控制位
+ 1951              		.loc 1 603 0
+ 1952 0052 2123     		movs	r3, #33
+ 1953 0054 E95C     		ldrb	r1, [r5, r3]
+ 1954 0056 2000     		movs	r0, r4
+ 1955 0058 FFF7FEFF 		bl	UARTx_RTXCON_RXDFLAG_Setable
+ 1956              	.LVL192:
+ 604:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx_RTXCON_TXDFLAG_Setable(UARTx, para->TXDFLAG);	//发送数据取反控制位
+ 1957              		.loc 1 604 0
+ 1958 005c 2223     		movs	r3, #34
+ 1959 005e E95C     		ldrb	r1, [r5, r3]
+ 1960 0060 2000     		movs	r0, r4
+ 1961 0062 FFF7FEFF 		bl	UARTx_RTXCON_TXDFLAG_Setable
+ 1962              	.LVL193:
+ 605:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 606:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx_RXSTA_RXEN_Setable(UARTx, para->RXEN);		//接收模块使能控制
+ 1963              		.loc 1 606 0
+ 1964 0066 697B     		ldrb	r1, [r5, #13]
+ 1965 0068 2000     		movs	r0, r4
+ 1966 006a FFF7FEFF 		bl	UARTx_RXSTA_RXEN_Setable
+ 1967              	.LVL194:
+ 607:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx_TXSTA_TXEN_Setable(UARTx, para->TXEN);		//发送模块使能控制
+ 1968              		.loc 1 607 0
+ 1969 006e 297E     		ldrb	r1, [r5, #24]
+ 1970 0070 2000     		movs	r0, r4
+ 1971 0072 FFF7FEFF 		bl	UARTx_TXSTA_TXEN_Setable
+ 1972              	.LVL195:
+ 608:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UARTx_TXSTA_IREN_Setable(UARTx, para->IREN);		//发送红外调制使能位
+ 1973              		.loc 1 608 0
+ 1974 0076 697E     		ldrb	r1, [r5, #25]
+ 1975 0078 2000     		movs	r0, r4
+ 1976 007a FFF7FEFF 		bl	UARTx_TXSTA_IREN_Setable
+ 1977              	.LVL196:
+ 609:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 1978              		.loc 1 609 0
+ 1979              		@ sp needed
+ 1980              	.LVL197:
+ 1981              	.LVL198:
+ 1982 007e 70BD     		pop	{r4, r5, r6, pc}
+ 1983              		.cfi_endproc
+ 1984              	.LFE86:
+ 1986              		.global	__aeabi_fcmpgt
+ 1987              		.global	__aeabi_dsub
+ 1988              		.section	.text.UART_BaudREGCalc,"ax",%progbits
+ 1989              		.align	2
+ 1990              		.global	UART_BaudREGCalc
+ 1991              		.code	16
+ 1992              		.thumb_func
+ 1994              	UART_BaudREGCalc:
+ 1995              	.LFB87:
+ 610:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 611:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* uart波特率寄存器值计算函数 */
+ 612:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** uint32_t UART_BaudREGCalc(uint32_t BaudRate, uint32_t APBClk)
+ 613:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 1996              		.loc 1 613 0
+ 1997              		.cfi_startproc
+ 1998              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 45
+
+
+ 1999              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2000              	.LVL199:
+ 2001 0000 70B5     		push	{r4, r5, r6, lr}
+ 2002              	.LCFI4:
+ 2003              		.cfi_def_cfa_offset 16
+ 2004              		.cfi_offset 4, -16
+ 2005              		.cfi_offset 5, -12
+ 2006              		.cfi_offset 6, -8
+ 2007              		.cfi_offset 14, -4
+ 2008 0002 0500     		movs	r5, r0
+ 614:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	uint32_t tmpSPBRG;
+ 615:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	float tmpfloat;
+ 616:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	
+ 617:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	tmpfloat = (float)APBClk/(float)BaudRate;
+ 2009              		.loc 1 617 0
+ 2010 0004 0800     		movs	r0, r1
+ 2011              	.LVL200:
+ 2012 0006 FFF7FEFF 		bl	__aeabi_ui2f
+ 2013              	.LVL201:
+ 2014 000a 041C     		adds	r4, r0, #0
+ 2015 000c 2800     		movs	r0, r5
+ 2016 000e FFF7FEFF 		bl	__aeabi_ui2f
+ 2017              	.LVL202:
+ 2018 0012 011C     		adds	r1, r0, #0
+ 2019 0014 201C     		adds	r0, r4, #0
+ 2020 0016 FFF7FEFF 		bl	__aeabi_fdiv
+ 2021              	.LVL203:
+ 2022 001a 041C     		adds	r4, r0, #0
+ 2023              	.LVL204:
+ 618:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	
+ 619:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if(tmpfloat > 1)
+ 2024              		.loc 1 619 0
+ 2025 001c FE21     		movs	r1, #254
+ 2026 001e 8905     		lsls	r1, r1, #22
+ 2027 0020 FFF7FEFF 		bl	__aeabi_fcmpgt
+ 2028              	.LVL205:
+ 2029 0024 0028     		cmp	r0, #0
+ 2030 0026 0DD0     		beq	.L141
+ 620:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 621:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		tmpSPBRG = (uint32_t)(tmpfloat - 1.0 + 0.5);
+ 2031              		.loc 1 621 0
+ 2032 0028 201C     		adds	r0, r4, #0
+ 2033 002a FFF7FEFF 		bl	__aeabi_f2d
+ 2034              	.LVL206:
+ 2035 002e 0022     		movs	r2, #0
+ 2036 0030 054B     		ldr	r3, .L142
+ 2037 0032 FFF7FEFF 		bl	__aeabi_dsub
+ 2038              	.LVL207:
+ 2039 0036 0022     		movs	r2, #0
+ 2040 0038 044B     		ldr	r3, .L142+4
+ 2041 003a FFF7FEFF 		bl	__aeabi_dadd
+ 2042              	.LVL208:
+ 2043 003e FFF7FEFF 		bl	__aeabi_d2uiz
+ 2044              	.LVL209:
+ 2045 0042 00E0     		b	.L137
+ 2046              	.LVL210:
+ 2047              	.L141:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 46
+
+
+ 622:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 623:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	else
+ 624:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 625:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		tmpSPBRG = 0;
+ 2048              		.loc 1 625 0
+ 2049 0044 0020     		movs	r0, #0
+ 2050              	.L137:
+ 2051              	.LVL211:
+ 626:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 627:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	
+ 628:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	return tmpSPBRG;
+ 629:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 2052              		.loc 1 629 0
+ 2053              		@ sp needed
+ 2054              	.LVL212:
+ 2055              	.LVL213:
+ 2056 0046 70BD     		pop	{r4, r5, r6, pc}
+ 2057              	.L143:
+ 2058              		.align	2
+ 2059              	.L142:
+ 2060 0048 0000F03F 		.word	1072693248
+ 2061 004c 0000E03F 		.word	1071644672
+ 2062              		.cfi_endproc
+ 2063              	.LFE87:
+ 2065              		.section	.text.UART_SInit,"ax",%progbits
+ 2066              		.align	2
+ 2067              		.global	UART_SInit
+ 2068              		.code	16
+ 2069              		.thumb_func
+ 2071              	UART_SInit:
+ 2072              	.LFB88:
+ 630:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 631:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** /* UART简单参数初始化函数 */
+ 632:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** void UART_SInit(UARTx_Type* UARTx, UART_SInitTypeDef* para, uint32_t APBClk)
+ 633:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** {
+ 2073              		.loc 1 633 0
+ 2074              		.cfi_startproc
+ 2075              		@ args = 0, pretend = 0, frame = 40
+ 2076              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2077              	.LVL214:
+ 2078 0000 30B5     		push	{r4, r5, lr}
+ 2079              	.LCFI5:
+ 2080              		.cfi_def_cfa_offset 12
+ 2081              		.cfi_offset 4, -12
+ 2082              		.cfi_offset 5, -8
+ 2083              		.cfi_offset 14, -4
+ 2084 0002 8BB0     		sub	sp, sp, #44
+ 2085              	.LCFI6:
+ 2086              		.cfi_def_cfa_offset 56
+ 2087 0004 0500     		movs	r5, r0
+ 2088 0006 0C00     		movs	r4, r1
+ 634:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UART_InitTypeDef para2;
+ 635:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		
+ 636:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	para2.SPBRG = UART_BaudREGCalc(para->BaudRate, APBClk);
+ 2089              		.loc 1 636 0
+ 2090 0008 1100     		movs	r1, r2
+ 2091              	.LVL215:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 47
+
+
+ 2092 000a 2068     		ldr	r0, [r4]
+ 2093              	.LVL216:
+ 2094 000c FFF7FEFF 		bl	UART_BaudREGCalc
+ 2095              	.LVL217:
+ 2096 0010 01AB     		add	r3, sp, #4
+ 2097 0012 0290     		str	r0, [sp, #8]
+ 637:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		
+ 638:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	para2.RTX7EN = DISABLE;
+ 2098              		.loc 1 638 0
+ 2099 0014 0021     		movs	r1, #0
+ 2100 0016 2022     		movs	r2, #32
+ 2101 0018 9954     		strb	r1, [r3, r2]
+ 639:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if(Eight8Bit == para->DataBit)
+ 2102              		.loc 1 639 0
+ 2103 001a 2379     		ldrb	r3, [r4, #4]
+ 2104 001c 012B     		cmp	r3, #1
+ 2105 001e 0DD1     		bne	.L145
+ 640:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 641:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		if(EVEN == para->ParityBit)
+ 2106              		.loc 1 641 0
+ 2107 0020 6379     		ldrb	r3, [r4, #5]
+ 2108 0022 012B     		cmp	r3, #1
+ 2109 0024 02D1     		bne	.L146
+ 642:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		{
+ 643:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 			para2.PDSEL = UARTx_RXSTA_PDSEL_8BIT_EVEN;//8bit偶校验
+ 2110              		.loc 1 643 0
+ 2111 0026 3F33     		adds	r3, r3, #63
+ 2112 0028 0393     		str	r3, [sp, #12]
+ 2113 002a 12E0     		b	.L147
+ 2114              	.L146:
+ 644:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		}
+ 645:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		else if(ODD == para->ParityBit)
+ 2115              		.loc 1 645 0
+ 2116 002c 022B     		cmp	r3, #2
+ 2117 002e 02D1     		bne	.L148
+ 646:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		{
+ 647:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 			para2.PDSEL = UARTx_RXSTA_PDSEL_8BIT_ODD;//8bit奇校验
+ 2118              		.loc 1 647 0
+ 2119 0030 7E33     		adds	r3, r3, #126
+ 2120 0032 0393     		str	r3, [sp, #12]
+ 2121 0034 0DE0     		b	.L147
+ 2122              	.L148:
+ 648:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		}
+ 649:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		else
+ 650:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		{
+ 651:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 			para2.PDSEL = UARTx_RXSTA_PDSEL_8BIT_NONE;//8bit数据无校验
+ 2123              		.loc 1 651 0
+ 2124 0036 0023     		movs	r3, #0
+ 2125 0038 0393     		str	r3, [sp, #12]
+ 2126 003a 0AE0     		b	.L147
+ 2127              	.L145:
+ 652:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		}
+ 653:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 654:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	else if(Nine9Bit == para->DataBit)
+ 2128              		.loc 1 654 0
+ 2129 003c 022B     		cmp	r3, #2
+ 2130 003e 02D1     		bne	.L149
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 48
+
+
+ 655:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 656:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		para2.PDSEL = UARTx_RXSTA_PDSEL_9BIT_NONE;//9bit数据仅支持无校验模式
+ 2131              		.loc 1 656 0
+ 2132 0040 BE33     		adds	r3, r3, #190
+ 2133 0042 0393     		str	r3, [sp, #12]
+ 2134 0044 05E0     		b	.L147
+ 2135              	.L149:
+ 657:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 658:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	else
+ 659:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 660:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		para2.PDSEL = UARTx_RXSTA_PDSEL_8BIT_NONE;//7bit配置会直接覆盖其他配置
+ 2136              		.loc 1 660 0
+ 2137 0046 01AB     		add	r3, sp, #4
+ 2138 0048 0022     		movs	r2, #0
+ 2139 004a 0392     		str	r2, [sp, #12]
+ 661:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		para2.RTX7EN = ENABLE;//收发7bit数据使能(覆盖PDSEL)
+ 2140              		.loc 1 661 0
+ 2141 004c 0121     		movs	r1, #1
+ 2142 004e 2032     		adds	r2, r2, #32
+ 2143 0050 9954     		strb	r1, [r3, r2]
+ 2144              	.L147:
+ 662:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 663:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	
+ 664:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	if(OneBit == para->StopBit)
+ 2145              		.loc 1 664 0
+ 2146 0052 A379     		ldrb	r3, [r4, #6]
+ 2147 0054 002B     		cmp	r3, #0
+ 2148 0056 01D1     		bne	.L150
+ 665:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 666:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		para2.STOPSEL = UARTx_TXSTA_STOPSEL_1STOPBIT;
+ 2149              		.loc 1 666 0
+ 2150 0058 0593     		str	r3, [sp, #20]
+ 2151 005a 01E0     		b	.L151
+ 2152              	.L150:
+ 667:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 668:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	else
+ 669:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	{
+ 670:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 		para2.STOPSEL = UARTx_TXSTA_STOPSEL_2STOPBIT;
+ 2153              		.loc 1 670 0
+ 2154 005c 4023     		movs	r3, #64
+ 2155 005e 0593     		str	r3, [sp, #20]
+ 2156              	.L151:
+ 671:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	}
+ 672:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	
+ 673:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	para2.RXIE = DISABLE;		//关闭接收中断
+ 2157              		.loc 1 673 0
+ 2158 0060 01A9     		add	r1, sp, #4
+ 2159 0062 0023     		movs	r3, #0
+ 2160 0064 0B70     		strb	r3, [r1]
+ 674:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	para2.TXIE = DISABLE;		//关闭发送中断
+ 2161              		.loc 1 674 0
+ 2162 0066 4B70     		strb	r3, [r1, #1]
+ 675:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	para2.ERRIE = DISABLE;		//关闭错误中断
+ 2163              		.loc 1 675 0
+ 2164 0068 0B73     		strb	r3, [r1, #12]
+ 676:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 677:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	para2.TXIS = UARTx_TXSTA_TXIS_SHIFTEMPTY;		//TX_INTSEL=0时，发送中断选择位
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 49
+
+
+ 2165              		.loc 1 677 0
+ 2166 006a 2022     		movs	r2, #32
+ 2167 006c 4A61     		str	r2, [r1, #20]
+ 678:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	para2.TX_INTSEL = UARTx_TXBUFSTA_TX_INTSEL_BYTXIS;	//发送中断选择位	
+ 2168              		.loc 1 678 0
+ 2169 006e CB61     		str	r3, [r1, #28]
+ 679:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	
+ 680:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	para2.RXDFLAG = DISABLE;	//关闭接收数据取反控制位
+ 2170              		.loc 1 680 0
+ 2171 0070 0132     		adds	r2, r2, #1
+ 2172 0072 8B54     		strb	r3, [r1, r2]
+ 681:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	para2.TXDFLAG = DISABLE;	//关闭发送数据取反控制位
+ 2173              		.loc 1 681 0
+ 2174 0074 0132     		adds	r2, r2, #1
+ 2175 0076 8B54     		strb	r3, [r1, r2]
+ 682:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 
+ 683:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	para2.RXEN = DISABLE;		//关闭接收模块使能控制
+ 2176              		.loc 1 683 0
+ 2177 0078 4B73     		strb	r3, [r1, #13]
+ 684:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	para2.TXEN = DISABLE;		//关闭发送模块使能控制
+ 2178              		.loc 1 684 0
+ 2179 007a 0B76     		strb	r3, [r1, #24]
+ 685:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	para2.IREN = DISABLE;		//关闭发送红外调制使能位
+ 2180              		.loc 1 685 0
+ 2181 007c 4B76     		strb	r3, [r1, #25]
+ 686:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	
+ 687:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** 	UART_Init(UARTx, &para2);
+ 2182              		.loc 1 687 0
+ 2183 007e 2800     		movs	r0, r5
+ 2184 0080 FFF7FEFF 		bl	UART_Init
+ 2185              	.LVL218:
+ 688:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_uart.c **** }
+ 2186              		.loc 1 688 0
+ 2187 0084 0BB0     		add	sp, sp, #44
+ 2188              		@ sp needed
+ 2189              	.LVL219:
+ 2190              	.LVL220:
+ 2191 0086 30BD     		pop	{r4, r5, pc}
+ 2192              		.cfi_endproc
+ 2193              	.LFE88:
+ 2195              		.text
+ 2196              	.Letext0:
+ 2197              		.file 2 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\device\\include\\fm33a0xx.h"
+ 2198              		.file 3 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\machine\\_default_types.h
+ 2199              		.file 4 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 2200              		.file 5 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\drivers\\fm33A0xx_uart.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 50
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 fm33a0xx_uart.c
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:20     .text.UART_IRCON_IRFLAG_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:25     .text.UART_IRCON_IRFLAG_Setable:00000000 UART_IRCON_IRFLAG_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:59     .text.UART_IRCON_IRFLAG_Setable:00000020 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:65     .text.UART_IRCON_IRFLAG_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:70     .text.UART_IRCON_IRFLAG_Getable:00000000 UART_IRCON_IRFLAG_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:95     .text.UART_IRCON_IRFLAG_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:100    .text.UART_IRCON_TH_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:105    .text.UART_IRCON_TH_Set:00000000 UART_IRCON_TH_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:136    .text.UART_IRCON_TH_Set:00000014 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:142    .text.UART_IRCON_TH_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:147    .text.UART_IRCON_TH_Get:00000000 UART_IRCON_TH_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:166    .text.UART_IRCON_TH_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:171    .text.UART_IRCON_TZBRG_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:176    .text.UART_IRCON_TZBRG_Set:00000000 UART_IRCON_TZBRG_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:207    .text.UART_IRCON_TZBRG_Set:00000014 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:212    .text.UART_IRCON_TZBRG_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:217    .text.UART_IRCON_TZBRG_Get:00000000 UART_IRCON_TZBRG_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:235    .text.UART_IRCON_TZBRG_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:240    .text.UARTx_RXSTA_PDSEL_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:245    .text.UARTx_RXSTA_PDSEL_Set:00000000 UARTx_RXSTA_PDSEL_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:274    .text.UARTx_RXSTA_PDSEL_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:279    .text.UARTx_RXSTA_PDSEL_Get:00000000 UARTx_RXSTA_PDSEL_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:299    .text.UARTx_RXSTA_ERRIE_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:304    .text.UARTx_RXSTA_ERRIE_Setable:00000000 UARTx_RXSTA_ERRIE_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:335    .text.UARTx_RXSTA_ERRIE_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:340    .text.UARTx_RXSTA_ERRIE_Getable:00000000 UARTx_RXSTA_ERRIE_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:369    .text.UARTx_RXSTA_RXEN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:374    .text.UARTx_RXSTA_RXEN_Setable:00000000 UARTx_RXSTA_RXEN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:405    .text.UARTx_RXSTA_RXEN_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:410    .text.UARTx_RXSTA_RXEN_Getable:00000000 UARTx_RXSTA_RXEN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:439    .text.UARTx_RXSTA_PERR_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:444    .text.UARTx_RXSTA_PERR_Clr:00000000 UARTx_RXSTA_PERR_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:464    .text.UARTx_RXSTA_PERR_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:469    .text.UARTx_RXSTA_PERR_Chk:00000000 UARTx_RXSTA_PERR_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:498    .text.UARTx_RXSTA_FERR_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:503    .text.UARTx_RXSTA_FERR_Clr:00000000 UARTx_RXSTA_FERR_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:523    .text.UARTx_RXSTA_FERR_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:528    .text.UARTx_RXSTA_FERR_Chk:00000000 UARTx_RXSTA_FERR_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:557    .text.UARTx_RXSTA_OERR_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:562    .text.UARTx_RXSTA_OERR_Clr:00000000 UARTx_RXSTA_OERR_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:582    .text.UARTx_RXSTA_OERR_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:587    .text.UARTx_RXSTA_OERR_Chk:00000000 UARTx_RXSTA_OERR_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:616    .text.UARTx_RXSTA_RX9D_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:621    .text.UARTx_RXSTA_RX9D_Chk:00000000 UARTx_RXSTA_RX9D_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:650    .text.UARTx_TXSTA_STOPSEL_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:655    .text.UARTx_TXSTA_STOPSEL_Set:00000000 UARTx_TXSTA_STOPSEL_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:684    .text.UARTx_TXSTA_STOPSEL_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:689    .text.UARTx_TXSTA_STOPSEL_Get:00000000 UARTx_TXSTA_STOPSEL_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:709    .text.UARTx_TXSTA_TXIS_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:714    .text.UARTx_TXSTA_TXIS_Set:00000000 UARTx_TXSTA_TXIS_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:743    .text.UARTx_TXSTA_TXIS_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:748    .text.UARTx_TXSTA_TXIS_Get:00000000 UARTx_TXSTA_TXIS_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:768    .text.UARTx_TXSTA_TXEN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:773    .text.UARTx_TXSTA_TXEN_Setable:00000000 UARTx_TXSTA_TXEN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:804    .text.UARTx_TXSTA_TXEN_Getable:00000000 $t
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 51
+
+
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:809    .text.UARTx_TXSTA_TXEN_Getable:00000000 UARTx_TXSTA_TXEN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:838    .text.UARTx_TXSTA_IREN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:843    .text.UARTx_TXSTA_IREN_Setable:00000000 UARTx_TXSTA_IREN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:874    .text.UARTx_TXSTA_IREN_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:879    .text.UARTx_TXSTA_IREN_Getable:00000000 UARTx_TXSTA_IREN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:908    .text.UARTx_TXSTA_TX9D_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:913    .text.UARTx_TXSTA_TX9D_Set:00000000 UARTx_TXSTA_TX9D_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:942    .text.UARTx_RXREG_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:947    .text.UARTx_RXREG_Read:00000000 UARTx_RXREG_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:967    .text.UARTx_TXREG_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:972    .text.UARTx_TXREG_Write:00000000 UARTx_TXREG_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:992    .text.UARTx_SPBRG_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:997    .text.UARTx_SPBRG_Write:00000000 UARTx_SPBRG_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1017   .text.UARTx_SPBRG_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1022   .text.UARTx_SPBRG_Read:00000000 UARTx_SPBRG_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1042   .text.UARTx_TXBUFSTA_TX_INTSEL_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1047   .text.UARTx_TXBUFSTA_TX_INTSEL_Set:00000000 UARTx_TXBUFSTA_TX_INTSEL_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1076   .text.UARTx_TXBUFSTA_TX_INTSEL_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1081   .text.UARTx_TXBUFSTA_TX_INTSEL_Get:00000000 UARTx_TXBUFSTA_TX_INTSEL_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1101   .text.UARTx_TXBUFSTA_TXFF_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1106   .text.UARTx_TXBUFSTA_TXFF_Chk:00000000 UARTx_TXBUFSTA_TXFF_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1135   .text.UARTx_RXBUFSTA_RXFF_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1140   .text.UARTx_RXBUFSTA_RXFF_Chk:00000000 UARTx_RXBUFSTA_RXFF_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1169   .text.UARTx_RTXCON_RTX7EN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1174   .text.UARTx_RTXCON_RTX7EN_Setable:00000000 UARTx_RTXCON_RTX7EN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1205   .text.UARTx_RTXCON_RTX7EN_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1210   .text.UARTx_RTXCON_RTX7EN_Getable:00000000 UARTx_RTXCON_RTX7EN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1239   .text.UARTx_RTXCON_RXDFLAG_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1244   .text.UARTx_RTXCON_RXDFLAG_Setable:00000000 UARTx_RTXCON_RXDFLAG_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1275   .text.UARTx_RTXCON_RXDFLAG_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1280   .text.UARTx_RTXCON_RXDFLAG_Getable:00000000 UARTx_RTXCON_RXDFLAG_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1309   .text.UARTx_RTXCON_TXDFLAG_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1314   .text.UARTx_RTXCON_TXDFLAG_Setable:00000000 UARTx_RTXCON_TXDFLAG_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1345   .text.UARTx_RTXCON_TXDFLAG_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1350   .text.UARTx_RTXCON_TXDFLAG_Getable:00000000 UARTx_RTXCON_TXDFLAG_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1379   .text.UART_Deinit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1384   .text.UART_Deinit:00000000 UART_Deinit
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1404   .text.UART_Deinit:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1409   .text.UARTx_Deinit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1414   .text.UARTx_Deinit:00000000 UARTx_Deinit
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1444   .text.UARTx_Deinit:00000018 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1449   .text.UART_All_Deinit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1454   .text.UART_All_Deinit:00000000 UART_All_Deinit
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1498   .text.UART_All_Deinit:0000002c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1508   .text.UART_UARTIE_RxTxIE_SetableEx:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1513   .text.UART_UARTIE_RxTxIE_SetableEx:00000000 UART_UARTIE_RxTxIE_SetableEx
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1566   .text.UART_UARTIE_RxTxIE_SetableEx:00000030 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1572   .text.UART_UARTIE_RxTxIE_GetableEx:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1577   .text.UART_UARTIE_RxTxIE_GetableEx:00000000 UART_UARTIE_RxTxIE_GetableEx
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1622   .text.UART_UARTIE_RxTxIE_GetableEx:00000024 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1628   .text.UART_UARTIF_RxTxIF_ClrEx:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1633   .text.UART_UARTIF_RxTxIF_ClrEx:00000000 UART_UARTIF_RxTxIF_ClrEx
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1659   .text.UART_UARTIF_RxTxIF_ClrEx:00000014 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1665   .text.UART_UARTIF_RxTxIF_ChkEx:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1670   .text.UART_UARTIF_RxTxIF_ChkEx:00000000 UART_UARTIF_RxTxIF_ChkEx
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1715   .text.UART_UARTIF_RxTxIF_ChkEx:00000024 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1728   .text.UART_IRModulation_Init:00000000 $t
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s 			page 52
+
+
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1733   .text.UART_IRModulation_Init:00000000 UART_IRModulation_Init
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1876   .text.UART_IRModulation_Init:000000d4 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1882   .text.UART_Init:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1887   .text.UART_Init:00000000 UART_Init
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1989   .text.UART_BaudREGCalc:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:1994   .text.UART_BaudREGCalc:00000000 UART_BaudREGCalc
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:2060   .text.UART_BaudREGCalc:00000048 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:2066   .text.UART_SInit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccua406x.s:2071   .text.UART_SInit:00000000 UART_SInit
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+__aeabi_ui2f
+__aeabi_fdiv
+__aeabi_f2d
+__aeabi_dadd
+__aeabi_d2uiz
+__aeabi_ddiv
+__aeabi_dmul
+__aeabi_fcmpgt
+__aeabi_dsub

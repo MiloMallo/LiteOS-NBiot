@@ -1,0 +1,2219 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"fm33a0xx_i2c.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.I2C_I2CCTRL_SCLHL_Setable,"ax",%progbits
+  20              		.align	2
+  21              		.global	I2C_I2CCTRL_SCLHL_Setable
+  22              		.code	16
+  23              		.thumb_func
+  25              	I2C_I2CCTRL_SCLHL_Setable:
+  26              	.LFB36:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers/fm33a
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /**
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c ****   ******************************************************************************
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c ****   * @file    fm33a0xx_i2c.c
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c ****   * @author  FM33a0xx Application Team
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c ****   * @version V2.0.1
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c ****   * @date    18-1-2018
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c ****   * @brief   This file provides firmware functions to manage the following 
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c ****   *          functionalities of....:
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c ****   *
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** */
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /* Includes ------------------------------------------------------------------*/
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** #include "fm33A0xx_i2c.h" 
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** #include <string.h>
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /** @addtogroup fm33a0xx_StdPeriph_Driver
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c ****   * @{
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c ****   */
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /** @defgroup I2C 
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c ****   * @brief I2C driver modules
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c ****   * @{
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c ****   */ 
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /* Private function prototypes -----------------------------------------------*/
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /* Private functions ---------------------------------------------------------*/
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c ****  //Code_Start
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** //2018-04-02-13-21-22
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** //FM33A0XX_Driver_Gen_V1.4
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /* 当I2C模块禁止时，SCL固定为高低电平控制位 相关函数 */
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 2
+
+
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** void I2C_I2CCTRL_SCLHL_Setable(FunState NewState)
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+  28              		.loc 1 33 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (NewState == ENABLE)
+  34              		.loc 1 34 0
+  35 0000 0128     		cmp	r0, #1
+  36 0002 06D1     		bne	.L2
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		I2C->I2CCTRL |= (I2C_I2CCTRL_SCLHL_Msk);
+  37              		.loc 1 36 0
+  38 0004 064A     		ldr	r2, .L4
+  39 0006 1368     		ldr	r3, [r2]
+  40 0008 8021     		movs	r1, #128
+  41 000a C901     		lsls	r1, r1, #7
+  42 000c 0B43     		orrs	r3, r1
+  43 000e 1360     		str	r3, [r2]
+  44 0010 04E0     		b	.L1
+  45              	.L2:
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		I2C->I2CCTRL &= ~(I2C_I2CCTRL_SCLHL_Msk);
+  46              		.loc 1 40 0
+  47 0012 034A     		ldr	r2, .L4
+  48 0014 1168     		ldr	r1, [r2]
+  49 0016 034B     		ldr	r3, .L4+4
+  50 0018 0B40     		ands	r3, r1
+  51 001a 1360     		str	r3, [r2]
+  52              	.L1:
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+  53              		.loc 1 42 0
+  54              		@ sp needed
+  55 001c 7047     		bx	lr
+  56              	.L5:
+  57 001e C046     		.align	2
+  58              	.L4:
+  59 0020 00240140 		.word	1073816576
+  60 0024 FFBFFFFF 		.word	-16385
+  61              		.cfi_endproc
+  62              	.LFE36:
+  64              		.section	.text.I2C_I2CCTRL_SCLHL_Getable,"ax",%progbits
+  65              		.align	2
+  66              		.global	I2C_I2CCTRL_SCLHL_Getable
+  67              		.code	16
+  68              		.thumb_func
+  70              	I2C_I2CCTRL_SCLHL_Getable:
+  71              	.LFB37:
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** FunState I2C_I2CCTRL_SCLHL_Getable(void)
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+  72              		.loc 1 45 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 3
+
+
+  73              		.cfi_startproc
+  74              		@ args = 0, pretend = 0, frame = 0
+  75              		@ frame_needed = 0, uses_anonymous_args = 0
+  76              		@ link register save eliminated.
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (I2C->I2CCTRL & (I2C_I2CCTRL_SCLHL_Msk))
+  77              		.loc 1 46 0
+  78 0000 034B     		ldr	r3, .L9
+  79 0002 1B68     		ldr	r3, [r3]
+  80 0004 5B04     		lsls	r3, r3, #17
+  81 0006 01D5     		bpl	.L8
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return ENABLE;
+  82              		.loc 1 48 0
+  83 0008 0120     		movs	r0, #1
+  84 000a 00E0     		b	.L7
+  85              	.L8:
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return DISABLE;
+  86              		.loc 1 52 0
+  87 000c 0020     		movs	r0, #0
+  88              	.L7:
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+  89              		.loc 1 54 0
+  90              		@ sp needed
+  91 000e 7047     		bx	lr
+  92              	.L10:
+  93              		.align	2
+  94              	.L9:
+  95 0010 00240140 		.word	1073816576
+  96              		.cfi_endproc
+  97              	.LFE37:
+  99              		.section	.text.I2C_I2CCTRL_SDAHL_Setable,"ax",%progbits
+ 100              		.align	2
+ 101              		.global	I2C_I2CCTRL_SDAHL_Setable
+ 102              		.code	16
+ 103              		.thumb_func
+ 105              	I2C_I2CCTRL_SDAHL_Setable:
+ 106              	.LFB38:
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /* 当I2C模块禁止时，SDA固定为高低电平控制位 相关函数 */
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** void I2C_I2CCTRL_SDAHL_Setable(FunState NewState)
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 107              		.loc 1 58 0
+ 108              		.cfi_startproc
+ 109              		@ args = 0, pretend = 0, frame = 0
+ 110              		@ frame_needed = 0, uses_anonymous_args = 0
+ 111              		@ link register save eliminated.
+ 112              	.LVL1:
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (NewState == ENABLE)
+ 113              		.loc 1 59 0
+ 114 0000 0128     		cmp	r0, #1
+ 115 0002 06D1     		bne	.L12
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		I2C->I2CCTRL |= (I2C_I2CCTRL_SDAHL_Msk);
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 4
+
+
+ 116              		.loc 1 61 0
+ 117 0004 064A     		ldr	r2, .L14
+ 118 0006 1368     		ldr	r3, [r2]
+ 119 0008 8021     		movs	r1, #128
+ 120 000a 8901     		lsls	r1, r1, #6
+ 121 000c 0B43     		orrs	r3, r1
+ 122 000e 1360     		str	r3, [r2]
+ 123 0010 04E0     		b	.L11
+ 124              	.L12:
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		I2C->I2CCTRL &= ~(I2C_I2CCTRL_SDAHL_Msk);
+ 125              		.loc 1 65 0
+ 126 0012 034A     		ldr	r2, .L14
+ 127 0014 1168     		ldr	r1, [r2]
+ 128 0016 034B     		ldr	r3, .L14+4
+ 129 0018 0B40     		ands	r3, r1
+ 130 001a 1360     		str	r3, [r2]
+ 131              	.L11:
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 132              		.loc 1 67 0
+ 133              		@ sp needed
+ 134 001c 7047     		bx	lr
+ 135              	.L15:
+ 136 001e C046     		.align	2
+ 137              	.L14:
+ 138 0020 00240140 		.word	1073816576
+ 139 0024 FFDFFFFF 		.word	-8193
+ 140              		.cfi_endproc
+ 141              	.LFE38:
+ 143              		.section	.text.I2C_I2CCTRL_SDAHL_Getable,"ax",%progbits
+ 144              		.align	2
+ 145              		.global	I2C_I2CCTRL_SDAHL_Getable
+ 146              		.code	16
+ 147              		.thumb_func
+ 149              	I2C_I2CCTRL_SDAHL_Getable:
+ 150              	.LFB39:
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** FunState I2C_I2CCTRL_SDAHL_Getable(void)
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 151              		.loc 1 70 0
+ 152              		.cfi_startproc
+ 153              		@ args = 0, pretend = 0, frame = 0
+ 154              		@ frame_needed = 0, uses_anonymous_args = 0
+ 155              		@ link register save eliminated.
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (I2C->I2CCTRL & (I2C_I2CCTRL_SDAHL_Msk))
+ 156              		.loc 1 71 0
+ 157 0000 034B     		ldr	r3, .L19
+ 158 0002 1B68     		ldr	r3, [r3]
+ 159 0004 9B04     		lsls	r3, r3, #18
+ 160 0006 01D5     		bpl	.L18
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return ENABLE;
+ 161              		.loc 1 73 0
+ 162 0008 0120     		movs	r0, #1
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 5
+
+
+ 163 000a 00E0     		b	.L17
+ 164              	.L18:
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return DISABLE;
+ 165              		.loc 1 77 0
+ 166 000c 0020     		movs	r0, #0
+ 167              	.L17:
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 168              		.loc 1 79 0
+ 169              		@ sp needed
+ 170 000e 7047     		bx	lr
+ 171              	.L20:
+ 172              		.align	2
+ 173              	.L19:
+ 174 0010 00240140 		.word	1073816576
+ 175              		.cfi_endproc
+ 176              	.LFE39:
+ 178              		.section	.text.I2C_I2CCTRL_ACKEN_Setable,"ax",%progbits
+ 179              		.align	2
+ 180              		.global	I2C_I2CCTRL_ACKEN_Setable
+ 181              		.code	16
+ 182              		.thumb_func
+ 184              	I2C_I2CCTRL_ACKEN_Setable:
+ 185              	.LFB40:
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /* 主控接收模式下，主机给从机回应使能位 相关函数 */
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** void I2C_I2CCTRL_ACKEN_Setable(FunState NewState)
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 186              		.loc 1 83 0
+ 187              		.cfi_startproc
+ 188              		@ args = 0, pretend = 0, frame = 0
+ 189              		@ frame_needed = 0, uses_anonymous_args = 0
+ 190              		@ link register save eliminated.
+ 191              	.LVL2:
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (NewState == ENABLE)
+ 192              		.loc 1 84 0
+ 193 0000 0128     		cmp	r0, #1
+ 194 0002 06D1     		bne	.L22
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		I2C->I2CCTRL |= (I2C_I2CCTRL_ACKEN_Msk);
+ 195              		.loc 1 86 0
+ 196 0004 064A     		ldr	r2, .L24
+ 197 0006 1368     		ldr	r3, [r2]
+ 198 0008 8021     		movs	r1, #128
+ 199 000a 4901     		lsls	r1, r1, #5
+ 200 000c 0B43     		orrs	r3, r1
+ 201 000e 1360     		str	r3, [r2]
+ 202 0010 04E0     		b	.L21
+ 203              	.L22:
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		I2C->I2CCTRL &= ~(I2C_I2CCTRL_ACKEN_Msk);
+ 204              		.loc 1 90 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 6
+
+
+ 205 0012 034A     		ldr	r2, .L24
+ 206 0014 1168     		ldr	r1, [r2]
+ 207 0016 034B     		ldr	r3, .L24+4
+ 208 0018 0B40     		ands	r3, r1
+ 209 001a 1360     		str	r3, [r2]
+ 210              	.L21:
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 211              		.loc 1 92 0
+ 212              		@ sp needed
+ 213 001c 7047     		bx	lr
+ 214              	.L25:
+ 215 001e C046     		.align	2
+ 216              	.L24:
+ 217 0020 00240140 		.word	1073816576
+ 218 0024 FFEFFFFF 		.word	-4097
+ 219              		.cfi_endproc
+ 220              	.LFE40:
+ 222              		.section	.text.I2C_I2CCTRL_ACKEN_Getable,"ax",%progbits
+ 223              		.align	2
+ 224              		.global	I2C_I2CCTRL_ACKEN_Getable
+ 225              		.code	16
+ 226              		.thumb_func
+ 228              	I2C_I2CCTRL_ACKEN_Getable:
+ 229              	.LFB41:
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** FunState I2C_I2CCTRL_ACKEN_Getable(void)
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 230              		.loc 1 95 0
+ 231              		.cfi_startproc
+ 232              		@ args = 0, pretend = 0, frame = 0
+ 233              		@ frame_needed = 0, uses_anonymous_args = 0
+ 234              		@ link register save eliminated.
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (I2C->I2CCTRL & (I2C_I2CCTRL_ACKEN_Msk))
+ 235              		.loc 1 96 0
+ 236 0000 034B     		ldr	r3, .L29
+ 237 0002 1B68     		ldr	r3, [r3]
+ 238 0004 DB04     		lsls	r3, r3, #19
+ 239 0006 01D5     		bpl	.L28
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return ENABLE;
+ 240              		.loc 1 98 0
+ 241 0008 0120     		movs	r0, #1
+ 242 000a 00E0     		b	.L27
+ 243              	.L28:
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return DISABLE;
+ 244              		.loc 1 102 0
+ 245 000c 0020     		movs	r0, #0
+ 246              	.L27:
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 247              		.loc 1 104 0
+ 248              		@ sp needed
+ 249 000e 7047     		bx	lr
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 7
+
+
+ 250              	.L30:
+ 251              		.align	2
+ 252              	.L29:
+ 253 0010 00240140 		.word	1073816576
+ 254              		.cfi_endproc
+ 255              	.LFE41:
+ 257              		.section	.text.I2C_I2CCTRL_RCEN_Setable,"ax",%progbits
+ 258              		.align	2
+ 259              		.global	I2C_I2CCTRL_RCEN_Setable
+ 260              		.code	16
+ 261              		.thumb_func
+ 263              	I2C_I2CCTRL_RCEN_Setable:
+ 264              	.LFB42:
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /* 主控接收模式下，接收使能位 相关函数 */
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** void I2C_I2CCTRL_RCEN_Setable(FunState NewState)
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 265              		.loc 1 108 0
+ 266              		.cfi_startproc
+ 267              		@ args = 0, pretend = 0, frame = 0
+ 268              		@ frame_needed = 0, uses_anonymous_args = 0
+ 269              		@ link register save eliminated.
+ 270              	.LVL3:
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (NewState == ENABLE)
+ 271              		.loc 1 109 0
+ 272 0000 0128     		cmp	r0, #1
+ 273 0002 06D1     		bne	.L32
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		I2C->I2CCTRL |= (I2C_I2CCTRL_RCEN_Msk);
+ 274              		.loc 1 111 0
+ 275 0004 064A     		ldr	r2, .L34
+ 276 0006 1368     		ldr	r3, [r2]
+ 277 0008 8021     		movs	r1, #128
+ 278 000a 0901     		lsls	r1, r1, #4
+ 279 000c 0B43     		orrs	r3, r1
+ 280 000e 1360     		str	r3, [r2]
+ 281 0010 04E0     		b	.L31
+ 282              	.L32:
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		I2C->I2CCTRL &= ~(I2C_I2CCTRL_RCEN_Msk);
+ 283              		.loc 1 115 0
+ 284 0012 034A     		ldr	r2, .L34
+ 285 0014 1168     		ldr	r1, [r2]
+ 286 0016 034B     		ldr	r3, .L34+4
+ 287 0018 0B40     		ands	r3, r1
+ 288 001a 1360     		str	r3, [r2]
+ 289              	.L31:
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 290              		.loc 1 117 0
+ 291              		@ sp needed
+ 292 001c 7047     		bx	lr
+ 293              	.L35:
+ 294 001e C046     		.align	2
+ 295              	.L34:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 8
+
+
+ 296 0020 00240140 		.word	1073816576
+ 297 0024 FFF7FFFF 		.word	-2049
+ 298              		.cfi_endproc
+ 299              	.LFE42:
+ 301              		.section	.text.I2C_I2CCTRL_RCEN_Getable,"ax",%progbits
+ 302              		.align	2
+ 303              		.global	I2C_I2CCTRL_RCEN_Getable
+ 304              		.code	16
+ 305              		.thumb_func
+ 307              	I2C_I2CCTRL_RCEN_Getable:
+ 308              	.LFB43:
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** FunState I2C_I2CCTRL_RCEN_Getable(void)
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 309              		.loc 1 120 0
+ 310              		.cfi_startproc
+ 311              		@ args = 0, pretend = 0, frame = 0
+ 312              		@ frame_needed = 0, uses_anonymous_args = 0
+ 313              		@ link register save eliminated.
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (I2C->I2CCTRL & (I2C_I2CCTRL_RCEN_Msk))
+ 314              		.loc 1 121 0
+ 315 0000 034B     		ldr	r3, .L39
+ 316 0002 1B68     		ldr	r3, [r3]
+ 317 0004 1B05     		lsls	r3, r3, #20
+ 318 0006 01D5     		bpl	.L38
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return ENABLE;
+ 319              		.loc 1 123 0
+ 320 0008 0120     		movs	r0, #1
+ 321 000a 00E0     		b	.L37
+ 322              	.L38:
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return DISABLE;
+ 323              		.loc 1 127 0
+ 324 000c 0020     		movs	r0, #0
+ 325              	.L37:
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 326              		.loc 1 129 0
+ 327              		@ sp needed
+ 328 000e 7047     		bx	lr
+ 329              	.L40:
+ 330              		.align	2
+ 331              	.L39:
+ 332 0010 00240140 		.word	1073816576
+ 333              		.cfi_endproc
+ 334              	.LFE43:
+ 336              		.section	.text.I2C_I2CCTRL_PEN_Setable,"ax",%progbits
+ 337              		.align	2
+ 338              		.global	I2C_I2CCTRL_PEN_Setable
+ 339              		.code	16
+ 340              		.thumb_func
+ 342              	I2C_I2CCTRL_PEN_Setable:
+ 343              	.LFB44:
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 9
+
+
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /* STOP时序产生使能控制位 相关函数 */
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** void I2C_I2CCTRL_PEN_Setable(FunState NewState)
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 344              		.loc 1 133 0
+ 345              		.cfi_startproc
+ 346              		@ args = 0, pretend = 0, frame = 0
+ 347              		@ frame_needed = 0, uses_anonymous_args = 0
+ 348              		@ link register save eliminated.
+ 349              	.LVL4:
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (NewState == ENABLE)
+ 350              		.loc 1 134 0
+ 351 0000 0128     		cmp	r0, #1
+ 352 0002 06D1     		bne	.L42
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		I2C->I2CCTRL |= (I2C_I2CCTRL_PEN_Msk);
+ 353              		.loc 1 136 0
+ 354 0004 064A     		ldr	r2, .L44
+ 355 0006 1368     		ldr	r3, [r2]
+ 356 0008 8021     		movs	r1, #128
+ 357 000a C900     		lsls	r1, r1, #3
+ 358 000c 0B43     		orrs	r3, r1
+ 359 000e 1360     		str	r3, [r2]
+ 360 0010 04E0     		b	.L41
+ 361              	.L42:
+ 137:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 138:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+ 139:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 140:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		I2C->I2CCTRL &= ~(I2C_I2CCTRL_PEN_Msk);
+ 362              		.loc 1 140 0
+ 363 0012 034A     		ldr	r2, .L44
+ 364 0014 1168     		ldr	r1, [r2]
+ 365 0016 034B     		ldr	r3, .L44+4
+ 366 0018 0B40     		ands	r3, r1
+ 367 001a 1360     		str	r3, [r2]
+ 368              	.L41:
+ 141:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 142:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 369              		.loc 1 142 0
+ 370              		@ sp needed
+ 371 001c 7047     		bx	lr
+ 372              	.L45:
+ 373 001e C046     		.align	2
+ 374              	.L44:
+ 375 0020 00240140 		.word	1073816576
+ 376 0024 FFFBFFFF 		.word	-1025
+ 377              		.cfi_endproc
+ 378              	.LFE44:
+ 380              		.section	.text.I2C_I2CCTRL_RSEN_Setable,"ax",%progbits
+ 381              		.align	2
+ 382              		.global	I2C_I2CCTRL_RSEN_Setable
+ 383              		.code	16
+ 384              		.thumb_func
+ 386              	I2C_I2CCTRL_RSEN_Setable:
+ 387              	.LFB45:
+ 143:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 144:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /* Repeated START时序产生使能控制位 相关函数 */
+ 145:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** void I2C_I2CCTRL_RSEN_Setable(FunState NewState)
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 10
+
+
+ 146:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 388              		.loc 1 146 0
+ 389              		.cfi_startproc
+ 390              		@ args = 0, pretend = 0, frame = 0
+ 391              		@ frame_needed = 0, uses_anonymous_args = 0
+ 392              		@ link register save eliminated.
+ 393              	.LVL5:
+ 147:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (NewState == ENABLE)
+ 394              		.loc 1 147 0
+ 395 0000 0128     		cmp	r0, #1
+ 396 0002 06D1     		bne	.L47
+ 148:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 149:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		I2C->I2CCTRL |= (I2C_I2CCTRL_RSEN_Msk);
+ 397              		.loc 1 149 0
+ 398 0004 064A     		ldr	r2, .L49
+ 399 0006 1368     		ldr	r3, [r2]
+ 400 0008 8021     		movs	r1, #128
+ 401 000a 8900     		lsls	r1, r1, #2
+ 402 000c 0B43     		orrs	r3, r1
+ 403 000e 1360     		str	r3, [r2]
+ 404 0010 04E0     		b	.L46
+ 405              	.L47:
+ 150:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 151:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+ 152:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 153:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		I2C->I2CCTRL &= ~(I2C_I2CCTRL_RSEN_Msk);
+ 406              		.loc 1 153 0
+ 407 0012 034A     		ldr	r2, .L49
+ 408 0014 1168     		ldr	r1, [r2]
+ 409 0016 034B     		ldr	r3, .L49+4
+ 410 0018 0B40     		ands	r3, r1
+ 411 001a 1360     		str	r3, [r2]
+ 412              	.L46:
+ 154:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 155:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 413              		.loc 1 155 0
+ 414              		@ sp needed
+ 415 001c 7047     		bx	lr
+ 416              	.L50:
+ 417 001e C046     		.align	2
+ 418              	.L49:
+ 419 0020 00240140 		.word	1073816576
+ 420 0024 FFFDFFFF 		.word	-513
+ 421              		.cfi_endproc
+ 422              	.LFE45:
+ 424              		.section	.text.I2C_I2CCTRL_SEN_Setable,"ax",%progbits
+ 425              		.align	2
+ 426              		.global	I2C_I2CCTRL_SEN_Setable
+ 427              		.code	16
+ 428              		.thumb_func
+ 430              	I2C_I2CCTRL_SEN_Setable:
+ 431              	.LFB46:
+ 156:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 157:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /* START时序产生使能控制位 相关函数 */
+ 158:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** void I2C_I2CCTRL_SEN_Setable(FunState NewState)
+ 159:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 432              		.loc 1 159 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 11
+
+
+ 433              		.cfi_startproc
+ 434              		@ args = 0, pretend = 0, frame = 0
+ 435              		@ frame_needed = 0, uses_anonymous_args = 0
+ 436              		@ link register save eliminated.
+ 437              	.LVL6:
+ 160:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (NewState == ENABLE)
+ 438              		.loc 1 160 0
+ 439 0000 0128     		cmp	r0, #1
+ 440 0002 06D1     		bne	.L52
+ 161:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 162:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		I2C->I2CCTRL |= (I2C_I2CCTRL_SEN_Msk);
+ 441              		.loc 1 162 0
+ 442 0004 064A     		ldr	r2, .L54
+ 443 0006 1368     		ldr	r3, [r2]
+ 444 0008 8021     		movs	r1, #128
+ 445 000a 4900     		lsls	r1, r1, #1
+ 446 000c 0B43     		orrs	r3, r1
+ 447 000e 1360     		str	r3, [r2]
+ 448 0010 04E0     		b	.L51
+ 449              	.L52:
+ 163:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 164:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+ 165:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 166:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		I2C->I2CCTRL &= ~(I2C_I2CCTRL_SEN_Msk);
+ 450              		.loc 1 166 0
+ 451 0012 034A     		ldr	r2, .L54
+ 452 0014 1168     		ldr	r1, [r2]
+ 453 0016 034B     		ldr	r3, .L54+4
+ 454 0018 0B40     		ands	r3, r1
+ 455 001a 1360     		str	r3, [r2]
+ 456              	.L51:
+ 167:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 168:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 457              		.loc 1 168 0
+ 458              		@ sp needed
+ 459 001c 7047     		bx	lr
+ 460              	.L55:
+ 461 001e C046     		.align	2
+ 462              	.L54:
+ 463 0020 00240140 		.word	1073816576
+ 464 0024 FFFEFFFF 		.word	-257
+ 465              		.cfi_endproc
+ 466              	.LFE46:
+ 468              		.section	.text.I2C_I2CCTRL_I2CEN_Setable,"ax",%progbits
+ 469              		.align	2
+ 470              		.global	I2C_I2CCTRL_I2CEN_Setable
+ 471              		.code	16
+ 472              		.thumb_func
+ 474              	I2C_I2CCTRL_I2CEN_Setable:
+ 475              	.LFB47:
+ 169:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 170:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /* I2C模块使能控制位 相关函数 */
+ 171:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** void I2C_I2CCTRL_I2CEN_Setable(FunState NewState)
+ 172:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 476              		.loc 1 172 0
+ 477              		.cfi_startproc
+ 478              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 12
+
+
+ 479              		@ frame_needed = 0, uses_anonymous_args = 0
+ 480              		@ link register save eliminated.
+ 481              	.LVL7:
+ 173:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (NewState == ENABLE)
+ 482              		.loc 1 173 0
+ 483 0000 0128     		cmp	r0, #1
+ 484 0002 05D1     		bne	.L57
+ 174:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 175:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		I2C->I2CCTRL |= (I2C_I2CCTRL_I2CEN_Msk);
+ 485              		.loc 1 175 0
+ 486 0004 054A     		ldr	r2, .L59
+ 487 0006 1168     		ldr	r1, [r2]
+ 488 0008 0123     		movs	r3, #1
+ 489 000a 0B43     		orrs	r3, r1
+ 490 000c 1360     		str	r3, [r2]
+ 491 000e 04E0     		b	.L56
+ 492              	.L57:
+ 176:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 177:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+ 178:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 179:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		I2C->I2CCTRL &= ~(I2C_I2CCTRL_I2CEN_Msk);
+ 493              		.loc 1 179 0
+ 494 0010 024A     		ldr	r2, .L59
+ 495 0012 1368     		ldr	r3, [r2]
+ 496 0014 0121     		movs	r1, #1
+ 497 0016 8B43     		bics	r3, r1
+ 498 0018 1360     		str	r3, [r2]
+ 499              	.L56:
+ 180:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 181:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 500              		.loc 1 181 0
+ 501              		@ sp needed
+ 502 001a 7047     		bx	lr
+ 503              	.L60:
+ 504              		.align	2
+ 505              	.L59:
+ 506 001c 00240140 		.word	1073816576
+ 507              		.cfi_endproc
+ 508              	.LFE47:
+ 510              		.section	.text.I2C_I2CCTRL_I2CEN_Getable,"ax",%progbits
+ 511              		.align	2
+ 512              		.global	I2C_I2CCTRL_I2CEN_Getable
+ 513              		.code	16
+ 514              		.thumb_func
+ 516              	I2C_I2CCTRL_I2CEN_Getable:
+ 517              	.LFB48:
+ 182:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 183:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** FunState I2C_I2CCTRL_I2CEN_Getable(void)
+ 184:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 518              		.loc 1 184 0
+ 519              		.cfi_startproc
+ 520              		@ args = 0, pretend = 0, frame = 0
+ 521              		@ frame_needed = 0, uses_anonymous_args = 0
+ 522              		@ link register save eliminated.
+ 185:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (I2C->I2CCTRL & (I2C_I2CCTRL_I2CEN_Msk))
+ 523              		.loc 1 185 0
+ 524 0000 034B     		ldr	r3, .L64
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 13
+
+
+ 525 0002 1B68     		ldr	r3, [r3]
+ 526 0004 DB07     		lsls	r3, r3, #31
+ 527 0006 01D5     		bpl	.L63
+ 186:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 187:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return ENABLE;
+ 528              		.loc 1 187 0
+ 529 0008 0120     		movs	r0, #1
+ 530 000a 00E0     		b	.L62
+ 531              	.L63:
+ 188:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 189:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+ 190:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 191:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return DISABLE;
+ 532              		.loc 1 191 0
+ 533 000c 0020     		movs	r0, #0
+ 534              	.L62:
+ 192:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 193:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 535              		.loc 1 193 0
+ 536              		@ sp needed
+ 537 000e 7047     		bx	lr
+ 538              	.L65:
+ 539              		.align	2
+ 540              	.L64:
+ 541 0010 00240140 		.word	1073816576
+ 542              		.cfi_endproc
+ 543              	.LFE48:
+ 545              		.section	.text.I2C_I2CSTA_WCOL_Clr,"ax",%progbits
+ 546              		.align	2
+ 547              		.global	I2C_I2CSTA_WCOL_Clr
+ 548              		.code	16
+ 549              		.thumb_func
+ 551              	I2C_I2CSTA_WCOL_Clr:
+ 552              	.LFB49:
+ 194:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 195:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /* 写冲突检测位 相关函数 */
+ 196:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** void I2C_I2CSTA_WCOL_Clr(void)
+ 197:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 553              		.loc 1 197 0
+ 554              		.cfi_startproc
+ 555              		@ args = 0, pretend = 0, frame = 0
+ 556              		@ frame_needed = 0, uses_anonymous_args = 0
+ 557              		@ link register save eliminated.
+ 198:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	I2C->I2CSTA = I2C_I2CSTA_WCOL_Msk;
+ 558              		.loc 1 198 0
+ 559 0000 4022     		movs	r2, #64
+ 560 0002 014B     		ldr	r3, .L67
+ 561 0004 5A60     		str	r2, [r3, #4]
+ 199:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 562              		.loc 1 199 0
+ 563              		@ sp needed
+ 564 0006 7047     		bx	lr
+ 565              	.L68:
+ 566              		.align	2
+ 567              	.L67:
+ 568 0008 00240140 		.word	1073816576
+ 569              		.cfi_endproc
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 14
+
+
+ 570              	.LFE49:
+ 572              		.section	.text.I2C_I2CSTA_WCOL_Chk,"ax",%progbits
+ 573              		.align	2
+ 574              		.global	I2C_I2CSTA_WCOL_Chk
+ 575              		.code	16
+ 576              		.thumb_func
+ 578              	I2C_I2CSTA_WCOL_Chk:
+ 579              	.LFB50:
+ 200:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 201:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** FlagStatus I2C_I2CSTA_WCOL_Chk(void)
+ 202:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 580              		.loc 1 202 0
+ 581              		.cfi_startproc
+ 582              		@ args = 0, pretend = 0, frame = 0
+ 583              		@ frame_needed = 0, uses_anonymous_args = 0
+ 584              		@ link register save eliminated.
+ 203:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (I2C->I2CSTA & I2C_I2CSTA_WCOL_Msk)
+ 585              		.loc 1 203 0
+ 586 0000 034B     		ldr	r3, .L72
+ 587 0002 5B68     		ldr	r3, [r3, #4]
+ 588 0004 5B06     		lsls	r3, r3, #25
+ 589 0006 01D5     		bpl	.L71
+ 204:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 205:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return SET;
+ 590              		.loc 1 205 0
+ 591 0008 0120     		movs	r0, #1
+ 592 000a 00E0     		b	.L70
+ 593              	.L71:
+ 206:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 207:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+ 208:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 209:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return RESET;
+ 594              		.loc 1 209 0
+ 595 000c 0020     		movs	r0, #0
+ 596              	.L70:
+ 210:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 211:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 597              		.loc 1 211 0
+ 598              		@ sp needed
+ 599 000e 7047     		bx	lr
+ 600              	.L73:
+ 601              		.align	2
+ 602              	.L72:
+ 603 0010 00240140 		.word	1073816576
+ 604              		.cfi_endproc
+ 605              	.LFE50:
+ 607              		.section	.text.I2C_I2CSTA_RW_Chk,"ax",%progbits
+ 608              		.align	2
+ 609              		.global	I2C_I2CSTA_RW_Chk
+ 610              		.code	16
+ 611              		.thumb_func
+ 613              	I2C_I2CSTA_RW_Chk:
+ 614              	.LFB51:
+ 212:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 213:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /* I2C接口状态位 相关函数 */
+ 214:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** FlagStatus I2C_I2CSTA_RW_Chk(void)
+ 215:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 15
+
+
+ 615              		.loc 1 215 0
+ 616              		.cfi_startproc
+ 617              		@ args = 0, pretend = 0, frame = 0
+ 618              		@ frame_needed = 0, uses_anonymous_args = 0
+ 619              		@ link register save eliminated.
+ 216:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (I2C->I2CSTA & I2C_I2CSTA_RW_Msk)
+ 620              		.loc 1 216 0
+ 621 0000 034B     		ldr	r3, .L77
+ 622 0002 5B68     		ldr	r3, [r3, #4]
+ 623 0004 9B06     		lsls	r3, r3, #26
+ 624 0006 01D5     		bpl	.L76
+ 217:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 218:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return SET;
+ 625              		.loc 1 218 0
+ 626 0008 0120     		movs	r0, #1
+ 627 000a 00E0     		b	.L75
+ 628              	.L76:
+ 219:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 220:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+ 221:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 222:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return RESET;
+ 629              		.loc 1 222 0
+ 630 000c 0020     		movs	r0, #0
+ 631              	.L75:
+ 223:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 224:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 632              		.loc 1 224 0
+ 633              		@ sp needed
+ 634 000e 7047     		bx	lr
+ 635              	.L78:
+ 636              		.align	2
+ 637              	.L77:
+ 638 0010 00240140 		.word	1073816576
+ 639              		.cfi_endproc
+ 640              	.LFE51:
+ 642              		.section	.text.I2C_I2CSTA_P_Chk,"ax",%progbits
+ 643              		.align	2
+ 644              		.global	I2C_I2CSTA_P_Chk
+ 645              		.code	16
+ 646              		.thumb_func
+ 648              	I2C_I2CSTA_P_Chk:
+ 649              	.LFB52:
+ 225:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 226:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /* STOP标志位，MCU查询后硬件清0 相关函数 */
+ 227:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** FlagStatus I2C_I2CSTA_P_Chk(void)
+ 228:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 650              		.loc 1 228 0
+ 651              		.cfi_startproc
+ 652              		@ args = 0, pretend = 0, frame = 0
+ 653              		@ frame_needed = 0, uses_anonymous_args = 0
+ 654              		@ link register save eliminated.
+ 229:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (I2C->I2CSTA & I2C_I2CSTA_P_Msk)
+ 655              		.loc 1 229 0
+ 656 0000 034B     		ldr	r3, .L82
+ 657 0002 5B68     		ldr	r3, [r3, #4]
+ 658 0004 DB06     		lsls	r3, r3, #27
+ 659 0006 01D5     		bpl	.L81
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 16
+
+
+ 230:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 231:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return SET;
+ 660              		.loc 1 231 0
+ 661 0008 0120     		movs	r0, #1
+ 662 000a 00E0     		b	.L80
+ 663              	.L81:
+ 232:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 233:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+ 234:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 235:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return RESET;
+ 664              		.loc 1 235 0
+ 665 000c 0020     		movs	r0, #0
+ 666              	.L80:
+ 236:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 237:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 667              		.loc 1 237 0
+ 668              		@ sp needed
+ 669 000e 7047     		bx	lr
+ 670              	.L83:
+ 671              		.align	2
+ 672              	.L82:
+ 673 0010 00240140 		.word	1073816576
+ 674              		.cfi_endproc
+ 675              	.LFE52:
+ 677              		.section	.text.I2C_I2CSTA_S_Chk,"ax",%progbits
+ 678              		.align	2
+ 679              		.global	I2C_I2CSTA_S_Chk
+ 680              		.code	16
+ 681              		.thumb_func
+ 683              	I2C_I2CSTA_S_Chk:
+ 684              	.LFB53:
+ 238:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 239:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /* START标志位，MCU查询后硬件清0 相关函数 */
+ 240:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** FlagStatus I2C_I2CSTA_S_Chk(void)
+ 241:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 685              		.loc 1 241 0
+ 686              		.cfi_startproc
+ 687              		@ args = 0, pretend = 0, frame = 0
+ 688              		@ frame_needed = 0, uses_anonymous_args = 0
+ 689              		@ link register save eliminated.
+ 242:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (I2C->I2CSTA & I2C_I2CSTA_S_Msk)
+ 690              		.loc 1 242 0
+ 691 0000 034B     		ldr	r3, .L87
+ 692 0002 5B68     		ldr	r3, [r3, #4]
+ 693 0004 1B07     		lsls	r3, r3, #28
+ 694 0006 01D5     		bpl	.L86
+ 243:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 244:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return SET;
+ 695              		.loc 1 244 0
+ 696 0008 0120     		movs	r0, #1
+ 697 000a 00E0     		b	.L85
+ 698              	.L86:
+ 245:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 246:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+ 247:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 248:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return RESET;
+ 699              		.loc 1 248 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 17
+
+
+ 700 000c 0020     		movs	r0, #0
+ 701              	.L85:
+ 249:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 250:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 702              		.loc 1 250 0
+ 703              		@ sp needed
+ 704 000e 7047     		bx	lr
+ 705              	.L88:
+ 706              		.align	2
+ 707              	.L87:
+ 708 0010 00240140 		.word	1073816576
+ 709              		.cfi_endproc
+ 710              	.LFE53:
+ 712              		.section	.text.I2C_I2CSTA_BF_Chk,"ax",%progbits
+ 713              		.align	2
+ 714              		.global	I2C_I2CSTA_BF_Chk
+ 715              		.code	16
+ 716              		.thumb_func
+ 718              	I2C_I2CSTA_BF_Chk:
+ 719              	.LFB54:
+ 251:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 252:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /* 缓冲器满状态位 相关函数 */
+ 253:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** FlagStatus I2C_I2CSTA_BF_Chk(void)
+ 254:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 720              		.loc 1 254 0
+ 721              		.cfi_startproc
+ 722              		@ args = 0, pretend = 0, frame = 0
+ 723              		@ frame_needed = 0, uses_anonymous_args = 0
+ 724              		@ link register save eliminated.
+ 255:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (I2C->I2CSTA & I2C_I2CSTA_BF_Msk)
+ 725              		.loc 1 255 0
+ 726 0000 034B     		ldr	r3, .L92
+ 727 0002 5B68     		ldr	r3, [r3, #4]
+ 728 0004 5B07     		lsls	r3, r3, #29
+ 729 0006 01D5     		bpl	.L91
+ 256:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 257:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return SET;
+ 730              		.loc 1 257 0
+ 731 0008 0120     		movs	r0, #1
+ 732 000a 00E0     		b	.L90
+ 733              	.L91:
+ 258:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 259:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+ 260:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 261:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return RESET;
+ 734              		.loc 1 261 0
+ 735 000c 0020     		movs	r0, #0
+ 736              	.L90:
+ 262:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 263:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 737              		.loc 1 263 0
+ 738              		@ sp needed
+ 739 000e 7047     		bx	lr
+ 740              	.L93:
+ 741              		.align	2
+ 742              	.L92:
+ 743 0010 00240140 		.word	1073816576
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 18
+
+
+ 744              		.cfi_endproc
+ 745              	.LFE54:
+ 747              		.section	.text.I2C_I2CSTA_ACKSTA_Clr,"ax",%progbits
+ 748              		.align	2
+ 749              		.global	I2C_I2CSTA_ACKSTA_Clr
+ 750              		.code	16
+ 751              		.thumb_func
+ 753              	I2C_I2CSTA_ACKSTA_Clr:
+ 754              	.LFB55:
+ 264:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 265:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /* 主控发送模式下，来自从机的回应信号 相关函数 */
+ 266:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** void I2C_I2CSTA_ACKSTA_Clr(void)
+ 267:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 755              		.loc 1 267 0
+ 756              		.cfi_startproc
+ 757              		@ args = 0, pretend = 0, frame = 0
+ 758              		@ frame_needed = 0, uses_anonymous_args = 0
+ 759              		@ link register save eliminated.
+ 268:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	I2C->I2CSTA = I2C_I2CSTA_ACKSTA_Msk;
+ 760              		.loc 1 268 0
+ 761 0000 0222     		movs	r2, #2
+ 762 0002 014B     		ldr	r3, .L95
+ 763 0004 5A60     		str	r2, [r3, #4]
+ 269:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 764              		.loc 1 269 0
+ 765              		@ sp needed
+ 766 0006 7047     		bx	lr
+ 767              	.L96:
+ 768              		.align	2
+ 769              	.L95:
+ 770 0008 00240140 		.word	1073816576
+ 771              		.cfi_endproc
+ 772              	.LFE55:
+ 774              		.section	.text.I2C_I2CSTA_ACKSTA_Chk,"ax",%progbits
+ 775              		.align	2
+ 776              		.global	I2C_I2CSTA_ACKSTA_Chk
+ 777              		.code	16
+ 778              		.thumb_func
+ 780              	I2C_I2CSTA_ACKSTA_Chk:
+ 781              	.LFB56:
+ 270:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 271:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** FlagStatus I2C_I2CSTA_ACKSTA_Chk(void)
+ 272:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 782              		.loc 1 272 0
+ 783              		.cfi_startproc
+ 784              		@ args = 0, pretend = 0, frame = 0
+ 785              		@ frame_needed = 0, uses_anonymous_args = 0
+ 786              		@ link register save eliminated.
+ 273:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (I2C->I2CSTA & I2C_I2CSTA_ACKSTA_Msk)
+ 787              		.loc 1 273 0
+ 788 0000 034B     		ldr	r3, .L100
+ 789 0002 5B68     		ldr	r3, [r3, #4]
+ 790 0004 9B07     		lsls	r3, r3, #30
+ 791 0006 01D5     		bpl	.L99
+ 274:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 275:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return SET;
+ 792              		.loc 1 275 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 19
+
+
+ 793 0008 0120     		movs	r0, #1
+ 794 000a 00E0     		b	.L98
+ 795              	.L99:
+ 276:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 277:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+ 278:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 279:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return RESET;
+ 796              		.loc 1 279 0
+ 797 000c 0020     		movs	r0, #0
+ 798              	.L98:
+ 280:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 281:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 799              		.loc 1 281 0
+ 800              		@ sp needed
+ 801 000e 7047     		bx	lr
+ 802              	.L101:
+ 803              		.align	2
+ 804              	.L100:
+ 805 0010 00240140 		.word	1073816576
+ 806              		.cfi_endproc
+ 807              	.LFE56:
+ 809              		.section	.text.I2C_I2CSTA_ACKDT_Set,"ax",%progbits
+ 810              		.align	2
+ 811              		.global	I2C_I2CSTA_ACKDT_Set
+ 812              		.code	16
+ 813              		.thumb_func
+ 815              	I2C_I2CSTA_ACKDT_Set:
+ 816              	.LFB57:
+ 282:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 283:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /* 主控接收模式下，主机回应信号的状态 相关函数 */
+ 284:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** void I2C_I2CSTA_ACKDT_Set(uint32_t SetValue)
+ 285:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 817              		.loc 1 285 0
+ 818              		.cfi_startproc
+ 819              		@ args = 0, pretend = 0, frame = 0
+ 820              		@ frame_needed = 0, uses_anonymous_args = 0
+ 821              		@ link register save eliminated.
+ 822              	.LVL8:
+ 286:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	uint32_t tmpreg;
+ 287:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	tmpreg = I2C->I2CSTA;
+ 823              		.loc 1 287 0
+ 824 0000 034A     		ldr	r2, .L103
+ 825 0002 5368     		ldr	r3, [r2, #4]
+ 826              	.LVL9:
+ 288:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	tmpreg &= ~(I2C_I2CSTA_ACKDT_Msk);
+ 827              		.loc 1 288 0
+ 828 0004 0121     		movs	r1, #1
+ 829 0006 8B43     		bics	r3, r1
+ 830              	.LVL10:
+ 289:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	tmpreg |= (SetValue & I2C_I2CSTA_ACKDT_Msk);
+ 831              		.loc 1 289 0
+ 832 0008 0840     		ands	r0, r1
+ 833              	.LVL11:
+ 834 000a 1843     		orrs	r0, r3
+ 835              	.LVL12:
+ 290:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	I2C->I2CSTA = tmpreg;
+ 836              		.loc 1 290 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 20
+
+
+ 837 000c 5060     		str	r0, [r2, #4]
+ 291:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 838              		.loc 1 291 0
+ 839              		@ sp needed
+ 840 000e 7047     		bx	lr
+ 841              	.L104:
+ 842              		.align	2
+ 843              	.L103:
+ 844 0010 00240140 		.word	1073816576
+ 845              		.cfi_endproc
+ 846              	.LFE57:
+ 848              		.section	.text.I2C_I2CSTA_ACKDT_Get,"ax",%progbits
+ 849              		.align	2
+ 850              		.global	I2C_I2CSTA_ACKDT_Get
+ 851              		.code	16
+ 852              		.thumb_func
+ 854              	I2C_I2CSTA_ACKDT_Get:
+ 855              	.LFB58:
+ 292:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 293:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** uint32_t I2C_I2CSTA_ACKDT_Get(void)
+ 294:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 856              		.loc 1 294 0
+ 857              		.cfi_startproc
+ 858              		@ args = 0, pretend = 0, frame = 0
+ 859              		@ frame_needed = 0, uses_anonymous_args = 0
+ 860              		@ link register save eliminated.
+ 295:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	return (I2C->I2CSTA & I2C_I2CSTA_ACKDT_Msk);
+ 861              		.loc 1 295 0
+ 862 0000 024B     		ldr	r3, .L106
+ 863 0002 5B68     		ldr	r3, [r3, #4]
+ 864 0004 0120     		movs	r0, #1
+ 865 0006 1840     		ands	r0, r3
+ 296:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 866              		.loc 1 296 0
+ 867              		@ sp needed
+ 868 0008 7047     		bx	lr
+ 869              	.L107:
+ 870 000a C046     		.align	2
+ 871              	.L106:
+ 872 000c 00240140 		.word	1073816576
+ 873              		.cfi_endproc
+ 874              	.LFE58:
+ 876              		.section	.text.I2C_I2CBRG_Write,"ax",%progbits
+ 877              		.align	2
+ 878              		.global	I2C_I2CBRG_Write
+ 879              		.code	16
+ 880              		.thumb_func
+ 882              	I2C_I2CBRG_Write:
+ 883              	.LFB59:
+ 297:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 298:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /* 波特率设置寄存器 相关函数 */
+ 299:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** void I2C_I2CBRG_Write(uint32_t SetValue)
+ 300:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 884              		.loc 1 300 0
+ 885              		.cfi_startproc
+ 886              		@ args = 0, pretend = 0, frame = 0
+ 887              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 21
+
+
+ 888              		@ link register save eliminated.
+ 889              	.LVL13:
+ 301:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	I2C->I2CBRG = (SetValue & I2C_I2CBRG_SSPBRG_Msk);
+ 890              		.loc 1 301 0
+ 891 0000 C005     		lsls	r0, r0, #23
+ 892              	.LVL14:
+ 893 0002 C00D     		lsrs	r0, r0, #23
+ 894 0004 014B     		ldr	r3, .L109
+ 895 0006 9860     		str	r0, [r3, #8]
+ 302:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 896              		.loc 1 302 0
+ 897              		@ sp needed
+ 898 0008 7047     		bx	lr
+ 899              	.L110:
+ 900 000a C046     		.align	2
+ 901              	.L109:
+ 902 000c 00240140 		.word	1073816576
+ 903              		.cfi_endproc
+ 904              	.LFE59:
+ 906              		.section	.text.I2C_I2CBRG_Read,"ax",%progbits
+ 907              		.align	2
+ 908              		.global	I2C_I2CBRG_Read
+ 909              		.code	16
+ 910              		.thumb_func
+ 912              	I2C_I2CBRG_Read:
+ 913              	.LFB60:
+ 303:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 304:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** uint32_t I2C_I2CBRG_Read(void)
+ 305:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 914              		.loc 1 305 0
+ 915              		.cfi_startproc
+ 916              		@ args = 0, pretend = 0, frame = 0
+ 917              		@ frame_needed = 0, uses_anonymous_args = 0
+ 918              		@ link register save eliminated.
+ 306:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	return (I2C->I2CBRG & I2C_I2CBRG_SSPBRG_Msk);
+ 919              		.loc 1 306 0
+ 920 0000 024B     		ldr	r3, .L112
+ 921 0002 9868     		ldr	r0, [r3, #8]
+ 922 0004 C005     		lsls	r0, r0, #23
+ 923 0006 C00D     		lsrs	r0, r0, #23
+ 307:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 924              		.loc 1 307 0
+ 925              		@ sp needed
+ 926 0008 7047     		bx	lr
+ 927              	.L113:
+ 928 000a C046     		.align	2
+ 929              	.L112:
+ 930 000c 00240140 		.word	1073816576
+ 931              		.cfi_endproc
+ 932              	.LFE60:
+ 934              		.section	.text.I2C_I2CBUF_Write,"ax",%progbits
+ 935              		.align	2
+ 936              		.global	I2C_I2CBUF_Write
+ 937              		.code	16
+ 938              		.thumb_func
+ 940              	I2C_I2CBUF_Write:
+ 941              	.LFB61:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 22
+
+
+ 308:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 309:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /* 收发缓冲寄存器 相关函数 */
+ 310:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** void I2C_I2CBUF_Write(uint32_t SetValue)
+ 311:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 942              		.loc 1 311 0
+ 943              		.cfi_startproc
+ 944              		@ args = 0, pretend = 0, frame = 0
+ 945              		@ frame_needed = 0, uses_anonymous_args = 0
+ 946              		@ link register save eliminated.
+ 947              	.LVL15:
+ 312:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	I2C->I2CBUF = (SetValue & I2C_I2CBUF_SSPBUF_Msk);
+ 948              		.loc 1 312 0
+ 949 0000 FF23     		movs	r3, #255
+ 950 0002 1840     		ands	r0, r3
+ 951              	.LVL16:
+ 952 0004 014B     		ldr	r3, .L115
+ 953 0006 D860     		str	r0, [r3, #12]
+ 313:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 954              		.loc 1 313 0
+ 955              		@ sp needed
+ 956 0008 7047     		bx	lr
+ 957              	.L116:
+ 958 000a C046     		.align	2
+ 959              	.L115:
+ 960 000c 00240140 		.word	1073816576
+ 961              		.cfi_endproc
+ 962              	.LFE61:
+ 964              		.section	.text.I2C_I2CBUF_Read,"ax",%progbits
+ 965              		.align	2
+ 966              		.global	I2C_I2CBUF_Read
+ 967              		.code	16
+ 968              		.thumb_func
+ 970              	I2C_I2CBUF_Read:
+ 971              	.LFB62:
+ 314:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 315:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** uint32_t I2C_I2CBUF_Read(void)
+ 316:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 972              		.loc 1 316 0
+ 973              		.cfi_startproc
+ 974              		@ args = 0, pretend = 0, frame = 0
+ 975              		@ frame_needed = 0, uses_anonymous_args = 0
+ 976              		@ link register save eliminated.
+ 317:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	return (I2C->I2CBUF & I2C_I2CBUF_SSPBUF_Msk);
+ 977              		.loc 1 317 0
+ 978 0000 024B     		ldr	r3, .L118
+ 979 0002 DB68     		ldr	r3, [r3, #12]
+ 980 0004 FF20     		movs	r0, #255
+ 981 0006 1840     		ands	r0, r3
+ 318:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 982              		.loc 1 318 0
+ 983              		@ sp needed
+ 984 0008 7047     		bx	lr
+ 985              	.L119:
+ 986 000a C046     		.align	2
+ 987              	.L118:
+ 988 000c 00240140 		.word	1073816576
+ 989              		.cfi_endproc
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 23
+
+
+ 990              	.LFE62:
+ 992              		.section	.text.I2C_I2CIR_I2CIE_Setable,"ax",%progbits
+ 993              		.align	2
+ 994              		.global	I2C_I2CIR_I2CIE_Setable
+ 995              		.code	16
+ 996              		.thumb_func
+ 998              	I2C_I2CIR_I2CIE_Setable:
+ 999              	.LFB63:
+ 319:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 320:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /* I2C中断使能控制位 相关函数 */
+ 321:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** void I2C_I2CIR_I2CIE_Setable(FunState NewState)
+ 322:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 1000              		.loc 1 322 0
+ 1001              		.cfi_startproc
+ 1002              		@ args = 0, pretend = 0, frame = 0
+ 1003              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1004              		@ link register save eliminated.
+ 1005              	.LVL17:
+ 323:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (NewState == ENABLE)
+ 1006              		.loc 1 323 0
+ 1007 0000 0128     		cmp	r0, #1
+ 1008 0002 05D1     		bne	.L121
+ 324:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 325:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		I2C->I2CIR |= (I2C_I2CIR_I2CIE_Msk);
+ 1009              		.loc 1 325 0
+ 1010 0004 054A     		ldr	r2, .L123
+ 1011 0006 1169     		ldr	r1, [r2, #16]
+ 1012 0008 0223     		movs	r3, #2
+ 1013 000a 0B43     		orrs	r3, r1
+ 1014 000c 1361     		str	r3, [r2, #16]
+ 1015 000e 04E0     		b	.L120
+ 1016              	.L121:
+ 326:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 327:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+ 328:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 329:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		I2C->I2CIR &= ~(I2C_I2CIR_I2CIE_Msk);
+ 1017              		.loc 1 329 0
+ 1018 0010 024A     		ldr	r2, .L123
+ 1019 0012 1369     		ldr	r3, [r2, #16]
+ 1020 0014 0221     		movs	r1, #2
+ 1021 0016 8B43     		bics	r3, r1
+ 1022 0018 1361     		str	r3, [r2, #16]
+ 1023              	.L120:
+ 330:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 331:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 1024              		.loc 1 331 0
+ 1025              		@ sp needed
+ 1026 001a 7047     		bx	lr
+ 1027              	.L124:
+ 1028              		.align	2
+ 1029              	.L123:
+ 1030 001c 00240140 		.word	1073816576
+ 1031              		.cfi_endproc
+ 1032              	.LFE63:
+ 1034              		.section	.text.I2C_I2CIR_I2CIE_Getable,"ax",%progbits
+ 1035              		.align	2
+ 1036              		.global	I2C_I2CIR_I2CIE_Getable
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 24
+
+
+ 1037              		.code	16
+ 1038              		.thumb_func
+ 1040              	I2C_I2CIR_I2CIE_Getable:
+ 1041              	.LFB64:
+ 332:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 333:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** FunState I2C_I2CIR_I2CIE_Getable(void)
+ 334:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 1042              		.loc 1 334 0
+ 1043              		.cfi_startproc
+ 1044              		@ args = 0, pretend = 0, frame = 0
+ 1045              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1046              		@ link register save eliminated.
+ 335:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (I2C->I2CIR & (I2C_I2CIR_I2CIE_Msk))
+ 1047              		.loc 1 335 0
+ 1048 0000 034B     		ldr	r3, .L128
+ 1049 0002 1B69     		ldr	r3, [r3, #16]
+ 1050 0004 9B07     		lsls	r3, r3, #30
+ 1051 0006 01D5     		bpl	.L127
+ 336:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 337:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return ENABLE;
+ 1052              		.loc 1 337 0
+ 1053 0008 0120     		movs	r0, #1
+ 1054 000a 00E0     		b	.L126
+ 1055              	.L127:
+ 338:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 339:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+ 340:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 341:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return DISABLE;
+ 1056              		.loc 1 341 0
+ 1057 000c 0020     		movs	r0, #0
+ 1058              	.L126:
+ 342:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 343:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 1059              		.loc 1 343 0
+ 1060              		@ sp needed
+ 1061 000e 7047     		bx	lr
+ 1062              	.L129:
+ 1063              		.align	2
+ 1064              	.L128:
+ 1065 0010 00240140 		.word	1073816576
+ 1066              		.cfi_endproc
+ 1067              	.LFE64:
+ 1069              		.section	.text.I2C_I2CIR_I2CIF_Clr,"ax",%progbits
+ 1070              		.align	2
+ 1071              		.global	I2C_I2CIR_I2CIF_Clr
+ 1072              		.code	16
+ 1073              		.thumb_func
+ 1075              	I2C_I2CIR_I2CIF_Clr:
+ 1076              	.LFB65:
+ 344:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 345:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /* I2C中断标志位 相关函数 */
+ 346:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** void I2C_I2CIR_I2CIF_Clr(void)
+ 347:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 1077              		.loc 1 347 0
+ 1078              		.cfi_startproc
+ 1079              		@ args = 0, pretend = 0, frame = 0
+ 1080              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 25
+
+
+ 1081              		@ link register save eliminated.
+ 348:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (I2C->I2CIR & (I2C_I2CIR_I2CIE_Msk))
+ 1082              		.loc 1 348 0
+ 1083 0000 054B     		ldr	r3, .L133
+ 1084 0002 1B69     		ldr	r3, [r3, #16]
+ 1085 0004 9B07     		lsls	r3, r3, #30
+ 1086 0006 03D5     		bpl	.L131
+ 349:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 350:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		I2C->I2CIR = (I2C_I2CIR_I2CIE_Msk|I2C_I2CIR_I2CIF_Msk);
+ 1087              		.loc 1 350 0
+ 1088 0008 0322     		movs	r2, #3
+ 1089 000a 034B     		ldr	r3, .L133
+ 1090 000c 1A61     		str	r2, [r3, #16]
+ 1091 000e 02E0     		b	.L130
+ 1092              	.L131:
+ 351:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 352:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+ 353:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 354:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		I2C->I2CIR = I2C_I2CIR_I2CIF_Msk;
+ 1093              		.loc 1 354 0
+ 1094 0010 0122     		movs	r2, #1
+ 1095 0012 014B     		ldr	r3, .L133
+ 1096 0014 1A61     		str	r2, [r3, #16]
+ 1097              	.L130:
+ 355:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 356:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 1098              		.loc 1 356 0
+ 1099              		@ sp needed
+ 1100 0016 7047     		bx	lr
+ 1101              	.L134:
+ 1102              		.align	2
+ 1103              	.L133:
+ 1104 0018 00240140 		.word	1073816576
+ 1105              		.cfi_endproc
+ 1106              	.LFE65:
+ 1108              		.section	.text.I2C_I2CIR_I2CIF_Chk,"ax",%progbits
+ 1109              		.align	2
+ 1110              		.global	I2C_I2CIR_I2CIF_Chk
+ 1111              		.code	16
+ 1112              		.thumb_func
+ 1114              	I2C_I2CIR_I2CIF_Chk:
+ 1115              	.LFB66:
+ 357:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 358:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** FlagStatus I2C_I2CIR_I2CIF_Chk(void)
+ 359:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 1116              		.loc 1 359 0
+ 1117              		.cfi_startproc
+ 1118              		@ args = 0, pretend = 0, frame = 0
+ 1119              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1120              		@ link register save eliminated.
+ 360:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (I2C->I2CIR & I2C_I2CIR_I2CIF_Msk)
+ 1121              		.loc 1 360 0
+ 1122 0000 034B     		ldr	r3, .L138
+ 1123 0002 1B69     		ldr	r3, [r3, #16]
+ 1124 0004 DB07     		lsls	r3, r3, #31
+ 1125 0006 01D5     		bpl	.L137
+ 361:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 26
+
+
+ 362:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return SET;
+ 1126              		.loc 1 362 0
+ 1127 0008 0120     		movs	r0, #1
+ 1128 000a 00E0     		b	.L136
+ 1129              	.L137:
+ 363:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 364:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+ 365:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 366:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return RESET;
+ 1130              		.loc 1 366 0
+ 1131 000c 0020     		movs	r0, #0
+ 1132              	.L136:
+ 367:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 368:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 1133              		.loc 1 368 0
+ 1134              		@ sp needed
+ 1135 000e 7047     		bx	lr
+ 1136              	.L139:
+ 1137              		.align	2
+ 1138              	.L138:
+ 1139 0010 00240140 		.word	1073816576
+ 1140              		.cfi_endproc
+ 1141              	.LFE66:
+ 1143              		.section	.text.I2C_I2CFSM_I2CFSM_Get,"ax",%progbits
+ 1144              		.align	2
+ 1145              		.global	I2C_I2CFSM_I2CFSM_Get
+ 1146              		.code	16
+ 1147              		.thumb_func
+ 1149              	I2C_I2CFSM_I2CFSM_Get:
+ 1150              	.LFB67:
+ 369:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 370:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /* I2C主状态机编码 相关函数 */
+ 371:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** uint32_t I2C_I2CFSM_I2CFSM_Get(void)
+ 372:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 1151              		.loc 1 372 0
+ 1152              		.cfi_startproc
+ 1153              		@ args = 0, pretend = 0, frame = 0
+ 1154              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1155              		@ link register save eliminated.
+ 373:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	return (I2C->I2CFSM & I2C_I2CFSM_I2CFSM_Msk);
+ 1156              		.loc 1 373 0
+ 1157 0000 024B     		ldr	r3, .L141
+ 1158 0002 5B69     		ldr	r3, [r3, #20]
+ 1159 0004 0F20     		movs	r0, #15
+ 1160 0006 1840     		ands	r0, r3
+ 374:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 1161              		.loc 1 374 0
+ 1162              		@ sp needed
+ 1163 0008 7047     		bx	lr
+ 1164              	.L142:
+ 1165 000a C046     		.align	2
+ 1166              	.L141:
+ 1167 000c 00240140 		.word	1073816576
+ 1168              		.cfi_endproc
+ 1169              	.LFE67:
+ 1171              		.section	.text.I2C_I2CERR_ERRIE_Setable,"ax",%progbits
+ 1172              		.align	2
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 27
+
+
+ 1173              		.global	I2C_I2CERR_ERRIE_Setable
+ 1174              		.code	16
+ 1175              		.thumb_func
+ 1177              	I2C_I2CERR_ERRIE_Setable:
+ 1178              	.LFB68:
+ 375:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 376:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /* 错误标志中断使能 相关函数 */
+ 377:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** void I2C_I2CERR_ERRIE_Setable(FunState NewState)
+ 378:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 1179              		.loc 1 378 0
+ 1180              		.cfi_startproc
+ 1181              		@ args = 0, pretend = 0, frame = 0
+ 1182              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1183              		@ link register save eliminated.
+ 1184              	.LVL18:
+ 379:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (NewState == ENABLE)
+ 1185              		.loc 1 379 0
+ 1186 0000 0128     		cmp	r0, #1
+ 1187 0002 06D1     		bne	.L144
+ 380:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 381:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		I2C->I2CERR |= (I2C_I2CERR_ERRIE_Msk);
+ 1188              		.loc 1 381 0
+ 1189 0004 064A     		ldr	r2, .L146
+ 1190 0006 9369     		ldr	r3, [r2, #24]
+ 1191 0008 8021     		movs	r1, #128
+ 1192 000a 4900     		lsls	r1, r1, #1
+ 1193 000c 0B43     		orrs	r3, r1
+ 1194 000e 9361     		str	r3, [r2, #24]
+ 1195 0010 04E0     		b	.L143
+ 1196              	.L144:
+ 382:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 383:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+ 384:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 385:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		I2C->I2CERR &= ~(I2C_I2CERR_ERRIE_Msk);
+ 1197              		.loc 1 385 0
+ 1198 0012 034A     		ldr	r2, .L146
+ 1199 0014 9169     		ldr	r1, [r2, #24]
+ 1200 0016 034B     		ldr	r3, .L146+4
+ 1201 0018 0B40     		ands	r3, r1
+ 1202 001a 9361     		str	r3, [r2, #24]
+ 1203              	.L143:
+ 386:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 387:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 1204              		.loc 1 387 0
+ 1205              		@ sp needed
+ 1206 001c 7047     		bx	lr
+ 1207              	.L147:
+ 1208 001e C046     		.align	2
+ 1209              	.L146:
+ 1210 0020 00240140 		.word	1073816576
+ 1211 0024 FFFEFFFF 		.word	-257
+ 1212              		.cfi_endproc
+ 1213              	.LFE68:
+ 1215              		.section	.text.I2C_I2CERR_ERRIE_Getable,"ax",%progbits
+ 1216              		.align	2
+ 1217              		.global	I2C_I2CERR_ERRIE_Getable
+ 1218              		.code	16
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 28
+
+
+ 1219              		.thumb_func
+ 1221              	I2C_I2CERR_ERRIE_Getable:
+ 1222              	.LFB69:
+ 388:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 389:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** FunState I2C_I2CERR_ERRIE_Getable(void)
+ 390:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 1223              		.loc 1 390 0
+ 1224              		.cfi_startproc
+ 1225              		@ args = 0, pretend = 0, frame = 0
+ 1226              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1227              		@ link register save eliminated.
+ 391:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (I2C->I2CERR & (I2C_I2CERR_ERRIE_Msk))
+ 1228              		.loc 1 391 0
+ 1229 0000 034B     		ldr	r3, .L151
+ 1230 0002 9B69     		ldr	r3, [r3, #24]
+ 1231 0004 DB05     		lsls	r3, r3, #23
+ 1232 0006 01D5     		bpl	.L150
+ 392:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 393:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return ENABLE;
+ 1233              		.loc 1 393 0
+ 1234 0008 0120     		movs	r0, #1
+ 1235 000a 00E0     		b	.L149
+ 1236              	.L150:
+ 394:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 395:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+ 396:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 397:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return DISABLE;
+ 1237              		.loc 1 397 0
+ 1238 000c 0020     		movs	r0, #0
+ 1239              	.L149:
+ 398:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 399:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 1240              		.loc 1 399 0
+ 1241              		@ sp needed
+ 1242 000e 7047     		bx	lr
+ 1243              	.L152:
+ 1244              		.align	2
+ 1245              	.L151:
+ 1246 0010 00240140 		.word	1073816576
+ 1247              		.cfi_endproc
+ 1248              	.LFE69:
+ 1250              		.section	.text.I2C_I2CERR_OIERR_Clr,"ax",%progbits
+ 1251              		.align	2
+ 1252              		.global	I2C_I2CERR_OIERR_Clr
+ 1253              		.code	16
+ 1254              		.thumb_func
+ 1256              	I2C_I2CERR_OIERR_Clr:
+ 1257              	.LFB70:
+ 400:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 401:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /* OP_IDLE状态下错误标志位 相关函数 */
+ 402:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** void I2C_I2CERR_OIERR_Clr(void)
+ 403:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 1258              		.loc 1 403 0
+ 1259              		.cfi_startproc
+ 1260              		@ args = 0, pretend = 0, frame = 0
+ 1261              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1262              		@ link register save eliminated.
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 29
+
+
+ 404:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (I2C->I2CERR & (I2C_I2CERR_ERRIE_Msk))
+ 1263              		.loc 1 404 0
+ 1264 0000 064B     		ldr	r3, .L156
+ 1265 0002 9B69     		ldr	r3, [r3, #24]
+ 1266 0004 DB05     		lsls	r3, r3, #23
+ 1267 0006 04D5     		bpl	.L154
+ 405:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 406:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		I2C->I2CERR = (I2C_I2CERR_ERRIE_Msk|I2C_I2CERR_OIERR_Msk);
+ 1268              		.loc 1 406 0
+ 1269 0008 8222     		movs	r2, #130
+ 1270 000a 5200     		lsls	r2, r2, #1
+ 1271 000c 034B     		ldr	r3, .L156
+ 1272 000e 9A61     		str	r2, [r3, #24]
+ 1273 0010 02E0     		b	.L153
+ 1274              	.L154:
+ 407:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 408:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+ 409:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 410:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		I2C->I2CERR = I2C_I2CERR_OIERR_Msk;
+ 1275              		.loc 1 410 0
+ 1276 0012 0422     		movs	r2, #4
+ 1277 0014 014B     		ldr	r3, .L156
+ 1278 0016 9A61     		str	r2, [r3, #24]
+ 1279              	.L153:
+ 411:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 412:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 1280              		.loc 1 412 0
+ 1281              		@ sp needed
+ 1282 0018 7047     		bx	lr
+ 1283              	.L157:
+ 1284 001a C046     		.align	2
+ 1285              	.L156:
+ 1286 001c 00240140 		.word	1073816576
+ 1287              		.cfi_endproc
+ 1288              	.LFE70:
+ 1290              		.section	.text.I2C_I2CERR_OIERR_Chk,"ax",%progbits
+ 1291              		.align	2
+ 1292              		.global	I2C_I2CERR_OIERR_Chk
+ 1293              		.code	16
+ 1294              		.thumb_func
+ 1296              	I2C_I2CERR_OIERR_Chk:
+ 1297              	.LFB71:
+ 413:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 414:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** FlagStatus I2C_I2CERR_OIERR_Chk(void)
+ 415:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 1298              		.loc 1 415 0
+ 1299              		.cfi_startproc
+ 1300              		@ args = 0, pretend = 0, frame = 0
+ 1301              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1302              		@ link register save eliminated.
+ 416:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (I2C->I2CERR & I2C_I2CERR_OIERR_Msk)
+ 1303              		.loc 1 416 0
+ 1304 0000 034B     		ldr	r3, .L161
+ 1305 0002 9B69     		ldr	r3, [r3, #24]
+ 1306 0004 5B07     		lsls	r3, r3, #29
+ 1307 0006 01D5     		bpl	.L160
+ 417:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 30
+
+
+ 418:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return SET;
+ 1308              		.loc 1 418 0
+ 1309 0008 0120     		movs	r0, #1
+ 1310 000a 00E0     		b	.L159
+ 1311              	.L160:
+ 419:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 420:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+ 421:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 422:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return RESET;
+ 1312              		.loc 1 422 0
+ 1313 000c 0020     		movs	r0, #0
+ 1314              	.L159:
+ 423:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 424:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 1315              		.loc 1 424 0
+ 1316              		@ sp needed
+ 1317 000e 7047     		bx	lr
+ 1318              	.L162:
+ 1319              		.align	2
+ 1320              	.L161:
+ 1321 0010 00240140 		.word	1073816576
+ 1322              		.cfi_endproc
+ 1323              	.LFE71:
+ 1325              		.section	.text.I2C_I2CERR_SDERR_Clr,"ax",%progbits
+ 1326              		.align	2
+ 1327              		.global	I2C_I2CERR_SDERR_Clr
+ 1328              		.code	16
+ 1329              		.thumb_func
+ 1331              	I2C_I2CERR_SDERR_Clr:
+ 1332              	.LFB72:
+ 425:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 426:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /* START_DONE状态下错误标志位 相关函数 */
+ 427:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** void I2C_I2CERR_SDERR_Clr(void)
+ 428:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 1333              		.loc 1 428 0
+ 1334              		.cfi_startproc
+ 1335              		@ args = 0, pretend = 0, frame = 0
+ 1336              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1337              		@ link register save eliminated.
+ 429:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (I2C->I2CERR & (I2C_I2CERR_ERRIE_Msk))
+ 1338              		.loc 1 429 0
+ 1339 0000 064B     		ldr	r3, .L166
+ 1340 0002 9B69     		ldr	r3, [r3, #24]
+ 1341 0004 DB05     		lsls	r3, r3, #23
+ 1342 0006 04D5     		bpl	.L164
+ 430:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 431:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		I2C->I2CERR = (I2C_I2CERR_ERRIE_Msk|I2C_I2CERR_SDERR_Msk);
+ 1343              		.loc 1 431 0
+ 1344 0008 8122     		movs	r2, #129
+ 1345 000a 5200     		lsls	r2, r2, #1
+ 1346 000c 034B     		ldr	r3, .L166
+ 1347 000e 9A61     		str	r2, [r3, #24]
+ 1348 0010 02E0     		b	.L163
+ 1349              	.L164:
+ 432:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 433:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+ 434:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 31
+
+
+ 435:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		I2C->I2CERR = I2C_I2CERR_SDERR_Msk;
+ 1350              		.loc 1 435 0
+ 1351 0012 0222     		movs	r2, #2
+ 1352 0014 014B     		ldr	r3, .L166
+ 1353 0016 9A61     		str	r2, [r3, #24]
+ 1354              	.L163:
+ 436:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 437:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 1355              		.loc 1 437 0
+ 1356              		@ sp needed
+ 1357 0018 7047     		bx	lr
+ 1358              	.L167:
+ 1359 001a C046     		.align	2
+ 1360              	.L166:
+ 1361 001c 00240140 		.word	1073816576
+ 1362              		.cfi_endproc
+ 1363              	.LFE72:
+ 1365              		.section	.text.I2C_I2CERR_SDERR_Chk,"ax",%progbits
+ 1366              		.align	2
+ 1367              		.global	I2C_I2CERR_SDERR_Chk
+ 1368              		.code	16
+ 1369              		.thumb_func
+ 1371              	I2C_I2CERR_SDERR_Chk:
+ 1372              	.LFB73:
+ 438:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 439:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** FlagStatus I2C_I2CERR_SDERR_Chk(void)
+ 440:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 1373              		.loc 1 440 0
+ 1374              		.cfi_startproc
+ 1375              		@ args = 0, pretend = 0, frame = 0
+ 1376              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1377              		@ link register save eliminated.
+ 441:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (I2C->I2CERR & I2C_I2CERR_SDERR_Msk)
+ 1378              		.loc 1 441 0
+ 1379 0000 034B     		ldr	r3, .L171
+ 1380 0002 9B69     		ldr	r3, [r3, #24]
+ 1381 0004 9B07     		lsls	r3, r3, #30
+ 1382 0006 01D5     		bpl	.L170
+ 442:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 443:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return SET;
+ 1383              		.loc 1 443 0
+ 1384 0008 0120     		movs	r0, #1
+ 1385 000a 00E0     		b	.L169
+ 1386              	.L170:
+ 444:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 445:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+ 446:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 447:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return RESET;
+ 1387              		.loc 1 447 0
+ 1388 000c 0020     		movs	r0, #0
+ 1389              	.L169:
+ 448:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 449:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 1390              		.loc 1 449 0
+ 1391              		@ sp needed
+ 1392 000e 7047     		bx	lr
+ 1393              	.L172:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 32
+
+
+ 1394              		.align	2
+ 1395              	.L171:
+ 1396 0010 00240140 		.word	1073816576
+ 1397              		.cfi_endproc
+ 1398              	.LFE73:
+ 1400              		.section	.text.I2C_I2CERR_IERR_Clr,"ax",%progbits
+ 1401              		.align	2
+ 1402              		.global	I2C_I2CERR_IERR_Clr
+ 1403              		.code	16
+ 1404              		.thumb_func
+ 1406              	I2C_I2CERR_IERR_Clr:
+ 1407              	.LFB74:
+ 450:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 451:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /* IDLE状态下错误标志位 相关函数 */
+ 452:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** void I2C_I2CERR_IERR_Clr(void)
+ 453:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 1408              		.loc 1 453 0
+ 1409              		.cfi_startproc
+ 1410              		@ args = 0, pretend = 0, frame = 0
+ 1411              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1412              		@ link register save eliminated.
+ 454:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (I2C->I2CERR & (I2C_I2CERR_ERRIE_Msk))
+ 1413              		.loc 1 454 0
+ 1414 0000 064B     		ldr	r3, .L176
+ 1415 0002 9B69     		ldr	r3, [r3, #24]
+ 1416 0004 DB05     		lsls	r3, r3, #23
+ 1417 0006 04D5     		bpl	.L174
+ 455:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 456:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		I2C->I2CERR = (I2C_I2CERR_ERRIE_Msk|I2C_I2CERR_IERR_Msk);
+ 1418              		.loc 1 456 0
+ 1419 0008 0222     		movs	r2, #2
+ 1420 000a FF32     		adds	r2, r2, #255
+ 1421 000c 034B     		ldr	r3, .L176
+ 1422 000e 9A61     		str	r2, [r3, #24]
+ 1423 0010 02E0     		b	.L173
+ 1424              	.L174:
+ 457:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 458:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+ 459:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 460:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		I2C->I2CERR = I2C_I2CERR_IERR_Msk;
+ 1425              		.loc 1 460 0
+ 1426 0012 0122     		movs	r2, #1
+ 1427 0014 014B     		ldr	r3, .L176
+ 1428 0016 9A61     		str	r2, [r3, #24]
+ 1429              	.L173:
+ 461:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 462:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 1430              		.loc 1 462 0
+ 1431              		@ sp needed
+ 1432 0018 7047     		bx	lr
+ 1433              	.L177:
+ 1434 001a C046     		.align	2
+ 1435              	.L176:
+ 1436 001c 00240140 		.word	1073816576
+ 1437              		.cfi_endproc
+ 1438              	.LFE74:
+ 1440              		.section	.text.I2C_I2CERR_IERR_Chk,"ax",%progbits
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 33
+
+
+ 1441              		.align	2
+ 1442              		.global	I2C_I2CERR_IERR_Chk
+ 1443              		.code	16
+ 1444              		.thumb_func
+ 1446              	I2C_I2CERR_IERR_Chk:
+ 1447              	.LFB75:
+ 463:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 464:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** FlagStatus I2C_I2CERR_IERR_Chk(void)
+ 465:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 1448              		.loc 1 465 0
+ 1449              		.cfi_startproc
+ 1450              		@ args = 0, pretend = 0, frame = 0
+ 1451              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1452              		@ link register save eliminated.
+ 466:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if (I2C->I2CERR & I2C_I2CERR_IERR_Msk)
+ 1453              		.loc 1 466 0
+ 1454 0000 034B     		ldr	r3, .L181
+ 1455 0002 9B69     		ldr	r3, [r3, #24]
+ 1456 0004 DB07     		lsls	r3, r3, #31
+ 1457 0006 01D5     		bpl	.L180
+ 467:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 468:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return SET;
+ 1458              		.loc 1 468 0
+ 1459 0008 0120     		movs	r0, #1
+ 1460 000a 00E0     		b	.L179
+ 1461              	.L180:
+ 469:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 470:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	else
+ 471:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	{
+ 472:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 		return RESET;
+ 1462              		.loc 1 472 0
+ 1463 000c 0020     		movs	r0, #0
+ 1464              	.L179:
+ 473:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	}
+ 474:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 1465              		.loc 1 474 0
+ 1466              		@ sp needed
+ 1467 000e 7047     		bx	lr
+ 1468              	.L182:
+ 1469              		.align	2
+ 1470              	.L181:
+ 1471 0010 00240140 		.word	1073816576
+ 1472              		.cfi_endproc
+ 1473              	.LFE75:
+ 1475              		.section	.text.I2C_Deinit,"ax",%progbits
+ 1476              		.align	2
+ 1477              		.global	I2C_Deinit
+ 1478              		.code	16
+ 1479              		.thumb_func
+ 1481              	I2C_Deinit:
+ 1482              	.LFB76:
+ 475:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 476:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 477:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** void I2C_Deinit(void)
+ 478:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 1483              		.loc 1 478 0
+ 1484              		.cfi_startproc
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 34
+
+
+ 1485              		@ args = 0, pretend = 0, frame = 0
+ 1486              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1487              		@ link register save eliminated.
+ 479:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	I2C->I2CCTRL = 0x00006000;
+ 1488              		.loc 1 479 0
+ 1489 0000 054B     		ldr	r3, .L184
+ 1490 0002 C022     		movs	r2, #192
+ 1491 0004 D201     		lsls	r2, r2, #7
+ 1492 0006 1A60     		str	r2, [r3]
+ 480:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	I2C->I2CSTA = 0x00000000;
+ 1493              		.loc 1 480 0
+ 1494 0008 0022     		movs	r2, #0
+ 1495 000a 5A60     		str	r2, [r3, #4]
+ 481:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	I2C->I2CBRG = 0x00000013;
+ 1496              		.loc 1 481 0
+ 1497 000c 1321     		movs	r1, #19
+ 1498 000e 9960     		str	r1, [r3, #8]
+ 482:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	//I2C->I2CBUF = ;
+ 483:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	I2C->I2CIR = 0x00000000;
+ 1499              		.loc 1 483 0
+ 1500 0010 1A61     		str	r2, [r3, #16]
+ 484:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	//I2C->I2CFSM = ;
+ 485:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	I2C->I2CERR = 0x00000000;
+ 1501              		.loc 1 485 0
+ 1502 0012 9A61     		str	r2, [r3, #24]
+ 486:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 1503              		.loc 1 486 0
+ 1504              		@ sp needed
+ 1505 0014 7047     		bx	lr
+ 1506              	.L185:
+ 1507 0016 C046     		.align	2
+ 1508              	.L184:
+ 1509 0018 00240140 		.word	1073816576
+ 1510              		.cfi_endproc
+ 1511              	.LFE76:
+ 1513              		.global	__aeabi_uidiv
+ 1514              		.section	.text.I2C_BaudREG_Calc,"ax",%progbits
+ 1515              		.align	2
+ 1516              		.global	I2C_BaudREG_Calc
+ 1517              		.code	16
+ 1518              		.thumb_func
+ 1520              	I2C_BaudREG_Calc:
+ 1521              	.LFB77:
+ 487:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** //Code_End
+ 488:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 
+ 489:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** /* I2C波特率寄存器值计算
+ 490:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	输入：期望波特率@Hz， APBClk @Hz
+ 491:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	输出：I2CBRG对应期望波特率的配置值
+ 492:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** */
+ 493:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** uint32_t I2C_BaudREG_Calc(uint32_t I2CClk, uint32_t APBClk)
+ 494:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** {
+ 1522              		.loc 1 494 0
+ 1523              		.cfi_startproc
+ 1524              		@ args = 0, pretend = 0, frame = 0
+ 1525              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1526              	.LVL19:
+ 1527 0000 10B5     		push	{r4, lr}
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 35
+
+
+ 1528              	.LCFI0:
+ 1529              		.cfi_def_cfa_offset 8
+ 1530              		.cfi_offset 4, -8
+ 1531              		.cfi_offset 14, -4
+ 1532 0002 0B00     		movs	r3, r1
+ 495:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	uint32_t TempREG;
+ 496:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	
+ 497:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	TempREG = APBClk/(4*I2CClk);
+ 1533              		.loc 1 497 0
+ 1534 0004 8100     		lsls	r1, r0, #2
+ 1535              	.LVL20:
+ 1536 0006 1800     		movs	r0, r3
+ 1537              	.LVL21:
+ 1538 0008 FFF7FEFF 		bl	__aeabi_uidiv
+ 1539              	.LVL22:
+ 498:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	if( TempREG >= 1 ) TempREG = TempREG - 1;
+ 1540              		.loc 1 498 0
+ 1541 000c 0028     		cmp	r0, #0
+ 1542 000e 00D0     		beq	.L187
+ 1543              		.loc 1 498 0 is_stmt 0 discriminator 1
+ 1544 0010 0138     		subs	r0, r0, #1
+ 1545              	.LVL23:
+ 1546              	.L187:
+ 499:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	
+ 500:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** 	return TempREG;
+ 501:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_i2c.c **** }
+ 1547              		.loc 1 501 0 is_stmt 1
+ 1548              		@ sp needed
+ 1549 0012 10BD     		pop	{r4, pc}
+ 1550              		.cfi_endproc
+ 1551              	.LFE77:
+ 1553              		.text
+ 1554              	.Letext0:
+ 1555              		.file 2 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\device\\include\\fm33a0xx.h"
+ 1556              		.file 3 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\machine\\_default_types.h
+ 1557              		.file 4 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\sys\\_stdint.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 36
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 fm33a0xx_i2c.c
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:20     .text.I2C_I2CCTRL_SCLHL_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:25     .text.I2C_I2CCTRL_SCLHL_Setable:00000000 I2C_I2CCTRL_SCLHL_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:59     .text.I2C_I2CCTRL_SCLHL_Setable:00000020 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:65     .text.I2C_I2CCTRL_SCLHL_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:70     .text.I2C_I2CCTRL_SCLHL_Getable:00000000 I2C_I2CCTRL_SCLHL_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:95     .text.I2C_I2CCTRL_SCLHL_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:100    .text.I2C_I2CCTRL_SDAHL_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:105    .text.I2C_I2CCTRL_SDAHL_Setable:00000000 I2C_I2CCTRL_SDAHL_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:138    .text.I2C_I2CCTRL_SDAHL_Setable:00000020 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:144    .text.I2C_I2CCTRL_SDAHL_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:149    .text.I2C_I2CCTRL_SDAHL_Getable:00000000 I2C_I2CCTRL_SDAHL_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:174    .text.I2C_I2CCTRL_SDAHL_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:179    .text.I2C_I2CCTRL_ACKEN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:184    .text.I2C_I2CCTRL_ACKEN_Setable:00000000 I2C_I2CCTRL_ACKEN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:217    .text.I2C_I2CCTRL_ACKEN_Setable:00000020 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:223    .text.I2C_I2CCTRL_ACKEN_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:228    .text.I2C_I2CCTRL_ACKEN_Getable:00000000 I2C_I2CCTRL_ACKEN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:253    .text.I2C_I2CCTRL_ACKEN_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:258    .text.I2C_I2CCTRL_RCEN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:263    .text.I2C_I2CCTRL_RCEN_Setable:00000000 I2C_I2CCTRL_RCEN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:296    .text.I2C_I2CCTRL_RCEN_Setable:00000020 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:302    .text.I2C_I2CCTRL_RCEN_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:307    .text.I2C_I2CCTRL_RCEN_Getable:00000000 I2C_I2CCTRL_RCEN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:332    .text.I2C_I2CCTRL_RCEN_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:337    .text.I2C_I2CCTRL_PEN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:342    .text.I2C_I2CCTRL_PEN_Setable:00000000 I2C_I2CCTRL_PEN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:375    .text.I2C_I2CCTRL_PEN_Setable:00000020 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:381    .text.I2C_I2CCTRL_RSEN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:386    .text.I2C_I2CCTRL_RSEN_Setable:00000000 I2C_I2CCTRL_RSEN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:419    .text.I2C_I2CCTRL_RSEN_Setable:00000020 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:425    .text.I2C_I2CCTRL_SEN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:430    .text.I2C_I2CCTRL_SEN_Setable:00000000 I2C_I2CCTRL_SEN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:463    .text.I2C_I2CCTRL_SEN_Setable:00000020 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:469    .text.I2C_I2CCTRL_I2CEN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:474    .text.I2C_I2CCTRL_I2CEN_Setable:00000000 I2C_I2CCTRL_I2CEN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:506    .text.I2C_I2CCTRL_I2CEN_Setable:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:511    .text.I2C_I2CCTRL_I2CEN_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:516    .text.I2C_I2CCTRL_I2CEN_Getable:00000000 I2C_I2CCTRL_I2CEN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:541    .text.I2C_I2CCTRL_I2CEN_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:546    .text.I2C_I2CSTA_WCOL_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:551    .text.I2C_I2CSTA_WCOL_Clr:00000000 I2C_I2CSTA_WCOL_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:568    .text.I2C_I2CSTA_WCOL_Clr:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:573    .text.I2C_I2CSTA_WCOL_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:578    .text.I2C_I2CSTA_WCOL_Chk:00000000 I2C_I2CSTA_WCOL_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:603    .text.I2C_I2CSTA_WCOL_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:608    .text.I2C_I2CSTA_RW_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:613    .text.I2C_I2CSTA_RW_Chk:00000000 I2C_I2CSTA_RW_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:638    .text.I2C_I2CSTA_RW_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:643    .text.I2C_I2CSTA_P_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:648    .text.I2C_I2CSTA_P_Chk:00000000 I2C_I2CSTA_P_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:673    .text.I2C_I2CSTA_P_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:678    .text.I2C_I2CSTA_S_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:683    .text.I2C_I2CSTA_S_Chk:00000000 I2C_I2CSTA_S_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:708    .text.I2C_I2CSTA_S_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:713    .text.I2C_I2CSTA_BF_Chk:00000000 $t
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 37
+
+
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:718    .text.I2C_I2CSTA_BF_Chk:00000000 I2C_I2CSTA_BF_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:743    .text.I2C_I2CSTA_BF_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:748    .text.I2C_I2CSTA_ACKSTA_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:753    .text.I2C_I2CSTA_ACKSTA_Clr:00000000 I2C_I2CSTA_ACKSTA_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:770    .text.I2C_I2CSTA_ACKSTA_Clr:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:775    .text.I2C_I2CSTA_ACKSTA_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:780    .text.I2C_I2CSTA_ACKSTA_Chk:00000000 I2C_I2CSTA_ACKSTA_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:805    .text.I2C_I2CSTA_ACKSTA_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:810    .text.I2C_I2CSTA_ACKDT_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:815    .text.I2C_I2CSTA_ACKDT_Set:00000000 I2C_I2CSTA_ACKDT_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:844    .text.I2C_I2CSTA_ACKDT_Set:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:849    .text.I2C_I2CSTA_ACKDT_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:854    .text.I2C_I2CSTA_ACKDT_Get:00000000 I2C_I2CSTA_ACKDT_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:872    .text.I2C_I2CSTA_ACKDT_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:877    .text.I2C_I2CBRG_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:882    .text.I2C_I2CBRG_Write:00000000 I2C_I2CBRG_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:902    .text.I2C_I2CBRG_Write:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:907    .text.I2C_I2CBRG_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:912    .text.I2C_I2CBRG_Read:00000000 I2C_I2CBRG_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:930    .text.I2C_I2CBRG_Read:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:935    .text.I2C_I2CBUF_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:940    .text.I2C_I2CBUF_Write:00000000 I2C_I2CBUF_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:960    .text.I2C_I2CBUF_Write:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:965    .text.I2C_I2CBUF_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:970    .text.I2C_I2CBUF_Read:00000000 I2C_I2CBUF_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:988    .text.I2C_I2CBUF_Read:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:993    .text.I2C_I2CIR_I2CIE_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:998    .text.I2C_I2CIR_I2CIE_Setable:00000000 I2C_I2CIR_I2CIE_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1030   .text.I2C_I2CIR_I2CIE_Setable:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1035   .text.I2C_I2CIR_I2CIE_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1040   .text.I2C_I2CIR_I2CIE_Getable:00000000 I2C_I2CIR_I2CIE_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1065   .text.I2C_I2CIR_I2CIE_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1070   .text.I2C_I2CIR_I2CIF_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1075   .text.I2C_I2CIR_I2CIF_Clr:00000000 I2C_I2CIR_I2CIF_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1104   .text.I2C_I2CIR_I2CIF_Clr:00000018 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1109   .text.I2C_I2CIR_I2CIF_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1114   .text.I2C_I2CIR_I2CIF_Chk:00000000 I2C_I2CIR_I2CIF_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1139   .text.I2C_I2CIR_I2CIF_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1144   .text.I2C_I2CFSM_I2CFSM_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1149   .text.I2C_I2CFSM_I2CFSM_Get:00000000 I2C_I2CFSM_I2CFSM_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1167   .text.I2C_I2CFSM_I2CFSM_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1172   .text.I2C_I2CERR_ERRIE_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1177   .text.I2C_I2CERR_ERRIE_Setable:00000000 I2C_I2CERR_ERRIE_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1210   .text.I2C_I2CERR_ERRIE_Setable:00000020 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1216   .text.I2C_I2CERR_ERRIE_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1221   .text.I2C_I2CERR_ERRIE_Getable:00000000 I2C_I2CERR_ERRIE_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1246   .text.I2C_I2CERR_ERRIE_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1251   .text.I2C_I2CERR_OIERR_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1256   .text.I2C_I2CERR_OIERR_Clr:00000000 I2C_I2CERR_OIERR_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1286   .text.I2C_I2CERR_OIERR_Clr:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1291   .text.I2C_I2CERR_OIERR_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1296   .text.I2C_I2CERR_OIERR_Chk:00000000 I2C_I2CERR_OIERR_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1321   .text.I2C_I2CERR_OIERR_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1326   .text.I2C_I2CERR_SDERR_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1331   .text.I2C_I2CERR_SDERR_Clr:00000000 I2C_I2CERR_SDERR_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1361   .text.I2C_I2CERR_SDERR_Clr:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1366   .text.I2C_I2CERR_SDERR_Chk:00000000 $t
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s 			page 38
+
+
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1371   .text.I2C_I2CERR_SDERR_Chk:00000000 I2C_I2CERR_SDERR_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1396   .text.I2C_I2CERR_SDERR_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1401   .text.I2C_I2CERR_IERR_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1406   .text.I2C_I2CERR_IERR_Clr:00000000 I2C_I2CERR_IERR_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1436   .text.I2C_I2CERR_IERR_Clr:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1441   .text.I2C_I2CERR_IERR_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1446   .text.I2C_I2CERR_IERR_Chk:00000000 I2C_I2CERR_IERR_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1471   .text.I2C_I2CERR_IERR_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1476   .text.I2C_Deinit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1481   .text.I2C_Deinit:00000000 I2C_Deinit
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1509   .text.I2C_Deinit:00000018 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1515   .text.I2C_BaudREG_Calc:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccz7w3O3.s:1520   .text.I2C_BaudREG_Calc:00000000 I2C_BaudREG_Calc
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+__aeabi_uidiv

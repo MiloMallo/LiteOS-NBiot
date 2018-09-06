@@ -1,0 +1,1516 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"fm33a0xx_scu.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.SCU_MCUDBGCR_DBG_ET4_STOP_Setable,"ax",%progbits
+  20              		.align	2
+  21              		.global	SCU_MCUDBGCR_DBG_ET4_STOP_Setable
+  22              		.code	16
+  23              		.thumb_func
+  25              	SCU_MCUDBGCR_DBG_ET4_STOP_Setable:
+  26              	.LFB36:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers/fm33a
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** /**
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c ****   ******************************************************************************
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c ****   * @file    fm33a0xx_scu.c
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c ****   * @author  FM33a0xx Application Team
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c ****   * @version V2.0.1
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c ****   * @date    7-12-2017
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c ****   * @brief   This file provides firmware functions to manage the following 
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c ****   *          functionalities of the system control unit (scu) peripheral:
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c ****   *
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** */
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** /* Includes ------------------------------------------------------------------*/
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** #include "fm33A0xx_scu.h" 
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** /** @addtogroup fm385_StdPeriph_Driver
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c ****   * @{
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c ****   */
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** /** @defgroup SCU 
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c ****   * @brief SCU driver modules
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c ****   * @{
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c ****   */ 
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** /* Private typedef -----------------------------------------------------------*/
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** /* Private define ------------------------------------------------------------*/
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** /* Private macro -------------------------------------------------------------*/
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** /* Private variables ---------------------------------------------------------*/
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** /* Private function prototypes -----------------------------------------------*/
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s 			page 2
+
+
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** /* Private functions ---------------------------------------------------------*/
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** /** @defgroup SCU_Private_Functions
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c ****   * @{
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c ****   */
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** //Code_Start
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** //2018-04-02-13-22-16
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** //FM33A0XX_Driver_Gen_V1.4
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** /* Debug状态下ET4使能控制 相关函数 */
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** void SCU_MCUDBGCR_DBG_ET4_STOP_Setable(FunState NewState)
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+  28              		.loc 1 45 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	if (NewState == ENABLE)
+  34              		.loc 1 46 0
+  35 0000 0128     		cmp	r0, #1
+  36 0002 07D1     		bne	.L2
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		SCU->MCUDBGCR |= (SCU_MCUDBGCR_DBG_ET4_STOP_Msk);
+  37              		.loc 1 48 0
+  38 0004 8022     		movs	r2, #128
+  39 0006 D205     		lsls	r2, r2, #23
+  40 0008 5368     		ldr	r3, [r2, #4]
+  41 000a 8021     		movs	r1, #128
+  42 000c 8901     		lsls	r1, r1, #6
+  43 000e 0B43     		orrs	r3, r1
+  44 0010 5360     		str	r3, [r2, #4]
+  45 0012 05E0     		b	.L1
+  46              	.L2:
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	else
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		SCU->MCUDBGCR &= ~(SCU_MCUDBGCR_DBG_ET4_STOP_Msk);
+  47              		.loc 1 52 0
+  48 0014 8022     		movs	r2, #128
+  49 0016 D205     		lsls	r2, r2, #23
+  50 0018 5168     		ldr	r1, [r2, #4]
+  51 001a 024B     		ldr	r3, .L4
+  52 001c 0B40     		ands	r3, r1
+  53 001e 5360     		str	r3, [r2, #4]
+  54              	.L1:
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+  55              		.loc 1 54 0
+  56              		@ sp needed
+  57 0020 7047     		bx	lr
+  58              	.L5:
+  59 0022 C046     		.align	2
+  60              	.L4:
+  61 0024 FFDFFFFF 		.word	-8193
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s 			page 3
+
+
+  62              		.cfi_endproc
+  63              	.LFE36:
+  65              		.section	.text.SCU_MCUDBGCR_DBG_ET4_STOP_Getable,"ax",%progbits
+  66              		.align	2
+  67              		.global	SCU_MCUDBGCR_DBG_ET4_STOP_Getable
+  68              		.code	16
+  69              		.thumb_func
+  71              	SCU_MCUDBGCR_DBG_ET4_STOP_Getable:
+  72              	.LFB37:
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** FunState SCU_MCUDBGCR_DBG_ET4_STOP_Getable(void)
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+  73              		.loc 1 57 0
+  74              		.cfi_startproc
+  75              		@ args = 0, pretend = 0, frame = 0
+  76              		@ frame_needed = 0, uses_anonymous_args = 0
+  77              		@ link register save eliminated.
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	if (SCU->MCUDBGCR & (SCU_MCUDBGCR_DBG_ET4_STOP_Msk))
+  78              		.loc 1 58 0
+  79 0000 8023     		movs	r3, #128
+  80 0002 DB05     		lsls	r3, r3, #23
+  81 0004 5B68     		ldr	r3, [r3, #4]
+  82 0006 9B04     		lsls	r3, r3, #18
+  83 0008 01D5     		bpl	.L8
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		return ENABLE;
+  84              		.loc 1 60 0
+  85 000a 0120     		movs	r0, #1
+  86 000c 00E0     		b	.L7
+  87              	.L8:
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	else
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		return DISABLE;
+  88              		.loc 1 64 0
+  89 000e 0020     		movs	r0, #0
+  90              	.L7:
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+  91              		.loc 1 66 0
+  92              		@ sp needed
+  93 0010 7047     		bx	lr
+  94              		.cfi_endproc
+  95              	.LFE37:
+  97 0012 C046     		.section	.text.SCU_MCUDBGCR_DBG_ET3_STOP_Setable,"ax",%progbits
+  98              		.align	2
+  99              		.global	SCU_MCUDBGCR_DBG_ET3_STOP_Setable
+ 100              		.code	16
+ 101              		.thumb_func
+ 103              	SCU_MCUDBGCR_DBG_ET3_STOP_Setable:
+ 104              	.LFB38:
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** /* Debug状态下ET3使能控制 相关函数 */
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** void SCU_MCUDBGCR_DBG_ET3_STOP_Setable(FunState NewState)
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+ 105              		.loc 1 70 0
+ 106              		.cfi_startproc
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s 			page 4
+
+
+ 107              		@ args = 0, pretend = 0, frame = 0
+ 108              		@ frame_needed = 0, uses_anonymous_args = 0
+ 109              		@ link register save eliminated.
+ 110              	.LVL1:
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	if (NewState == ENABLE)
+ 111              		.loc 1 71 0
+ 112 0000 0128     		cmp	r0, #1
+ 113 0002 07D1     		bne	.L10
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		SCU->MCUDBGCR |= (SCU_MCUDBGCR_DBG_ET3_STOP_Msk);
+ 114              		.loc 1 73 0
+ 115 0004 8022     		movs	r2, #128
+ 116 0006 D205     		lsls	r2, r2, #23
+ 117 0008 5368     		ldr	r3, [r2, #4]
+ 118 000a 8021     		movs	r1, #128
+ 119 000c 4901     		lsls	r1, r1, #5
+ 120 000e 0B43     		orrs	r3, r1
+ 121 0010 5360     		str	r3, [r2, #4]
+ 122 0012 05E0     		b	.L9
+ 123              	.L10:
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	else
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		SCU->MCUDBGCR &= ~(SCU_MCUDBGCR_DBG_ET3_STOP_Msk);
+ 124              		.loc 1 77 0
+ 125 0014 8022     		movs	r2, #128
+ 126 0016 D205     		lsls	r2, r2, #23
+ 127 0018 5168     		ldr	r1, [r2, #4]
+ 128 001a 024B     		ldr	r3, .L12
+ 129 001c 0B40     		ands	r3, r1
+ 130 001e 5360     		str	r3, [r2, #4]
+ 131              	.L9:
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+ 132              		.loc 1 79 0
+ 133              		@ sp needed
+ 134 0020 7047     		bx	lr
+ 135              	.L13:
+ 136 0022 C046     		.align	2
+ 137              	.L12:
+ 138 0024 FFEFFFFF 		.word	-4097
+ 139              		.cfi_endproc
+ 140              	.LFE38:
+ 142              		.section	.text.SCU_MCUDBGCR_DBG_ET3_STOP_Getable,"ax",%progbits
+ 143              		.align	2
+ 144              		.global	SCU_MCUDBGCR_DBG_ET3_STOP_Getable
+ 145              		.code	16
+ 146              		.thumb_func
+ 148              	SCU_MCUDBGCR_DBG_ET3_STOP_Getable:
+ 149              	.LFB39:
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** FunState SCU_MCUDBGCR_DBG_ET3_STOP_Getable(void)
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+ 150              		.loc 1 82 0
+ 151              		.cfi_startproc
+ 152              		@ args = 0, pretend = 0, frame = 0
+ 153              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s 			page 5
+
+
+ 154              		@ link register save eliminated.
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	if (SCU->MCUDBGCR & (SCU_MCUDBGCR_DBG_ET3_STOP_Msk))
+ 155              		.loc 1 83 0
+ 156 0000 8023     		movs	r3, #128
+ 157 0002 DB05     		lsls	r3, r3, #23
+ 158 0004 5B68     		ldr	r3, [r3, #4]
+ 159 0006 DB04     		lsls	r3, r3, #19
+ 160 0008 01D5     		bpl	.L16
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		return ENABLE;
+ 161              		.loc 1 85 0
+ 162 000a 0120     		movs	r0, #1
+ 163 000c 00E0     		b	.L15
+ 164              	.L16:
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	else
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		return DISABLE;
+ 165              		.loc 1 89 0
+ 166 000e 0020     		movs	r0, #0
+ 167              	.L15:
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+ 168              		.loc 1 91 0
+ 169              		@ sp needed
+ 170 0010 7047     		bx	lr
+ 171              		.cfi_endproc
+ 172              	.LFE39:
+ 174 0012 C046     		.section	.text.SCU_MCUDBGCR_DBG_ET2_STOP_Setable,"ax",%progbits
+ 175              		.align	2
+ 176              		.global	SCU_MCUDBGCR_DBG_ET2_STOP_Setable
+ 177              		.code	16
+ 178              		.thumb_func
+ 180              	SCU_MCUDBGCR_DBG_ET2_STOP_Setable:
+ 181              	.LFB40:
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** /* Debug状态下ET2使能控制 相关函数 */
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** void SCU_MCUDBGCR_DBG_ET2_STOP_Setable(FunState NewState)
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+ 182              		.loc 1 95 0
+ 183              		.cfi_startproc
+ 184              		@ args = 0, pretend = 0, frame = 0
+ 185              		@ frame_needed = 0, uses_anonymous_args = 0
+ 186              		@ link register save eliminated.
+ 187              	.LVL2:
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	if (NewState == ENABLE)
+ 188              		.loc 1 96 0
+ 189 0000 0128     		cmp	r0, #1
+ 190 0002 07D1     		bne	.L18
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		SCU->MCUDBGCR |= (SCU_MCUDBGCR_DBG_ET2_STOP_Msk);
+ 191              		.loc 1 98 0
+ 192 0004 8022     		movs	r2, #128
+ 193 0006 D205     		lsls	r2, r2, #23
+ 194 0008 5368     		ldr	r3, [r2, #4]
+ 195 000a 8021     		movs	r1, #128
+ 196 000c 0901     		lsls	r1, r1, #4
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s 			page 6
+
+
+ 197 000e 0B43     		orrs	r3, r1
+ 198 0010 5360     		str	r3, [r2, #4]
+ 199 0012 05E0     		b	.L17
+ 200              	.L18:
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	else
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		SCU->MCUDBGCR &= ~(SCU_MCUDBGCR_DBG_ET2_STOP_Msk);
+ 201              		.loc 1 102 0
+ 202 0014 8022     		movs	r2, #128
+ 203 0016 D205     		lsls	r2, r2, #23
+ 204 0018 5168     		ldr	r1, [r2, #4]
+ 205 001a 024B     		ldr	r3, .L20
+ 206 001c 0B40     		ands	r3, r1
+ 207 001e 5360     		str	r3, [r2, #4]
+ 208              	.L17:
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+ 209              		.loc 1 104 0
+ 210              		@ sp needed
+ 211 0020 7047     		bx	lr
+ 212              	.L21:
+ 213 0022 C046     		.align	2
+ 214              	.L20:
+ 215 0024 FFF7FFFF 		.word	-2049
+ 216              		.cfi_endproc
+ 217              	.LFE40:
+ 219              		.section	.text.SCU_MCUDBGCR_DBG_ET2_STOP_Getable,"ax",%progbits
+ 220              		.align	2
+ 221              		.global	SCU_MCUDBGCR_DBG_ET2_STOP_Getable
+ 222              		.code	16
+ 223              		.thumb_func
+ 225              	SCU_MCUDBGCR_DBG_ET2_STOP_Getable:
+ 226              	.LFB41:
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** FunState SCU_MCUDBGCR_DBG_ET2_STOP_Getable(void)
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+ 227              		.loc 1 107 0
+ 228              		.cfi_startproc
+ 229              		@ args = 0, pretend = 0, frame = 0
+ 230              		@ frame_needed = 0, uses_anonymous_args = 0
+ 231              		@ link register save eliminated.
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	if (SCU->MCUDBGCR & (SCU_MCUDBGCR_DBG_ET2_STOP_Msk))
+ 232              		.loc 1 108 0
+ 233 0000 8023     		movs	r3, #128
+ 234 0002 DB05     		lsls	r3, r3, #23
+ 235 0004 5B68     		ldr	r3, [r3, #4]
+ 236 0006 1B05     		lsls	r3, r3, #20
+ 237 0008 01D5     		bpl	.L24
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		return ENABLE;
+ 238              		.loc 1 110 0
+ 239 000a 0120     		movs	r0, #1
+ 240 000c 00E0     		b	.L23
+ 241              	.L24:
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	else
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s 			page 7
+
+
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		return DISABLE;
+ 242              		.loc 1 114 0
+ 243 000e 0020     		movs	r0, #0
+ 244              	.L23:
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+ 245              		.loc 1 116 0
+ 246              		@ sp needed
+ 247 0010 7047     		bx	lr
+ 248              		.cfi_endproc
+ 249              	.LFE41:
+ 251 0012 C046     		.section	.text.SCU_MCUDBGCR_DBG_ET1_STOP_Setable,"ax",%progbits
+ 252              		.align	2
+ 253              		.global	SCU_MCUDBGCR_DBG_ET1_STOP_Setable
+ 254              		.code	16
+ 255              		.thumb_func
+ 257              	SCU_MCUDBGCR_DBG_ET1_STOP_Setable:
+ 258              	.LFB42:
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** /* Debug状态下ET1使能控制 相关函数 */
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** void SCU_MCUDBGCR_DBG_ET1_STOP_Setable(FunState NewState)
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+ 259              		.loc 1 120 0
+ 260              		.cfi_startproc
+ 261              		@ args = 0, pretend = 0, frame = 0
+ 262              		@ frame_needed = 0, uses_anonymous_args = 0
+ 263              		@ link register save eliminated.
+ 264              	.LVL3:
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	if (NewState == ENABLE)
+ 265              		.loc 1 121 0
+ 266 0000 0128     		cmp	r0, #1
+ 267 0002 07D1     		bne	.L26
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		SCU->MCUDBGCR |= (SCU_MCUDBGCR_DBG_ET1_STOP_Msk);
+ 268              		.loc 1 123 0
+ 269 0004 8022     		movs	r2, #128
+ 270 0006 D205     		lsls	r2, r2, #23
+ 271 0008 5368     		ldr	r3, [r2, #4]
+ 272 000a 8021     		movs	r1, #128
+ 273 000c C900     		lsls	r1, r1, #3
+ 274 000e 0B43     		orrs	r3, r1
+ 275 0010 5360     		str	r3, [r2, #4]
+ 276 0012 05E0     		b	.L25
+ 277              	.L26:
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	else
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		SCU->MCUDBGCR &= ~(SCU_MCUDBGCR_DBG_ET1_STOP_Msk);
+ 278              		.loc 1 127 0
+ 279 0014 8022     		movs	r2, #128
+ 280 0016 D205     		lsls	r2, r2, #23
+ 281 0018 5168     		ldr	r1, [r2, #4]
+ 282 001a 024B     		ldr	r3, .L28
+ 283 001c 0B40     		ands	r3, r1
+ 284 001e 5360     		str	r3, [r2, #4]
+ 285              	.L25:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s 			page 8
+
+
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+ 286              		.loc 1 129 0
+ 287              		@ sp needed
+ 288 0020 7047     		bx	lr
+ 289              	.L29:
+ 290 0022 C046     		.align	2
+ 291              	.L28:
+ 292 0024 FFFBFFFF 		.word	-1025
+ 293              		.cfi_endproc
+ 294              	.LFE42:
+ 296              		.section	.text.SCU_MCUDBGCR_DBG_ET1_STOP_Getable,"ax",%progbits
+ 297              		.align	2
+ 298              		.global	SCU_MCUDBGCR_DBG_ET1_STOP_Getable
+ 299              		.code	16
+ 300              		.thumb_func
+ 302              	SCU_MCUDBGCR_DBG_ET1_STOP_Getable:
+ 303              	.LFB43:
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** FunState SCU_MCUDBGCR_DBG_ET1_STOP_Getable(void)
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+ 304              		.loc 1 132 0
+ 305              		.cfi_startproc
+ 306              		@ args = 0, pretend = 0, frame = 0
+ 307              		@ frame_needed = 0, uses_anonymous_args = 0
+ 308              		@ link register save eliminated.
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	if (SCU->MCUDBGCR & (SCU_MCUDBGCR_DBG_ET1_STOP_Msk))
+ 309              		.loc 1 133 0
+ 310 0000 8023     		movs	r3, #128
+ 311 0002 DB05     		lsls	r3, r3, #23
+ 312 0004 5B68     		ldr	r3, [r3, #4]
+ 313 0006 5B05     		lsls	r3, r3, #21
+ 314 0008 01D5     		bpl	.L32
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		return ENABLE;
+ 315              		.loc 1 135 0
+ 316 000a 0120     		movs	r0, #1
+ 317 000c 00E0     		b	.L31
+ 318              	.L32:
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 137:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	else
+ 138:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 139:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		return DISABLE;
+ 319              		.loc 1 139 0
+ 320 000e 0020     		movs	r0, #0
+ 321              	.L31:
+ 140:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 141:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+ 322              		.loc 1 141 0
+ 323              		@ sp needed
+ 324 0010 7047     		bx	lr
+ 325              		.cfi_endproc
+ 326              	.LFE43:
+ 328 0012 C046     		.section	.text.SCU_MCUDBGCR_DBG_BT2_STOP_Setable,"ax",%progbits
+ 329              		.align	2
+ 330              		.global	SCU_MCUDBGCR_DBG_BT2_STOP_Setable
+ 331              		.code	16
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s 			page 9
+
+
+ 332              		.thumb_func
+ 334              	SCU_MCUDBGCR_DBG_BT2_STOP_Setable:
+ 335              	.LFB44:
+ 142:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+ 143:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** /* Debug状态下BT2使能控制 相关函数 */
+ 144:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** void SCU_MCUDBGCR_DBG_BT2_STOP_Setable(FunState NewState)
+ 145:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+ 336              		.loc 1 145 0
+ 337              		.cfi_startproc
+ 338              		@ args = 0, pretend = 0, frame = 0
+ 339              		@ frame_needed = 0, uses_anonymous_args = 0
+ 340              		@ link register save eliminated.
+ 341              	.LVL4:
+ 146:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	if (NewState == ENABLE)
+ 342              		.loc 1 146 0
+ 343 0000 0128     		cmp	r0, #1
+ 344 0002 07D1     		bne	.L34
+ 147:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 148:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		SCU->MCUDBGCR |= (SCU_MCUDBGCR_DBG_BT2_STOP_Msk);
+ 345              		.loc 1 148 0
+ 346 0004 8022     		movs	r2, #128
+ 347 0006 D205     		lsls	r2, r2, #23
+ 348 0008 5368     		ldr	r3, [r2, #4]
+ 349 000a 8021     		movs	r1, #128
+ 350 000c 8900     		lsls	r1, r1, #2
+ 351 000e 0B43     		orrs	r3, r1
+ 352 0010 5360     		str	r3, [r2, #4]
+ 353 0012 05E0     		b	.L33
+ 354              	.L34:
+ 149:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 150:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	else
+ 151:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 152:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		SCU->MCUDBGCR &= ~(SCU_MCUDBGCR_DBG_BT2_STOP_Msk);
+ 355              		.loc 1 152 0
+ 356 0014 8022     		movs	r2, #128
+ 357 0016 D205     		lsls	r2, r2, #23
+ 358 0018 5168     		ldr	r1, [r2, #4]
+ 359 001a 024B     		ldr	r3, .L36
+ 360 001c 0B40     		ands	r3, r1
+ 361 001e 5360     		str	r3, [r2, #4]
+ 362              	.L33:
+ 153:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 154:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+ 363              		.loc 1 154 0
+ 364              		@ sp needed
+ 365 0020 7047     		bx	lr
+ 366              	.L37:
+ 367 0022 C046     		.align	2
+ 368              	.L36:
+ 369 0024 FFFDFFFF 		.word	-513
+ 370              		.cfi_endproc
+ 371              	.LFE44:
+ 373              		.section	.text.SCU_MCUDBGCR_DBG_BT2_STOP_Getable,"ax",%progbits
+ 374              		.align	2
+ 375              		.global	SCU_MCUDBGCR_DBG_BT2_STOP_Getable
+ 376              		.code	16
+ 377              		.thumb_func
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s 			page 10
+
+
+ 379              	SCU_MCUDBGCR_DBG_BT2_STOP_Getable:
+ 380              	.LFB45:
+ 155:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+ 156:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** FunState SCU_MCUDBGCR_DBG_BT2_STOP_Getable(void)
+ 157:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+ 381              		.loc 1 157 0
+ 382              		.cfi_startproc
+ 383              		@ args = 0, pretend = 0, frame = 0
+ 384              		@ frame_needed = 0, uses_anonymous_args = 0
+ 385              		@ link register save eliminated.
+ 158:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	if (SCU->MCUDBGCR & (SCU_MCUDBGCR_DBG_BT2_STOP_Msk))
+ 386              		.loc 1 158 0
+ 387 0000 8023     		movs	r3, #128
+ 388 0002 DB05     		lsls	r3, r3, #23
+ 389 0004 5B68     		ldr	r3, [r3, #4]
+ 390 0006 9B05     		lsls	r3, r3, #22
+ 391 0008 01D5     		bpl	.L40
+ 159:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 160:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		return ENABLE;
+ 392              		.loc 1 160 0
+ 393 000a 0120     		movs	r0, #1
+ 394 000c 00E0     		b	.L39
+ 395              	.L40:
+ 161:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 162:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	else
+ 163:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 164:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		return DISABLE;
+ 396              		.loc 1 164 0
+ 397 000e 0020     		movs	r0, #0
+ 398              	.L39:
+ 165:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 166:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+ 399              		.loc 1 166 0
+ 400              		@ sp needed
+ 401 0010 7047     		bx	lr
+ 402              		.cfi_endproc
+ 403              	.LFE45:
+ 405 0012 C046     		.section	.text.SCU_MCUDBGCR_DBG_BT1_STOP_Setable,"ax",%progbits
+ 406              		.align	2
+ 407              		.global	SCU_MCUDBGCR_DBG_BT1_STOP_Setable
+ 408              		.code	16
+ 409              		.thumb_func
+ 411              	SCU_MCUDBGCR_DBG_BT1_STOP_Setable:
+ 412              	.LFB46:
+ 167:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+ 168:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** /* Debug状态下BT1使能控制 相关函数 */
+ 169:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** void SCU_MCUDBGCR_DBG_BT1_STOP_Setable(FunState NewState)
+ 170:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+ 413              		.loc 1 170 0
+ 414              		.cfi_startproc
+ 415              		@ args = 0, pretend = 0, frame = 0
+ 416              		@ frame_needed = 0, uses_anonymous_args = 0
+ 417              		@ link register save eliminated.
+ 418              	.LVL5:
+ 171:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	if (NewState == ENABLE)
+ 419              		.loc 1 171 0
+ 420 0000 0128     		cmp	r0, #1
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s 			page 11
+
+
+ 421 0002 07D1     		bne	.L42
+ 172:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 173:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		SCU->MCUDBGCR |= (SCU_MCUDBGCR_DBG_BT1_STOP_Msk);
+ 422              		.loc 1 173 0
+ 423 0004 8022     		movs	r2, #128
+ 424 0006 D205     		lsls	r2, r2, #23
+ 425 0008 5368     		ldr	r3, [r2, #4]
+ 426 000a 8021     		movs	r1, #128
+ 427 000c 4900     		lsls	r1, r1, #1
+ 428 000e 0B43     		orrs	r3, r1
+ 429 0010 5360     		str	r3, [r2, #4]
+ 430 0012 05E0     		b	.L41
+ 431              	.L42:
+ 174:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 175:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	else
+ 176:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 177:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		SCU->MCUDBGCR &= ~(SCU_MCUDBGCR_DBG_BT1_STOP_Msk);
+ 432              		.loc 1 177 0
+ 433 0014 8022     		movs	r2, #128
+ 434 0016 D205     		lsls	r2, r2, #23
+ 435 0018 5168     		ldr	r1, [r2, #4]
+ 436 001a 024B     		ldr	r3, .L44
+ 437 001c 0B40     		ands	r3, r1
+ 438 001e 5360     		str	r3, [r2, #4]
+ 439              	.L41:
+ 178:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 179:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+ 440              		.loc 1 179 0
+ 441              		@ sp needed
+ 442 0020 7047     		bx	lr
+ 443              	.L45:
+ 444 0022 C046     		.align	2
+ 445              	.L44:
+ 446 0024 FFFEFFFF 		.word	-257
+ 447              		.cfi_endproc
+ 448              	.LFE46:
+ 450              		.section	.text.SCU_MCUDBGCR_DBG_BT1_STOP_Getable,"ax",%progbits
+ 451              		.align	2
+ 452              		.global	SCU_MCUDBGCR_DBG_BT1_STOP_Getable
+ 453              		.code	16
+ 454              		.thumb_func
+ 456              	SCU_MCUDBGCR_DBG_BT1_STOP_Getable:
+ 457              	.LFB47:
+ 180:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+ 181:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** FunState SCU_MCUDBGCR_DBG_BT1_STOP_Getable(void)
+ 182:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+ 458              		.loc 1 182 0
+ 459              		.cfi_startproc
+ 460              		@ args = 0, pretend = 0, frame = 0
+ 461              		@ frame_needed = 0, uses_anonymous_args = 0
+ 462              		@ link register save eliminated.
+ 183:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	if (SCU->MCUDBGCR & (SCU_MCUDBGCR_DBG_BT1_STOP_Msk))
+ 463              		.loc 1 183 0
+ 464 0000 8023     		movs	r3, #128
+ 465 0002 DB05     		lsls	r3, r3, #23
+ 466 0004 5B68     		ldr	r3, [r3, #4]
+ 467 0006 DB05     		lsls	r3, r3, #23
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s 			page 12
+
+
+ 468 0008 01D5     		bpl	.L48
+ 184:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 185:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		return ENABLE;
+ 469              		.loc 1 185 0
+ 470 000a 0120     		movs	r0, #1
+ 471 000c 00E0     		b	.L47
+ 472              	.L48:
+ 186:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 187:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	else
+ 188:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 189:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		return DISABLE;
+ 473              		.loc 1 189 0
+ 474 000e 0020     		movs	r0, #0
+ 475              	.L47:
+ 190:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 191:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+ 476              		.loc 1 191 0
+ 477              		@ sp needed
+ 478 0010 7047     		bx	lr
+ 479              		.cfi_endproc
+ 480              	.LFE47:
+ 482 0012 C046     		.section	.text.SCU_MCUDBGCR_DBG_WWDT_STOP_Setable,"ax",%progbits
+ 483              		.align	2
+ 484              		.global	SCU_MCUDBGCR_DBG_WWDT_STOP_Setable
+ 485              		.code	16
+ 486              		.thumb_func
+ 488              	SCU_MCUDBGCR_DBG_WWDT_STOP_Setable:
+ 489              	.LFB48:
+ 192:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+ 193:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** /* Debug状态下WWDT使能控制 相关函数 */
+ 194:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** void SCU_MCUDBGCR_DBG_WWDT_STOP_Setable(FunState NewState)
+ 195:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+ 490              		.loc 1 195 0
+ 491              		.cfi_startproc
+ 492              		@ args = 0, pretend = 0, frame = 0
+ 493              		@ frame_needed = 0, uses_anonymous_args = 0
+ 494              		@ link register save eliminated.
+ 495              	.LVL6:
+ 196:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	if (NewState == ENABLE)
+ 496              		.loc 1 196 0
+ 497 0000 0128     		cmp	r0, #1
+ 498 0002 06D1     		bne	.L50
+ 197:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 198:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		SCU->MCUDBGCR |= (SCU_MCUDBGCR_DBG_WWDT_STOP_Msk);
+ 499              		.loc 1 198 0
+ 500 0004 8022     		movs	r2, #128
+ 501 0006 D205     		lsls	r2, r2, #23
+ 502 0008 5168     		ldr	r1, [r2, #4]
+ 503 000a 0223     		movs	r3, #2
+ 504 000c 0B43     		orrs	r3, r1
+ 505 000e 5360     		str	r3, [r2, #4]
+ 506 0010 05E0     		b	.L49
+ 507              	.L50:
+ 199:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 200:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	else
+ 201:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 202:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		SCU->MCUDBGCR &= ~(SCU_MCUDBGCR_DBG_WWDT_STOP_Msk);
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s 			page 13
+
+
+ 508              		.loc 1 202 0
+ 509 0012 8022     		movs	r2, #128
+ 510 0014 D205     		lsls	r2, r2, #23
+ 511 0016 5368     		ldr	r3, [r2, #4]
+ 512 0018 0221     		movs	r1, #2
+ 513 001a 8B43     		bics	r3, r1
+ 514 001c 5360     		str	r3, [r2, #4]
+ 515              	.L49:
+ 203:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 204:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+ 516              		.loc 1 204 0
+ 517              		@ sp needed
+ 518 001e 7047     		bx	lr
+ 519              		.cfi_endproc
+ 520              	.LFE48:
+ 522              		.section	.text.SCU_MCUDBGCR_DBG_WWDT_STOP_Getable,"ax",%progbits
+ 523              		.align	2
+ 524              		.global	SCU_MCUDBGCR_DBG_WWDT_STOP_Getable
+ 525              		.code	16
+ 526              		.thumb_func
+ 528              	SCU_MCUDBGCR_DBG_WWDT_STOP_Getable:
+ 529              	.LFB49:
+ 205:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+ 206:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** FunState SCU_MCUDBGCR_DBG_WWDT_STOP_Getable(void)
+ 207:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+ 530              		.loc 1 207 0
+ 531              		.cfi_startproc
+ 532              		@ args = 0, pretend = 0, frame = 0
+ 533              		@ frame_needed = 0, uses_anonymous_args = 0
+ 534              		@ link register save eliminated.
+ 208:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	if (SCU->MCUDBGCR & (SCU_MCUDBGCR_DBG_WWDT_STOP_Msk))
+ 535              		.loc 1 208 0
+ 536 0000 8023     		movs	r3, #128
+ 537 0002 DB05     		lsls	r3, r3, #23
+ 538 0004 5B68     		ldr	r3, [r3, #4]
+ 539 0006 9B07     		lsls	r3, r3, #30
+ 540 0008 01D5     		bpl	.L54
+ 209:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 210:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		return ENABLE;
+ 541              		.loc 1 210 0
+ 542 000a 0120     		movs	r0, #1
+ 543 000c 00E0     		b	.L53
+ 544              	.L54:
+ 211:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 212:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	else
+ 213:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 214:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		return DISABLE;
+ 545              		.loc 1 214 0
+ 546 000e 0020     		movs	r0, #0
+ 547              	.L53:
+ 215:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 216:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+ 548              		.loc 1 216 0
+ 549              		@ sp needed
+ 550 0010 7047     		bx	lr
+ 551              		.cfi_endproc
+ 552              	.LFE49:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s 			page 14
+
+
+ 554 0012 C046     		.section	.text.SCU_MCUDBGCR_DBG_IWDT_STOP_Setable,"ax",%progbits
+ 555              		.align	2
+ 556              		.global	SCU_MCUDBGCR_DBG_IWDT_STOP_Setable
+ 557              		.code	16
+ 558              		.thumb_func
+ 560              	SCU_MCUDBGCR_DBG_IWDT_STOP_Setable:
+ 561              	.LFB50:
+ 217:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+ 218:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** /* Debug状态下IWDT使能控制 相关函数 */
+ 219:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** void SCU_MCUDBGCR_DBG_IWDT_STOP_Setable(FunState NewState)
+ 220:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+ 562              		.loc 1 220 0
+ 563              		.cfi_startproc
+ 564              		@ args = 0, pretend = 0, frame = 0
+ 565              		@ frame_needed = 0, uses_anonymous_args = 0
+ 566              		@ link register save eliminated.
+ 567              	.LVL7:
+ 221:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	if (NewState == ENABLE)
+ 568              		.loc 1 221 0
+ 569 0000 0128     		cmp	r0, #1
+ 570 0002 06D1     		bne	.L56
+ 222:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 223:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		SCU->MCUDBGCR |= (SCU_MCUDBGCR_DBG_IWDT_STOP_Msk);
+ 571              		.loc 1 223 0
+ 572 0004 8022     		movs	r2, #128
+ 573 0006 D205     		lsls	r2, r2, #23
+ 574 0008 5168     		ldr	r1, [r2, #4]
+ 575 000a 0123     		movs	r3, #1
+ 576 000c 0B43     		orrs	r3, r1
+ 577 000e 5360     		str	r3, [r2, #4]
+ 578 0010 05E0     		b	.L55
+ 579              	.L56:
+ 224:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 225:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	else
+ 226:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 227:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		SCU->MCUDBGCR &= ~(SCU_MCUDBGCR_DBG_IWDT_STOP_Msk);
+ 580              		.loc 1 227 0
+ 581 0012 8022     		movs	r2, #128
+ 582 0014 D205     		lsls	r2, r2, #23
+ 583 0016 5368     		ldr	r3, [r2, #4]
+ 584 0018 0121     		movs	r1, #1
+ 585 001a 8B43     		bics	r3, r1
+ 586 001c 5360     		str	r3, [r2, #4]
+ 587              	.L55:
+ 228:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 229:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+ 588              		.loc 1 229 0
+ 589              		@ sp needed
+ 590 001e 7047     		bx	lr
+ 591              		.cfi_endproc
+ 592              	.LFE50:
+ 594              		.section	.text.SCU_MCUDBGCR_DBG_IWDT_STOP_Getable,"ax",%progbits
+ 595              		.align	2
+ 596              		.global	SCU_MCUDBGCR_DBG_IWDT_STOP_Getable
+ 597              		.code	16
+ 598              		.thumb_func
+ 600              	SCU_MCUDBGCR_DBG_IWDT_STOP_Getable:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s 			page 15
+
+
+ 601              	.LFB51:
+ 230:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+ 231:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** FunState SCU_MCUDBGCR_DBG_IWDT_STOP_Getable(void)
+ 232:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+ 602              		.loc 1 232 0
+ 603              		.cfi_startproc
+ 604              		@ args = 0, pretend = 0, frame = 0
+ 605              		@ frame_needed = 0, uses_anonymous_args = 0
+ 606              		@ link register save eliminated.
+ 233:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	if (SCU->MCUDBGCR & (SCU_MCUDBGCR_DBG_IWDT_STOP_Msk))
+ 607              		.loc 1 233 0
+ 608 0000 8023     		movs	r3, #128
+ 609 0002 DB05     		lsls	r3, r3, #23
+ 610 0004 5B68     		ldr	r3, [r3, #4]
+ 611 0006 DB07     		lsls	r3, r3, #31
+ 612 0008 01D5     		bpl	.L60
+ 234:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 235:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		return ENABLE;
+ 613              		.loc 1 235 0
+ 614 000a 0120     		movs	r0, #1
+ 615 000c 00E0     		b	.L59
+ 616              	.L60:
+ 236:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 237:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	else
+ 238:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 239:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		return DISABLE;
+ 617              		.loc 1 239 0
+ 618 000e 0020     		movs	r0, #0
+ 619              	.L59:
+ 240:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 241:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+ 620              		.loc 1 241 0
+ 621              		@ sp needed
+ 622 0010 7047     		bx	lr
+ 623              		.cfi_endproc
+ 624              	.LFE51:
+ 626 0012 C046     		.section	.text.SCU_HDFFLAG_DABORT_ADDR_FLAG_Clr,"ax",%progbits
+ 627              		.align	2
+ 628              		.global	SCU_HDFFLAG_DABORT_ADDR_FLAG_Clr
+ 629              		.code	16
+ 630              		.thumb_func
+ 632              	SCU_HDFFLAG_DABORT_ADDR_FLAG_Clr:
+ 633              	.LFB52:
+ 242:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+ 243:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** /* 地址非对齐访问错误标志 相关函数 */
+ 244:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** void SCU_HDFFLAG_DABORT_ADDR_FLAG_Clr(void)
+ 245:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+ 634              		.loc 1 245 0
+ 635              		.cfi_startproc
+ 636              		@ args = 0, pretend = 0, frame = 0
+ 637              		@ frame_needed = 0, uses_anonymous_args = 0
+ 638              		@ link register save eliminated.
+ 246:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	SCU->HDFFLAG = SCU_HDFFLAG_DABORT_ADDR_FLAG_Msk;
+ 639              		.loc 1 246 0
+ 640 0000 4022     		movs	r2, #64
+ 641 0002 8023     		movs	r3, #128
+ 642 0004 DB05     		lsls	r3, r3, #23
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s 			page 16
+
+
+ 643 0006 9A60     		str	r2, [r3, #8]
+ 247:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+ 644              		.loc 1 247 0
+ 645              		@ sp needed
+ 646 0008 7047     		bx	lr
+ 647              		.cfi_endproc
+ 648              	.LFE52:
+ 650 000a C046     		.section	.text.SCU_HDFFLAG_DABORT_ADDR_FLAG_Chk,"ax",%progbits
+ 651              		.align	2
+ 652              		.global	SCU_HDFFLAG_DABORT_ADDR_FLAG_Chk
+ 653              		.code	16
+ 654              		.thumb_func
+ 656              	SCU_HDFFLAG_DABORT_ADDR_FLAG_Chk:
+ 657              	.LFB53:
+ 248:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+ 249:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** FlagStatus SCU_HDFFLAG_DABORT_ADDR_FLAG_Chk(void)
+ 250:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+ 658              		.loc 1 250 0
+ 659              		.cfi_startproc
+ 660              		@ args = 0, pretend = 0, frame = 0
+ 661              		@ frame_needed = 0, uses_anonymous_args = 0
+ 662              		@ link register save eliminated.
+ 251:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	if (SCU->HDFFLAG & SCU_HDFFLAG_DABORT_ADDR_FLAG_Msk)
+ 663              		.loc 1 251 0
+ 664 0000 8023     		movs	r3, #128
+ 665 0002 DB05     		lsls	r3, r3, #23
+ 666 0004 9B68     		ldr	r3, [r3, #8]
+ 667 0006 5B06     		lsls	r3, r3, #25
+ 668 0008 01D5     		bpl	.L64
+ 252:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 253:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		return SET;
+ 669              		.loc 1 253 0
+ 670 000a 0120     		movs	r0, #1
+ 671 000c 00E0     		b	.L63
+ 672              	.L64:
+ 254:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 255:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	else
+ 256:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 257:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		return RESET;
+ 673              		.loc 1 257 0
+ 674 000e 0020     		movs	r0, #0
+ 675              	.L63:
+ 258:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 259:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+ 676              		.loc 1 259 0
+ 677              		@ sp needed
+ 678 0010 7047     		bx	lr
+ 679              		.cfi_endproc
+ 680              	.LFE53:
+ 682 0012 C046     		.section	.text.SCU_HDFFLAG_DABORT_RESP_FLAG_Clr,"ax",%progbits
+ 683              		.align	2
+ 684              		.global	SCU_HDFFLAG_DABORT_RESP_FLAG_Clr
+ 685              		.code	16
+ 686              		.thumb_func
+ 688              	SCU_HDFFLAG_DABORT_RESP_FLAG_Clr:
+ 689              	.LFB54:
+ 260:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s 			page 17
+
+
+ 261:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** /* 非法地址访问错误标志 相关函数 */
+ 262:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** void SCU_HDFFLAG_DABORT_RESP_FLAG_Clr(void)
+ 263:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+ 690              		.loc 1 263 0
+ 691              		.cfi_startproc
+ 692              		@ args = 0, pretend = 0, frame = 0
+ 693              		@ frame_needed = 0, uses_anonymous_args = 0
+ 694              		@ link register save eliminated.
+ 264:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	SCU->HDFFLAG = SCU_HDFFLAG_DABORT_RESP_FLAG_Msk;
+ 695              		.loc 1 264 0
+ 696 0000 2022     		movs	r2, #32
+ 697 0002 8023     		movs	r3, #128
+ 698 0004 DB05     		lsls	r3, r3, #23
+ 699 0006 9A60     		str	r2, [r3, #8]
+ 265:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+ 700              		.loc 1 265 0
+ 701              		@ sp needed
+ 702 0008 7047     		bx	lr
+ 703              		.cfi_endproc
+ 704              	.LFE54:
+ 706 000a C046     		.section	.text.SCU_HDFFLAG_DABORT_RESP_FLAG_Chk,"ax",%progbits
+ 707              		.align	2
+ 708              		.global	SCU_HDFFLAG_DABORT_RESP_FLAG_Chk
+ 709              		.code	16
+ 710              		.thumb_func
+ 712              	SCU_HDFFLAG_DABORT_RESP_FLAG_Chk:
+ 713              	.LFB55:
+ 266:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+ 267:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** FlagStatus SCU_HDFFLAG_DABORT_RESP_FLAG_Chk(void)
+ 268:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+ 714              		.loc 1 268 0
+ 715              		.cfi_startproc
+ 716              		@ args = 0, pretend = 0, frame = 0
+ 717              		@ frame_needed = 0, uses_anonymous_args = 0
+ 718              		@ link register save eliminated.
+ 269:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	if (SCU->HDFFLAG & SCU_HDFFLAG_DABORT_RESP_FLAG_Msk)
+ 719              		.loc 1 269 0
+ 720 0000 8023     		movs	r3, #128
+ 721 0002 DB05     		lsls	r3, r3, #23
+ 722 0004 9B68     		ldr	r3, [r3, #8]
+ 723 0006 9B06     		lsls	r3, r3, #26
+ 724 0008 01D5     		bpl	.L68
+ 270:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 271:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		return SET;
+ 725              		.loc 1 271 0
+ 726 000a 0120     		movs	r0, #1
+ 727 000c 00E0     		b	.L67
+ 728              	.L68:
+ 272:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 273:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	else
+ 274:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 275:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		return RESET;
+ 729              		.loc 1 275 0
+ 730 000e 0020     		movs	r0, #0
+ 731              	.L67:
+ 276:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 277:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s 			page 18
+
+
+ 732              		.loc 1 277 0
+ 733              		@ sp needed
+ 734 0010 7047     		bx	lr
+ 735              		.cfi_endproc
+ 736              	.LFE55:
+ 738 0012 C046     		.section	.text.SCU_HDFFLAG_SVCUNDEF_FLAG_Clr,"ax",%progbits
+ 739              		.align	2
+ 740              		.global	SCU_HDFFLAG_SVCUNDEF_FLAG_Clr
+ 741              		.code	16
+ 742              		.thumb_func
+ 744              	SCU_HDFFLAG_SVCUNDEF_FLAG_Clr:
+ 745              	.LFB56:
+ 278:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+ 279:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** /* SVC instructions未定义标志 相关函数 */
+ 280:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** void SCU_HDFFLAG_SVCUNDEF_FLAG_Clr(void)
+ 281:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+ 746              		.loc 1 281 0
+ 747              		.cfi_startproc
+ 748              		@ args = 0, pretend = 0, frame = 0
+ 749              		@ frame_needed = 0, uses_anonymous_args = 0
+ 750              		@ link register save eliminated.
+ 282:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	SCU->HDFFLAG = SCU_HDFFLAG_SVCUNDEF_FLAG_Msk;
+ 751              		.loc 1 282 0
+ 752 0000 1022     		movs	r2, #16
+ 753 0002 8023     		movs	r3, #128
+ 754 0004 DB05     		lsls	r3, r3, #23
+ 755 0006 9A60     		str	r2, [r3, #8]
+ 283:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+ 756              		.loc 1 283 0
+ 757              		@ sp needed
+ 758 0008 7047     		bx	lr
+ 759              		.cfi_endproc
+ 760              	.LFE56:
+ 762 000a C046     		.section	.text.SCU_HDFFLAG_SVCUNDEF_FLAG_Chk,"ax",%progbits
+ 763              		.align	2
+ 764              		.global	SCU_HDFFLAG_SVCUNDEF_FLAG_Chk
+ 765              		.code	16
+ 766              		.thumb_func
+ 768              	SCU_HDFFLAG_SVCUNDEF_FLAG_Chk:
+ 769              	.LFB57:
+ 284:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+ 285:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** FlagStatus SCU_HDFFLAG_SVCUNDEF_FLAG_Chk(void)
+ 286:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+ 770              		.loc 1 286 0
+ 771              		.cfi_startproc
+ 772              		@ args = 0, pretend = 0, frame = 0
+ 773              		@ frame_needed = 0, uses_anonymous_args = 0
+ 774              		@ link register save eliminated.
+ 287:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	if (SCU->HDFFLAG & SCU_HDFFLAG_SVCUNDEF_FLAG_Msk)
+ 775              		.loc 1 287 0
+ 776 0000 8023     		movs	r3, #128
+ 777 0002 DB05     		lsls	r3, r3, #23
+ 778 0004 9B68     		ldr	r3, [r3, #8]
+ 779 0006 DB06     		lsls	r3, r3, #27
+ 780 0008 01D5     		bpl	.L72
+ 288:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 289:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		return SET;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s 			page 19
+
+
+ 781              		.loc 1 289 0
+ 782 000a 0120     		movs	r0, #1
+ 783 000c 00E0     		b	.L71
+ 784              	.L72:
+ 290:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 291:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	else
+ 292:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 293:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		return RESET;
+ 785              		.loc 1 293 0
+ 786 000e 0020     		movs	r0, #0
+ 787              	.L71:
+ 294:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 295:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+ 788              		.loc 1 295 0
+ 789              		@ sp needed
+ 790 0010 7047     		bx	lr
+ 791              		.cfi_endproc
+ 792              	.LFE57:
+ 794 0012 C046     		.section	.text.SCU_HDFFLAG_BKPT_FLAG_Clr,"ax",%progbits
+ 795              		.align	2
+ 796              		.global	SCU_HDFFLAG_BKPT_FLAG_Clr
+ 797              		.code	16
+ 798              		.thumb_func
+ 800              	SCU_HDFFLAG_BKPT_FLAG_Clr:
+ 801              	.LFB58:
+ 296:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+ 297:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** /* 执行BKPT指令标志 相关函数 */
+ 298:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** void SCU_HDFFLAG_BKPT_FLAG_Clr(void)
+ 299:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+ 802              		.loc 1 299 0
+ 803              		.cfi_startproc
+ 804              		@ args = 0, pretend = 0, frame = 0
+ 805              		@ frame_needed = 0, uses_anonymous_args = 0
+ 806              		@ link register save eliminated.
+ 300:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	SCU->HDFFLAG = SCU_HDFFLAG_BKPT_FLAG_Msk;
+ 807              		.loc 1 300 0
+ 808 0000 0822     		movs	r2, #8
+ 809 0002 8023     		movs	r3, #128
+ 810 0004 DB05     		lsls	r3, r3, #23
+ 811 0006 9A60     		str	r2, [r3, #8]
+ 301:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+ 812              		.loc 1 301 0
+ 813              		@ sp needed
+ 814 0008 7047     		bx	lr
+ 815              		.cfi_endproc
+ 816              	.LFE58:
+ 818 000a C046     		.section	.text.SCU_HDFFLAG_BKPT_FLAG_Chk,"ax",%progbits
+ 819              		.align	2
+ 820              		.global	SCU_HDFFLAG_BKPT_FLAG_Chk
+ 821              		.code	16
+ 822              		.thumb_func
+ 824              	SCU_HDFFLAG_BKPT_FLAG_Chk:
+ 825              	.LFB59:
+ 302:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+ 303:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** FlagStatus SCU_HDFFLAG_BKPT_FLAG_Chk(void)
+ 304:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+ 826              		.loc 1 304 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s 			page 20
+
+
+ 827              		.cfi_startproc
+ 828              		@ args = 0, pretend = 0, frame = 0
+ 829              		@ frame_needed = 0, uses_anonymous_args = 0
+ 830              		@ link register save eliminated.
+ 305:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	if (SCU->HDFFLAG & SCU_HDFFLAG_BKPT_FLAG_Msk)
+ 831              		.loc 1 305 0
+ 832 0000 8023     		movs	r3, #128
+ 833 0002 DB05     		lsls	r3, r3, #23
+ 834 0004 9B68     		ldr	r3, [r3, #8]
+ 835 0006 1B07     		lsls	r3, r3, #28
+ 836 0008 01D5     		bpl	.L76
+ 306:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 307:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		return SET;
+ 837              		.loc 1 307 0
+ 838 000a 0120     		movs	r0, #1
+ 839 000c 00E0     		b	.L75
+ 840              	.L76:
+ 308:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 309:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	else
+ 310:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 311:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		return RESET;
+ 841              		.loc 1 311 0
+ 842 000e 0020     		movs	r0, #0
+ 843              	.L75:
+ 312:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 313:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+ 844              		.loc 1 313 0
+ 845              		@ sp needed
+ 846 0010 7047     		bx	lr
+ 847              		.cfi_endproc
+ 848              	.LFE59:
+ 850 0012 C046     		.section	.text.SCU_HDFFLAG_TBIT_FLAG_Clr,"ax",%progbits
+ 851              		.align	2
+ 852              		.global	SCU_HDFFLAG_TBIT_FLAG_Clr
+ 853              		.code	16
+ 854              		.thumb_func
+ 856              	SCU_HDFFLAG_TBIT_FLAG_Clr:
+ 857              	.LFB60:
+ 314:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+ 315:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** /* Thumb-State标志 相关函数 */
+ 316:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** void SCU_HDFFLAG_TBIT_FLAG_Clr(void)
+ 317:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+ 858              		.loc 1 317 0
+ 859              		.cfi_startproc
+ 860              		@ args = 0, pretend = 0, frame = 0
+ 861              		@ frame_needed = 0, uses_anonymous_args = 0
+ 862              		@ link register save eliminated.
+ 318:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	SCU->HDFFLAG = SCU_HDFFLAG_TBIT_FLAG_Msk;
+ 863              		.loc 1 318 0
+ 864 0000 0422     		movs	r2, #4
+ 865 0002 8023     		movs	r3, #128
+ 866 0004 DB05     		lsls	r3, r3, #23
+ 867 0006 9A60     		str	r2, [r3, #8]
+ 319:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+ 868              		.loc 1 319 0
+ 869              		@ sp needed
+ 870 0008 7047     		bx	lr
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s 			page 21
+
+
+ 871              		.cfi_endproc
+ 872              	.LFE60:
+ 874 000a C046     		.section	.text.SCU_HDFFLAG_TBIT_FLAG_Chk,"ax",%progbits
+ 875              		.align	2
+ 876              		.global	SCU_HDFFLAG_TBIT_FLAG_Chk
+ 877              		.code	16
+ 878              		.thumb_func
+ 880              	SCU_HDFFLAG_TBIT_FLAG_Chk:
+ 881              	.LFB61:
+ 320:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+ 321:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** FlagStatus SCU_HDFFLAG_TBIT_FLAG_Chk(void)
+ 322:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+ 882              		.loc 1 322 0
+ 883              		.cfi_startproc
+ 884              		@ args = 0, pretend = 0, frame = 0
+ 885              		@ frame_needed = 0, uses_anonymous_args = 0
+ 886              		@ link register save eliminated.
+ 323:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	if (SCU->HDFFLAG & SCU_HDFFLAG_TBIT_FLAG_Msk)
+ 887              		.loc 1 323 0
+ 888 0000 8023     		movs	r3, #128
+ 889 0002 DB05     		lsls	r3, r3, #23
+ 890 0004 9B68     		ldr	r3, [r3, #8]
+ 891 0006 5B07     		lsls	r3, r3, #29
+ 892 0008 01D5     		bpl	.L80
+ 324:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 325:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		return SET;
+ 893              		.loc 1 325 0
+ 894 000a 0120     		movs	r0, #1
+ 895 000c 00E0     		b	.L79
+ 896              	.L80:
+ 326:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 327:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	else
+ 328:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 329:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		return RESET;
+ 897              		.loc 1 329 0
+ 898 000e 0020     		movs	r0, #0
+ 899              	.L79:
+ 330:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 331:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+ 900              		.loc 1 331 0
+ 901              		@ sp needed
+ 902 0010 7047     		bx	lr
+ 903              		.cfi_endproc
+ 904              	.LFE61:
+ 906 0012 C046     		.section	.text.SCU_HDFFLAG_SPECIAL_OP_FLAG_Clr,"ax",%progbits
+ 907              		.align	2
+ 908              		.global	SCU_HDFFLAG_SPECIAL_OP_FLAG_Clr
+ 909              		.code	16
+ 910              		.thumb_func
+ 912              	SCU_HDFFLAG_SPECIAL_OP_FLAG_Clr:
+ 913              	.LFB62:
+ 332:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+ 333:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** /* 特殊指令标志 相关函数 */
+ 334:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** void SCU_HDFFLAG_SPECIAL_OP_FLAG_Clr(void)
+ 335:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+ 914              		.loc 1 335 0
+ 915              		.cfi_startproc
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s 			page 22
+
+
+ 916              		@ args = 0, pretend = 0, frame = 0
+ 917              		@ frame_needed = 0, uses_anonymous_args = 0
+ 918              		@ link register save eliminated.
+ 336:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	SCU->HDFFLAG = SCU_HDFFLAG_SPECIAL_OP_FLAG_Msk;
+ 919              		.loc 1 336 0
+ 920 0000 0222     		movs	r2, #2
+ 921 0002 8023     		movs	r3, #128
+ 922 0004 DB05     		lsls	r3, r3, #23
+ 923 0006 9A60     		str	r2, [r3, #8]
+ 337:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+ 924              		.loc 1 337 0
+ 925              		@ sp needed
+ 926 0008 7047     		bx	lr
+ 927              		.cfi_endproc
+ 928              	.LFE62:
+ 930 000a C046     		.section	.text.SCU_HDFFLAG_SPECIAL_OP_FLAG_Chk,"ax",%progbits
+ 931              		.align	2
+ 932              		.global	SCU_HDFFLAG_SPECIAL_OP_FLAG_Chk
+ 933              		.code	16
+ 934              		.thumb_func
+ 936              	SCU_HDFFLAG_SPECIAL_OP_FLAG_Chk:
+ 937              	.LFB63:
+ 338:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+ 339:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** FlagStatus SCU_HDFFLAG_SPECIAL_OP_FLAG_Chk(void)
+ 340:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+ 938              		.loc 1 340 0
+ 939              		.cfi_startproc
+ 940              		@ args = 0, pretend = 0, frame = 0
+ 941              		@ frame_needed = 0, uses_anonymous_args = 0
+ 942              		@ link register save eliminated.
+ 341:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	if (SCU->HDFFLAG & SCU_HDFFLAG_SPECIAL_OP_FLAG_Msk)
+ 943              		.loc 1 341 0
+ 944 0000 8023     		movs	r3, #128
+ 945 0002 DB05     		lsls	r3, r3, #23
+ 946 0004 9B68     		ldr	r3, [r3, #8]
+ 947 0006 9B07     		lsls	r3, r3, #30
+ 948 0008 01D5     		bpl	.L84
+ 342:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 343:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		return SET;
+ 949              		.loc 1 343 0
+ 950 000a 0120     		movs	r0, #1
+ 951 000c 00E0     		b	.L83
+ 952              	.L84:
+ 344:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 345:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	else
+ 346:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 347:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		return RESET;
+ 953              		.loc 1 347 0
+ 954 000e 0020     		movs	r0, #0
+ 955              	.L83:
+ 348:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 349:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+ 956              		.loc 1 349 0
+ 957              		@ sp needed
+ 958 0010 7047     		bx	lr
+ 959              		.cfi_endproc
+ 960              	.LFE63:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s 			page 23
+
+
+ 962 0012 C046     		.section	.text.SCU_HDFFLAG_HDF_REQUEST_FLAG_Clr,"ax",%progbits
+ 963              		.align	2
+ 964              		.global	SCU_HDFFLAG_HDF_REQUEST_FLAG_Clr
+ 965              		.code	16
+ 966              		.thumb_func
+ 968              	SCU_HDFFLAG_HDF_REQUEST_FLAG_Clr:
+ 969              	.LFB64:
+ 350:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+ 351:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** /* hardfault标志位 相关函数 */
+ 352:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** void SCU_HDFFLAG_HDF_REQUEST_FLAG_Clr(void)
+ 353:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+ 970              		.loc 1 353 0
+ 971              		.cfi_startproc
+ 972              		@ args = 0, pretend = 0, frame = 0
+ 973              		@ frame_needed = 0, uses_anonymous_args = 0
+ 974              		@ link register save eliminated.
+ 354:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	SCU->HDFFLAG = SCU_HDFFLAG_HDF_REQUEST_FLAG_Msk;
+ 975              		.loc 1 354 0
+ 976 0000 0122     		movs	r2, #1
+ 977 0002 8023     		movs	r3, #128
+ 978 0004 DB05     		lsls	r3, r3, #23
+ 979 0006 9A60     		str	r2, [r3, #8]
+ 355:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+ 980              		.loc 1 355 0
+ 981              		@ sp needed
+ 982 0008 7047     		bx	lr
+ 983              		.cfi_endproc
+ 984              	.LFE64:
+ 986 000a C046     		.section	.text.SCU_HDFFLAG_HDF_REQUEST_FLAG_Chk,"ax",%progbits
+ 987              		.align	2
+ 988              		.global	SCU_HDFFLAG_HDF_REQUEST_FLAG_Chk
+ 989              		.code	16
+ 990              		.thumb_func
+ 992              	SCU_HDFFLAG_HDF_REQUEST_FLAG_Chk:
+ 993              	.LFB65:
+ 356:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+ 357:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** FlagStatus SCU_HDFFLAG_HDF_REQUEST_FLAG_Chk(void)
+ 358:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+ 994              		.loc 1 358 0
+ 995              		.cfi_startproc
+ 996              		@ args = 0, pretend = 0, frame = 0
+ 997              		@ frame_needed = 0, uses_anonymous_args = 0
+ 998              		@ link register save eliminated.
+ 359:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	if (SCU->HDFFLAG & SCU_HDFFLAG_HDF_REQUEST_FLAG_Msk)
+ 999              		.loc 1 359 0
+ 1000 0000 8023     		movs	r3, #128
+ 1001 0002 DB05     		lsls	r3, r3, #23
+ 1002 0004 9B68     		ldr	r3, [r3, #8]
+ 1003 0006 DB07     		lsls	r3, r3, #31
+ 1004 0008 01D5     		bpl	.L88
+ 360:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 361:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		return SET;
+ 1005              		.loc 1 361 0
+ 1006 000a 0120     		movs	r0, #1
+ 1007 000c 00E0     		b	.L87
+ 1008              	.L88:
+ 362:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s 			page 24
+
+
+ 363:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	else
+ 364:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	{
+ 365:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 		return RESET;
+ 1009              		.loc 1 365 0
+ 1010 000e 0020     		movs	r0, #0
+ 1011              	.L87:
+ 366:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	}
+ 367:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+ 1012              		.loc 1 367 0
+ 1013              		@ sp needed
+ 1014 0010 7047     		bx	lr
+ 1015              		.cfi_endproc
+ 1016              	.LFE65:
+ 1018 0012 C046     		.section	.text.SCU_Deinit,"ax",%progbits
+ 1019              		.align	2
+ 1020              		.global	SCU_Deinit
+ 1021              		.code	16
+ 1022              		.thumb_func
+ 1024              	SCU_Deinit:
+ 1025              	.LFB66:
+ 368:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 
+ 369:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** void SCU_Deinit(void)
+ 370:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** {
+ 1026              		.loc 1 370 0
+ 1027              		.cfi_startproc
+ 1028              		@ args = 0, pretend = 0, frame = 0
+ 1029              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1030              		@ link register save eliminated.
+ 371:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	SCU->MCUDBGCR = 0x00003F03;
+ 1031              		.loc 1 371 0
+ 1032 0000 8023     		movs	r3, #128
+ 1033 0002 DB05     		lsls	r3, r3, #23
+ 1034 0004 024A     		ldr	r2, .L90
+ 1035 0006 5A60     		str	r2, [r3, #4]
+ 372:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** 	SCU->HDFFLAG = 0x00000000;
+ 1036              		.loc 1 372 0
+ 1037 0008 0022     		movs	r2, #0
+ 1038 000a 9A60     		str	r2, [r3, #8]
+ 373:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_scu.c **** }
+ 1039              		.loc 1 373 0
+ 1040              		@ sp needed
+ 1041 000c 7047     		bx	lr
+ 1042              	.L91:
+ 1043 000e C046     		.align	2
+ 1044              	.L90:
+ 1045 0010 033F0000 		.word	16131
+ 1046              		.cfi_endproc
+ 1047              	.LFE66:
+ 1049              		.text
+ 1050              	.Letext0:
+ 1051              		.file 2 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\device\\include\\fm33a0xx.h"
+ 1052              		.file 3 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\machine\\_default_types.h
+ 1053              		.file 4 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\sys\\_stdint.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s 			page 25
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 fm33a0xx_scu.c
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:20     .text.SCU_MCUDBGCR_DBG_ET4_STOP_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:25     .text.SCU_MCUDBGCR_DBG_ET4_STOP_Setable:00000000 SCU_MCUDBGCR_DBG_ET4_STOP_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:61     .text.SCU_MCUDBGCR_DBG_ET4_STOP_Setable:00000024 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:66     .text.SCU_MCUDBGCR_DBG_ET4_STOP_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:71     .text.SCU_MCUDBGCR_DBG_ET4_STOP_Getable:00000000 SCU_MCUDBGCR_DBG_ET4_STOP_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:98     .text.SCU_MCUDBGCR_DBG_ET3_STOP_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:103    .text.SCU_MCUDBGCR_DBG_ET3_STOP_Setable:00000000 SCU_MCUDBGCR_DBG_ET3_STOP_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:138    .text.SCU_MCUDBGCR_DBG_ET3_STOP_Setable:00000024 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:143    .text.SCU_MCUDBGCR_DBG_ET3_STOP_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:148    .text.SCU_MCUDBGCR_DBG_ET3_STOP_Getable:00000000 SCU_MCUDBGCR_DBG_ET3_STOP_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:175    .text.SCU_MCUDBGCR_DBG_ET2_STOP_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:180    .text.SCU_MCUDBGCR_DBG_ET2_STOP_Setable:00000000 SCU_MCUDBGCR_DBG_ET2_STOP_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:215    .text.SCU_MCUDBGCR_DBG_ET2_STOP_Setable:00000024 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:220    .text.SCU_MCUDBGCR_DBG_ET2_STOP_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:225    .text.SCU_MCUDBGCR_DBG_ET2_STOP_Getable:00000000 SCU_MCUDBGCR_DBG_ET2_STOP_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:252    .text.SCU_MCUDBGCR_DBG_ET1_STOP_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:257    .text.SCU_MCUDBGCR_DBG_ET1_STOP_Setable:00000000 SCU_MCUDBGCR_DBG_ET1_STOP_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:292    .text.SCU_MCUDBGCR_DBG_ET1_STOP_Setable:00000024 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:297    .text.SCU_MCUDBGCR_DBG_ET1_STOP_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:302    .text.SCU_MCUDBGCR_DBG_ET1_STOP_Getable:00000000 SCU_MCUDBGCR_DBG_ET1_STOP_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:329    .text.SCU_MCUDBGCR_DBG_BT2_STOP_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:334    .text.SCU_MCUDBGCR_DBG_BT2_STOP_Setable:00000000 SCU_MCUDBGCR_DBG_BT2_STOP_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:369    .text.SCU_MCUDBGCR_DBG_BT2_STOP_Setable:00000024 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:374    .text.SCU_MCUDBGCR_DBG_BT2_STOP_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:379    .text.SCU_MCUDBGCR_DBG_BT2_STOP_Getable:00000000 SCU_MCUDBGCR_DBG_BT2_STOP_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:406    .text.SCU_MCUDBGCR_DBG_BT1_STOP_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:411    .text.SCU_MCUDBGCR_DBG_BT1_STOP_Setable:00000000 SCU_MCUDBGCR_DBG_BT1_STOP_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:446    .text.SCU_MCUDBGCR_DBG_BT1_STOP_Setable:00000024 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:451    .text.SCU_MCUDBGCR_DBG_BT1_STOP_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:456    .text.SCU_MCUDBGCR_DBG_BT1_STOP_Getable:00000000 SCU_MCUDBGCR_DBG_BT1_STOP_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:483    .text.SCU_MCUDBGCR_DBG_WWDT_STOP_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:488    .text.SCU_MCUDBGCR_DBG_WWDT_STOP_Setable:00000000 SCU_MCUDBGCR_DBG_WWDT_STOP_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:523    .text.SCU_MCUDBGCR_DBG_WWDT_STOP_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:528    .text.SCU_MCUDBGCR_DBG_WWDT_STOP_Getable:00000000 SCU_MCUDBGCR_DBG_WWDT_STOP_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:555    .text.SCU_MCUDBGCR_DBG_IWDT_STOP_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:560    .text.SCU_MCUDBGCR_DBG_IWDT_STOP_Setable:00000000 SCU_MCUDBGCR_DBG_IWDT_STOP_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:595    .text.SCU_MCUDBGCR_DBG_IWDT_STOP_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:600    .text.SCU_MCUDBGCR_DBG_IWDT_STOP_Getable:00000000 SCU_MCUDBGCR_DBG_IWDT_STOP_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:627    .text.SCU_HDFFLAG_DABORT_ADDR_FLAG_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:632    .text.SCU_HDFFLAG_DABORT_ADDR_FLAG_Clr:00000000 SCU_HDFFLAG_DABORT_ADDR_FLAG_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:651    .text.SCU_HDFFLAG_DABORT_ADDR_FLAG_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:656    .text.SCU_HDFFLAG_DABORT_ADDR_FLAG_Chk:00000000 SCU_HDFFLAG_DABORT_ADDR_FLAG_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:683    .text.SCU_HDFFLAG_DABORT_RESP_FLAG_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:688    .text.SCU_HDFFLAG_DABORT_RESP_FLAG_Clr:00000000 SCU_HDFFLAG_DABORT_RESP_FLAG_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:707    .text.SCU_HDFFLAG_DABORT_RESP_FLAG_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:712    .text.SCU_HDFFLAG_DABORT_RESP_FLAG_Chk:00000000 SCU_HDFFLAG_DABORT_RESP_FLAG_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:739    .text.SCU_HDFFLAG_SVCUNDEF_FLAG_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:744    .text.SCU_HDFFLAG_SVCUNDEF_FLAG_Clr:00000000 SCU_HDFFLAG_SVCUNDEF_FLAG_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:763    .text.SCU_HDFFLAG_SVCUNDEF_FLAG_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:768    .text.SCU_HDFFLAG_SVCUNDEF_FLAG_Chk:00000000 SCU_HDFFLAG_SVCUNDEF_FLAG_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:795    .text.SCU_HDFFLAG_BKPT_FLAG_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:800    .text.SCU_HDFFLAG_BKPT_FLAG_Clr:00000000 SCU_HDFFLAG_BKPT_FLAG_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:819    .text.SCU_HDFFLAG_BKPT_FLAG_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:824    .text.SCU_HDFFLAG_BKPT_FLAG_Chk:00000000 SCU_HDFFLAG_BKPT_FLAG_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:851    .text.SCU_HDFFLAG_TBIT_FLAG_Clr:00000000 $t
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s 			page 26
+
+
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:856    .text.SCU_HDFFLAG_TBIT_FLAG_Clr:00000000 SCU_HDFFLAG_TBIT_FLAG_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:875    .text.SCU_HDFFLAG_TBIT_FLAG_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:880    .text.SCU_HDFFLAG_TBIT_FLAG_Chk:00000000 SCU_HDFFLAG_TBIT_FLAG_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:907    .text.SCU_HDFFLAG_SPECIAL_OP_FLAG_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:912    .text.SCU_HDFFLAG_SPECIAL_OP_FLAG_Clr:00000000 SCU_HDFFLAG_SPECIAL_OP_FLAG_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:931    .text.SCU_HDFFLAG_SPECIAL_OP_FLAG_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:936    .text.SCU_HDFFLAG_SPECIAL_OP_FLAG_Chk:00000000 SCU_HDFFLAG_SPECIAL_OP_FLAG_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:963    .text.SCU_HDFFLAG_HDF_REQUEST_FLAG_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:968    .text.SCU_HDFFLAG_HDF_REQUEST_FLAG_Clr:00000000 SCU_HDFFLAG_HDF_REQUEST_FLAG_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:987    .text.SCU_HDFFLAG_HDF_REQUEST_FLAG_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:992    .text.SCU_HDFFLAG_HDF_REQUEST_FLAG_Chk:00000000 SCU_HDFFLAG_HDF_REQUEST_FLAG_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:1019   .text.SCU_Deinit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:1024   .text.SCU_Deinit:00000000 SCU_Deinit
+C:\Users\WANGBI~1\AppData\Local\Temp\cceb7B4T.s:1045   .text.SCU_Deinit:00000010 $d
+                     .debug_frame:00000010 $d
+
+NO UNDEFINED SYMBOLS

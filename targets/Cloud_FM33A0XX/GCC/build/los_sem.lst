@@ -1,0 +1,1547 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"los_sem.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.osSemInit,"ax",%progbits
+  20              		.align	2
+  21              		.global	osSemInit
+  22              		.code	16
+  23              		.thumb_func
+  25              	osSemInit:
+  26              	.LFB45:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc/los_sem.c"
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** /*----------------------------------------------------------------------------
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  * Copyright (c) <2013-2015>, <Huawei Technologies Co., Ltd>
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  * All rights reserved.
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  * are permitted provided that the following conditions are met:
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  * conditions and the following disclaimer.
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  * provided with the distribution.
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  * permission.
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  *---------------------------------------------------------------------------*/
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** /*----------------------------------------------------------------------------
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  * Notice of Export Control Law
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  * ===============================================
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s 			page 2
+
+
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  * applicable export control laws and regulations.
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  *---------------------------------------------------------------------------*/
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** #include "los_sem.inc"
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** #include "los_base.ph"
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** #include "los_err.ph"
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** #include "los_memory.ph"
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** #include "los_priqueue.ph"
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** #include "los_sys.ph"
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** #include "los_task.ph"
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** #if (LOSCFG_PLATFORM_EXC == YES)
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** #include "los_exc.h"
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** #endif
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** #ifdef __cplusplus
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** #if __cplusplus
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** extern "C"{
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** #endif
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** #endif /* __cplusplus */
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** #if (LOSCFG_BASE_IPC_SEM == YES)
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** LITE_OS_SEC_BSS LOS_DL_LIST  g_stUnusedSemList;
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** LITE_OS_SEC_BSS SEM_CB_S    *g_pstAllSem;
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** /*****************************************************************************
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Function     : osSemInit
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Description  : Initialize the  Semaphore doubly linked list,
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Input        : None,
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Output       : None,
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Return       : LOS_OK on success ,or error code on failure
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  *****************************************************************************/
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** LITE_OS_SEC_TEXT_INIT UINT32 osSemInit(VOID)
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** {
+  28              		.loc 1 66 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 10B5     		push	{r4, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 4, -8
+  36              		.cfi_offset 14, -4
+  37              	.LVL0:
+  38              	.LBB22:
+  39              	.LBB23:
+  40              		.file 2 "e:\\liteos\\liteos\\kernel\\include\\los_list.h"
+   1:e:\liteos\liteos\kernel\include\los_list.h **** /*----------------------------------------------------------------------------
+   2:e:\liteos\liteos\kernel\include\los_list.h ****  * Copyright (c) <2013-2015>, <Huawei Technologies Co., Ltd>
+   3:e:\liteos\liteos\kernel\include\los_list.h ****  * All rights reserved.
+   4:e:\liteos\liteos\kernel\include\los_list.h ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:e:\liteos\liteos\kernel\include\los_list.h ****  * are permitted provided that the following conditions are met:
+   6:e:\liteos\liteos\kernel\include\los_list.h ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:e:\liteos\liteos\kernel\include\los_list.h ****  * conditions and the following disclaimer.
+   8:e:\liteos\liteos\kernel\include\los_list.h ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:e:\liteos\liteos\kernel\include\los_list.h ****  * of conditions and the following disclaimer in the documentation and/or other materials
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s 			page 3
+
+
+  10:e:\liteos\liteos\kernel\include\los_list.h ****  * provided with the distribution.
+  11:e:\liteos\liteos\kernel\include\los_list.h ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:e:\liteos\liteos\kernel\include\los_list.h ****  * to endorse or promote products derived from this software without specific prior written
+  13:e:\liteos\liteos\kernel\include\los_list.h ****  * permission.
+  14:e:\liteos\liteos\kernel\include\los_list.h ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:e:\liteos\liteos\kernel\include\los_list.h ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:e:\liteos\liteos\kernel\include\los_list.h ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:e:\liteos\liteos\kernel\include\los_list.h ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:e:\liteos\liteos\kernel\include\los_list.h ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:e:\liteos\liteos\kernel\include\los_list.h ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:e:\liteos\liteos\kernel\include\los_list.h ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:e:\liteos\liteos\kernel\include\los_list.h ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:e:\liteos\liteos\kernel\include\los_list.h ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:e:\liteos\liteos\kernel\include\los_list.h ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:e:\liteos\liteos\kernel\include\los_list.h ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:e:\liteos\liteos\kernel\include\los_list.h ****  *---------------------------------------------------------------------------*/
+  26:e:\liteos\liteos\kernel\include\los_list.h **** /*----------------------------------------------------------------------------
+  27:e:\liteos\liteos\kernel\include\los_list.h ****  * Notice of Export Control Law
+  28:e:\liteos\liteos\kernel\include\los_list.h ****  * ===============================================
+  29:e:\liteos\liteos\kernel\include\los_list.h ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:e:\liteos\liteos\kernel\include\los_list.h ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:e:\liteos\liteos\kernel\include\los_list.h ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:e:\liteos\liteos\kernel\include\los_list.h ****  * applicable export control laws and regulations.
+  33:e:\liteos\liteos\kernel\include\los_list.h ****  *---------------------------------------------------------------------------*/
+  34:e:\liteos\liteos\kernel\include\los_list.h **** 
+  35:e:\liteos\liteos\kernel\include\los_list.h ****  /** @defgroup los_list Doubly linked list
+  36:e:\liteos\liteos\kernel\include\los_list.h ****  * @ingroup kernel
+  37:e:\liteos\liteos\kernel\include\los_list.h ****  */
+  38:e:\liteos\liteos\kernel\include\los_list.h **** 
+  39:e:\liteos\liteos\kernel\include\los_list.h **** #ifndef _LOS_LIST_H
+  40:e:\liteos\liteos\kernel\include\los_list.h **** #define _LOS_LIST_H
+  41:e:\liteos\liteos\kernel\include\los_list.h **** 
+  42:e:\liteos\liteos\kernel\include\los_list.h **** #include "los_typedef.h"
+  43:e:\liteos\liteos\kernel\include\los_list.h **** 
+  44:e:\liteos\liteos\kernel\include\los_list.h **** #ifdef __cplusplus
+  45:e:\liteos\liteos\kernel\include\los_list.h **** #if __cplusplus
+  46:e:\liteos\liteos\kernel\include\los_list.h **** extern "C" {
+  47:e:\liteos\liteos\kernel\include\los_list.h **** #endif /* __cplusplus */
+  48:e:\liteos\liteos\kernel\include\los_list.h **** #endif /* __cplusplus */
+  49:e:\liteos\liteos\kernel\include\los_list.h **** 
+  50:e:\liteos\liteos\kernel\include\los_list.h **** 
+  51:e:\liteos\liteos\kernel\include\los_list.h **** /**
+  52:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+  53:e:\liteos\liteos\kernel\include\los_list.h ****  *Structure of a node in a doubly linked list.
+  54:e:\liteos\liteos\kernel\include\los_list.h ****  */
+  55:e:\liteos\liteos\kernel\include\los_list.h **** typedef struct LOS_DL_LIST
+  56:e:\liteos\liteos\kernel\include\los_list.h **** {
+  57:e:\liteos\liteos\kernel\include\los_list.h ****     struct LOS_DL_LIST *pstPrev;            /**< Current node's pointer to the previous node*/
+  58:e:\liteos\liteos\kernel\include\los_list.h ****     struct LOS_DL_LIST *pstNext;            /**< Current node's pointer to the next node*/
+  59:e:\liteos\liteos\kernel\include\los_list.h **** } LOS_DL_LIST;
+  60:e:\liteos\liteos\kernel\include\los_list.h **** 
+  61:e:\liteos\liteos\kernel\include\los_list.h **** /**
+  62:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+  63:e:\liteos\liteos\kernel\include\los_list.h ****  *@brief Initialize a doubly linked list.
+  64:e:\liteos\liteos\kernel\include\los_list.h ****  *
+  65:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Description:
+  66:e:\liteos\liteos\kernel\include\los_list.h ****  *This API is used to initialize a doubly linked list.
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s 			page 4
+
+
+  67:e:\liteos\liteos\kernel\include\los_list.h ****  *@attention
+  68:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+  69:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>The parameter passed in should be ensured to be a legal pointer.</li>
+  70:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+  71:e:\liteos\liteos\kernel\include\los_list.h ****  *
+  72:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstList    [IN] Node in a doubly linked list.
+  73:e:\liteos\liteos\kernel\include\los_list.h ****  *
+  74:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval None.
+  75:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Dependency:
+  76:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul><li>los_list.h: the header file that contains the API declaration.</li></ul>
+  77:e:\liteos\liteos\kernel\include\los_list.h ****  *@see
+  78:e:\liteos\liteos\kernel\include\los_list.h ****  *@since Huawei LiteOS V100R001C00
+  79:e:\liteos\liteos\kernel\include\los_list.h ****  */
+  80:e:\liteos\liteos\kernel\include\los_list.h **** LITE_OS_SEC_ALW_INLINE STATIC_INLINE VOID LOS_ListInit(LOS_DL_LIST *pstList)
+  81:e:\liteos\liteos\kernel\include\los_list.h **** {
+  82:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstNext = pstList;
+  41              		.loc 2 82 0
+  42 0002 144B     		ldr	r3, .L6
+  43 0004 5B60     		str	r3, [r3, #4]
+  83:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstPrev = pstList;
+  44              		.loc 2 83 0
+  45 0006 1B60     		str	r3, [r3]
+  46              	.LVL1:
+  47              	.LBE23:
+  48              	.LBE22:
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     SEM_CB_S    *pstSemNode;
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     UINT16      uwIndex;
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     LOS_ListInit(&g_stUnusedSemList);
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     if (LOSCFG_BASE_IPC_SEM_LIMIT == 0)   /*lint !e506*/
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     {
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         return LOS_ERRNO_SEM_MAXNUM_ZERO;
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     }
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     g_pstAllSem = (SEM_CB_S *)LOS_MemAlloc(m_aucSysMem0, (LOSCFG_BASE_IPC_SEM_LIMIT * sizeof(SEM_CB
+  49              		.loc 1 77 0
+  50 0008 134B     		ldr	r3, .L6+4
+  51 000a 1868     		ldr	r0, [r3]
+  52 000c A021     		movs	r1, #160
+  53 000e 4900     		lsls	r1, r1, #1
+  54 0010 FFF7FEFF 		bl	LOS_MemAlloc
+  55              	.LVL2:
+  56 0014 114B     		ldr	r3, .L6+8
+  57 0016 1860     		str	r0, [r3]
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     if (NULL == g_pstAllSem)
+  58              		.loc 1 78 0
+  59 0018 0028     		cmp	r0, #0
+  60 001a 18D0     		beq	.L5
+  61 001c 0022     		movs	r2, #0
+  62 001e 12E0     		b	.L3
+  63              	.LVL3:
+  64              	.L4:
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     {
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         return LOS_ERRNO_SEM_NO_MEMORY;
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     }
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s 			page 5
+
+
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     /* Connect all the ECBs in a doubly linked list. */
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     for (uwIndex = 0; uwIndex < LOSCFG_BASE_IPC_SEM_LIMIT; uwIndex++)
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     {
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         pstSemNode = ((SEM_CB_S *)g_pstAllSem) + uwIndex;
+  65              		.loc 1 86 0 discriminator 3
+  66 0020 0E4B     		ldr	r3, .L6+8
+  67 0022 1968     		ldr	r1, [r3]
+  68 0024 1301     		lsls	r3, r2, #4
+  69 0026 CB18     		adds	r3, r1, r3
+  70              	.LVL4:
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         pstSemNode->usSemID = uwIndex;
+  71              		.loc 1 87 0 discriminator 3
+  72 0028 DA80     		strh	r2, [r3, #6]
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         pstSemNode->usSemStat = OS_SEM_UNUSED;
+  73              		.loc 1 88 0 discriminator 3
+  74 002a 0021     		movs	r1, #0
+  75 002c 1980     		strh	r1, [r3]
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         LOS_ListTailInsert(&g_stUnusedSemList, &pstSemNode->stSemList);
+  76              		.loc 1 89 0 discriminator 3
+  77 002e 1800     		movs	r0, r3
+  78 0030 0830     		adds	r0, r0, #8
+  79              	.LVL5:
+  80              	.LBB24:
+  81              	.LBB25:
+  84:e:\liteos\liteos\kernel\include\los_list.h **** }
+  85:e:\liteos\liteos\kernel\include\los_list.h **** 
+  86:e:\liteos\liteos\kernel\include\los_list.h **** /**
+  87:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+  88:e:\liteos\liteos\kernel\include\los_list.h ****  *@brief Point to the next node pointed to by the current node.
+  89:e:\liteos\liteos\kernel\include\los_list.h ****  *
+  90:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Description:
+  91:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+  92:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>This API is used to point to the next node pointed to by the current node.</li>
+  93:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+  94:e:\liteos\liteos\kernel\include\los_list.h ****  *@attention
+  95:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+  96:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>None.</li>
+  97:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+  98:e:\liteos\liteos\kernel\include\los_list.h ****  *
+  99:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstObject  [IN] Node in the doubly linked list.
+ 100:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 101:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval None.
+ 102:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Dependency:
+ 103:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul><li>los_list.h: the header file that contains the API declaration.</li></ul>
+ 104:e:\liteos\liteos\kernel\include\los_list.h ****  *@see
+ 105:e:\liteos\liteos\kernel\include\los_list.h ****  *@since Huawei LiteOS V100R001C00
+ 106:e:\liteos\liteos\kernel\include\los_list.h ****  */
+ 107:e:\liteos\liteos\kernel\include\los_list.h **** #define LOS_DL_LIST_FIRST(pstObject) ((pstObject)->pstNext)
+ 108:e:\liteos\liteos\kernel\include\los_list.h **** 
+ 109:e:\liteos\liteos\kernel\include\los_list.h **** /**
+ 110:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+ 111:e:\liteos\liteos\kernel\include\los_list.h ****  *@brief Insert a new node to a doubly linked list.
+ 112:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 113:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Description:
+ 114:e:\liteos\liteos\kernel\include\los_list.h ****  *This API is used to insert a new node to a doubly linked list.
+ 115:e:\liteos\liteos\kernel\include\los_list.h ****  *@attention
+ 116:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s 			page 6
+
+
+ 117:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>The parameters passed in should be ensured to be legal pointers.</li>
+ 118:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+ 119:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 120:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstList    [IN]   Doubly linked list where the new node is inserted.
+ 121:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstNode    [IN]   New node to be inserted.
+ 122:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 123:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval None
+ 124:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Dependency:
+ 125:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul><li>los_list.h: the header file that contains the API declaration.</li></ul>
+ 126:e:\liteos\liteos\kernel\include\los_list.h ****  *@see LOS_ListDelete
+ 127:e:\liteos\liteos\kernel\include\los_list.h ****  *@since Huawei LiteOS V100R001C00
+ 128:e:\liteos\liteos\kernel\include\los_list.h ****  */
+ 129:e:\liteos\liteos\kernel\include\los_list.h **** LITE_OS_SEC_ALW_INLINE STATIC_INLINE VOID LOS_ListAdd(LOS_DL_LIST *pstList, LOS_DL_LIST *pstNode)
+ 130:e:\liteos\liteos\kernel\include\los_list.h **** {
+ 131:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstNext = pstList->pstNext;
+ 132:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstPrev = pstList;
+ 133:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstNext->pstPrev = pstNode;
+ 134:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstNext = pstNode;
+ 135:e:\liteos\liteos\kernel\include\los_list.h **** }
+ 136:e:\liteos\liteos\kernel\include\los_list.h **** 
+ 137:e:\liteos\liteos\kernel\include\los_list.h **** /**
+ 138:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+ 139:e:\liteos\liteos\kernel\include\los_list.h ****  *@brief Insert a node to the tail of a doubly linked list.
+ 140:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 141:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Description:
+ 142:e:\liteos\liteos\kernel\include\los_list.h ****  *This API is used to insert a new node to the tail of a doubly linked list.
+ 143:e:\liteos\liteos\kernel\include\los_list.h ****  *@attention
+ 144:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+ 145:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>The parameters passed in should be ensured to be legal pointers.</li>
+ 146:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+ 147:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 148:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstList     [IN] Doubly linked list where the new node is inserted.
+ 149:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstNode     [IN] New node to be inserted.
+ 150:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 151:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval None.
+ 152:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Dependency:
+ 153:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul><li>los_list.h: the header file that contains the API declaration.</li></ul>
+ 154:e:\liteos\liteos\kernel\include\los_list.h ****  *@see LOS_ListAdd | LOS_ListHeadInsert
+ 155:e:\liteos\liteos\kernel\include\los_list.h ****  *@since Huawei LiteOS V100R001C00
+ 156:e:\liteos\liteos\kernel\include\los_list.h ****  */
+ 157:e:\liteos\liteos\kernel\include\los_list.h **** LITE_OS_SEC_ALW_INLINE STATIC_INLINE VOID LOS_ListTailInsert(LOS_DL_LIST *pstList, LOS_DL_LIST *pst
+ 158:e:\liteos\liteos\kernel\include\los_list.h **** {
+ 159:e:\liteos\liteos\kernel\include\los_list.h ****     LOS_ListAdd(pstList->pstPrev, pstNode);
+  82              		.loc 2 159 0 discriminator 3
+  83 0032 0849     		ldr	r1, .L6
+  84 0034 0968     		ldr	r1, [r1]
+  85              	.LVL6:
+  86              	.LBB26:
+  87              	.LBB27:
+ 131:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstPrev = pstList;
+  88              		.loc 2 131 0 discriminator 3
+  89 0036 4C68     		ldr	r4, [r1, #4]
+  90 0038 DC60     		str	r4, [r3, #12]
+ 132:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstNext->pstPrev = pstNode;
+  91              		.loc 2 132 0 discriminator 3
+  92 003a 9960     		str	r1, [r3, #8]
+ 133:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstNext = pstNode;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s 			page 7
+
+
+  93              		.loc 2 133 0 discriminator 3
+  94 003c 4B68     		ldr	r3, [r1, #4]
+  95              	.LVL7:
+  96 003e 1860     		str	r0, [r3]
+ 134:e:\liteos\liteos\kernel\include\los_list.h **** }
+  97              		.loc 2 134 0 discriminator 3
+  98 0040 4860     		str	r0, [r1, #4]
+  99              	.LVL8:
+ 100              	.LBE27:
+ 101              	.LBE26:
+ 102              	.LBE25:
+ 103              	.LBE24:
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     {
+ 104              		.loc 1 84 0 discriminator 3
+ 105 0042 0132     		adds	r2, r2, #1
+ 106              	.LVL9:
+ 107 0044 92B2     		uxth	r2, r2
+ 108              	.LVL10:
+ 109              	.L3:
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     {
+ 110              		.loc 1 84 0 is_stmt 0 discriminator 1
+ 111 0046 132A     		cmp	r2, #19
+ 112 0048 EAD9     		bls	.L4
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     }
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     return LOS_OK;
+ 113              		.loc 1 91 0 is_stmt 1
+ 114 004a 0020     		movs	r0, #0
+ 115 004c 00E0     		b	.L2
+ 116              	.LVL11:
+ 117              	.L5:
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     }
+ 118              		.loc 1 80 0
+ 119 004e 0448     		ldr	r0, .L6+12
+ 120              	.L2:
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** }
+ 121              		.loc 1 92 0
+ 122              		@ sp needed
+ 123 0050 10BD     		pop	{r4, pc}
+ 124              	.L7:
+ 125 0052 C046     		.align	2
+ 126              	.L6:
+ 127 0054 00000000 		.word	g_stUnusedSemList
+ 128 0058 00000000 		.word	m_aucSysMem0
+ 129 005c 00000000 		.word	g_pstAllSem
+ 130 0060 00070002 		.word	33556224
+ 131              		.cfi_endproc
+ 132              	.LFE45:
+ 134              		.section	.text.osSemCreate,"ax",%progbits
+ 135              		.align	2
+ 136              		.global	osSemCreate
+ 137              		.code	16
+ 138              		.thumb_func
+ 140              	osSemCreate:
+ 141              	.LFB46:
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** /*****************************************************************************
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s 			page 8
+
+
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Function     : osSemCreate
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Description  : create the  Semaphore
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Input        : None,
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Output       : None,
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Return       : LOS_OK on success ,or error code on failure
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  *****************************************************************************/
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** LITE_OS_SEC_TEXT_INIT UINT32 osSemCreate (UINT16 usCount, UINT16 usMaxCount, UINT32 *puwSemHandle)
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** {
+ 142              		.loc 1 103 0
+ 143              		.cfi_startproc
+ 144              		@ args = 0, pretend = 0, frame = 0
+ 145              		@ frame_needed = 0, uses_anonymous_args = 0
+ 146              	.LVL12:
+ 147 0000 70B5     		push	{r4, r5, r6, lr}
+ 148              	.LCFI1:
+ 149              		.cfi_def_cfa_offset 16
+ 150              		.cfi_offset 4, -16
+ 151              		.cfi_offset 5, -12
+ 152              		.cfi_offset 6, -8
+ 153              		.cfi_offset 14, -4
+ 154 0002 82B0     		sub	sp, sp, #8
+ 155              	.LCFI2:
+ 156              		.cfi_def_cfa_offset 24
+ 157 0004 0600     		movs	r6, r0
+ 158 0006 0D00     		movs	r5, r1
+ 159 0008 141E     		subs	r4, r2, #0
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     UINT32      uwIntSave;
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     SEM_CB_S    *pstSemCreated;
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     LOS_DL_LIST *pstUnusedSem;
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     UINT32      uwErrNo;
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     UINT32      uwErrLine;
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     if (NULL == puwSemHandle)
+ 160              		.loc 1 110 0
+ 161 000a 29D0     		beq	.L12
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     {
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         return LOS_ERRNO_SEM_PTR_NULL;
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     }
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     if (usCount > usMaxCount)
+ 162              		.loc 1 115 0
+ 163 000c 8842     		cmp	r0, r1
+ 164 000e 1DD8     		bhi	.L13
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     {
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         OS_GOTO_ERR_HANDLER(LOS_ERRNO_SEM_OVERFLOW);
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     }
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     uwIntSave = LOS_IntLock();
+ 165              		.loc 1 120 0
+ 166 0010 FFF7FEFF 		bl	LOS_IntLock
+ 167              	.LVL13:
+ 168              	.LBB28:
+ 169              	.LBB29:
+ 160:e:\liteos\liteos\kernel\include\los_list.h **** }
+ 161:e:\liteos\liteos\kernel\include\los_list.h **** 
+ 162:e:\liteos\liteos\kernel\include\los_list.h **** /**
+ 163:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s 			page 9
+
+
+ 164:e:\liteos\liteos\kernel\include\los_list.h ****  *@brief Delete a specified node from a doubly linked list.
+ 165:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 166:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Description:
+ 167:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+ 168:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>This API is used to delete a specified node from a doubly linked list.</li>
+ 169:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+ 170:e:\liteos\liteos\kernel\include\los_list.h ****  *@attention
+ 171:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+ 172:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>The parameter passed in should be ensured to be a legal pointer.</li>
+ 173:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+ 174:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 175:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstNode    [IN] Node to be deleted.
+ 176:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 177:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval None.
+ 178:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Dependency:
+ 179:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul><li>los_list.h: the header file that contains the API declaration.</li></ul>
+ 180:e:\liteos\liteos\kernel\include\los_list.h ****  *@see LOS_ListAdd
+ 181:e:\liteos\liteos\kernel\include\los_list.h ****  *@since Huawei LiteOS V100R001C00
+ 182:e:\liteos\liteos\kernel\include\los_list.h ****  */
+ 183:e:\liteos\liteos\kernel\include\los_list.h **** LITE_OS_SEC_ALW_INLINE STATIC_INLINE VOID LOS_ListDelete(LOS_DL_LIST *pstNode)
+ 184:e:\liteos\liteos\kernel\include\los_list.h **** {
+ 185:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstNext->pstPrev = pstNode->pstPrev;
+ 186:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstPrev->pstNext = pstNode->pstNext;
+ 187:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstNext = (LOS_DL_LIST *)NULL;
+ 188:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstPrev = (LOS_DL_LIST *)NULL;
+ 189:e:\liteos\liteos\kernel\include\los_list.h **** }
+ 190:e:\liteos\liteos\kernel\include\los_list.h **** 
+ 191:e:\liteos\liteos\kernel\include\los_list.h **** /**
+ 192:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+ 193:e:\liteos\liteos\kernel\include\los_list.h ****  *@brief Identify whether a specified doubly linked list is empty.
+ 194:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 195:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Description:
+ 196:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+ 197:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>This API is used to return whether a doubly linked list is empty.</li>
+ 198:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+ 199:e:\liteos\liteos\kernel\include\los_list.h ****  *@attention
+ 200:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+ 201:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>The parameter passed in should be ensured to be a legal pointer.</li>
+ 202:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+ 203:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 204:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstList  [IN] Doubly linked list.
+ 205:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 206:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval TRUE The doubly linked list is empty.
+ 207:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval FALSE The doubly linked list is not empty.
+ 208:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Dependency:
+ 209:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul><li>los_list.h: the header file that contains the API declaration.</li></ul>
+ 210:e:\liteos\liteos\kernel\include\los_list.h ****  *@see
+ 211:e:\liteos\liteos\kernel\include\los_list.h ****  *@since Huawei LiteOS V100R001C00
+ 212:e:\liteos\liteos\kernel\include\los_list.h ****  */
+ 213:e:\liteos\liteos\kernel\include\los_list.h **** LITE_OS_SEC_ALW_INLINE STATIC_INLINE BOOL LOS_ListEmpty(LOS_DL_LIST *pstNode)
+ 214:e:\liteos\liteos\kernel\include\los_list.h **** {
+ 215:e:\liteos\liteos\kernel\include\los_list.h ****     return (BOOL)(pstNode->pstNext == pstNode);
+ 170              		.loc 2 215 0
+ 171 0014 144A     		ldr	r2, .L14
+ 172 0016 5368     		ldr	r3, [r2, #4]
+ 173              	.LVL14:
+ 174              	.LBE29:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s 			page 10
+
+
+ 175              	.LBE28:
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     if (LOS_ListEmpty(&g_stUnusedSemList))
+ 176              		.loc 1 122 0
+ 177 0018 9342     		cmp	r3, r2
+ 178 001a 03D1     		bne	.L11
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     {
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         LOS_IntRestore(uwIntSave);
+ 179              		.loc 1 124 0
+ 180 001c FFF7FEFF 		bl	LOS_IntRestore
+ 181              	.LVL15:
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         OS_GOTO_ERR_HANDLER(LOS_ERRNO_SEM_ALL_BUSY);
+ 182              		.loc 1 125 0
+ 183 0020 124C     		ldr	r4, .L14+4
+ 184              	.LVL16:
+ 185 0022 14E0     		b	.L10
+ 186              	.LVL17:
+ 187              	.L11:
+ 188              	.LBB30:
+ 189              	.LBB31:
+ 185:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstPrev->pstNext = pstNode->pstNext;
+ 190              		.loc 2 185 0
+ 191 0024 5A68     		ldr	r2, [r3, #4]
+ 192 0026 1968     		ldr	r1, [r3]
+ 193 0028 1160     		str	r1, [r2]
+ 186:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstNext = (LOS_DL_LIST *)NULL;
+ 194              		.loc 2 186 0
+ 195 002a 1A68     		ldr	r2, [r3]
+ 196 002c 5968     		ldr	r1, [r3, #4]
+ 197 002e 5160     		str	r1, [r2, #4]
+ 198              	.LVL18:
+ 199              	.LBE31:
+ 200              	.LBE30:
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     }
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     pstUnusedSem = LOS_DL_LIST_FIRST(&(g_stUnusedSemList));
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     LOS_ListDelete(pstUnusedSem);
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     pstSemCreated = (GET_SEM_LIST(pstUnusedSem)); /*lint !e413*/
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     pstSemCreated->usSemCount = usCount;
+ 201              		.loc 1 131 0
+ 202 0030 1A00     		movs	r2, r3
+ 203 0032 083A     		subs	r2, r2, #8
+ 204              	.LVL19:
+ 205 0034 5680     		strh	r6, [r2, #2]
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     pstSemCreated->usSemStat = OS_SEM_USED;
+ 206              		.loc 1 132 0
+ 207 0036 0121     		movs	r1, #1
+ 208 0038 1180     		strh	r1, [r2]
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     pstSemCreated->usMaxSemCount = usMaxCount;
+ 209              		.loc 1 133 0
+ 210 003a 9580     		strh	r5, [r2, #4]
+ 211              	.LVL20:
+ 212              	.LBB32:
+ 213              	.LBB33:
+  82:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstPrev = pstList;
+ 214              		.loc 2 82 0
+ 215 003c 5B60     		str	r3, [r3, #4]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s 			page 11
+
+
+  83:e:\liteos\liteos\kernel\include\los_list.h **** }
+ 216              		.loc 2 83 0
+ 217 003e 1B60     		str	r3, [r3]
+ 218              	.LVL21:
+ 219              	.LBE33:
+ 220              	.LBE32:
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     LOS_ListInit(&pstSemCreated->stSemList);
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     *puwSemHandle = (UINT32)pstSemCreated->usSemID;
+ 221              		.loc 1 135 0
+ 222 0040 D388     		ldrh	r3, [r2, #6]
+ 223              	.LVL22:
+ 224 0042 2360     		str	r3, [r4]
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     LOS_IntRestore(uwIntSave);
+ 225              		.loc 1 136 0
+ 226 0044 FFF7FEFF 		bl	LOS_IntRestore
+ 227              	.LVL23:
+ 137:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     return LOS_OK;
+ 228              		.loc 1 137 0
+ 229 0048 0020     		movs	r0, #0
+ 230 004a 0AE0     		b	.L9
+ 231              	.LVL24:
+ 232              	.L13:
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     }
+ 233              		.loc 1 117 0
+ 234 004c 084C     		ldr	r4, .L14+8
+ 235              	.LVL25:
+ 236              	.L10:
+ 138:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 139:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** ErrHandler:
+ 140:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     OS_RETURN_ERROR_P2(uwErrLine, uwErrNo);
+ 237              		.loc 1 140 0
+ 238 004e 0023     		movs	r3, #0
+ 239 0050 0093     		str	r3, [sp]
+ 240 0052 2200     		movs	r2, r4
+ 241 0054 0749     		ldr	r1, .L14+12
+ 242 0056 0848     		ldr	r0, .L14+16
+ 243 0058 FFF7FEFF 		bl	LOS_ErrHandle
+ 244              	.LVL26:
+ 245 005c 2000     		movs	r0, r4
+ 246 005e 00E0     		b	.L9
+ 247              	.LVL27:
+ 248              	.L12:
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     }
+ 249              		.loc 1 112 0
+ 250 0060 0648     		ldr	r0, .L14+20
+ 251              	.LVL28:
+ 252              	.L9:
+ 141:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** }
+ 253              		.loc 1 141 0
+ 254 0062 02B0     		add	sp, sp, #8
+ 255              		@ sp needed
+ 256 0064 70BD     		pop	{r4, r5, r6, pc}
+ 257              	.L15:
+ 258 0066 C046     		.align	2
+ 259              	.L14:
+ 260 0068 00000000 		.word	g_stUnusedSemList
+ 261 006c 03070002 		.word	33556227
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s 			page 12
+
+
+ 262 0070 08070002 		.word	33556232
+ 263 0074 F8C3B2A1 		.word	-1582119944
+ 264 0078 00000000 		.word	.LC4
+ 265 007c 02070002 		.word	33556226
+ 266              		.cfi_endproc
+ 267              	.LFE46:
+ 269              		.section	.text.LOS_SemCreate,"ax",%progbits
+ 270              		.align	2
+ 271              		.global	LOS_SemCreate
+ 272              		.code	16
+ 273              		.thumb_func
+ 275              	LOS_SemCreate:
+ 276              	.LFB47:
+ 142:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 143:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** /*****************************************************************************
+ 144:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Function     : LOS_SemCreate
+ 145:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Description  : Create a semaphore,
+ 146:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Input        : uwCount--------- semaphore count,
+ 147:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Output       : puwSemHandle-----Index of semaphore,
+ 148:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Return       : LOS_OK on success ,or error code on failure
+ 149:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  *****************************************************************************/
+ 150:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** LITE_OS_SEC_TEXT_INIT UINT32 LOS_SemCreate (UINT16 usCount, UINT32 *puwSemHandle)
+ 151:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** {
+ 277              		.loc 1 151 0
+ 278              		.cfi_startproc
+ 279              		@ args = 0, pretend = 0, frame = 0
+ 280              		@ frame_needed = 0, uses_anonymous_args = 0
+ 281              	.LVL29:
+ 282 0000 10B5     		push	{r4, lr}
+ 283              	.LCFI3:
+ 284              		.cfi_def_cfa_offset 8
+ 285              		.cfi_offset 4, -8
+ 286              		.cfi_offset 14, -4
+ 287 0002 0A00     		movs	r2, r1
+ 152:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     return osSemCreate(usCount, OS_SEM_COUNTING_MAX_COUNT, puwSemHandle);
+ 288              		.loc 1 152 0
+ 289 0004 0149     		ldr	r1, .L17
+ 290              	.LVL30:
+ 291 0006 FFF7FEFF 		bl	osSemCreate
+ 292              	.LVL31:
+ 153:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** }
+ 293              		.loc 1 153 0
+ 294              		@ sp needed
+ 295 000a 10BD     		pop	{r4, pc}
+ 296              	.L18:
+ 297              		.align	2
+ 298              	.L17:
+ 299 000c FFFF0000 		.word	65535
+ 300              		.cfi_endproc
+ 301              	.LFE47:
+ 303              		.section	.text.LOS_BinarySemCreate,"ax",%progbits
+ 304              		.align	2
+ 305              		.global	LOS_BinarySemCreate
+ 306              		.code	16
+ 307              		.thumb_func
+ 309              	LOS_BinarySemCreate:
+ 310              	.LFB48:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s 			page 13
+
+
+ 154:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 155:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** /*****************************************************************************
+ 156:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Function     : LOS_BinarySemCreate
+ 157:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Description  : Create a binary semaphore,
+ 158:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Input        : uwCount--------- semaphore count,
+ 159:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Output       : puwSemHandle-----Index of semaphore,
+ 160:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Return       : LOS_OK on success ,or error code on failure
+ 161:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  *****************************************************************************/
+ 162:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** LITE_OS_SEC_TEXT_INIT UINT32 LOS_BinarySemCreate (UINT16 usCount, UINT32 *puwSemHandle)
+ 163:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** {
+ 311              		.loc 1 163 0
+ 312              		.cfi_startproc
+ 313              		@ args = 0, pretend = 0, frame = 0
+ 314              		@ frame_needed = 0, uses_anonymous_args = 0
+ 315              	.LVL32:
+ 316 0000 10B5     		push	{r4, lr}
+ 317              	.LCFI4:
+ 318              		.cfi_def_cfa_offset 8
+ 319              		.cfi_offset 4, -8
+ 320              		.cfi_offset 14, -4
+ 321 0002 0A00     		movs	r2, r1
+ 164:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     return osSemCreate(usCount, OS_SEM_BINARY_MAX_COUNT, puwSemHandle);
+ 322              		.loc 1 164 0
+ 323 0004 0121     		movs	r1, #1
+ 324              	.LVL33:
+ 325 0006 FFF7FEFF 		bl	osSemCreate
+ 326              	.LVL34:
+ 165:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** }
+ 327              		.loc 1 165 0
+ 328              		@ sp needed
+ 329 000a 10BD     		pop	{r4, pc}
+ 330              		.cfi_endproc
+ 331              	.LFE48:
+ 333              		.section	.text.LOS_SemDelete,"ax",%progbits
+ 334              		.align	2
+ 335              		.global	LOS_SemDelete
+ 336              		.code	16
+ 337              		.thumb_func
+ 339              	LOS_SemDelete:
+ 340              	.LFB49:
+ 166:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 167:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** /*****************************************************************************
+ 168:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Function     : LOS_SemDelete
+ 169:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Description : Delete a semaphore,
+ 170:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Input          : uwSemHandle--------- semaphore operation handle,
+ 171:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Output       : None
+ 172:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Return       : LOS_OK on success or error code on failure
+ 173:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  *****************************************************************************/
+ 174:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** LITE_OS_SEC_TEXT_INIT UINT32 LOS_SemDelete(UINT32 uwSemHandle)
+ 175:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** {
+ 341              		.loc 1 175 0
+ 342              		.cfi_startproc
+ 343              		@ args = 0, pretend = 0, frame = 0
+ 344              		@ frame_needed = 0, uses_anonymous_args = 0
+ 345              	.LVL35:
+ 346 0000 10B5     		push	{r4, lr}
+ 347              	.LCFI5:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s 			page 14
+
+
+ 348              		.cfi_def_cfa_offset 8
+ 349              		.cfi_offset 4, -8
+ 350              		.cfi_offset 14, -4
+ 351 0002 82B0     		sub	sp, sp, #8
+ 352              	.LCFI6:
+ 353              		.cfi_def_cfa_offset 16
+ 176:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     UINT32      uwIntSave;
+ 177:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     SEM_CB_S    *pstSemDeleted;
+ 178:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     UINT32      uwErrNo;
+ 179:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     UINT32      uwErrLine;
+ 180:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 181:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     if (uwSemHandle >= (UINT32)LOSCFG_BASE_IPC_SEM_LIMIT)
+ 354              		.loc 1 181 0
+ 355 0004 1328     		cmp	r0, #19
+ 356 0006 21D8     		bhi	.L25
+ 182:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     {
+ 183:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         OS_GOTO_ERR_HANDLER(LOS_ERRNO_SEM_INVALID);
+ 184:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     }
+ 185:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 186:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     pstSemDeleted = GET_SEM(uwSemHandle);
+ 357              		.loc 1 186 0
+ 358 0008 164B     		ldr	r3, .L26
+ 359 000a 1C68     		ldr	r4, [r3]
+ 360 000c 0001     		lsls	r0, r0, #4
+ 361              	.LVL36:
+ 362 000e 2418     		adds	r4, r4, r0
+ 363              	.LVL37:
+ 187:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     uwIntSave = LOS_IntLock();
+ 364              		.loc 1 187 0
+ 365 0010 FFF7FEFF 		bl	LOS_IntLock
+ 366              	.LVL38:
+ 188:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     if (OS_SEM_UNUSED == pstSemDeleted->usSemStat)
+ 367              		.loc 1 188 0
+ 368 0014 2388     		ldrh	r3, [r4]
+ 369 0016 002B     		cmp	r3, #0
+ 370 0018 03D1     		bne	.L22
+ 189:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     {
+ 190:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         LOS_IntRestore(uwIntSave);
+ 371              		.loc 1 190 0
+ 372 001a FFF7FEFF 		bl	LOS_IntRestore
+ 373              	.LVL39:
+ 191:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         OS_GOTO_ERR_HANDLER(LOS_ERRNO_SEM_INVALID);
+ 374              		.loc 1 191 0
+ 375 001e 124C     		ldr	r4, .L26+4
+ 376              	.LVL40:
+ 377 0020 15E0     		b	.L21
+ 378              	.LVL41:
+ 379              	.L22:
+ 192:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     }
+ 193:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 194:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     if (!LOS_ListEmpty(&pstSemDeleted->stSemList))
+ 380              		.loc 1 194 0
+ 381 0022 2300     		movs	r3, r4
+ 382 0024 0833     		adds	r3, r3, #8
+ 383              	.LVL42:
+ 384 0026 E268     		ldr	r2, [r4, #12]
+ 385 0028 9342     		cmp	r3, r2
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s 			page 15
+
+
+ 386 002a 03D0     		beq	.L23
+ 195:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     {
+ 196:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         LOS_IntRestore(uwIntSave);
+ 387              		.loc 1 196 0
+ 388 002c FFF7FEFF 		bl	LOS_IntRestore
+ 389              	.LVL43:
+ 197:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         OS_GOTO_ERR_HANDLER(LOS_ERRNO_SEM_PENDED);
+ 390              		.loc 1 197 0
+ 391 0030 0E4C     		ldr	r4, .L26+8
+ 392              	.LVL44:
+ 393 0032 0CE0     		b	.L21
+ 394              	.LVL45:
+ 395              	.L23:
+ 396              	.LBB34:
+ 397              	.LBB35:
+ 131:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstPrev = pstList;
+ 398              		.loc 2 131 0
+ 399 0034 0E4A     		ldr	r2, .L26+12
+ 400 0036 5168     		ldr	r1, [r2, #4]
+ 401 0038 E160     		str	r1, [r4, #12]
+ 132:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstNext->pstPrev = pstNode;
+ 402              		.loc 2 132 0
+ 403 003a A260     		str	r2, [r4, #8]
+ 133:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstNext = pstNode;
+ 404              		.loc 2 133 0
+ 405 003c 0B60     		str	r3, [r1]
+ 134:e:\liteos\liteos\kernel\include\los_list.h **** }
+ 406              		.loc 2 134 0
+ 407 003e 5360     		str	r3, [r2, #4]
+ 408              	.LVL46:
+ 409              	.LBE35:
+ 410              	.LBE34:
+ 198:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     }
+ 199:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 200:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     LOS_ListAdd(&g_stUnusedSemList, &pstSemDeleted->stSemList);
+ 201:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     pstSemDeleted->usSemStat = OS_SEM_UNUSED;
+ 411              		.loc 1 201 0
+ 412 0040 0023     		movs	r3, #0
+ 413 0042 2380     		strh	r3, [r4]
+ 202:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     LOS_IntRestore(uwIntSave);
+ 414              		.loc 1 202 0
+ 415 0044 FFF7FEFF 		bl	LOS_IntRestore
+ 416              	.LVL47:
+ 203:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     return LOS_OK;
+ 417              		.loc 1 203 0
+ 418 0048 0020     		movs	r0, #0
+ 419 004a 08E0     		b	.L24
+ 420              	.LVL48:
+ 421              	.L25:
+ 183:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     }
+ 422              		.loc 1 183 0
+ 423 004c 064C     		ldr	r4, .L26+4
+ 424              	.LVL49:
+ 425              	.L21:
+ 204:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** ErrHandler:
+ 205:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     OS_RETURN_ERROR_P2(uwErrLine, uwErrNo);
+ 426              		.loc 1 205 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s 			page 16
+
+
+ 427 004e 0023     		movs	r3, #0
+ 428 0050 0093     		str	r3, [sp]
+ 429 0052 2200     		movs	r2, r4
+ 430 0054 0749     		ldr	r1, .L26+16
+ 431 0056 0848     		ldr	r0, .L26+20
+ 432 0058 FFF7FEFF 		bl	LOS_ErrHandle
+ 433              	.LVL50:
+ 434 005c 2000     		movs	r0, r4
+ 435              	.LVL51:
+ 436              	.L24:
+ 206:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** }
+ 437              		.loc 1 206 0
+ 438 005e 02B0     		add	sp, sp, #8
+ 439              		@ sp needed
+ 440 0060 10BD     		pop	{r4, pc}
+ 441              	.L27:
+ 442 0062 C046     		.align	2
+ 443              	.L26:
+ 444 0064 00000000 		.word	g_pstAllSem
+ 445 0068 01070002 		.word	33556225
+ 446 006c 09070002 		.word	33556233
+ 447 0070 00000000 		.word	g_stUnusedSemList
+ 448 0074 F8C3B2A1 		.word	-1582119944
+ 449 0078 00000000 		.word	.LC4
+ 450              		.cfi_endproc
+ 451              	.LFE49:
+ 453              		.section	.text.LOS_SemPend,"ax",%progbits
+ 454              		.align	2
+ 455              		.global	LOS_SemPend
+ 456              		.code	16
+ 457              		.thumb_func
+ 459              	LOS_SemPend:
+ 460              	.LFB50:
+ 207:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 208:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** /*****************************************************************************
+ 209:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Function     : LOS_SemPend
+ 210:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Description : Specified semaphore P operation,
+ 211:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Input          : uwSemHandle--------- semaphore operation handle,
+ 212:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  		     uwTimeout   ---------- waitting time
+ 213:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Output       : None
+ 214:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Return       : LOS_OK on success or error code on failure
+ 215:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  *****************************************************************************/
+ 216:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** LITE_OS_SEC_TEXT UINT32 LOS_SemPend(UINT32 uwSemHandle, UINT32 uwTimeout)
+ 217:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** {
+ 461              		.loc 1 217 0
+ 462              		.cfi_startproc
+ 463              		@ args = 0, pretend = 0, frame = 0
+ 464              		@ frame_needed = 0, uses_anonymous_args = 0
+ 465              	.LVL52:
+ 466 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 467              	.LCFI7:
+ 468              		.cfi_def_cfa_offset 20
+ 469              		.cfi_offset 4, -20
+ 470              		.cfi_offset 5, -16
+ 471              		.cfi_offset 6, -12
+ 472              		.cfi_offset 7, -8
+ 473              		.cfi_offset 14, -4
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s 			page 17
+
+
+ 474 0002 4746     		mov	r7, r8
+ 475 0004 80B4     		push	{r7}
+ 476              	.LCFI8:
+ 477              		.cfi_def_cfa_offset 24
+ 478              		.cfi_offset 8, -24
+ 479 0006 82B0     		sub	sp, sp, #8
+ 480              	.LCFI9:
+ 481              		.cfi_def_cfa_offset 32
+ 482 0008 0E00     		movs	r6, r1
+ 218:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     UINT32      uwIntSave;
+ 219:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     SEM_CB_S    *pstSemPended;
+ 220:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     UINT32      uwRetErr;
+ 221:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     LOS_TASK_CB *pstRunTsk;
+ 222:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 223:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     if (uwSemHandle >= (UINT32)LOSCFG_BASE_IPC_SEM_LIMIT)
+ 483              		.loc 1 223 0
+ 484 000a 1328     		cmp	r0, #19
+ 485 000c 08D9     		bls	.L29
+ 224:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     {
+ 225:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         OS_RETURN_ERROR(LOS_ERRNO_SEM_INVALID);
+ 486              		.loc 1 225 0
+ 487 000e 374C     		ldr	r4, .L37
+ 488 0010 0023     		movs	r3, #0
+ 489 0012 0093     		str	r3, [sp]
+ 490 0014 2200     		movs	r2, r4
+ 491 0016 3649     		ldr	r1, .L37+4
+ 492              	.LVL53:
+ 493 0018 3648     		ldr	r0, .L37+8
+ 494              	.LVL54:
+ 495 001a FFF7FEFF 		bl	LOS_ErrHandle
+ 496              	.LVL55:
+ 497 001e 60E0     		b	.L30
+ 498              	.LVL56:
+ 499              	.L29:
+ 226:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     }
+ 227:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 228:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     pstSemPended = GET_SEM(uwSemHandle);
+ 500              		.loc 1 228 0
+ 501 0020 354B     		ldr	r3, .L37+12
+ 502 0022 1D68     		ldr	r5, [r3]
+ 503 0024 0001     		lsls	r0, r0, #4
+ 504              	.LVL57:
+ 505 0026 2D18     		adds	r5, r5, r0
+ 506              	.LVL58:
+ 229:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     uwIntSave = LOS_IntLock();
+ 507              		.loc 1 229 0
+ 508 0028 FFF7FEFF 		bl	LOS_IntLock
+ 509              	.LVL59:
+ 510 002c 0700     		movs	r7, r0
+ 511              	.LVL60:
+ 230:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     if (OS_SEM_UNUSED == pstSemPended->usSemStat)
+ 512              		.loc 1 230 0
+ 513 002e 2B88     		ldrh	r3, [r5]
+ 514 0030 002B     		cmp	r3, #0
+ 515 0032 0AD1     		bne	.L31
+ 231:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     {
+ 232:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         LOS_IntRestore(uwIntSave);
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s 			page 18
+
+
+ 516              		.loc 1 232 0
+ 517 0034 FFF7FEFF 		bl	LOS_IntRestore
+ 518              	.LVL61:
+ 233:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         OS_RETURN_ERROR(LOS_ERRNO_SEM_INVALID);
+ 519              		.loc 1 233 0
+ 520 0038 2C4C     		ldr	r4, .L37
+ 521 003a 0023     		movs	r3, #0
+ 522 003c 0093     		str	r3, [sp]
+ 523 003e 2200     		movs	r2, r4
+ 524 0040 2B49     		ldr	r1, .L37+4
+ 525 0042 2C48     		ldr	r0, .L37+8
+ 526 0044 FFF7FEFF 		bl	LOS_ErrHandle
+ 527              	.LVL62:
+ 528 0048 4BE0     		b	.L30
+ 529              	.LVL63:
+ 530              	.L31:
+ 234:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     }
+ 235:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 236:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     if (pstSemPended->usSemCount > 0)
+ 531              		.loc 1 236 0
+ 532 004a 6B88     		ldrh	r3, [r5, #2]
+ 533 004c 002B     		cmp	r3, #0
+ 534 004e 05D0     		beq	.L32
+ 237:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     {
+ 238:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         pstSemPended->usSemCount--;
+ 535              		.loc 1 238 0
+ 536 0050 013B     		subs	r3, r3, #1
+ 537 0052 6B80     		strh	r3, [r5, #2]
+ 239:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         LOS_IntRestore(uwIntSave);
+ 538              		.loc 1 239 0
+ 539 0054 FFF7FEFF 		bl	LOS_IntRestore
+ 540              	.LVL64:
+ 240:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         return LOS_OK;
+ 541              		.loc 1 240 0
+ 542 0058 0024     		movs	r4, #0
+ 543 005a 42E0     		b	.L30
+ 544              	.LVL65:
+ 545              	.L32:
+ 241:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     }
+ 242:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 243:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     if (!uwTimeout)
+ 546              		.loc 1 243 0
+ 547 005c 002E     		cmp	r6, #0
+ 548 005e 35D0     		beq	.L36
+ 244:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     {
+ 245:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         uwRetErr = LOS_ERRNO_SEM_UNAVAILABLE;
+ 246:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         goto errre_uniSemPend;
+ 247:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     }
+ 248:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 249:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     if (OS_INT_ACTIVE)
+ 549              		.loc 1 249 0
+ 550 0060 FFF7FEFF 		bl	osIntNumGet
+ 551              	.LVL66:
+ 552 0064 041E     		subs	r4, r0, #0
+ 553 0066 07D0     		beq	.L34
+ 554              	.LVL67:
+ 250:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     {
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s 			page 19
+
+
+ 251:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         uwRetErr = LOS_ERRNO_SEM_PEND_INTERR;
+ 252:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         PRINT_ERR("!!!LOS_ERRNO_SEM_PEND_INTERR!!!\n");
+ 555              		.loc 1 252 0
+ 556 0068 2448     		ldr	r0, .L37+16
+ 557 006a FFF7FEFF 		bl	printf
+ 558              	.LVL68:
+ 559 006e 2448     		ldr	r0, .L37+20
+ 560 0070 FFF7FEFF 		bl	puts
+ 561              	.LVL69:
+ 251:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         PRINT_ERR("!!!LOS_ERRNO_SEM_PEND_INTERR!!!\n");
+ 562              		.loc 1 251 0
+ 563 0074 234C     		ldr	r4, .L37+24
+ 253:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** #if (LOSCFG_PLATFORM_EXC == YES)
+ 254:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         osBackTrace();
+ 255:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** #endif
+ 256:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         goto errre_uniSemPend;
+ 564              		.loc 1 256 0
+ 565 0076 2AE0     		b	.L33
+ 566              	.LVL70:
+ 567              	.L34:
+ 257:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     }
+ 258:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 259:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     if (g_usLosTaskLock)
+ 568              		.loc 1 259 0
+ 569 0078 234B     		ldr	r3, .L37+28
+ 570 007a 1B88     		ldrh	r3, [r3]
+ 571 007c 002B     		cmp	r3, #0
+ 572 007e 07D0     		beq	.L35
+ 573              	.LVL71:
+ 260:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     {
+ 261:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         uwRetErr = LOS_ERRNO_SEM_PEND_IN_LOCK;
+ 262:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         PRINT_ERR("!!!LOS_ERRNO_SEM_PEND_IN_LOCK!!!\n");
+ 574              		.loc 1 262 0
+ 575 0080 1E48     		ldr	r0, .L37+16
+ 576 0082 FFF7FEFF 		bl	printf
+ 577              	.LVL72:
+ 578 0086 2148     		ldr	r0, .L37+32
+ 579 0088 FFF7FEFF 		bl	puts
+ 580              	.LVL73:
+ 261:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         PRINT_ERR("!!!LOS_ERRNO_SEM_PEND_IN_LOCK!!!\n");
+ 581              		.loc 1 261 0
+ 582 008c 204C     		ldr	r4, .L37+36
+ 263:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** #if (LOSCFG_PLATFORM_EXC == YES)
+ 264:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         osBackTrace();
+ 265:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** #endif
+ 266:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         goto errre_uniSemPend;
+ 583              		.loc 1 266 0
+ 584 008e 1EE0     		b	.L33
+ 585              	.LVL74:
+ 586              	.L35:
+ 267:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     }
+ 268:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 269:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     pstRunTsk = (LOS_TASK_CB *)g_stLosTask.pstRunTask;
+ 587              		.loc 1 269 0
+ 588 0090 204B     		ldr	r3, .L37+40
+ 589 0092 1B68     		ldr	r3, [r3]
+ 590 0094 9846     		mov	r8, r3
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s 			page 20
+
+
+ 591              	.LVL75:
+ 270:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     pstRunTsk->pTaskSem = (VOID *)pstSemPended;
+ 592              		.loc 1 270 0
+ 593 0096 9D61     		str	r5, [r3, #24]
+ 271:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     osTaskWait(&pstSemPended->stSemList, OS_TASK_STATUS_PEND, uwTimeout);
+ 594              		.loc 1 271 0
+ 595 0098 2800     		movs	r0, r5
+ 596 009a 0830     		adds	r0, r0, #8
+ 597 009c 3200     		movs	r2, r6
+ 598 009e 0821     		movs	r1, #8
+ 599 00a0 FFF7FEFF 		bl	osTaskWait
+ 600              	.LVL76:
+ 272:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     (VOID)LOS_IntRestore(uwIntSave);
+ 601              		.loc 1 272 0
+ 602 00a4 3800     		movs	r0, r7
+ 603 00a6 FFF7FEFF 		bl	LOS_IntRestore
+ 604              	.LVL77:
+ 273:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     LOS_Schedule();
+ 605              		.loc 1 273 0
+ 606 00aa FFF7FEFF 		bl	LOS_Schedule
+ 607              	.LVL78:
+ 274:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 275:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     if (pstRunTsk->usTaskStatus & OS_TASK_STATUS_TIMEOUT)
+ 608              		.loc 1 275 0
+ 609 00ae 4346     		mov	r3, r8
+ 610 00b0 9B88     		ldrh	r3, [r3, #4]
+ 611 00b2 5B06     		lsls	r3, r3, #25
+ 612 00b4 15D5     		bpl	.L30
+ 276:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     {
+ 277:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         uwIntSave = LOS_IntLock();
+ 613              		.loc 1 277 0
+ 614 00b6 FFF7FEFF 		bl	LOS_IntLock
+ 615              	.LVL79:
+ 616 00ba 0700     		movs	r7, r0
+ 617              	.LVL80:
+ 278:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         pstRunTsk->usTaskStatus &= (~OS_TASK_STATUS_TIMEOUT);
+ 618              		.loc 1 278 0
+ 619 00bc 4346     		mov	r3, r8
+ 620 00be 9B88     		ldrh	r3, [r3, #4]
+ 621 00c0 4022     		movs	r2, #64
+ 622 00c2 9343     		bics	r3, r2
+ 623 00c4 4246     		mov	r2, r8
+ 624 00c6 9380     		strh	r3, [r2, #4]
+ 625              	.LVL81:
+ 279:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         uwRetErr = LOS_ERRNO_SEM_TIMEOUT;
+ 626              		.loc 1 279 0
+ 627 00c8 134C     		ldr	r4, .L37+44
+ 280:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         goto errre_uniSemPend;
+ 628              		.loc 1 280 0
+ 629 00ca 00E0     		b	.L33
+ 630              	.LVL82:
+ 631              	.L36:
+ 245:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         goto errre_uniSemPend;
+ 632              		.loc 1 245 0
+ 633 00cc 134C     		ldr	r4, .L37+48
+ 634              	.LVL83:
+ 635              	.L33:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s 			page 21
+
+
+ 281:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     }
+ 282:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 283:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     return LOS_OK;
+ 284:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 285:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** errre_uniSemPend:
+ 286:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     (VOID)LOS_IntRestore(uwIntSave);
+ 636              		.loc 1 286 0
+ 637 00ce 3800     		movs	r0, r7
+ 638 00d0 FFF7FEFF 		bl	LOS_IntRestore
+ 639              	.LVL84:
+ 287:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     OS_RETURN_ERROR(uwRetErr);
+ 640              		.loc 1 287 0
+ 641 00d4 0023     		movs	r3, #0
+ 642 00d6 0093     		str	r3, [sp]
+ 643 00d8 2200     		movs	r2, r4
+ 644 00da 0549     		ldr	r1, .L37+4
+ 645 00dc 0548     		ldr	r0, .L37+8
+ 646 00de FFF7FEFF 		bl	LOS_ErrHandle
+ 647              	.LVL85:
+ 648              	.L30:
+ 288:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** }
+ 649              		.loc 1 288 0
+ 650 00e2 2000     		movs	r0, r4
+ 651 00e4 02B0     		add	sp, sp, #8
+ 652              		@ sp needed
+ 653              	.LVL86:
+ 654 00e6 04BC     		pop	{r2}
+ 655 00e8 9046     		mov	r8, r2
+ 656 00ea F0BD     		pop	{r4, r5, r6, r7, pc}
+ 657              	.L38:
+ 658              		.align	2
+ 659              	.L37:
+ 660 00ec 01070002 		.word	33556225
+ 661 00f0 F8C3B2A1 		.word	-1582119944
+ 662 00f4 00000000 		.word	.LC4
+ 663 00f8 00000000 		.word	g_pstAllSem
+ 664 00fc 14000000 		.word	.LC11
+ 665 0100 1C000000 		.word	.LC13
+ 666 0104 05070002 		.word	33556229
+ 667 0108 00000000 		.word	g_usLosTaskLock
+ 668 010c 3C000000 		.word	.LC16
+ 669 0110 06070002 		.word	33556230
+ 670 0114 00000000 		.word	g_stLosTask
+ 671 0118 07070002 		.word	33556231
+ 672 011c 04070002 		.word	33556228
+ 673              		.cfi_endproc
+ 674              	.LFE50:
+ 676              		.section	.text.LOS_SemPost,"ax",%progbits
+ 677              		.align	2
+ 678              		.global	LOS_SemPost
+ 679              		.code	16
+ 680              		.thumb_func
+ 682              	LOS_SemPost:
+ 683              	.LFB51:
+ 289:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 290:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** /*****************************************************************************
+ 291:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Function     : LOS_SemPend
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s 			page 22
+
+
+ 292:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Description  : Specified semaphore V operation,
+ 293:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Input        : uwSemHandle--------- semaphore operation handle,
+ 294:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Output       : None
+ 295:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  Return       : LOS_OK on success or error code on failure
+ 296:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****  *****************************************************************************/
+ 297:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** LITE_OS_SEC_TEXT UINT32 LOS_SemPost(UINT32 uwSemHandle)
+ 298:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** {
+ 684              		.loc 1 298 0
+ 685              		.cfi_startproc
+ 686              		@ args = 0, pretend = 0, frame = 0
+ 687              		@ frame_needed = 0, uses_anonymous_args = 0
+ 688              	.LVL87:
+ 689 0000 30B5     		push	{r4, r5, lr}
+ 690              	.LCFI10:
+ 691              		.cfi_def_cfa_offset 12
+ 692              		.cfi_offset 4, -12
+ 693              		.cfi_offset 5, -8
+ 694              		.cfi_offset 14, -4
+ 695 0002 83B0     		sub	sp, sp, #12
+ 696              	.LCFI11:
+ 697              		.cfi_def_cfa_offset 24
+ 299:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     UINT32      uwIntSave;
+ 300:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     SEM_CB_S    *pstSemPosted = GET_SEM(uwSemHandle);
+ 698              		.loc 1 300 0
+ 699 0004 214B     		ldr	r3, .L45
+ 700 0006 1C68     		ldr	r4, [r3]
+ 701 0008 0301     		lsls	r3, r0, #4
+ 702 000a E418     		adds	r4, r4, r3
+ 703              	.LVL88:
+ 301:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     LOS_TASK_CB *pstResumedTask;
+ 302:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 303:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     if (uwSemHandle >= LOSCFG_BASE_IPC_SEM_LIMIT)
+ 704              		.loc 1 303 0
+ 705 000c 1328     		cmp	r0, #19
+ 706 000e 3AD8     		bhi	.L44
+ 304:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     {
+ 305:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         return LOS_ERRNO_SEM_INVALID;
+ 306:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     }
+ 307:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 308:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     uwIntSave = LOS_IntLock();
+ 707              		.loc 1 308 0
+ 708 0010 FFF7FEFF 		bl	LOS_IntLock
+ 709              	.LVL89:
+ 710 0014 0500     		movs	r5, r0
+ 711              	.LVL90:
+ 309:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 310:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     if (OS_SEM_UNUSED == pstSemPosted->usSemStat)
+ 712              		.loc 1 310 0
+ 713 0016 2388     		ldrh	r3, [r4]
+ 714 0018 002B     		cmp	r3, #0
+ 715 001a 0BD1     		bne	.L41
+ 311:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     {
+ 312:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         LOS_IntRestore(uwIntSave);
+ 716              		.loc 1 312 0
+ 717 001c FFF7FEFF 		bl	LOS_IntRestore
+ 718              	.LVL91:
+ 313:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         OS_RETURN_ERROR(LOS_ERRNO_SEM_INVALID);
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s 			page 23
+
+
+ 719              		.loc 1 313 0
+ 720 0020 1B4C     		ldr	r4, .L45+4
+ 721              	.LVL92:
+ 722 0022 0023     		movs	r3, #0
+ 723 0024 0093     		str	r3, [sp]
+ 724 0026 2200     		movs	r2, r4
+ 725 0028 1A49     		ldr	r1, .L45+8
+ 726 002a 1B48     		ldr	r0, .L45+12
+ 727 002c FFF7FEFF 		bl	LOS_ErrHandle
+ 728              	.LVL93:
+ 729 0030 2000     		movs	r0, r4
+ 730 0032 29E0     		b	.L40
+ 731              	.LVL94:
+ 732              	.L41:
+ 314:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     }
+ 315:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 316:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     if (pstSemPosted->usMaxSemCount == pstSemPosted->usSemCount)
+ 733              		.loc 1 316 0
+ 734 0034 A388     		ldrh	r3, [r4, #4]
+ 735 0036 6288     		ldrh	r2, [r4, #2]
+ 736 0038 9342     		cmp	r3, r2
+ 737 003a 0BD1     		bne	.L42
+ 317:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     {
+ 318:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         (VOID)LOS_IntRestore(uwIntSave);
+ 738              		.loc 1 318 0
+ 739 003c FFF7FEFF 		bl	LOS_IntRestore
+ 740              	.LVL95:
+ 319:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         OS_RETURN_ERROR(LOS_ERRNO_SEM_OVERFLOW);
+ 741              		.loc 1 319 0
+ 742 0040 164C     		ldr	r4, .L45+16
+ 743              	.LVL96:
+ 744 0042 0023     		movs	r3, #0
+ 745 0044 0093     		str	r3, [sp]
+ 746 0046 2200     		movs	r2, r4
+ 747 0048 1249     		ldr	r1, .L45+8
+ 748 004a 1348     		ldr	r0, .L45+12
+ 749 004c FFF7FEFF 		bl	LOS_ErrHandle
+ 750              	.LVL97:
+ 751 0050 2000     		movs	r0, r4
+ 752 0052 19E0     		b	.L40
+ 753              	.LVL98:
+ 754              	.L42:
+ 320:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     }
+ 321:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     if (!LOS_ListEmpty(&pstSemPosted->stSemList))
+ 755              		.loc 1 321 0
+ 756 0054 2300     		movs	r3, r4
+ 757 0056 0833     		adds	r3, r3, #8
+ 758              	.LBB36:
+ 759              	.LBB37:
+ 760              		.loc 2 215 0
+ 761 0058 E068     		ldr	r0, [r4, #12]
+ 762              	.LVL99:
+ 763              	.LBE37:
+ 764              	.LBE36:
+ 765              		.loc 1 321 0
+ 766 005a 8342     		cmp	r3, r0
+ 767 005c 0CD0     		beq	.L43
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s 			page 24
+
+
+ 322:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     {
+ 323:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         pstResumedTask = OS_TCB_FROM_PENDLIST(LOS_DL_LIST_FIRST(&(pstSemPosted->stSemList))); /*lin
+ 768              		.loc 1 323 0
+ 769 005e 2838     		subs	r0, r0, #40
+ 770              	.LVL100:
+ 324:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         pstResumedTask->pTaskSem = NULL;
+ 771              		.loc 1 324 0
+ 772 0060 0023     		movs	r3, #0
+ 773 0062 8361     		str	r3, [r0, #24]
+ 325:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         osTaskWake(pstResumedTask, OS_TASK_STATUS_PEND);
+ 774              		.loc 1 325 0
+ 775 0064 0821     		movs	r1, #8
+ 776 0066 FFF7FEFF 		bl	osTaskWake
+ 777              	.LVL101:
+ 326:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 327:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         (VOID)LOS_IntRestore(uwIntSave);
+ 778              		.loc 1 327 0
+ 779 006a 2800     		movs	r0, r5
+ 780 006c FFF7FEFF 		bl	LOS_IntRestore
+ 781              	.LVL102:
+ 328:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         LOS_Schedule();
+ 782              		.loc 1 328 0
+ 783 0070 FFF7FEFF 		bl	LOS_Schedule
+ 784              	.LVL103:
+ 329:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     }
+ 330:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     else
+ 331:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     {
+ 332:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         pstSemPosted->usSemCount++;
+ 333:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         (VOID)LOS_IntRestore(uwIntSave);
+ 334:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     }
+ 335:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** 
+ 336:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     return LOS_OK;
+ 785              		.loc 1 336 0
+ 786 0074 0020     		movs	r0, #0
+ 787 0076 07E0     		b	.L40
+ 788              	.L43:
+ 332:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****         (VOID)LOS_IntRestore(uwIntSave);
+ 789              		.loc 1 332 0
+ 790 0078 0132     		adds	r2, r2, #1
+ 791 007a 6280     		strh	r2, [r4, #2]
+ 333:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     }
+ 792              		.loc 1 333 0
+ 793 007c 2800     		movs	r0, r5
+ 794 007e FFF7FEFF 		bl	LOS_IntRestore
+ 795              	.LVL104:
+ 796              		.loc 1 336 0
+ 797 0082 0020     		movs	r0, #0
+ 798 0084 00E0     		b	.L40
+ 799              	.LVL105:
+ 800              	.L44:
+ 305:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c ****     }
+ 801              		.loc 1 305 0
+ 802 0086 0248     		ldr	r0, .L45+4
+ 803              	.LVL106:
+ 804              	.L40:
+ 337:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_sem.c **** }
+ 805              		.loc 1 337 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s 			page 25
+
+
+ 806 0088 03B0     		add	sp, sp, #12
+ 807              		@ sp needed
+ 808 008a 30BD     		pop	{r4, r5, pc}
+ 809              	.L46:
+ 810              		.align	2
+ 811              	.L45:
+ 812 008c 00000000 		.word	g_pstAllSem
+ 813 0090 01070002 		.word	33556225
+ 814 0094 F8C3B2A1 		.word	-1582119944
+ 815 0098 00000000 		.word	.LC4
+ 816 009c 08070002 		.word	33556232
+ 817              		.cfi_endproc
+ 818              	.LFE51:
+ 820              		.comm	g_pstAllSem,4,4
+ 821              		.comm	g_stUnusedSemList,8,4
+ 822              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 823              		.align	2
+ 824              	.LC4:
+ 825 0000 6F735F75 		.ascii	"os_unspecific_file\000"
+ 825      6E737065 
+ 825      63696669 
+ 825      635F6669 
+ 825      6C6500
+ 826 0013 00       		.space	1
+ 827              	.LC11:
+ 828 0014 5B455252 		.ascii	"[ERR] \000"
+ 828      5D2000
+ 829 001b 00       		.space	1
+ 830              	.LC13:
+ 831 001c 2121214C 		.ascii	"!!!LOS_ERRNO_SEM_PEND_INTERR!!!\000"
+ 831      4F535F45 
+ 831      52524E4F 
+ 831      5F53454D 
+ 831      5F50454E 
+ 832              	.LC16:
+ 833 003c 2121214C 		.ascii	"!!!LOS_ERRNO_SEM_PEND_IN_LOCK!!!\000"
+ 833      4F535F45 
+ 833      52524E4F 
+ 833      5F53454D 
+ 833      5F50454E 
+ 834              		.text
+ 835              	.Letext0:
+ 836              		.file 3 "e:\\liteos\\liteos\\kernel\\include\\los_typedef.h"
+ 837              		.file 4 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\machine\\_default_types.h
+ 838              		.file 5 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 839              		.file 6 "e:\\liteos\\liteos\\kernel\\include\\los_event.h"
+ 840              		.file 7 "e:\\liteos\\liteos\\kernel\\include\\los_task.h"
+ 841              		.file 8 "e:\\liteos\\liteos\\kernel\\base\\include\\los_sem.ph"
+ 842              		.file 9 "e:\\liteos\\liteos\\kernel\\base\\include\\los_task.ph"
+ 843              		.file 10 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\device\\include\\system_FM33A0XX.h"
+ 844              		.file 11 "e:\\liteos\\liteos\\kernel\\include\\los_config.h"
+ 845              		.file 12 "e:\\liteos\\liteos\\kernel\\include\\los_memory.h"
+ 846              		.file 13 "e:\\liteos\\liteos\\arch\\arm\\arm-m\\include\\los_hwi.h"
+ 847              		.file 14 "e:\\liteos\\liteos\\kernel\\include\\los_err.h"
+ 848              		.file 15 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\stdio.h"
+ 849              		.file 16 "e:\\liteos\\liteos\\arch\\arm\\arm-m\\include\\los_hw.h"
+ 850              		.file 17 "<built-in>"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s 			page 26
+
+
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s 			page 27
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 los_sem.c
+C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s:20     .text.osSemInit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s:25     .text.osSemInit:00000000 osSemInit
+C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s:127    .text.osSemInit:00000054 $d
+                            *COM*:00000008 g_stUnusedSemList
+                            *COM*:00000004 g_pstAllSem
+C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s:135    .text.osSemCreate:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s:140    .text.osSemCreate:00000000 osSemCreate
+C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s:260    .text.osSemCreate:00000068 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s:270    .text.LOS_SemCreate:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s:275    .text.LOS_SemCreate:00000000 LOS_SemCreate
+C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s:299    .text.LOS_SemCreate:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s:304    .text.LOS_BinarySemCreate:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s:309    .text.LOS_BinarySemCreate:00000000 LOS_BinarySemCreate
+C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s:334    .text.LOS_SemDelete:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s:339    .text.LOS_SemDelete:00000000 LOS_SemDelete
+C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s:444    .text.LOS_SemDelete:00000064 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s:454    .text.LOS_SemPend:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s:459    .text.LOS_SemPend:00000000 LOS_SemPend
+C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s:660    .text.LOS_SemPend:000000ec $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s:677    .text.LOS_SemPost:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s:682    .text.LOS_SemPost:00000000 LOS_SemPost
+C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s:812    .text.LOS_SemPost:0000008c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccCa42X9.s:823    .rodata.str1.4:00000000 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+LOS_MemAlloc
+m_aucSysMem0
+LOS_IntLock
+LOS_IntRestore
+LOS_ErrHandle
+osIntNumGet
+printf
+puts
+osTaskWait
+LOS_Schedule
+g_usLosTaskLock
+g_stLosTask
+osTaskWake

@@ -1,0 +1,2388 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"fm33a0xx_etim.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.ETIMx_ETxCR_EXFLT_Setable,"ax",%progbits
+  20              		.align	2
+  21              		.global	ETIMx_ETxCR_EXFLT_Setable
+  22              		.code	16
+  23              		.thumb_func
+  25              	ETIMx_ETxCR_EXFLT_Setable:
+  26              	.LFB36:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers/fm33a
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /**
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c ****   ******************************************************************************
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c ****   * @file    fm33a0xx_etim.c
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c ****   * @author  FM33a0 Application Team
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c ****   * @version V2.0.1
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c ****   * @date    26-2-2018
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c ****   * @brief   This file provides firmware functions to manage the following 
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c ****   *          functionalities of....:
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c ****   *
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** */
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* Includes ------------------------------------------------------------------*/
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** #include "fm33A0xx_etim.h"  
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /** @addtogroup fm33a0_StdPeriph_Driver
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c ****   * @{
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c ****   */
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /** @defgroup ETIM 
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c ****   * @brief ETIM driver modules
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c ****   * @{
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c ****   */ 
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* Private typedef -----------------------------------------------------------*/
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* Private define ------------------------------------------------------------*/
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* Private macro -------------------------------------------------------------*/
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* Private variables ---------------------------------------------------------*/
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* Private function prototypes -----------------------------------------------*/
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 2
+
+
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* Private functions ---------------------------------------------------------*/
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** //Code_Start
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** //2018-04-02-13-21-03
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** //FM33A0XX_Driver_Gen_V1.4
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* 引脚输入数字滤波使能 相关函数 */
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** void ETIMx_ETxCR_EXFLT_Setable(ETIMx_Type* ETIMx, FunState NewState)
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+  28              		.loc 1 40 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	if (NewState == ENABLE)
+  34              		.loc 1 41 0
+  35 0000 0129     		cmp	r1, #1
+  36 0002 05D1     		bne	.L2
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		ETIMx->ETxCR |= (ETIMx_ETxCR_EXFLT_Msk);
+  37              		.loc 1 43 0
+  38 0004 0368     		ldr	r3, [r0]
+  39 0006 8022     		movs	r2, #128
+  40 0008 9200     		lsls	r2, r2, #2
+  41 000a 1343     		orrs	r3, r2
+  42 000c 0360     		str	r3, [r0]
+  43 000e 03E0     		b	.L1
+  44              	.L2:
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	else
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		ETIMx->ETxCR &= ~(ETIMx_ETxCR_EXFLT_Msk);
+  45              		.loc 1 47 0
+  46 0010 0268     		ldr	r2, [r0]
+  47 0012 024B     		ldr	r3, .L4
+  48 0014 1340     		ands	r3, r2
+  49 0016 0360     		str	r3, [r0]
+  50              	.L1:
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+  51              		.loc 1 49 0
+  52              		@ sp needed
+  53 0018 7047     		bx	lr
+  54              	.L5:
+  55 001a C046     		.align	2
+  56              	.L4:
+  57 001c FFFDFFFF 		.word	-513
+  58              		.cfi_endproc
+  59              	.LFE36:
+  61              		.section	.text.ETIMx_ETxCR_EXFLT_Getable,"ax",%progbits
+  62              		.align	2
+  63              		.global	ETIMx_ETxCR_EXFLT_Getable
+  64              		.code	16
+  65              		.thumb_func
+  67              	ETIMx_ETxCR_EXFLT_Getable:
+  68              	.LFB37:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 3
+
+
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** FunState ETIMx_ETxCR_EXFLT_Getable(ETIMx_Type* ETIMx)
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+  69              		.loc 1 52 0
+  70              		.cfi_startproc
+  71              		@ args = 0, pretend = 0, frame = 0
+  72              		@ frame_needed = 0, uses_anonymous_args = 0
+  73              		@ link register save eliminated.
+  74              	.LVL1:
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	if (ETIMx->ETxCR & (ETIMx_ETxCR_EXFLT_Msk))
+  75              		.loc 1 53 0
+  76 0000 0368     		ldr	r3, [r0]
+  77 0002 9B05     		lsls	r3, r3, #22
+  78 0004 01D5     		bpl	.L8
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		return ENABLE;
+  79              		.loc 1 55 0
+  80 0006 0120     		movs	r0, #1
+  81              	.LVL2:
+  82 0008 00E0     		b	.L7
+  83              	.LVL3:
+  84              	.L8:
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	else
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		return DISABLE;
+  85              		.loc 1 59 0
+  86 000a 0020     		movs	r0, #0
+  87              	.LVL4:
+  88              	.L7:
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+  89              		.loc 1 61 0
+  90              		@ sp needed
+  91 000c 7047     		bx	lr
+  92              		.cfi_endproc
+  93              	.LFE37:
+  95 000e C046     		.section	.text.ETIMx_ETxCR_PWM_Setable,"ax",%progbits
+  96              		.align	2
+  97              		.global	ETIMx_ETxCR_PWM_Setable
+  98              		.code	16
+  99              		.thumb_func
+ 101              	ETIMx_ETxCR_PWM_Setable:
+ 102              	.LFB38:
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* PWM输出控制 相关函数 */
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** void ETIMx_ETxCR_PWM_Setable(ETIMx_Type* ETIMx, FunState NewState)
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 103              		.loc 1 65 0
+ 104              		.cfi_startproc
+ 105              		@ args = 0, pretend = 0, frame = 0
+ 106              		@ frame_needed = 0, uses_anonymous_args = 0
+ 107              		@ link register save eliminated.
+ 108              	.LVL5:
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	if (NewState == ENABLE)
+ 109              		.loc 1 66 0
+ 110 0000 0129     		cmp	r1, #1
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 4
+
+
+ 111 0002 05D1     		bne	.L10
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		ETIMx->ETxCR |= (ETIMx_ETxCR_PWM_Msk);
+ 112              		.loc 1 68 0
+ 113 0004 0368     		ldr	r3, [r0]
+ 114 0006 8022     		movs	r2, #128
+ 115 0008 5200     		lsls	r2, r2, #1
+ 116 000a 1343     		orrs	r3, r2
+ 117 000c 0360     		str	r3, [r0]
+ 118 000e 03E0     		b	.L9
+ 119              	.L10:
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	else
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		ETIMx->ETxCR &= ~(ETIMx_ETxCR_PWM_Msk);
+ 120              		.loc 1 72 0
+ 121 0010 0268     		ldr	r2, [r0]
+ 122 0012 024B     		ldr	r3, .L12
+ 123 0014 1340     		ands	r3, r2
+ 124 0016 0360     		str	r3, [r0]
+ 125              	.L9:
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 126              		.loc 1 74 0
+ 127              		@ sp needed
+ 128 0018 7047     		bx	lr
+ 129              	.L13:
+ 130 001a C046     		.align	2
+ 131              	.L12:
+ 132 001c FFFEFFFF 		.word	-257
+ 133              		.cfi_endproc
+ 134              	.LFE38:
+ 136              		.section	.text.ETIMx_ETxCR_PWM_Getable,"ax",%progbits
+ 137              		.align	2
+ 138              		.global	ETIMx_ETxCR_PWM_Getable
+ 139              		.code	16
+ 140              		.thumb_func
+ 142              	ETIMx_ETxCR_PWM_Getable:
+ 143              	.LFB39:
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** FunState ETIMx_ETxCR_PWM_Getable(ETIMx_Type* ETIMx)
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 144              		.loc 1 77 0
+ 145              		.cfi_startproc
+ 146              		@ args = 0, pretend = 0, frame = 0
+ 147              		@ frame_needed = 0, uses_anonymous_args = 0
+ 148              		@ link register save eliminated.
+ 149              	.LVL6:
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	if (ETIMx->ETxCR & (ETIMx_ETxCR_PWM_Msk))
+ 150              		.loc 1 78 0
+ 151 0000 0368     		ldr	r3, [r0]
+ 152 0002 DB05     		lsls	r3, r3, #23
+ 153 0004 01D5     		bpl	.L16
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		return ENABLE;
+ 154              		.loc 1 80 0
+ 155 0006 0120     		movs	r0, #1
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 5
+
+
+ 156              	.LVL7:
+ 157 0008 00E0     		b	.L15
+ 158              	.LVL8:
+ 159              	.L16:
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	else
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		return DISABLE;
+ 160              		.loc 1 84 0
+ 161 000a 0020     		movs	r0, #0
+ 162              	.LVL9:
+ 163              	.L15:
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 164              		.loc 1 86 0
+ 165              		@ sp needed
+ 166 000c 7047     		bx	lr
+ 167              		.cfi_endproc
+ 168              	.LFE39:
+ 170 000e C046     		.section	.text.ETIMx_ETxCR_CEN_Setable,"ax",%progbits
+ 171              		.align	2
+ 172              		.global	ETIMx_ETxCR_CEN_Setable
+ 173              		.code	16
+ 174              		.thumb_func
+ 176              	ETIMx_ETxCR_CEN_Setable:
+ 177              	.LFB40:
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* 启动控制 相关函数 */
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** void ETIMx_ETxCR_CEN_Setable(ETIMx_Type* ETIMx, FunState NewState)
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 178              		.loc 1 90 0
+ 179              		.cfi_startproc
+ 180              		@ args = 0, pretend = 0, frame = 0
+ 181              		@ frame_needed = 0, uses_anonymous_args = 0
+ 182              		@ link register save eliminated.
+ 183              	.LVL10:
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	if (NewState == ENABLE)
+ 184              		.loc 1 91 0
+ 185 0000 0129     		cmp	r1, #1
+ 186 0002 04D1     		bne	.L18
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		ETIMx->ETxCR |= (ETIMx_ETxCR_CEN_Msk);
+ 187              		.loc 1 93 0
+ 188 0004 0268     		ldr	r2, [r0]
+ 189 0006 8023     		movs	r3, #128
+ 190 0008 1343     		orrs	r3, r2
+ 191 000a 0360     		str	r3, [r0]
+ 192 000c 03E0     		b	.L17
+ 193              	.L18:
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	else
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		ETIMx->ETxCR &= ~(ETIMx_ETxCR_CEN_Msk);
+ 194              		.loc 1 97 0
+ 195 000e 0368     		ldr	r3, [r0]
+ 196 0010 8022     		movs	r2, #128
+ 197 0012 9343     		bics	r3, r2
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 6
+
+
+ 198 0014 0360     		str	r3, [r0]
+ 199              	.L17:
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 200              		.loc 1 99 0
+ 201              		@ sp needed
+ 202 0016 7047     		bx	lr
+ 203              		.cfi_endproc
+ 204              	.LFE40:
+ 206              		.section	.text.ETIMx_ETxCR_CEN_Getable,"ax",%progbits
+ 207              		.align	2
+ 208              		.global	ETIMx_ETxCR_CEN_Getable
+ 209              		.code	16
+ 210              		.thumb_func
+ 212              	ETIMx_ETxCR_CEN_Getable:
+ 213              	.LFB41:
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** FunState ETIMx_ETxCR_CEN_Getable(ETIMx_Type* ETIMx)
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 214              		.loc 1 102 0
+ 215              		.cfi_startproc
+ 216              		@ args = 0, pretend = 0, frame = 0
+ 217              		@ frame_needed = 0, uses_anonymous_args = 0
+ 218              		@ link register save eliminated.
+ 219              	.LVL11:
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	if (ETIMx->ETxCR & (ETIMx_ETxCR_CEN_Msk))
+ 220              		.loc 1 103 0
+ 221 0000 0368     		ldr	r3, [r0]
+ 222 0002 1B06     		lsls	r3, r3, #24
+ 223 0004 01D5     		bpl	.L22
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		return ENABLE;
+ 224              		.loc 1 105 0
+ 225 0006 0120     		movs	r0, #1
+ 226              	.LVL12:
+ 227 0008 00E0     		b	.L21
+ 228              	.LVL13:
+ 229              	.L22:
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	else
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		return DISABLE;
+ 230              		.loc 1 109 0
+ 231 000a 0020     		movs	r0, #0
+ 232              	.LVL14:
+ 233              	.L21:
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 234              		.loc 1 111 0
+ 235              		@ sp needed
+ 236 000c 7047     		bx	lr
+ 237              		.cfi_endproc
+ 238              	.LFE41:
+ 240 000e C046     		.section	.text.ETIMx_ETxCR_MOD_Set,"ax",%progbits
+ 241              		.align	2
+ 242              		.global	ETIMx_ETxCR_MOD_Set
+ 243              		.code	16
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 7
+
+
+ 244              		.thumb_func
+ 246              	ETIMx_ETxCR_MOD_Set:
+ 247              	.LFB42:
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* 工作模式选择 相关函数 */
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** void ETIMx_ETxCR_MOD_Set(ETIMx_Type* ETIMx, uint32_t SetValue)
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 248              		.loc 1 115 0
+ 249              		.cfi_startproc
+ 250              		@ args = 0, pretend = 0, frame = 0
+ 251              		@ frame_needed = 0, uses_anonymous_args = 0
+ 252              		@ link register save eliminated.
+ 253              	.LVL15:
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	uint32_t tmpreg;
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	tmpreg = ETIMx->ETxCR;
+ 254              		.loc 1 117 0
+ 255 0000 0368     		ldr	r3, [r0]
+ 256              	.LVL16:
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	tmpreg &= ~(ETIMx_ETxCR_MOD_Msk);
+ 257              		.loc 1 118 0
+ 258 0002 4022     		movs	r2, #64
+ 259 0004 9343     		bics	r3, r2
+ 260              	.LVL17:
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	tmpreg |= (SetValue & ETIMx_ETxCR_MOD_Msk);
+ 261              		.loc 1 119 0
+ 262 0006 1140     		ands	r1, r2
+ 263              	.LVL18:
+ 264 0008 1943     		orrs	r1, r3
+ 265              	.LVL19:
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx->ETxCR = tmpreg;
+ 266              		.loc 1 120 0
+ 267 000a 0160     		str	r1, [r0]
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 268              		.loc 1 121 0
+ 269              		@ sp needed
+ 270 000c 7047     		bx	lr
+ 271              		.cfi_endproc
+ 272              	.LFE42:
+ 274 000e C046     		.section	.text.ETIMx_ETxCR_MOD_Get,"ax",%progbits
+ 275              		.align	2
+ 276              		.global	ETIMx_ETxCR_MOD_Get
+ 277              		.code	16
+ 278              		.thumb_func
+ 280              	ETIMx_ETxCR_MOD_Get:
+ 281              	.LFB43:
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** uint32_t ETIMx_ETxCR_MOD_Get(ETIMx_Type* ETIMx)
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 282              		.loc 1 124 0
+ 283              		.cfi_startproc
+ 284              		@ args = 0, pretend = 0, frame = 0
+ 285              		@ frame_needed = 0, uses_anonymous_args = 0
+ 286              		@ link register save eliminated.
+ 287              	.LVL20:
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	return (ETIMx->ETxCR & ETIMx_ETxCR_MOD_Msk);
+ 288              		.loc 1 125 0
+ 289 0000 0368     		ldr	r3, [r0]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 8
+
+
+ 290 0002 4020     		movs	r0, #64
+ 291              	.LVL21:
+ 292 0004 1840     		ands	r0, r3
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 293              		.loc 1 126 0
+ 294              		@ sp needed
+ 295 0006 7047     		bx	lr
+ 296              		.cfi_endproc
+ 297              	.LFE43:
+ 299              		.section	.text.ETIMx_ETxCR_CASEN_Setable,"ax",%progbits
+ 300              		.align	2
+ 301              		.global	ETIMx_ETxCR_CASEN_Setable
+ 302              		.code	16
+ 303              		.thumb_func
+ 305              	ETIMx_ETxCR_CASEN_Setable:
+ 306              	.LFB44:
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* 扩展定时器级联使能 相关函数 */
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** void ETIMx_ETxCR_CASEN_Setable(ETIMx_Type* ETIMx, FunState NewState)
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 307              		.loc 1 130 0
+ 308              		.cfi_startproc
+ 309              		@ args = 0, pretend = 0, frame = 0
+ 310              		@ frame_needed = 0, uses_anonymous_args = 0
+ 311              		@ link register save eliminated.
+ 312              	.LVL22:
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	if (NewState == ENABLE)
+ 313              		.loc 1 131 0
+ 314 0000 0129     		cmp	r1, #1
+ 315 0002 04D1     		bne	.L26
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		ETIMx->ETxCR |= (ETIMx_ETxCR_CASEN_Msk);
+ 316              		.loc 1 133 0
+ 317 0004 0268     		ldr	r2, [r0]
+ 318 0006 2023     		movs	r3, #32
+ 319 0008 1343     		orrs	r3, r2
+ 320 000a 0360     		str	r3, [r0]
+ 321 000c 03E0     		b	.L25
+ 322              	.L26:
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	else
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 137:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		ETIMx->ETxCR &= ~(ETIMx_ETxCR_CASEN_Msk);
+ 323              		.loc 1 137 0
+ 324 000e 0368     		ldr	r3, [r0]
+ 325 0010 2022     		movs	r2, #32
+ 326 0012 9343     		bics	r3, r2
+ 327 0014 0360     		str	r3, [r0]
+ 328              	.L25:
+ 138:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 139:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 329              		.loc 1 139 0
+ 330              		@ sp needed
+ 331 0016 7047     		bx	lr
+ 332              		.cfi_endproc
+ 333              	.LFE44:
+ 335              		.section	.text.ETIMx_ETxCR_CASEN_Getable,"ax",%progbits
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 9
+
+
+ 336              		.align	2
+ 337              		.global	ETIMx_ETxCR_CASEN_Getable
+ 338              		.code	16
+ 339              		.thumb_func
+ 341              	ETIMx_ETxCR_CASEN_Getable:
+ 342              	.LFB45:
+ 140:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 141:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** FunState ETIMx_ETxCR_CASEN_Getable(ETIMx_Type* ETIMx)
+ 142:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 343              		.loc 1 142 0
+ 344              		.cfi_startproc
+ 345              		@ args = 0, pretend = 0, frame = 0
+ 346              		@ frame_needed = 0, uses_anonymous_args = 0
+ 347              		@ link register save eliminated.
+ 348              	.LVL23:
+ 143:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	if (ETIMx->ETxCR & (ETIMx_ETxCR_CASEN_Msk))
+ 349              		.loc 1 143 0
+ 350 0000 0368     		ldr	r3, [r0]
+ 351 0002 9B06     		lsls	r3, r3, #26
+ 352 0004 01D5     		bpl	.L30
+ 144:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 145:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		return ENABLE;
+ 353              		.loc 1 145 0
+ 354 0006 0120     		movs	r0, #1
+ 355              	.LVL24:
+ 356 0008 00E0     		b	.L29
+ 357              	.LVL25:
+ 358              	.L30:
+ 146:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 147:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	else
+ 148:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 149:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		return DISABLE;
+ 359              		.loc 1 149 0
+ 360 000a 0020     		movs	r0, #0
+ 361              	.LVL26:
+ 362              	.L29:
+ 150:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 151:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 363              		.loc 1 151 0
+ 364              		@ sp needed
+ 365 000c 7047     		bx	lr
+ 366              		.cfi_endproc
+ 367              	.LFE45:
+ 369 000e C046     		.section	.text.ETIMx_ETxCR_EDGESEL_Set,"ax",%progbits
+ 370              		.align	2
+ 371              		.global	ETIMx_ETxCR_EDGESEL_Set
+ 372              		.code	16
+ 373              		.thumb_func
+ 375              	ETIMx_ETxCR_EDGESEL_Set:
+ 376              	.LFB46:
+ 152:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 153:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* 计数模式采沿方式选择（计数时钟选择mcu_clk时该位无效，总是采用mcu_clk时钟上升沿计数） 相关函数 */
+ 154:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** void ETIMx_ETxCR_EDGESEL_Set(ETIMx_Type* ETIMx, uint32_t SetValue)
+ 155:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 377              		.loc 1 155 0
+ 378              		.cfi_startproc
+ 379              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 10
+
+
+ 380              		@ frame_needed = 0, uses_anonymous_args = 0
+ 381              		@ link register save eliminated.
+ 382              	.LVL27:
+ 156:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	uint32_t tmpreg;
+ 157:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	tmpreg = ETIMx->ETxCR;
+ 383              		.loc 1 157 0
+ 384 0000 0368     		ldr	r3, [r0]
+ 385              	.LVL28:
+ 158:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	tmpreg &= ~(ETIMx_ETxCR_EDGESEL_Msk);
+ 386              		.loc 1 158 0
+ 387 0002 1022     		movs	r2, #16
+ 388 0004 9343     		bics	r3, r2
+ 389              	.LVL29:
+ 159:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	tmpreg |= (SetValue & ETIMx_ETxCR_EDGESEL_Msk);
+ 390              		.loc 1 159 0
+ 391 0006 1140     		ands	r1, r2
+ 392              	.LVL30:
+ 393 0008 1943     		orrs	r1, r3
+ 394              	.LVL31:
+ 160:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx->ETxCR = tmpreg;
+ 395              		.loc 1 160 0
+ 396 000a 0160     		str	r1, [r0]
+ 161:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 397              		.loc 1 161 0
+ 398              		@ sp needed
+ 399 000c 7047     		bx	lr
+ 400              		.cfi_endproc
+ 401              	.LFE46:
+ 403 000e C046     		.section	.text.ETIMx_ETxCR_EDGESEL_Get,"ax",%progbits
+ 404              		.align	2
+ 405              		.global	ETIMx_ETxCR_EDGESEL_Get
+ 406              		.code	16
+ 407              		.thumb_func
+ 409              	ETIMx_ETxCR_EDGESEL_Get:
+ 410              	.LFB47:
+ 162:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 163:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** uint32_t ETIMx_ETxCR_EDGESEL_Get(ETIMx_Type* ETIMx)
+ 164:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 411              		.loc 1 164 0
+ 412              		.cfi_startproc
+ 413              		@ args = 0, pretend = 0, frame = 0
+ 414              		@ frame_needed = 0, uses_anonymous_args = 0
+ 415              		@ link register save eliminated.
+ 416              	.LVL32:
+ 165:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	return (ETIMx->ETxCR & ETIMx_ETxCR_EDGESEL_Msk);
+ 417              		.loc 1 165 0
+ 418 0000 0368     		ldr	r3, [r0]
+ 419 0002 1020     		movs	r0, #16
+ 420              	.LVL33:
+ 421 0004 1840     		ands	r0, r3
+ 166:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 422              		.loc 1 166 0
+ 423              		@ sp needed
+ 424 0006 7047     		bx	lr
+ 425              		.cfi_endproc
+ 426              	.LFE47:
+ 428              		.section	.text.ETIMx_ETxCR_CAPMOD_Set,"ax",%progbits
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 11
+
+
+ 429              		.align	2
+ 430              		.global	ETIMx_ETxCR_CAPMOD_Set
+ 431              		.code	16
+ 432              		.thumb_func
+ 434              	ETIMx_ETxCR_CAPMOD_Set:
+ 435              	.LFB48:
+ 167:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 168:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* 捕捉模式控制 相关函数 */
+ 169:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** void ETIMx_ETxCR_CAPMOD_Set(ETIMx_Type* ETIMx, uint32_t SetValue)
+ 170:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 436              		.loc 1 170 0
+ 437              		.cfi_startproc
+ 438              		@ args = 0, pretend = 0, frame = 0
+ 439              		@ frame_needed = 0, uses_anonymous_args = 0
+ 440              		@ link register save eliminated.
+ 441              	.LVL34:
+ 171:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	uint32_t tmpreg;
+ 172:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	tmpreg = ETIMx->ETxCR;
+ 442              		.loc 1 172 0
+ 443 0000 0368     		ldr	r3, [r0]
+ 444              	.LVL35:
+ 173:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	tmpreg &= ~(ETIMx_ETxCR_CAPMOD_Msk);
+ 445              		.loc 1 173 0
+ 446 0002 0822     		movs	r2, #8
+ 447 0004 9343     		bics	r3, r2
+ 448              	.LVL36:
+ 174:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	tmpreg |= (SetValue & ETIMx_ETxCR_CAPMOD_Msk);
+ 449              		.loc 1 174 0
+ 450 0006 1140     		ands	r1, r2
+ 451              	.LVL37:
+ 452 0008 1943     		orrs	r1, r3
+ 453              	.LVL38:
+ 175:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx->ETxCR = tmpreg;
+ 454              		.loc 1 175 0
+ 455 000a 0160     		str	r1, [r0]
+ 176:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 456              		.loc 1 176 0
+ 457              		@ sp needed
+ 458 000c 7047     		bx	lr
+ 459              		.cfi_endproc
+ 460              	.LFE48:
+ 462 000e C046     		.section	.text.ETIMx_ETxCR_CAPMOD_Get,"ax",%progbits
+ 463              		.align	2
+ 464              		.global	ETIMx_ETxCR_CAPMOD_Get
+ 465              		.code	16
+ 466              		.thumb_func
+ 468              	ETIMx_ETxCR_CAPMOD_Get:
+ 469              	.LFB49:
+ 177:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 178:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** uint32_t ETIMx_ETxCR_CAPMOD_Get(ETIMx_Type* ETIMx)
+ 179:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 470              		.loc 1 179 0
+ 471              		.cfi_startproc
+ 472              		@ args = 0, pretend = 0, frame = 0
+ 473              		@ frame_needed = 0, uses_anonymous_args = 0
+ 474              		@ link register save eliminated.
+ 475              	.LVL39:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 12
+
+
+ 180:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	return (ETIMx->ETxCR & ETIMx_ETxCR_CAPMOD_Msk);
+ 476              		.loc 1 180 0
+ 477 0000 0368     		ldr	r3, [r0]
+ 478 0002 0820     		movs	r0, #8
+ 479              	.LVL40:
+ 480 0004 1840     		ands	r0, r3
+ 181:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 481              		.loc 1 181 0
+ 482              		@ sp needed
+ 483 0006 7047     		bx	lr
+ 484              		.cfi_endproc
+ 485              	.LFE49:
+ 487              		.section	.text.ETIMx_ETxCR_CAPCLR_Setable,"ax",%progbits
+ 488              		.align	2
+ 489              		.global	ETIMx_ETxCR_CAPCLR_Setable
+ 490              		.code	16
+ 491              		.thumb_func
+ 493              	ETIMx_ETxCR_CAPCLR_Setable:
+ 494              	.LFB50:
+ 182:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 183:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* 带清零捕捉模式控制 相关函数 */
+ 184:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** void ETIMx_ETxCR_CAPCLR_Setable(ETIMx_Type* ETIMx, FunState NewState)
+ 185:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 495              		.loc 1 185 0
+ 496              		.cfi_startproc
+ 497              		@ args = 0, pretend = 0, frame = 0
+ 498              		@ frame_needed = 0, uses_anonymous_args = 0
+ 499              		@ link register save eliminated.
+ 500              	.LVL41:
+ 186:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	if (NewState == ENABLE)
+ 501              		.loc 1 186 0
+ 502 0000 0129     		cmp	r1, #1
+ 503 0002 04D1     		bne	.L36
+ 187:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 188:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		ETIMx->ETxCR |= (ETIMx_ETxCR_CAPCLR_Msk);
+ 504              		.loc 1 188 0
+ 505 0004 0268     		ldr	r2, [r0]
+ 506 0006 0423     		movs	r3, #4
+ 507 0008 1343     		orrs	r3, r2
+ 508 000a 0360     		str	r3, [r0]
+ 509 000c 03E0     		b	.L35
+ 510              	.L36:
+ 189:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 190:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	else
+ 191:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 192:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		ETIMx->ETxCR &= ~(ETIMx_ETxCR_CAPCLR_Msk);
+ 511              		.loc 1 192 0
+ 512 000e 0368     		ldr	r3, [r0]
+ 513 0010 0422     		movs	r2, #4
+ 514 0012 9343     		bics	r3, r2
+ 515 0014 0360     		str	r3, [r0]
+ 516              	.L35:
+ 193:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 194:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 517              		.loc 1 194 0
+ 518              		@ sp needed
+ 519 0016 7047     		bx	lr
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 13
+
+
+ 520              		.cfi_endproc
+ 521              	.LFE50:
+ 523              		.section	.text.ETIMx_ETxCR_CAPCLR_Getable,"ax",%progbits
+ 524              		.align	2
+ 525              		.global	ETIMx_ETxCR_CAPCLR_Getable
+ 526              		.code	16
+ 527              		.thumb_func
+ 529              	ETIMx_ETxCR_CAPCLR_Getable:
+ 530              	.LFB51:
+ 195:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 196:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** FunState ETIMx_ETxCR_CAPCLR_Getable(ETIMx_Type* ETIMx)
+ 197:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 531              		.loc 1 197 0
+ 532              		.cfi_startproc
+ 533              		@ args = 0, pretend = 0, frame = 0
+ 534              		@ frame_needed = 0, uses_anonymous_args = 0
+ 535              		@ link register save eliminated.
+ 536              	.LVL42:
+ 198:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	if (ETIMx->ETxCR & (ETIMx_ETxCR_CAPCLR_Msk))
+ 537              		.loc 1 198 0
+ 538 0000 0368     		ldr	r3, [r0]
+ 539 0002 5B07     		lsls	r3, r3, #29
+ 540 0004 01D5     		bpl	.L40
+ 199:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 200:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		return ENABLE;
+ 541              		.loc 1 200 0
+ 542 0006 0120     		movs	r0, #1
+ 543              	.LVL43:
+ 544 0008 00E0     		b	.L39
+ 545              	.LVL44:
+ 546              	.L40:
+ 201:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 202:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	else
+ 203:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 204:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		return DISABLE;
+ 547              		.loc 1 204 0
+ 548 000a 0020     		movs	r0, #0
+ 549              	.LVL45:
+ 550              	.L39:
+ 205:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 206:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 551              		.loc 1 206 0
+ 552              		@ sp needed
+ 553 000c 7047     		bx	lr
+ 554              		.cfi_endproc
+ 555              	.LFE51:
+ 557 000e C046     		.section	.text.ETIMx_ETxCR_CAPONCE_Setable,"ax",%progbits
+ 558              		.align	2
+ 559              		.global	ETIMx_ETxCR_CAPONCE_Setable
+ 560              		.code	16
+ 561              		.thumb_func
+ 563              	ETIMx_ETxCR_CAPONCE_Setable:
+ 564              	.LFB52:
+ 207:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 208:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* 单次捕捉控制 相关函数 */
+ 209:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** void ETIMx_ETxCR_CAPONCE_Setable(ETIMx_Type* ETIMx, FunState NewState)
+ 210:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 14
+
+
+ 565              		.loc 1 210 0
+ 566              		.cfi_startproc
+ 567              		@ args = 0, pretend = 0, frame = 0
+ 568              		@ frame_needed = 0, uses_anonymous_args = 0
+ 569              		@ link register save eliminated.
+ 570              	.LVL46:
+ 211:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	if (NewState == ENABLE)
+ 571              		.loc 1 211 0
+ 572 0000 0129     		cmp	r1, #1
+ 573 0002 04D1     		bne	.L42
+ 212:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 213:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		ETIMx->ETxCR |= (ETIMx_ETxCR_CAPONCE_Msk);
+ 574              		.loc 1 213 0
+ 575 0004 0268     		ldr	r2, [r0]
+ 576 0006 0223     		movs	r3, #2
+ 577 0008 1343     		orrs	r3, r2
+ 578 000a 0360     		str	r3, [r0]
+ 579 000c 03E0     		b	.L41
+ 580              	.L42:
+ 214:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 215:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	else
+ 216:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 217:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		ETIMx->ETxCR &= ~(ETIMx_ETxCR_CAPONCE_Msk);
+ 581              		.loc 1 217 0
+ 582 000e 0368     		ldr	r3, [r0]
+ 583 0010 0222     		movs	r2, #2
+ 584 0012 9343     		bics	r3, r2
+ 585 0014 0360     		str	r3, [r0]
+ 586              	.L41:
+ 218:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 219:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 587              		.loc 1 219 0
+ 588              		@ sp needed
+ 589 0016 7047     		bx	lr
+ 590              		.cfi_endproc
+ 591              	.LFE52:
+ 593              		.section	.text.ETIMx_ETxCR_CAPONCE_Getable,"ax",%progbits
+ 594              		.align	2
+ 595              		.global	ETIMx_ETxCR_CAPONCE_Getable
+ 596              		.code	16
+ 597              		.thumb_func
+ 599              	ETIMx_ETxCR_CAPONCE_Getable:
+ 600              	.LFB53:
+ 220:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 221:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** FunState ETIMx_ETxCR_CAPONCE_Getable(ETIMx_Type* ETIMx)
+ 222:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 601              		.loc 1 222 0
+ 602              		.cfi_startproc
+ 603              		@ args = 0, pretend = 0, frame = 0
+ 604              		@ frame_needed = 0, uses_anonymous_args = 0
+ 605              		@ link register save eliminated.
+ 606              	.LVL47:
+ 223:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	if (ETIMx->ETxCR & (ETIMx_ETxCR_CAPONCE_Msk))
+ 607              		.loc 1 223 0
+ 608 0000 0368     		ldr	r3, [r0]
+ 609 0002 9B07     		lsls	r3, r3, #30
+ 610 0004 01D5     		bpl	.L46
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 15
+
+
+ 224:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 225:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		return ENABLE;
+ 611              		.loc 1 225 0
+ 612 0006 0120     		movs	r0, #1
+ 613              	.LVL48:
+ 614 0008 00E0     		b	.L45
+ 615              	.LVL49:
+ 616              	.L46:
+ 226:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 227:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	else
+ 228:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 229:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		return DISABLE;
+ 617              		.loc 1 229 0
+ 618 000a 0020     		movs	r0, #0
+ 619              	.LVL50:
+ 620              	.L45:
+ 230:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 231:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 621              		.loc 1 231 0
+ 622              		@ sp needed
+ 623 000c 7047     		bx	lr
+ 624              		.cfi_endproc
+ 625              	.LFE53:
+ 627 000e C046     		.section	.text.ETIMx_ETxCR_CAPEDGE_Set,"ax",%progbits
+ 628              		.align	2
+ 629              		.global	ETIMx_ETxCR_CAPEDGE_Set
+ 630              		.code	16
+ 631              		.thumb_func
+ 633              	ETIMx_ETxCR_CAPEDGE_Set:
+ 634              	.LFB54:
+ 232:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 233:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* 捕捉沿选择 相关函数 */
+ 234:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** void ETIMx_ETxCR_CAPEDGE_Set(ETIMx_Type* ETIMx, uint32_t SetValue)
+ 235:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 635              		.loc 1 235 0
+ 636              		.cfi_startproc
+ 637              		@ args = 0, pretend = 0, frame = 0
+ 638              		@ frame_needed = 0, uses_anonymous_args = 0
+ 639              		@ link register save eliminated.
+ 640              	.LVL51:
+ 236:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	uint32_t tmpreg;
+ 237:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	tmpreg = ETIMx->ETxCR;
+ 641              		.loc 1 237 0
+ 642 0000 0368     		ldr	r3, [r0]
+ 643              	.LVL52:
+ 238:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	tmpreg &= ~(ETIMx_ETxCR_CAPEDGE_Msk);
+ 644              		.loc 1 238 0
+ 645 0002 0122     		movs	r2, #1
+ 646 0004 9343     		bics	r3, r2
+ 647              	.LVL53:
+ 239:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	tmpreg |= (SetValue & ETIMx_ETxCR_CAPEDGE_Msk);
+ 648              		.loc 1 239 0
+ 649 0006 1140     		ands	r1, r2
+ 650              	.LVL54:
+ 651 0008 1943     		orrs	r1, r3
+ 652              	.LVL55:
+ 240:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx->ETxCR = tmpreg;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 16
+
+
+ 653              		.loc 1 240 0
+ 654 000a 0160     		str	r1, [r0]
+ 241:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 655              		.loc 1 241 0
+ 656              		@ sp needed
+ 657 000c 7047     		bx	lr
+ 658              		.cfi_endproc
+ 659              	.LFE54:
+ 661 000e C046     		.section	.text.ETIMx_ETxCR_CAPEDGE_Get,"ax",%progbits
+ 662              		.align	2
+ 663              		.global	ETIMx_ETxCR_CAPEDGE_Get
+ 664              		.code	16
+ 665              		.thumb_func
+ 667              	ETIMx_ETxCR_CAPEDGE_Get:
+ 668              	.LFB55:
+ 242:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 243:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** uint32_t ETIMx_ETxCR_CAPEDGE_Get(ETIMx_Type* ETIMx)
+ 244:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 669              		.loc 1 244 0
+ 670              		.cfi_startproc
+ 671              		@ args = 0, pretend = 0, frame = 0
+ 672              		@ frame_needed = 0, uses_anonymous_args = 0
+ 673              		@ link register save eliminated.
+ 674              	.LVL56:
+ 245:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	return (ETIMx->ETxCR & ETIMx_ETxCR_CAPEDGE_Msk);
+ 675              		.loc 1 245 0
+ 676 0000 0368     		ldr	r3, [r0]
+ 677 0002 0120     		movs	r0, #1
+ 678              	.LVL57:
+ 679 0004 1840     		ands	r0, r3
+ 246:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 680              		.loc 1 246 0
+ 681              		@ sp needed
+ 682 0006 7047     		bx	lr
+ 683              		.cfi_endproc
+ 684              	.LFE55:
+ 686              		.section	.text.ETIMx_ETxINSEL_SIG2SEL_Set,"ax",%progbits
+ 687              		.align	2
+ 688              		.global	ETIMx_ETxINSEL_SIG2SEL_Set
+ 689              		.code	16
+ 690              		.thumb_func
+ 692              	ETIMx_ETxINSEL_SIG2SEL_Set:
+ 693              	.LFB56:
+ 247:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 248:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* 内部信号2源选择(捕捉源) 相关函数 */
+ 249:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** void ETIMx_ETxINSEL_SIG2SEL_Set(ETIMx_Type* ETIMx, uint32_t SetValue)
+ 250:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 694              		.loc 1 250 0
+ 695              		.cfi_startproc
+ 696              		@ args = 0, pretend = 0, frame = 0
+ 697              		@ frame_needed = 0, uses_anonymous_args = 0
+ 698              		@ link register save eliminated.
+ 699              	.LVL58:
+ 251:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	uint32_t tmpreg;
+ 252:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	tmpreg = ETIMx->ETxINSEL;
+ 700              		.loc 1 252 0
+ 701 0000 4368     		ldr	r3, [r0, #4]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 17
+
+
+ 702              	.LVL59:
+ 253:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	tmpreg &= ~(ETIMx_ETxINSEL_SIG2SEL_Msk);
+ 703              		.loc 1 253 0
+ 704 0002 8022     		movs	r2, #128
+ 705 0004 9343     		bics	r3, r2
+ 706              	.LVL60:
+ 254:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	tmpreg |= (SetValue & ETIMx_ETxINSEL_SIG2SEL_Msk);
+ 707              		.loc 1 254 0
+ 708 0006 1140     		ands	r1, r2
+ 709              	.LVL61:
+ 710 0008 1943     		orrs	r1, r3
+ 711              	.LVL62:
+ 255:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx->ETxINSEL = tmpreg;
+ 712              		.loc 1 255 0
+ 713 000a 4160     		str	r1, [r0, #4]
+ 256:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 714              		.loc 1 256 0
+ 715              		@ sp needed
+ 716 000c 7047     		bx	lr
+ 717              		.cfi_endproc
+ 718              	.LFE56:
+ 720 000e C046     		.section	.text.ETIMx_ETxINSEL_SIG2SEL_Get,"ax",%progbits
+ 721              		.align	2
+ 722              		.global	ETIMx_ETxINSEL_SIG2SEL_Get
+ 723              		.code	16
+ 724              		.thumb_func
+ 726              	ETIMx_ETxINSEL_SIG2SEL_Get:
+ 727              	.LFB57:
+ 257:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 258:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** uint32_t ETIMx_ETxINSEL_SIG2SEL_Get(ETIMx_Type* ETIMx)
+ 259:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 728              		.loc 1 259 0
+ 729              		.cfi_startproc
+ 730              		@ args = 0, pretend = 0, frame = 0
+ 731              		@ frame_needed = 0, uses_anonymous_args = 0
+ 732              		@ link register save eliminated.
+ 733              	.LVL63:
+ 260:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	return (ETIMx->ETxINSEL & ETIMx_ETxINSEL_SIG2SEL_Msk);
+ 734              		.loc 1 260 0
+ 735 0000 4368     		ldr	r3, [r0, #4]
+ 736 0002 8020     		movs	r0, #128
+ 737              	.LVL64:
+ 738 0004 1840     		ands	r0, r3
+ 261:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 739              		.loc 1 261 0
+ 740              		@ sp needed
+ 741 0006 7047     		bx	lr
+ 742              		.cfi_endproc
+ 743              	.LFE57:
+ 745              		.section	.text.ETIMx_ETxINSEL_SIG1SEL_Set,"ax",%progbits
+ 746              		.align	2
+ 747              		.global	ETIMx_ETxINSEL_SIG1SEL_Set
+ 748              		.code	16
+ 749              		.thumb_func
+ 751              	ETIMx_ETxINSEL_SIG1SEL_Set:
+ 752              	.LFB58:
+ 262:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 18
+
+
+ 263:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* 内部信号1源选择（在计数模式下计数源仅由此选择，捕捉模式下计数源） 相关函数 */
+ 264:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** void ETIMx_ETxINSEL_SIG1SEL_Set(ETIMx_Type* ETIMx, uint32_t SetValue)
+ 265:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 753              		.loc 1 265 0
+ 754              		.cfi_startproc
+ 755              		@ args = 0, pretend = 0, frame = 0
+ 756              		@ frame_needed = 0, uses_anonymous_args = 0
+ 757              		@ link register save eliminated.
+ 758              	.LVL65:
+ 266:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	uint32_t tmpreg;
+ 267:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	tmpreg = ETIMx->ETxINSEL;
+ 759              		.loc 1 267 0
+ 760 0000 4368     		ldr	r3, [r0, #4]
+ 761              	.LVL66:
+ 268:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	tmpreg &= ~(ETIMx_ETxINSEL_SIG1SEL_Msk);
+ 762              		.loc 1 268 0
+ 763 0002 4022     		movs	r2, #64
+ 764 0004 9343     		bics	r3, r2
+ 765              	.LVL67:
+ 269:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	tmpreg |= (SetValue & ETIMx_ETxINSEL_SIG1SEL_Msk);
+ 766              		.loc 1 269 0
+ 767 0006 1140     		ands	r1, r2
+ 768              	.LVL68:
+ 769 0008 1943     		orrs	r1, r3
+ 770              	.LVL69:
+ 270:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx->ETxINSEL = tmpreg;
+ 771              		.loc 1 270 0
+ 772 000a 4160     		str	r1, [r0, #4]
+ 271:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 773              		.loc 1 271 0
+ 774              		@ sp needed
+ 775 000c 7047     		bx	lr
+ 776              		.cfi_endproc
+ 777              	.LFE58:
+ 779 000e C046     		.section	.text.ETIMx_ETxINSEL_SIG1SEL_Get,"ax",%progbits
+ 780              		.align	2
+ 781              		.global	ETIMx_ETxINSEL_SIG1SEL_Get
+ 782              		.code	16
+ 783              		.thumb_func
+ 785              	ETIMx_ETxINSEL_SIG1SEL_Get:
+ 786              	.LFB59:
+ 272:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 273:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** uint32_t ETIMx_ETxINSEL_SIG1SEL_Get(ETIMx_Type* ETIMx)
+ 274:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 787              		.loc 1 274 0
+ 788              		.cfi_startproc
+ 789              		@ args = 0, pretend = 0, frame = 0
+ 790              		@ frame_needed = 0, uses_anonymous_args = 0
+ 791              		@ link register save eliminated.
+ 792              	.LVL70:
+ 275:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	return (ETIMx->ETxINSEL & ETIMx_ETxINSEL_SIG1SEL_Msk);
+ 793              		.loc 1 275 0
+ 794 0000 4368     		ldr	r3, [r0, #4]
+ 795 0002 4020     		movs	r0, #64
+ 796              	.LVL71:
+ 797 0004 1840     		ands	r0, r3
+ 276:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 19
+
+
+ 798              		.loc 1 276 0
+ 799              		@ sp needed
+ 800 0006 7047     		bx	lr
+ 801              		.cfi_endproc
+ 802              	.LFE59:
+ 804              		.section	.text.ETIMx_ETxINSEL_GRP2SEL_Set,"ax",%progbits
+ 805              		.align	2
+ 806              		.global	ETIMx_ETxINSEL_GRP2SEL_Set
+ 807              		.code	16
+ 808              		.thumb_func
+ 810              	ETIMx_ETxINSEL_GRP2SEL_Set:
+ 811              	.LFB60:
+ 277:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 278:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* GROUP2 信号选择控制 相关函数 */
+ 279:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** void ETIMx_ETxINSEL_GRP2SEL_Set(ETIMx_Type* ETIMx, uint32_t SetValue)
+ 280:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 812              		.loc 1 280 0
+ 813              		.cfi_startproc
+ 814              		@ args = 0, pretend = 0, frame = 0
+ 815              		@ frame_needed = 0, uses_anonymous_args = 0
+ 816              		@ link register save eliminated.
+ 817              	.LVL72:
+ 281:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	uint32_t tmpreg;
+ 282:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	tmpreg = ETIMx->ETxINSEL;
+ 818              		.loc 1 282 0
+ 819 0000 4368     		ldr	r3, [r0, #4]
+ 820              	.LVL73:
+ 283:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	tmpreg &= ~(ETIMx_ETxINSEL_GRP2SEL_Msk);
+ 821              		.loc 1 283 0
+ 822 0002 1C22     		movs	r2, #28
+ 823 0004 9343     		bics	r3, r2
+ 824              	.LVL74:
+ 284:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	tmpreg |= (SetValue & ETIMx_ETxINSEL_GRP2SEL_Msk);
+ 825              		.loc 1 284 0
+ 826 0006 1140     		ands	r1, r2
+ 827              	.LVL75:
+ 828 0008 1943     		orrs	r1, r3
+ 829              	.LVL76:
+ 285:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx->ETxINSEL = tmpreg;
+ 830              		.loc 1 285 0
+ 831 000a 4160     		str	r1, [r0, #4]
+ 286:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 832              		.loc 1 286 0
+ 833              		@ sp needed
+ 834 000c 7047     		bx	lr
+ 835              		.cfi_endproc
+ 836              	.LFE60:
+ 838 000e C046     		.section	.text.ETIMx_ETxINSEL_GRP2SEL_Get,"ax",%progbits
+ 839              		.align	2
+ 840              		.global	ETIMx_ETxINSEL_GRP2SEL_Get
+ 841              		.code	16
+ 842              		.thumb_func
+ 844              	ETIMx_ETxINSEL_GRP2SEL_Get:
+ 845              	.LFB61:
+ 287:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 288:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** uint32_t ETIMx_ETxINSEL_GRP2SEL_Get(ETIMx_Type* ETIMx)
+ 289:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 20
+
+
+ 846              		.loc 1 289 0
+ 847              		.cfi_startproc
+ 848              		@ args = 0, pretend = 0, frame = 0
+ 849              		@ frame_needed = 0, uses_anonymous_args = 0
+ 850              		@ link register save eliminated.
+ 851              	.LVL77:
+ 290:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	return (ETIMx->ETxINSEL & ETIMx_ETxINSEL_GRP2SEL_Msk);
+ 852              		.loc 1 290 0
+ 853 0000 4368     		ldr	r3, [r0, #4]
+ 854 0002 1C20     		movs	r0, #28
+ 855              	.LVL78:
+ 856 0004 1840     		ands	r0, r3
+ 291:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 857              		.loc 1 291 0
+ 858              		@ sp needed
+ 859 0006 7047     		bx	lr
+ 860              		.cfi_endproc
+ 861              	.LFE61:
+ 863              		.section	.text.ETIMx_ETxINSEL_GRP1SEL_Set,"ax",%progbits
+ 864              		.align	2
+ 865              		.global	ETIMx_ETxINSEL_GRP1SEL_Set
+ 866              		.code	16
+ 867              		.thumb_func
+ 869              	ETIMx_ETxINSEL_GRP1SEL_Set:
+ 870              	.LFB62:
+ 292:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 293:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* GROUP1 信号选择控制 相关函数 */
+ 294:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** void ETIMx_ETxINSEL_GRP1SEL_Set(ETIMx_Type* ETIMx, uint32_t SetValue)
+ 295:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 871              		.loc 1 295 0
+ 872              		.cfi_startproc
+ 873              		@ args = 0, pretend = 0, frame = 0
+ 874              		@ frame_needed = 0, uses_anonymous_args = 0
+ 875              		@ link register save eliminated.
+ 876              	.LVL79:
+ 296:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	uint32_t tmpreg;
+ 297:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	tmpreg = ETIMx->ETxINSEL;
+ 877              		.loc 1 297 0
+ 878 0000 4368     		ldr	r3, [r0, #4]
+ 879              	.LVL80:
+ 298:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	tmpreg &= ~(ETIMx_ETxINSEL_GRP1SEL_Msk);
+ 880              		.loc 1 298 0
+ 881 0002 0322     		movs	r2, #3
+ 882 0004 9343     		bics	r3, r2
+ 883              	.LVL81:
+ 299:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	tmpreg |= (SetValue & ETIMx_ETxINSEL_GRP1SEL_Msk);
+ 884              		.loc 1 299 0
+ 885 0006 1140     		ands	r1, r2
+ 886              	.LVL82:
+ 887 0008 1943     		orrs	r1, r3
+ 888              	.LVL83:
+ 300:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx->ETxINSEL = tmpreg;
+ 889              		.loc 1 300 0
+ 890 000a 4160     		str	r1, [r0, #4]
+ 301:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 891              		.loc 1 301 0
+ 892              		@ sp needed
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 21
+
+
+ 893 000c 7047     		bx	lr
+ 894              		.cfi_endproc
+ 895              	.LFE62:
+ 897 000e C046     		.section	.text.ETIMx_ETxINSEL_GRP1SEL_Get,"ax",%progbits
+ 898              		.align	2
+ 899              		.global	ETIMx_ETxINSEL_GRP1SEL_Get
+ 900              		.code	16
+ 901              		.thumb_func
+ 903              	ETIMx_ETxINSEL_GRP1SEL_Get:
+ 904              	.LFB63:
+ 302:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 303:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** uint32_t ETIMx_ETxINSEL_GRP1SEL_Get(ETIMx_Type* ETIMx)
+ 304:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 905              		.loc 1 304 0
+ 906              		.cfi_startproc
+ 907              		@ args = 0, pretend = 0, frame = 0
+ 908              		@ frame_needed = 0, uses_anonymous_args = 0
+ 909              		@ link register save eliminated.
+ 910              	.LVL84:
+ 305:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	return (ETIMx->ETxINSEL & ETIMx_ETxINSEL_GRP1SEL_Msk);
+ 911              		.loc 1 305 0
+ 912 0000 4368     		ldr	r3, [r0, #4]
+ 913 0002 0320     		movs	r0, #3
+ 914              	.LVL85:
+ 915 0004 1840     		ands	r0, r3
+ 306:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 916              		.loc 1 306 0
+ 917              		@ sp needed
+ 918 0006 7047     		bx	lr
+ 919              		.cfi_endproc
+ 920              	.LFE63:
+ 922              		.section	.text.ETIMx_ETxPESCALE1_Write,"ax",%progbits
+ 923              		.align	2
+ 924              		.global	ETIMx_ETxPESCALE1_Write
+ 925              		.code	16
+ 926              		.thumb_func
+ 928              	ETIMx_ETxPESCALE1_Write:
+ 929              	.LFB64:
+ 307:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 308:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* ETx预分频寄存器1 相关函数 */
+ 309:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** void ETIMx_ETxPESCALE1_Write(ETIMx_Type* ETIMx, uint32_t SetValue)
+ 310:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 930              		.loc 1 310 0
+ 931              		.cfi_startproc
+ 932              		@ args = 0, pretend = 0, frame = 0
+ 933              		@ frame_needed = 0, uses_anonymous_args = 0
+ 934              		@ link register save eliminated.
+ 935              	.LVL86:
+ 311:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx->ETxPESCALE1 = (SetValue & ETIMx_ETxPESCALE1_PRESCALE1_Msk);
+ 936              		.loc 1 311 0
+ 937 0000 FF23     		movs	r3, #255
+ 938 0002 1940     		ands	r1, r3
+ 939              	.LVL87:
+ 940 0004 8160     		str	r1, [r0, #8]
+ 312:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 941              		.loc 1 312 0
+ 942              		@ sp needed
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 22
+
+
+ 943 0006 7047     		bx	lr
+ 944              		.cfi_endproc
+ 945              	.LFE64:
+ 947              		.section	.text.ETIMx_ETxPESCALE1_Read,"ax",%progbits
+ 948              		.align	2
+ 949              		.global	ETIMx_ETxPESCALE1_Read
+ 950              		.code	16
+ 951              		.thumb_func
+ 953              	ETIMx_ETxPESCALE1_Read:
+ 954              	.LFB65:
+ 313:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 314:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** uint32_t ETIMx_ETxPESCALE1_Read(ETIMx_Type* ETIMx)
+ 315:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 955              		.loc 1 315 0
+ 956              		.cfi_startproc
+ 957              		@ args = 0, pretend = 0, frame = 0
+ 958              		@ frame_needed = 0, uses_anonymous_args = 0
+ 959              		@ link register save eliminated.
+ 960              	.LVL88:
+ 316:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	return (ETIMx->ETxPESCALE1 & ETIMx_ETxPESCALE1_PRESCALE1_Msk);
+ 961              		.loc 1 316 0
+ 962 0000 8368     		ldr	r3, [r0, #8]
+ 963 0002 FF20     		movs	r0, #255
+ 964              	.LVL89:
+ 965 0004 1840     		ands	r0, r3
+ 317:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 966              		.loc 1 317 0
+ 967              		@ sp needed
+ 968 0006 7047     		bx	lr
+ 969              		.cfi_endproc
+ 970              	.LFE65:
+ 972              		.section	.text.ETIMx_ETxPESCALE2_Write,"ax",%progbits
+ 973              		.align	2
+ 974              		.global	ETIMx_ETxPESCALE2_Write
+ 975              		.code	16
+ 976              		.thumb_func
+ 978              	ETIMx_ETxPESCALE2_Write:
+ 979              	.LFB66:
+ 318:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 319:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* ETx预分频寄存器2 相关函数 */
+ 320:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** void ETIMx_ETxPESCALE2_Write(ETIMx_Type* ETIMx, uint32_t SetValue)
+ 321:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 980              		.loc 1 321 0
+ 981              		.cfi_startproc
+ 982              		@ args = 0, pretend = 0, frame = 0
+ 983              		@ frame_needed = 0, uses_anonymous_args = 0
+ 984              		@ link register save eliminated.
+ 985              	.LVL90:
+ 322:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx->ETxPESCALE2 = (SetValue & ETIMx_ETxPESCALE2_PRESCALE2_Msk);
+ 986              		.loc 1 322 0
+ 987 0000 FF23     		movs	r3, #255
+ 988 0002 1940     		ands	r1, r3
+ 989              	.LVL91:
+ 990 0004 C160     		str	r1, [r0, #12]
+ 323:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 991              		.loc 1 323 0
+ 992              		@ sp needed
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 23
+
+
+ 993 0006 7047     		bx	lr
+ 994              		.cfi_endproc
+ 995              	.LFE66:
+ 997              		.section	.text.ETIMx_ETxPESCALE2_Read,"ax",%progbits
+ 998              		.align	2
+ 999              		.global	ETIMx_ETxPESCALE2_Read
+ 1000              		.code	16
+ 1001              		.thumb_func
+ 1003              	ETIMx_ETxPESCALE2_Read:
+ 1004              	.LFB67:
+ 324:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 325:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** uint32_t ETIMx_ETxPESCALE2_Read(ETIMx_Type* ETIMx)
+ 326:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 1005              		.loc 1 326 0
+ 1006              		.cfi_startproc
+ 1007              		@ args = 0, pretend = 0, frame = 0
+ 1008              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1009              		@ link register save eliminated.
+ 1010              	.LVL92:
+ 327:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	return (ETIMx->ETxPESCALE2 & ETIMx_ETxPESCALE2_PRESCALE2_Msk);
+ 1011              		.loc 1 327 0
+ 1012 0000 C368     		ldr	r3, [r0, #12]
+ 1013 0002 FF20     		movs	r0, #255
+ 1014              	.LVL93:
+ 1015 0004 1840     		ands	r0, r3
+ 328:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 1016              		.loc 1 328 0
+ 1017              		@ sp needed
+ 1018 0006 7047     		bx	lr
+ 1019              		.cfi_endproc
+ 1020              	.LFE67:
+ 1022              		.section	.text.ETIMx_ETxIVR_Write,"ax",%progbits
+ 1023              		.align	2
+ 1024              		.global	ETIMx_ETxIVR_Write
+ 1025              		.code	16
+ 1026              		.thumb_func
+ 1028              	ETIMx_ETxIVR_Write:
+ 1029              	.LFB68:
+ 329:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 330:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* ETx初值寄存器 相关函数 */
+ 331:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** void ETIMx_ETxIVR_Write(ETIMx_Type* ETIMx, uint32_t SetValue)
+ 332:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 1030              		.loc 1 332 0
+ 1031              		.cfi_startproc
+ 1032              		@ args = 0, pretend = 0, frame = 0
+ 1033              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1034              		@ link register save eliminated.
+ 1035              	.LVL94:
+ 333:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx->ETxIVR = (SetValue & ETIMx_ETxIVR_INITVALUE_Msk);
+ 1036              		.loc 1 333 0
+ 1037 0000 0904     		lsls	r1, r1, #16
+ 1038              	.LVL95:
+ 1039 0002 090C     		lsrs	r1, r1, #16
+ 1040 0004 0161     		str	r1, [r0, #16]
+ 334:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 1041              		.loc 1 334 0
+ 1042              		@ sp needed
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 24
+
+
+ 1043 0006 7047     		bx	lr
+ 1044              		.cfi_endproc
+ 1045              	.LFE68:
+ 1047              		.section	.text.ETIMx_ETxIVR_Read,"ax",%progbits
+ 1048              		.align	2
+ 1049              		.global	ETIMx_ETxIVR_Read
+ 1050              		.code	16
+ 1051              		.thumb_func
+ 1053              	ETIMx_ETxIVR_Read:
+ 1054              	.LFB69:
+ 335:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 336:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** uint32_t ETIMx_ETxIVR_Read(ETIMx_Type* ETIMx)
+ 337:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 1055              		.loc 1 337 0
+ 1056              		.cfi_startproc
+ 1057              		@ args = 0, pretend = 0, frame = 0
+ 1058              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1059              		@ link register save eliminated.
+ 1060              	.LVL96:
+ 338:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	return (ETIMx->ETxIVR & ETIMx_ETxIVR_INITVALUE_Msk);
+ 1061              		.loc 1 338 0
+ 1062 0000 0069     		ldr	r0, [r0, #16]
+ 1063              	.LVL97:
+ 1064 0002 0004     		lsls	r0, r0, #16
+ 1065 0004 000C     		lsrs	r0, r0, #16
+ 339:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 1066              		.loc 1 339 0
+ 1067              		@ sp needed
+ 1068 0006 7047     		bx	lr
+ 1069              		.cfi_endproc
+ 1070              	.LFE69:
+ 1072              		.section	.text.ETIMx_ETxCMP_Write,"ax",%progbits
+ 1073              		.align	2
+ 1074              		.global	ETIMx_ETxCMP_Write
+ 1075              		.code	16
+ 1076              		.thumb_func
+ 1078              	ETIMx_ETxCMP_Write:
+ 1079              	.LFB70:
+ 340:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 341:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* ETx比较寄存器 相关函数 */
+ 342:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** void ETIMx_ETxCMP_Write(ETIMx_Type* ETIMx, uint32_t SetValue)
+ 343:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 1080              		.loc 1 343 0
+ 1081              		.cfi_startproc
+ 1082              		@ args = 0, pretend = 0, frame = 0
+ 1083              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1084              		@ link register save eliminated.
+ 1085              	.LVL98:
+ 344:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx->ETxCMP = (SetValue & ETIMx_ETxCMP_CMP_Msk);
+ 1086              		.loc 1 344 0
+ 1087 0000 0904     		lsls	r1, r1, #16
+ 1088              	.LVL99:
+ 1089 0002 090C     		lsrs	r1, r1, #16
+ 1090 0004 4161     		str	r1, [r0, #20]
+ 345:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 1091              		.loc 1 345 0
+ 1092              		@ sp needed
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 25
+
+
+ 1093 0006 7047     		bx	lr
+ 1094              		.cfi_endproc
+ 1095              	.LFE70:
+ 1097              		.section	.text.ETIMx_ETxCMP_Read,"ax",%progbits
+ 1098              		.align	2
+ 1099              		.global	ETIMx_ETxCMP_Read
+ 1100              		.code	16
+ 1101              		.thumb_func
+ 1103              	ETIMx_ETxCMP_Read:
+ 1104              	.LFB71:
+ 346:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 347:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** uint32_t ETIMx_ETxCMP_Read(ETIMx_Type* ETIMx)
+ 348:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 1105              		.loc 1 348 0
+ 1106              		.cfi_startproc
+ 1107              		@ args = 0, pretend = 0, frame = 0
+ 1108              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1109              		@ link register save eliminated.
+ 1110              	.LVL100:
+ 349:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	return (ETIMx->ETxCMP & ETIMx_ETxCMP_CMP_Msk);
+ 1111              		.loc 1 349 0
+ 1112 0000 4069     		ldr	r0, [r0, #20]
+ 1113              	.LVL101:
+ 1114 0002 0004     		lsls	r0, r0, #16
+ 1115 0004 000C     		lsrs	r0, r0, #16
+ 350:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 1116              		.loc 1 350 0
+ 1117              		@ sp needed
+ 1118 0006 7047     		bx	lr
+ 1119              		.cfi_endproc
+ 1120              	.LFE71:
+ 1122              		.section	.text.ETIMx_ETxIE_CMPIE_Setable,"ax",%progbits
+ 1123              		.align	2
+ 1124              		.global	ETIMx_ETxIE_CMPIE_Setable
+ 1125              		.code	16
+ 1126              		.thumb_func
+ 1128              	ETIMx_ETxIE_CMPIE_Setable:
+ 1129              	.LFB72:
+ 351:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 352:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* 扩展定时器比较中断使能 相关函数 */
+ 353:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** void ETIMx_ETxIE_CMPIE_Setable(ETIMx_Type* ETIMx, FunState NewState)
+ 354:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 1130              		.loc 1 354 0
+ 1131              		.cfi_startproc
+ 1132              		@ args = 0, pretend = 0, frame = 0
+ 1133              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1134              		@ link register save eliminated.
+ 1135              	.LVL102:
+ 355:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	if (NewState == ENABLE)
+ 1136              		.loc 1 355 0
+ 1137 0000 0129     		cmp	r1, #1
+ 1138 0002 04D1     		bne	.L66
+ 356:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 357:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		ETIMx->ETxIE |= (ETIMx_ETxIE_CMPIE_Msk);
+ 1139              		.loc 1 357 0
+ 1140 0004 8269     		ldr	r2, [r0, #24]
+ 1141 0006 0423     		movs	r3, #4
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 26
+
+
+ 1142 0008 1343     		orrs	r3, r2
+ 1143 000a 8361     		str	r3, [r0, #24]
+ 1144 000c 03E0     		b	.L65
+ 1145              	.L66:
+ 358:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 359:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	else
+ 360:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 361:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		ETIMx->ETxIE &= ~(ETIMx_ETxIE_CMPIE_Msk);
+ 1146              		.loc 1 361 0
+ 1147 000e 8369     		ldr	r3, [r0, #24]
+ 1148 0010 0422     		movs	r2, #4
+ 1149 0012 9343     		bics	r3, r2
+ 1150 0014 8361     		str	r3, [r0, #24]
+ 1151              	.L65:
+ 362:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 363:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 1152              		.loc 1 363 0
+ 1153              		@ sp needed
+ 1154 0016 7047     		bx	lr
+ 1155              		.cfi_endproc
+ 1156              	.LFE72:
+ 1158              		.section	.text.ETIMx_ETxIE_CMPIE_Getable,"ax",%progbits
+ 1159              		.align	2
+ 1160              		.global	ETIMx_ETxIE_CMPIE_Getable
+ 1161              		.code	16
+ 1162              		.thumb_func
+ 1164              	ETIMx_ETxIE_CMPIE_Getable:
+ 1165              	.LFB73:
+ 364:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 365:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** FunState ETIMx_ETxIE_CMPIE_Getable(ETIMx_Type* ETIMx)
+ 366:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 1166              		.loc 1 366 0
+ 1167              		.cfi_startproc
+ 1168              		@ args = 0, pretend = 0, frame = 0
+ 1169              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1170              		@ link register save eliminated.
+ 1171              	.LVL103:
+ 367:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	if (ETIMx->ETxIE & (ETIMx_ETxIE_CMPIE_Msk))
+ 1172              		.loc 1 367 0
+ 1173 0000 8369     		ldr	r3, [r0, #24]
+ 1174 0002 5B07     		lsls	r3, r3, #29
+ 1175 0004 01D5     		bpl	.L70
+ 368:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 369:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		return ENABLE;
+ 1176              		.loc 1 369 0
+ 1177 0006 0120     		movs	r0, #1
+ 1178              	.LVL104:
+ 1179 0008 00E0     		b	.L69
+ 1180              	.LVL105:
+ 1181              	.L70:
+ 370:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 371:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	else
+ 372:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 373:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		return DISABLE;
+ 1182              		.loc 1 373 0
+ 1183 000a 0020     		movs	r0, #0
+ 1184              	.LVL106:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 27
+
+
+ 1185              	.L69:
+ 374:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 375:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 1186              		.loc 1 375 0
+ 1187              		@ sp needed
+ 1188 000c 7047     		bx	lr
+ 1189              		.cfi_endproc
+ 1190              	.LFE73:
+ 1192 000e C046     		.section	.text.ETIMx_ETxIE_CAPIE_Setable,"ax",%progbits
+ 1193              		.align	2
+ 1194              		.global	ETIMx_ETxIE_CAPIE_Setable
+ 1195              		.code	16
+ 1196              		.thumb_func
+ 1198              	ETIMx_ETxIE_CAPIE_Setable:
+ 1199              	.LFB74:
+ 376:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 377:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* 扩展定时器捕捉中断使能 相关函数 */
+ 378:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** void ETIMx_ETxIE_CAPIE_Setable(ETIMx_Type* ETIMx, FunState NewState)
+ 379:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 1200              		.loc 1 379 0
+ 1201              		.cfi_startproc
+ 1202              		@ args = 0, pretend = 0, frame = 0
+ 1203              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1204              		@ link register save eliminated.
+ 1205              	.LVL107:
+ 380:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	if (NewState == ENABLE)
+ 1206              		.loc 1 380 0
+ 1207 0000 0129     		cmp	r1, #1
+ 1208 0002 04D1     		bne	.L72
+ 381:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 382:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		ETIMx->ETxIE |= (ETIMx_ETxIE_CAPIE_Msk);
+ 1209              		.loc 1 382 0
+ 1210 0004 8269     		ldr	r2, [r0, #24]
+ 1211 0006 0223     		movs	r3, #2
+ 1212 0008 1343     		orrs	r3, r2
+ 1213 000a 8361     		str	r3, [r0, #24]
+ 1214 000c 03E0     		b	.L71
+ 1215              	.L72:
+ 383:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 384:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	else
+ 385:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 386:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		ETIMx->ETxIE &= ~(ETIMx_ETxIE_CAPIE_Msk);
+ 1216              		.loc 1 386 0
+ 1217 000e 8369     		ldr	r3, [r0, #24]
+ 1218 0010 0222     		movs	r2, #2
+ 1219 0012 9343     		bics	r3, r2
+ 1220 0014 8361     		str	r3, [r0, #24]
+ 1221              	.L71:
+ 387:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 388:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 1222              		.loc 1 388 0
+ 1223              		@ sp needed
+ 1224 0016 7047     		bx	lr
+ 1225              		.cfi_endproc
+ 1226              	.LFE74:
+ 1228              		.section	.text.ETIMx_ETxIE_CAPIE_Getable,"ax",%progbits
+ 1229              		.align	2
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 28
+
+
+ 1230              		.global	ETIMx_ETxIE_CAPIE_Getable
+ 1231              		.code	16
+ 1232              		.thumb_func
+ 1234              	ETIMx_ETxIE_CAPIE_Getable:
+ 1235              	.LFB75:
+ 389:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 390:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** FunState ETIMx_ETxIE_CAPIE_Getable(ETIMx_Type* ETIMx)
+ 391:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 1236              		.loc 1 391 0
+ 1237              		.cfi_startproc
+ 1238              		@ args = 0, pretend = 0, frame = 0
+ 1239              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1240              		@ link register save eliminated.
+ 1241              	.LVL108:
+ 392:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	if (ETIMx->ETxIE & (ETIMx_ETxIE_CAPIE_Msk))
+ 1242              		.loc 1 392 0
+ 1243 0000 8369     		ldr	r3, [r0, #24]
+ 1244 0002 9B07     		lsls	r3, r3, #30
+ 1245 0004 01D5     		bpl	.L76
+ 393:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 394:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		return ENABLE;
+ 1246              		.loc 1 394 0
+ 1247 0006 0120     		movs	r0, #1
+ 1248              	.LVL109:
+ 1249 0008 00E0     		b	.L75
+ 1250              	.LVL110:
+ 1251              	.L76:
+ 395:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 396:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	else
+ 397:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 398:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		return DISABLE;
+ 1252              		.loc 1 398 0
+ 1253 000a 0020     		movs	r0, #0
+ 1254              	.LVL111:
+ 1255              	.L75:
+ 399:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 400:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 1256              		.loc 1 400 0
+ 1257              		@ sp needed
+ 1258 000c 7047     		bx	lr
+ 1259              		.cfi_endproc
+ 1260              	.LFE75:
+ 1262 000e C046     		.section	.text.ETIMx_ETxIE_OVIE_Setable,"ax",%progbits
+ 1263              		.align	2
+ 1264              		.global	ETIMx_ETxIE_OVIE_Setable
+ 1265              		.code	16
+ 1266              		.thumb_func
+ 1268              	ETIMx_ETxIE_OVIE_Setable:
+ 1269              	.LFB76:
+ 401:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 402:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* 扩展定时器溢出中断使能 相关函数 */
+ 403:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** void ETIMx_ETxIE_OVIE_Setable(ETIMx_Type* ETIMx, FunState NewState)
+ 404:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 1270              		.loc 1 404 0
+ 1271              		.cfi_startproc
+ 1272              		@ args = 0, pretend = 0, frame = 0
+ 1273              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 29
+
+
+ 1274              		@ link register save eliminated.
+ 1275              	.LVL112:
+ 405:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	if (NewState == ENABLE)
+ 1276              		.loc 1 405 0
+ 1277 0000 0129     		cmp	r1, #1
+ 1278 0002 04D1     		bne	.L78
+ 406:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 407:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		ETIMx->ETxIE |= (ETIMx_ETxIE_OVIE_Msk);
+ 1279              		.loc 1 407 0
+ 1280 0004 8269     		ldr	r2, [r0, #24]
+ 1281 0006 0123     		movs	r3, #1
+ 1282 0008 1343     		orrs	r3, r2
+ 1283 000a 8361     		str	r3, [r0, #24]
+ 1284 000c 03E0     		b	.L77
+ 1285              	.L78:
+ 408:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 409:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	else
+ 410:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 411:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		ETIMx->ETxIE &= ~(ETIMx_ETxIE_OVIE_Msk);
+ 1286              		.loc 1 411 0
+ 1287 000e 8369     		ldr	r3, [r0, #24]
+ 1288 0010 0122     		movs	r2, #1
+ 1289 0012 9343     		bics	r3, r2
+ 1290 0014 8361     		str	r3, [r0, #24]
+ 1291              	.L77:
+ 412:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 413:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 1292              		.loc 1 413 0
+ 1293              		@ sp needed
+ 1294 0016 7047     		bx	lr
+ 1295              		.cfi_endproc
+ 1296              	.LFE76:
+ 1298              		.section	.text.ETIMx_ETxIE_OVIE_Getable,"ax",%progbits
+ 1299              		.align	2
+ 1300              		.global	ETIMx_ETxIE_OVIE_Getable
+ 1301              		.code	16
+ 1302              		.thumb_func
+ 1304              	ETIMx_ETxIE_OVIE_Getable:
+ 1305              	.LFB77:
+ 414:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 415:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** FunState ETIMx_ETxIE_OVIE_Getable(ETIMx_Type* ETIMx)
+ 416:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 1306              		.loc 1 416 0
+ 1307              		.cfi_startproc
+ 1308              		@ args = 0, pretend = 0, frame = 0
+ 1309              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1310              		@ link register save eliminated.
+ 1311              	.LVL113:
+ 417:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	if (ETIMx->ETxIE & (ETIMx_ETxIE_OVIE_Msk))
+ 1312              		.loc 1 417 0
+ 1313 0000 8369     		ldr	r3, [r0, #24]
+ 1314 0002 DB07     		lsls	r3, r3, #31
+ 1315 0004 01D5     		bpl	.L82
+ 418:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 419:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		return ENABLE;
+ 1316              		.loc 1 419 0
+ 1317 0006 0120     		movs	r0, #1
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 30
+
+
+ 1318              	.LVL114:
+ 1319 0008 00E0     		b	.L81
+ 1320              	.LVL115:
+ 1321              	.L82:
+ 420:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 421:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	else
+ 422:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 423:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		return DISABLE;
+ 1322              		.loc 1 423 0
+ 1323 000a 0020     		movs	r0, #0
+ 1324              	.LVL116:
+ 1325              	.L81:
+ 424:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 425:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 1326              		.loc 1 425 0
+ 1327              		@ sp needed
+ 1328 000c 7047     		bx	lr
+ 1329              		.cfi_endproc
+ 1330              	.LFE77:
+ 1332 000e C046     		.section	.text.ETIMx_ETxIF_CMPIF_Clr,"ax",%progbits
+ 1333              		.align	2
+ 1334              		.global	ETIMx_ETxIF_CMPIF_Clr
+ 1335              		.code	16
+ 1336              		.thumb_func
+ 1338              	ETIMx_ETxIF_CMPIF_Clr:
+ 1339              	.LFB78:
+ 426:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 427:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* 比较状态中断标志 相关函数 */
+ 428:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** void ETIMx_ETxIF_CMPIF_Clr(ETIMx_Type* ETIMx)
+ 429:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 1340              		.loc 1 429 0
+ 1341              		.cfi_startproc
+ 1342              		@ args = 0, pretend = 0, frame = 0
+ 1343              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1344              		@ link register save eliminated.
+ 1345              	.LVL117:
+ 430:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx->ETxIF = ETIMx_ETxIF_CMPIF_Msk;
+ 1346              		.loc 1 430 0
+ 1347 0000 0823     		movs	r3, #8
+ 1348 0002 C361     		str	r3, [r0, #28]
+ 431:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 1349              		.loc 1 431 0
+ 1350              		@ sp needed
+ 1351 0004 7047     		bx	lr
+ 1352              		.cfi_endproc
+ 1353              	.LFE78:
+ 1355 0006 C046     		.section	.text.ETIMx_ETxIF_CMPIF_Chk,"ax",%progbits
+ 1356              		.align	2
+ 1357              		.global	ETIMx_ETxIF_CMPIF_Chk
+ 1358              		.code	16
+ 1359              		.thumb_func
+ 1361              	ETIMx_ETxIF_CMPIF_Chk:
+ 1362              	.LFB79:
+ 432:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 433:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** FlagStatus ETIMx_ETxIF_CMPIF_Chk(ETIMx_Type* ETIMx)
+ 434:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 1363              		.loc 1 434 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 31
+
+
+ 1364              		.cfi_startproc
+ 1365              		@ args = 0, pretend = 0, frame = 0
+ 1366              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1367              		@ link register save eliminated.
+ 1368              	.LVL118:
+ 435:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	if (ETIMx->ETxIF & ETIMx_ETxIF_CMPIF_Msk)
+ 1369              		.loc 1 435 0
+ 1370 0000 C369     		ldr	r3, [r0, #28]
+ 1371 0002 1B07     		lsls	r3, r3, #28
+ 1372 0004 01D5     		bpl	.L86
+ 436:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 437:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		return SET;
+ 1373              		.loc 1 437 0
+ 1374 0006 0120     		movs	r0, #1
+ 1375              	.LVL119:
+ 1376 0008 00E0     		b	.L85
+ 1377              	.LVL120:
+ 1378              	.L86:
+ 438:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 439:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	else
+ 440:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 441:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		return RESET;
+ 1379              		.loc 1 441 0
+ 1380 000a 0020     		movs	r0, #0
+ 1381              	.LVL121:
+ 1382              	.L85:
+ 442:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 443:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 1383              		.loc 1 443 0
+ 1384              		@ sp needed
+ 1385 000c 7047     		bx	lr
+ 1386              		.cfi_endproc
+ 1387              	.LFE79:
+ 1389 000e C046     		.section	.text.ETIMx_ETxIF_EDGESTA_Chk,"ax",%progbits
+ 1390              		.align	2
+ 1391              		.global	ETIMx_ETxIF_EDGESTA_Chk
+ 1392              		.code	16
+ 1393              		.thumb_func
+ 1395              	ETIMx_ETxIF_EDGESTA_Chk:
+ 1396              	.LFB80:
+ 444:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 445:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* 捕捉沿状态标志 相关函数 */
+ 446:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** FlagStatus ETIMx_ETxIF_EDGESTA_Chk(ETIMx_Type* ETIMx)
+ 447:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 1397              		.loc 1 447 0
+ 1398              		.cfi_startproc
+ 1399              		@ args = 0, pretend = 0, frame = 0
+ 1400              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1401              		@ link register save eliminated.
+ 1402              	.LVL122:
+ 448:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	if (ETIMx->ETxIF & ETIMx_ETxIF_EDGESTA_Msk)
+ 1403              		.loc 1 448 0
+ 1404 0000 C369     		ldr	r3, [r0, #28]
+ 1405 0002 5B07     		lsls	r3, r3, #29
+ 1406 0004 01D5     		bpl	.L89
+ 449:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 450:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		return SET;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 32
+
+
+ 1407              		.loc 1 450 0
+ 1408 0006 0120     		movs	r0, #1
+ 1409              	.LVL123:
+ 1410 0008 00E0     		b	.L88
+ 1411              	.LVL124:
+ 1412              	.L89:
+ 451:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 452:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	else
+ 453:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 454:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		return RESET;
+ 1413              		.loc 1 454 0
+ 1414 000a 0020     		movs	r0, #0
+ 1415              	.LVL125:
+ 1416              	.L88:
+ 455:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 456:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 1417              		.loc 1 456 0
+ 1418              		@ sp needed
+ 1419 000c 7047     		bx	lr
+ 1420              		.cfi_endproc
+ 1421              	.LFE80:
+ 1423 000e C046     		.section	.text.ETIMx_ETxIF_CAPIF_Clr,"ax",%progbits
+ 1424              		.align	2
+ 1425              		.global	ETIMx_ETxIF_CAPIF_Clr
+ 1426              		.code	16
+ 1427              		.thumb_func
+ 1429              	ETIMx_ETxIF_CAPIF_Clr:
+ 1430              	.LFB81:
+ 457:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 458:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* 扩展定时器捕捉产生中断标志 相关函数 */
+ 459:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** void ETIMx_ETxIF_CAPIF_Clr(ETIMx_Type* ETIMx)
+ 460:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 1431              		.loc 1 460 0
+ 1432              		.cfi_startproc
+ 1433              		@ args = 0, pretend = 0, frame = 0
+ 1434              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1435              		@ link register save eliminated.
+ 1436              	.LVL126:
+ 461:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx->ETxIF = ETIMx_ETxIF_CAPIF_Msk;
+ 1437              		.loc 1 461 0
+ 1438 0000 0223     		movs	r3, #2
+ 1439 0002 C361     		str	r3, [r0, #28]
+ 462:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 1440              		.loc 1 462 0
+ 1441              		@ sp needed
+ 1442 0004 7047     		bx	lr
+ 1443              		.cfi_endproc
+ 1444              	.LFE81:
+ 1446 0006 C046     		.section	.text.ETIMx_ETxIF_CAPIF_Chk,"ax",%progbits
+ 1447              		.align	2
+ 1448              		.global	ETIMx_ETxIF_CAPIF_Chk
+ 1449              		.code	16
+ 1450              		.thumb_func
+ 1452              	ETIMx_ETxIF_CAPIF_Chk:
+ 1453              	.LFB82:
+ 463:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 464:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** FlagStatus ETIMx_ETxIF_CAPIF_Chk(ETIMx_Type* ETIMx)
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 33
+
+
+ 465:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 1454              		.loc 1 465 0
+ 1455              		.cfi_startproc
+ 1456              		@ args = 0, pretend = 0, frame = 0
+ 1457              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1458              		@ link register save eliminated.
+ 1459              	.LVL127:
+ 466:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	if (ETIMx->ETxIF & ETIMx_ETxIF_CAPIF_Msk)
+ 1460              		.loc 1 466 0
+ 1461 0000 C369     		ldr	r3, [r0, #28]
+ 1462 0002 9B07     		lsls	r3, r3, #30
+ 1463 0004 01D5     		bpl	.L93
+ 467:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 468:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		return SET;
+ 1464              		.loc 1 468 0
+ 1465 0006 0120     		movs	r0, #1
+ 1466              	.LVL128:
+ 1467 0008 00E0     		b	.L92
+ 1468              	.LVL129:
+ 1469              	.L93:
+ 469:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 470:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	else
+ 471:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 472:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		return RESET;
+ 1470              		.loc 1 472 0
+ 1471 000a 0020     		movs	r0, #0
+ 1472              	.LVL130:
+ 1473              	.L92:
+ 473:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 474:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 1474              		.loc 1 474 0
+ 1475              		@ sp needed
+ 1476 000c 7047     		bx	lr
+ 1477              		.cfi_endproc
+ 1478              	.LFE82:
+ 1480 000e C046     		.section	.text.ETIMx_ETxIF_OVIF_Clr,"ax",%progbits
+ 1481              		.align	2
+ 1482              		.global	ETIMx_ETxIF_OVIF_Clr
+ 1483              		.code	16
+ 1484              		.thumb_func
+ 1486              	ETIMx_ETxIF_OVIF_Clr:
+ 1487              	.LFB83:
+ 475:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 476:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /* 扩展定时器溢出中断标志 相关函数 */
+ 477:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** void ETIMx_ETxIF_OVIF_Clr(ETIMx_Type* ETIMx)
+ 478:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 1488              		.loc 1 478 0
+ 1489              		.cfi_startproc
+ 1490              		@ args = 0, pretend = 0, frame = 0
+ 1491              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1492              		@ link register save eliminated.
+ 1493              	.LVL131:
+ 479:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx->ETxIF = ETIMx_ETxIF_OVIF_Msk;
+ 1494              		.loc 1 479 0
+ 1495 0000 0123     		movs	r3, #1
+ 1496 0002 C361     		str	r3, [r0, #28]
+ 480:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 34
+
+
+ 1497              		.loc 1 480 0
+ 1498              		@ sp needed
+ 1499 0004 7047     		bx	lr
+ 1500              		.cfi_endproc
+ 1501              	.LFE83:
+ 1503 0006 C046     		.section	.text.ETIMx_ETxIF_OVIF_Chk,"ax",%progbits
+ 1504              		.align	2
+ 1505              		.global	ETIMx_ETxIF_OVIF_Chk
+ 1506              		.code	16
+ 1507              		.thumb_func
+ 1509              	ETIMx_ETxIF_OVIF_Chk:
+ 1510              	.LFB84:
+ 481:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 482:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** FlagStatus ETIMx_ETxIF_OVIF_Chk(ETIMx_Type* ETIMx)
+ 483:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 1511              		.loc 1 483 0
+ 1512              		.cfi_startproc
+ 1513              		@ args = 0, pretend = 0, frame = 0
+ 1514              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1515              		@ link register save eliminated.
+ 1516              	.LVL132:
+ 484:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	if (ETIMx->ETxIF & ETIMx_ETxIF_OVIF_Msk)
+ 1517              		.loc 1 484 0
+ 1518 0000 C369     		ldr	r3, [r0, #28]
+ 1519 0002 DB07     		lsls	r3, r3, #31
+ 1520 0004 01D5     		bpl	.L97
+ 485:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 486:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		return SET;
+ 1521              		.loc 1 486 0
+ 1522 0006 0120     		movs	r0, #1
+ 1523              	.LVL133:
+ 1524 0008 00E0     		b	.L96
+ 1525              	.LVL134:
+ 1526              	.L97:
+ 487:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 488:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	else
+ 489:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	{
+ 490:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 		return RESET;
+ 1527              		.loc 1 490 0
+ 1528 000a 0020     		movs	r0, #0
+ 1529              	.LVL135:
+ 1530              	.L96:
+ 491:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	}
+ 492:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 1531              		.loc 1 492 0
+ 1532              		@ sp needed
+ 1533 000c 7047     		bx	lr
+ 1534              		.cfi_endproc
+ 1535              	.LFE84:
+ 1537 000e C046     		.section	.text.ETIMx_Deinit,"ax",%progbits
+ 1538              		.align	2
+ 1539              		.global	ETIMx_Deinit
+ 1540              		.code	16
+ 1541              		.thumb_func
+ 1543              	ETIMx_Deinit:
+ 1544              	.LFB85:
+ 493:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 35
+
+
+ 494:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 495:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** void ETIMx_Deinit(ETIMx_Type* ETIMx)
+ 496:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 1545              		.loc 1 496 0
+ 1546              		.cfi_startproc
+ 1547              		@ args = 0, pretend = 0, frame = 0
+ 1548              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1549              		@ link register save eliminated.
+ 1550              	.LVL136:
+ 497:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx->ETxCR = 0x00000000;
+ 1551              		.loc 1 497 0
+ 1552 0000 0023     		movs	r3, #0
+ 1553 0002 0360     		str	r3, [r0]
+ 498:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx->ETxINSEL = 0x00000000;
+ 1554              		.loc 1 498 0
+ 1555 0004 4360     		str	r3, [r0, #4]
+ 499:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx->ETxPESCALE1 = 0x00000000;
+ 1556              		.loc 1 499 0
+ 1557 0006 8360     		str	r3, [r0, #8]
+ 500:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx->ETxPESCALE2 = 0x00000000;
+ 1558              		.loc 1 500 0
+ 1559 0008 C360     		str	r3, [r0, #12]
+ 501:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx->ETxIVR = 0x00000000;
+ 1560              		.loc 1 501 0
+ 1561 000a 0361     		str	r3, [r0, #16]
+ 502:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx->ETxCMP = 0x00000000;
+ 1562              		.loc 1 502 0
+ 1563 000c 4361     		str	r3, [r0, #20]
+ 503:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx->ETxIE = 0x00000000;
+ 1564              		.loc 1 503 0
+ 1565 000e 8361     		str	r3, [r0, #24]
+ 504:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	//ETIMx->ETxIF = 0x00000000;
+ 505:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 1566              		.loc 1 505 0
+ 1567              		@ sp needed
+ 1568 0010 7047     		bx	lr
+ 1569              		.cfi_endproc
+ 1570              	.LFE85:
+ 1572 0012 C046     		.section	.text.ETIMx_Init,"ax",%progbits
+ 1573              		.align	2
+ 1574              		.global	ETIMx_Init
+ 1575              		.code	16
+ 1576              		.thumb_func
+ 1578              	ETIMx_Init:
+ 1579              	.LFB86:
+ 506:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** //Code_End
+ 507:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 508:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 509:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** /*ETIMx 初始化配置函数*/
+ 510:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** void ETIMx_Init(ETIMx_Type* ETIMx, ETIM_InitTypeDef* para)
+ 511:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** {
+ 1580              		.loc 1 511 0
+ 1581              		.cfi_startproc
+ 1582              		@ args = 0, pretend = 0, frame = 0
+ 1583              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1584              	.LVL137:
+ 1585 0000 70B5     		push	{r4, r5, r6, lr}
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 36
+
+
+ 1586              	.LCFI0:
+ 1587              		.cfi_def_cfa_offset 16
+ 1588              		.cfi_offset 4, -16
+ 1589              		.cfi_offset 5, -12
+ 1590              		.cfi_offset 6, -8
+ 1591              		.cfi_offset 14, -4
+ 1592 0002 0400     		movs	r4, r0
+ 1593 0004 0D00     		movs	r5, r1
+ 512:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	//信号源参数
+ 513:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx_ETxINSEL_SIG1SEL_Set(ETIMx, para->sig_src_para.SIG1SEL);		/* 内部信号1源选择（在计数模式下计
+ 1594              		.loc 1 513 0
+ 1595 0006 0968     		ldr	r1, [r1]
+ 1596              	.LVL138:
+ 1597 0008 FFF7FEFF 		bl	ETIMx_ETxINSEL_SIG1SEL_Set
+ 1598              	.LVL139:
+ 514:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx_ETxINSEL_SIG2SEL_Set(ETIMx, para->sig_src_para.SIG2SEL);		/* 内部信号2源选择(捕捉源) */
+ 1599              		.loc 1 514 0
+ 1600 000c 6968     		ldr	r1, [r5, #4]
+ 1601 000e 2000     		movs	r0, r4
+ 1602 0010 FFF7FEFF 		bl	ETIMx_ETxINSEL_SIG2SEL_Set
+ 1603              	.LVL140:
+ 515:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx_ETxINSEL_GRP1SEL_Set(ETIMx, para->sig_src_para.GRP1SEL);		/* GROUP1 信号选择控制 */
+ 1604              		.loc 1 515 0
+ 1605 0014 A968     		ldr	r1, [r5, #8]
+ 1606 0016 2000     		movs	r0, r4
+ 1607 0018 FFF7FEFF 		bl	ETIMx_ETxINSEL_GRP1SEL_Set
+ 1608              	.LVL141:
+ 516:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx_ETxINSEL_GRP2SEL_Set(ETIMx, para->sig_src_para.GRP2SEL);		/* GROUP2 信号选择控制 */
+ 1609              		.loc 1 516 0
+ 1610 001c E968     		ldr	r1, [r5, #12]
+ 1611 001e 2000     		movs	r0, r4
+ 1612 0020 FFF7FEFF 		bl	ETIMx_ETxINSEL_GRP2SEL_Set
+ 1613              	.LVL142:
+ 517:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx_ETxPESCALE1_Write(ETIMx, para->sig_src_para.PRESCALE1);		/* ETx预分频寄存器1 */
+ 1614              		.loc 1 517 0
+ 1615 0024 2969     		ldr	r1, [r5, #16]
+ 1616 0026 2000     		movs	r0, r4
+ 1617 0028 FFF7FEFF 		bl	ETIMx_ETxPESCALE1_Write
+ 1618              	.LVL143:
+ 518:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx_ETxPESCALE2_Write(ETIMx, para->sig_src_para.PRESCALE2);		/* ETx预分频寄存器2 */
+ 1619              		.loc 1 518 0
+ 1620 002c 6969     		ldr	r1, [r5, #20]
+ 1621 002e 2000     		movs	r0, r4
+ 1622 0030 FFF7FEFF 		bl	ETIMx_ETxPESCALE2_Write
+ 1623              	.LVL144:
+ 519:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	
+ 520:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	//控制类参数
+ 521:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx_ETxCR_EXFLT_Setable(ETIMx, para->ctrl_para.EXFLT);		/* 引脚输入数字滤波使能 */
+ 1624              		.loc 1 521 0
+ 1625 0034 297E     		ldrb	r1, [r5, #24]
+ 1626 0036 2000     		movs	r0, r4
+ 1627 0038 FFF7FEFF 		bl	ETIMx_ETxCR_EXFLT_Setable
+ 1628              	.LVL145:
+ 522:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx_ETxCR_MOD_Set(ETIMx, para->ctrl_para.MOD);				/* 工作模式选择 */
+ 1629              		.loc 1 522 0
+ 1630 003c E969     		ldr	r1, [r5, #28]
+ 1631 003e 2000     		movs	r0, r4
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 37
+
+
+ 1632 0040 FFF7FEFF 		bl	ETIMx_ETxCR_MOD_Set
+ 1633              	.LVL146:
+ 523:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx_ETxCR_CASEN_Setable(ETIMx, para->ctrl_para.CASEN);		/* 扩展定时器级联使能 */
+ 1634              		.loc 1 523 0
+ 1635 0044 2023     		movs	r3, #32
+ 1636 0046 E95C     		ldrb	r1, [r5, r3]
+ 1637 0048 2000     		movs	r0, r4
+ 1638 004a FFF7FEFF 		bl	ETIMx_ETxCR_CASEN_Setable
+ 1639              	.LVL147:
+ 524:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx_ETxCR_EDGESEL_Set(ETIMx, para->ctrl_para.EDGESEL);		/* 计数模式采沿方式选择（计数时钟选择mcu
+ 1640              		.loc 1 524 0
+ 1641 004e 696A     		ldr	r1, [r5, #36]
+ 1642 0050 2000     		movs	r0, r4
+ 1643 0052 FFF7FEFF 		bl	ETIMx_ETxCR_EDGESEL_Set
+ 1644              	.LVL148:
+ 525:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 526:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx_ETxCR_PWM_Setable(ETIMx, para->ctrl_para.PWM);		/* PWM输出控制 */
+ 1645              		.loc 1 526 0
+ 1646 0056 2823     		movs	r3, #40
+ 1647 0058 E95C     		ldrb	r1, [r5, r3]
+ 1648 005a 2000     		movs	r0, r4
+ 1649 005c FFF7FEFF 		bl	ETIMx_ETxCR_PWM_Setable
+ 1650              	.LVL149:
+ 527:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 528:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx_ETxCR_CAPMOD_Set(ETIMx, para->ctrl_para.CAPMOD);			/* 捕捉模式控制 */
+ 1651              		.loc 1 528 0
+ 1652 0060 E96A     		ldr	r1, [r5, #44]
+ 1653 0062 2000     		movs	r0, r4
+ 1654 0064 FFF7FEFF 		bl	ETIMx_ETxCR_CAPMOD_Set
+ 1655              	.LVL150:
+ 529:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx_ETxCR_CAPCLR_Setable(ETIMx, para->ctrl_para.CAPCLR);		/* 带清零捕捉模式控制 */
+ 1656              		.loc 1 529 0
+ 1657 0068 3023     		movs	r3, #48
+ 1658 006a E95C     		ldrb	r1, [r5, r3]
+ 1659 006c 2000     		movs	r0, r4
+ 1660 006e FFF7FEFF 		bl	ETIMx_ETxCR_CAPCLR_Setable
+ 1661              	.LVL151:
+ 530:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx_ETxCR_CAPONCE_Setable(ETIMx, para->ctrl_para.CAPONCE);	/* 单次捕捉控制 */
+ 1662              		.loc 1 530 0
+ 1663 0072 3123     		movs	r3, #49
+ 1664 0074 E95C     		ldrb	r1, [r5, r3]
+ 1665 0076 2000     		movs	r0, r4
+ 1666 0078 FFF7FEFF 		bl	ETIMx_ETxCR_CAPONCE_Setable
+ 1667              	.LVL152:
+ 531:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx_ETxCR_CAPEDGE_Set(ETIMx, para->ctrl_para.CAPEDGE);		/* 捕捉沿选择 */
+ 1668              		.loc 1 531 0
+ 1669 007c 696B     		ldr	r1, [r5, #52]
+ 1670 007e 2000     		movs	r0, r4
+ 1671 0080 FFF7FEFF 		bl	ETIMx_ETxCR_CAPEDGE_Set
+ 1672              	.LVL153:
+ 532:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 533:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx_ETxIVR_Write(ETIMx, para->ctrl_para.INITVALUE);	/* ETx初值寄存器 */
+ 1673              		.loc 1 533 0
+ 1674 0084 A96B     		ldr	r1, [r5, #56]
+ 1675 0086 2000     		movs	r0, r4
+ 1676 0088 FFF7FEFF 		bl	ETIMx_ETxIVR_Write
+ 1677              	.LVL154:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 38
+
+
+ 534:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx_ETxCMP_Write(ETIMx, para->ctrl_para.CMP);			/* ETx比较寄存器 */
+ 1678              		.loc 1 534 0
+ 1679 008c E96B     		ldr	r1, [r5, #60]
+ 1680 008e 2000     		movs	r0, r4
+ 1681 0090 FFF7FEFF 		bl	ETIMx_ETxCMP_Write
+ 1682              	.LVL155:
+ 535:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 536:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx_ETxIE_CMPIE_Setable(ETIMx, para->ctrl_para.CMPIE);		/* 扩展定时器比较中断使能 */
+ 1683              		.loc 1 536 0
+ 1684 0094 4023     		movs	r3, #64
+ 1685 0096 E95C     		ldrb	r1, [r5, r3]
+ 1686 0098 2000     		movs	r0, r4
+ 1687 009a FFF7FEFF 		bl	ETIMx_ETxIE_CMPIE_Setable
+ 1688              	.LVL156:
+ 537:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx_ETxIE_CAPIE_Setable(ETIMx, para->ctrl_para.CAPIE);		/* 扩展定时器捕捉中断使能 */
+ 1689              		.loc 1 537 0
+ 1690 009e 4123     		movs	r3, #65
+ 1691 00a0 E95C     		ldrb	r1, [r5, r3]
+ 1692 00a2 2000     		movs	r0, r4
+ 1693 00a4 FFF7FEFF 		bl	ETIMx_ETxIE_CAPIE_Setable
+ 1694              	.LVL157:
+ 538:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx_ETxIE_OVIE_Setable(ETIMx, para->ctrl_para.OVIE);			/* 扩展定时器溢出中断使能 */
+ 1695              		.loc 1 538 0
+ 1696 00a8 4223     		movs	r3, #66
+ 1697 00aa E95C     		ldrb	r1, [r5, r3]
+ 1698 00ac 2000     		movs	r0, r4
+ 1699 00ae FFF7FEFF 		bl	ETIMx_ETxIE_OVIE_Setable
+ 1700              	.LVL158:
+ 539:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 
+ 540:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** 	ETIMx_ETxCR_CEN_Setable(ETIMx, para->ctrl_para.CEN);		/* 启动控制 */
+ 1701              		.loc 1 540 0
+ 1702 00b2 4323     		movs	r3, #67
+ 1703 00b4 E95C     		ldrb	r1, [r5, r3]
+ 1704 00b6 2000     		movs	r0, r4
+ 1705 00b8 FFF7FEFF 		bl	ETIMx_ETxCR_CEN_Setable
+ 1706              	.LVL159:
+ 541:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_etim.c **** }
+ 1707              		.loc 1 541 0
+ 1708              		@ sp needed
+ 1709              	.LVL160:
+ 1710              	.LVL161:
+ 1711 00bc 70BD     		pop	{r4, r5, r6, pc}
+ 1712              		.cfi_endproc
+ 1713              	.LFE86:
+ 1715 00be C046     		.text
+ 1716              	.Letext0:
+ 1717              		.file 2 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\device\\include\\fm33a0xx.h"
+ 1718              		.file 3 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\machine\\_default_types.h
+ 1719              		.file 4 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 1720              		.file 5 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\drivers\\fm33A0xx_etim.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 39
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 fm33a0xx_etim.c
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:20     .text.ETIMx_ETxCR_EXFLT_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:25     .text.ETIMx_ETxCR_EXFLT_Setable:00000000 ETIMx_ETxCR_EXFLT_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:57     .text.ETIMx_ETxCR_EXFLT_Setable:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:62     .text.ETIMx_ETxCR_EXFLT_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:67     .text.ETIMx_ETxCR_EXFLT_Getable:00000000 ETIMx_ETxCR_EXFLT_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:96     .text.ETIMx_ETxCR_PWM_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:101    .text.ETIMx_ETxCR_PWM_Setable:00000000 ETIMx_ETxCR_PWM_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:132    .text.ETIMx_ETxCR_PWM_Setable:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:137    .text.ETIMx_ETxCR_PWM_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:142    .text.ETIMx_ETxCR_PWM_Getable:00000000 ETIMx_ETxCR_PWM_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:171    .text.ETIMx_ETxCR_CEN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:176    .text.ETIMx_ETxCR_CEN_Setable:00000000 ETIMx_ETxCR_CEN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:207    .text.ETIMx_ETxCR_CEN_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:212    .text.ETIMx_ETxCR_CEN_Getable:00000000 ETIMx_ETxCR_CEN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:241    .text.ETIMx_ETxCR_MOD_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:246    .text.ETIMx_ETxCR_MOD_Set:00000000 ETIMx_ETxCR_MOD_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:275    .text.ETIMx_ETxCR_MOD_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:280    .text.ETIMx_ETxCR_MOD_Get:00000000 ETIMx_ETxCR_MOD_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:300    .text.ETIMx_ETxCR_CASEN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:305    .text.ETIMx_ETxCR_CASEN_Setable:00000000 ETIMx_ETxCR_CASEN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:336    .text.ETIMx_ETxCR_CASEN_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:341    .text.ETIMx_ETxCR_CASEN_Getable:00000000 ETIMx_ETxCR_CASEN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:370    .text.ETIMx_ETxCR_EDGESEL_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:375    .text.ETIMx_ETxCR_EDGESEL_Set:00000000 ETIMx_ETxCR_EDGESEL_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:404    .text.ETIMx_ETxCR_EDGESEL_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:409    .text.ETIMx_ETxCR_EDGESEL_Get:00000000 ETIMx_ETxCR_EDGESEL_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:429    .text.ETIMx_ETxCR_CAPMOD_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:434    .text.ETIMx_ETxCR_CAPMOD_Set:00000000 ETIMx_ETxCR_CAPMOD_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:463    .text.ETIMx_ETxCR_CAPMOD_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:468    .text.ETIMx_ETxCR_CAPMOD_Get:00000000 ETIMx_ETxCR_CAPMOD_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:488    .text.ETIMx_ETxCR_CAPCLR_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:493    .text.ETIMx_ETxCR_CAPCLR_Setable:00000000 ETIMx_ETxCR_CAPCLR_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:524    .text.ETIMx_ETxCR_CAPCLR_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:529    .text.ETIMx_ETxCR_CAPCLR_Getable:00000000 ETIMx_ETxCR_CAPCLR_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:558    .text.ETIMx_ETxCR_CAPONCE_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:563    .text.ETIMx_ETxCR_CAPONCE_Setable:00000000 ETIMx_ETxCR_CAPONCE_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:594    .text.ETIMx_ETxCR_CAPONCE_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:599    .text.ETIMx_ETxCR_CAPONCE_Getable:00000000 ETIMx_ETxCR_CAPONCE_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:628    .text.ETIMx_ETxCR_CAPEDGE_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:633    .text.ETIMx_ETxCR_CAPEDGE_Set:00000000 ETIMx_ETxCR_CAPEDGE_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:662    .text.ETIMx_ETxCR_CAPEDGE_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:667    .text.ETIMx_ETxCR_CAPEDGE_Get:00000000 ETIMx_ETxCR_CAPEDGE_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:687    .text.ETIMx_ETxINSEL_SIG2SEL_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:692    .text.ETIMx_ETxINSEL_SIG2SEL_Set:00000000 ETIMx_ETxINSEL_SIG2SEL_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:721    .text.ETIMx_ETxINSEL_SIG2SEL_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:726    .text.ETIMx_ETxINSEL_SIG2SEL_Get:00000000 ETIMx_ETxINSEL_SIG2SEL_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:746    .text.ETIMx_ETxINSEL_SIG1SEL_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:751    .text.ETIMx_ETxINSEL_SIG1SEL_Set:00000000 ETIMx_ETxINSEL_SIG1SEL_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:780    .text.ETIMx_ETxINSEL_SIG1SEL_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:785    .text.ETIMx_ETxINSEL_SIG1SEL_Get:00000000 ETIMx_ETxINSEL_SIG1SEL_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:805    .text.ETIMx_ETxINSEL_GRP2SEL_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:810    .text.ETIMx_ETxINSEL_GRP2SEL_Set:00000000 ETIMx_ETxINSEL_GRP2SEL_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:839    .text.ETIMx_ETxINSEL_GRP2SEL_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:844    .text.ETIMx_ETxINSEL_GRP2SEL_Get:00000000 ETIMx_ETxINSEL_GRP2SEL_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:864    .text.ETIMx_ETxINSEL_GRP1SEL_Set:00000000 $t
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s 			page 40
+
+
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:869    .text.ETIMx_ETxINSEL_GRP1SEL_Set:00000000 ETIMx_ETxINSEL_GRP1SEL_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:898    .text.ETIMx_ETxINSEL_GRP1SEL_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:903    .text.ETIMx_ETxINSEL_GRP1SEL_Get:00000000 ETIMx_ETxINSEL_GRP1SEL_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:923    .text.ETIMx_ETxPESCALE1_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:928    .text.ETIMx_ETxPESCALE1_Write:00000000 ETIMx_ETxPESCALE1_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:948    .text.ETIMx_ETxPESCALE1_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:953    .text.ETIMx_ETxPESCALE1_Read:00000000 ETIMx_ETxPESCALE1_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:973    .text.ETIMx_ETxPESCALE2_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:978    .text.ETIMx_ETxPESCALE2_Write:00000000 ETIMx_ETxPESCALE2_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:998    .text.ETIMx_ETxPESCALE2_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1003   .text.ETIMx_ETxPESCALE2_Read:00000000 ETIMx_ETxPESCALE2_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1023   .text.ETIMx_ETxIVR_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1028   .text.ETIMx_ETxIVR_Write:00000000 ETIMx_ETxIVR_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1048   .text.ETIMx_ETxIVR_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1053   .text.ETIMx_ETxIVR_Read:00000000 ETIMx_ETxIVR_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1073   .text.ETIMx_ETxCMP_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1078   .text.ETIMx_ETxCMP_Write:00000000 ETIMx_ETxCMP_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1098   .text.ETIMx_ETxCMP_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1103   .text.ETIMx_ETxCMP_Read:00000000 ETIMx_ETxCMP_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1123   .text.ETIMx_ETxIE_CMPIE_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1128   .text.ETIMx_ETxIE_CMPIE_Setable:00000000 ETIMx_ETxIE_CMPIE_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1159   .text.ETIMx_ETxIE_CMPIE_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1164   .text.ETIMx_ETxIE_CMPIE_Getable:00000000 ETIMx_ETxIE_CMPIE_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1193   .text.ETIMx_ETxIE_CAPIE_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1198   .text.ETIMx_ETxIE_CAPIE_Setable:00000000 ETIMx_ETxIE_CAPIE_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1229   .text.ETIMx_ETxIE_CAPIE_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1234   .text.ETIMx_ETxIE_CAPIE_Getable:00000000 ETIMx_ETxIE_CAPIE_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1263   .text.ETIMx_ETxIE_OVIE_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1268   .text.ETIMx_ETxIE_OVIE_Setable:00000000 ETIMx_ETxIE_OVIE_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1299   .text.ETIMx_ETxIE_OVIE_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1304   .text.ETIMx_ETxIE_OVIE_Getable:00000000 ETIMx_ETxIE_OVIE_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1333   .text.ETIMx_ETxIF_CMPIF_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1338   .text.ETIMx_ETxIF_CMPIF_Clr:00000000 ETIMx_ETxIF_CMPIF_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1356   .text.ETIMx_ETxIF_CMPIF_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1361   .text.ETIMx_ETxIF_CMPIF_Chk:00000000 ETIMx_ETxIF_CMPIF_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1390   .text.ETIMx_ETxIF_EDGESTA_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1395   .text.ETIMx_ETxIF_EDGESTA_Chk:00000000 ETIMx_ETxIF_EDGESTA_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1424   .text.ETIMx_ETxIF_CAPIF_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1429   .text.ETIMx_ETxIF_CAPIF_Clr:00000000 ETIMx_ETxIF_CAPIF_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1447   .text.ETIMx_ETxIF_CAPIF_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1452   .text.ETIMx_ETxIF_CAPIF_Chk:00000000 ETIMx_ETxIF_CAPIF_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1481   .text.ETIMx_ETxIF_OVIF_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1486   .text.ETIMx_ETxIF_OVIF_Clr:00000000 ETIMx_ETxIF_OVIF_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1504   .text.ETIMx_ETxIF_OVIF_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1509   .text.ETIMx_ETxIF_OVIF_Chk:00000000 ETIMx_ETxIF_OVIF_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1538   .text.ETIMx_Deinit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1543   .text.ETIMx_Deinit:00000000 ETIMx_Deinit
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1573   .text.ETIMx_Init:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccdN9mvg.s:1578   .text.ETIMx_Init:00000000 ETIMx_Init
+                     .debug_frame:00000010 $d
+
+NO UNDEFINED SYMBOLS

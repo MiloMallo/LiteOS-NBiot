@@ -1,0 +1,769 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"los_priqueue.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.osPriqueueInit,"ax",%progbits
+  20              		.align	2
+  21              		.global	osPriqueueInit
+  22              		.code	16
+  23              		.thumb_func
+  25              	osPriqueueInit:
+  26              	.LFB43:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core/los_priqueue.c"
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** /*----------------------------------------------------------------------------
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  * Copyright (c) <2013-2015>, <Huawei Technologies Co., Ltd>
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  * All rights reserved.
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  * are permitted provided that the following conditions are met:
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  * conditions and the following disclaimer.
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  * provided with the distribution.
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  * permission.
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  *---------------------------------------------------------------------------*/
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** /*----------------------------------------------------------------------------
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  * Notice of Export Control Law
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  * ===============================================
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s 			page 2
+
+
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  * applicable export control laws and regulations.
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****  *---------------------------------------------------------------------------*/
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** 
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** #include "los_priqueue.inc"
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** #include "los_base.ph"
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** #include "los_task.ph"
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** #include "los_memory.h"
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** #include "los_compiler.h"
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** 
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** 
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** LITE_OS_SEC_BSS LOS_DL_LIST *g_pstLosPriorityQueueList;
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** static LITE_OS_SEC_BSS UINT32 g_uwPriQueueBitmap = 0;
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** 
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** #define PRIQUEUE_PRIOR0_BIT                     (UINT32)0x80000000
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** 
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** LITE_OS_SEC_TEXT VOID osPriqueueInit(VOID)
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** {
+  28              		.loc 1 48 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 10B5     		push	{r4, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 4, -8
+  36              		.cfi_offset 14, -4
+  37              	.LVL0:
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     UINT32 uwPri = 0;
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     UINT32 uwSize = 0;
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** 
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     uwSize = OS_PRIORITY_QUEUE_PRIORITYNUM * sizeof(LOS_DL_LIST);
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     g_pstLosPriorityQueueList = (LOS_DL_LIST *)LOS_MemAlloc(m_aucSysMem0, uwSize);
+  38              		.loc 1 53 0
+  39 0002 0B4B     		ldr	r3, .L5
+  40 0004 1868     		ldr	r0, [r3]
+  41 0006 8021     		movs	r1, #128
+  42 0008 4900     		lsls	r1, r1, #1
+  43 000a FFF7FEFF 		bl	LOS_MemAlloc
+  44              	.LVL1:
+  45 000e 094B     		ldr	r3, .L5+4
+  46 0010 1860     		str	r0, [r3]
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     if (NULL == g_pstLosPriorityQueueList)
+  47              		.loc 1 54 0
+  48 0012 0028     		cmp	r0, #0
+  49 0014 0AD0     		beq	.L1
+  50 0016 0022     		movs	r2, #0
+  51 0018 06E0     		b	.L3
+  52              	.LVL2:
+  53              	.L4:
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     {
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****         return;
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     }
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** 
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     for (uwPri = 0; uwPri < OS_PRIORITY_QUEUE_PRIORITYNUM; ++uwPri)
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     {
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****         LOS_ListInit(&g_pstLosPriorityQueueList[uwPri]);
+  54              		.loc 1 61 0 discriminator 3
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s 			page 3
+
+
+  55 001a D300     		lsls	r3, r2, #3
+  56 001c 0549     		ldr	r1, .L5+4
+  57 001e 0968     		ldr	r1, [r1]
+  58 0020 CB18     		adds	r3, r1, r3
+  59              	.LVL3:
+  60              	.LBB16:
+  61              	.LBB17:
+  62              		.file 2 "e:\\liteos\\liteos\\kernel\\include\\los_list.h"
+   1:e:\liteos\liteos\kernel\include\los_list.h **** /*----------------------------------------------------------------------------
+   2:e:\liteos\liteos\kernel\include\los_list.h ****  * Copyright (c) <2013-2015>, <Huawei Technologies Co., Ltd>
+   3:e:\liteos\liteos\kernel\include\los_list.h ****  * All rights reserved.
+   4:e:\liteos\liteos\kernel\include\los_list.h ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:e:\liteos\liteos\kernel\include\los_list.h ****  * are permitted provided that the following conditions are met:
+   6:e:\liteos\liteos\kernel\include\los_list.h ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:e:\liteos\liteos\kernel\include\los_list.h ****  * conditions and the following disclaimer.
+   8:e:\liteos\liteos\kernel\include\los_list.h ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:e:\liteos\liteos\kernel\include\los_list.h ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:e:\liteos\liteos\kernel\include\los_list.h ****  * provided with the distribution.
+  11:e:\liteos\liteos\kernel\include\los_list.h ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:e:\liteos\liteos\kernel\include\los_list.h ****  * to endorse or promote products derived from this software without specific prior written
+  13:e:\liteos\liteos\kernel\include\los_list.h ****  * permission.
+  14:e:\liteos\liteos\kernel\include\los_list.h ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:e:\liteos\liteos\kernel\include\los_list.h ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:e:\liteos\liteos\kernel\include\los_list.h ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:e:\liteos\liteos\kernel\include\los_list.h ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:e:\liteos\liteos\kernel\include\los_list.h ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:e:\liteos\liteos\kernel\include\los_list.h ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:e:\liteos\liteos\kernel\include\los_list.h ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:e:\liteos\liteos\kernel\include\los_list.h ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:e:\liteos\liteos\kernel\include\los_list.h ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:e:\liteos\liteos\kernel\include\los_list.h ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:e:\liteos\liteos\kernel\include\los_list.h ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:e:\liteos\liteos\kernel\include\los_list.h ****  *---------------------------------------------------------------------------*/
+  26:e:\liteos\liteos\kernel\include\los_list.h **** /*----------------------------------------------------------------------------
+  27:e:\liteos\liteos\kernel\include\los_list.h ****  * Notice of Export Control Law
+  28:e:\liteos\liteos\kernel\include\los_list.h ****  * ===============================================
+  29:e:\liteos\liteos\kernel\include\los_list.h ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:e:\liteos\liteos\kernel\include\los_list.h ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:e:\liteos\liteos\kernel\include\los_list.h ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:e:\liteos\liteos\kernel\include\los_list.h ****  * applicable export control laws and regulations.
+  33:e:\liteos\liteos\kernel\include\los_list.h ****  *---------------------------------------------------------------------------*/
+  34:e:\liteos\liteos\kernel\include\los_list.h **** 
+  35:e:\liteos\liteos\kernel\include\los_list.h ****  /** @defgroup los_list Doubly linked list
+  36:e:\liteos\liteos\kernel\include\los_list.h ****  * @ingroup kernel
+  37:e:\liteos\liteos\kernel\include\los_list.h ****  */
+  38:e:\liteos\liteos\kernel\include\los_list.h **** 
+  39:e:\liteos\liteos\kernel\include\los_list.h **** #ifndef _LOS_LIST_H
+  40:e:\liteos\liteos\kernel\include\los_list.h **** #define _LOS_LIST_H
+  41:e:\liteos\liteos\kernel\include\los_list.h **** 
+  42:e:\liteos\liteos\kernel\include\los_list.h **** #include "los_typedef.h"
+  43:e:\liteos\liteos\kernel\include\los_list.h **** 
+  44:e:\liteos\liteos\kernel\include\los_list.h **** #ifdef __cplusplus
+  45:e:\liteos\liteos\kernel\include\los_list.h **** #if __cplusplus
+  46:e:\liteos\liteos\kernel\include\los_list.h **** extern "C" {
+  47:e:\liteos\liteos\kernel\include\los_list.h **** #endif /* __cplusplus */
+  48:e:\liteos\liteos\kernel\include\los_list.h **** #endif /* __cplusplus */
+  49:e:\liteos\liteos\kernel\include\los_list.h **** 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s 			page 4
+
+
+  50:e:\liteos\liteos\kernel\include\los_list.h **** 
+  51:e:\liteos\liteos\kernel\include\los_list.h **** /**
+  52:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+  53:e:\liteos\liteos\kernel\include\los_list.h ****  *Structure of a node in a doubly linked list.
+  54:e:\liteos\liteos\kernel\include\los_list.h ****  */
+  55:e:\liteos\liteos\kernel\include\los_list.h **** typedef struct LOS_DL_LIST
+  56:e:\liteos\liteos\kernel\include\los_list.h **** {
+  57:e:\liteos\liteos\kernel\include\los_list.h ****     struct LOS_DL_LIST *pstPrev;            /**< Current node's pointer to the previous node*/
+  58:e:\liteos\liteos\kernel\include\los_list.h ****     struct LOS_DL_LIST *pstNext;            /**< Current node's pointer to the next node*/
+  59:e:\liteos\liteos\kernel\include\los_list.h **** } LOS_DL_LIST;
+  60:e:\liteos\liteos\kernel\include\los_list.h **** 
+  61:e:\liteos\liteos\kernel\include\los_list.h **** /**
+  62:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+  63:e:\liteos\liteos\kernel\include\los_list.h ****  *@brief Initialize a doubly linked list.
+  64:e:\liteos\liteos\kernel\include\los_list.h ****  *
+  65:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Description:
+  66:e:\liteos\liteos\kernel\include\los_list.h ****  *This API is used to initialize a doubly linked list.
+  67:e:\liteos\liteos\kernel\include\los_list.h ****  *@attention
+  68:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+  69:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>The parameter passed in should be ensured to be a legal pointer.</li>
+  70:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+  71:e:\liteos\liteos\kernel\include\los_list.h ****  *
+  72:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstList    [IN] Node in a doubly linked list.
+  73:e:\liteos\liteos\kernel\include\los_list.h ****  *
+  74:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval None.
+  75:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Dependency:
+  76:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul><li>los_list.h: the header file that contains the API declaration.</li></ul>
+  77:e:\liteos\liteos\kernel\include\los_list.h ****  *@see
+  78:e:\liteos\liteos\kernel\include\los_list.h ****  *@since Huawei LiteOS V100R001C00
+  79:e:\liteos\liteos\kernel\include\los_list.h ****  */
+  80:e:\liteos\liteos\kernel\include\los_list.h **** LITE_OS_SEC_ALW_INLINE STATIC_INLINE VOID LOS_ListInit(LOS_DL_LIST *pstList)
+  81:e:\liteos\liteos\kernel\include\los_list.h **** {
+  82:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstNext = pstList;
+  63              		.loc 2 82 0 discriminator 3
+  64 0022 5B60     		str	r3, [r3, #4]
+  83:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstPrev = pstList;
+  65              		.loc 2 83 0 discriminator 3
+  66 0024 1B60     		str	r3, [r3]
+  67              	.LVL4:
+  68              	.LBE17:
+  69              	.LBE16:
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     {
+  70              		.loc 1 59 0 discriminator 3
+  71 0026 0132     		adds	r2, r2, #1
+  72              	.LVL5:
+  73              	.L3:
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     {
+  74              		.loc 1 59 0 is_stmt 0 discriminator 1
+  75 0028 1F2A     		cmp	r2, #31
+  76 002a F6D9     		bls	.L4
+  77              	.LVL6:
+  78              	.L1:
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     }
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** }
+  79              		.loc 1 63 0 is_stmt 1
+  80              		@ sp needed
+  81 002c 10BD     		pop	{r4, pc}
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s 			page 5
+
+
+  82              	.L6:
+  83 002e C046     		.align	2
+  84              	.L5:
+  85 0030 00000000 		.word	m_aucSysMem0
+  86 0034 00000000 		.word	g_pstLosPriorityQueueList
+  87              		.cfi_endproc
+  88              	.LFE43:
+  90              		.section	.text.osPriqueueEnqueue,"ax",%progbits
+  91              		.align	2
+  92              		.global	osPriqueueEnqueue
+  93              		.code	16
+  94              		.thumb_func
+  96              	osPriqueueEnqueue:
+  97              	.LFB44:
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** 
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** LITE_OS_SEC_TEXT VOID osPriqueueEnqueue(LOS_DL_LIST *ptrPQItem, UINT32 uwPri)
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** {
+  98              		.loc 1 66 0
+  99              		.cfi_startproc
+ 100              		@ args = 0, pretend = 0, frame = 0
+ 101              		@ frame_needed = 0, uses_anonymous_args = 0
+ 102              	.LVL7:
+ 103 0000 10B5     		push	{r4, lr}
+ 104              	.LCFI1:
+ 105              		.cfi_def_cfa_offset 8
+ 106              		.cfi_offset 4, -8
+ 107              		.cfi_offset 14, -4
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     if (LOS_ListEmpty(&g_pstLosPriorityQueueList[uwPri]))
+ 108              		.loc 1 67 0
+ 109 0002 CB00     		lsls	r3, r1, #3
+ 110 0004 0A4A     		ldr	r2, .L9
+ 111 0006 1268     		ldr	r2, [r2]
+ 112 0008 D318     		adds	r3, r2, r3
+ 113              	.LVL8:
+ 114 000a 5A68     		ldr	r2, [r3, #4]
+ 115 000c 9342     		cmp	r3, r2
+ 116 000e 06D1     		bne	.L8
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     {
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****         g_uwPriQueueBitmap |= (PRIQUEUE_PRIOR0_BIT >> uwPri);
+ 117              		.loc 1 69 0
+ 118 0010 8022     		movs	r2, #128
+ 119 0012 1206     		lsls	r2, r2, #24
+ 120 0014 CA40     		lsrs	r2, r2, r1
+ 121 0016 0749     		ldr	r1, .L9+4
+ 122              	.LVL9:
+ 123 0018 0C68     		ldr	r4, [r1]
+ 124 001a 2243     		orrs	r2, r4
+ 125 001c 0A60     		str	r2, [r1]
+ 126              	.L8:
+ 127              	.LVL10:
+ 128              	.LBB18:
+ 129              	.LBB19:
+  84:e:\liteos\liteos\kernel\include\los_list.h **** }
+  85:e:\liteos\liteos\kernel\include\los_list.h **** 
+  86:e:\liteos\liteos\kernel\include\los_list.h **** /**
+  87:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+  88:e:\liteos\liteos\kernel\include\los_list.h ****  *@brief Point to the next node pointed to by the current node.
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s 			page 6
+
+
+  89:e:\liteos\liteos\kernel\include\los_list.h ****  *
+  90:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Description:
+  91:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+  92:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>This API is used to point to the next node pointed to by the current node.</li>
+  93:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+  94:e:\liteos\liteos\kernel\include\los_list.h ****  *@attention
+  95:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+  96:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>None.</li>
+  97:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+  98:e:\liteos\liteos\kernel\include\los_list.h ****  *
+  99:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstObject  [IN] Node in the doubly linked list.
+ 100:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 101:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval None.
+ 102:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Dependency:
+ 103:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul><li>los_list.h: the header file that contains the API declaration.</li></ul>
+ 104:e:\liteos\liteos\kernel\include\los_list.h ****  *@see
+ 105:e:\liteos\liteos\kernel\include\los_list.h ****  *@since Huawei LiteOS V100R001C00
+ 106:e:\liteos\liteos\kernel\include\los_list.h ****  */
+ 107:e:\liteos\liteos\kernel\include\los_list.h **** #define LOS_DL_LIST_FIRST(pstObject) ((pstObject)->pstNext)
+ 108:e:\liteos\liteos\kernel\include\los_list.h **** 
+ 109:e:\liteos\liteos\kernel\include\los_list.h **** /**
+ 110:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+ 111:e:\liteos\liteos\kernel\include\los_list.h ****  *@brief Insert a new node to a doubly linked list.
+ 112:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 113:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Description:
+ 114:e:\liteos\liteos\kernel\include\los_list.h ****  *This API is used to insert a new node to a doubly linked list.
+ 115:e:\liteos\liteos\kernel\include\los_list.h ****  *@attention
+ 116:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+ 117:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>The parameters passed in should be ensured to be legal pointers.</li>
+ 118:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+ 119:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 120:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstList    [IN]   Doubly linked list where the new node is inserted.
+ 121:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstNode    [IN]   New node to be inserted.
+ 122:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 123:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval None
+ 124:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Dependency:
+ 125:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul><li>los_list.h: the header file that contains the API declaration.</li></ul>
+ 126:e:\liteos\liteos\kernel\include\los_list.h ****  *@see LOS_ListDelete
+ 127:e:\liteos\liteos\kernel\include\los_list.h ****  *@since Huawei LiteOS V100R001C00
+ 128:e:\liteos\liteos\kernel\include\los_list.h ****  */
+ 129:e:\liteos\liteos\kernel\include\los_list.h **** LITE_OS_SEC_ALW_INLINE STATIC_INLINE VOID LOS_ListAdd(LOS_DL_LIST *pstList, LOS_DL_LIST *pstNode)
+ 130:e:\liteos\liteos\kernel\include\los_list.h **** {
+ 131:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstNext = pstList->pstNext;
+ 132:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstPrev = pstList;
+ 133:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstNext->pstPrev = pstNode;
+ 134:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstNext = pstNode;
+ 135:e:\liteos\liteos\kernel\include\los_list.h **** }
+ 136:e:\liteos\liteos\kernel\include\los_list.h **** 
+ 137:e:\liteos\liteos\kernel\include\los_list.h **** /**
+ 138:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+ 139:e:\liteos\liteos\kernel\include\los_list.h ****  *@brief Insert a node to the tail of a doubly linked list.
+ 140:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 141:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Description:
+ 142:e:\liteos\liteos\kernel\include\los_list.h ****  *This API is used to insert a new node to the tail of a doubly linked list.
+ 143:e:\liteos\liteos\kernel\include\los_list.h ****  *@attention
+ 144:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+ 145:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>The parameters passed in should be ensured to be legal pointers.</li>
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s 			page 7
+
+
+ 146:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+ 147:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 148:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstList     [IN] Doubly linked list where the new node is inserted.
+ 149:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstNode     [IN] New node to be inserted.
+ 150:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 151:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval None.
+ 152:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Dependency:
+ 153:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul><li>los_list.h: the header file that contains the API declaration.</li></ul>
+ 154:e:\liteos\liteos\kernel\include\los_list.h ****  *@see LOS_ListAdd | LOS_ListHeadInsert
+ 155:e:\liteos\liteos\kernel\include\los_list.h ****  *@since Huawei LiteOS V100R001C00
+ 156:e:\liteos\liteos\kernel\include\los_list.h ****  */
+ 157:e:\liteos\liteos\kernel\include\los_list.h **** LITE_OS_SEC_ALW_INLINE STATIC_INLINE VOID LOS_ListTailInsert(LOS_DL_LIST *pstList, LOS_DL_LIST *pst
+ 158:e:\liteos\liteos\kernel\include\los_list.h **** {
+ 159:e:\liteos\liteos\kernel\include\los_list.h ****     LOS_ListAdd(pstList->pstPrev, pstNode);
+ 130              		.loc 2 159 0
+ 131 001e 1B68     		ldr	r3, [r3]
+ 132              	.LVL11:
+ 133              	.LBB20:
+ 134              	.LBB21:
+ 131:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstPrev = pstList;
+ 135              		.loc 2 131 0
+ 136 0020 5A68     		ldr	r2, [r3, #4]
+ 137 0022 4260     		str	r2, [r0, #4]
+ 132:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstNext->pstPrev = pstNode;
+ 138              		.loc 2 132 0
+ 139 0024 0360     		str	r3, [r0]
+ 140              	.LVL12:
+ 133:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstNext = pstNode;
+ 141              		.loc 2 133 0
+ 142 0026 5A68     		ldr	r2, [r3, #4]
+ 143 0028 1060     		str	r0, [r2]
+ 134:e:\liteos\liteos\kernel\include\los_list.h **** }
+ 144              		.loc 2 134 0
+ 145 002a 5860     		str	r0, [r3, #4]
+ 146              	.LVL13:
+ 147              	.LBE21:
+ 148              	.LBE20:
+ 149              	.LBE19:
+ 150              	.LBE18:
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     }
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** 
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     LOS_ListTailInsert(&g_pstLosPriorityQueueList[uwPri], ptrPQItem);
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** }
+ 151              		.loc 1 73 0
+ 152              		@ sp needed
+ 153 002c 10BD     		pop	{r4, pc}
+ 154              	.L10:
+ 155 002e C046     		.align	2
+ 156              	.L9:
+ 157 0030 00000000 		.word	g_pstLosPriorityQueueList
+ 158 0034 00000000 		.word	.LANCHOR0
+ 159              		.cfi_endproc
+ 160              	.LFE44:
+ 162              		.section	.text.osPriqueueDequeue,"ax",%progbits
+ 163              		.align	2
+ 164              		.global	osPriqueueDequeue
+ 165              		.code	16
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s 			page 8
+
+
+ 166              		.thumb_func
+ 168              	osPriqueueDequeue:
+ 169              	.LFB45:
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** 
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** LITE_OS_SEC_TEXT VOID osPriqueueDequeue(LOS_DL_LIST *ptrPQItem)
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** {
+ 170              		.loc 1 76 0
+ 171              		.cfi_startproc
+ 172              		@ args = 0, pretend = 0, frame = 0
+ 173              		@ frame_needed = 0, uses_anonymous_args = 0
+ 174              		@ link register save eliminated.
+ 175              	.LVL14:
+ 176              	.LBB22:
+ 177              	.LBB23:
+ 160:e:\liteos\liteos\kernel\include\los_list.h **** }
+ 161:e:\liteos\liteos\kernel\include\los_list.h **** 
+ 162:e:\liteos\liteos\kernel\include\los_list.h **** /**
+ 163:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+ 164:e:\liteos\liteos\kernel\include\los_list.h ****  *@brief Delete a specified node from a doubly linked list.
+ 165:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 166:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Description:
+ 167:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+ 168:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>This API is used to delete a specified node from a doubly linked list.</li>
+ 169:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+ 170:e:\liteos\liteos\kernel\include\los_list.h ****  *@attention
+ 171:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+ 172:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>The parameter passed in should be ensured to be a legal pointer.</li>
+ 173:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+ 174:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 175:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstNode    [IN] Node to be deleted.
+ 176:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 177:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval None.
+ 178:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Dependency:
+ 179:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul><li>los_list.h: the header file that contains the API declaration.</li></ul>
+ 180:e:\liteos\liteos\kernel\include\los_list.h ****  *@see LOS_ListAdd
+ 181:e:\liteos\liteos\kernel\include\los_list.h ****  *@since Huawei LiteOS V100R001C00
+ 182:e:\liteos\liteos\kernel\include\los_list.h ****  */
+ 183:e:\liteos\liteos\kernel\include\los_list.h **** LITE_OS_SEC_ALW_INLINE STATIC_INLINE VOID LOS_ListDelete(LOS_DL_LIST *pstNode)
+ 184:e:\liteos\liteos\kernel\include\los_list.h **** {
+ 185:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstNext->pstPrev = pstNode->pstPrev;
+ 178              		.loc 2 185 0
+ 179 0000 4368     		ldr	r3, [r0, #4]
+ 180 0002 0268     		ldr	r2, [r0]
+ 181 0004 1A60     		str	r2, [r3]
+ 186:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstPrev->pstNext = pstNode->pstNext;
+ 182              		.loc 2 186 0
+ 183 0006 0368     		ldr	r3, [r0]
+ 184 0008 4268     		ldr	r2, [r0, #4]
+ 185 000a 5A60     		str	r2, [r3, #4]
+ 187:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstNext = (LOS_DL_LIST *)NULL;
+ 186              		.loc 2 187 0
+ 187 000c 0023     		movs	r3, #0
+ 188 000e 4360     		str	r3, [r0, #4]
+ 188:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstPrev = (LOS_DL_LIST *)NULL;
+ 189              		.loc 2 188 0
+ 190 0010 0360     		str	r3, [r0]
+ 191              	.LVL15:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s 			page 9
+
+
+ 192              	.LBE23:
+ 193              	.LBE22:
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     LOS_TASK_CB *pstRunTsk;
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     LOS_ListDelete(ptrPQItem);
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** 
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     pstRunTsk = LOS_DL_LIST_ENTRY(ptrPQItem, LOS_TASK_CB, stPendList);  /*lint !e413*/
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     if (LOS_ListEmpty(&g_pstLosPriorityQueueList[pstRunTsk->usPriority]))
+ 194              		.loc 1 81 0
+ 195 0012 2838     		subs	r0, r0, #40
+ 196              	.LVL16:
+ 197 0014 C288     		ldrh	r2, [r0, #6]
+ 198 0016 D300     		lsls	r3, r2, #3
+ 199 0018 0649     		ldr	r1, .L13
+ 200 001a 0968     		ldr	r1, [r1]
+ 201 001c CB18     		adds	r3, r1, r3
+ 202              	.LVL17:
+ 203 001e 5968     		ldr	r1, [r3, #4]
+ 204 0020 8B42     		cmp	r3, r1
+ 205 0022 06D1     		bne	.L11
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     {
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****         g_uwPriQueueBitmap &= (~(PRIQUEUE_PRIOR0_BIT >> pstRunTsk->usPriority));
+ 206              		.loc 1 83 0
+ 207 0024 8023     		movs	r3, #128
+ 208 0026 1B06     		lsls	r3, r3, #24
+ 209 0028 D340     		lsrs	r3, r3, r2
+ 210 002a 034A     		ldr	r2, .L13+4
+ 211 002c 1168     		ldr	r1, [r2]
+ 212 002e 9943     		bics	r1, r3
+ 213 0030 1160     		str	r1, [r2]
+ 214              	.L11:
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     }
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** }
+ 215              		.loc 1 85 0
+ 216              		@ sp needed
+ 217 0032 7047     		bx	lr
+ 218              	.L14:
+ 219              		.align	2
+ 220              	.L13:
+ 221 0034 00000000 		.word	g_pstLosPriorityQueueList
+ 222 0038 00000000 		.word	.LANCHOR0
+ 223              		.cfi_endproc
+ 224              	.LFE45:
+ 226              		.global	__clzsi2
+ 227              		.section	.text.osPriqueueTop,"ax",%progbits
+ 228              		.align	2
+ 229              		.global	osPriqueueTop
+ 230              		.code	16
+ 231              		.thumb_func
+ 233              	osPriqueueTop:
+ 234              	.LFB46:
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** 
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** LITE_OS_SEC_TEXT LOS_DL_LIST *osPriqueueTop(VOID)
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** {
+ 235              		.loc 1 88 0
+ 236              		.cfi_startproc
+ 237              		@ args = 0, pretend = 0, frame = 0
+ 238              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s 			page 10
+
+
+ 239 0000 10B5     		push	{r4, lr}
+ 240              	.LCFI2:
+ 241              		.cfi_def_cfa_offset 8
+ 242              		.cfi_offset 4, -8
+ 243              		.cfi_offset 14, -4
+ 244              	.LVL18:
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     UINT32 uwPri = 0;
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** 
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     if (0 != g_uwPriQueueBitmap)
+ 245              		.loc 1 91 0
+ 246 0002 074B     		ldr	r3, .L18
+ 247 0004 1868     		ldr	r0, [r3]
+ 248 0006 0028     		cmp	r0, #0
+ 249 0008 07D0     		beq	.L17
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     {
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****         uwPri = CLZ(g_uwPriQueueBitmap);
+ 250              		.loc 1 93 0
+ 251 000a FFF7FEFF 		bl	__clzsi2
+ 252              	.LVL19:
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****         return LOS_DL_LIST_FIRST(&g_pstLosPriorityQueueList[uwPri]);
+ 253              		.loc 1 94 0
+ 254 000e C000     		lsls	r0, r0, #3
+ 255              	.LVL20:
+ 256 0010 044B     		ldr	r3, .L18+4
+ 257 0012 1B68     		ldr	r3, [r3]
+ 258 0014 1818     		adds	r0, r3, r0
+ 259 0016 4068     		ldr	r0, [r0, #4]
+ 260 0018 00E0     		b	.L16
+ 261              	.LVL21:
+ 262              	.L17:
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     }
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** 
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     return (LOS_DL_LIST *)NULL;
+ 263              		.loc 1 97 0
+ 264 001a 0020     		movs	r0, #0
+ 265              	.LVL22:
+ 266              	.L16:
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** }
+ 267              		.loc 1 98 0
+ 268              		@ sp needed
+ 269 001c 10BD     		pop	{r4, pc}
+ 270              	.L19:
+ 271 001e C046     		.align	2
+ 272              	.L18:
+ 273 0020 00000000 		.word	.LANCHOR0
+ 274 0024 00000000 		.word	g_pstLosPriorityQueueList
+ 275              		.cfi_endproc
+ 276              	.LFE46:
+ 278              		.section	.text.osPriqueueSize,"ax",%progbits
+ 279              		.align	2
+ 280              		.global	osPriqueueSize
+ 281              		.code	16
+ 282              		.thumb_func
+ 284              	osPriqueueSize:
+ 285              	.LFB47:
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** 
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** LITE_OS_SEC_TEXT UINT32 osPriqueueSize(UINT32 uwPri)
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s 			page 11
+
+
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** {
+ 286              		.loc 1 101 0
+ 287              		.cfi_startproc
+ 288              		@ args = 0, pretend = 0, frame = 0
+ 289              		@ frame_needed = 0, uses_anonymous_args = 0
+ 290              		@ link register save eliminated.
+ 291              	.LVL23:
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     UINT32      uwItemCnt = 0;
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     LOS_DL_LIST *pstCurPQNode = (LOS_DL_LIST *)NULL;
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** 
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     LOS_DL_LIST_FOR_EACH(pstCurPQNode, &g_pstLosPriorityQueueList[uwPri])
+ 292              		.loc 1 105 0
+ 293 0000 C000     		lsls	r0, r0, #3
+ 294              	.LVL24:
+ 295 0002 054B     		ldr	r3, .L23
+ 296 0004 1A68     		ldr	r2, [r3]
+ 297 0006 1218     		adds	r2, r2, r0
+ 298 0008 5368     		ldr	r3, [r2, #4]
+ 299              	.LVL25:
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     UINT32      uwItemCnt = 0;
+ 300              		.loc 1 102 0
+ 301 000a 0020     		movs	r0, #0
+ 302              		.loc 1 105 0
+ 303 000c 01E0     		b	.L21
+ 304              	.LVL26:
+ 305              	.L22:
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     {
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****         ++uwItemCnt;
+ 306              		.loc 1 107 0 discriminator 3
+ 307 000e 0130     		adds	r0, r0, #1
+ 308              	.LVL27:
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     {
+ 309              		.loc 1 105 0 discriminator 3
+ 310 0010 5B68     		ldr	r3, [r3, #4]
+ 311              	.LVL28:
+ 312              	.L21:
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     {
+ 313              		.loc 1 105 0 is_stmt 0 discriminator 1
+ 314 0012 9342     		cmp	r3, r2
+ 315 0014 FBD1     		bne	.L22
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     }
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** 
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     return uwItemCnt;
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** }
+ 316              		.loc 1 111 0 is_stmt 1
+ 317              		@ sp needed
+ 318 0016 7047     		bx	lr
+ 319              	.L24:
+ 320              		.align	2
+ 321              	.L23:
+ 322 0018 00000000 		.word	g_pstLosPriorityQueueList
+ 323              		.cfi_endproc
+ 324              	.LFE47:
+ 326              		.section	.text.osPriqueueTotalSize,"ax",%progbits
+ 327              		.align	2
+ 328              		.global	osPriqueueTotalSize
+ 329              		.code	16
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s 			page 12
+
+
+ 330              		.thumb_func
+ 332              	osPriqueueTotalSize:
+ 333              	.LFB48:
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** 
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** LITE_OS_SEC_TEXT UINT32 osPriqueueTotalSize(VOID)
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** {
+ 334              		.loc 1 114 0
+ 335              		.cfi_startproc
+ 336              		@ args = 0, pretend = 0, frame = 0
+ 337              		@ frame_needed = 0, uses_anonymous_args = 0
+ 338 0000 70B5     		push	{r4, r5, r6, lr}
+ 339              	.LCFI3:
+ 340              		.cfi_def_cfa_offset 16
+ 341              		.cfi_offset 4, -16
+ 342              		.cfi_offset 5, -12
+ 343              		.cfi_offset 6, -8
+ 344              		.cfi_offset 14, -4
+ 345              	.LVL29:
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     UINT32 uwPri = 0;
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     UINT32 uwTotalSize = 0;
+ 346              		.loc 1 116 0
+ 347 0002 0025     		movs	r5, #0
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** 
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     for (uwPri = 0; uwPri < OS_PRIORITY_QUEUE_PRIORITYNUM; ++uwPri)
+ 348              		.loc 1 118 0
+ 349 0004 0024     		movs	r4, #0
+ 350 0006 04E0     		b	.L26
+ 351              	.LVL30:
+ 352              	.L27:
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     {
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****         uwTotalSize += osPriqueueSize(uwPri);
+ 353              		.loc 1 120 0 discriminator 3
+ 354 0008 2000     		movs	r0, r4
+ 355 000a FFF7FEFF 		bl	osPriqueueSize
+ 356              	.LVL31:
+ 357 000e 2D18     		adds	r5, r5, r0
+ 358              	.LVL32:
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     {
+ 359              		.loc 1 118 0 discriminator 3
+ 360 0010 0134     		adds	r4, r4, #1
+ 361              	.LVL33:
+ 362              	.L26:
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     {
+ 363              		.loc 1 118 0 is_stmt 0 discriminator 1
+ 364 0012 1F2C     		cmp	r4, #31
+ 365 0014 F8D9     		bls	.L27
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     }
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** 
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c ****     return uwTotalSize;
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/core\los_priqueue.c **** }
+ 366              		.loc 1 124 0 is_stmt 1
+ 367 0016 2800     		movs	r0, r5
+ 368              		@ sp needed
+ 369              	.LVL34:
+ 370              	.LVL35:
+ 371 0018 70BD     		pop	{r4, r5, r6, pc}
+ 372              		.cfi_endproc
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s 			page 13
+
+
+ 373              	.LFE48:
+ 375              		.comm	g_pstLosPriorityQueueList,4,4
+ 376 001a C046     		.section	.bss.g_uwPriQueueBitmap,"aw",%nobits
+ 377              		.align	2
+ 378              		.set	.LANCHOR0,. + 0
+ 381              	g_uwPriQueueBitmap:
+ 382 0000 00000000 		.space	4
+ 383              		.text
+ 384              	.Letext0:
+ 385              		.file 3 "e:\\liteos\\liteos\\kernel\\include\\los_typedef.h"
+ 386              		.file 4 "e:\\liteos\\liteos\\kernel\\include\\los_event.h"
+ 387              		.file 5 "e:\\liteos\\liteos\\kernel\\include\\los_task.h"
+ 388              		.file 6 "e:\\liteos\\liteos\\kernel\\base\\include\\los_task.ph"
+ 389              		.file 7 "e:\\liteos\\liteos\\kernel\\include\\los_config.h"
+ 390              		.file 8 "e:\\liteos\\liteos\\kernel\\include\\los_memory.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s 			page 14
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 los_priqueue.c
+C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s:20     .text.osPriqueueInit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s:25     .text.osPriqueueInit:00000000 osPriqueueInit
+C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s:85     .text.osPriqueueInit:00000030 $d
+                            *COM*:00000004 g_pstLosPriorityQueueList
+C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s:91     .text.osPriqueueEnqueue:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s:96     .text.osPriqueueEnqueue:00000000 osPriqueueEnqueue
+C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s:157    .text.osPriqueueEnqueue:00000030 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s:163    .text.osPriqueueDequeue:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s:168    .text.osPriqueueDequeue:00000000 osPriqueueDequeue
+C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s:221    .text.osPriqueueDequeue:00000034 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s:228    .text.osPriqueueTop:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s:233    .text.osPriqueueTop:00000000 osPriqueueTop
+C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s:273    .text.osPriqueueTop:00000020 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s:279    .text.osPriqueueSize:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s:284    .text.osPriqueueSize:00000000 osPriqueueSize
+C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s:322    .text.osPriqueueSize:00000018 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s:327    .text.osPriqueueTotalSize:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s:332    .text.osPriqueueTotalSize:00000000 osPriqueueTotalSize
+C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s:377    .bss.g_uwPriQueueBitmap:00000000 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccuUgsgJ.s:381    .bss.g_uwPriQueueBitmap:00000000 g_uwPriQueueBitmap
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+LOS_MemAlloc
+m_aucSysMem0
+__clzsi2

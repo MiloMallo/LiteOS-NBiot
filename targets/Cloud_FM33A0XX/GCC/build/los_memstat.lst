@@ -1,0 +1,29 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqPZEhc.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"los_memstat.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              	.Letext0:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccqPZEhc.s 			page 2
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 los_memstat.c
+
+NO UNDEFINED SYMBOLS

@@ -1,0 +1,833 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccy5VoHd.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"los_api_task.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.Example_TaskLo,"ax",%progbits
+  20              		.align	2
+  21              		.code	16
+  22              		.thumb_func
+  24              	Example_TaskLo:
+  25              	.LFB44:
+  26              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api/los_api_task.c"
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** /*----------------------------------------------------------------------------
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  * Copyright (c) <2016-2018>, <Huawei Technologies Co., Ltd>
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  * All rights reserved.
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  * are permitted provided that the following conditions are met:
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  * conditions and the following disclaimer.
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  * provided with the distribution.
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  * permission.
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  *---------------------------------------------------------------------------*/
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  /*----------------------------------------------------------------------------
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  * Notice of Export Control Law
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  * ===============================================
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  * applicable export control laws and regulations.
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccy5VoHd.s 			page 2
+
+
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****  *---------------------------------------------------------------------------*/
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** #include "math.h"
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** #include "time.h"
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** #include "los_task.h"
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** #include "los_api_task.h"
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** #include "los_inspect_entry.h"
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** #ifdef __cplusplus
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** #if __cplusplus
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** extern "C" {
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** #endif /* __cpluscplus */
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** #endif /* __cpluscplus */
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** static UINT32 g_uwTskHiID;
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** static UINT32 g_uwTskLoID;
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** #define TSK_PRIOR_HI 4
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** #define TSK_PRIOR_LO 5
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** static UINT32 Example_TaskHi(VOID)
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** {
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     UINT32 uwRet = LOS_OK;
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     dprintf("Enter TaskHi Handler.\r\n");
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     /* task delay 5 ticks, task will be suspend */
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     uwRet = LOS_TaskDelay(5);
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     if (uwRet != LOS_OK)
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     {
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         dprintf("Delay Task Failed.\r\n");
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         return LOS_NOK;
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     }
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     /* task resumed */
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     dprintf("TaskHi LOS_TaskDelay Done.\r\n");
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     /* suspend self */
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     uwRet = LOS_TaskSuspend(g_uwTskHiID);
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     if (uwRet != LOS_OK)
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     {
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         dprintf("Suspend TaskHi Failed.\r\n");
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         uwRet = LOS_InspectStatusSetByID(LOS_INSPECT_TASK, LOS_INSPECT_STU_ERROR);
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         if (LOS_OK != uwRet)
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         {
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****             dprintf("Set Inspect Status Err.\r\n");
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         }
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         return LOS_NOK;
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     }
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     dprintf("TaskHi LOS_TaskResume Success.\r\n");
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     uwRet = LOS_InspectStatusSetByID(LOS_INSPECT_TASK, LOS_INSPECT_STU_SUCCESS);
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     if (LOS_OK != uwRet)
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     {
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         dprintf("Set Inspect Status Err.\r\n");
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     }
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccy5VoHd.s 			page 3
+
+
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     /* delete self */
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     if(LOS_OK != LOS_TaskDelete(g_uwTskHiID))
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     {
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         dprintf("TaskHi delete failed .\r\n");
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         return LOS_NOK;
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     }
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     return LOS_OK;
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** }
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** static UINT32 Example_TaskLo(VOID)
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** {
+  27              		.loc 1 102 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 10B5     		push	{r4, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     UINT32 uwRet;
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     dprintf("Enter TaskLo Handler.\r\n");
+  36              		.loc 1 105 0
+  37 0002 1848     		ldr	r0, .L6
+  38 0004 FFF7FEFF 		bl	dprintf_none
+  39              	.LVL0:
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     /* task delay 10 ticks, task will be suspend */
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     uwRet = LOS_TaskDelay(10);
+  40              		.loc 1 108 0
+  41 0008 0A20     		movs	r0, #10
+  42 000a FFF7FEFF 		bl	LOS_TaskDelay
+  43              	.LVL1:
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     if (uwRet != LOS_OK)
+  44              		.loc 1 109 0
+  45 000e 0028     		cmp	r0, #0
+  46 0010 04D0     		beq	.L2
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     {
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         dprintf("Delay TaskLo Failed.\r\n");
+  47              		.loc 1 111 0
+  48 0012 1548     		ldr	r0, .L6+4
+  49              	.LVL2:
+  50 0014 FFF7FEFF 		bl	dprintf_none
+  51              	.LVL3:
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         return LOS_NOK;
+  52              		.loc 1 112 0
+  53 0018 0120     		movs	r0, #1
+  54 001a 22E0     		b	.L3
+  55              	.LVL4:
+  56              	.L2:
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     }
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     dprintf("TaskHi LOS_TaskSuspend Success.\r\n");
+  57              		.loc 1 115 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccy5VoHd.s 			page 4
+
+
+  58 001c 1348     		ldr	r0, .L6+8
+  59              	.LVL5:
+  60 001e FFF7FEFF 		bl	dprintf_none
+  61              	.LVL6:
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     /* resumed task g_uwTskHiID */
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     uwRet = LOS_TaskResume(g_uwTskHiID);
+  62              		.loc 1 118 0
+  63 0022 134B     		ldr	r3, .L6+12
+  64 0024 1868     		ldr	r0, [r3]
+  65 0026 FFF7FEFF 		bl	LOS_TaskResume
+  66              	.LVL7:
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     if (uwRet != LOS_OK)
+  67              		.loc 1 119 0
+  68 002a 0028     		cmp	r0, #0
+  69 002c 0DD0     		beq	.L4
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     {
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         dprintf("Resume TaskHi Failed.\r\n");
+  70              		.loc 1 121 0
+  71 002e 1148     		ldr	r0, .L6+16
+  72              	.LVL8:
+  73 0030 FFF7FEFF 		bl	dprintf_none
+  74              	.LVL9:
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         uwRet = LOS_InspectStatusSetByID(LOS_INSPECT_TASK, LOS_INSPECT_STU_ERROR);
+  75              		.loc 1 122 0
+  76 0034 0121     		movs	r1, #1
+  77 0036 0020     		movs	r0, #0
+  78 0038 FFF7FEFF 		bl	LOS_InspectStatusSetByID
+  79              	.LVL10:
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         if (LOS_OK != uwRet)
+  80              		.loc 1 123 0
+  81 003c 0028     		cmp	r0, #0
+  82 003e 0FD0     		beq	.L5
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         {
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****             dprintf("Set Inspect Status Err.\r\n");
+  83              		.loc 1 125 0
+  84 0040 0D48     		ldr	r0, .L6+20
+  85              	.LVL11:
+  86 0042 FFF7FEFF 		bl	dprintf_none
+  87              	.LVL12:
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         }
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         return LOS_NOK;
+  88              		.loc 1 127 0
+  89 0046 0120     		movs	r0, #1
+  90 0048 0BE0     		b	.L3
+  91              	.LVL13:
+  92              	.L4:
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     }
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     /* delete self */
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     if(LOS_OK != LOS_TaskDelete(g_uwTskLoID))
+  93              		.loc 1 131 0
+  94 004a 0C4B     		ldr	r3, .L6+24
+  95 004c 1868     		ldr	r0, [r3]
+  96              	.LVL14:
+  97 004e FFF7FEFF 		bl	LOS_TaskDelete
+  98              	.LVL15:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccy5VoHd.s 			page 5
+
+
+  99 0052 0028     		cmp	r0, #0
+ 100 0054 05D0     		beq	.L3
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     {
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         dprintf("TaskLo delete failed .\r\n");
+ 101              		.loc 1 133 0
+ 102 0056 0A48     		ldr	r0, .L6+28
+ 103 0058 FFF7FEFF 		bl	dprintf_none
+ 104              	.LVL16:
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         return LOS_NOK;
+ 105              		.loc 1 134 0
+ 106 005c 0120     		movs	r0, #1
+ 107 005e 00E0     		b	.L3
+ 108              	.LVL17:
+ 109              	.L5:
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     }
+ 110              		.loc 1 127 0
+ 111 0060 0120     		movs	r0, #1
+ 112              	.LVL18:
+ 113              	.L3:
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     }
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+ 137:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     return LOS_OK;
+ 138:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** }
+ 114              		.loc 1 138 0
+ 115              		@ sp needed
+ 116 0062 10BD     		pop	{r4, pc}
+ 117              	.L7:
+ 118              		.align	2
+ 119              	.L6:
+ 120 0064 00000000 		.word	.LC0
+ 121 0068 18000000 		.word	.LC2
+ 122 006c 30000000 		.word	.LC4
+ 123 0070 00000000 		.word	.LANCHOR0
+ 124 0074 54000000 		.word	.LC7
+ 125 0078 6C000000 		.word	.LC9
+ 126 007c 00000000 		.word	.LANCHOR1
+ 127 0080 88000000 		.word	.LC12
+ 128              		.cfi_endproc
+ 129              	.LFE44:
+ 131              		.section	.text.Example_TaskHi,"ax",%progbits
+ 132              		.align	2
+ 133              		.code	16
+ 134              		.thumb_func
+ 136              	Example_TaskHi:
+ 137              	.LFB43:
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     UINT32 uwRet = LOS_OK;
+ 138              		.loc 1 54 0
+ 139              		.cfi_startproc
+ 140              		@ args = 0, pretend = 0, frame = 0
+ 141              		@ frame_needed = 0, uses_anonymous_args = 0
+ 142 0000 10B5     		push	{r4, lr}
+ 143              	.LCFI1:
+ 144              		.cfi_def_cfa_offset 8
+ 145              		.cfi_offset 4, -8
+ 146              		.cfi_offset 14, -4
+ 147              	.LVL19:
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccy5VoHd.s 			page 6
+
+
+ 148              		.loc 1 57 0
+ 149 0002 1E48     		ldr	r0, .L14
+ 150 0004 FFF7FEFF 		bl	dprintf_none
+ 151              	.LVL20:
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     if (uwRet != LOS_OK)
+ 152              		.loc 1 60 0
+ 153 0008 0520     		movs	r0, #5
+ 154 000a FFF7FEFF 		bl	LOS_TaskDelay
+ 155              	.LVL21:
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     {
+ 156              		.loc 1 61 0
+ 157 000e 0028     		cmp	r0, #0
+ 158 0010 04D0     		beq	.L9
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         return LOS_NOK;
+ 159              		.loc 1 63 0
+ 160 0012 1B48     		ldr	r0, .L14+4
+ 161              	.LVL22:
+ 162 0014 FFF7FEFF 		bl	dprintf_none
+ 163              	.LVL23:
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     }
+ 164              		.loc 1 64 0
+ 165 0018 0120     		movs	r0, #1
+ 166 001a 2EE0     		b	.L10
+ 167              	.LVL24:
+ 168              	.L9:
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+ 169              		.loc 1 68 0
+ 170 001c 1948     		ldr	r0, .L14+8
+ 171              	.LVL25:
+ 172 001e FFF7FEFF 		bl	dprintf_none
+ 173              	.LVL26:
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     if (uwRet != LOS_OK)
+ 174              		.loc 1 71 0
+ 175 0022 194B     		ldr	r3, .L14+12
+ 176 0024 1868     		ldr	r0, [r3]
+ 177 0026 FFF7FEFF 		bl	LOS_TaskSuspend
+ 178              	.LVL27:
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     {
+ 179              		.loc 1 72 0
+ 180 002a 0028     		cmp	r0, #0
+ 181 002c 0DD0     		beq	.L11
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         uwRet = LOS_InspectStatusSetByID(LOS_INSPECT_TASK, LOS_INSPECT_STU_ERROR);
+ 182              		.loc 1 74 0
+ 183 002e 1748     		ldr	r0, .L14+16
+ 184              	.LVL28:
+ 185 0030 FFF7FEFF 		bl	dprintf_none
+ 186              	.LVL29:
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         if (LOS_OK != uwRet)
+ 187              		.loc 1 75 0
+ 188 0034 0121     		movs	r1, #1
+ 189 0036 0020     		movs	r0, #0
+ 190 0038 FFF7FEFF 		bl	LOS_InspectStatusSetByID
+ 191              	.LVL30:
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         {
+ 192              		.loc 1 76 0
+ 193 003c 0028     		cmp	r0, #0
+ 194 003e 1BD0     		beq	.L13
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccy5VoHd.s 			page 7
+
+
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         }
+ 195              		.loc 1 78 0
+ 196 0040 1348     		ldr	r0, .L14+20
+ 197              	.LVL31:
+ 198 0042 FFF7FEFF 		bl	dprintf_none
+ 199              	.LVL32:
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     }
+ 200              		.loc 1 80 0
+ 201 0046 0120     		movs	r0, #1
+ 202 0048 17E0     		b	.L10
+ 203              	.LVL33:
+ 204              	.L11:
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+ 205              		.loc 1 83 0
+ 206 004a 1248     		ldr	r0, .L14+24
+ 207              	.LVL34:
+ 208 004c FFF7FEFF 		bl	dprintf_none
+ 209              	.LVL35:
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     if (LOS_OK != uwRet)
+ 210              		.loc 1 85 0
+ 211 0050 0021     		movs	r1, #0
+ 212 0052 0020     		movs	r0, #0
+ 213 0054 FFF7FEFF 		bl	LOS_InspectStatusSetByID
+ 214              	.LVL36:
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     {
+ 215              		.loc 1 86 0
+ 216 0058 0028     		cmp	r0, #0
+ 217 005a 02D0     		beq	.L12
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     }
+ 218              		.loc 1 88 0
+ 219 005c 0C48     		ldr	r0, .L14+20
+ 220              	.LVL37:
+ 221 005e FFF7FEFF 		bl	dprintf_none
+ 222              	.LVL38:
+ 223              	.L12:
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     {
+ 224              		.loc 1 92 0
+ 225 0062 094B     		ldr	r3, .L14+12
+ 226 0064 1868     		ldr	r0, [r3]
+ 227 0066 FFF7FEFF 		bl	LOS_TaskDelete
+ 228              	.LVL39:
+ 229 006a 0028     		cmp	r0, #0
+ 230 006c 05D0     		beq	.L10
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         return LOS_NOK;
+ 231              		.loc 1 94 0
+ 232 006e 0A48     		ldr	r0, .L14+28
+ 233 0070 FFF7FEFF 		bl	dprintf_none
+ 234              	.LVL40:
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     }
+ 235              		.loc 1 95 0
+ 236 0074 0120     		movs	r0, #1
+ 237 0076 00E0     		b	.L10
+ 238              	.LVL41:
+ 239              	.L13:
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     }
+ 240              		.loc 1 80 0
+ 241 0078 0120     		movs	r0, #1
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccy5VoHd.s 			page 8
+
+
+ 242              	.LVL42:
+ 243              	.L10:
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+ 244              		.loc 1 99 0
+ 245              		@ sp needed
+ 246 007a 10BD     		pop	{r4, pc}
+ 247              	.L15:
+ 248              		.align	2
+ 249              	.L14:
+ 250 007c A4000000 		.word	.LC14
+ 251 0080 BC000000 		.word	.LC16
+ 252 0084 D4000000 		.word	.LC18
+ 253 0088 00000000 		.word	.LANCHOR0
+ 254 008c F4000000 		.word	.LC21
+ 255 0090 6C000000 		.word	.LC9
+ 256 0094 10010000 		.word	.LC24
+ 257 0098 34010000 		.word	.LC26
+ 258              		.cfi_endproc
+ 259              	.LFE43:
+ 261              		.section	.text.Example_TskCaseEntry,"ax",%progbits
+ 262              		.align	2
+ 263              		.global	Example_TskCaseEntry
+ 264              		.code	16
+ 265              		.thumb_func
+ 267              	Example_TskCaseEntry:
+ 268              	.LFB45:
+ 139:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+ 140:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** UINT32 Example_TskCaseEntry(VOID)
+ 141:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** {
+ 269              		.loc 1 141 0
+ 270              		.cfi_startproc
+ 271              		@ args = 0, pretend = 0, frame = 24
+ 272              		@ frame_needed = 0, uses_anonymous_args = 0
+ 273 0000 10B5     		push	{r4, lr}
+ 274              	.LCFI2:
+ 275              		.cfi_def_cfa_offset 8
+ 276              		.cfi_offset 4, -8
+ 277              		.cfi_offset 14, -4
+ 278 0002 86B0     		sub	sp, sp, #24
+ 279              	.LCFI3:
+ 280              		.cfi_def_cfa_offset 32
+ 142:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     UINT32 uwRet;
+ 143:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     TSK_INIT_PARAM_S stInitParam;
+ 144:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+ 145:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     /* lock task shcedue */
+ 146:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     LOS_TaskLock();
+ 281              		.loc 1 146 0
+ 282 0004 FFF7FEFF 		bl	LOS_TaskLock
+ 283              	.LVL43:
+ 147:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+ 148:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     dprintf("LOS_TaskLock() Success!\r\n");
+ 284              		.loc 1 148 0
+ 285 0008 2248     		ldr	r0, .L21
+ 286 000a FFF7FEFF 		bl	dprintf_none
+ 287              	.LVL44:
+ 149:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+ 150:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     stInitParam.pfnTaskEntry = (TSK_ENTRY_FUNC)Example_TaskHi;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccy5VoHd.s 			page 9
+
+
+ 288              		.loc 1 150 0
+ 289 000e 224B     		ldr	r3, .L21+4
+ 290 0010 0093     		str	r3, [sp]
+ 151:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     stInitParam.usTaskPrio = TSK_PRIOR_HI;
+ 291              		.loc 1 151 0
+ 292 0012 0423     		movs	r3, #4
+ 293 0014 6A46     		mov	r2, sp
+ 294 0016 9380     		strh	r3, [r2, #4]
+ 152:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     stInitParam.pcName = "HIGH_NAME";
+ 295              		.loc 1 152 0
+ 296 0018 204B     		ldr	r3, .L21+8
+ 297 001a 0493     		str	r3, [sp, #16]
+ 153:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     stInitParam.uwStackSize = LOSCFG_BASE_CORE_TSK_DEFAULT_STACK_SIZE;
+ 298              		.loc 1 153 0
+ 299 001c B423     		movs	r3, #180
+ 300 001e 9B00     		lsls	r3, r3, #2
+ 301 0020 0393     		str	r3, [sp, #12]
+ 154:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     /* create high prio task */
+ 155:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     uwRet = LOS_TaskCreate(&g_uwTskHiID, &stInitParam);
+ 302              		.loc 1 155 0
+ 303 0022 6946     		mov	r1, sp
+ 304 0024 1E48     		ldr	r0, .L21+12
+ 305 0026 FFF7FEFF 		bl	LOS_TaskCreate
+ 306              	.LVL45:
+ 156:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     if (uwRet != LOS_OK)
+ 307              		.loc 1 156 0
+ 308 002a 0028     		cmp	r0, #0
+ 309 002c 06D0     		beq	.L17
+ 157:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     {
+ 158:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         LOS_TaskUnlock();
+ 310              		.loc 1 158 0
+ 311 002e FFF7FEFF 		bl	LOS_TaskUnlock
+ 312              	.LVL46:
+ 159:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+ 160:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         dprintf("Example_TaskHi create Failed!\r\n");
+ 313              		.loc 1 160 0
+ 314 0032 1C48     		ldr	r0, .L21+16
+ 315 0034 FFF7FEFF 		bl	dprintf_none
+ 316              	.LVL47:
+ 161:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         return LOS_NOK;
+ 317              		.loc 1 161 0
+ 318 0038 0120     		movs	r0, #1
+ 319 003a 28E0     		b	.L18
+ 320              	.LVL48:
+ 321              	.L17:
+ 162:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     }
+ 163:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+ 164:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     dprintf("Example_TaskHi create Success!\r\n");
+ 322              		.loc 1 164 0
+ 323 003c 1A48     		ldr	r0, .L21+20
+ 324              	.LVL49:
+ 325 003e FFF7FEFF 		bl	dprintf_none
+ 326              	.LVL50:
+ 165:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+ 166:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     stInitParam.pfnTaskEntry = (TSK_ENTRY_FUNC)Example_TaskLo;
+ 327              		.loc 1 166 0
+ 328 0042 1A4B     		ldr	r3, .L21+24
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccy5VoHd.s 			page 10
+
+
+ 329 0044 0093     		str	r3, [sp]
+ 167:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     stInitParam.usTaskPrio = TSK_PRIOR_LO;
+ 330              		.loc 1 167 0
+ 331 0046 0523     		movs	r3, #5
+ 332 0048 6A46     		mov	r2, sp
+ 333 004a 9380     		strh	r3, [r2, #4]
+ 168:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     stInitParam.pcName = "LOW_NAME";
+ 334              		.loc 1 168 0
+ 335 004c 184B     		ldr	r3, .L21+28
+ 336 004e 0493     		str	r3, [sp, #16]
+ 169:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     stInitParam.uwStackSize = LOSCFG_BASE_CORE_TSK_DEFAULT_STACK_SIZE;
+ 337              		.loc 1 169 0
+ 338 0050 B423     		movs	r3, #180
+ 339 0052 9B00     		lsls	r3, r3, #2
+ 340 0054 0393     		str	r3, [sp, #12]
+ 170:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     /* create low prio task */
+ 171:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     uwRet = LOS_TaskCreate(&g_uwTskLoID, &stInitParam);
+ 341              		.loc 1 171 0
+ 342 0056 6946     		mov	r1, sp
+ 343 0058 1648     		ldr	r0, .L21+32
+ 344 005a FFF7FEFF 		bl	LOS_TaskCreate
+ 345              	.LVL51:
+ 346 005e 041E     		subs	r4, r0, #0
+ 347              	.LVL52:
+ 172:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     if (uwRet != LOS_OK)
+ 348              		.loc 1 172 0
+ 349 0060 0FD0     		beq	.L19
+ 173:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     {
+ 174:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         /* delete high prio task */
+ 175:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         if (LOS_OK != LOS_TaskDelete(g_uwTskHiID))
+ 350              		.loc 1 175 0
+ 351 0062 0F4B     		ldr	r3, .L21+12
+ 352 0064 1868     		ldr	r0, [r3]
+ 353              	.LVL53:
+ 354 0066 FFF7FEFF 		bl	LOS_TaskDelete
+ 355              	.LVL54:
+ 356 006a 0028     		cmp	r0, #0
+ 357 006c 02D0     		beq	.L20
+ 176:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         {
+ 177:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****             dprintf("TaskHi delete failed .\r\n");
+ 358              		.loc 1 177 0
+ 359 006e 1248     		ldr	r0, .L21+36
+ 360 0070 FFF7FEFF 		bl	dprintf_none
+ 361              	.LVL55:
+ 362              	.L20:
+ 178:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         }
+ 179:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+ 180:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         LOS_TaskUnlock();
+ 363              		.loc 1 180 0
+ 364 0074 FFF7FEFF 		bl	LOS_TaskUnlock
+ 365              	.LVL56:
+ 181:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+ 182:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         dprintf("Example_TaskLo create Failed!\r\n");
+ 366              		.loc 1 182 0
+ 367 0078 1048     		ldr	r0, .L21+40
+ 368 007a FFF7FEFF 		bl	dprintf_none
+ 369              	.LVL57:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccy5VoHd.s 			page 11
+
+
+ 183:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+ 184:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****         return LOS_NOK;
+ 370              		.loc 1 184 0
+ 371 007e 0120     		movs	r0, #1
+ 372 0080 05E0     		b	.L18
+ 373              	.LVL58:
+ 374              	.L19:
+ 185:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     }
+ 186:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+ 187:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     dprintf("Example_TaskLo create Success!\r\n");
+ 375              		.loc 1 187 0
+ 376 0082 0F48     		ldr	r0, .L21+44
+ 377              	.LVL59:
+ 378 0084 FFF7FEFF 		bl	dprintf_none
+ 379              	.LVL60:
+ 188:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+ 189:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     /* unlock task schedue */
+ 190:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     LOS_TaskUnlock();
+ 380              		.loc 1 190 0
+ 381 0088 FFF7FEFF 		bl	LOS_TaskUnlock
+ 382              	.LVL61:
+ 191:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** 
+ 192:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c ****     return uwRet;
+ 383              		.loc 1 192 0
+ 384 008c 2000     		movs	r0, r4
+ 385              	.LVL62:
+ 386              	.L18:
+ 193:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_task.c **** }
+ 387              		.loc 1 193 0
+ 388 008e 06B0     		add	sp, sp, #24
+ 389              		@ sp needed
+ 390 0090 10BD     		pop	{r4, pc}
+ 391              	.L22:
+ 392 0092 C046     		.align	2
+ 393              	.L21:
+ 394 0094 50010000 		.word	.LC28
+ 395 0098 00000000 		.word	Example_TaskHi
+ 396 009c 6C010000 		.word	.LC31
+ 397 00a0 00000000 		.word	.LANCHOR0
+ 398 00a4 78010000 		.word	.LC34
+ 399 00a8 98010000 		.word	.LC36
+ 400 00ac 00000000 		.word	Example_TaskLo
+ 401 00b0 BC010000 		.word	.LC39
+ 402 00b4 00000000 		.word	.LANCHOR1
+ 403 00b8 34010000 		.word	.LC26
+ 404 00bc C8010000 		.word	.LC43
+ 405 00c0 E8010000 		.word	.LC45
+ 406              		.cfi_endproc
+ 407              	.LFE45:
+ 409              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 410              		.align	2
+ 411              	.LC0:
+ 412 0000 456E7465 		.ascii	"Enter TaskLo Handler.\015\012\000"
+ 412      72205461 
+ 412      736B4C6F 
+ 412      2048616E 
+ 412      646C6572 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccy5VoHd.s 			page 12
+
+
+ 413              	.LC2:
+ 414 0018 44656C61 		.ascii	"Delay TaskLo Failed.\015\012\000"
+ 414      79205461 
+ 414      736B4C6F 
+ 414      20466169 
+ 414      6C65642E 
+ 415 002f 00       		.space	1
+ 416              	.LC4:
+ 417 0030 5461736B 		.ascii	"TaskHi LOS_TaskSuspend Success.\015\012\000"
+ 417      4869204C 
+ 417      4F535F54 
+ 417      61736B53 
+ 417      75737065 
+ 418 0052 0000     		.space	2
+ 419              	.LC7:
+ 420 0054 52657375 		.ascii	"Resume TaskHi Failed.\015\012\000"
+ 420      6D652054 
+ 420      61736B48 
+ 420      69204661 
+ 420      696C6564 
+ 421              	.LC9:
+ 422 006c 53657420 		.ascii	"Set Inspect Status Err.\015\012\000"
+ 422      496E7370 
+ 422      65637420 
+ 422      53746174 
+ 422      75732045 
+ 423 0086 0000     		.space	2
+ 424              	.LC12:
+ 425 0088 5461736B 		.ascii	"TaskLo delete failed .\015\012\000"
+ 425      4C6F2064 
+ 425      656C6574 
+ 425      65206661 
+ 425      696C6564 
+ 426 00a1 000000   		.space	3
+ 427              	.LC14:
+ 428 00a4 456E7465 		.ascii	"Enter TaskHi Handler.\015\012\000"
+ 428      72205461 
+ 428      736B4869 
+ 428      2048616E 
+ 428      646C6572 
+ 429              	.LC16:
+ 430 00bc 44656C61 		.ascii	"Delay Task Failed.\015\012\000"
+ 430      79205461 
+ 430      736B2046 
+ 430      61696C65 
+ 430      642E0D0A 
+ 431 00d1 000000   		.space	3
+ 432              	.LC18:
+ 433 00d4 5461736B 		.ascii	"TaskHi LOS_TaskDelay Done.\015\012\000"
+ 433      4869204C 
+ 433      4F535F54 
+ 433      61736B44 
+ 433      656C6179 
+ 434 00f1 000000   		.space	3
+ 435              	.LC21:
+ 436 00f4 53757370 		.ascii	"Suspend TaskHi Failed.\015\012\000"
+ 436      656E6420 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccy5VoHd.s 			page 13
+
+
+ 436      5461736B 
+ 436      48692046 
+ 436      61696C65 
+ 437 010d 000000   		.space	3
+ 438              	.LC24:
+ 439 0110 5461736B 		.ascii	"TaskHi LOS_TaskResume Success.\015\012\000"
+ 439      4869204C 
+ 439      4F535F54 
+ 439      61736B52 
+ 439      6573756D 
+ 440 0131 000000   		.space	3
+ 441              	.LC26:
+ 442 0134 5461736B 		.ascii	"TaskHi delete failed .\015\012\000"
+ 442      48692064 
+ 442      656C6574 
+ 442      65206661 
+ 442      696C6564 
+ 443 014d 000000   		.space	3
+ 444              	.LC28:
+ 445 0150 4C4F535F 		.ascii	"LOS_TaskLock() Success!\015\012\000"
+ 445      5461736B 
+ 445      4C6F636B 
+ 445      28292053 
+ 445      75636365 
+ 446 016a 0000     		.space	2
+ 447              	.LC31:
+ 448 016c 48494748 		.ascii	"HIGH_NAME\000"
+ 448      5F4E414D 
+ 448      4500
+ 449 0176 0000     		.space	2
+ 450              	.LC34:
+ 451 0178 4578616D 		.ascii	"Example_TaskHi create Failed!\015\012\000"
+ 451      706C655F 
+ 451      5461736B 
+ 451      48692063 
+ 451      72656174 
+ 452              	.LC36:
+ 453 0198 4578616D 		.ascii	"Example_TaskHi create Success!\015\012\000"
+ 453      706C655F 
+ 453      5461736B 
+ 453      48692063 
+ 453      72656174 
+ 454 01b9 000000   		.space	3
+ 455              	.LC39:
+ 456 01bc 4C4F575F 		.ascii	"LOW_NAME\000"
+ 456      4E414D45 
+ 456      00
+ 457 01c5 000000   		.space	3
+ 458              	.LC43:
+ 459 01c8 4578616D 		.ascii	"Example_TaskLo create Failed!\015\012\000"
+ 459      706C655F 
+ 459      5461736B 
+ 459      4C6F2063 
+ 459      72656174 
+ 460              	.LC45:
+ 461 01e8 4578616D 		.ascii	"Example_TaskLo create Success!\015\012\000"
+ 461      706C655F 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccy5VoHd.s 			page 14
+
+
+ 461      5461736B 
+ 461      4C6F2063 
+ 461      72656174 
+ 462              		.section	.bss.g_uwTskLoID,"aw",%nobits
+ 463              		.align	2
+ 464              		.set	.LANCHOR1,. + 0
+ 467              	g_uwTskLoID:
+ 468 0000 00000000 		.space	4
+ 469              		.section	.bss.g_uwTskHiID,"aw",%nobits
+ 470              		.align	2
+ 471              		.set	.LANCHOR0,. + 0
+ 474              	g_uwTskHiID:
+ 475 0000 00000000 		.space	4
+ 476              		.text
+ 477              	.Letext0:
+ 478              		.file 2 "e:\\liteos\\liteos\\kernel\\include\\los_typedef.h"
+ 479              		.file 3 "e:\\liteos\\liteos\\kernel\\include\\los_task.h"
+ 480              		.file 4 "e:\\liteos\\liteos\\examples\\include\\los_inspect_entry.h"
+ 481              		.file 5 "e:\\liteos\\liteos\\examples\\include\\los_demo_debug.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccy5VoHd.s 			page 15
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 los_api_task.c
+C:\Users\WANGBI~1\AppData\Local\Temp\ccy5VoHd.s:20     .text.Example_TaskLo:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccy5VoHd.s:24     .text.Example_TaskLo:00000000 Example_TaskLo
+C:\Users\WANGBI~1\AppData\Local\Temp\ccy5VoHd.s:120    .text.Example_TaskLo:00000064 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccy5VoHd.s:132    .text.Example_TaskHi:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccy5VoHd.s:136    .text.Example_TaskHi:00000000 Example_TaskHi
+C:\Users\WANGBI~1\AppData\Local\Temp\ccy5VoHd.s:250    .text.Example_TaskHi:0000007c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccy5VoHd.s:262    .text.Example_TskCaseEntry:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccy5VoHd.s:267    .text.Example_TskCaseEntry:00000000 Example_TskCaseEntry
+C:\Users\WANGBI~1\AppData\Local\Temp\ccy5VoHd.s:394    .text.Example_TskCaseEntry:00000094 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccy5VoHd.s:410    .rodata.str1.4:00000000 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccy5VoHd.s:463    .bss.g_uwTskLoID:00000000 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccy5VoHd.s:467    .bss.g_uwTskLoID:00000000 g_uwTskLoID
+C:\Users\WANGBI~1\AppData\Local\Temp\ccy5VoHd.s:470    .bss.g_uwTskHiID:00000000 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccy5VoHd.s:474    .bss.g_uwTskHiID:00000000 g_uwTskHiID
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+dprintf_none
+LOS_TaskDelay
+LOS_TaskResume
+LOS_InspectStatusSetByID
+LOS_TaskDelete
+LOS_TaskSuspend
+LOS_TaskLock
+LOS_TaskCreate
+LOS_TaskUnlock

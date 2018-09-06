@@ -1,0 +1,39 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc6ay5ML.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"los_memcheck.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	memexc_count
+  20              		.section	.bss.memexc_count,"aw",%nobits
+  21              		.align	2
+  24              	memexc_count:
+  25 0000 00000000 		.space	4
+  26              		.text
+  27              	.Letext0:
+  28              		.file 1 "e:\\liteos\\liteos\\kernel\\include\\los_typedef.h"
+  29              		.file 2 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/common/los_memcheck.
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc6ay5ML.s 			page 2
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 los_memcheck.c
+C:\Users\WANGBI~1\AppData\Local\Temp\cc6ay5ML.s:24     .bss.memexc_count:00000000 memexc_count
+C:\Users\WANGBI~1\AppData\Local\Temp\cc6ay5ML.s:21     .bss.memexc_count:00000000 $d
+
+NO UNDEFINED SYMBOLS

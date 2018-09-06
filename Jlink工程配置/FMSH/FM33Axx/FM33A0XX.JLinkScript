@@ -1,0 +1,204 @@
+// Reset script for ADSP-CM41x, Cortex-M4 core.
+// Copyright (c) 2016 Analog Devices, Inc. All Rights Reserved.
+//
+// This script is for use with Segger JLink Lite emulators, to
+// connect to the Cortex-M4 core of the ADSP-CM41x processor.
+//
+// When the processor's security is enabled, debugger access is
+// disabled until secure keys are provided. If using custom key
+// values instead of the default key values, modify the values
+// passed by this script.
+// Note that there TWO sets of locations to change in this script 
+// - one for JTAG connections, and one for SWD connections.
+
+int GetScriptVersion(void) {
+  //
+  // Make sure that J-Link DLL does not ignore InitTraget() from script file
+  // Return values for Analog Devices:
+  //   <  100: Perform DLL internal connect sequence
+  //   >= 100: Perform InitTarget() from script file
+  //
+  return 100;                   
+}
+
+void ResetTarget(void) {
+  JLINK_CORESIGHT_WriteAP(JLINK_CORESIGHT_AP_REG_ADDR, 0xe0002008);
+  JLINK_CORESIGHT_WriteAP(JLINK_CORESIGHT_AP_REG_DATA, 0x8001031b);   // don't vector flash
+  JLINK_CORESIGHT_WriteAP(JLINK_CORESIGHT_AP_REG_ADDR, 0xe000200c);
+  JLINK_CORESIGHT_WriteAP(JLINK_CORESIGHT_AP_REG_DATA, 0x800102f7);   // don't vector uart
+  SYS_Sleep(300);
+  JLINK_CORESIGHT_WriteAP(JLINK_CORESIGHT_AP_REG_ADDR, 0xe0002000);
+  JLINK_CORESIGHT_WriteAP(JLINK_CORESIGHT_AP_REG_DATA, 0x00000007);   // enable fpb patch 0+1
+  SYS_Sleep(300);
+
+  JLINK_CORESIGHT_WriteAP(JLINK_CORESIGHT_AP_REG_ADDR, 0xe000ed0c);
+  JLINK_CORESIGHT_WriteAP(JLINK_CORESIGHT_AP_REG_DATA, 0x05fa0004);   // reset
+
+  JLINK_CORESIGHT_WriteAP(JLINK_CORESIGHT_AP_REG_ADDR, 0xe000edf0);
+  JLINK_CORESIGHT_WriteAP(JLINK_CORESIGHT_AP_REG_DATA, 0xa05f0001);   // enable debug
+  SYS_Sleep(300);
+  JLINK_CORESIGHT_WriteAP(JLINK_CORESIGHT_AP_REG_ADDR, 0xe000edf0);
+  JLINK_CORESIGHT_WriteAP(JLINK_CORESIGHT_AP_REG_DATA, 0xa05f0003);   // halt
+
+  Report("CM41x_M4.JLinkScript-v1.0.0.0: Resetting and halting Cortex-M4 core.");
+}
+
+
+/*********************************************************************
+*
+*       _InitTargetSWD
+*
+**********************************************************************/
+int _InitTargetSWD(void) {
+  CPU                = CORTEX_M4;
+  JTAG_AllowTAPReset = 0;
+
+  // reset the board
+
+  Report("CM41x_M4.JLinkScript-v1.0.0.0: SWD connection");
+  JTAG_ResetPin=0;
+  SYS_Sleep(300);
+  JTAG_ResetPin=1;
+  SYS_Sleep(300);
+
+  Report("CM41x_M4.JLinkScript-v1.0.0.0: SWD: send secure keys");
+
+  JLINK_CORESIGHT_WriteDP(JLINK_CORESIGHT_DP_REG_CTRL_STAT, 0x50000031);  // Set SYSPWRUPREQ and DBGPWRUPREQ and overrun detection
+  JLINK_CORESIGHT_WriteDP(JLINK_CORESIGHT_DP_REG_SELECT, (0 << 24) | (0 << 4));      // Select AHB-AP bank 0 (data read/write registers)
+  JLINK_CORESIGHT_WriteAP(JLINK_CORESIGHT_AP_REG_CTRL, 0x23000042);
+
+  JLINK_CORESIGHT_WriteAP(JLINK_CORESIGHT_AP_REG_ADDR, 0x40017050);                  // SDBGKEYCOMP0	
+  JLINK_CORESIGHT_WriteAP(JLINK_CORESIGHT_AP_REG_DATA, 0x11111111);                  // Replace 0x11111111 with your value
+  JLINK_CORESIGHT_WriteAP(JLINK_CORESIGHT_AP_REG_ADDR, 0x40017054);                  // SDBGKEYCOMP1	
+  JLINK_CORESIGHT_WriteAP(JLINK_CORESIGHT_AP_REG_DATA, 0x22222222);                  // Replace 0x22222222 with your value
+  JLINK_CORESIGHT_WriteAP(JLINK_CORESIGHT_AP_REG_ADDR, 0x40017058);                  // SDBGKEYCOMP2	
+  JLINK_CORESIGHT_WriteAP(JLINK_CORESIGHT_AP_REG_DATA, 0x33333333);                  // Replace 0x33333333 with your value
+  JLINK_CORESIGHT_WriteAP(JLINK_CORESIGHT_AP_REG_ADDR, 0x4001705c);                  // SDBGKEYCOMP3	
+  JLINK_CORESIGHT_WriteAP(JLINK_CORESIGHT_AP_REG_DATA, 0x44444444);                  // Replace 0x44444444 with your value
+  return 0;
+}
+
+/*********************************************************************
+*
+*       _InitTargetJTAG
+*
+**********************************************************************/
+int _InitTargetJTAG(void) {
+  int TAPCIdCode;
+  int DPIdCode;
+  int BitPos;
+  int TryAgain;
+  Report("CM41x_M4.JLinkScript-v1.0.0.0: JTAG connection");
+
+  TryAgain = 0;
+Reconnect:
+  JTAG_Reset();                           // Perform TAP reset and J-Link JTAG auto-detection
+  if (JTAG_TotalIRLen != 5) {
+    if (TryAgain == 0) {
+      //
+      // Toggle reset and retry the connect sequence
+      //
+      Report("CM41x_M4.JLinkScript-v1.0.0.0: ADI TAPC not found (IRLen mismatch). Performing recovery sequence");
+      JTAG_ResetPin = 0;
+      SYS_Sleep(300);
+      JTAG_ResetPin = 1;
+      SYS_Sleep(300);
+      TryAgain = 1;
+      goto Reconnect;
+    }
+    Report1("CM41x_M4.JLinkScript-v1.0.0.0: ADI TAPC not found (IRLen mismatch), Found: ", JTAG_TotalIRLen);
+    return -1;
+  }
+  //
+  // Configure JTAG chain
+  //
+  JLINK_CORESIGHT_Configure("IRPre=0;DRPre=0;IRPost=0;DRPost=0;IRLenDevice=5");          // Does not hurt to configure the JTAG chain if SWD is used, as these params are simply not used for SWD
+  //
+  // Check TAPC device ID
+  //
+  JTAG_WriteIR(0x2); // IDCODE instruction for TAPC device
+  BitPos = JTAG_WriteDR(0x00000000, 32);
+  TAPCIdCode = JTAG_GetU32(BitPos);
+  if ((TAPCIdCode & 0x0FFFFFFF) != 0x0280b0cb) {    // Highest nibble holds version information, so it can not be used for verification.
+    Report1("CM41x_M4.JLinkScript-v1.0.0.0: Can not find TAPC (IDCODE mismatch). Expected 0x0280b0cb, found: ", TAPCIdCode & 0x0FFFFFFF);
+    return -1;
+  }
+  //
+  // Send 128-bit unlock key to device
+  //
+  Report("CM41x_M4.JLinkScript-v1.0.0.0: JTAG: Send secure keys");
+  JTAG_WriteIR(0xA);  
+  JTAG_StartDR();
+  JTAG_WriteDRCont(0x11111111, 32);  // SDBKEY 0: Replace 0x11111111 with your value
+  JTAG_WriteDRCont(0x22222222, 32);  // SDBKEY 1: Replace 0x22222222 with your value
+  JTAG_WriteDRCont(0x33333333, 32);  // SDBKEY 2: Replace 0x33333333 with your value
+  JTAG_WriteDREnd(0x44444444, 32);   // SDBKEY 3: Replace 0x44444444 with your value
+  JTAG_WriteClocks(1);               // Make sure that we go through Idle state in TAP controller
+  // set bit 0 in JTAG_CTL
+  // This adds the M4 and M0 to the chain
+  // New chain layout:
+  // #0 M0 (closest to TDO)
+  // #1 M4
+  // #2 TAPC
+  //  
+  JTAG_WriteIR(5);
+  BitPos = JTAG_WriteDR(0x5, 0x8);
+  //
+  // Select M4 TAP to communicate with
+  // Get DAP-Id
+  // Set DLL variables for further debugging
+  //
+  JTAG_AllowTAPReset = 0;
+  JLINK_CORESIGHT_Configure("IRPre=4;DRPre=1;IRPost=5;DRPost=1;IRLenDevice=4; PerformTIFInit=0");          // Does not hurt to configure the JTAG chain if SWD is used, as these params are simply not used for SWD
+  CPU=CORTEX_M4;
+  Report("CM41x_M4.JLinkScript-v1.0.0.0: starting Cortex-M4 core");
+  JTAG_WriteIR(0xE);
+  BitPos = JTAG_WriteDR(0x00000000, 32);
+  DPIdCode = JTAG_GetU32(BitPos);
+  if (((DPIdCode & 0xFFFFFFFF) != 0x4BA00477)) {
+    Report1("CM41x_M4.JLinkScript-v1.0.0.0: Can not find Cortex-M4 (IDCODE mismatch). Expected 0x4BA00477, found: ", DPIdCode);
+    return -1;
+  } else {
+    Report ("CM41x_M4.JLinkScript-v1.0.0.0: Found Cortex-M4");
+    //
+    // Set Device Ids (needed by DLL in case JTAG is used)
+    //
+    JTAG_SetDeviceId(0, 0x0BA00000);   // M0
+    Report ("CM41x_M4.JLinkScript-v1.0.0.0: set device id 0");
+    JTAG_SetDeviceId(1, DPIdCode);     // M4
+    Report ("CM41x_M4.JLinkScript-v1.0.0.0: set device id 1");
+    JTAG_SetDeviceId(2, TAPCIdCode);   // TAPC
+    Report ("CM41x_M4.JLinkScript-v1.0.0.0: set device id 2");
+  }
+  return 0;
+}
+
+void InitTarget(void) {
+  int r;
+  int Speed;
+
+  Report("*********************************");
+  Report("* CM41x_M4.JLinkScript-v1.0.0.0 *");
+  Report("*********************************"); 
+  //
+  // Remember original target interface speed and set new one
+  //
+  Speed       = JTAG_Speed;
+  JTAG_Speed  = 0x1000;
+  //
+  // Perform target interface specific connect sequence
+  //
+  if (MAIN_ActiveTIF == JLINK_TIF_JTAG) {
+    r = _InitTargetJTAG();
+  } else {
+    r = _InitTargetSWD();
+  }
+  //
+  // Restore original target interface speed settings
+  //
+  JTAG_Speed = Speed;
+  return r;
+}
+
+
+

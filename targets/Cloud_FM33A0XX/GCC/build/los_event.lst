@@ -1,0 +1,1315 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"los_event.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.LOS_EventInit,"ax",%progbits
+  20              		.align	2
+  21              		.global	LOS_EventInit
+  22              		.code	16
+  23              		.thumb_func
+  25              	LOS_EventInit:
+  26              	.LFB43:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc/los_event.c"
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** /*----------------------------------------------------------------------------
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  * Copyright (c) <2013-2015>, <Huawei Technologies Co., Ltd>
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  * All rights reserved.
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  * are permitted provided that the following conditions are met:
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  * conditions and the following disclaimer.
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  * provided with the distribution.
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  * permission.
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  *---------------------------------------------------------------------------*/
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** /*----------------------------------------------------------------------------
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  * Notice of Export Control Law
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  * ===============================================
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s 			page 2
+
+
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  * applicable export control laws and regulations.
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****  *---------------------------------------------------------------------------*/
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** #include "los_priqueue.ph"
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** #include "los_task.ph"
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** #include "los_hw.h"
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** #include "los_hwi.h"
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** #include "los_event.inc"
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** #ifdef __cplusplus
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** #if __cplusplus
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** extern "C"{
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** #endif
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** #endif /* __cplusplus */
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** LITE_OS_SEC_TEXT_INIT UINT32 LOS_EventInit(PEVENT_CB_S pstEventCB)
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** {
+  28              		.loc 1 49 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     if (pstEventCB == NULL)
+  34              		.loc 1 50 0
+  35 0000 0028     		cmp	r0, #0
+  36 0002 06D0     		beq	.L3
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     {
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         return LOS_ERRNO_EVENT_PTR_NULL;
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     }
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     pstEventCB->uwEventID = 0;
+  37              		.loc 1 54 0
+  38 0004 0300     		movs	r3, r0
+  39 0006 0022     		movs	r2, #0
+  40 0008 04C3     		stmia	r3!, {r2}
+  41              	.LVL1:
+  42              	.LBB8:
+  43              	.LBB9:
+  44              		.file 2 "e:\\liteos\\liteos\\kernel\\include\\los_list.h"
+   1:e:\liteos\liteos\kernel\include\los_list.h **** /*----------------------------------------------------------------------------
+   2:e:\liteos\liteos\kernel\include\los_list.h ****  * Copyright (c) <2013-2015>, <Huawei Technologies Co., Ltd>
+   3:e:\liteos\liteos\kernel\include\los_list.h ****  * All rights reserved.
+   4:e:\liteos\liteos\kernel\include\los_list.h ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:e:\liteos\liteos\kernel\include\los_list.h ****  * are permitted provided that the following conditions are met:
+   6:e:\liteos\liteos\kernel\include\los_list.h ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:e:\liteos\liteos\kernel\include\los_list.h ****  * conditions and the following disclaimer.
+   8:e:\liteos\liteos\kernel\include\los_list.h ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:e:\liteos\liteos\kernel\include\los_list.h ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:e:\liteos\liteos\kernel\include\los_list.h ****  * provided with the distribution.
+  11:e:\liteos\liteos\kernel\include\los_list.h ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:e:\liteos\liteos\kernel\include\los_list.h ****  * to endorse or promote products derived from this software without specific prior written
+  13:e:\liteos\liteos\kernel\include\los_list.h ****  * permission.
+  14:e:\liteos\liteos\kernel\include\los_list.h ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:e:\liteos\liteos\kernel\include\los_list.h ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:e:\liteos\liteos\kernel\include\los_list.h ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:e:\liteos\liteos\kernel\include\los_list.h ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s 			page 3
+
+
+  18:e:\liteos\liteos\kernel\include\los_list.h ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:e:\liteos\liteos\kernel\include\los_list.h ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:e:\liteos\liteos\kernel\include\los_list.h ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:e:\liteos\liteos\kernel\include\los_list.h ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:e:\liteos\liteos\kernel\include\los_list.h ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:e:\liteos\liteos\kernel\include\los_list.h ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:e:\liteos\liteos\kernel\include\los_list.h ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:e:\liteos\liteos\kernel\include\los_list.h ****  *---------------------------------------------------------------------------*/
+  26:e:\liteos\liteos\kernel\include\los_list.h **** /*----------------------------------------------------------------------------
+  27:e:\liteos\liteos\kernel\include\los_list.h ****  * Notice of Export Control Law
+  28:e:\liteos\liteos\kernel\include\los_list.h ****  * ===============================================
+  29:e:\liteos\liteos\kernel\include\los_list.h ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:e:\liteos\liteos\kernel\include\los_list.h ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:e:\liteos\liteos\kernel\include\los_list.h ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:e:\liteos\liteos\kernel\include\los_list.h ****  * applicable export control laws and regulations.
+  33:e:\liteos\liteos\kernel\include\los_list.h ****  *---------------------------------------------------------------------------*/
+  34:e:\liteos\liteos\kernel\include\los_list.h **** 
+  35:e:\liteos\liteos\kernel\include\los_list.h ****  /** @defgroup los_list Doubly linked list
+  36:e:\liteos\liteos\kernel\include\los_list.h ****  * @ingroup kernel
+  37:e:\liteos\liteos\kernel\include\los_list.h ****  */
+  38:e:\liteos\liteos\kernel\include\los_list.h **** 
+  39:e:\liteos\liteos\kernel\include\los_list.h **** #ifndef _LOS_LIST_H
+  40:e:\liteos\liteos\kernel\include\los_list.h **** #define _LOS_LIST_H
+  41:e:\liteos\liteos\kernel\include\los_list.h **** 
+  42:e:\liteos\liteos\kernel\include\los_list.h **** #include "los_typedef.h"
+  43:e:\liteos\liteos\kernel\include\los_list.h **** 
+  44:e:\liteos\liteos\kernel\include\los_list.h **** #ifdef __cplusplus
+  45:e:\liteos\liteos\kernel\include\los_list.h **** #if __cplusplus
+  46:e:\liteos\liteos\kernel\include\los_list.h **** extern "C" {
+  47:e:\liteos\liteos\kernel\include\los_list.h **** #endif /* __cplusplus */
+  48:e:\liteos\liteos\kernel\include\los_list.h **** #endif /* __cplusplus */
+  49:e:\liteos\liteos\kernel\include\los_list.h **** 
+  50:e:\liteos\liteos\kernel\include\los_list.h **** 
+  51:e:\liteos\liteos\kernel\include\los_list.h **** /**
+  52:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+  53:e:\liteos\liteos\kernel\include\los_list.h ****  *Structure of a node in a doubly linked list.
+  54:e:\liteos\liteos\kernel\include\los_list.h ****  */
+  55:e:\liteos\liteos\kernel\include\los_list.h **** typedef struct LOS_DL_LIST
+  56:e:\liteos\liteos\kernel\include\los_list.h **** {
+  57:e:\liteos\liteos\kernel\include\los_list.h ****     struct LOS_DL_LIST *pstPrev;            /**< Current node's pointer to the previous node*/
+  58:e:\liteos\liteos\kernel\include\los_list.h ****     struct LOS_DL_LIST *pstNext;            /**< Current node's pointer to the next node*/
+  59:e:\liteos\liteos\kernel\include\los_list.h **** } LOS_DL_LIST;
+  60:e:\liteos\liteos\kernel\include\los_list.h **** 
+  61:e:\liteos\liteos\kernel\include\los_list.h **** /**
+  62:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+  63:e:\liteos\liteos\kernel\include\los_list.h ****  *@brief Initialize a doubly linked list.
+  64:e:\liteos\liteos\kernel\include\los_list.h ****  *
+  65:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Description:
+  66:e:\liteos\liteos\kernel\include\los_list.h ****  *This API is used to initialize a doubly linked list.
+  67:e:\liteos\liteos\kernel\include\los_list.h ****  *@attention
+  68:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+  69:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>The parameter passed in should be ensured to be a legal pointer.</li>
+  70:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+  71:e:\liteos\liteos\kernel\include\los_list.h ****  *
+  72:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstList    [IN] Node in a doubly linked list.
+  73:e:\liteos\liteos\kernel\include\los_list.h ****  *
+  74:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval None.
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s 			page 4
+
+
+  75:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Dependency:
+  76:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul><li>los_list.h: the header file that contains the API declaration.</li></ul>
+  77:e:\liteos\liteos\kernel\include\los_list.h ****  *@see
+  78:e:\liteos\liteos\kernel\include\los_list.h ****  *@since Huawei LiteOS V100R001C00
+  79:e:\liteos\liteos\kernel\include\los_list.h ****  */
+  80:e:\liteos\liteos\kernel\include\los_list.h **** LITE_OS_SEC_ALW_INLINE STATIC_INLINE VOID LOS_ListInit(LOS_DL_LIST *pstList)
+  81:e:\liteos\liteos\kernel\include\los_list.h **** {
+  82:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstNext = pstList;
+  45              		.loc 2 82 0
+  46 000a 8360     		str	r3, [r0, #8]
+  83:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstPrev = pstList;
+  47              		.loc 2 83 0
+  48 000c 4360     		str	r3, [r0, #4]
+  49              	.LVL2:
+  50              	.LBE9:
+  51              	.LBE8:
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     LOS_ListInit(&pstEventCB->stEventList);
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     return LOS_OK;
+  52              		.loc 1 56 0
+  53 000e 0020     		movs	r0, #0
+  54              	.LVL3:
+  55 0010 00E0     		b	.L2
+  56              	.LVL4:
+  57              	.L3:
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     }
+  58              		.loc 1 52 0
+  59 0012 0148     		ldr	r0, .L4
+  60              	.LVL5:
+  61              	.L2:
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** }
+  62              		.loc 1 57 0
+  63              		@ sp needed
+  64 0014 7047     		bx	lr
+  65              	.L5:
+  66 0016 C046     		.align	2
+  67              	.L4:
+  68 0018 061C0002 		.word	33561606
+  69              		.cfi_endproc
+  70              	.LFE43:
+  72              		.section	.text.LOS_EventPoll,"ax",%progbits
+  73              		.align	2
+  74              		.global	LOS_EventPoll
+  75              		.code	16
+  76              		.thumb_func
+  78              	LOS_EventPoll:
+  79              	.LFB44:
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** LITE_OS_SEC_TEXT UINT32 LOS_EventPoll(UINT32 *uwEventID, UINT32 uwEventMask, UINT32 uwMode)
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** {
+  80              		.loc 1 60 0
+  81              		.cfi_startproc
+  82              		@ args = 0, pretend = 0, frame = 0
+  83              		@ frame_needed = 0, uses_anonymous_args = 0
+  84              	.LVL6:
+  85 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  86              	.LCFI0:
+  87              		.cfi_def_cfa_offset 24
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s 			page 5
+
+
+  88              		.cfi_offset 3, -24
+  89              		.cfi_offset 4, -20
+  90              		.cfi_offset 5, -16
+  91              		.cfi_offset 6, -12
+  92              		.cfi_offset 7, -8
+  93              		.cfi_offset 14, -4
+  94 0002 0700     		movs	r7, r0
+  95 0004 0E00     		movs	r6, r1
+  96 0006 1500     		movs	r5, r2
+  97              	.LVL7:
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****      UINT32     uwRet = 0;
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****      UINTPTR    uvIntSave;
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****      uvIntSave = LOS_IntLock();
+  98              		.loc 1 64 0
+  99 0008 FFF7FEFF 		bl	LOS_IntLock
+ 100              	.LVL8:
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****      if (uwMode & LOS_WAITMODE_OR)
+ 101              		.loc 1 65 0
+ 102 000c AB07     		lsls	r3, r5, #30
+ 103 000e 02D5     		bpl	.L7
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****      {
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****          if (0 != (*uwEventID & uwEventMask))
+ 104              		.loc 1 67 0
+ 105 0010 3C68     		ldr	r4, [r7]
+ 106 0012 3440     		ands	r4, r6
+ 107 0014 08E0     		b	.L8
+ 108              	.L7:
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****          {
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****             uwRet = *uwEventID & uwEventMask;
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****          }
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****      }
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****      else
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****      {
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****          if ((uwEventMask != 0) && (uwEventMask == (*uwEventID & uwEventMask)))
+ 109              		.loc 1 74 0
+ 110 0016 002E     		cmp	r6, #0
+ 111 0018 05D0     		beq	.L10
+ 112              		.loc 1 74 0 is_stmt 0 discriminator 1
+ 113 001a 3C68     		ldr	r4, [r7]
+ 114 001c 3440     		ands	r4, r6
+ 115 001e A642     		cmp	r6, r4
+ 116 0020 02D0     		beq	.L8
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****      UINTPTR    uvIntSave;
+ 117              		.loc 1 61 0 is_stmt 1
+ 118 0022 0024     		movs	r4, #0
+ 119 0024 00E0     		b	.L8
+ 120              	.L10:
+ 121 0026 0024     		movs	r4, #0
+ 122              	.L8:
+ 123              	.LVL9:
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****          {
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****             uwRet = *uwEventID & uwEventMask;
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****          }
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****      }
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****      if (uwRet && (LOS_WAITMODE_CLR & uwMode))
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s 			page 6
+
+
+ 124              		.loc 1 80 0
+ 125 0028 002C     		cmp	r4, #0
+ 126 002a 04D0     		beq	.L9
+ 127              		.loc 1 80 0 is_stmt 0 discriminator 1
+ 128 002c EB07     		lsls	r3, r5, #31
+ 129 002e 02D5     		bpl	.L9
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****      {
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         *uwEventID = *uwEventID & ~(uwRet);
+ 130              		.loc 1 82 0 is_stmt 1
+ 131 0030 3B68     		ldr	r3, [r7]
+ 132 0032 A343     		bics	r3, r4
+ 133 0034 3B60     		str	r3, [r7]
+ 134              	.L9:
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****      }
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****      LOS_IntRestore(uvIntSave);
+ 135              		.loc 1 85 0
+ 136 0036 FFF7FEFF 		bl	LOS_IntRestore
+ 137              	.LVL10:
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****      return uwRet;
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** }
+ 138              		.loc 1 87 0
+ 139 003a 2000     		movs	r0, r4
+ 140              		@ sp needed
+ 141              	.LVL11:
+ 142              	.LVL12:
+ 143              	.LVL13:
+ 144              	.LVL14:
+ 145 003c F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 146              		.cfi_endproc
+ 147              	.LFE44:
+ 149 003e C046     		.section	.text.LOS_EventRead,"ax",%progbits
+ 150              		.align	2
+ 151              		.global	LOS_EventRead
+ 152              		.code	16
+ 153              		.thumb_func
+ 155              	LOS_EventRead:
+ 156              	.LFB45:
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** LITE_OS_SEC_TEXT UINT32 LOS_EventRead(PEVENT_CB_S pstEventCB, UINT32 uwEventMask, UINT32 uwMode, UI
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** {
+ 157              		.loc 1 90 0
+ 158              		.cfi_startproc
+ 159              		@ args = 0, pretend = 0, frame = 8
+ 160              		@ frame_needed = 0, uses_anonymous_args = 0
+ 161              	.LVL15:
+ 162 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 163              	.LCFI1:
+ 164              		.cfi_def_cfa_offset 20
+ 165              		.cfi_offset 4, -20
+ 166              		.cfi_offset 5, -16
+ 167              		.cfi_offset 6, -12
+ 168              		.cfi_offset 7, -8
+ 169              		.cfi_offset 14, -4
+ 170 0002 4746     		mov	r7, r8
+ 171 0004 80B4     		push	{r7}
+ 172              	.LCFI2:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s 			page 7
+
+
+ 173              		.cfi_def_cfa_offset 24
+ 174              		.cfi_offset 8, -24
+ 175 0006 82B0     		sub	sp, sp, #8
+ 176              	.LCFI3:
+ 177              		.cfi_def_cfa_offset 32
+ 178 0008 0400     		movs	r4, r0
+ 179 000a 0D00     		movs	r5, r1
+ 180 000c 1600     		movs	r6, r2
+ 181 000e 1F00     		movs	r7, r3
+ 182              	.LVL16:
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     UINT32      uwRet = 0;
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     UINTPTR     uvIntSave;
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     LOS_TASK_CB *pstRunTsk;
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     if (pstEventCB == NULL)
+ 183              		.loc 1 95 0
+ 184 0010 0028     		cmp	r0, #0
+ 185 0012 64D0     		beq	.L17
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     {
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         return LOS_ERRNO_EVENT_PTR_NULL;
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     }
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     if ((pstEventCB->stEventList.pstNext == NULL) || (pstEventCB->stEventList.pstPrev == NULL))
+ 186              		.loc 1 100 0
+ 187 0014 8368     		ldr	r3, [r0, #8]
+ 188              	.LVL17:
+ 189 0016 002B     		cmp	r3, #0
+ 190 0018 63D0     		beq	.L18
+ 191              		.loc 1 100 0 is_stmt 0 discriminator 1
+ 192 001a 4368     		ldr	r3, [r0, #4]
+ 193 001c 002B     		cmp	r3, #0
+ 194 001e 62D0     		beq	.L19
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     {
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         return LOS_ERRNO_EVENT_NOT_INITIALIZED;
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     }
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     if (uwEventMask == 0)
+ 195              		.loc 1 105 0 is_stmt 1
+ 196 0020 0029     		cmp	r1, #0
+ 197 0022 62D0     		beq	.L20
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     {
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         return LOS_ERRNO_EVENT_EVENTMASK_INVALID;
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     }
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     if (uwEventMask & LOS_ERRTYPE_ERROR)
+ 198              		.loc 1 110 0
+ 199 0024 8B01     		lsls	r3, r1, #6
+ 200 0026 62D4     		bmi	.L21
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     {
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         return LOS_ERRNO_EVENT_SETBIT_INVALID;
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     }
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     if (((uwMode & LOS_WAITMODE_OR) && (uwMode & LOS_WAITMODE_AND)) ||
+ 201              		.loc 1 115 0
+ 202 0028 0623     		movs	r3, #6
+ 203 002a 1340     		ands	r3, r2
+ 204 002c 062B     		cmp	r3, #6
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s 			page 8
+
+
+ 205 002e 60D0     		beq	.L22
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         uwMode & ~(LOS_WAITMODE_OR | LOS_WAITMODE_AND | LOS_WAITMODE_CLR) ||
+ 206              		.loc 1 116 0 discriminator 1
+ 207 0030 0722     		movs	r2, #7
+ 208              	.LVL18:
+ 209 0032 3100     		movs	r1, r6
+ 210              	.LVL19:
+ 211 0034 9143     		bics	r1, r2
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         uwMode & ~(LOS_WAITMODE_OR | LOS_WAITMODE_AND | LOS_WAITMODE_CLR) ||
+ 212              		.loc 1 115 0 discriminator 1
+ 213 0036 5ED1     		bne	.L23
+ 214              		.loc 1 116 0
+ 215 0038 002B     		cmp	r3, #0
+ 216 003a 5ED0     		beq	.L24
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         !(uwMode & (LOS_WAITMODE_OR | LOS_WAITMODE_AND)))
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     {
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         return LOS_ERRNO_EVENT_FLAGS_INVALID;
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     }
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     if (OS_INT_ACTIVE)
+ 217              		.loc 1 122 0
+ 218 003c FFF7FEFF 		bl	osIntNumGet
+ 219              	.LVL20:
+ 220 0040 0028     		cmp	r0, #0
+ 221 0042 5CD1     		bne	.L25
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     {
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         return LOS_ERRNO_EVENT_READ_IN_INTERRUPT;
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     }
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     uvIntSave = LOS_IntLock();
+ 222              		.loc 1 127 0
+ 223 0044 FFF7FEFF 		bl	LOS_IntLock
+ 224              	.LVL21:
+ 225 0048 0090     		str	r0, [sp]
+ 226              	.LVL22:
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     uwRet = LOS_EventPoll(&(pstEventCB->uwEventID), uwEventMask, uwMode);
+ 227              		.loc 1 128 0
+ 228 004a 3200     		movs	r2, r6
+ 229 004c 2900     		movs	r1, r5
+ 230 004e 2000     		movs	r0, r4
+ 231              	.LVL23:
+ 232 0050 FFF7FEFF 		bl	LOS_EventPoll
+ 233              	.LVL24:
+ 234 0054 0190     		str	r0, [sp, #4]
+ 235              	.LVL25:
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     if (uwRet == 0)
+ 236              		.loc 1 130 0
+ 237 0056 0028     		cmp	r0, #0
+ 238 0058 3CD1     		bne	.L13
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     {
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         if (uwTimeOut == 0)
+ 239              		.loc 1 132 0
+ 240 005a 002F     		cmp	r7, #0
+ 241 005c 04D1     		bne	.L14
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         {
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****             (VOID)LOS_IntRestore(uvIntSave);
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s 			page 9
+
+
+ 242              		.loc 1 134 0
+ 243 005e 0098     		ldr	r0, [sp]
+ 244              	.LVL26:
+ 245 0060 FFF7FEFF 		bl	LOS_IntRestore
+ 246              	.LVL27:
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****             return uwRet;
+ 247              		.loc 1 135 0
+ 248 0064 0198     		ldr	r0, [sp, #4]
+ 249 0066 4BE0     		b	.L12
+ 250              	.LVL28:
+ 251              	.L14:
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         }
+ 137:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 138:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         if (g_usLosTaskLock)
+ 252              		.loc 1 138 0
+ 253 0068 274B     		ldr	r3, .L26
+ 254 006a 1B88     		ldrh	r3, [r3]
+ 255 006c 002B     		cmp	r3, #0
+ 256 006e 04D0     		beq	.L15
+ 139:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         {
+ 140:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****             (VOID)LOS_IntRestore(uvIntSave);
+ 257              		.loc 1 140 0
+ 258 0070 0098     		ldr	r0, [sp]
+ 259              	.LVL29:
+ 260 0072 FFF7FEFF 		bl	LOS_IntRestore
+ 261              	.LVL30:
+ 141:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****             return LOS_ERRNO_EVENT_READ_IN_LOCK;
+ 262              		.loc 1 141 0
+ 263 0076 2548     		ldr	r0, .L26+4
+ 264 0078 42E0     		b	.L12
+ 265              	.LVL31:
+ 266              	.L15:
+ 142:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         }
+ 143:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 144:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         pstRunTsk = g_stLosTask.pstRunTask;
+ 267              		.loc 1 144 0
+ 268 007a 254B     		ldr	r3, .L26+8
+ 269 007c 1B68     		ldr	r3, [r3]
+ 270 007e 9846     		mov	r8, r3
+ 271              	.LVL32:
+ 145:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         pstRunTsk->uwEventMask = uwEventMask;
+ 272              		.loc 1 145 0
+ 273 0080 9D64     		str	r5, [r3, #72]
+ 146:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         pstRunTsk->uwEventMode = uwMode;
+ 274              		.loc 1 146 0
+ 275 0082 DE64     		str	r6, [r3, #76]
+ 147:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         osTaskWait(&pstEventCB->stEventList, OS_TASK_STATUS_PEND, uwTimeOut);
+ 276              		.loc 1 147 0
+ 277 0084 201D     		adds	r0, r4, #4
+ 278              	.LVL33:
+ 279 0086 3A00     		movs	r2, r7
+ 280 0088 0821     		movs	r1, #8
+ 281 008a FFF7FEFF 		bl	osTaskWait
+ 282              	.LVL34:
+ 148:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         (VOID)LOS_IntRestore(uvIntSave);
+ 283              		.loc 1 148 0
+ 284 008e 0098     		ldr	r0, [sp]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s 			page 10
+
+
+ 285 0090 FFF7FEFF 		bl	LOS_IntRestore
+ 286              	.LVL35:
+ 149:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         LOS_Schedule();
+ 287              		.loc 1 149 0
+ 288 0094 FFF7FEFF 		bl	LOS_Schedule
+ 289              	.LVL36:
+ 150:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 151:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         if (pstRunTsk->usTaskStatus & OS_TASK_STATUS_TIMEOUT)
+ 290              		.loc 1 151 0
+ 291 0098 4346     		mov	r3, r8
+ 292 009a 9B88     		ldrh	r3, [r3, #4]
+ 293 009c 5B06     		lsls	r3, r3, #25
+ 294 009e 0BD5     		bpl	.L16
+ 152:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         {
+ 153:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****             uvIntSave = LOS_IntLock();
+ 295              		.loc 1 153 0
+ 296 00a0 FFF7FEFF 		bl	LOS_IntLock
+ 297              	.LVL37:
+ 154:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****             pstRunTsk->usTaskStatus &= (~OS_TASK_STATUS_TIMEOUT);
+ 298              		.loc 1 154 0
+ 299 00a4 4346     		mov	r3, r8
+ 300 00a6 9B88     		ldrh	r3, [r3, #4]
+ 301 00a8 4022     		movs	r2, #64
+ 302 00aa 9343     		bics	r3, r2
+ 303 00ac 4246     		mov	r2, r8
+ 304 00ae 9380     		strh	r3, [r2, #4]
+ 155:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****             (VOID)LOS_IntRestore(uvIntSave);
+ 305              		.loc 1 155 0
+ 306 00b0 FFF7FEFF 		bl	LOS_IntRestore
+ 307              	.LVL38:
+ 156:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****             return LOS_ERRNO_EVENT_READ_TIMEOUT;
+ 308              		.loc 1 156 0
+ 309 00b4 1748     		ldr	r0, .L26+12
+ 310 00b6 23E0     		b	.L12
+ 311              	.LVL39:
+ 312              	.L16:
+ 157:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         }
+ 158:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 159:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         uvIntSave = LOS_IntLock();
+ 313              		.loc 1 159 0
+ 314 00b8 FFF7FEFF 		bl	LOS_IntLock
+ 315              	.LVL40:
+ 316 00bc 0700     		movs	r7, r0
+ 317              	.LVL41:
+ 160:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         uwRet = LOS_EventPoll(&pstEventCB->uwEventID,uwEventMask,uwMode);
+ 318              		.loc 1 160 0
+ 319 00be 3200     		movs	r2, r6
+ 320 00c0 2900     		movs	r1, r5
+ 321 00c2 2000     		movs	r0, r4
+ 322              	.LVL42:
+ 323 00c4 FFF7FEFF 		bl	LOS_EventPoll
+ 324              	.LVL43:
+ 325 00c8 0400     		movs	r4, r0
+ 326              	.LVL44:
+ 161:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         (VOID)LOS_IntRestore(uvIntSave);
+ 327              		.loc 1 161 0
+ 328 00ca 3800     		movs	r0, r7
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s 			page 11
+
+
+ 329              	.LVL45:
+ 330 00cc FFF7FEFF 		bl	LOS_IntRestore
+ 331              	.LVL46:
+ 160:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         uwRet = LOS_EventPoll(&pstEventCB->uwEventID,uwEventMask,uwMode);
+ 332              		.loc 1 160 0
+ 333 00d0 2000     		movs	r0, r4
+ 334 00d2 15E0     		b	.L12
+ 335              	.LVL47:
+ 336              	.L13:
+ 162:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     }
+ 163:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     else
+ 164:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     {
+ 165:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         (VOID)LOS_IntRestore(uvIntSave);
+ 337              		.loc 1 165 0
+ 338 00d4 0098     		ldr	r0, [sp]
+ 339              	.LVL48:
+ 340 00d6 FFF7FEFF 		bl	LOS_IntRestore
+ 341              	.LVL49:
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 342              		.loc 1 128 0
+ 343 00da 0198     		ldr	r0, [sp, #4]
+ 344 00dc 10E0     		b	.L12
+ 345              	.LVL50:
+ 346              	.L17:
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     }
+ 347              		.loc 1 97 0
+ 348 00de 0E48     		ldr	r0, .L26+16
+ 349              	.LVL51:
+ 350 00e0 0EE0     		b	.L12
+ 351              	.LVL52:
+ 352              	.L18:
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     }
+ 353              		.loc 1 102 0
+ 354 00e2 0E48     		ldr	r0, .L26+20
+ 355              	.LVL53:
+ 356 00e4 0CE0     		b	.L12
+ 357              	.LVL54:
+ 358              	.L19:
+ 359 00e6 0D48     		ldr	r0, .L26+20
+ 360              	.LVL55:
+ 361 00e8 0AE0     		b	.L12
+ 362              	.LVL56:
+ 363              	.L20:
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     }
+ 364              		.loc 1 107 0
+ 365 00ea 0D48     		ldr	r0, .L26+24
+ 366              	.LVL57:
+ 367 00ec 08E0     		b	.L12
+ 368              	.LVL58:
+ 369              	.L21:
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     }
+ 370              		.loc 1 112 0
+ 371 00ee 0D48     		ldr	r0, .L26+28
+ 372              	.LVL59:
+ 373 00f0 06E0     		b	.L12
+ 374              	.LVL60:
+ 375              	.L22:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s 			page 12
+
+
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     }
+ 376              		.loc 1 119 0
+ 377 00f2 0D48     		ldr	r0, .L26+32
+ 378              	.LVL61:
+ 379 00f4 04E0     		b	.L12
+ 380              	.LVL62:
+ 381              	.L23:
+ 382 00f6 0C48     		ldr	r0, .L26+32
+ 383              	.LVL63:
+ 384 00f8 02E0     		b	.L12
+ 385              	.LVL64:
+ 386              	.L24:
+ 387 00fa 0B48     		ldr	r0, .L26+32
+ 388              	.LVL65:
+ 389 00fc 00E0     		b	.L12
+ 390              	.L25:
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     }
+ 391              		.loc 1 124 0
+ 392 00fe 0B48     		ldr	r0, .L26+36
+ 393              	.LVL66:
+ 394              	.L12:
+ 166:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     }
+ 167:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 168:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     return uwRet;
+ 169:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** }
+ 395              		.loc 1 169 0
+ 396 0100 02B0     		add	sp, sp, #8
+ 397              		@ sp needed
+ 398              	.LVL67:
+ 399              	.LVL68:
+ 400 0102 04BC     		pop	{r2}
+ 401 0104 9046     		mov	r8, r2
+ 402 0106 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 403              	.L27:
+ 404              		.align	2
+ 405              	.L26:
+ 406 0108 00000000 		.word	g_usLosTaskLock
+ 407 010c 051C0002 		.word	33561605
+ 408 0110 00000000 		.word	g_stLosTask
+ 409 0114 011C0002 		.word	33561601
+ 410 0118 061C0002 		.word	33561606
+ 411 011c 071C0002 		.word	33561607
+ 412 0120 021C0002 		.word	33561602
+ 413 0124 001C0002 		.word	33561600
+ 414 0128 041C0002 		.word	33561604
+ 415 012c 031C0002 		.word	33561603
+ 416              		.cfi_endproc
+ 417              	.LFE45:
+ 419              		.section	.text.LOS_EventWrite,"ax",%progbits
+ 420              		.align	2
+ 421              		.global	LOS_EventWrite
+ 422              		.code	16
+ 423              		.thumb_func
+ 425              	LOS_EventWrite:
+ 426              	.LFB46:
+ 170:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 171:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** LITE_OS_SEC_TEXT UINT32 LOS_EventWrite(PEVENT_CB_S pstEventCB, UINT32 uwEvents)
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s 			page 13
+
+
+ 172:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** {
+ 427              		.loc 1 172 0
+ 428              		.cfi_startproc
+ 429              		@ args = 0, pretend = 0, frame = 8
+ 430              		@ frame_needed = 0, uses_anonymous_args = 0
+ 431              	.LVL69:
+ 432 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 433              	.LCFI4:
+ 434              		.cfi_def_cfa_offset 20
+ 435              		.cfi_offset 4, -20
+ 436              		.cfi_offset 5, -16
+ 437              		.cfi_offset 6, -12
+ 438              		.cfi_offset 7, -8
+ 439              		.cfi_offset 14, -4
+ 440 0002 4746     		mov	r7, r8
+ 441 0004 80B4     		push	{r7}
+ 442              	.LCFI5:
+ 443              		.cfi_def_cfa_offset 24
+ 444              		.cfi_offset 8, -24
+ 445 0006 82B0     		sub	sp, sp, #8
+ 446              	.LCFI6:
+ 447              		.cfi_def_cfa_offset 32
+ 448 0008 0400     		movs	r4, r0
+ 449 000a 0F00     		movs	r7, r1
+ 450              	.LVL70:
+ 173:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     LOS_TASK_CB *pstResumedTask;
+ 174:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     LOS_TASK_CB *pstNextTask = (LOS_TASK_CB *)NULL;
+ 175:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     UINTPTR     uvIntSave;
+ 176:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     UINT8       ucExitFlag = 0;
+ 177:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 178:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     if (pstEventCB == NULL)
+ 451              		.loc 1 178 0
+ 452 000c 0028     		cmp	r0, #0
+ 453 000e 3ED0     		beq	.L36
+ 179:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     {
+ 180:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         return LOS_ERRNO_EVENT_PTR_NULL;
+ 181:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     }
+ 182:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 183:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     if ((pstEventCB->stEventList.pstNext == NULL) || (pstEventCB->stEventList.pstPrev == NULL))
+ 454              		.loc 1 183 0
+ 455 0010 8368     		ldr	r3, [r0, #8]
+ 456 0012 002B     		cmp	r3, #0
+ 457 0014 3DD0     		beq	.L37
+ 458              		.loc 1 183 0 is_stmt 0 discriminator 1
+ 459 0016 4368     		ldr	r3, [r0, #4]
+ 460 0018 002B     		cmp	r3, #0
+ 461 001a 3CD0     		beq	.L38
+ 184:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     {
+ 185:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         return LOS_ERRNO_EVENT_NOT_INITIALIZED;
+ 186:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     }
+ 187:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 188:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     if (uwEvents & LOS_ERRTYPE_ERROR)
+ 462              		.loc 1 188 0 is_stmt 1
+ 463 001c 8026     		movs	r6, #128
+ 464 001e B604     		lsls	r6, r6, #18
+ 465 0020 0E40     		ands	r6, r1
+ 466 0022 3AD1     		bne	.L39
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s 			page 14
+
+
+ 189:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     {
+ 190:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         return LOS_ERRNO_EVENT_SETBIT_INVALID;
+ 191:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     }
+ 192:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 193:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     uvIntSave = LOS_IntLock();
+ 467              		.loc 1 193 0
+ 468 0024 FFF7FEFF 		bl	LOS_IntLock
+ 469              	.LVL71:
+ 470 0028 0190     		str	r0, [sp, #4]
+ 471              	.LVL72:
+ 194:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 195:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     pstEventCB->uwEventID |= uwEvents;
+ 472              		.loc 1 195 0
+ 473 002a 2368     		ldr	r3, [r4]
+ 474 002c 3B43     		orrs	r3, r7
+ 475 002e 2500     		movs	r5, r4
+ 476 0030 08C5     		stmia	r5!, {r3}
+ 477              	.LVL73:
+ 478              	.LBB10:
+ 479              	.LBB11:
+  84:e:\liteos\liteos\kernel\include\los_list.h **** }
+  85:e:\liteos\liteos\kernel\include\los_list.h **** 
+  86:e:\liteos\liteos\kernel\include\los_list.h **** /**
+  87:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+  88:e:\liteos\liteos\kernel\include\los_list.h ****  *@brief Point to the next node pointed to by the current node.
+  89:e:\liteos\liteos\kernel\include\los_list.h ****  *
+  90:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Description:
+  91:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+  92:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>This API is used to point to the next node pointed to by the current node.</li>
+  93:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+  94:e:\liteos\liteos\kernel\include\los_list.h ****  *@attention
+  95:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+  96:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>None.</li>
+  97:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+  98:e:\liteos\liteos\kernel\include\los_list.h ****  *
+  99:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstObject  [IN] Node in the doubly linked list.
+ 100:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 101:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval None.
+ 102:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Dependency:
+ 103:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul><li>los_list.h: the header file that contains the API declaration.</li></ul>
+ 104:e:\liteos\liteos\kernel\include\los_list.h ****  *@see
+ 105:e:\liteos\liteos\kernel\include\los_list.h ****  *@since Huawei LiteOS V100R001C00
+ 106:e:\liteos\liteos\kernel\include\los_list.h ****  */
+ 107:e:\liteos\liteos\kernel\include\los_list.h **** #define LOS_DL_LIST_FIRST(pstObject) ((pstObject)->pstNext)
+ 108:e:\liteos\liteos\kernel\include\los_list.h **** 
+ 109:e:\liteos\liteos\kernel\include\los_list.h **** /**
+ 110:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+ 111:e:\liteos\liteos\kernel\include\los_list.h ****  *@brief Insert a new node to a doubly linked list.
+ 112:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 113:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Description:
+ 114:e:\liteos\liteos\kernel\include\los_list.h ****  *This API is used to insert a new node to a doubly linked list.
+ 115:e:\liteos\liteos\kernel\include\los_list.h ****  *@attention
+ 116:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+ 117:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>The parameters passed in should be ensured to be legal pointers.</li>
+ 118:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+ 119:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 120:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstList    [IN]   Doubly linked list where the new node is inserted.
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s 			page 15
+
+
+ 121:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstNode    [IN]   New node to be inserted.
+ 122:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 123:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval None
+ 124:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Dependency:
+ 125:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul><li>los_list.h: the header file that contains the API declaration.</li></ul>
+ 126:e:\liteos\liteos\kernel\include\los_list.h ****  *@see LOS_ListDelete
+ 127:e:\liteos\liteos\kernel\include\los_list.h ****  *@since Huawei LiteOS V100R001C00
+ 128:e:\liteos\liteos\kernel\include\los_list.h ****  */
+ 129:e:\liteos\liteos\kernel\include\los_list.h **** LITE_OS_SEC_ALW_INLINE STATIC_INLINE VOID LOS_ListAdd(LOS_DL_LIST *pstList, LOS_DL_LIST *pstNode)
+ 130:e:\liteos\liteos\kernel\include\los_list.h **** {
+ 131:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstNext = pstList->pstNext;
+ 132:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstPrev = pstList;
+ 133:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstNext->pstPrev = pstNode;
+ 134:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstNext = pstNode;
+ 135:e:\liteos\liteos\kernel\include\los_list.h **** }
+ 136:e:\liteos\liteos\kernel\include\los_list.h **** 
+ 137:e:\liteos\liteos\kernel\include\los_list.h **** /**
+ 138:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+ 139:e:\liteos\liteos\kernel\include\los_list.h ****  *@brief Insert a node to the tail of a doubly linked list.
+ 140:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 141:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Description:
+ 142:e:\liteos\liteos\kernel\include\los_list.h ****  *This API is used to insert a new node to the tail of a doubly linked list.
+ 143:e:\liteos\liteos\kernel\include\los_list.h ****  *@attention
+ 144:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+ 145:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>The parameters passed in should be ensured to be legal pointers.</li>
+ 146:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+ 147:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 148:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstList     [IN] Doubly linked list where the new node is inserted.
+ 149:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstNode     [IN] New node to be inserted.
+ 150:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 151:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval None.
+ 152:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Dependency:
+ 153:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul><li>los_list.h: the header file that contains the API declaration.</li></ul>
+ 154:e:\liteos\liteos\kernel\include\los_list.h ****  *@see LOS_ListAdd | LOS_ListHeadInsert
+ 155:e:\liteos\liteos\kernel\include\los_list.h ****  *@since Huawei LiteOS V100R001C00
+ 156:e:\liteos\liteos\kernel\include\los_list.h ****  */
+ 157:e:\liteos\liteos\kernel\include\los_list.h **** LITE_OS_SEC_ALW_INLINE STATIC_INLINE VOID LOS_ListTailInsert(LOS_DL_LIST *pstList, LOS_DL_LIST *pst
+ 158:e:\liteos\liteos\kernel\include\los_list.h **** {
+ 159:e:\liteos\liteos\kernel\include\los_list.h ****     LOS_ListAdd(pstList->pstPrev, pstNode);
+ 160:e:\liteos\liteos\kernel\include\los_list.h **** }
+ 161:e:\liteos\liteos\kernel\include\los_list.h **** 
+ 162:e:\liteos\liteos\kernel\include\los_list.h **** /**
+ 163:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+ 164:e:\liteos\liteos\kernel\include\los_list.h ****  *@brief Delete a specified node from a doubly linked list.
+ 165:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 166:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Description:
+ 167:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+ 168:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>This API is used to delete a specified node from a doubly linked list.</li>
+ 169:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+ 170:e:\liteos\liteos\kernel\include\los_list.h ****  *@attention
+ 171:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+ 172:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>The parameter passed in should be ensured to be a legal pointer.</li>
+ 173:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+ 174:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 175:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstNode    [IN] Node to be deleted.
+ 176:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 177:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval None.
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s 			page 16
+
+
+ 178:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Dependency:
+ 179:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul><li>los_list.h: the header file that contains the API declaration.</li></ul>
+ 180:e:\liteos\liteos\kernel\include\los_list.h ****  *@see LOS_ListAdd
+ 181:e:\liteos\liteos\kernel\include\los_list.h ****  *@since Huawei LiteOS V100R001C00
+ 182:e:\liteos\liteos\kernel\include\los_list.h ****  */
+ 183:e:\liteos\liteos\kernel\include\los_list.h **** LITE_OS_SEC_ALW_INLINE STATIC_INLINE VOID LOS_ListDelete(LOS_DL_LIST *pstNode)
+ 184:e:\liteos\liteos\kernel\include\los_list.h **** {
+ 185:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstNext->pstPrev = pstNode->pstPrev;
+ 186:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstPrev->pstNext = pstNode->pstNext;
+ 187:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstNext = (LOS_DL_LIST *)NULL;
+ 188:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstPrev = (LOS_DL_LIST *)NULL;
+ 189:e:\liteos\liteos\kernel\include\los_list.h **** }
+ 190:e:\liteos\liteos\kernel\include\los_list.h **** 
+ 191:e:\liteos\liteos\kernel\include\los_list.h **** /**
+ 192:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+ 193:e:\liteos\liteos\kernel\include\los_list.h ****  *@brief Identify whether a specified doubly linked list is empty.
+ 194:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 195:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Description:
+ 196:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+ 197:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>This API is used to return whether a doubly linked list is empty.</li>
+ 198:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+ 199:e:\liteos\liteos\kernel\include\los_list.h ****  *@attention
+ 200:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+ 201:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>The parameter passed in should be ensured to be a legal pointer.</li>
+ 202:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+ 203:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 204:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstList  [IN] Doubly linked list.
+ 205:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 206:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval TRUE The doubly linked list is empty.
+ 207:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval FALSE The doubly linked list is not empty.
+ 208:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Dependency:
+ 209:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul><li>los_list.h: the header file that contains the API declaration.</li></ul>
+ 210:e:\liteos\liteos\kernel\include\los_list.h ****  *@see
+ 211:e:\liteos\liteos\kernel\include\los_list.h ****  *@since Huawei LiteOS V100R001C00
+ 212:e:\liteos\liteos\kernel\include\los_list.h ****  */
+ 213:e:\liteos\liteos\kernel\include\los_list.h **** LITE_OS_SEC_ALW_INLINE STATIC_INLINE BOOL LOS_ListEmpty(LOS_DL_LIST *pstNode)
+ 214:e:\liteos\liteos\kernel\include\los_list.h **** {
+ 215:e:\liteos\liteos\kernel\include\los_list.h ****     return (BOOL)(pstNode->pstNext == pstNode);
+ 480              		.loc 2 215 0
+ 481 0032 A068     		ldr	r0, [r4, #8]
+ 482              	.LVL74:
+ 483              	.LBE11:
+ 484              	.LBE10:
+ 196:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     if (!LOS_ListEmpty(&pstEventCB->stEventList))
+ 485              		.loc 1 196 0
+ 486 0034 8542     		cmp	r5, r0
+ 487 0036 26D0     		beq	.L30
+ 197:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     {
+ 198:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         for (pstResumedTask = LOS_DL_LIST_ENTRY((&pstEventCB->stEventList)->pstNext, LOS_TASK_CB, s
+ 488              		.loc 1 198 0
+ 489 0038 2838     		subs	r0, r0, #40
+ 490              	.LVL75:
+ 176:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 491              		.loc 1 176 0
+ 492 003a 0021     		movs	r1, #0
+ 493              		.loc 1 198 0
+ 494 003c 17E0     		b	.L31
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s 			page 17
+
+
+ 495              	.LVL76:
+ 496              	.L35:
+ 199:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****             &pstResumedTask->stPendList != (&pstEventCB->stEventList);)
+ 200:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         {
+ 201:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****             pstNextTask = LOS_DL_LIST_ENTRY(pstResumedTask->stPendList.pstNext, LOS_TASK_CB, stPend
+ 497              		.loc 1 201 0
+ 498 003e C36A     		ldr	r3, [r0, #44]
+ 499 0040 2822     		movs	r2, #40
+ 500 0042 5242     		rsbs	r2, r2, #0
+ 501 0044 9446     		mov	ip, r2
+ 502 0046 6344     		add	r3, r3, ip
+ 503 0048 9846     		mov	r8, r3
+ 504              	.LVL77:
+ 202:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 203:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****             if (((pstResumedTask->uwEventMode & LOS_WAITMODE_OR) && (pstResumedTask->uwEventMask & 
+ 505              		.loc 1 203 0
+ 506 004a C36C     		ldr	r3, [r0, #76]
+ 507              	.LVL78:
+ 508 004c 9A07     		lsls	r2, r3, #30
+ 509 004e 02D5     		bpl	.L32
+ 510              		.loc 1 203 0 is_stmt 0 discriminator 1
+ 511 0050 826C     		ldr	r2, [r0, #72]
+ 512 0052 3A42     		tst	r2, r7
+ 513 0054 06D1     		bne	.L33
+ 514              	.L32:
+ 515              		.loc 1 203 0 discriminator 3
+ 516 0056 5B07     		lsls	r3, r3, #29
+ 517 0058 08D5     		bpl	.L34
+ 204:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****                 ((pstResumedTask->uwEventMode & LOS_WAITMODE_AND) && (pstResumedTask->uwEventMask &
+ 518              		.loc 1 204 0 is_stmt 1
+ 519 005a 826C     		ldr	r2, [r0, #72]
+ 520 005c 2368     		ldr	r3, [r4]
+ 521 005e 1340     		ands	r3, r2
+ 522 0060 9A42     		cmp	r2, r3
+ 523 0062 03D1     		bne	.L34
+ 524              	.L33:
+ 525              	.LVL79:
+ 205:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****             {
+ 206:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****                 ucExitFlag = 1;
+ 207:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 208:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****                 osTaskWake(pstResumedTask, OS_TASK_STATUS_PEND);
+ 526              		.loc 1 208 0
+ 527 0064 0821     		movs	r1, #8
+ 528 0066 FFF7FEFF 		bl	osTaskWake
+ 529              	.LVL80:
+ 206:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 530              		.loc 1 206 0
+ 531 006a 0121     		movs	r1, #1
+ 532              	.LVL81:
+ 533              	.L34:
+ 206:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 534              		.loc 1 206 0 is_stmt 0 discriminator 1
+ 535 006c 4046     		mov	r0, r8
+ 536              	.LVL82:
+ 537              	.L31:
+ 199:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         {
+ 538              		.loc 1 199 0 is_stmt 1 discriminator 1
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s 			page 18
+
+
+ 539 006e 0300     		movs	r3, r0
+ 540 0070 2833     		adds	r3, r3, #40
+ 198:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****             &pstResumedTask->stPendList != (&pstEventCB->stEventList);)
+ 541              		.loc 1 198 0 discriminator 1
+ 542 0072 9D42     		cmp	r5, r3
+ 543 0074 E3D1     		bne	.L35
+ 209:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****             }
+ 210:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****             pstResumedTask = pstNextTask;
+ 211:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         }
+ 212:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 213:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         if (ucExitFlag == 1)
+ 544              		.loc 1 213 0
+ 545 0076 0129     		cmp	r1, #1
+ 546 0078 05D1     		bne	.L30
+ 214:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         {
+ 215:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****             (VOID)LOS_IntRestore(uvIntSave);
+ 547              		.loc 1 215 0
+ 548 007a 0198     		ldr	r0, [sp, #4]
+ 549              	.LVL83:
+ 550 007c FFF7FEFF 		bl	LOS_IntRestore
+ 551              	.LVL84:
+ 216:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****             LOS_Schedule();
+ 552              		.loc 1 216 0
+ 553 0080 FFF7FEFF 		bl	LOS_Schedule
+ 554              	.LVL85:
+ 217:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****             return LOS_OK;
+ 555              		.loc 1 217 0
+ 556 0084 0AE0     		b	.L29
+ 557              	.L30:
+ 218:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         }
+ 219:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     }
+ 220:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 221:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     (VOID)LOS_IntRestore(uvIntSave);
+ 558              		.loc 1 221 0
+ 559 0086 0198     		ldr	r0, [sp, #4]
+ 560 0088 FFF7FEFF 		bl	LOS_IntRestore
+ 561              	.LVL86:
+ 222:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     return LOS_OK;
+ 562              		.loc 1 222 0
+ 563 008c 06E0     		b	.L29
+ 564              	.LVL87:
+ 565              	.L36:
+ 180:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     }
+ 566              		.loc 1 180 0
+ 567 008e 064E     		ldr	r6, .L40
+ 568 0090 04E0     		b	.L29
+ 569              	.L37:
+ 185:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     }
+ 570              		.loc 1 185 0
+ 571 0092 064E     		ldr	r6, .L40+4
+ 572 0094 02E0     		b	.L29
+ 573              	.L38:
+ 574 0096 054E     		ldr	r6, .L40+4
+ 575 0098 00E0     		b	.L29
+ 576              	.L39:
+ 190:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     }
+ 577              		.loc 1 190 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s 			page 19
+
+
+ 578 009a 054E     		ldr	r6, .L40+8
+ 579              	.LVL88:
+ 580              	.L29:
+ 223:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** }
+ 581              		.loc 1 223 0
+ 582 009c 3000     		movs	r0, r6
+ 583 009e 02B0     		add	sp, sp, #8
+ 584              		@ sp needed
+ 585              	.LVL89:
+ 586              	.LVL90:
+ 587 00a0 04BC     		pop	{r2}
+ 588 00a2 9046     		mov	r8, r2
+ 589 00a4 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 590              	.L41:
+ 591 00a6 C046     		.align	2
+ 592              	.L40:
+ 593 00a8 061C0002 		.word	33561606
+ 594 00ac 071C0002 		.word	33561607
+ 595 00b0 001C0002 		.word	33561600
+ 596              		.cfi_endproc
+ 597              	.LFE46:
+ 599              		.section	.text.LOS_EventDestory,"ax",%progbits
+ 600              		.align	2
+ 601              		.global	LOS_EventDestory
+ 602              		.code	16
+ 603              		.thumb_func
+ 605              	LOS_EventDestory:
+ 606              	.LFB47:
+ 224:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 225:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** LITE_OS_SEC_TEXT_INIT UINT32 LOS_EventDestory(PEVENT_CB_S pstEventCB)
+ 226:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** {
+ 607              		.loc 1 226 0
+ 608              		.cfi_startproc
+ 609              		@ args = 0, pretend = 0, frame = 0
+ 610              		@ frame_needed = 0, uses_anonymous_args = 0
+ 611              	.LVL91:
+ 612 0000 10B5     		push	{r4, lr}
+ 613              	.LCFI7:
+ 614              		.cfi_def_cfa_offset 8
+ 615              		.cfi_offset 4, -8
+ 616              		.cfi_offset 14, -4
+ 617 0002 041E     		subs	r4, r0, #0
+ 227:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     UINTPTR uvIntSave;
+ 228:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 229:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     if (pstEventCB == NULL)
+ 618              		.loc 1 229 0
+ 619 0004 10D0     		beq	.L45
+ 230:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     {
+ 231:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         return LOS_ERRNO_EVENT_PTR_NULL;
+ 232:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     }
+ 233:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 234:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     uvIntSave = LOS_IntLock();
+ 620              		.loc 1 234 0
+ 621 0006 FFF7FEFF 		bl	LOS_IntLock
+ 622              	.LVL92:
+ 235:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 236:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     if (!LOS_ListEmpty(&pstEventCB->stEventList))
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s 			page 20
+
+
+ 623              		.loc 1 236 0
+ 624 000a 231D     		adds	r3, r4, #4
+ 625 000c A268     		ldr	r2, [r4, #8]
+ 626 000e 9342     		cmp	r3, r2
+ 627 0010 03D0     		beq	.L44
+ 237:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     {
+ 238:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         (VOID)LOS_IntRestore(uvIntSave);
+ 628              		.loc 1 238 0
+ 629 0012 FFF7FEFF 		bl	LOS_IntRestore
+ 630              	.LVL93:
+ 239:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         return LOS_ERRNO_EVENT_SHOULD_NOT_DESTORY;
+ 631              		.loc 1 239 0
+ 632 0016 0548     		ldr	r0, .L46
+ 633 0018 07E0     		b	.L43
+ 634              	.LVL94:
+ 635              	.L44:
+ 240:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     }
+ 241:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 242:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     pstEventCB->stEventList.pstNext = (LOS_DL_LIST *)NULL;
+ 636              		.loc 1 242 0
+ 637 001a 0023     		movs	r3, #0
+ 638 001c A360     		str	r3, [r4, #8]
+ 243:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     pstEventCB->stEventList.pstPrev = (LOS_DL_LIST *)NULL;
+ 639              		.loc 1 243 0
+ 640 001e 6360     		str	r3, [r4, #4]
+ 244:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 245:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     (VOID)LOS_IntRestore(uvIntSave);
+ 641              		.loc 1 245 0
+ 642 0020 FFF7FEFF 		bl	LOS_IntRestore
+ 643              	.LVL95:
+ 246:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 247:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     return LOS_OK;
+ 644              		.loc 1 247 0
+ 645 0024 0020     		movs	r0, #0
+ 646 0026 00E0     		b	.L43
+ 647              	.LVL96:
+ 648              	.L45:
+ 231:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     }
+ 649              		.loc 1 231 0
+ 650 0028 0148     		ldr	r0, .L46+4
+ 651              	.LVL97:
+ 652              	.L43:
+ 248:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** }
+ 653              		.loc 1 248 0
+ 654              		@ sp needed
+ 655              	.LVL98:
+ 656 002a 10BD     		pop	{r4, pc}
+ 657              	.L47:
+ 658              		.align	2
+ 659              	.L46:
+ 660 002c 081C0002 		.word	33561608
+ 661 0030 061C0002 		.word	33561606
+ 662              		.cfi_endproc
+ 663              	.LFE47:
+ 665              		.section	.text.LOS_EventClear,"ax",%progbits
+ 666              		.align	2
+ 667              		.global	LOS_EventClear
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s 			page 21
+
+
+ 668              		.code	16
+ 669              		.thumb_func
+ 671              	LOS_EventClear:
+ 672              	.LFB48:
+ 249:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 250:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** LITE_OS_SEC_TEXT_MINOR UINT32 LOS_EventClear(PEVENT_CB_S pstEventCB, UINT32 uwEvents)
+ 251:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** {
+ 673              		.loc 1 251 0
+ 674              		.cfi_startproc
+ 675              		@ args = 0, pretend = 0, frame = 0
+ 676              		@ frame_needed = 0, uses_anonymous_args = 0
+ 677              	.LVL99:
+ 678 0000 70B5     		push	{r4, r5, r6, lr}
+ 679              	.LCFI8:
+ 680              		.cfi_def_cfa_offset 16
+ 681              		.cfi_offset 4, -16
+ 682              		.cfi_offset 5, -12
+ 683              		.cfi_offset 6, -8
+ 684              		.cfi_offset 14, -4
+ 685 0002 0400     		movs	r4, r0
+ 686 0004 0D00     		movs	r5, r1
+ 252:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     UINTPTR uvIntSave;
+ 253:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 254:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     if (pstEventCB == NULL)
+ 687              		.loc 1 254 0
+ 688 0006 0028     		cmp	r0, #0
+ 689 0008 08D0     		beq	.L50
+ 255:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     {
+ 256:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****         return LOS_ERRNO_EVENT_PTR_NULL;
+ 257:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     }
+ 258:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     uvIntSave = LOS_IntLock();
+ 690              		.loc 1 258 0
+ 691 000a FFF7FEFF 		bl	LOS_IntLock
+ 692              	.LVL100:
+ 259:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     pstEventCB->uwEventID &= uwEvents;
+ 693              		.loc 1 259 0
+ 694 000e 2168     		ldr	r1, [r4]
+ 695 0010 2940     		ands	r1, r5
+ 696 0012 2160     		str	r1, [r4]
+ 260:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     (VOID)LOS_IntRestore(uvIntSave);
+ 697              		.loc 1 260 0
+ 698 0014 FFF7FEFF 		bl	LOS_IntRestore
+ 699              	.LVL101:
+ 261:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** 
+ 262:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     return LOS_OK;
+ 700              		.loc 1 262 0
+ 701 0018 0020     		movs	r0, #0
+ 702 001a 00E0     		b	.L49
+ 703              	.LVL102:
+ 704              	.L50:
+ 256:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c ****     }
+ 705              		.loc 1 256 0
+ 706 001c 0048     		ldr	r0, .L51
+ 707              	.LVL103:
+ 708              	.L49:
+ 263:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/ipc\los_event.c **** }
+ 709              		.loc 1 263 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s 			page 22
+
+
+ 710              		@ sp needed
+ 711              	.LVL104:
+ 712              	.LVL105:
+ 713 001e 70BD     		pop	{r4, r5, r6, pc}
+ 714              	.L52:
+ 715              		.align	2
+ 716              	.L51:
+ 717 0020 061C0002 		.word	33561606
+ 718              		.cfi_endproc
+ 719              	.LFE48:
+ 721              		.text
+ 722              	.Letext0:
+ 723              		.file 3 "e:\\liteos\\liteos\\kernel\\include\\los_typedef.h"
+ 724              		.file 4 "e:\\liteos\\liteos\\kernel\\include\\los_event.h"
+ 725              		.file 5 "e:\\liteos\\liteos\\kernel\\include\\los_task.h"
+ 726              		.file 6 "e:\\liteos\\liteos\\kernel\\base\\include\\los_task.ph"
+ 727              		.file 7 "e:\\liteos\\liteos\\arch\\arm\\arm-m\\include\\los_hwi.h"
+ 728              		.file 8 "e:\\liteos\\liteos\\arch\\arm\\arm-m\\include\\los_hw.h"
+ 729              		.file 9 "e:\\liteos\\liteos\\kernel\\include\\los_err.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s 			page 23
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 los_event.c
+C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s:20     .text.LOS_EventInit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s:25     .text.LOS_EventInit:00000000 LOS_EventInit
+C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s:68     .text.LOS_EventInit:00000018 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s:73     .text.LOS_EventPoll:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s:78     .text.LOS_EventPoll:00000000 LOS_EventPoll
+C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s:150    .text.LOS_EventRead:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s:155    .text.LOS_EventRead:00000000 LOS_EventRead
+C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s:406    .text.LOS_EventRead:00000108 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s:420    .text.LOS_EventWrite:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s:425    .text.LOS_EventWrite:00000000 LOS_EventWrite
+C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s:593    .text.LOS_EventWrite:000000a8 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s:600    .text.LOS_EventDestory:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s:605    .text.LOS_EventDestory:00000000 LOS_EventDestory
+C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s:660    .text.LOS_EventDestory:0000002c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s:666    .text.LOS_EventClear:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s:671    .text.LOS_EventClear:00000000 LOS_EventClear
+C:\Users\WANGBI~1\AppData\Local\Temp\cc7kPl2I.s:717    .text.LOS_EventClear:00000020 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+LOS_IntLock
+LOS_IntRestore
+osIntNumGet
+osTaskWait
+LOS_Schedule
+g_usLosTaskLock
+g_stLosTask
+osTaskWake

@@ -1,0 +1,684 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccsB7Wnq.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"los_api_msgqueue.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.recv_Entry,"ax",%progbits
+  20              		.align	2
+  21              		.code	16
+  22              		.thumb_func
+  24              	recv_Entry:
+  25              	.LFB44:
+  26              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api/los_api_msgqueue.c"
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** /*----------------------------------------------------------------------------
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  * Copyright (c) <2016-2018>, <Huawei Technologies Co., Ltd>
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  * All rights reserved.
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  * are permitted provided that the following conditions are met:
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  * conditions and the following disclaimer.
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  * provided with the distribution.
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  * permission.
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  *---------------------------------------------------------------------------*/
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  /*----------------------------------------------------------------------------
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  * Notice of Export Control Law
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  * ===============================================
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  * applicable export control laws and regulations.
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccsB7Wnq.s 			page 2
+
+
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****  *---------------------------------------------------------------------------*/
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** 
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** #include "los_base.h"
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** #include "los_task.h"
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** #include "los_swtmr.h"
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** #include "los_hwi.h"
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** #include "los_queue.h"
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** #include "los_event.h"
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** #include "los_typedef.h"
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** #include "los_api_msgqueue.h"
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** #include "los_inspect_entry.h"
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** 
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** #ifdef __cplusplus
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** #if __cplusplus
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** extern "C" {
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** #endif /* __cpluscplus */
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** #endif /* __cpluscplus */
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** 
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** static UINT32 g_uwQueue;
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** 
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** static CHAR abuf[] = "test is message x";
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** 
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** /* task1 send data */
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** static VOID *send_Entry(UINT32 uwParam)
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** {
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     UINT32 i = 0,uwRet = 0;
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     UINT32 uwlen = sizeof(abuf);
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** 
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     while (i < API_MSG_NUM)
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     {
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         abuf[uwlen -2] = '0' + i;
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         i++;
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** 
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         /* write abuf data to queue */
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         uwRet = LOS_QueueWrite(g_uwQueue, abuf, uwlen, 0);
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         if(uwRet != LOS_OK)
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         {
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****             dprintf("send message failure,error:%x \r\n",uwRet);
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         }
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** 
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         LOS_TaskDelay(5);
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     }
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** 
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     return NULL;
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** }
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** 
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** /* task2 recv data */
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** static VOID *recv_Entry(UINT32 uwParam)
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** {
+  27              		.loc 1 81 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 8
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              	.LVL0:
+  32 0000 10B5     		push	{r4, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccsB7Wnq.s 			page 3
+
+
+  35              		.cfi_offset 4, -8
+  36              		.cfi_offset 14, -4
+  37 0002 82B0     		sub	sp, sp, #8
+  38              	.LCFI1:
+  39              		.cfi_def_cfa_offset 16
+  40              	.LVL1:
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     UINT32 uwReadbuf;
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     UINT32 uwRet = LOS_OK;
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     UINT32 uwMsgCount = 0;
+  41              		.loc 1 84 0
+  42 0004 0024     		movs	r4, #0
+  43              	.LVL2:
+  44              	.L4:
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** 
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     while (1)
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     {
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         /* read data from queue to uwReadbuf */
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         uwRet = LOS_QueueRead(g_uwQueue, &uwReadbuf, 24, 0);
+  45              		.loc 1 89 0
+  46 0006 1D4B     		ldr	r3, .L8
+  47 0008 1868     		ldr	r0, [r3]
+  48 000a 0023     		movs	r3, #0
+  49 000c 1822     		movs	r2, #24
+  50 000e 01A9     		add	r1, sp, #4
+  51 0010 FFF7FEFF 		bl	LOS_QueueRead
+  52              	.LVL3:
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         if (uwRet != LOS_OK)
+  53              		.loc 1 90 0
+  54 0014 0028     		cmp	r0, #0
+  55 0016 04D0     		beq	.L2
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         {
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****             dprintf("recv message failure,error:%x \r\n",uwRet);
+  56              		.loc 1 92 0
+  57 0018 0100     		movs	r1, r0
+  58 001a 1948     		ldr	r0, .L8+4
+  59              	.LVL4:
+  60 001c FFF7FEFF 		bl	dprintf_none
+  61              	.LVL5:
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****             break;
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         }
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         else
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         {
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****             dprintf("recv message:%s \r\n", (CHAR *)uwReadbuf);
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****             uwMsgCount++;
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         }
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** 
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         (VOID)LOS_TaskDelay(5);
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     }
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** 
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     /* delete queue */
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     while (LOS_OK != LOS_QueueDelete(g_uwQueue))
+  62              		.loc 1 105 0
+  63 0020 0BE0     		b	.L3
+  64              	.LVL6:
+  65              	.L2:
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****             uwMsgCount++;
+  66              		.loc 1 97 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccsB7Wnq.s 			page 4
+
+
+  67 0022 0199     		ldr	r1, [sp, #4]
+  68 0024 1748     		ldr	r0, .L8+8
+  69              	.LVL7:
+  70 0026 FFF7FEFF 		bl	dprintf_none
+  71              	.LVL8:
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         }
+  72              		.loc 1 98 0
+  73 002a 0134     		adds	r4, r4, #1
+  74              	.LVL9:
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     }
+  75              		.loc 1 101 0
+  76 002c 0520     		movs	r0, #5
+  77 002e FFF7FEFF 		bl	LOS_TaskDelay
+  78              	.LVL10:
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** 
+  79              		.loc 1 102 0
+  80 0032 E8E7     		b	.L4
+  81              	.L5:
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     {
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         (VOID)LOS_TaskDelay(1);
+  82              		.loc 1 107 0
+  83 0034 0120     		movs	r0, #1
+  84 0036 FFF7FEFF 		bl	LOS_TaskDelay
+  85              	.LVL11:
+  86              	.L3:
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     {
+  87              		.loc 1 105 0
+  88 003a 104B     		ldr	r3, .L8
+  89 003c 1868     		ldr	r0, [r3]
+  90 003e FFF7FEFF 		bl	LOS_QueueDelete
+  91              	.LVL12:
+  92 0042 0028     		cmp	r0, #0
+  93 0044 F6D1     		bne	.L5
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     }
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** 
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     dprintf("delete the queue success! \r\n");
+  94              		.loc 1 110 0
+  95 0046 1048     		ldr	r0, .L8+12
+  96 0048 FFF7FEFF 		bl	dprintf_none
+  97              	.LVL13:
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** 
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     if (API_MSG_NUM == uwMsgCount)
+  98              		.loc 1 112 0
+  99 004c 052C     		cmp	r4, #5
+ 100 004e 09D1     		bne	.L6
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     {
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         uwRet = LOS_InspectStatusSetByID(LOS_INSPECT_MSG, LOS_INSPECT_STU_SUCCESS);
+ 101              		.loc 1 114 0
+ 102 0050 0021     		movs	r1, #0
+ 103 0052 0220     		movs	r0, #2
+ 104 0054 FFF7FEFF 		bl	LOS_InspectStatusSetByID
+ 105              	.LVL14:
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         if (LOS_OK != uwRet)
+ 106              		.loc 1 115 0
+ 107 0058 0028     		cmp	r0, #0
+ 108 005a 0CD0     		beq	.L7
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         {
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccsB7Wnq.s 			page 5
+
+
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****             dprintf("Set Inspect Status Err \r\n");
+ 109              		.loc 1 117 0
+ 110 005c 0B48     		ldr	r0, .L8+16
+ 111              	.LVL15:
+ 112 005e FFF7FEFF 		bl	dprintf_none
+ 113              	.LVL16:
+ 114 0062 08E0     		b	.L7
+ 115              	.L6:
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         }
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     }
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     else
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     {
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         uwRet = LOS_InspectStatusSetByID(LOS_INSPECT_MSG, LOS_INSPECT_STU_ERROR);
+ 116              		.loc 1 122 0
+ 117 0064 0121     		movs	r1, #1
+ 118 0066 0220     		movs	r0, #2
+ 119 0068 FFF7FEFF 		bl	LOS_InspectStatusSetByID
+ 120              	.LVL17:
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         if (LOS_OK != uwRet)
+ 121              		.loc 1 123 0
+ 122 006c 0028     		cmp	r0, #0
+ 123 006e 02D0     		beq	.L7
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         {
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****             dprintf("Set Inspect Status Err \r\n");
+ 124              		.loc 1 125 0
+ 125 0070 0648     		ldr	r0, .L8+16
+ 126              	.LVL18:
+ 127 0072 FFF7FEFF 		bl	dprintf_none
+ 128              	.LVL19:
+ 129              	.L7:
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         }
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     }
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** 
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     return NULL;
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** }
+ 130              		.loc 1 130 0
+ 131 0076 0020     		movs	r0, #0
+ 132 0078 02B0     		add	sp, sp, #8
+ 133              		@ sp needed
+ 134              	.LVL20:
+ 135 007a 10BD     		pop	{r4, pc}
+ 136              	.L9:
+ 137              		.align	2
+ 138              	.L8:
+ 139 007c 00000000 		.word	.LANCHOR0
+ 140 0080 00000000 		.word	.LC1
+ 141 0084 24000000 		.word	.LC3
+ 142 0088 38000000 		.word	.LC5
+ 143 008c 58000000 		.word	.LC7
+ 144              		.cfi_endproc
+ 145              	.LFE44:
+ 147              		.section	.text.send_Entry,"ax",%progbits
+ 148              		.align	2
+ 149              		.code	16
+ 150              		.thumb_func
+ 152              	send_Entry:
+ 153              	.LFB43:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccsB7Wnq.s 			page 6
+
+
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     UINT32 i = 0,uwRet = 0;
+ 154              		.loc 1 57 0
+ 155              		.cfi_startproc
+ 156              		@ args = 0, pretend = 0, frame = 0
+ 157              		@ frame_needed = 0, uses_anonymous_args = 0
+ 158              	.LVL21:
+ 159 0000 10B5     		push	{r4, lr}
+ 160              	.LCFI2:
+ 161              		.cfi_def_cfa_offset 8
+ 162              		.cfi_offset 4, -8
+ 163              		.cfi_offset 14, -4
+ 164              	.LVL22:
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     UINT32 uwlen = sizeof(abuf);
+ 165              		.loc 1 58 0
+ 166 0002 0024     		movs	r4, #0
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     {
+ 167              		.loc 1 61 0
+ 168 0004 13E0     		b	.L11
+ 169              	.LVL23:
+ 170              	.L13:
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         i++;
+ 171              		.loc 1 63 0
+ 172 0006 0C49     		ldr	r1, .L14
+ 173 0008 2300     		movs	r3, r4
+ 174 000a 3033     		adds	r3, r3, #48
+ 175 000c 0B74     		strb	r3, [r1, #16]
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** 
+ 176              		.loc 1 64 0
+ 177 000e 0134     		adds	r4, r4, #1
+ 178              	.LVL24:
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         if(uwRet != LOS_OK)
+ 179              		.loc 1 67 0
+ 180 0010 0A4B     		ldr	r3, .L14+4
+ 181 0012 1868     		ldr	r0, [r3]
+ 182 0014 0023     		movs	r3, #0
+ 183 0016 1222     		movs	r2, #18
+ 184 0018 FFF7FEFF 		bl	LOS_QueueWrite
+ 185              	.LVL25:
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         {
+ 186              		.loc 1 68 0
+ 187 001c 0028     		cmp	r0, #0
+ 188 001e 03D0     		beq	.L12
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         }
+ 189              		.loc 1 70 0
+ 190 0020 0100     		movs	r1, r0
+ 191 0022 0748     		ldr	r0, .L14+8
+ 192              	.LVL26:
+ 193 0024 FFF7FEFF 		bl	dprintf_none
+ 194              	.LVL27:
+ 195              	.L12:
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     }
+ 196              		.loc 1 73 0
+ 197 0028 0520     		movs	r0, #5
+ 198 002a FFF7FEFF 		bl	LOS_TaskDelay
+ 199              	.LVL28:
+ 200              	.L11:
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     {
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccsB7Wnq.s 			page 7
+
+
+ 201              		.loc 1 61 0
+ 202 002e 042C     		cmp	r4, #4
+ 203 0030 E9D9     		bls	.L13
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** 
+ 204              		.loc 1 77 0
+ 205 0032 0020     		movs	r0, #0
+ 206              		@ sp needed
+ 207              	.LVL29:
+ 208 0034 10BD     		pop	{r4, pc}
+ 209              	.L15:
+ 210 0036 C046     		.align	2
+ 211              	.L14:
+ 212 0038 00000000 		.word	.LANCHOR1
+ 213 003c 00000000 		.word	.LANCHOR0
+ 214 0040 74000000 		.word	.LC11
+ 215              		.cfi_endproc
+ 216              	.LFE43:
+ 218              		.section	.text.Example_MsgQueue,"ax",%progbits
+ 219              		.align	2
+ 220              		.global	Example_MsgQueue
+ 221              		.code	16
+ 222              		.thumb_func
+ 224              	Example_MsgQueue:
+ 225              	.LFB45:
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** 
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** UINT32 Example_MsgQueue(VOID)
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** {
+ 226              		.loc 1 133 0
+ 227              		.cfi_startproc
+ 228              		@ args = 0, pretend = 0, frame = 32
+ 229              		@ frame_needed = 0, uses_anonymous_args = 0
+ 230 0000 10B5     		push	{r4, lr}
+ 231              	.LCFI3:
+ 232              		.cfi_def_cfa_offset 8
+ 233              		.cfi_offset 4, -8
+ 234              		.cfi_offset 14, -4
+ 235 0002 8AB0     		sub	sp, sp, #40
+ 236              	.LCFI4:
+ 237              		.cfi_def_cfa_offset 48
+ 238              	.LVL30:
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     UINT32 uwRet = 0;
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     UINT32 uwTask1, uwTask2;
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     TSK_INIT_PARAM_S stInitParam1;
+ 137:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** 
+ 138:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     /* create task1 */
+ 139:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     stInitParam1.pfnTaskEntry = send_Entry;
+ 239              		.loc 1 139 0
+ 240 0004 02AC     		add	r4, sp, #8
+ 241 0006 1D4B     		ldr	r3, .L21
+ 242 0008 0293     		str	r3, [sp, #8]
+ 140:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     stInitParam1.usTaskPrio = 9;
+ 243              		.loc 1 140 0
+ 244 000a 0923     		movs	r3, #9
+ 245 000c A380     		strh	r3, [r4, #4]
+ 141:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     stInitParam1.uwStackSize = LOSCFG_BASE_CORE_TSK_DEFAULT_STACK_SIZE;
+ 246              		.loc 1 141 0
+ 247 000e B423     		movs	r3, #180
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccsB7Wnq.s 			page 8
+
+
+ 248 0010 9B00     		lsls	r3, r3, #2
+ 249 0012 0593     		str	r3, [sp, #20]
+ 142:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     stInitParam1.pcName = "sendQueue";
+ 250              		.loc 1 142 0
+ 251 0014 1A4B     		ldr	r3, .L21+4
+ 252 0016 0693     		str	r3, [sp, #24]
+ 143:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     LOS_TaskLock();//lock task schedue
+ 253              		.loc 1 143 0
+ 254 0018 FFF7FEFF 		bl	LOS_TaskLock
+ 255              	.LVL31:
+ 144:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     uwRet = LOS_TaskCreate(&uwTask1, &stInitParam1);
+ 256              		.loc 1 144 0
+ 257 001c 2100     		movs	r1, r4
+ 258 001e 09A8     		add	r0, sp, #36
+ 259 0020 FFF7FEFF 		bl	LOS_TaskCreate
+ 260              	.LVL32:
+ 261 0024 041E     		subs	r4, r0, #0
+ 262              	.LVL33:
+ 145:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     if (uwRet != LOS_OK)
+ 263              		.loc 1 145 0
+ 264 0026 05D0     		beq	.L17
+ 146:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     {
+ 147:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         dprintf("create task1 failed!,error:%x \r\n",uwRet);
+ 265              		.loc 1 147 0
+ 266 0028 0100     		movs	r1, r0
+ 267 002a 1648     		ldr	r0, .L21+8
+ 268              	.LVL34:
+ 269 002c FFF7FEFF 		bl	dprintf_none
+ 270              	.LVL35:
+ 148:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         return uwRet;
+ 271              		.loc 1 148 0
+ 272 0030 2000     		movs	r0, r4
+ 273 0032 21E0     		b	.L18
+ 274              	.L17:
+ 149:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     }
+ 150:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** 
+ 151:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     /*create task2*/
+ 152:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     stInitParam1.pfnTaskEntry = recv_Entry;
+ 275              		.loc 1 152 0
+ 276 0034 144B     		ldr	r3, .L21+12
+ 277 0036 0293     		str	r3, [sp, #8]
+ 153:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     uwRet = LOS_TaskCreate(&uwTask2, &stInitParam1);
+ 278              		.loc 1 153 0
+ 279 0038 02A9     		add	r1, sp, #8
+ 280 003a 08A8     		add	r0, sp, #32
+ 281 003c FFF7FEFF 		bl	LOS_TaskCreate
+ 282              	.LVL36:
+ 283 0040 041E     		subs	r4, r0, #0
+ 284              	.LVL37:
+ 154:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     if (uwRet != LOS_OK)
+ 285              		.loc 1 154 0
+ 286 0042 05D0     		beq	.L19
+ 155:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     {
+ 156:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         dprintf("create task2 failed!,error:%x \r\n",uwRet);
+ 287              		.loc 1 156 0
+ 288 0044 0100     		movs	r1, r0
+ 289 0046 1148     		ldr	r0, .L21+16
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccsB7Wnq.s 			page 9
+
+
+ 290              	.LVL38:
+ 291 0048 FFF7FEFF 		bl	dprintf_none
+ 292              	.LVL39:
+ 157:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         return uwRet;
+ 293              		.loc 1 157 0
+ 294 004c 2000     		movs	r0, r4
+ 295 004e 13E0     		b	.L18
+ 296              	.L19:
+ 158:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     }
+ 159:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** 
+ 160:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     /* create queue */
+ 161:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     uwRet = LOS_QueueCreate("queue", 5, &g_uwQueue, 0, 24);
+ 297              		.loc 1 161 0
+ 298 0050 1823     		movs	r3, #24
+ 299 0052 0093     		str	r3, [sp]
+ 300 0054 0023     		movs	r3, #0
+ 301 0056 0E4A     		ldr	r2, .L21+20
+ 302 0058 0521     		movs	r1, #5
+ 303 005a 0E48     		ldr	r0, .L21+24
+ 304 005c FFF7FEFF 		bl	LOS_QueueCreate
+ 305              	.LVL40:
+ 162:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     if (uwRet != LOS_OK)
+ 306              		.loc 1 162 0
+ 307 0060 0028     		cmp	r0, #0
+ 308 0062 03D0     		beq	.L20
+ 163:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     {
+ 164:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****         dprintf("create queue failure!,error:%x \r\n",uwRet);
+ 309              		.loc 1 164 0
+ 310 0064 0100     		movs	r1, r0
+ 311 0066 0C48     		ldr	r0, .L21+28
+ 312              	.LVL41:
+ 313 0068 FFF7FEFF 		bl	dprintf_none
+ 314              	.LVL42:
+ 315              	.L20:
+ 165:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     }
+ 166:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** 
+ 167:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     dprintf("create the queue success! \r\n");
+ 316              		.loc 1 167 0
+ 317 006c 0B48     		ldr	r0, .L21+32
+ 318 006e FFF7FEFF 		bl	dprintf_none
+ 319              	.LVL43:
+ 168:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     LOS_TaskUnlock();//unlock task schedue
+ 320              		.loc 1 168 0
+ 321 0072 FFF7FEFF 		bl	LOS_TaskUnlock
+ 322              	.LVL44:
+ 169:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** 
+ 170:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c ****     return LOS_OK;
+ 323              		.loc 1 170 0
+ 324 0076 0020     		movs	r0, #0
+ 325              	.L18:
+ 171:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_msgqueue.c **** }
+ 326              		.loc 1 171 0
+ 327 0078 0AB0     		add	sp, sp, #40
+ 328              		@ sp needed
+ 329 007a 10BD     		pop	{r4, pc}
+ 330              	.L22:
+ 331              		.align	2
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccsB7Wnq.s 			page 10
+
+
+ 332              	.L21:
+ 333 007c 00000000 		.word	send_Entry
+ 334 0080 98000000 		.word	.LC14
+ 335 0084 A4000000 		.word	.LC16
+ 336 0088 00000000 		.word	recv_Entry
+ 337 008c C8000000 		.word	.LC19
+ 338 0090 00000000 		.word	.LANCHOR0
+ 339 0094 EC000000 		.word	.LC22
+ 340 0098 F4000000 		.word	.LC24
+ 341 009c 18010000 		.word	.LC26
+ 342              		.cfi_endproc
+ 343              	.LFE45:
+ 345              		.section	.bss.g_uwQueue,"aw",%nobits
+ 346              		.align	2
+ 347              		.set	.LANCHOR0,. + 0
+ 350              	g_uwQueue:
+ 351 0000 00000000 		.space	4
+ 352              		.section	.data.abuf,"aw",%progbits
+ 353              		.align	2
+ 354              		.set	.LANCHOR1,. + 0
+ 357              	abuf:
+ 358 0000 74657374 		.ascii	"test is message x\000"
+ 358      20697320 
+ 358      6D657373 
+ 358      61676520 
+ 358      7800
+ 359              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 360              		.align	2
+ 361              	.LC1:
+ 362 0000 72656376 		.ascii	"recv message failure,error:%x \015\012\000"
+ 362      206D6573 
+ 362      73616765 
+ 362      20666169 
+ 362      6C757265 
+ 363 0021 000000   		.space	3
+ 364              	.LC3:
+ 365 0024 72656376 		.ascii	"recv message:%s \015\012\000"
+ 365      206D6573 
+ 365      73616765 
+ 365      3A257320 
+ 365      0D0A00
+ 366 0037 00       		.space	1
+ 367              	.LC5:
+ 368 0038 64656C65 		.ascii	"delete the queue success! \015\012\000"
+ 368      74652074 
+ 368      68652071 
+ 368      75657565 
+ 368      20737563 
+ 369 0055 000000   		.space	3
+ 370              	.LC7:
+ 371 0058 53657420 		.ascii	"Set Inspect Status Err \015\012\000"
+ 371      496E7370 
+ 371      65637420 
+ 371      53746174 
+ 371      75732045 
+ 372 0072 0000     		.space	2
+ 373              	.LC11:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccsB7Wnq.s 			page 11
+
+
+ 374 0074 73656E64 		.ascii	"send message failure,error:%x \015\012\000"
+ 374      206D6573 
+ 374      73616765 
+ 374      20666169 
+ 374      6C757265 
+ 375 0095 000000   		.space	3
+ 376              	.LC14:
+ 377 0098 73656E64 		.ascii	"sendQueue\000"
+ 377      51756575 
+ 377      6500
+ 378 00a2 0000     		.space	2
+ 379              	.LC16:
+ 380 00a4 63726561 		.ascii	"create task1 failed!,error:%x \015\012\000"
+ 380      74652074 
+ 380      61736B31 
+ 380      20666169 
+ 380      6C656421 
+ 381 00c5 000000   		.space	3
+ 382              	.LC19:
+ 383 00c8 63726561 		.ascii	"create task2 failed!,error:%x \015\012\000"
+ 383      74652074 
+ 383      61736B32 
+ 383      20666169 
+ 383      6C656421 
+ 384 00e9 000000   		.space	3
+ 385              	.LC22:
+ 386 00ec 71756575 		.ascii	"queue\000"
+ 386      6500
+ 387 00f2 0000     		.space	2
+ 388              	.LC24:
+ 389 00f4 63726561 		.ascii	"create queue failure!,error:%x \015\012\000"
+ 389      74652071 
+ 389      75657565 
+ 389      20666169 
+ 389      6C757265 
+ 390 0116 0000     		.space	2
+ 391              	.LC26:
+ 392 0118 63726561 		.ascii	"create the queue success! \015\012\000"
+ 392      74652074 
+ 392      68652071 
+ 392      75657565 
+ 392      20737563 
+ 393              		.text
+ 394              	.Letext0:
+ 395              		.file 2 "e:\\liteos\\liteos\\kernel\\include\\los_typedef.h"
+ 396              		.file 3 "e:\\liteos\\liteos\\kernel\\include\\los_task.h"
+ 397              		.file 4 "e:\\liteos\\liteos\\examples\\include\\los_inspect_entry.h"
+ 398              		.file 5 "e:\\liteos\\liteos\\kernel\\include\\los_queue.h"
+ 399              		.file 6 "e:\\liteos\\liteos\\examples\\include\\los_demo_debug.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccsB7Wnq.s 			page 12
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 los_api_msgqueue.c
+C:\Users\WANGBI~1\AppData\Local\Temp\ccsB7Wnq.s:20     .text.recv_Entry:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccsB7Wnq.s:24     .text.recv_Entry:00000000 recv_Entry
+C:\Users\WANGBI~1\AppData\Local\Temp\ccsB7Wnq.s:139    .text.recv_Entry:0000007c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccsB7Wnq.s:148    .text.send_Entry:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccsB7Wnq.s:152    .text.send_Entry:00000000 send_Entry
+C:\Users\WANGBI~1\AppData\Local\Temp\ccsB7Wnq.s:212    .text.send_Entry:00000038 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccsB7Wnq.s:219    .text.Example_MsgQueue:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccsB7Wnq.s:224    .text.Example_MsgQueue:00000000 Example_MsgQueue
+C:\Users\WANGBI~1\AppData\Local\Temp\ccsB7Wnq.s:333    .text.Example_MsgQueue:0000007c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccsB7Wnq.s:346    .bss.g_uwQueue:00000000 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccsB7Wnq.s:350    .bss.g_uwQueue:00000000 g_uwQueue
+C:\Users\WANGBI~1\AppData\Local\Temp\ccsB7Wnq.s:353    .data.abuf:00000000 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccsB7Wnq.s:357    .data.abuf:00000000 abuf
+C:\Users\WANGBI~1\AppData\Local\Temp\ccsB7Wnq.s:360    .rodata.str1.4:00000000 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+LOS_QueueRead
+dprintf_none
+LOS_TaskDelay
+LOS_QueueDelete
+LOS_InspectStatusSetByID
+LOS_QueueWrite
+LOS_TaskLock
+LOS_TaskCreate
+LOS_QueueCreate
+LOS_TaskUnlock

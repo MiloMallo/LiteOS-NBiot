@@ -1,0 +1,396 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLGA0aW.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"los_api_systick.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.Example_TransformTime,"ax",%progbits
+  20              		.align	2
+  21              		.global	Example_TransformTime
+  22              		.code	16
+  23              		.thumb_func
+  25              	Example_TransformTime:
+  26              	.LFB43:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api/los_api_systick.c"
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c **** /*----------------------------------------------------------------------------
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  * Copyright (c) <2016-2018>, <Huawei Technologies Co., Ltd>
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  * All rights reserved.
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  * are permitted provided that the following conditions are met:
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  * conditions and the following disclaimer.
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  * provided with the distribution.
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  * permission.
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  *---------------------------------------------------------------------------*/
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  /*----------------------------------------------------------------------------
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  * Notice of Export Control Law
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  * ===============================================
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLGA0aW.s 			page 2
+
+
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  * applicable export control laws and regulations.
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****  *---------------------------------------------------------------------------*/
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c **** 
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c **** #include "los_sys.h"
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c **** #include "los_task.h"
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c **** #include "los_api_systick.h"
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c **** #include "los_inspect_entry.h"
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c **** 
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c **** #ifdef __cplusplus
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c **** #if __cplusplus
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c **** extern "C" {
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c **** #endif /* __cpluscplus */
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c **** #endif /* __cpluscplus */
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c **** 
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c **** VOID Example_TransformTime(VOID)
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c **** {
+  28              		.loc 1 47 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 10B5     		push	{r4, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 4, -8
+  36              		.cfi_offset 14, -4
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****     UINT32 uwMs;
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****     UINT32 uwTick;
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****     uwTick = LOS_MS2Tick(10000);
+  37              		.loc 1 50 0
+  38 0002 0748     		ldr	r0, .L2
+  39 0004 FFF7FEFF 		bl	LOS_MS2Tick
+  40              	.LVL0:
+  41 0008 0100     		movs	r1, r0
+  42              	.LVL1:
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****     dprintf("uwTick = %d .\r\n",uwTick);
+  43              		.loc 1 51 0
+  44 000a 0648     		ldr	r0, .L2+4
+  45              	.LVL2:
+  46 000c FFF7FEFF 		bl	dprintf_none
+  47              	.LVL3:
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****     uwMs = LOS_Tick2MS(100);
+  48              		.loc 1 52 0
+  49 0010 6420     		movs	r0, #100
+  50 0012 FFF7FEFF 		bl	LOS_Tick2MS
+  51              	.LVL4:
+  52 0016 0100     		movs	r1, r0
+  53              	.LVL5:
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****     dprintf("uwMs = %d .\r\n",uwMs);
+  54              		.loc 1 53 0
+  55 0018 0348     		ldr	r0, .L2+8
+  56              	.LVL6:
+  57 001a FFF7FEFF 		bl	dprintf_none
+  58              	.LVL7:
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c **** }
+  59              		.loc 1 54 0
+  60              		@ sp needed
+  61 001e 10BD     		pop	{r4, pc}
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLGA0aW.s 			page 3
+
+
+  62              	.L3:
+  63              		.align	2
+  64              	.L2:
+  65 0020 10270000 		.word	10000
+  66 0024 00000000 		.word	.LC0
+  67 0028 10000000 		.word	.LC2
+  68              		.cfi_endproc
+  69              	.LFE43:
+  71              		.section	.text.Example_GetTick,"ax",%progbits
+  72              		.align	2
+  73              		.global	Example_GetTick
+  74              		.code	16
+  75              		.thumb_func
+  77              	Example_GetTick:
+  78              	.LFB44:
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c **** 
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c **** UINT32 Example_GetTick(VOID)
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c **** {
+  79              		.loc 1 57 0
+  80              		.cfi_startproc
+  81              		@ args = 0, pretend = 0, frame = 0
+  82              		@ frame_needed = 0, uses_anonymous_args = 0
+  83 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  84              	.LCFI1:
+  85              		.cfi_def_cfa_offset 24
+  86              		.cfi_offset 3, -24
+  87              		.cfi_offset 4, -20
+  88              		.cfi_offset 5, -16
+  89              		.cfi_offset 6, -12
+  90              		.cfi_offset 7, -8
+  91              		.cfi_offset 14, -4
+  92              	.LVL8:
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****     UINT32 uwRet = LOS_OK;
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****     UINT32 uwcyclePerTick;
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****     UINT64 uwTickCount1,uwTickCount2;
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c **** 
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****     uwcyclePerTick  = LOS_CyclePerTickGet();
+  93              		.loc 1 62 0
+  94 0002 FFF7FEFF 		bl	LOS_CyclePerTickGet
+  95              	.LVL9:
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****     if (0 != uwcyclePerTick)
+  96              		.loc 1 63 0
+  97 0006 0028     		cmp	r0, #0
+  98 0008 03D0     		beq	.L5
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****     {
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****         dprintf("LOS_CyclePerTickGet = %d .\r\n", uwcyclePerTick);
+  99              		.loc 1 65 0
+ 100 000a 0100     		movs	r1, r0
+ 101 000c 1E48     		ldr	r0, .L16
+ 102              	.LVL10:
+ 103 000e FFF7FEFF 		bl	dprintf_none
+ 104              	.LVL11:
+ 105              	.L5:
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****     }
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c **** 
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****     uwTickCount1 = LOS_TickCountGet();
+ 106              		.loc 1 68 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLGA0aW.s 			page 4
+
+
+ 107 0012 FFF7FEFF 		bl	LOS_TickCountGet
+ 108              	.LVL12:
+ 109 0016 0600     		movs	r6, r0
+ 110 0018 0F00     		movs	r7, r1
+ 111              	.LVL13:
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****     if (0 != uwTickCount1)
+ 112              		.loc 1 69 0
+ 113 001a 0300     		movs	r3, r0
+ 114 001c 0B43     		orrs	r3, r1
+ 115 001e 03D0     		beq	.L6
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****     {
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****         dprintf("LOS_TickCountGet = %d .\r\n", (UINT32)uwTickCount1);
+ 116              		.loc 1 71 0
+ 117 0020 0100     		movs	r1, r0
+ 118 0022 1A48     		ldr	r0, .L16+4
+ 119 0024 FFF7FEFF 		bl	dprintf_none
+ 120              	.LVL14:
+ 121              	.L6:
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****     }
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****     LOS_TaskDelay(200);
+ 122              		.loc 1 73 0
+ 123 0028 C820     		movs	r0, #200
+ 124 002a FFF7FEFF 		bl	LOS_TaskDelay
+ 125              	.LVL15:
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****     uwTickCount2 = LOS_TickCountGet();
+ 126              		.loc 1 74 0
+ 127 002e FFF7FEFF 		bl	LOS_TickCountGet
+ 128              	.LVL16:
+ 129 0032 0400     		movs	r4, r0
+ 130 0034 0D00     		movs	r5, r1
+ 131              	.LVL17:
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****     if (0 != uwTickCount2)
+ 132              		.loc 1 75 0
+ 133 0036 0300     		movs	r3, r0
+ 134 0038 0B43     		orrs	r3, r1
+ 135 003a 03D0     		beq	.L8
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****     {
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****         dprintf("LOS_TickCountGet after delay = %d .\r\n", (UINT32)uwTickCount2);
+ 136              		.loc 1 77 0
+ 137 003c 0100     		movs	r1, r0
+ 138 003e 1448     		ldr	r0, .L16+8
+ 139 0040 FFF7FEFF 		bl	dprintf_none
+ 140              	.LVL18:
+ 141              	.L8:
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****     }
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c **** 
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****     if ((uwTickCount2 - uwTickCount1) >= 200)
+ 142              		.loc 1 80 0
+ 143 0044 A41B     		subs	r4, r4, r6
+ 144 0046 BD41     		sbcs	r5, r5, r7
+ 145              	.LVL19:
+ 146 0048 002D     		cmp	r5, #0
+ 147 004a 02D1     		bne	.L15
+ 148 004c 0CD1     		bne	.L10
+ 149 004e C72C     		cmp	r4, #199
+ 150 0050 0AD9     		bls	.L10
+ 151              	.L15:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLGA0aW.s 			page 5
+
+
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****     {
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****         uwRet = LOS_InspectStatusSetByID(LOS_INSPECT_SYSTIC, LOS_INSPECT_STU_SUCCESS);
+ 152              		.loc 1 82 0
+ 153 0052 0021     		movs	r1, #0
+ 154 0054 0520     		movs	r0, #5
+ 155 0056 FFF7FEFF 		bl	LOS_InspectStatusSetByID
+ 156              	.LVL20:
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****         if (LOS_OK != uwRet)
+ 157              		.loc 1 83 0
+ 158 005a 0028     		cmp	r0, #0
+ 159 005c 0FD0     		beq	.L13
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****         {
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****             dprintf("Set Inspect Status Err .\r\n");
+ 160              		.loc 1 85 0
+ 161 005e 0D48     		ldr	r0, .L16+12
+ 162              	.LVL21:
+ 163 0060 FFF7FEFF 		bl	dprintf_none
+ 164              	.LVL22:
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****         }
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****         return LOS_OK;
+ 165              		.loc 1 87 0
+ 166 0064 0020     		movs	r0, #0
+ 167 0066 0DE0     		b	.L12
+ 168              	.LVL23:
+ 169              	.L10:
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****     }
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****     else
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****     {
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****         uwRet = LOS_InspectStatusSetByID(LOS_INSPECT_SYSTIC, LOS_INSPECT_STU_ERROR);
+ 170              		.loc 1 91 0
+ 171 0068 0121     		movs	r1, #1
+ 172 006a 0520     		movs	r0, #5
+ 173 006c FFF7FEFF 		bl	LOS_InspectStatusSetByID
+ 174              	.LVL24:
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****         if (LOS_OK != uwRet)
+ 175              		.loc 1 92 0
+ 176 0070 0028     		cmp	r0, #0
+ 177 0072 06D0     		beq	.L14
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****         {
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****             dprintf("Set Inspect Status Err .\r\n");
+ 178              		.loc 1 94 0
+ 179 0074 0748     		ldr	r0, .L16+12
+ 180              	.LVL25:
+ 181 0076 FFF7FEFF 		bl	dprintf_none
+ 182              	.LVL26:
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****         }
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****         return LOS_NOK;
+ 183              		.loc 1 96 0
+ 184 007a 0120     		movs	r0, #1
+ 185 007c 02E0     		b	.L12
+ 186              	.LVL27:
+ 187              	.L13:
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****     }
+ 188              		.loc 1 87 0
+ 189 007e 0020     		movs	r0, #0
+ 190              	.LVL28:
+ 191 0080 00E0     		b	.L12
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLGA0aW.s 			page 6
+
+
+ 192              	.LVL29:
+ 193              	.L14:
+ 194              		.loc 1 96 0
+ 195 0082 0120     		movs	r0, #1
+ 196              	.LVL30:
+ 197              	.L12:
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c ****     }
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_systick.c **** }
+ 198              		.loc 1 98 0
+ 199              		@ sp needed
+ 200              	.LVL31:
+ 201 0084 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 202              	.L17:
+ 203 0086 C046     		.align	2
+ 204              	.L16:
+ 205 0088 20000000 		.word	.LC4
+ 206 008c 40000000 		.word	.LC6
+ 207 0090 5C000000 		.word	.LC8
+ 208 0094 84000000 		.word	.LC10
+ 209              		.cfi_endproc
+ 210              	.LFE44:
+ 212              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 213              		.align	2
+ 214              	.LC0:
+ 215 0000 75775469 		.ascii	"uwTick = %d .\015\012\000"
+ 215      636B203D 
+ 215      20256420 
+ 215      2E0D0A00 
+ 216              	.LC2:
+ 217 0010 75774D73 		.ascii	"uwMs = %d .\015\012\000"
+ 217      203D2025 
+ 217      64202E0D 
+ 217      0A00
+ 218 001e 0000     		.space	2
+ 219              	.LC4:
+ 220 0020 4C4F535F 		.ascii	"LOS_CyclePerTickGet = %d .\015\012\000"
+ 220      4379636C 
+ 220      65506572 
+ 220      5469636B 
+ 220      47657420 
+ 221 003d 000000   		.space	3
+ 222              	.LC6:
+ 223 0040 4C4F535F 		.ascii	"LOS_TickCountGet = %d .\015\012\000"
+ 223      5469636B 
+ 223      436F756E 
+ 223      74476574 
+ 223      203D2025 
+ 224 005a 0000     		.space	2
+ 225              	.LC8:
+ 226 005c 4C4F535F 		.ascii	"LOS_TickCountGet after delay = %d .\015\012\000"
+ 226      5469636B 
+ 226      436F756E 
+ 226      74476574 
+ 226      20616674 
+ 227 0082 0000     		.space	2
+ 228              	.LC10:
+ 229 0084 53657420 		.ascii	"Set Inspect Status Err .\015\012\000"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLGA0aW.s 			page 7
+
+
+ 229      496E7370 
+ 229      65637420 
+ 229      53746174 
+ 229      75732045 
+ 230              		.text
+ 231              	.Letext0:
+ 232              		.file 2 "e:\\liteos\\liteos\\kernel\\include\\los_typedef.h"
+ 233              		.file 3 "e:\\liteos\\liteos\\examples\\include\\los_inspect_entry.h"
+ 234              		.file 4 "e:\\liteos\\liteos\\kernel\\include\\los_sys.h"
+ 235              		.file 5 "e:\\liteos\\liteos\\examples\\include\\los_demo_debug.h"
+ 236              		.file 6 "e:\\liteos\\liteos\\kernel\\include\\los_task.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLGA0aW.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 los_api_systick.c
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLGA0aW.s:20     .text.Example_TransformTime:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLGA0aW.s:25     .text.Example_TransformTime:00000000 Example_TransformTime
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLGA0aW.s:65     .text.Example_TransformTime:00000020 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLGA0aW.s:72     .text.Example_GetTick:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLGA0aW.s:77     .text.Example_GetTick:00000000 Example_GetTick
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLGA0aW.s:205    .text.Example_GetTick:00000088 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLGA0aW.s:213    .rodata.str1.4:00000000 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+LOS_MS2Tick
+dprintf_none
+LOS_Tick2MS
+LOS_CyclePerTickGet
+LOS_TickCountGet
+LOS_TaskDelay
+LOS_InspectStatusSetByID

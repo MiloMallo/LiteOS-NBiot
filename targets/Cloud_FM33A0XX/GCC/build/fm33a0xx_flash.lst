@@ -1,0 +1,2628 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"fm33a0xx_flash.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.FLASH_FLSRDCON_WAIT_Set,"ax",%progbits
+  20              		.align	2
+  21              		.global	FLASH_FLSRDCON_WAIT_Set
+  22              		.code	16
+  23              		.thumb_func
+  25              	FLASH_FLSRDCON_WAIT_Set:
+  26              	.LFB36:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers/fm33a
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** /**
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****   ******************************************************************************
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****   * @file    fm33a0xx_flash.c
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****   * @author  FM33a0xx Application Team
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****   * @version V2.0.1
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****   * @date    3-1-2018
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****   * @brief   This file provides firmware functions to manage the following 
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****   *
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** */
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** /* Includes ------------------------------------------------------------------*/
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** #include "fm33A0xx_flash.h" 
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** /** @addtogroup fm33a0xx_StdPeriph_Driver
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****   * @{
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****   */
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** /** @defgroup FLASH 
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****   * @brief FLASH driver modules
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****   * @{
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****   */ 
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** /* Private typedef -----------------------------------------------------------*/
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** /* Private define ------------------------------------------------------------*/
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** /* Private macro -------------------------------------------------------------*/
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** /* Private variables ---------------------------------------------------------*/
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** /* Private function prototypes -----------------------------------------------*/
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** /* Private functions ---------------------------------------------------------*/
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 2
+
+
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** /** @defgroup FLASH_Private_Functions
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****   * @{
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****   */ 
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** //Code_Start
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** //2018-04-02-13-21-07
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** //FM33A0XX_Driver_Gen_V1.4
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** /* Flash∂¡µ»¥˝÷‹∆⁄≈‰÷√(CPU ±÷”≥¨π˝24M∫Û–Ëø™wait1) œ‡πÿ∫Ø ˝ */
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** void FLASH_FLSRDCON_WAIT_Set(uint32_t SetValue)
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+  28              		.loc 1 42 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	uint32_t tmpreg;
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	tmpreg = FLASH->FLSRDCON;
+  34              		.loc 1 44 0
+  35 0000 034A     		ldr	r2, .L2
+  36 0002 1368     		ldr	r3, [r2]
+  37              	.LVL1:
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	tmpreg &= ~(FLASH_FLSRDCON_WAIT_Msk);
+  38              		.loc 1 45 0
+  39 0004 0321     		movs	r1, #3
+  40 0006 8B43     		bics	r3, r1
+  41              	.LVL2:
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	tmpreg |= (SetValue & FLASH_FLSRDCON_WAIT_Msk);
+  42              		.loc 1 46 0
+  43 0008 0840     		ands	r0, r1
+  44              	.LVL3:
+  45 000a 1843     		orrs	r0, r3
+  46              	.LVL4:
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	FLASH->FLSRDCON = tmpreg;
+  47              		.loc 1 47 0
+  48 000c 1060     		str	r0, [r2]
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+  49              		.loc 1 48 0
+  50              		@ sp needed
+  51 000e 7047     		bx	lr
+  52              	.L3:
+  53              		.align	2
+  54              	.L2:
+  55 0010 00100040 		.word	1073745920
+  56              		.cfi_endproc
+  57              	.LFE36:
+  59              		.section	.text.FLASH_FLSRDCON_WAIT_Get,"ax",%progbits
+  60              		.align	2
+  61              		.global	FLASH_FLSRDCON_WAIT_Get
+  62              		.code	16
+  63              		.thumb_func
+  65              	FLASH_FLSRDCON_WAIT_Get:
+  66              	.LFB37:
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** uint32_t FLASH_FLSRDCON_WAIT_Get(void)
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 3
+
+
+  67              		.loc 1 51 0
+  68              		.cfi_startproc
+  69              		@ args = 0, pretend = 0, frame = 0
+  70              		@ frame_needed = 0, uses_anonymous_args = 0
+  71              		@ link register save eliminated.
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	return (FLASH->FLSRDCON & FLASH_FLSRDCON_WAIT_Msk);
+  72              		.loc 1 52 0
+  73 0000 024B     		ldr	r3, .L5
+  74 0002 1B68     		ldr	r3, [r3]
+  75 0004 0320     		movs	r0, #3
+  76 0006 1840     		ands	r0, r3
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+  77              		.loc 1 53 0
+  78              		@ sp needed
+  79 0008 7047     		bx	lr
+  80              	.L6:
+  81 000a C046     		.align	2
+  82              	.L5:
+  83 000c 00100040 		.word	1073745920
+  84              		.cfi_endproc
+  85              	.LFE37:
+  87              		.section	.text.FLASH_OPTBR_DBGCFGEN_Chk,"ax",%progbits
+  88              		.align	2
+  89              		.global	FLASH_OPTBR_DBGCFGEN_Chk
+  90              		.code	16
+  91              		.thumb_func
+  93              	FLASH_OPTBR_DBGCFGEN_Chk:
+  94              	.LFB38:
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** /* ”√ªß≈‰÷√◊÷ºƒ¥Ê∆˜ œ‡πÿ∫Ø ˝ */
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** FlagStatus FLASH_OPTBR_DBGCFGEN_Chk(void)
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+  95              		.loc 1 57 0
+  96              		.cfi_startproc
+  97              		@ args = 0, pretend = 0, frame = 0
+  98              		@ frame_needed = 0, uses_anonymous_args = 0
+  99              		@ link register save eliminated.
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	if (FLASH->OPTBR & FLASH_OPTBR_DBGCFGEN_Msk)
+ 100              		.loc 1 58 0
+ 101 0000 034B     		ldr	r3, .L10
+ 102 0002 9B68     		ldr	r3, [r3, #8]
+ 103 0004 002B     		cmp	r3, #0
+ 104 0006 01DA     		bge	.L9
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		return SET;
+ 105              		.loc 1 60 0
+ 106 0008 0120     		movs	r0, #1
+ 107 000a 00E0     		b	.L8
+ 108              	.L9:
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	else
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		return RESET;
+ 109              		.loc 1 64 0
+ 110 000c 0020     		movs	r0, #0
+ 111              	.L8:
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 4
+
+
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 112              		.loc 1 66 0
+ 113              		@ sp needed
+ 114 000e 7047     		bx	lr
+ 115              	.L11:
+ 116              		.align	2
+ 117              	.L10:
+ 118 0010 00100040 		.word	1073745920
+ 119              		.cfi_endproc
+ 120              	.LFE38:
+ 122              		.section	.text.FLASH_OPTBR_RAMBOOT_Chk,"ax",%progbits
+ 123              		.align	2
+ 124              		.global	FLASH_OPTBR_RAMBOOT_Chk
+ 125              		.code	16
+ 126              		.thumb_func
+ 128              	FLASH_OPTBR_RAMBOOT_Chk:
+ 129              	.LFB39:
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** FlagStatus FLASH_OPTBR_RAMBOOT_Chk(void)
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 130              		.loc 1 69 0
+ 131              		.cfi_startproc
+ 132              		@ args = 0, pretend = 0, frame = 0
+ 133              		@ frame_needed = 0, uses_anonymous_args = 0
+ 134              		@ link register save eliminated.
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	if (FLASH->OPTBR & FLASH_OPTBR_RAMBOOT_Msk)
+ 135              		.loc 1 70 0
+ 136 0000 034B     		ldr	r3, .L15
+ 137 0002 9B68     		ldr	r3, [r3, #8]
+ 138 0004 1B06     		lsls	r3, r3, #24
+ 139 0006 01D5     		bpl	.L14
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		return SET;
+ 140              		.loc 1 72 0
+ 141 0008 0120     		movs	r0, #1
+ 142 000a 00E0     		b	.L13
+ 143              	.L14:
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	else
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		return RESET;
+ 144              		.loc 1 76 0
+ 145 000c 0020     		movs	r0, #0
+ 146              	.L13:
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 147              		.loc 1 78 0
+ 148              		@ sp needed
+ 149 000e 7047     		bx	lr
+ 150              	.L16:
+ 151              		.align	2
+ 152              	.L15:
+ 153 0010 00100040 		.word	1073745920
+ 154              		.cfi_endproc
+ 155              	.LFE39:
+ 157              		.section	.text.FLASH_OPTBR_ACLOCKEN_Chk,"ax",%progbits
+ 158              		.align	2
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 5
+
+
+ 159              		.global	FLASH_OPTBR_ACLOCKEN_Chk
+ 160              		.code	16
+ 161              		.thumb_func
+ 163              	FLASH_OPTBR_ACLOCKEN_Chk:
+ 164              	.LFB40:
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** FlagStatus FLASH_OPTBR_ACLOCKEN_Chk(void)
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 165              		.loc 1 81 0
+ 166              		.cfi_startproc
+ 167              		@ args = 0, pretend = 0, frame = 0
+ 168              		@ frame_needed = 0, uses_anonymous_args = 0
+ 169              		@ link register save eliminated.
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	if (FLASH->OPTBR & FLASH_OPTBR_ACLOCKEN_Msk)
+ 170              		.loc 1 82 0
+ 171 0000 044B     		ldr	r3, .L20
+ 172 0002 9B68     		ldr	r3, [r3, #8]
+ 173 0004 0C22     		movs	r2, #12
+ 174 0006 1A42     		tst	r2, r3
+ 175 0008 01D0     		beq	.L19
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		return SET;
+ 176              		.loc 1 84 0
+ 177 000a 0120     		movs	r0, #1
+ 178 000c 00E0     		b	.L18
+ 179              	.L19:
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	else
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		return RESET;
+ 180              		.loc 1 88 0
+ 181 000e 0020     		movs	r0, #0
+ 182              	.L18:
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 183              		.loc 1 90 0
+ 184              		@ sp needed
+ 185 0010 7047     		bx	lr
+ 186              	.L21:
+ 187 0012 C046     		.align	2
+ 188              	.L20:
+ 189 0014 00100040 		.word	1073745920
+ 190              		.cfi_endproc
+ 191              	.LFE40:
+ 193              		.section	.text.FLASH_OPTBR_DBRDPEN_Chk,"ax",%progbits
+ 194              		.align	2
+ 195              		.global	FLASH_OPTBR_DBRDPEN_Chk
+ 196              		.code	16
+ 197              		.thumb_func
+ 199              	FLASH_OPTBR_DBRDPEN_Chk:
+ 200              	.LFB41:
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** FlagStatus FLASH_OPTBR_DBRDPEN_Chk(void)
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 201              		.loc 1 93 0
+ 202              		.cfi_startproc
+ 203              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 6
+
+
+ 204              		@ frame_needed = 0, uses_anonymous_args = 0
+ 205              		@ link register save eliminated.
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	if (FLASH->OPTBR & FLASH_OPTBR_DBRDPEN_Msk)
+ 206              		.loc 1 94 0
+ 207 0000 034B     		ldr	r3, .L25
+ 208 0002 9B68     		ldr	r3, [r3, #8]
+ 209 0004 9B07     		lsls	r3, r3, #30
+ 210 0006 01D0     		beq	.L24
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		return SET;
+ 211              		.loc 1 96 0
+ 212 0008 0120     		movs	r0, #1
+ 213 000a 00E0     		b	.L23
+ 214              	.L24:
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	else
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		return RESET;
+ 215              		.loc 1 100 0
+ 216 000c 0020     		movs	r0, #0
+ 217              	.L23:
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 218              		.loc 1 102 0
+ 219              		@ sp needed
+ 220 000e 7047     		bx	lr
+ 221              	.L26:
+ 222              		.align	2
+ 223              	.L25:
+ 224 0010 00100040 		.word	1073745920
+ 225              		.cfi_endproc
+ 226              	.LFE41:
+ 228              		.section	.text.FLASH_ACLOCK1_Write,"ax",%progbits
+ 229              		.align	2
+ 230              		.global	FLASH_ACLOCK1_Write
+ 231              		.code	16
+ 232              		.thumb_func
+ 234              	FLASH_ACLOCK1_Write:
+ 235              	.LFB42:
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** /* ACLOCK≈‰÷√ºƒ¥Ê∆˜µÕ32bit£¨∑÷±”√”⁄øÿ÷∆Block31~Block0µƒ”¶”√¥˙¬Î∂¡–¥À¯∂®°£1£∫∂¡»°∫Õ≤¡–¥»®œﬁÀ¯∂®0£∫∂
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** void FLASH_ACLOCK1_Write(uint32_t SetValue)
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 236              		.loc 1 106 0
+ 237              		.cfi_startproc
+ 238              		@ args = 0, pretend = 0, frame = 0
+ 239              		@ frame_needed = 0, uses_anonymous_args = 0
+ 240              		@ link register save eliminated.
+ 241              	.LVL5:
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	FLASH->ACLOCK1 = (SetValue);
+ 242              		.loc 1 107 0
+ 243 0000 014B     		ldr	r3, .L28
+ 244 0002 D860     		str	r0, [r3, #12]
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 245              		.loc 1 108 0
+ 246              		@ sp needed
+ 247 0004 7047     		bx	lr
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 7
+
+
+ 248              	.L29:
+ 249 0006 C046     		.align	2
+ 250              	.L28:
+ 251 0008 00100040 		.word	1073745920
+ 252              		.cfi_endproc
+ 253              	.LFE42:
+ 255              		.section	.text.FLASH_ACLOCK1_Read,"ax",%progbits
+ 256              		.align	2
+ 257              		.global	FLASH_ACLOCK1_Read
+ 258              		.code	16
+ 259              		.thumb_func
+ 261              	FLASH_ACLOCK1_Read:
+ 262              	.LFB43:
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** uint32_t FLASH_ACLOCK1_Read(void)
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 263              		.loc 1 111 0
+ 264              		.cfi_startproc
+ 265              		@ args = 0, pretend = 0, frame = 0
+ 266              		@ frame_needed = 0, uses_anonymous_args = 0
+ 267              		@ link register save eliminated.
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	return (FLASH->ACLOCK1);
+ 268              		.loc 1 112 0
+ 269 0000 014B     		ldr	r3, .L31
+ 270 0002 D868     		ldr	r0, [r3, #12]
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 271              		.loc 1 113 0
+ 272              		@ sp needed
+ 273 0004 7047     		bx	lr
+ 274              	.L32:
+ 275 0006 C046     		.align	2
+ 276              	.L31:
+ 277 0008 00100040 		.word	1073745920
+ 278              		.cfi_endproc
+ 279              	.LFE43:
+ 281              		.section	.text.FLASH_ACLOCK2_Write,"ax",%progbits
+ 282              		.align	2
+ 283              		.global	FLASH_ACLOCK2_Write
+ 284              		.code	16
+ 285              		.thumb_func
+ 287              	FLASH_ACLOCK2_Write:
+ 288              	.LFB44:
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** /* ACLOCK≈‰÷√ºƒ¥Ê∆˜∏ﬂ32bit£¨∑÷±”√”⁄øÿ÷∆Block63~Block32µƒ”¶”√¥˙¬Î∂¡–¥À¯∂®°£1£∫∂¡»°∫Õ≤¡–¥»®œﬁÀ¯∂®0£∫
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** void FLASH_ACLOCK2_Write(uint32_t SetValue)
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 289              		.loc 1 117 0
+ 290              		.cfi_startproc
+ 291              		@ args = 0, pretend = 0, frame = 0
+ 292              		@ frame_needed = 0, uses_anonymous_args = 0
+ 293              		@ link register save eliminated.
+ 294              	.LVL6:
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	FLASH->ACLOCK2 = (SetValue);
+ 295              		.loc 1 118 0
+ 296 0000 014B     		ldr	r3, .L34
+ 297 0002 1861     		str	r0, [r3, #16]
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 8
+
+
+ 298              		.loc 1 119 0
+ 299              		@ sp needed
+ 300 0004 7047     		bx	lr
+ 301              	.L35:
+ 302 0006 C046     		.align	2
+ 303              	.L34:
+ 304 0008 00100040 		.word	1073745920
+ 305              		.cfi_endproc
+ 306              	.LFE44:
+ 308              		.section	.text.FLASH_ACLOCK2_Read,"ax",%progbits
+ 309              		.align	2
+ 310              		.global	FLASH_ACLOCK2_Read
+ 311              		.code	16
+ 312              		.thumb_func
+ 314              	FLASH_ACLOCK2_Read:
+ 315              	.LFB45:
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** uint32_t FLASH_ACLOCK2_Read(void)
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 316              		.loc 1 122 0
+ 317              		.cfi_startproc
+ 318              		@ args = 0, pretend = 0, frame = 0
+ 319              		@ frame_needed = 0, uses_anonymous_args = 0
+ 320              		@ link register save eliminated.
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	return (FLASH->ACLOCK2);
+ 321              		.loc 1 123 0
+ 322 0000 014B     		ldr	r3, .L37
+ 323 0002 1869     		ldr	r0, [r3, #16]
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 324              		.loc 1 124 0
+ 325              		@ sp needed
+ 326 0004 7047     		bx	lr
+ 327              	.L38:
+ 328 0006 C046     		.align	2
+ 329              	.L37:
+ 330 0008 00100040 		.word	1073745920
+ 331              		.cfi_endproc
+ 332              	.LFE45:
+ 334              		.section	.text.FLASH_EPCON_ERTYPE_Set,"ax",%progbits
+ 335              		.align	2
+ 336              		.global	FLASH_EPCON_ERTYPE_Set
+ 337              		.code	16
+ 338              		.thumb_func
+ 340              	FLASH_EPCON_ERTYPE_Set:
+ 341              	.LFB46:
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** /* …»«¯≤¡ œ‡πÿ∫Ø ˝ */
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** void FLASH_EPCON_ERTYPE_Set(uint32_t SetValue)
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 342              		.loc 1 128 0
+ 343              		.cfi_startproc
+ 344              		@ args = 0, pretend = 0, frame = 0
+ 345              		@ frame_needed = 0, uses_anonymous_args = 0
+ 346              		@ link register save eliminated.
+ 347              	.LVL7:
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	uint32_t tmpreg;
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	tmpreg = FLASH->EPCON;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 9
+
+
+ 348              		.loc 1 130 0
+ 349 0000 0449     		ldr	r1, .L40
+ 350 0002 4A69     		ldr	r2, [r1, #20]
+ 351              	.LVL8:
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	tmpreg &= ~(FLASH_EPCON_ERTYPE_Msk);
+ 352              		.loc 1 131 0
+ 353 0004 044B     		ldr	r3, .L40+4
+ 354 0006 1A40     		ands	r2, r3
+ 355              	.LVL9:
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	tmpreg |= (SetValue & FLASH_EPCON_ERTYPE_Msk);
+ 356              		.loc 1 132 0
+ 357 0008 C023     		movs	r3, #192
+ 358 000a 9B00     		lsls	r3, r3, #2
+ 359 000c 1840     		ands	r0, r3
+ 360              	.LVL10:
+ 361 000e 1043     		orrs	r0, r2
+ 362              	.LVL11:
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	FLASH->EPCON = tmpreg;
+ 363              		.loc 1 133 0
+ 364 0010 4861     		str	r0, [r1, #20]
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 365              		.loc 1 134 0
+ 366              		@ sp needed
+ 367 0012 7047     		bx	lr
+ 368              	.L41:
+ 369              		.align	2
+ 370              	.L40:
+ 371 0014 00100040 		.word	1073745920
+ 372 0018 FFFCFFFF 		.word	-769
+ 373              		.cfi_endproc
+ 374              	.LFE46:
+ 376              		.section	.text.FLASH_EPCON_ERTYPE_Get,"ax",%progbits
+ 377              		.align	2
+ 378              		.global	FLASH_EPCON_ERTYPE_Get
+ 379              		.code	16
+ 380              		.thumb_func
+ 382              	FLASH_EPCON_ERTYPE_Get:
+ 383              	.LFB47:
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** uint32_t FLASH_EPCON_ERTYPE_Get(void)
+ 137:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 384              		.loc 1 137 0
+ 385              		.cfi_startproc
+ 386              		@ args = 0, pretend = 0, frame = 0
+ 387              		@ frame_needed = 0, uses_anonymous_args = 0
+ 388              		@ link register save eliminated.
+ 138:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	return (FLASH->EPCON & FLASH_EPCON_ERTYPE_Msk);
+ 389              		.loc 1 138 0
+ 390 0000 024B     		ldr	r3, .L43
+ 391 0002 5869     		ldr	r0, [r3, #20]
+ 392 0004 C023     		movs	r3, #192
+ 393 0006 9B00     		lsls	r3, r3, #2
+ 394 0008 1840     		ands	r0, r3
+ 139:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 395              		.loc 1 139 0
+ 396              		@ sp needed
+ 397 000a 7047     		bx	lr
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 10
+
+
+ 398              	.L44:
+ 399              		.align	2
+ 400              	.L43:
+ 401 000c 00100040 		.word	1073745920
+ 402              		.cfi_endproc
+ 403              	.LFE47:
+ 405              		.section	.text.FLASH_EPCON_PREQ_Set,"ax",%progbits
+ 406              		.align	2
+ 407              		.global	FLASH_EPCON_PREQ_Set
+ 408              		.code	16
+ 409              		.thumb_func
+ 411              	FLASH_EPCON_PREQ_Set:
+ 412              	.LFB48:
+ 140:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 141:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** void FLASH_EPCON_PREQ_Set(uint32_t SetValue)
+ 142:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 413              		.loc 1 142 0
+ 414              		.cfi_startproc
+ 415              		@ args = 0, pretend = 0, frame = 0
+ 416              		@ frame_needed = 0, uses_anonymous_args = 0
+ 417              		@ link register save eliminated.
+ 418              	.LVL12:
+ 143:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	uint32_t tmpreg;
+ 144:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	tmpreg = FLASH->EPCON;
+ 419              		.loc 1 144 0
+ 420 0000 034A     		ldr	r2, .L46
+ 421 0002 5369     		ldr	r3, [r2, #20]
+ 422              	.LVL13:
+ 145:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	tmpreg &= ~(FLASH_EPCON_PREQ_Msk);
+ 423              		.loc 1 145 0
+ 424 0004 0221     		movs	r1, #2
+ 425 0006 8B43     		bics	r3, r1
+ 426              	.LVL14:
+ 146:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	tmpreg |= (SetValue & FLASH_EPCON_PREQ_Msk);
+ 427              		.loc 1 146 0
+ 428 0008 0840     		ands	r0, r1
+ 429              	.LVL15:
+ 430 000a 1843     		orrs	r0, r3
+ 431              	.LVL16:
+ 147:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	FLASH->EPCON = tmpreg;
+ 432              		.loc 1 147 0
+ 433 000c 5061     		str	r0, [r2, #20]
+ 148:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 434              		.loc 1 148 0
+ 435              		@ sp needed
+ 436 000e 7047     		bx	lr
+ 437              	.L47:
+ 438              		.align	2
+ 439              	.L46:
+ 440 0010 00100040 		.word	1073745920
+ 441              		.cfi_endproc
+ 442              	.LFE48:
+ 444              		.section	.text.FLASH_EPCON_PREQ_Get,"ax",%progbits
+ 445              		.align	2
+ 446              		.global	FLASH_EPCON_PREQ_Get
+ 447              		.code	16
+ 448              		.thumb_func
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 11
+
+
+ 450              	FLASH_EPCON_PREQ_Get:
+ 451              	.LFB49:
+ 149:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 150:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** uint32_t FLASH_EPCON_PREQ_Get(void)
+ 151:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 452              		.loc 1 151 0
+ 453              		.cfi_startproc
+ 454              		@ args = 0, pretend = 0, frame = 0
+ 455              		@ frame_needed = 0, uses_anonymous_args = 0
+ 456              		@ link register save eliminated.
+ 152:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	return (FLASH->EPCON & FLASH_EPCON_PREQ_Msk);
+ 457              		.loc 1 152 0
+ 458 0000 024B     		ldr	r3, .L49
+ 459 0002 5B69     		ldr	r3, [r3, #20]
+ 460 0004 0220     		movs	r0, #2
+ 461 0006 1840     		ands	r0, r3
+ 153:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 462              		.loc 1 153 0
+ 463              		@ sp needed
+ 464 0008 7047     		bx	lr
+ 465              	.L50:
+ 466 000a C046     		.align	2
+ 467              	.L49:
+ 468 000c 00100040 		.word	1073745920
+ 469              		.cfi_endproc
+ 470              	.LFE49:
+ 472              		.section	.text.FLASH_EPCON_EREQ_Set,"ax",%progbits
+ 473              		.align	2
+ 474              		.global	FLASH_EPCON_EREQ_Set
+ 475              		.code	16
+ 476              		.thumb_func
+ 478              	FLASH_EPCON_EREQ_Set:
+ 479              	.LFB50:
+ 154:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 155:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** void FLASH_EPCON_EREQ_Set(uint32_t SetValue)
+ 156:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 480              		.loc 1 156 0
+ 481              		.cfi_startproc
+ 482              		@ args = 0, pretend = 0, frame = 0
+ 483              		@ frame_needed = 0, uses_anonymous_args = 0
+ 484              		@ link register save eliminated.
+ 485              	.LVL17:
+ 157:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	uint32_t tmpreg;
+ 158:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	tmpreg = FLASH->EPCON;
+ 486              		.loc 1 158 0
+ 487 0000 034A     		ldr	r2, .L52
+ 488 0002 5369     		ldr	r3, [r2, #20]
+ 489              	.LVL18:
+ 159:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	tmpreg &= ~(FLASH_EPCON_EREQ_Msk);
+ 490              		.loc 1 159 0
+ 491 0004 0121     		movs	r1, #1
+ 492 0006 8B43     		bics	r3, r1
+ 493              	.LVL19:
+ 160:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	tmpreg |= (SetValue & FLASH_EPCON_EREQ_Msk);
+ 494              		.loc 1 160 0
+ 495 0008 0840     		ands	r0, r1
+ 496              	.LVL20:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 12
+
+
+ 497 000a 1843     		orrs	r0, r3
+ 498              	.LVL21:
+ 161:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	FLASH->EPCON = tmpreg;
+ 499              		.loc 1 161 0
+ 500 000c 5061     		str	r0, [r2, #20]
+ 162:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 501              		.loc 1 162 0
+ 502              		@ sp needed
+ 503 000e 7047     		bx	lr
+ 504              	.L53:
+ 505              		.align	2
+ 506              	.L52:
+ 507 0010 00100040 		.word	1073745920
+ 508              		.cfi_endproc
+ 509              	.LFE50:
+ 511              		.section	.text.FLASH_EPCON_EREQ_Get,"ax",%progbits
+ 512              		.align	2
+ 513              		.global	FLASH_EPCON_EREQ_Get
+ 514              		.code	16
+ 515              		.thumb_func
+ 517              	FLASH_EPCON_EREQ_Get:
+ 518              	.LFB51:
+ 163:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 164:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** uint32_t FLASH_EPCON_EREQ_Get(void)
+ 165:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 519              		.loc 1 165 0
+ 520              		.cfi_startproc
+ 521              		@ args = 0, pretend = 0, frame = 0
+ 522              		@ frame_needed = 0, uses_anonymous_args = 0
+ 523              		@ link register save eliminated.
+ 166:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	return (FLASH->EPCON & FLASH_EPCON_EREQ_Msk);
+ 524              		.loc 1 166 0
+ 525 0000 024B     		ldr	r3, .L55
+ 526 0002 5B69     		ldr	r3, [r3, #20]
+ 527 0004 0120     		movs	r0, #1
+ 528 0006 1840     		ands	r0, r3
+ 167:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 529              		.loc 1 167 0
+ 530              		@ sp needed
+ 531 0008 7047     		bx	lr
+ 532              	.L56:
+ 533 000a C046     		.align	2
+ 534              	.L55:
+ 535 000c 00100040 		.word	1073745920
+ 536              		.cfi_endproc
+ 537              	.LFE51:
+ 539              		.section	.text.FLASH_FLSKEY_Write,"ax",%progbits
+ 540              		.align	2
+ 541              		.global	FLASH_FLSKEY_Write
+ 542              		.code	16
+ 543              		.thumb_func
+ 545              	FLASH_FLSKEY_Write:
+ 546              	.LFB52:
+ 168:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 169:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** /* Flash≤¡–¥Key ‰»Îºƒ¥Ê∆˜£¨»Ìº˛ªÚ’ﬂSWD‘⁄∆Ù∂Ø≤¡–¥«∞±ÿ–Î’˝»∑µÿœÚ¥Àµÿ÷∑–¥»Î∫œ∑®KEY–Ú¡–°£ø’µÿ÷∑£¨ŒÔ¿Ì…œ
+ 170:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** void FLASH_FLSKEY_Write(uint32_t SetValue)
+ 171:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 13
+
+
+ 547              		.loc 1 171 0
+ 548              		.cfi_startproc
+ 549              		@ args = 0, pretend = 0, frame = 0
+ 550              		@ frame_needed = 0, uses_anonymous_args = 0
+ 551              		@ link register save eliminated.
+ 552              	.LVL22:
+ 172:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	FLASH->FLSKEY = (SetValue);
+ 553              		.loc 1 172 0
+ 554 0000 014B     		ldr	r3, .L58
+ 555 0002 9861     		str	r0, [r3, #24]
+ 173:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 556              		.loc 1 173 0
+ 557              		@ sp needed
+ 558 0004 7047     		bx	lr
+ 559              	.L59:
+ 560 0006 C046     		.align	2
+ 561              	.L58:
+ 562 0008 00100040 		.word	1073745920
+ 563              		.cfi_endproc
+ 564              	.LFE52:
+ 566              		.section	.text.FLASH_FLSIE_AUTHIE_Setable,"ax",%progbits
+ 567              		.align	2
+ 568              		.global	FLASH_FLSIE_AUTHIE_Setable
+ 569              		.code	16
+ 570              		.thumb_func
+ 572              	FLASH_FLSIE_AUTHIE_Setable:
+ 573              	.LFB53:
+ 174:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 175:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** /* Flash÷–∂œ πƒ‹ œ‡πÿ∫Ø ˝ */
+ 176:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** void FLASH_FLSIE_AUTHIE_Setable(FunState NewState)
+ 177:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 574              		.loc 1 177 0
+ 575              		.cfi_startproc
+ 576              		@ args = 0, pretend = 0, frame = 0
+ 577              		@ frame_needed = 0, uses_anonymous_args = 0
+ 578              		@ link register save eliminated.
+ 579              	.LVL23:
+ 178:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	if (NewState == ENABLE)
+ 580              		.loc 1 178 0
+ 581 0000 0128     		cmp	r0, #1
+ 582 0002 06D1     		bne	.L61
+ 179:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 180:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		FLASH->FLSIE |= (FLASH_FLSIE_AUTHIE_Msk);
+ 583              		.loc 1 180 0
+ 584 0004 064A     		ldr	r2, .L63
+ 585 0006 D369     		ldr	r3, [r2, #28]
+ 586 0008 8021     		movs	r1, #128
+ 587 000a C900     		lsls	r1, r1, #3
+ 588 000c 0B43     		orrs	r3, r1
+ 589 000e D361     		str	r3, [r2, #28]
+ 590 0010 04E0     		b	.L60
+ 591              	.L61:
+ 181:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 182:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	else
+ 183:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 184:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		FLASH->FLSIE &= ~(FLASH_FLSIE_AUTHIE_Msk);
+ 592              		.loc 1 184 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 14
+
+
+ 593 0012 034A     		ldr	r2, .L63
+ 594 0014 D169     		ldr	r1, [r2, #28]
+ 595 0016 034B     		ldr	r3, .L63+4
+ 596 0018 0B40     		ands	r3, r1
+ 597 001a D361     		str	r3, [r2, #28]
+ 598              	.L60:
+ 185:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 186:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 599              		.loc 1 186 0
+ 600              		@ sp needed
+ 601 001c 7047     		bx	lr
+ 602              	.L64:
+ 603 001e C046     		.align	2
+ 604              	.L63:
+ 605 0020 00100040 		.word	1073745920
+ 606 0024 FFFBFFFF 		.word	-1025
+ 607              		.cfi_endproc
+ 608              	.LFE53:
+ 610              		.section	.text.FLASH_FLSIE_AUTHIE_Getable,"ax",%progbits
+ 611              		.align	2
+ 612              		.global	FLASH_FLSIE_AUTHIE_Getable
+ 613              		.code	16
+ 614              		.thumb_func
+ 616              	FLASH_FLSIE_AUTHIE_Getable:
+ 617              	.LFB54:
+ 187:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 188:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** FunState FLASH_FLSIE_AUTHIE_Getable(void)
+ 189:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 618              		.loc 1 189 0
+ 619              		.cfi_startproc
+ 620              		@ args = 0, pretend = 0, frame = 0
+ 621              		@ frame_needed = 0, uses_anonymous_args = 0
+ 622              		@ link register save eliminated.
+ 190:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	if (FLASH->FLSIE & (FLASH_FLSIE_AUTHIE_Msk))
+ 623              		.loc 1 190 0
+ 624 0000 034B     		ldr	r3, .L68
+ 625 0002 DB69     		ldr	r3, [r3, #28]
+ 626 0004 5B05     		lsls	r3, r3, #21
+ 627 0006 01D5     		bpl	.L67
+ 191:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 192:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		return ENABLE;
+ 628              		.loc 1 192 0
+ 629 0008 0120     		movs	r0, #1
+ 630 000a 00E0     		b	.L66
+ 631              	.L67:
+ 193:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 194:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	else
+ 195:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 196:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		return DISABLE;
+ 632              		.loc 1 196 0
+ 633 000c 0020     		movs	r0, #0
+ 634              	.L66:
+ 197:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 198:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 635              		.loc 1 198 0
+ 636              		@ sp needed
+ 637 000e 7047     		bx	lr
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 15
+
+
+ 638              	.L69:
+ 639              		.align	2
+ 640              	.L68:
+ 641 0010 00100040 		.word	1073745920
+ 642              		.cfi_endproc
+ 643              	.LFE54:
+ 645              		.section	.text.FLASH_FLSIE_KEYIE_Setable,"ax",%progbits
+ 646              		.align	2
+ 647              		.global	FLASH_FLSIE_KEYIE_Setable
+ 648              		.code	16
+ 649              		.thumb_func
+ 651              	FLASH_FLSIE_KEYIE_Setable:
+ 652              	.LFB55:
+ 199:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 200:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** void FLASH_FLSIE_KEYIE_Setable(FunState NewState)
+ 201:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 653              		.loc 1 201 0
+ 654              		.cfi_startproc
+ 655              		@ args = 0, pretend = 0, frame = 0
+ 656              		@ frame_needed = 0, uses_anonymous_args = 0
+ 657              		@ link register save eliminated.
+ 658              	.LVL24:
+ 202:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	if (NewState == ENABLE)
+ 659              		.loc 1 202 0
+ 660 0000 0128     		cmp	r0, #1
+ 661 0002 06D1     		bne	.L71
+ 203:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 204:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		FLASH->FLSIE |= (FLASH_FLSIE_KEYIE_Msk);
+ 662              		.loc 1 204 0
+ 663 0004 064A     		ldr	r2, .L73
+ 664 0006 D369     		ldr	r3, [r2, #28]
+ 665 0008 8021     		movs	r1, #128
+ 666 000a 8900     		lsls	r1, r1, #2
+ 667 000c 0B43     		orrs	r3, r1
+ 668 000e D361     		str	r3, [r2, #28]
+ 669 0010 04E0     		b	.L70
+ 670              	.L71:
+ 205:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 206:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	else
+ 207:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 208:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		FLASH->FLSIE &= ~(FLASH_FLSIE_KEYIE_Msk);
+ 671              		.loc 1 208 0
+ 672 0012 034A     		ldr	r2, .L73
+ 673 0014 D169     		ldr	r1, [r2, #28]
+ 674 0016 034B     		ldr	r3, .L73+4
+ 675 0018 0B40     		ands	r3, r1
+ 676 001a D361     		str	r3, [r2, #28]
+ 677              	.L70:
+ 209:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 210:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 678              		.loc 1 210 0
+ 679              		@ sp needed
+ 680 001c 7047     		bx	lr
+ 681              	.L74:
+ 682 001e C046     		.align	2
+ 683              	.L73:
+ 684 0020 00100040 		.word	1073745920
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 16
+
+
+ 685 0024 FFFDFFFF 		.word	-513
+ 686              		.cfi_endproc
+ 687              	.LFE55:
+ 689              		.section	.text.FLASH_FLSIE_KEYIE_Getable,"ax",%progbits
+ 690              		.align	2
+ 691              		.global	FLASH_FLSIE_KEYIE_Getable
+ 692              		.code	16
+ 693              		.thumb_func
+ 695              	FLASH_FLSIE_KEYIE_Getable:
+ 696              	.LFB56:
+ 211:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 212:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** FunState FLASH_FLSIE_KEYIE_Getable(void)
+ 213:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 697              		.loc 1 213 0
+ 698              		.cfi_startproc
+ 699              		@ args = 0, pretend = 0, frame = 0
+ 700              		@ frame_needed = 0, uses_anonymous_args = 0
+ 701              		@ link register save eliminated.
+ 214:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	if (FLASH->FLSIE & (FLASH_FLSIE_KEYIE_Msk))
+ 702              		.loc 1 214 0
+ 703 0000 034B     		ldr	r3, .L78
+ 704 0002 DB69     		ldr	r3, [r3, #28]
+ 705 0004 9B05     		lsls	r3, r3, #22
+ 706 0006 01D5     		bpl	.L77
+ 215:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 216:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		return ENABLE;
+ 707              		.loc 1 216 0
+ 708 0008 0120     		movs	r0, #1
+ 709 000a 00E0     		b	.L76
+ 710              	.L77:
+ 217:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 218:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	else
+ 219:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 220:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		return DISABLE;
+ 711              		.loc 1 220 0
+ 712 000c 0020     		movs	r0, #0
+ 713              	.L76:
+ 221:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 222:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 714              		.loc 1 222 0
+ 715              		@ sp needed
+ 716 000e 7047     		bx	lr
+ 717              	.L79:
+ 718              		.align	2
+ 719              	.L78:
+ 720 0010 00100040 		.word	1073745920
+ 721              		.cfi_endproc
+ 722              	.LFE56:
+ 724              		.section	.text.FLASH_FLSIE_CKIE_Setable,"ax",%progbits
+ 725              		.align	2
+ 726              		.global	FLASH_FLSIE_CKIE_Setable
+ 727              		.code	16
+ 728              		.thumb_func
+ 730              	FLASH_FLSIE_CKIE_Setable:
+ 731              	.LFB57:
+ 223:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 224:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** void FLASH_FLSIE_CKIE_Setable(FunState NewState)
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 17
+
+
+ 225:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 732              		.loc 1 225 0
+ 733              		.cfi_startproc
+ 734              		@ args = 0, pretend = 0, frame = 0
+ 735              		@ frame_needed = 0, uses_anonymous_args = 0
+ 736              		@ link register save eliminated.
+ 737              	.LVL25:
+ 226:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	if (NewState == ENABLE)
+ 738              		.loc 1 226 0
+ 739 0000 0128     		cmp	r0, #1
+ 740 0002 06D1     		bne	.L81
+ 227:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 228:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		FLASH->FLSIE |= (FLASH_FLSIE_CKIE_Msk);
+ 741              		.loc 1 228 0
+ 742 0004 064A     		ldr	r2, .L83
+ 743 0006 D369     		ldr	r3, [r2, #28]
+ 744 0008 8021     		movs	r1, #128
+ 745 000a 4900     		lsls	r1, r1, #1
+ 746 000c 0B43     		orrs	r3, r1
+ 747 000e D361     		str	r3, [r2, #28]
+ 748 0010 04E0     		b	.L80
+ 749              	.L81:
+ 229:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 230:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	else
+ 231:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 232:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		FLASH->FLSIE &= ~(FLASH_FLSIE_CKIE_Msk);
+ 750              		.loc 1 232 0
+ 751 0012 034A     		ldr	r2, .L83
+ 752 0014 D169     		ldr	r1, [r2, #28]
+ 753 0016 034B     		ldr	r3, .L83+4
+ 754 0018 0B40     		ands	r3, r1
+ 755 001a D361     		str	r3, [r2, #28]
+ 756              	.L80:
+ 233:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 234:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 757              		.loc 1 234 0
+ 758              		@ sp needed
+ 759 001c 7047     		bx	lr
+ 760              	.L84:
+ 761 001e C046     		.align	2
+ 762              	.L83:
+ 763 0020 00100040 		.word	1073745920
+ 764 0024 FFFEFFFF 		.word	-257
+ 765              		.cfi_endproc
+ 766              	.LFE57:
+ 768              		.section	.text.FLASH_FLSIE_CKIE_Getable,"ax",%progbits
+ 769              		.align	2
+ 770              		.global	FLASH_FLSIE_CKIE_Getable
+ 771              		.code	16
+ 772              		.thumb_func
+ 774              	FLASH_FLSIE_CKIE_Getable:
+ 775              	.LFB58:
+ 235:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 236:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** FunState FLASH_FLSIE_CKIE_Getable(void)
+ 237:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 776              		.loc 1 237 0
+ 777              		.cfi_startproc
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 18
+
+
+ 778              		@ args = 0, pretend = 0, frame = 0
+ 779              		@ frame_needed = 0, uses_anonymous_args = 0
+ 780              		@ link register save eliminated.
+ 238:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	if (FLASH->FLSIE & (FLASH_FLSIE_CKIE_Msk))
+ 781              		.loc 1 238 0
+ 782 0000 034B     		ldr	r3, .L88
+ 783 0002 DB69     		ldr	r3, [r3, #28]
+ 784 0004 DB05     		lsls	r3, r3, #23
+ 785 0006 01D5     		bpl	.L87
+ 239:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 240:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		return ENABLE;
+ 786              		.loc 1 240 0
+ 787 0008 0120     		movs	r0, #1
+ 788 000a 00E0     		b	.L86
+ 789              	.L87:
+ 241:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 242:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	else
+ 243:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 244:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		return DISABLE;
+ 790              		.loc 1 244 0
+ 791 000c 0020     		movs	r0, #0
+ 792              	.L86:
+ 245:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 246:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 793              		.loc 1 246 0
+ 794              		@ sp needed
+ 795 000e 7047     		bx	lr
+ 796              	.L89:
+ 797              		.align	2
+ 798              	.L88:
+ 799 0010 00100040 		.word	1073745920
+ 800              		.cfi_endproc
+ 801              	.LFE58:
+ 803              		.section	.text.FLASH_FLSIE_PRDIE_Setable,"ax",%progbits
+ 804              		.align	2
+ 805              		.global	FLASH_FLSIE_PRDIE_Setable
+ 806              		.code	16
+ 807              		.thumb_func
+ 809              	FLASH_FLSIE_PRDIE_Setable:
+ 810              	.LFB59:
+ 247:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 248:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** void FLASH_FLSIE_PRDIE_Setable(FunState NewState)
+ 249:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 811              		.loc 1 249 0
+ 812              		.cfi_startproc
+ 813              		@ args = 0, pretend = 0, frame = 0
+ 814              		@ frame_needed = 0, uses_anonymous_args = 0
+ 815              		@ link register save eliminated.
+ 816              	.LVL26:
+ 250:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	if (NewState == ENABLE)
+ 817              		.loc 1 250 0
+ 818 0000 0128     		cmp	r0, #1
+ 819 0002 05D1     		bne	.L91
+ 251:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 252:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		FLASH->FLSIE |= (FLASH_FLSIE_PRDIE_Msk);
+ 820              		.loc 1 252 0
+ 821 0004 054A     		ldr	r2, .L93
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 19
+
+
+ 822 0006 D169     		ldr	r1, [r2, #28]
+ 823 0008 0223     		movs	r3, #2
+ 824 000a 0B43     		orrs	r3, r1
+ 825 000c D361     		str	r3, [r2, #28]
+ 826 000e 04E0     		b	.L90
+ 827              	.L91:
+ 253:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 254:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	else
+ 255:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 256:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		FLASH->FLSIE &= ~(FLASH_FLSIE_PRDIE_Msk);
+ 828              		.loc 1 256 0
+ 829 0010 024A     		ldr	r2, .L93
+ 830 0012 D369     		ldr	r3, [r2, #28]
+ 831 0014 0221     		movs	r1, #2
+ 832 0016 8B43     		bics	r3, r1
+ 833 0018 D361     		str	r3, [r2, #28]
+ 834              	.L90:
+ 257:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 258:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 835              		.loc 1 258 0
+ 836              		@ sp needed
+ 837 001a 7047     		bx	lr
+ 838              	.L94:
+ 839              		.align	2
+ 840              	.L93:
+ 841 001c 00100040 		.word	1073745920
+ 842              		.cfi_endproc
+ 843              	.LFE59:
+ 845              		.section	.text.FLASH_FLSIE_PRDIE_Getable,"ax",%progbits
+ 846              		.align	2
+ 847              		.global	FLASH_FLSIE_PRDIE_Getable
+ 848              		.code	16
+ 849              		.thumb_func
+ 851              	FLASH_FLSIE_PRDIE_Getable:
+ 852              	.LFB60:
+ 259:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 260:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** FunState FLASH_FLSIE_PRDIE_Getable(void)
+ 261:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 853              		.loc 1 261 0
+ 854              		.cfi_startproc
+ 855              		@ args = 0, pretend = 0, frame = 0
+ 856              		@ frame_needed = 0, uses_anonymous_args = 0
+ 857              		@ link register save eliminated.
+ 262:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	if (FLASH->FLSIE & (FLASH_FLSIE_PRDIE_Msk))
+ 858              		.loc 1 262 0
+ 859 0000 034B     		ldr	r3, .L98
+ 860 0002 DB69     		ldr	r3, [r3, #28]
+ 861 0004 9B07     		lsls	r3, r3, #30
+ 862 0006 01D5     		bpl	.L97
+ 263:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 264:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		return ENABLE;
+ 863              		.loc 1 264 0
+ 864 0008 0120     		movs	r0, #1
+ 865 000a 00E0     		b	.L96
+ 866              	.L97:
+ 265:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 266:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	else
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 20
+
+
+ 267:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 268:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		return DISABLE;
+ 867              		.loc 1 268 0
+ 868 000c 0020     		movs	r0, #0
+ 869              	.L96:
+ 269:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 270:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 870              		.loc 1 270 0
+ 871              		@ sp needed
+ 872 000e 7047     		bx	lr
+ 873              	.L99:
+ 874              		.align	2
+ 875              	.L98:
+ 876 0010 00100040 		.word	1073745920
+ 877              		.cfi_endproc
+ 878              	.LFE60:
+ 880              		.section	.text.FLASH_FLSIE_ERDIE_Setable,"ax",%progbits
+ 881              		.align	2
+ 882              		.global	FLASH_FLSIE_ERDIE_Setable
+ 883              		.code	16
+ 884              		.thumb_func
+ 886              	FLASH_FLSIE_ERDIE_Setable:
+ 887              	.LFB61:
+ 271:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 272:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** void FLASH_FLSIE_ERDIE_Setable(FunState NewState)
+ 273:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 888              		.loc 1 273 0
+ 889              		.cfi_startproc
+ 890              		@ args = 0, pretend = 0, frame = 0
+ 891              		@ frame_needed = 0, uses_anonymous_args = 0
+ 892              		@ link register save eliminated.
+ 893              	.LVL27:
+ 274:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	if (NewState == ENABLE)
+ 894              		.loc 1 274 0
+ 895 0000 0128     		cmp	r0, #1
+ 896 0002 05D1     		bne	.L101
+ 275:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 276:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		FLASH->FLSIE |= (FLASH_FLSIE_ERDIE_Msk);
+ 897              		.loc 1 276 0
+ 898 0004 054A     		ldr	r2, .L103
+ 899 0006 D169     		ldr	r1, [r2, #28]
+ 900 0008 0123     		movs	r3, #1
+ 901 000a 0B43     		orrs	r3, r1
+ 902 000c D361     		str	r3, [r2, #28]
+ 903 000e 04E0     		b	.L100
+ 904              	.L101:
+ 277:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 278:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	else
+ 279:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 280:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		FLASH->FLSIE &= ~(FLASH_FLSIE_ERDIE_Msk);
+ 905              		.loc 1 280 0
+ 906 0010 024A     		ldr	r2, .L103
+ 907 0012 D369     		ldr	r3, [r2, #28]
+ 908 0014 0121     		movs	r1, #1
+ 909 0016 8B43     		bics	r3, r1
+ 910 0018 D361     		str	r3, [r2, #28]
+ 911              	.L100:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 21
+
+
+ 281:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 282:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 912              		.loc 1 282 0
+ 913              		@ sp needed
+ 914 001a 7047     		bx	lr
+ 915              	.L104:
+ 916              		.align	2
+ 917              	.L103:
+ 918 001c 00100040 		.word	1073745920
+ 919              		.cfi_endproc
+ 920              	.LFE61:
+ 922              		.section	.text.FLASH_FLSIE_ERDIE_Getable,"ax",%progbits
+ 923              		.align	2
+ 924              		.global	FLASH_FLSIE_ERDIE_Getable
+ 925              		.code	16
+ 926              		.thumb_func
+ 928              	FLASH_FLSIE_ERDIE_Getable:
+ 929              	.LFB62:
+ 283:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 284:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** FunState FLASH_FLSIE_ERDIE_Getable(void)
+ 285:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 930              		.loc 1 285 0
+ 931              		.cfi_startproc
+ 932              		@ args = 0, pretend = 0, frame = 0
+ 933              		@ frame_needed = 0, uses_anonymous_args = 0
+ 934              		@ link register save eliminated.
+ 286:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	if (FLASH->FLSIE & (FLASH_FLSIE_ERDIE_Msk))
+ 935              		.loc 1 286 0
+ 936 0000 034B     		ldr	r3, .L108
+ 937 0002 DB69     		ldr	r3, [r3, #28]
+ 938 0004 DB07     		lsls	r3, r3, #31
+ 939 0006 01D5     		bpl	.L107
+ 287:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 288:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		return ENABLE;
+ 940              		.loc 1 288 0
+ 941 0008 0120     		movs	r0, #1
+ 942 000a 00E0     		b	.L106
+ 943              	.L107:
+ 289:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 290:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	else
+ 291:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 292:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		return DISABLE;
+ 944              		.loc 1 292 0
+ 945 000c 0020     		movs	r0, #0
+ 946              	.L106:
+ 293:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 294:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 947              		.loc 1 294 0
+ 948              		@ sp needed
+ 949 000e 7047     		bx	lr
+ 950              	.L109:
+ 951              		.align	2
+ 952              	.L108:
+ 953 0010 00100040 		.word	1073745920
+ 954              		.cfi_endproc
+ 955              	.LFE62:
+ 957              		.section	.text.FLASH_FLSIF_AUTHIF_Clr,"ax",%progbits
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 22
+
+
+ 958              		.align	2
+ 959              		.global	FLASH_FLSIF_AUTHIF_Clr
+ 960              		.code	16
+ 961              		.thumb_func
+ 963              	FLASH_FLSIF_AUTHIF_Clr:
+ 964              	.LFB63:
+ 295:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 296:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** /* Flash÷–∂œ±Í÷æ œ‡πÿ∫Ø ˝ */
+ 297:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** void FLASH_FLSIF_AUTHIF_Clr(void)
+ 298:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 965              		.loc 1 298 0
+ 966              		.cfi_startproc
+ 967              		@ args = 0, pretend = 0, frame = 0
+ 968              		@ frame_needed = 0, uses_anonymous_args = 0
+ 969              		@ link register save eliminated.
+ 299:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	FLASH->FLSIF = FLASH_FLSIF_AUTHIF_Msk;
+ 970              		.loc 1 299 0
+ 971 0000 8022     		movs	r2, #128
+ 972 0002 D200     		lsls	r2, r2, #3
+ 973 0004 014B     		ldr	r3, .L111
+ 974 0006 1A62     		str	r2, [r3, #32]
+ 300:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 975              		.loc 1 300 0
+ 976              		@ sp needed
+ 977 0008 7047     		bx	lr
+ 978              	.L112:
+ 979 000a C046     		.align	2
+ 980              	.L111:
+ 981 000c 00100040 		.word	1073745920
+ 982              		.cfi_endproc
+ 983              	.LFE63:
+ 985              		.section	.text.FLASH_FLSIF_AUTHIF_Chk,"ax",%progbits
+ 986              		.align	2
+ 987              		.global	FLASH_FLSIF_AUTHIF_Chk
+ 988              		.code	16
+ 989              		.thumb_func
+ 991              	FLASH_FLSIF_AUTHIF_Chk:
+ 992              	.LFB64:
+ 301:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 302:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** FlagStatus FLASH_FLSIF_AUTHIF_Chk(void)
+ 303:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 993              		.loc 1 303 0
+ 994              		.cfi_startproc
+ 995              		@ args = 0, pretend = 0, frame = 0
+ 996              		@ frame_needed = 0, uses_anonymous_args = 0
+ 997              		@ link register save eliminated.
+ 304:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	if (FLASH->FLSIF & FLASH_FLSIF_AUTHIF_Msk)
+ 998              		.loc 1 304 0
+ 999 0000 034B     		ldr	r3, .L116
+ 1000 0002 1B6A     		ldr	r3, [r3, #32]
+ 1001 0004 5B05     		lsls	r3, r3, #21
+ 1002 0006 01D5     		bpl	.L115
+ 305:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 306:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		return SET;
+ 1003              		.loc 1 306 0
+ 1004 0008 0120     		movs	r0, #1
+ 1005 000a 00E0     		b	.L114
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 23
+
+
+ 1006              	.L115:
+ 307:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 308:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	else
+ 309:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 310:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		return RESET;
+ 1007              		.loc 1 310 0
+ 1008 000c 0020     		movs	r0, #0
+ 1009              	.L114:
+ 311:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 312:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 1010              		.loc 1 312 0
+ 1011              		@ sp needed
+ 1012 000e 7047     		bx	lr
+ 1013              	.L117:
+ 1014              		.align	2
+ 1015              	.L116:
+ 1016 0010 00100040 		.word	1073745920
+ 1017              		.cfi_endproc
+ 1018              	.LFE64:
+ 1020              		.section	.text.FLASH_FLSIF_KEYIF_Clr,"ax",%progbits
+ 1021              		.align	2
+ 1022              		.global	FLASH_FLSIF_KEYIF_Clr
+ 1023              		.code	16
+ 1024              		.thumb_func
+ 1026              	FLASH_FLSIF_KEYIF_Clr:
+ 1027              	.LFB65:
+ 313:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 314:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** void FLASH_FLSIF_KEYIF_Clr(void)
+ 315:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 1028              		.loc 1 315 0
+ 1029              		.cfi_startproc
+ 1030              		@ args = 0, pretend = 0, frame = 0
+ 1031              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1032              		@ link register save eliminated.
+ 316:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	FLASH->FLSIF = FLASH_FLSIF_KEYIF_Msk;
+ 1033              		.loc 1 316 0
+ 1034 0000 8022     		movs	r2, #128
+ 1035 0002 9200     		lsls	r2, r2, #2
+ 1036 0004 014B     		ldr	r3, .L119
+ 1037 0006 1A62     		str	r2, [r3, #32]
+ 317:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 1038              		.loc 1 317 0
+ 1039              		@ sp needed
+ 1040 0008 7047     		bx	lr
+ 1041              	.L120:
+ 1042 000a C046     		.align	2
+ 1043              	.L119:
+ 1044 000c 00100040 		.word	1073745920
+ 1045              		.cfi_endproc
+ 1046              	.LFE65:
+ 1048              		.section	.text.FLASH_FLSIF_KEYIF_Chk,"ax",%progbits
+ 1049              		.align	2
+ 1050              		.global	FLASH_FLSIF_KEYIF_Chk
+ 1051              		.code	16
+ 1052              		.thumb_func
+ 1054              	FLASH_FLSIF_KEYIF_Chk:
+ 1055              	.LFB66:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 24
+
+
+ 318:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 319:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** FlagStatus FLASH_FLSIF_KEYIF_Chk(void)
+ 320:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 1056              		.loc 1 320 0
+ 1057              		.cfi_startproc
+ 1058              		@ args = 0, pretend = 0, frame = 0
+ 1059              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1060              		@ link register save eliminated.
+ 321:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	if (FLASH->FLSIF & FLASH_FLSIF_KEYIF_Msk)
+ 1061              		.loc 1 321 0
+ 1062 0000 034B     		ldr	r3, .L124
+ 1063 0002 1B6A     		ldr	r3, [r3, #32]
+ 1064 0004 9B05     		lsls	r3, r3, #22
+ 1065 0006 01D5     		bpl	.L123
+ 322:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 323:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		return SET;
+ 1066              		.loc 1 323 0
+ 1067 0008 0120     		movs	r0, #1
+ 1068 000a 00E0     		b	.L122
+ 1069              	.L123:
+ 324:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 325:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	else
+ 326:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 327:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		return RESET;
+ 1070              		.loc 1 327 0
+ 1071 000c 0020     		movs	r0, #0
+ 1072              	.L122:
+ 328:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 329:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 1073              		.loc 1 329 0
+ 1074              		@ sp needed
+ 1075 000e 7047     		bx	lr
+ 1076              	.L125:
+ 1077              		.align	2
+ 1078              	.L124:
+ 1079 0010 00100040 		.word	1073745920
+ 1080              		.cfi_endproc
+ 1081              	.LFE66:
+ 1083              		.section	.text.FLASH_FLSIF_CKIF_Clr,"ax",%progbits
+ 1084              		.align	2
+ 1085              		.global	FLASH_FLSIF_CKIF_Clr
+ 1086              		.code	16
+ 1087              		.thumb_func
+ 1089              	FLASH_FLSIF_CKIF_Clr:
+ 1090              	.LFB67:
+ 330:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 331:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** void FLASH_FLSIF_CKIF_Clr(void)
+ 332:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 1091              		.loc 1 332 0
+ 1092              		.cfi_startproc
+ 1093              		@ args = 0, pretend = 0, frame = 0
+ 1094              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1095              		@ link register save eliminated.
+ 333:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	FLASH->FLSIF = FLASH_FLSIF_CKIF_Msk;
+ 1096              		.loc 1 333 0
+ 1097 0000 8022     		movs	r2, #128
+ 1098 0002 5200     		lsls	r2, r2, #1
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 25
+
+
+ 1099 0004 014B     		ldr	r3, .L127
+ 1100 0006 1A62     		str	r2, [r3, #32]
+ 334:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 1101              		.loc 1 334 0
+ 1102              		@ sp needed
+ 1103 0008 7047     		bx	lr
+ 1104              	.L128:
+ 1105 000a C046     		.align	2
+ 1106              	.L127:
+ 1107 000c 00100040 		.word	1073745920
+ 1108              		.cfi_endproc
+ 1109              	.LFE67:
+ 1111              		.section	.text.FLASH_FLSIF_CKIF_Chk,"ax",%progbits
+ 1112              		.align	2
+ 1113              		.global	FLASH_FLSIF_CKIF_Chk
+ 1114              		.code	16
+ 1115              		.thumb_func
+ 1117              	FLASH_FLSIF_CKIF_Chk:
+ 1118              	.LFB68:
+ 335:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 336:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** FlagStatus FLASH_FLSIF_CKIF_Chk(void)
+ 337:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 1119              		.loc 1 337 0
+ 1120              		.cfi_startproc
+ 1121              		@ args = 0, pretend = 0, frame = 0
+ 1122              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1123              		@ link register save eliminated.
+ 338:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	if (FLASH->FLSIF & FLASH_FLSIF_CKIF_Msk)
+ 1124              		.loc 1 338 0
+ 1125 0000 034B     		ldr	r3, .L132
+ 1126 0002 1B6A     		ldr	r3, [r3, #32]
+ 1127 0004 DB05     		lsls	r3, r3, #23
+ 1128 0006 01D5     		bpl	.L131
+ 339:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 340:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		return SET;
+ 1129              		.loc 1 340 0
+ 1130 0008 0120     		movs	r0, #1
+ 1131 000a 00E0     		b	.L130
+ 1132              	.L131:
+ 341:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 342:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	else
+ 343:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 344:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		return RESET;
+ 1133              		.loc 1 344 0
+ 1134 000c 0020     		movs	r0, #0
+ 1135              	.L130:
+ 345:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 346:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 1136              		.loc 1 346 0
+ 1137              		@ sp needed
+ 1138 000e 7047     		bx	lr
+ 1139              	.L133:
+ 1140              		.align	2
+ 1141              	.L132:
+ 1142 0010 00100040 		.word	1073745920
+ 1143              		.cfi_endproc
+ 1144              	.LFE68:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 26
+
+
+ 1146              		.section	.text.FLASH_FLSIF_PRDIF_Clr,"ax",%progbits
+ 1147              		.align	2
+ 1148              		.global	FLASH_FLSIF_PRDIF_Clr
+ 1149              		.code	16
+ 1150              		.thumb_func
+ 1152              	FLASH_FLSIF_PRDIF_Clr:
+ 1153              	.LFB69:
+ 347:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 348:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** void FLASH_FLSIF_PRDIF_Clr(void)
+ 349:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 1154              		.loc 1 349 0
+ 1155              		.cfi_startproc
+ 1156              		@ args = 0, pretend = 0, frame = 0
+ 1157              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1158              		@ link register save eliminated.
+ 350:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	FLASH->FLSIF = FLASH_FLSIF_PRDIF_Msk;
+ 1159              		.loc 1 350 0
+ 1160 0000 0222     		movs	r2, #2
+ 1161 0002 014B     		ldr	r3, .L135
+ 1162 0004 1A62     		str	r2, [r3, #32]
+ 351:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 1163              		.loc 1 351 0
+ 1164              		@ sp needed
+ 1165 0006 7047     		bx	lr
+ 1166              	.L136:
+ 1167              		.align	2
+ 1168              	.L135:
+ 1169 0008 00100040 		.word	1073745920
+ 1170              		.cfi_endproc
+ 1171              	.LFE69:
+ 1173              		.section	.text.FLASH_FLSIF_PRDIF_Chk,"ax",%progbits
+ 1174              		.align	2
+ 1175              		.global	FLASH_FLSIF_PRDIF_Chk
+ 1176              		.code	16
+ 1177              		.thumb_func
+ 1179              	FLASH_FLSIF_PRDIF_Chk:
+ 1180              	.LFB70:
+ 352:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 353:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** FlagStatus FLASH_FLSIF_PRDIF_Chk(void)
+ 354:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 1181              		.loc 1 354 0
+ 1182              		.cfi_startproc
+ 1183              		@ args = 0, pretend = 0, frame = 0
+ 1184              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1185              		@ link register save eliminated.
+ 355:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	if (FLASH->FLSIF & FLASH_FLSIF_PRDIF_Msk)
+ 1186              		.loc 1 355 0
+ 1187 0000 034B     		ldr	r3, .L140
+ 1188 0002 1B6A     		ldr	r3, [r3, #32]
+ 1189 0004 9B07     		lsls	r3, r3, #30
+ 1190 0006 01D5     		bpl	.L139
+ 356:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 357:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		return SET;
+ 1191              		.loc 1 357 0
+ 1192 0008 0120     		movs	r0, #1
+ 1193 000a 00E0     		b	.L138
+ 1194              	.L139:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 27
+
+
+ 358:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 359:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	else
+ 360:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 361:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		return RESET;
+ 1195              		.loc 1 361 0
+ 1196 000c 0020     		movs	r0, #0
+ 1197              	.L138:
+ 362:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 363:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 1198              		.loc 1 363 0
+ 1199              		@ sp needed
+ 1200 000e 7047     		bx	lr
+ 1201              	.L141:
+ 1202              		.align	2
+ 1203              	.L140:
+ 1204 0010 00100040 		.word	1073745920
+ 1205              		.cfi_endproc
+ 1206              	.LFE70:
+ 1208              		.section	.text.FLASH_FLSIF_ERDIF_Clr,"ax",%progbits
+ 1209              		.align	2
+ 1210              		.global	FLASH_FLSIF_ERDIF_Clr
+ 1211              		.code	16
+ 1212              		.thumb_func
+ 1214              	FLASH_FLSIF_ERDIF_Clr:
+ 1215              	.LFB71:
+ 364:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 365:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** void FLASH_FLSIF_ERDIF_Clr(void)
+ 366:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 1216              		.loc 1 366 0
+ 1217              		.cfi_startproc
+ 1218              		@ args = 0, pretend = 0, frame = 0
+ 1219              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1220              		@ link register save eliminated.
+ 367:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	FLASH->FLSIF = FLASH_FLSIF_ERDIF_Msk;
+ 1221              		.loc 1 367 0
+ 1222 0000 0122     		movs	r2, #1
+ 1223 0002 014B     		ldr	r3, .L143
+ 1224 0004 1A62     		str	r2, [r3, #32]
+ 368:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 1225              		.loc 1 368 0
+ 1226              		@ sp needed
+ 1227 0006 7047     		bx	lr
+ 1228              	.L144:
+ 1229              		.align	2
+ 1230              	.L143:
+ 1231 0008 00100040 		.word	1073745920
+ 1232              		.cfi_endproc
+ 1233              	.LFE71:
+ 1235              		.section	.text.FLASH_FLSIF_ERDIF_Chk,"ax",%progbits
+ 1236              		.align	2
+ 1237              		.global	FLASH_FLSIF_ERDIF_Chk
+ 1238              		.code	16
+ 1239              		.thumb_func
+ 1241              	FLASH_FLSIF_ERDIF_Chk:
+ 1242              	.LFB72:
+ 369:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 370:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** FlagStatus FLASH_FLSIF_ERDIF_Chk(void)
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 28
+
+
+ 371:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 1243              		.loc 1 371 0
+ 1244              		.cfi_startproc
+ 1245              		@ args = 0, pretend = 0, frame = 0
+ 1246              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1247              		@ link register save eliminated.
+ 372:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	if (FLASH->FLSIF & FLASH_FLSIF_ERDIF_Msk)
+ 1248              		.loc 1 372 0
+ 1249 0000 034B     		ldr	r3, .L148
+ 1250 0002 1B6A     		ldr	r3, [r3, #32]
+ 1251 0004 DB07     		lsls	r3, r3, #31
+ 1252 0006 01D5     		bpl	.L147
+ 373:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 374:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		return SET;
+ 1253              		.loc 1 374 0
+ 1254 0008 0120     		movs	r0, #1
+ 1255 000a 00E0     		b	.L146
+ 1256              	.L147:
+ 375:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 376:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	else
+ 377:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 378:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		return RESET;
+ 1257              		.loc 1 378 0
+ 1258 000c 0020     		movs	r0, #0
+ 1259              	.L146:
+ 379:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 380:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 1260              		.loc 1 380 0
+ 1261              		@ sp needed
+ 1262 000e 7047     		bx	lr
+ 1263              	.L149:
+ 1264              		.align	2
+ 1265              	.L148:
+ 1266 0010 00100040 		.word	1073745920
+ 1267              		.cfi_endproc
+ 1268              	.LFE72:
+ 1270              		.section	.text.FLASH_Deinit,"ax",%progbits
+ 1271              		.align	2
+ 1272              		.global	FLASH_Deinit
+ 1273              		.code	16
+ 1274              		.thumb_func
+ 1276              	FLASH_Deinit:
+ 1277              	.LFB73:
+ 381:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 382:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** void FLASH_Deinit(void)
+ 383:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 1278              		.loc 1 383 0
+ 1279              		.cfi_startproc
+ 1280              		@ args = 0, pretend = 0, frame = 0
+ 1281              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1282              		@ link register save eliminated.
+ 384:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	FLASH->FLSRDCON = 0x00000000;
+ 1283              		.loc 1 384 0
+ 1284 0000 034B     		ldr	r3, .L151
+ 1285 0002 0022     		movs	r2, #0
+ 1286 0004 1A60     		str	r2, [r3]
+ 385:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	FLASH->PRFTCON = 0x00000000;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 29
+
+
+ 1287              		.loc 1 385 0
+ 1288 0006 5A60     		str	r2, [r3, #4]
+ 386:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	//FLASH->OPTBR = 0x00000005;
+ 387:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	//FLASH->ACLOCK1 = ;
+ 388:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	//FLASH->ACLOCK2 = ;
+ 389:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	FLASH->EPCON = 0x00000000;
+ 1289              		.loc 1 389 0
+ 1290 0008 5A61     		str	r2, [r3, #20]
+ 390:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	FLASH->FLSKEY = 0x00000000;
+ 1291              		.loc 1 390 0
+ 1292 000a 9A61     		str	r2, [r3, #24]
+ 391:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	FLASH->FLSIE = 0x00000000;
+ 1293              		.loc 1 391 0
+ 1294 000c DA61     		str	r2, [r3, #28]
+ 392:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	//FLASH->FLSIF = 0x00000000;
+ 393:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 1295              		.loc 1 393 0
+ 1296              		@ sp needed
+ 1297 000e 7047     		bx	lr
+ 1298              	.L152:
+ 1299              		.align	2
+ 1300              	.L151:
+ 1301 0010 00100040 		.word	1073745920
+ 1302              		.cfi_endproc
+ 1303              	.LFE73:
+ 1305              		.section	.text.FLASH_Erase_Sector,"ax",%progbits
+ 1306              		.align	2
+ 1307              		.global	FLASH_Erase_Sector
+ 1308              		.code	16
+ 1309              		.thumb_func
+ 1311              	FLASH_Erase_Sector:
+ 1312              	.LFB74:
+ 394:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** //Code_End
+ 395:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 396:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 397:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 398:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** void FLASH_Erase_Sector(uint32_t erase_addr)
+ 399:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 1313              		.loc 1 399 0
+ 1314              		.cfi_startproc
+ 1315              		@ args = 0, pretend = 0, frame = 0
+ 1316              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1317              	.LVL28:
+ 1318 0000 10B5     		push	{r4, lr}
+ 1319              	.LCFI0:
+ 1320              		.cfi_def_cfa_offset 8
+ 1321              		.cfi_offset 4, -8
+ 1322              		.cfi_offset 14, -4
+ 1323 0002 0400     		movs	r4, r0
+ 400:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****     //set to sector erase
+ 401:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****     FLASH_EPCON_ERTYPE_Set(FLASH_EPCON_ERTYPE_SECTOR);
+ 1324              		.loc 1 401 0
+ 1325 0004 0020     		movs	r0, #0
+ 1326              	.LVL29:
+ 1327 0006 FFF7FEFF 		bl	FLASH_EPCON_ERTYPE_Set
+ 1328              	.LVL30:
+ 402:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 30
+
+
+ 403:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****     //SET EREQ
+ 404:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****     FLASH_EPCON_EREQ_Set(FLASH_EPCON_EREQ_ERASE);
+ 1329              		.loc 1 404 0
+ 1330 000a 0120     		movs	r0, #1
+ 1331 000c FFF7FEFF 		bl	FLASH_EPCON_EREQ_Set
+ 1332              	.LVL31:
+ 405:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	
+ 406:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****     //write flash key
+ 407:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****     FLASH_FLSKEY_Write(flash_sector_erase_key0);
+ 1333              		.loc 1 407 0
+ 1334 0010 0948     		ldr	r0, .L156
+ 1335 0012 FFF7FEFF 		bl	FLASH_FLSKEY_Write
+ 1336              	.LVL32:
+ 408:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****     FLASH_FLSKEY_Write(flash_sector_erase_key1);
+ 1337              		.loc 1 408 0
+ 1338 0016 0948     		ldr	r0, .L156+4
+ 1339 0018 FFF7FEFF 		bl	FLASH_FLSKEY_Write
+ 1340              	.LVL33:
+ 409:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	
+ 410:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****     //œÚ–Ë“™≤¡≥˝µƒ…»«¯ƒ⁄»Œ“‚µÿ÷∑–¥≤¡≥˝«Î«Û0x1234_ABCD
+ 411:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****     *(uint32_t*)erase_addr = flash_erase_data;
+ 1341              		.loc 1 411 0
+ 1342 001c 084B     		ldr	r3, .L156+8
+ 1343 001e 2360     		str	r3, [r4]
+ 412:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	
+ 413:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	//wait for finish
+ 414:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	while(SET != FLASH_FLSIF_ERDIF_Chk()){__NOP();}
+ 1344              		.loc 1 414 0
+ 1345 0020 00E0     		b	.L154
+ 1346              	.L155:
+ 1347              	.LBB8:
+ 1348              	.LBB9:
+ 1349              		.file 2 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\device\\include\\core_cminstr.h"
+   1:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /**************************************************************************//**
+   2:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  * @file     core_cmInstr.h
+   3:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  * @brief    CMSIS Cortex-M Core Instruction Access Header File
+   4:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  * @version  V4.10
+   5:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  * @date     18. March 2015
+   6:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  *
+   7:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  * @note
+   8:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  *
+   9:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  ******************************************************************************/
+  10:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /* Copyright (c) 2009 - 2014 ARM LIMITED
+  11:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+  12:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****    All rights reserved.
+  13:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****    Redistribution and use in source and binary forms, with or without
+  14:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****    modification, are permitted provided that the following conditions are met:
+  15:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****    - Redistributions of source code must retain the above copyright
+  16:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****      notice, this list of conditions and the following disclaimer.
+  17:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****    - Redistributions in binary form must reproduce the above copyright
+  18:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****      notice, this list of conditions and the following disclaimer in the
+  19:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****      documentation and/or other materials provided with the distribution.
+  20:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****    - Neither the name of ARM nor the names of its contributors may be used
+  21:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****      to endorse or promote products derived from this software without
+  22:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****      specific prior written permission.
+  23:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****    *
+  24:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 31
+
+
+  25:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  26:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****    IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+  27:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****    ARE DISCLAIMED. IN NO EVENT SHALL COPYRIGHT HOLDERS AND CONTRIBUTORS BE
+  28:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****    LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  29:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****    CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  30:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****    SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  31:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****    INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  32:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****    CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  33:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****    ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  34:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****    POSSIBILITY OF SUCH DAMAGE.
+  35:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****    ---------------------------------------------------------------------------*/
+  36:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+  37:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+  38:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #ifndef __CORE_CMINSTR_H
+  39:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __CORE_CMINSTR_H
+  40:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+  41:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+  42:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /* ##########################  Core Instruction Access  ######################### */
+  43:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \defgroup CMSIS_Core_InstructionInterface CMSIS Core Instruction Interface
+  44:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****   Access to dedicated instructions
+  45:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****   @{
+  46:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** */
+  47:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+  48:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #if   defined ( __CC_ARM ) /*------------------RealView Compiler -----------------*/
+  49:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /* ARM armcc specific functions */
+  50:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+  51:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #if (__ARMCC_VERSION < 400677)
+  52:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****   #error "Please use ARM Compiler Toolchain V4.0.677 or later!"
+  53:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #endif
+  54:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+  55:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+  56:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  No Operation
+  57:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+  58:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     No Operation does nothing. This instruction can be used for code alignment purposes.
+  59:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+  60:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __NOP                             __nop
+  61:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+  62:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+  63:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  Wait For Interrupt
+  64:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+  65:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     Wait For Interrupt is a hint instruction that suspends execution
+  66:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     until one of a number of events occurs.
+  67:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+  68:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __WFI                             __wfi
+  69:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+  70:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+  71:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  Wait For Event
+  72:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+  73:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     Wait For Event is a hint instruction that permits the processor to enter
+  74:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     a low-power state until one of a number of events occurs.
+  75:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+  76:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __WFE                             __wfe
+  77:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+  78:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+  79:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  Send Event
+  80:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+  81:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     Send Event is a hint instruction. It causes an event to be signaled to the CPU.
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 32
+
+
+  82:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+  83:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __SEV                             __sev
+  84:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+  85:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+  86:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  Instruction Synchronization Barrier
+  87:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+  88:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     Instruction Synchronization Barrier flushes the pipeline in the processor,
+  89:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     so that all instructions following the ISB are fetched from cache or
+  90:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     memory, after the instruction has been completed.
+  91:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+  92:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __ISB() do {\
+  93:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****                    __schedule_barrier();\
+  94:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****                    __isb(0xF);\
+  95:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****                    __schedule_barrier();\
+  96:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****                 } while (0)
+  97:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+  98:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  Data Synchronization Barrier
+  99:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 100:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     This function acts as a special kind of Data Memory Barrier.
+ 101:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     It completes when all explicit memory accesses before this instruction complete.
+ 102:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+ 103:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __DSB() do {\
+ 104:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****                    __schedule_barrier();\
+ 105:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****                    __dsb(0xF);\
+ 106:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****                    __schedule_barrier();\
+ 107:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****                 } while (0)
+ 108:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 109:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  Data Memory Barrier
+ 110:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 111:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     This function ensures the apparent order of the explicit memory operations before
+ 112:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     and after the instruction, without ensuring their completion.
+ 113:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+ 114:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __DMB() do {\
+ 115:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****                    __schedule_barrier();\
+ 116:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****                    __dmb(0xF);\
+ 117:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****                    __schedule_barrier();\
+ 118:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****                 } while (0)
+ 119:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 120:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  Reverse byte order (32 bit)
+ 121:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 122:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     This function reverses the byte order in integer value.
+ 123:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 124:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]    value  Value to reverse
+ 125:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \return               Reversed value
+ 126:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+ 127:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __REV                             __rev
+ 128:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 129:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 130:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  Reverse byte order (16 bit)
+ 131:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 132:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     This function reverses the byte order in two unsigned short values.
+ 133:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 134:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]    value  Value to reverse
+ 135:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \return               Reversed value
+ 136:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+ 137:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #ifndef __NO_EMBEDDED_ASM
+ 138:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** __attribute__((section(".rev16_text"))) __STATIC_INLINE __ASM uint32_t __REV16(uint32_t value)
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 33
+
+
+ 139:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** {
+ 140:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****   rev16 r0, r0
+ 141:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****   bx lr
+ 142:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** }
+ 143:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #endif
+ 144:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 145:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  Reverse byte order in signed short value
+ 146:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 147:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     This function reverses the byte order in a signed short value with sign extension to integer.
+ 148:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 149:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]    value  Value to reverse
+ 150:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \return               Reversed value
+ 151:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+ 152:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #ifndef __NO_EMBEDDED_ASM
+ 153:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** __attribute__((section(".revsh_text"))) __STATIC_INLINE __ASM int32_t __REVSH(int32_t value)
+ 154:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** {
+ 155:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****   revsh r0, r0
+ 156:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****   bx lr
+ 157:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** }
+ 158:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #endif
+ 159:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 160:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 161:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  Rotate Right in unsigned value (32 bit)
+ 162:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 163:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     This function Rotate Right (immediate) provides the value of the contents of a register rotated
+ 164:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 165:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]    value  Value to rotate
+ 166:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]    value  Number of Bits to rotate
+ 167:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \return               Rotated value
+ 168:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+ 169:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __ROR                             __ror
+ 170:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 171:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 172:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  Breakpoint
+ 173:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 174:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     This function causes the processor to enter Debug state.
+ 175:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     Debug tools can use this to investigate system state when the instruction at a particular addre
+ 176:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 177:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]    value  is ignored by the processor.
+ 178:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****                    If required, a debugger can use it to store additional information about the bre
+ 179:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+ 180:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __BKPT(value)                       __breakpoint(value)
+ 181:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 182:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 183:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  Reverse bit order of value
+ 184:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 185:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     This function reverses the bit order of the given value.
+ 186:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 187:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]    value  Value to reverse
+ 188:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \return               Reversed value
+ 189:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+ 190:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #if       (__CORTEX_M >= 0x03) || (__CORTEX_SC >= 300)
+ 191:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****   #define __RBIT                          __rbit
+ 192:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #else
+ 193:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** __attribute__((always_inline)) __STATIC_INLINE uint32_t __RBIT(uint32_t value)
+ 194:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** {
+ 195:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****   uint32_t result;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 34
+
+
+ 196:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****   int32_t s = 4 /*sizeof(v)*/ * 8 - 1; // extra shift needed at end
+ 197:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 198:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****   result = value;                      // r will be reversed bits of v; first get LSB of v
+ 199:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****   for (value >>= 1; value; value >>= 1)
+ 200:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****   {
+ 201:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     result <<= 1;
+ 202:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     result |= value & 1;
+ 203:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     s--;
+ 204:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****   }
+ 205:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****   result <<= s;                       // shift when v's highest bits are zero
+ 206:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****   return(result);
+ 207:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** }
+ 208:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #endif
+ 209:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 210:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 211:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  Count leading zeros
+ 212:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 213:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     This function counts the number of leading zeros of a data value.
+ 214:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 215:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]  value  Value to count the leading zeros
+ 216:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \return             number of leading zeros in value
+ 217:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+ 218:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __CLZ                             __clz
+ 219:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 220:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 221:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #if       (__CORTEX_M >= 0x03) || (__CORTEX_SC >= 300)
+ 222:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 223:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  LDR Exclusive (8 bit)
+ 224:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 225:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     This function executes a exclusive LDR instruction for 8 bit value.
+ 226:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 227:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]    ptr  Pointer to data
+ 228:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \return             value of type uint8_t at (*ptr)
+ 229:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+ 230:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __LDREXB(ptr)                     ((uint8_t ) __ldrex(ptr))
+ 231:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 232:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 233:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  LDR Exclusive (16 bit)
+ 234:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 235:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     This function executes a exclusive LDR instruction for 16 bit values.
+ 236:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 237:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]    ptr  Pointer to data
+ 238:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \return        value of type uint16_t at (*ptr)
+ 239:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+ 240:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __LDREXH(ptr)                     ((uint16_t) __ldrex(ptr))
+ 241:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 242:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 243:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  LDR Exclusive (32 bit)
+ 244:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 245:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     This function executes a exclusive LDR instruction for 32 bit values.
+ 246:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 247:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]    ptr  Pointer to data
+ 248:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \return        value of type uint32_t at (*ptr)
+ 249:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+ 250:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __LDREXW(ptr)                     ((uint32_t ) __ldrex(ptr))
+ 251:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 252:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 35
+
+
+ 253:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  STR Exclusive (8 bit)
+ 254:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 255:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     This function executes a exclusive STR instruction for 8 bit values.
+ 256:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 257:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]  value  Value to store
+ 258:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]    ptr  Pointer to location
+ 259:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \return          0  Function succeeded
+ 260:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \return          1  Function failed
+ 261:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+ 262:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __STREXB(value, ptr)              __strex(value, ptr)
+ 263:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 264:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 265:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  STR Exclusive (16 bit)
+ 266:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 267:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     This function executes a exclusive STR instruction for 16 bit values.
+ 268:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 269:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]  value  Value to store
+ 270:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]    ptr  Pointer to location
+ 271:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \return          0  Function succeeded
+ 272:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \return          1  Function failed
+ 273:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+ 274:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __STREXH(value, ptr)              __strex(value, ptr)
+ 275:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 276:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 277:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  STR Exclusive (32 bit)
+ 278:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 279:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     This function executes a exclusive STR instruction for 32 bit values.
+ 280:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 281:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]  value  Value to store
+ 282:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]    ptr  Pointer to location
+ 283:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \return          0  Function succeeded
+ 284:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \return          1  Function failed
+ 285:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+ 286:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __STREXW(value, ptr)              __strex(value, ptr)
+ 287:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 288:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 289:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  Remove the exclusive lock
+ 290:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 291:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     This function removes the exclusive lock which is created by LDREX.
+ 292:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 293:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+ 294:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __CLREX                           __clrex
+ 295:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 296:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 297:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  Signed Saturate
+ 298:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 299:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     This function saturates a signed value.
+ 300:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 301:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]  value  Value to be saturated
+ 302:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]    sat  Bit position to saturate to (1..32)
+ 303:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \return             Saturated value
+ 304:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+ 305:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __SSAT                            __ssat
+ 306:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 307:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 308:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  Unsigned Saturate
+ 309:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 36
+
+
+ 310:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     This function saturates an unsigned value.
+ 311:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 312:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]  value  Value to be saturated
+ 313:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]    sat  Bit position to saturate to (0..31)
+ 314:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \return             Saturated value
+ 315:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+ 316:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __USAT                            __usat
+ 317:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 318:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 319:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  Rotate Right with Extend (32 bit)
+ 320:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 321:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     This function moves each bit of a bitstring right by one bit.
+ 322:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     The carry input is shifted in at the left end of the bitstring.
+ 323:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 324:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]    value  Value to rotate
+ 325:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \return               Rotated value
+ 326:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+ 327:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #ifndef __NO_EMBEDDED_ASM
+ 328:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** __attribute__((section(".rrx_text"))) __STATIC_INLINE __ASM uint32_t __RRX(uint32_t value)
+ 329:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** {
+ 330:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****   rrx r0, r0
+ 331:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****   bx lr
+ 332:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** }
+ 333:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #endif
+ 334:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 335:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 336:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  LDRT Unprivileged (8 bit)
+ 337:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 338:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     This function executes a Unprivileged LDRT instruction for 8 bit value.
+ 339:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 340:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]    ptr  Pointer to data
+ 341:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \return             value of type uint8_t at (*ptr)
+ 342:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+ 343:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __LDRBT(ptr)                      ((uint8_t )  __ldrt(ptr))
+ 344:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 345:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 346:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  LDRT Unprivileged (16 bit)
+ 347:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 348:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     This function executes a Unprivileged LDRT instruction for 16 bit values.
+ 349:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 350:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]    ptr  Pointer to data
+ 351:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \return        value of type uint16_t at (*ptr)
+ 352:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+ 353:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __LDRHT(ptr)                      ((uint16_t)  __ldrt(ptr))
+ 354:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 355:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 356:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  LDRT Unprivileged (32 bit)
+ 357:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 358:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     This function executes a Unprivileged LDRT instruction for 32 bit values.
+ 359:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 360:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]    ptr  Pointer to data
+ 361:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \return        value of type uint32_t at (*ptr)
+ 362:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+ 363:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __LDRT(ptr)                       ((uint32_t ) __ldrt(ptr))
+ 364:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 365:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 366:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  STRT Unprivileged (8 bit)
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 37
+
+
+ 367:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 368:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     This function executes a Unprivileged STRT instruction for 8 bit values.
+ 369:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 370:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]  value  Value to store
+ 371:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]    ptr  Pointer to location
+ 372:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+ 373:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __STRBT(value, ptr)               __strt(value, ptr)
+ 374:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 375:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 376:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  STRT Unprivileged (16 bit)
+ 377:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 378:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     This function executes a Unprivileged STRT instruction for 16 bit values.
+ 379:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 380:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]  value  Value to store
+ 381:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]    ptr  Pointer to location
+ 382:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+ 383:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __STRHT(value, ptr)               __strt(value, ptr)
+ 384:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 385:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 386:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  STRT Unprivileged (32 bit)
+ 387:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 388:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     This function executes a Unprivileged STRT instruction for 32 bit values.
+ 389:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 390:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]  value  Value to store
+ 391:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     \param [in]    ptr  Pointer to location
+ 392:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+ 393:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __STRT(value, ptr)                __strt(value, ptr)
+ 394:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 395:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #endif /* (__CORTEX_M >= 0x03) || (__CORTEX_SC >= 300) */
+ 396:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 397:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 398:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #elif defined ( __GNUC__ ) /*------------------ GNU Compiler ---------------------*/
+ 399:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /* GNU gcc specific functions */
+ 400:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 401:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /* Define macros for porting to both thumb1 and thumb2.
+ 402:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  * For thumb1, use low register (r0-r7), specified by constrant "l"
+ 403:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  * Otherwise, use general registers, specified by constrant "r" */
+ 404:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #if defined (__thumb__) && !defined (__thumb2__)
+ 405:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __CMSIS_GCC_OUT_REG(r) "=l" (r)
+ 406:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __CMSIS_GCC_USE_REG(r) "l" (r)
+ 407:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #else
+ 408:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __CMSIS_GCC_OUT_REG(r) "=r" (r)
+ 409:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #define __CMSIS_GCC_USE_REG(r) "r" (r)
+ 410:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** #endif
+ 411:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 412:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** /** \brief  No Operation
+ 413:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** 
+ 414:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****     No Operation does nothing. This instruction can be used for code alignment purposes.
+ 415:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****  */
+ 416:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** __attribute__((always_inline)) __STATIC_INLINE void __NOP(void)
+ 417:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h **** {
+ 418:e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h ****   __ASM volatile ("nop");
+ 1350              		.loc 2 418 0
+ 1351              		.syntax divided
+ 1352              	@ 418 "e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h" 1
+ 1353 0022 C046     		nop
+ 1354              	@ 0 "" 2
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 38
+
+
+ 1355              		.thumb
+ 1356              		.syntax unified
+ 1357              	.L154:
+ 1358              	.LBE9:
+ 1359              	.LBE8:
+ 1360              		.loc 1 414 0 discriminator 1
+ 1361 0024 FFF7FEFF 		bl	FLASH_FLSIF_ERDIF_Chk
+ 1362              	.LVL34:
+ 1363 0028 0128     		cmp	r0, #1
+ 1364 002a FAD1     		bne	.L155
+ 415:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	FLASH_FLSIF_ERDIF_Clr();
+ 1365              		.loc 1 415 0
+ 1366 002c FFF7FEFF 		bl	FLASH_FLSIF_ERDIF_Clr
+ 1367              	.LVL35:
+ 416:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	
+ 417:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****     FLASH_FLSKEY_Write(0x00000000);
+ 1368              		.loc 1 417 0
+ 1369 0030 0020     		movs	r0, #0
+ 1370 0032 FFF7FEFF 		bl	FLASH_FLSKEY_Write
+ 1371              	.LVL36:
+ 418:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 1372              		.loc 1 418 0
+ 1373              		@ sp needed
+ 1374              	.LVL37:
+ 1375 0036 10BD     		pop	{r4, pc}
+ 1376              	.L157:
+ 1377              		.align	2
+ 1378              	.L156:
+ 1379 0038 96969696 		.word	-1768515946
+ 1380 003c EAEAEAEA 		.word	-353703190
+ 1381 0040 CDAB3412 		.word	305441741
+ 1382              		.cfi_endproc
+ 1383              	.LFE74:
+ 1385              		.section	.text.FLASH_Prog_SingleByte,"ax",%progbits
+ 1386              		.align	2
+ 1387              		.global	FLASH_Prog_SingleByte
+ 1388              		.code	16
+ 1389              		.thumb_func
+ 1391              	FLASH_Prog_SingleByte:
+ 1392              	.LFB75:
+ 419:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 420:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 421:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** void FLASH_Prog_SingleByte(uint32_t prog_addr,uint8_t prog_data)
+ 422:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 1393              		.loc 1 422 0
+ 1394              		.cfi_startproc
+ 1395              		@ args = 0, pretend = 0, frame = 0
+ 1396              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1397              	.LVL38:
+ 1398 0000 70B5     		push	{r4, r5, r6, lr}
+ 1399              	.LCFI1:
+ 1400              		.cfi_def_cfa_offset 16
+ 1401              		.cfi_offset 4, -16
+ 1402              		.cfi_offset 5, -12
+ 1403              		.cfi_offset 6, -8
+ 1404              		.cfi_offset 14, -4
+ 1405 0002 0400     		movs	r4, r0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 39
+
+
+ 1406 0004 0D00     		movs	r5, r1
+ 423:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	//set PREQ
+ 424:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****     FLASH_EPCON_PREQ_Set(FLASH_EPCON_PREQ_PROG);
+ 1407              		.loc 1 424 0
+ 1408 0006 0220     		movs	r0, #2
+ 1409              	.LVL39:
+ 1410 0008 FFF7FEFF 		bl	FLASH_EPCON_PREQ_Set
+ 1411              	.LVL40:
+ 425:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	
+ 426:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	//write flash key
+ 427:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****     FLASH_FLSKEY_Write(flash_PROG_key0);
+ 1412              		.loc 1 427 0
+ 1413 000c 0948     		ldr	r0, .L161
+ 1414 000e FFF7FEFF 		bl	FLASH_FLSKEY_Write
+ 1415              	.LVL41:
+ 428:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****     FLASH_FLSKEY_Write(flash_PROG_key1);
+ 1416              		.loc 1 428 0
+ 1417 0012 0948     		ldr	r0, .L161+4
+ 1418 0014 FFF7FEFF 		bl	FLASH_FLSKEY_Write
+ 1419              	.LVL42:
+ 429:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	
+ 430:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****     *(uint8_t*)prog_addr = prog_data;	
+ 1420              		.loc 1 430 0
+ 1421 0018 2570     		strb	r5, [r4]
+ 431:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 432:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****     while(RESET == FLASH_FLSIF_PRDIF_Chk()){__NOP();}
+ 1422              		.loc 1 432 0
+ 1423 001a 00E0     		b	.L159
+ 1424              	.L160:
+ 1425              	.LBB10:
+ 1426              	.LBB11:
+ 1427              		.loc 2 418 0
+ 1428              		.syntax divided
+ 1429              	@ 418 "e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h" 1
+ 1430 001c C046     		nop
+ 1431              	@ 0 "" 2
+ 1432              		.thumb
+ 1433              		.syntax unified
+ 1434              	.L159:
+ 1435              	.LBE11:
+ 1436              	.LBE10:
+ 1437              		.loc 1 432 0 discriminator 1
+ 1438 001e FFF7FEFF 		bl	FLASH_FLSIF_PRDIF_Chk
+ 1439              	.LVL43:
+ 1440 0022 0028     		cmp	r0, #0
+ 1441 0024 FAD0     		beq	.L160
+ 433:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	FLASH_FLSIF_PRDIF_Clr();
+ 1442              		.loc 1 433 0
+ 1443 0026 FFF7FEFF 		bl	FLASH_FLSIF_PRDIF_Clr
+ 1444              	.LVL44:
+ 434:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	
+ 435:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****     FLASH_FLSKEY_Write(0x00000000);
+ 1445              		.loc 1 435 0
+ 1446 002a 0020     		movs	r0, #0
+ 1447 002c FFF7FEFF 		bl	FLASH_FLSKEY_Write
+ 1448              	.LVL45:
+ 436:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 40
+
+
+ 1449              		.loc 1 436 0
+ 1450              		@ sp needed
+ 1451              	.LVL46:
+ 1452 0030 70BD     		pop	{r4, r5, r6, pc}
+ 1453              	.L162:
+ 1454 0032 C046     		.align	2
+ 1455              	.L161:
+ 1456 0034 A5A5A5A5 		.word	-1515870811
+ 1457 0038 F1F1F1F1 		.word	-235802127
+ 1458              		.cfi_endproc
+ 1459              	.LFE75:
+ 1461              		.section	.text.FLASH_Prog_ByteString,"ax",%progbits
+ 1462              		.align	2
+ 1463              		.global	FLASH_Prog_ByteString
+ 1464              		.code	16
+ 1465              		.thumb_func
+ 1467              	FLASH_Prog_ByteString:
+ 1468              	.LFB76:
+ 437:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 
+ 438:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** void FLASH_Prog_ByteString(uint32_t prog_addr,uint8_t* prog_data, uint16_t Len)
+ 439:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** {
+ 1469              		.loc 1 439 0
+ 1470              		.cfi_startproc
+ 1471              		@ args = 0, pretend = 0, frame = 0
+ 1472              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1473              	.LVL47:
+ 1474 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 1475              	.LCFI2:
+ 1476              		.cfi_def_cfa_offset 24
+ 1477              		.cfi_offset 3, -24
+ 1478              		.cfi_offset 4, -20
+ 1479              		.cfi_offset 5, -16
+ 1480              		.cfi_offset 6, -12
+ 1481              		.cfi_offset 7, -8
+ 1482              		.cfi_offset 14, -4
+ 1483 0002 0500     		movs	r5, r0
+ 1484 0004 0F00     		movs	r7, r1
+ 1485 0006 1600     		movs	r6, r2
+ 440:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	uint16_t i;
+ 441:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	//set PREQ
+ 442:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	FLASH_EPCON_PREQ_Set(FLASH_EPCON_PREQ_PROG);
+ 1486              		.loc 1 442 0
+ 1487 0008 0220     		movs	r0, #2
+ 1488              	.LVL48:
+ 1489 000a FFF7FEFF 		bl	FLASH_EPCON_PREQ_Set
+ 1490              	.LVL49:
+ 443:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	
+ 444:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	//write flash key
+ 445:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	FLASH_FLSKEY_Write(flash_PROG_key0);
+ 1491              		.loc 1 445 0
+ 1492 000e 0F48     		ldr	r0, .L168
+ 1493 0010 FFF7FEFF 		bl	FLASH_FLSKEY_Write
+ 1494              	.LVL50:
+ 446:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	FLASH_FLSKEY_Write(flash_PROG_key1);
+ 1495              		.loc 1 446 0
+ 1496 0014 0E48     		ldr	r0, .L168+4
+ 1497 0016 FFF7FEFF 		bl	FLASH_FLSKEY_Write
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 41
+
+
+ 1498              	.LVL51:
+ 447:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	
+ 448:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	for(i=0; i<Len; i++)
+ 1499              		.loc 1 448 0
+ 1500 001a 0024     		movs	r4, #0
+ 1501 001c 0FE0     		b	.L164
+ 1502              	.LVL52:
+ 1503              	.L167:
+ 449:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 450:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		FLASH_EPCON_PREQ_Set(FLASH_EPCON_PREQ_PROG);	//set PREQ
+ 1504              		.loc 1 450 0
+ 1505 001e 0220     		movs	r0, #2
+ 1506 0020 FFF7FEFF 		bl	FLASH_EPCON_PREQ_Set
+ 1507              	.LVL53:
+ 451:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		*(uint8_t*)prog_addr = prog_data[i];						//–¥“ª∏ˆ◊÷Ω⁄
+ 1508              		.loc 1 451 0
+ 1509 0024 3B5D     		ldrb	r3, [r7, r4]
+ 1510 0026 2B70     		strb	r3, [r5]
+ 452:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		prog_addr++;
+ 1511              		.loc 1 452 0
+ 1512 0028 0135     		adds	r5, r5, #1
+ 1513              	.LVL54:
+ 453:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		while(RESET == FLASH_FLSIF_PRDIF_Chk()){__NOP();}//µ»¥˝–¥≤Ÿ◊˜ÕÍ≥…
+ 1514              		.loc 1 453 0
+ 1515 002a 00E0     		b	.L165
+ 1516              	.L166:
+ 1517              	.LBB12:
+ 1518              	.LBB13:
+ 1519              		.loc 2 418 0
+ 1520              		.syntax divided
+ 1521              	@ 418 "e:\liteos\liteos\targets\cloud_fm33a0xx\device\include\core_cminstr.h" 1
+ 1522 002c C046     		nop
+ 1523              	@ 0 "" 2
+ 1524              		.thumb
+ 1525              		.syntax unified
+ 1526              	.L165:
+ 1527              	.LBE13:
+ 1528              	.LBE12:
+ 1529              		.loc 1 453 0 discriminator 1
+ 1530 002e FFF7FEFF 		bl	FLASH_FLSIF_PRDIF_Chk
+ 1531              	.LVL55:
+ 1532 0032 0028     		cmp	r0, #0
+ 1533 0034 FAD0     		beq	.L166
+ 454:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 		FLASH_FLSIF_PRDIF_Clr();						//«Â≥˝–¥ÕÍ≥…÷–∂œ±Í÷æ
+ 1534              		.loc 1 454 0 discriminator 2
+ 1535 0036 FFF7FEFF 		bl	FLASH_FLSIF_PRDIF_Clr
+ 1536              	.LVL56:
+ 448:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 1537              		.loc 1 448 0 discriminator 2
+ 1538 003a 0134     		adds	r4, r4, #1
+ 1539              	.LVL57:
+ 1540 003c A4B2     		uxth	r4, r4
+ 1541              	.LVL58:
+ 1542              	.L164:
+ 448:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	{
+ 1543              		.loc 1 448 0 is_stmt 0 discriminator 1
+ 1544 003e B442     		cmp	r4, r6
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 42
+
+
+ 1545 0040 EDD3     		bcc	.L167
+ 455:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	//	delay_50(1);
+ 456:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	}
+ 457:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** 	
+ 458:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c ****     FLASH_FLSKEY_Write(0x00000000);
+ 1546              		.loc 1 458 0 is_stmt 1
+ 1547 0042 0020     		movs	r0, #0
+ 1548 0044 FFF7FEFF 		bl	FLASH_FLSKEY_Write
+ 1549              	.LVL59:
+ 459:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_flash.c **** }
+ 1550              		.loc 1 459 0
+ 1551              		@ sp needed
+ 1552              	.LVL60:
+ 1553              	.LVL61:
+ 1554              	.LVL62:
+ 1555 0048 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 1556              	.L169:
+ 1557 004a C046     		.align	2
+ 1558              	.L168:
+ 1559 004c A5A5A5A5 		.word	-1515870811
+ 1560 0050 F1F1F1F1 		.word	-235802127
+ 1561              		.cfi_endproc
+ 1562              	.LFE76:
+ 1564              		.text
+ 1565              	.Letext0:
+ 1566              		.file 3 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\device\\include\\fm33a0xx.h"
+ 1567              		.file 4 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\machine\\_default_types.h
+ 1568              		.file 5 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\sys\\_stdint.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 43
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 fm33a0xx_flash.c
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:20     .text.FLASH_FLSRDCON_WAIT_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:25     .text.FLASH_FLSRDCON_WAIT_Set:00000000 FLASH_FLSRDCON_WAIT_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:55     .text.FLASH_FLSRDCON_WAIT_Set:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:60     .text.FLASH_FLSRDCON_WAIT_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:65     .text.FLASH_FLSRDCON_WAIT_Get:00000000 FLASH_FLSRDCON_WAIT_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:83     .text.FLASH_FLSRDCON_WAIT_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:88     .text.FLASH_OPTBR_DBGCFGEN_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:93     .text.FLASH_OPTBR_DBGCFGEN_Chk:00000000 FLASH_OPTBR_DBGCFGEN_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:118    .text.FLASH_OPTBR_DBGCFGEN_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:123    .text.FLASH_OPTBR_RAMBOOT_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:128    .text.FLASH_OPTBR_RAMBOOT_Chk:00000000 FLASH_OPTBR_RAMBOOT_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:153    .text.FLASH_OPTBR_RAMBOOT_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:158    .text.FLASH_OPTBR_ACLOCKEN_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:163    .text.FLASH_OPTBR_ACLOCKEN_Chk:00000000 FLASH_OPTBR_ACLOCKEN_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:189    .text.FLASH_OPTBR_ACLOCKEN_Chk:00000014 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:194    .text.FLASH_OPTBR_DBRDPEN_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:199    .text.FLASH_OPTBR_DBRDPEN_Chk:00000000 FLASH_OPTBR_DBRDPEN_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:224    .text.FLASH_OPTBR_DBRDPEN_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:229    .text.FLASH_ACLOCK1_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:234    .text.FLASH_ACLOCK1_Write:00000000 FLASH_ACLOCK1_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:251    .text.FLASH_ACLOCK1_Write:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:256    .text.FLASH_ACLOCK1_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:261    .text.FLASH_ACLOCK1_Read:00000000 FLASH_ACLOCK1_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:277    .text.FLASH_ACLOCK1_Read:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:282    .text.FLASH_ACLOCK2_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:287    .text.FLASH_ACLOCK2_Write:00000000 FLASH_ACLOCK2_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:304    .text.FLASH_ACLOCK2_Write:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:309    .text.FLASH_ACLOCK2_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:314    .text.FLASH_ACLOCK2_Read:00000000 FLASH_ACLOCK2_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:330    .text.FLASH_ACLOCK2_Read:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:335    .text.FLASH_EPCON_ERTYPE_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:340    .text.FLASH_EPCON_ERTYPE_Set:00000000 FLASH_EPCON_ERTYPE_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:371    .text.FLASH_EPCON_ERTYPE_Set:00000014 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:377    .text.FLASH_EPCON_ERTYPE_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:382    .text.FLASH_EPCON_ERTYPE_Get:00000000 FLASH_EPCON_ERTYPE_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:401    .text.FLASH_EPCON_ERTYPE_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:406    .text.FLASH_EPCON_PREQ_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:411    .text.FLASH_EPCON_PREQ_Set:00000000 FLASH_EPCON_PREQ_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:440    .text.FLASH_EPCON_PREQ_Set:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:445    .text.FLASH_EPCON_PREQ_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:450    .text.FLASH_EPCON_PREQ_Get:00000000 FLASH_EPCON_PREQ_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:468    .text.FLASH_EPCON_PREQ_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:473    .text.FLASH_EPCON_EREQ_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:478    .text.FLASH_EPCON_EREQ_Set:00000000 FLASH_EPCON_EREQ_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:507    .text.FLASH_EPCON_EREQ_Set:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:512    .text.FLASH_EPCON_EREQ_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:517    .text.FLASH_EPCON_EREQ_Get:00000000 FLASH_EPCON_EREQ_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:535    .text.FLASH_EPCON_EREQ_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:540    .text.FLASH_FLSKEY_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:545    .text.FLASH_FLSKEY_Write:00000000 FLASH_FLSKEY_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:562    .text.FLASH_FLSKEY_Write:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:567    .text.FLASH_FLSIE_AUTHIE_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:572    .text.FLASH_FLSIE_AUTHIE_Setable:00000000 FLASH_FLSIE_AUTHIE_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:605    .text.FLASH_FLSIE_AUTHIE_Setable:00000020 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:611    .text.FLASH_FLSIE_AUTHIE_Getable:00000000 $t
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 44
+
+
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:616    .text.FLASH_FLSIE_AUTHIE_Getable:00000000 FLASH_FLSIE_AUTHIE_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:641    .text.FLASH_FLSIE_AUTHIE_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:646    .text.FLASH_FLSIE_KEYIE_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:651    .text.FLASH_FLSIE_KEYIE_Setable:00000000 FLASH_FLSIE_KEYIE_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:684    .text.FLASH_FLSIE_KEYIE_Setable:00000020 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:690    .text.FLASH_FLSIE_KEYIE_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:695    .text.FLASH_FLSIE_KEYIE_Getable:00000000 FLASH_FLSIE_KEYIE_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:720    .text.FLASH_FLSIE_KEYIE_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:725    .text.FLASH_FLSIE_CKIE_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:730    .text.FLASH_FLSIE_CKIE_Setable:00000000 FLASH_FLSIE_CKIE_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:763    .text.FLASH_FLSIE_CKIE_Setable:00000020 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:769    .text.FLASH_FLSIE_CKIE_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:774    .text.FLASH_FLSIE_CKIE_Getable:00000000 FLASH_FLSIE_CKIE_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:799    .text.FLASH_FLSIE_CKIE_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:804    .text.FLASH_FLSIE_PRDIE_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:809    .text.FLASH_FLSIE_PRDIE_Setable:00000000 FLASH_FLSIE_PRDIE_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:841    .text.FLASH_FLSIE_PRDIE_Setable:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:846    .text.FLASH_FLSIE_PRDIE_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:851    .text.FLASH_FLSIE_PRDIE_Getable:00000000 FLASH_FLSIE_PRDIE_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:876    .text.FLASH_FLSIE_PRDIE_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:881    .text.FLASH_FLSIE_ERDIE_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:886    .text.FLASH_FLSIE_ERDIE_Setable:00000000 FLASH_FLSIE_ERDIE_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:918    .text.FLASH_FLSIE_ERDIE_Setable:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:923    .text.FLASH_FLSIE_ERDIE_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:928    .text.FLASH_FLSIE_ERDIE_Getable:00000000 FLASH_FLSIE_ERDIE_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:953    .text.FLASH_FLSIE_ERDIE_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:958    .text.FLASH_FLSIF_AUTHIF_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:963    .text.FLASH_FLSIF_AUTHIF_Clr:00000000 FLASH_FLSIF_AUTHIF_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:981    .text.FLASH_FLSIF_AUTHIF_Clr:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:986    .text.FLASH_FLSIF_AUTHIF_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:991    .text.FLASH_FLSIF_AUTHIF_Chk:00000000 FLASH_FLSIF_AUTHIF_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1016   .text.FLASH_FLSIF_AUTHIF_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1021   .text.FLASH_FLSIF_KEYIF_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1026   .text.FLASH_FLSIF_KEYIF_Clr:00000000 FLASH_FLSIF_KEYIF_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1044   .text.FLASH_FLSIF_KEYIF_Clr:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1049   .text.FLASH_FLSIF_KEYIF_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1054   .text.FLASH_FLSIF_KEYIF_Chk:00000000 FLASH_FLSIF_KEYIF_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1079   .text.FLASH_FLSIF_KEYIF_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1084   .text.FLASH_FLSIF_CKIF_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1089   .text.FLASH_FLSIF_CKIF_Clr:00000000 FLASH_FLSIF_CKIF_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1107   .text.FLASH_FLSIF_CKIF_Clr:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1112   .text.FLASH_FLSIF_CKIF_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1117   .text.FLASH_FLSIF_CKIF_Chk:00000000 FLASH_FLSIF_CKIF_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1142   .text.FLASH_FLSIF_CKIF_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1147   .text.FLASH_FLSIF_PRDIF_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1152   .text.FLASH_FLSIF_PRDIF_Clr:00000000 FLASH_FLSIF_PRDIF_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1169   .text.FLASH_FLSIF_PRDIF_Clr:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1174   .text.FLASH_FLSIF_PRDIF_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1179   .text.FLASH_FLSIF_PRDIF_Chk:00000000 FLASH_FLSIF_PRDIF_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1204   .text.FLASH_FLSIF_PRDIF_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1209   .text.FLASH_FLSIF_ERDIF_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1214   .text.FLASH_FLSIF_ERDIF_Clr:00000000 FLASH_FLSIF_ERDIF_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1231   .text.FLASH_FLSIF_ERDIF_Clr:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1236   .text.FLASH_FLSIF_ERDIF_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1241   .text.FLASH_FLSIF_ERDIF_Chk:00000000 FLASH_FLSIF_ERDIF_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1266   .text.FLASH_FLSIF_ERDIF_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1271   .text.FLASH_Deinit:00000000 $t
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s 			page 45
+
+
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1276   .text.FLASH_Deinit:00000000 FLASH_Deinit
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1301   .text.FLASH_Deinit:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1306   .text.FLASH_Erase_Sector:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1311   .text.FLASH_Erase_Sector:00000000 FLASH_Erase_Sector
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1379   .text.FLASH_Erase_Sector:00000038 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1386   .text.FLASH_Prog_SingleByte:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1391   .text.FLASH_Prog_SingleByte:00000000 FLASH_Prog_SingleByte
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1456   .text.FLASH_Prog_SingleByte:00000034 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1462   .text.FLASH_Prog_ByteString:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1467   .text.FLASH_Prog_ByteString:00000000 FLASH_Prog_ByteString
+C:\Users\WANGBI~1\AppData\Local\Temp\cc8nW4zC.s:1559   .text.FLASH_Prog_ByteString:0000004c $d
+                     .debug_frame:00000010 $d
+
+NO UNDEFINED SYMBOLS

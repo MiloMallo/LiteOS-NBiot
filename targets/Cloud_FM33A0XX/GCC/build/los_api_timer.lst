@@ -1,0 +1,782 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccIeZ1RG.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"los_api_timer.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.Timer1_Callback,"ax",%progbits
+  20              		.align	2
+  21              		.code	16
+  22              		.thumb_func
+  24              	Timer1_Callback:
+  25              	.LFB43:
+  26              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api/los_api_timer.c"
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** /*----------------------------------------------------------------------------
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  * Copyright (c) <2016-2018>, <Huawei Technologies Co., Ltd>
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  * All rights reserved.
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  * are permitted provided that the following conditions are met:
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  * conditions and the following disclaimer.
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  * provided with the distribution.
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  * permission.
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  *---------------------------------------------------------------------------*/
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  /*----------------------------------------------------------------------------
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  * Notice of Export Control Law
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  * ===============================================
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  * applicable export control laws and regulations.
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccIeZ1RG.s 			page 2
+
+
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****  *---------------------------------------------------------------------------*/
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** 
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** #include <stdio.h>
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** #include "los_swtmr.h"
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** #include "time.h"
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** #include "los_sys.h"
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** #include "los_api_timer.h"
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** #include "los_inspect_entry.h"
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** 
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** #ifdef __cplusplus
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** #if __cplusplus
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** extern "C" {
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** #endif /* __cpluscplus */
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** #endif /* __cpluscplus */
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** 
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** static UINT32 g_timercount1 = 0;
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** static UINT32 g_timercount2 = 0;
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** 
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** static VOID Timer1_Callback(UINT32 arg)
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** {
+  27              		.loc 1 52 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              	.LVL0:
+  32 0000 70B5     		push	{r4, r5, r6, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 16
+  35              		.cfi_offset 4, -16
+  36              		.cfi_offset 5, -12
+  37              		.cfi_offset 6, -8
+  38              		.cfi_offset 14, -4
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     UINT32 tick_last1;
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** 
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     g_timercount1++;
+  39              		.loc 1 55 0
+  40 0002 084C     		ldr	r4, .L2
+  41 0004 2368     		ldr	r3, [r4]
+  42 0006 0133     		adds	r3, r3, #1
+  43 0008 2360     		str	r3, [r4]
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     tick_last1 = (UINT32)LOS_TickCountGet();
+  44              		.loc 1 56 0
+  45 000a FFF7FEFF 		bl	LOS_TickCountGet
+  46              	.LVL1:
+  47 000e 0500     		movs	r5, r0
+  48              	.LVL2:
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     dprintf("g_timercount1=%d .\r\n", g_timercount1);
+  49              		.loc 1 57 0
+  50 0010 2168     		ldr	r1, [r4]
+  51 0012 0548     		ldr	r0, .L2+4
+  52              	.LVL3:
+  53 0014 FFF7FEFF 		bl	dprintf_none
+  54              	.LVL4:
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     dprintf("tick_last1=%d .\r\n", tick_last1);
+  55              		.loc 1 58 0
+  56 0018 2900     		movs	r1, r5
+  57 001a 0448     		ldr	r0, .L2+8
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccIeZ1RG.s 			page 3
+
+
+  58 001c FFF7FEFF 		bl	dprintf_none
+  59              	.LVL5:
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** }
+  60              		.loc 1 59 0
+  61              		@ sp needed
+  62              	.LVL6:
+  63 0020 70BD     		pop	{r4, r5, r6, pc}
+  64              	.L3:
+  65 0022 C046     		.align	2
+  66              	.L2:
+  67 0024 00000000 		.word	.LANCHOR0
+  68 0028 00000000 		.word	.LC1
+  69 002c 18000000 		.word	.LC3
+  70              		.cfi_endproc
+  71              	.LFE43:
+  73              		.section	.text.Timer2_Callback,"ax",%progbits
+  74              		.align	2
+  75              		.code	16
+  76              		.thumb_func
+  78              	Timer2_Callback:
+  79              	.LFB44:
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** 
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** static VOID Timer2_Callback(UINT32 arg)
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** {
+  80              		.loc 1 62 0
+  81              		.cfi_startproc
+  82              		@ args = 0, pretend = 0, frame = 0
+  83              		@ frame_needed = 0, uses_anonymous_args = 0
+  84              	.LVL7:
+  85 0000 10B5     		push	{r4, lr}
+  86              	.LCFI1:
+  87              		.cfi_def_cfa_offset 8
+  88              		.cfi_offset 4, -8
+  89              		.cfi_offset 14, -4
+  90              	.LVL8:
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     UINT32 uwRet = LOS_OK;
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     UINT32 tick_last2;
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** 
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     tick_last2 = (UINT32)LOS_TickCountGet();
+  91              		.loc 1 66 0
+  92 0002 FFF7FEFF 		bl	LOS_TickCountGet
+  93              	.LVL9:
+  94 0006 0400     		movs	r4, r0
+  95              	.LVL10:
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     g_timercount2++;
+  96              		.loc 1 67 0
+  97 0008 0A4B     		ldr	r3, .L6
+  98 000a 1A68     		ldr	r2, [r3]
+  99 000c 511C     		adds	r1, r2, #1
+ 100 000e 1960     		str	r1, [r3]
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     dprintf("g_timercount2=%d .\r\n", g_timercount2);
+ 101              		.loc 1 68 0
+ 102 0010 0948     		ldr	r0, .L6+4
+ 103              	.LVL11:
+ 104 0012 FFF7FEFF 		bl	dprintf_none
+ 105              	.LVL12:
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     dprintf("tick_last2=%d .\r\n", tick_last2);
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccIeZ1RG.s 			page 4
+
+
+ 106              		.loc 1 69 0
+ 107 0016 2100     		movs	r1, r4
+ 108 0018 0848     		ldr	r0, .L6+8
+ 109 001a FFF7FEFF 		bl	dprintf_none
+ 110              	.LVL13:
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     uwRet = LOS_InspectStatusSetByID(LOS_INSPECT_TIMER, LOS_INSPECT_STU_SUCCESS);
+ 111              		.loc 1 70 0
+ 112 001e 0021     		movs	r1, #0
+ 113 0020 0620     		movs	r0, #6
+ 114 0022 FFF7FEFF 		bl	LOS_InspectStatusSetByID
+ 115              	.LVL14:
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     if (LOS_OK != uwRet)
+ 116              		.loc 1 71 0
+ 117 0026 0028     		cmp	r0, #0
+ 118 0028 02D0     		beq	.L4
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     {
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****         dprintf("Set Inspect Status Err .\r\n");
+ 119              		.loc 1 73 0
+ 120 002a 0548     		ldr	r0, .L6+12
+ 121              	.LVL15:
+ 122 002c FFF7FEFF 		bl	dprintf_none
+ 123              	.LVL16:
+ 124              	.L4:
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     }
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** }
+ 125              		.loc 1 75 0
+ 126              		@ sp needed
+ 127              	.LVL17:
+ 128 0030 10BD     		pop	{r4, pc}
+ 129              	.L7:
+ 130 0032 C046     		.align	2
+ 131              	.L6:
+ 132 0034 00000000 		.word	.LANCHOR1
+ 133 0038 2C000000 		.word	.LC6
+ 134 003c 44000000 		.word	.LC8
+ 135 0040 58000000 		.word	.LC10
+ 136              		.cfi_endproc
+ 137              	.LFE44:
+ 139              		.section	.text.Example_swTimer,"ax",%progbits
+ 140              		.align	2
+ 141              		.global	Example_swTimer
+ 142              		.code	16
+ 143              		.thumb_func
+ 145              	Example_swTimer:
+ 146              	.LFB45:
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** 
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** UINT32 Example_swTimer(VOID)
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** {
+ 147              		.loc 1 78 0
+ 148              		.cfi_startproc
+ 149              		@ args = 0, pretend = 0, frame = 8
+ 150              		@ frame_needed = 0, uses_anonymous_args = 0
+ 151 0000 00B5     		push	{lr}
+ 152              	.LCFI2:
+ 153              		.cfi_def_cfa_offset 4
+ 154              		.cfi_offset 14, -4
+ 155 0002 87B0     		sub	sp, sp, #28
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccIeZ1RG.s 			page 5
+
+
+ 156              	.LCFI3:
+ 157              		.cfi_def_cfa_offset 32
+ 158              	.LVL18:
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     UINT16 id1;
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     UINT16 id2;// timer id
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     UINT32 uwRet = LOS_OK;
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** 
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** #if (LOSCFG_BASE_CORE_SWTMR_ALIGN == YES)
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     uwRet = LOS_SwtmrCreate(1000, LOS_SWTMR_MODE_ONCE, Timer1_Callback, &id1, 1, OS_SWTMR_ROUSES_AL
+ 159              		.loc 1 84 0
+ 160 0004 0023     		movs	r3, #0
+ 161 0006 0293     		str	r3, [sp, #8]
+ 162 0008 0133     		adds	r3, r3, #1
+ 163 000a 0193     		str	r3, [sp, #4]
+ 164 000c 0093     		str	r3, [sp]
+ 165 000e 1533     		adds	r3, r3, #21
+ 166 0010 6B44     		add	r3, r3, sp
+ 167 0012 424A     		ldr	r2, .L24
+ 168 0014 0021     		movs	r1, #0
+ 169 0016 FA20     		movs	r0, #250
+ 170 0018 8000     		lsls	r0, r0, #2
+ 171 001a FFF7FEFF 		bl	LOS_SwtmrCreate
+ 172              	.LVL19:
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** #else
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     uwRet = LOS_SwtmrCreate(1000, LOS_SWTMR_MODE_ONCE, Timer1_Callback, &id1, 1);
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** #endif
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     if (LOS_OK != uwRet)
+ 173              		.loc 1 88 0
+ 174 001e 0028     		cmp	r0, #0
+ 175 0020 03D0     		beq	.L9
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     {
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****         dprintf("create Timer1 failed .\r\n");
+ 176              		.loc 1 90 0
+ 177 0022 3F48     		ldr	r0, .L24+4
+ 178              	.LVL20:
+ 179 0024 FFF7FEFF 		bl	dprintf_none
+ 180              	.LVL21:
+ 181 0028 02E0     		b	.L10
+ 182              	.LVL22:
+ 183              	.L9:
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     }
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     else
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     {
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****         dprintf("create Timer1 success .\r\n");
+ 184              		.loc 1 94 0
+ 185 002a 3E48     		ldr	r0, .L24+8
+ 186              	.LVL23:
+ 187 002c FFF7FEFF 		bl	dprintf_none
+ 188              	.LVL24:
+ 189              	.L10:
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     }
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** 
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** #if (LOSCFG_BASE_CORE_SWTMR_ALIGN == YES)
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     uwRet = LOS_SwtmrCreate(100, LOS_SWTMR_MODE_PERIOD, Timer2_Callback, &id2, 1, OS_SWTMR_ROUSES_A
+ 190              		.loc 1 98 0
+ 191 0030 0023     		movs	r3, #0
+ 192 0032 0293     		str	r3, [sp, #8]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccIeZ1RG.s 			page 6
+
+
+ 193 0034 0133     		adds	r3, r3, #1
+ 194 0036 0193     		str	r3, [sp, #4]
+ 195 0038 0093     		str	r3, [sp]
+ 196 003a 05AB     		add	r3, sp, #20
+ 197 003c 3A4A     		ldr	r2, .L24+12
+ 198 003e 0121     		movs	r1, #1
+ 199 0040 6420     		movs	r0, #100
+ 200 0042 FFF7FEFF 		bl	LOS_SwtmrCreate
+ 201              	.LVL25:
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** #else
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     uwRet = LOS_SwtmrCreate(100, LOS_SWTMR_MODE_PERIOD, Timer2_Callback, &id2, 1);
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** #endif
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     if(LOS_OK != uwRet)
+ 202              		.loc 1 102 0
+ 203 0046 0028     		cmp	r0, #0
+ 204 0048 03D0     		beq	.L11
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     {
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****         dprintf("create Timer2 failed .\r\n");
+ 205              		.loc 1 104 0
+ 206 004a 3848     		ldr	r0, .L24+16
+ 207              	.LVL26:
+ 208 004c FFF7FEFF 		bl	dprintf_none
+ 209              	.LVL27:
+ 210 0050 02E0     		b	.L12
+ 211              	.LVL28:
+ 212              	.L11:
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     }
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     else
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     {
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****         dprintf("create Timer2 success .\r\n");
+ 213              		.loc 1 108 0
+ 214 0052 3748     		ldr	r0, .L24+20
+ 215              	.LVL29:
+ 216 0054 FFF7FEFF 		bl	dprintf_none
+ 217              	.LVL30:
+ 218              	.L12:
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     }
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** 
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     uwRet = LOS_SwtmrStart(id1);
+ 219              		.loc 1 111 0
+ 220 0058 1623     		movs	r3, #22
+ 221 005a 6B44     		add	r3, r3, sp
+ 222 005c 1888     		ldrh	r0, [r3]
+ 223 005e FFF7FEFF 		bl	LOS_SwtmrStart
+ 224              	.LVL31:
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     if (LOS_OK != uwRet)
+ 225              		.loc 1 112 0
+ 226 0062 0028     		cmp	r0, #0
+ 227 0064 03D0     		beq	.L13
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     {
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****         dprintf("start Timer1 failed .\r\n");
+ 228              		.loc 1 114 0
+ 229 0066 3348     		ldr	r0, .L24+24
+ 230              	.LVL32:
+ 231 0068 FFF7FEFF 		bl	dprintf_none
+ 232              	.LVL33:
+ 233 006c 02E0     		b	.L14
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccIeZ1RG.s 			page 7
+
+
+ 234              	.LVL34:
+ 235              	.L13:
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     }
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     else
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     {
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****         dprintf("start Timer1 sucess .\r\n");
+ 236              		.loc 1 118 0
+ 237 006e 3248     		ldr	r0, .L24+28
+ 238              	.LVL35:
+ 239 0070 FFF7FEFF 		bl	dprintf_none
+ 240              	.LVL36:
+ 241              	.L14:
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     }
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** 
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     (VOID)LOS_TaskDelay(200);
+ 242              		.loc 1 121 0
+ 243 0074 C820     		movs	r0, #200
+ 244 0076 FFF7FEFF 		bl	LOS_TaskDelay
+ 245              	.LVL37:
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** 
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     uwRet = LOS_SwtmrStop(id1);
+ 246              		.loc 1 123 0
+ 247 007a 1623     		movs	r3, #22
+ 248 007c 6B44     		add	r3, r3, sp
+ 249 007e 1888     		ldrh	r0, [r3]
+ 250 0080 FFF7FEFF 		bl	LOS_SwtmrStop
+ 251              	.LVL38:
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     if (LOS_OK != uwRet)
+ 252              		.loc 1 124 0
+ 253 0084 0028     		cmp	r0, #0
+ 254 0086 03D0     		beq	.L15
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     {
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****         dprintf("stop Timer1 failed .\r\n");
+ 255              		.loc 1 126 0
+ 256 0088 2C48     		ldr	r0, .L24+32
+ 257              	.LVL39:
+ 258 008a FFF7FEFF 		bl	dprintf_none
+ 259              	.LVL40:
+ 260 008e 02E0     		b	.L16
+ 261              	.LVL41:
+ 262              	.L15:
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     }
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     else
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     {
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****         dprintf("stop Timer1 sucess .\r\n");
+ 263              		.loc 1 130 0
+ 264 0090 2B48     		ldr	r0, .L24+36
+ 265              	.LVL42:
+ 266 0092 FFF7FEFF 		bl	dprintf_none
+ 267              	.LVL43:
+ 268              	.L16:
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     }
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** 
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     uwRet = LOS_SwtmrStart(id1);
+ 269              		.loc 1 133 0
+ 270 0096 1623     		movs	r3, #22
+ 271 0098 6B44     		add	r3, r3, sp
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccIeZ1RG.s 			page 8
+
+
+ 272 009a 1888     		ldrh	r0, [r3]
+ 273 009c FFF7FEFF 		bl	LOS_SwtmrStart
+ 274              	.LVL44:
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     if (LOS_OK != uwRet)
+ 275              		.loc 1 134 0
+ 276 00a0 0028     		cmp	r0, #0
+ 277 00a2 02D0     		beq	.L17
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     {
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****         dprintf("start Timer1 failed .\r\n");
+ 278              		.loc 1 136 0
+ 279 00a4 2348     		ldr	r0, .L24+24
+ 280              	.LVL45:
+ 281 00a6 FFF7FEFF 		bl	dprintf_none
+ 282              	.LVL46:
+ 283              	.L17:
+ 137:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     }
+ 138:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** 
+ 139:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     (VOID)LOS_TaskDelay(1000);
+ 284              		.loc 1 139 0
+ 285 00aa FA20     		movs	r0, #250
+ 286 00ac 8000     		lsls	r0, r0, #2
+ 287 00ae FFF7FEFF 		bl	LOS_TaskDelay
+ 288              	.LVL47:
+ 140:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** 
+ 141:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     /*the timer that mode is once, kernel will delete it automatically when timer is timeout */
+ 142:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     uwRet = LOS_SwtmrDelete(id1);
+ 289              		.loc 1 142 0
+ 290 00b2 1623     		movs	r3, #22
+ 291 00b4 6B44     		add	r3, r3, sp
+ 292 00b6 1888     		ldrh	r0, [r3]
+ 293 00b8 FFF7FEFF 		bl	LOS_SwtmrDelete
+ 294              	.LVL48:
+ 143:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     if (LOS_OK != uwRet)
+ 295              		.loc 1 143 0
+ 296 00bc 0028     		cmp	r0, #0
+ 297 00be 03D0     		beq	.L18
+ 144:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     {
+ 145:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****         dprintf("delete Timer1 failed .\r\n");
+ 298              		.loc 1 145 0
+ 299 00c0 2048     		ldr	r0, .L24+40
+ 300              	.LVL49:
+ 301 00c2 FFF7FEFF 		bl	dprintf_none
+ 302              	.LVL50:
+ 303 00c6 02E0     		b	.L19
+ 304              	.LVL51:
+ 305              	.L18:
+ 146:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     }
+ 147:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     else
+ 148:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     {
+ 149:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****         dprintf("delete Timer1 sucess .\r\n");
+ 306              		.loc 1 149 0
+ 307 00c8 1F48     		ldr	r0, .L24+44
+ 308              	.LVL52:
+ 309 00ca FFF7FEFF 		bl	dprintf_none
+ 310              	.LVL53:
+ 311              	.L19:
+ 150:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     }
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccIeZ1RG.s 			page 9
+
+
+ 151:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** 
+ 152:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     uwRet = LOS_SwtmrStart(id2);
+ 312              		.loc 1 152 0
+ 313 00ce 05AB     		add	r3, sp, #20
+ 314 00d0 1888     		ldrh	r0, [r3]
+ 315 00d2 FFF7FEFF 		bl	LOS_SwtmrStart
+ 316              	.LVL54:
+ 153:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     if (LOS_OK != uwRet)
+ 317              		.loc 1 153 0
+ 318 00d6 0028     		cmp	r0, #0
+ 319 00d8 03D0     		beq	.L20
+ 154:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     {
+ 155:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****         dprintf("start Timer2 failed .\r\n");
+ 320              		.loc 1 155 0
+ 321 00da 1C48     		ldr	r0, .L24+48
+ 322              	.LVL55:
+ 323 00dc FFF7FEFF 		bl	dprintf_none
+ 324              	.LVL56:
+ 325 00e0 02E0     		b	.L21
+ 326              	.LVL57:
+ 327              	.L20:
+ 156:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     }
+ 157:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     else
+ 158:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     {
+ 159:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****         dprintf("start Timer2 success .\r\n");
+ 328              		.loc 1 159 0
+ 329 00e2 1B48     		ldr	r0, .L24+52
+ 330              	.LVL58:
+ 331 00e4 FFF7FEFF 		bl	dprintf_none
+ 332              	.LVL59:
+ 333              	.L21:
+ 160:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     }
+ 161:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** 
+ 162:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     (VOID)LOS_TaskDelay(1000);
+ 334              		.loc 1 162 0
+ 335 00e8 FA20     		movs	r0, #250
+ 336 00ea 8000     		lsls	r0, r0, #2
+ 337 00ec FFF7FEFF 		bl	LOS_TaskDelay
+ 338              	.LVL60:
+ 163:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** 
+ 164:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     uwRet = LOS_SwtmrStop(id2);
+ 339              		.loc 1 164 0
+ 340 00f0 05AB     		add	r3, sp, #20
+ 341 00f2 1888     		ldrh	r0, [r3]
+ 342 00f4 FFF7FEFF 		bl	LOS_SwtmrStop
+ 343              	.LVL61:
+ 165:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     if (LOS_OK != uwRet)
+ 344              		.loc 1 165 0
+ 345 00f8 0028     		cmp	r0, #0
+ 346 00fa 02D0     		beq	.L22
+ 166:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     {
+ 167:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****         dprintf("stop Timer2 failed .\r\n");
+ 347              		.loc 1 167 0
+ 348 00fc 1548     		ldr	r0, .L24+56
+ 349              	.LVL62:
+ 350 00fe FFF7FEFF 		bl	dprintf_none
+ 351              	.LVL63:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccIeZ1RG.s 			page 10
+
+
+ 352              	.L22:
+ 168:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     }
+ 169:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** 
+ 170:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     uwRet = LOS_SwtmrDelete(id2);
+ 353              		.loc 1 170 0
+ 354 0102 05AB     		add	r3, sp, #20
+ 355 0104 1888     		ldrh	r0, [r3]
+ 356 0106 FFF7FEFF 		bl	LOS_SwtmrDelete
+ 357              	.LVL64:
+ 171:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     if (LOS_OK != uwRet)
+ 358              		.loc 1 171 0
+ 359 010a 0028     		cmp	r0, #0
+ 360 010c 02D0     		beq	.L23
+ 172:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     {
+ 173:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****         dprintf("delete Timer2 failed .\r\n");
+ 361              		.loc 1 173 0
+ 362 010e 1248     		ldr	r0, .L24+60
+ 363              	.LVL65:
+ 364 0110 FFF7FEFF 		bl	dprintf_none
+ 365              	.LVL66:
+ 366              	.L23:
+ 174:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     }
+ 175:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** 
+ 176:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c ****     return LOS_OK;
+ 177:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_timer.c **** }
+ 367              		.loc 1 177 0
+ 368 0114 0020     		movs	r0, #0
+ 369 0116 07B0     		add	sp, sp, #28
+ 370              		@ sp needed
+ 371 0118 00BD     		pop	{pc}
+ 372              	.L25:
+ 373 011a C046     		.align	2
+ 374              	.L24:
+ 375 011c 00000000 		.word	Timer1_Callback
+ 376 0120 74000000 		.word	.LC13
+ 377 0124 90000000 		.word	.LC15
+ 378 0128 00000000 		.word	Timer2_Callback
+ 379 012c AC000000 		.word	.LC18
+ 380 0130 C8000000 		.word	.LC20
+ 381 0134 E4000000 		.word	.LC22
+ 382 0138 FC000000 		.word	.LC24
+ 383 013c 14010000 		.word	.LC26
+ 384 0140 2C010000 		.word	.LC28
+ 385 0144 44010000 		.word	.LC30
+ 386 0148 60010000 		.word	.LC32
+ 387 014c 7C010000 		.word	.LC34
+ 388 0150 94010000 		.word	.LC36
+ 389 0154 B0010000 		.word	.LC38
+ 390 0158 C8010000 		.word	.LC40
+ 391              		.cfi_endproc
+ 392              	.LFE45:
+ 394              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 395              		.align	2
+ 396              	.LC1:
+ 397 0000 675F7469 		.ascii	"g_timercount1=%d .\015\012\000"
+ 397      6D657263 
+ 397      6F756E74 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccIeZ1RG.s 			page 11
+
+
+ 397      313D2564 
+ 397      202E0D0A 
+ 398 0015 000000   		.space	3
+ 399              	.LC3:
+ 400 0018 7469636B 		.ascii	"tick_last1=%d .\015\012\000"
+ 400      5F6C6173 
+ 400      74313D25 
+ 400      64202E0D 
+ 400      0A00
+ 401 002a 0000     		.space	2
+ 402              	.LC6:
+ 403 002c 675F7469 		.ascii	"g_timercount2=%d .\015\012\000"
+ 403      6D657263 
+ 403      6F756E74 
+ 403      323D2564 
+ 403      202E0D0A 
+ 404 0041 000000   		.space	3
+ 405              	.LC8:
+ 406 0044 7469636B 		.ascii	"tick_last2=%d .\015\012\000"
+ 406      5F6C6173 
+ 406      74323D25 
+ 406      64202E0D 
+ 406      0A00
+ 407 0056 0000     		.space	2
+ 408              	.LC10:
+ 409 0058 53657420 		.ascii	"Set Inspect Status Err .\015\012\000"
+ 409      496E7370 
+ 409      65637420 
+ 409      53746174 
+ 409      75732045 
+ 410 0073 00       		.space	1
+ 411              	.LC13:
+ 412 0074 63726561 		.ascii	"create Timer1 failed .\015\012\000"
+ 412      74652054 
+ 412      696D6572 
+ 412      31206661 
+ 412      696C6564 
+ 413 008d 000000   		.space	3
+ 414              	.LC15:
+ 415 0090 63726561 		.ascii	"create Timer1 success .\015\012\000"
+ 415      74652054 
+ 415      696D6572 
+ 415      31207375 
+ 415      63636573 
+ 416 00aa 0000     		.space	2
+ 417              	.LC18:
+ 418 00ac 63726561 		.ascii	"create Timer2 failed .\015\012\000"
+ 418      74652054 
+ 418      696D6572 
+ 418      32206661 
+ 418      696C6564 
+ 419 00c5 000000   		.space	3
+ 420              	.LC20:
+ 421 00c8 63726561 		.ascii	"create Timer2 success .\015\012\000"
+ 421      74652054 
+ 421      696D6572 
+ 421      32207375 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccIeZ1RG.s 			page 12
+
+
+ 421      63636573 
+ 422 00e2 0000     		.space	2
+ 423              	.LC22:
+ 424 00e4 73746172 		.ascii	"start Timer1 failed .\015\012\000"
+ 424      74205469 
+ 424      6D657231 
+ 424      20666169 
+ 424      6C656420 
+ 425              	.LC24:
+ 426 00fc 73746172 		.ascii	"start Timer1 sucess .\015\012\000"
+ 426      74205469 
+ 426      6D657231 
+ 426      20737563 
+ 426      65737320 
+ 427              	.LC26:
+ 428 0114 73746F70 		.ascii	"stop Timer1 failed .\015\012\000"
+ 428      2054696D 
+ 428      65723120 
+ 428      6661696C 
+ 428      6564202E 
+ 429 012b 00       		.space	1
+ 430              	.LC28:
+ 431 012c 73746F70 		.ascii	"stop Timer1 sucess .\015\012\000"
+ 431      2054696D 
+ 431      65723120 
+ 431      73756365 
+ 431      7373202E 
+ 432 0143 00       		.space	1
+ 433              	.LC30:
+ 434 0144 64656C65 		.ascii	"delete Timer1 failed .\015\012\000"
+ 434      74652054 
+ 434      696D6572 
+ 434      31206661 
+ 434      696C6564 
+ 435 015d 000000   		.space	3
+ 436              	.LC32:
+ 437 0160 64656C65 		.ascii	"delete Timer1 sucess .\015\012\000"
+ 437      74652054 
+ 437      696D6572 
+ 437      31207375 
+ 437      63657373 
+ 438 0179 000000   		.space	3
+ 439              	.LC34:
+ 440 017c 73746172 		.ascii	"start Timer2 failed .\015\012\000"
+ 440      74205469 
+ 440      6D657232 
+ 440      20666169 
+ 440      6C656420 
+ 441              	.LC36:
+ 442 0194 73746172 		.ascii	"start Timer2 success .\015\012\000"
+ 442      74205469 
+ 442      6D657232 
+ 442      20737563 
+ 442      63657373 
+ 443 01ad 000000   		.space	3
+ 444              	.LC38:
+ 445 01b0 73746F70 		.ascii	"stop Timer2 failed .\015\012\000"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccIeZ1RG.s 			page 13
+
+
+ 445      2054696D 
+ 445      65723220 
+ 445      6661696C 
+ 445      6564202E 
+ 446 01c7 00       		.space	1
+ 447              	.LC40:
+ 448 01c8 64656C65 		.ascii	"delete Timer2 failed .\015\012\000"
+ 448      74652054 
+ 448      696D6572 
+ 448      32206661 
+ 448      696C6564 
+ 449              		.section	.bss.g_timercount1,"aw",%nobits
+ 450              		.align	2
+ 451              		.set	.LANCHOR0,. + 0
+ 454              	g_timercount1:
+ 455 0000 00000000 		.space	4
+ 456              		.section	.bss.g_timercount2,"aw",%nobits
+ 457              		.align	2
+ 458              		.set	.LANCHOR1,. + 0
+ 461              	g_timercount2:
+ 462 0000 00000000 		.space	4
+ 463              		.text
+ 464              	.Letext0:
+ 465              		.file 2 "e:\\liteos\\liteos\\kernel\\include\\los_typedef.h"
+ 466              		.file 3 "e:\\liteos\\liteos\\kernel\\include\\los_swtmr.h"
+ 467              		.file 4 "e:\\liteos\\liteos\\examples\\include\\los_inspect_entry.h"
+ 468              		.file 5 "e:\\liteos\\liteos\\kernel\\include\\los_sys.h"
+ 469              		.file 6 "e:\\liteos\\liteos\\examples\\include\\los_demo_debug.h"
+ 470              		.file 7 "e:\\liteos\\liteos\\kernel\\include\\los_task.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccIeZ1RG.s 			page 14
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 los_api_timer.c
+C:\Users\WANGBI~1\AppData\Local\Temp\ccIeZ1RG.s:20     .text.Timer1_Callback:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccIeZ1RG.s:24     .text.Timer1_Callback:00000000 Timer1_Callback
+C:\Users\WANGBI~1\AppData\Local\Temp\ccIeZ1RG.s:67     .text.Timer1_Callback:00000024 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccIeZ1RG.s:74     .text.Timer2_Callback:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccIeZ1RG.s:78     .text.Timer2_Callback:00000000 Timer2_Callback
+C:\Users\WANGBI~1\AppData\Local\Temp\ccIeZ1RG.s:132    .text.Timer2_Callback:00000034 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccIeZ1RG.s:140    .text.Example_swTimer:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccIeZ1RG.s:145    .text.Example_swTimer:00000000 Example_swTimer
+C:\Users\WANGBI~1\AppData\Local\Temp\ccIeZ1RG.s:375    .text.Example_swTimer:0000011c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccIeZ1RG.s:395    .rodata.str1.4:00000000 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccIeZ1RG.s:450    .bss.g_timercount1:00000000 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccIeZ1RG.s:454    .bss.g_timercount1:00000000 g_timercount1
+C:\Users\WANGBI~1\AppData\Local\Temp\ccIeZ1RG.s:457    .bss.g_timercount2:00000000 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccIeZ1RG.s:461    .bss.g_timercount2:00000000 g_timercount2
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+LOS_TickCountGet
+dprintf_none
+LOS_InspectStatusSetByID
+LOS_SwtmrCreate
+LOS_SwtmrStart
+LOS_TaskDelay
+LOS_SwtmrStop
+LOS_SwtmrDelete

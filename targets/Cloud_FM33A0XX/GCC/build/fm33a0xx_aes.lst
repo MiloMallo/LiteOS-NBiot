@@ -1,0 +1,2361 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"fm33a0xx_aes.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.AES_AESCR_KEYLEN_Set,"ax",%progbits
+  20              		.align	2
+  21              		.global	AES_AESCR_KEYLEN_Set
+  22              		.code	16
+  23              		.thumb_func
+  25              	AES_AESCR_KEYLEN_Set:
+  26              	.LFB36:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers/fm33a
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /**
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c ****   ******************************************************************************
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c ****   * @file    fm33a0xx_aes.c
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c ****   * @author  FM33a0xx Application Team
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c ****   * @version V2.0.1
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c ****   * @date    23-3-2018
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c ****   * @brief   This file provides firmware functions to manage the following 
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c ****   *          functionalities of....:
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c ****   *
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** */
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /* Includes ------------------------------------------------------------------*/
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** #include "fm33a0xx_aes.h" 
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /** @addtogroup fm33a0xx_StdPeriph_Driver
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c ****   * @{
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c ****   */
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /** @defgroup AES 
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c ****   * @brief AES driver modules
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c ****   * @{
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c ****   */ 
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /* Private typedef -----------------------------------------------------------*/
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /* Private define ------------------------------------------------------------*/
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /* Private macro -------------------------------------------------------------*/
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /* Private variables ---------------------------------------------------------*/
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /* Private function prototypes -----------------------------------------------*/
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 2
+
+
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /* Private functions ---------------------------------------------------------*/
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** //Code_Start
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** //2018-04-02-13-19-52
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** //FM33A0XX_Driver_Gen_V1.4
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /* AES¼ÓÃÜÃÜÔ¿³¤¶È£¬AESEN=1Ê±²»¿ÉÐÞ¸Ä Ïà¹Øº¯Êý */
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** void AES_AESCR_KEYLEN_Set(uint32_t SetValue)
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+  28              		.loc 1 41 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	uint32_t tmpreg;
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	tmpreg = AES->AESCR;
+  34              		.loc 1 43 0
+  35 0000 0449     		ldr	r1, .L2
+  36 0002 0A68     		ldr	r2, [r1]
+  37              	.LVL1:
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	tmpreg &= ~(AES_AESCR_KEYLEN_Msk);
+  38              		.loc 1 44 0
+  39 0004 044B     		ldr	r3, .L2+4
+  40 0006 1A40     		ands	r2, r3
+  41              	.LVL2:
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	tmpreg |= (SetValue & AES_AESCR_KEYLEN_Msk);
+  42              		.loc 1 45 0
+  43 0008 C023     		movs	r3, #192
+  44 000a DB01     		lsls	r3, r3, #7
+  45 000c 1840     		ands	r0, r3
+  46              	.LVL3:
+  47 000e 1043     		orrs	r0, r2
+  48              	.LVL4:
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES->AESCR = tmpreg;
+  49              		.loc 1 46 0
+  50 0010 0860     		str	r0, [r1]
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+  51              		.loc 1 47 0
+  52              		@ sp needed
+  53 0012 7047     		bx	lr
+  54              	.L3:
+  55              		.align	2
+  56              	.L2:
+  57 0014 00380140 		.word	1073821696
+  58 0018 FF9FFFFF 		.word	-24577
+  59              		.cfi_endproc
+  60              	.LFE36:
+  62              		.section	.text.AES_AESCR_KEYLEN_Get,"ax",%progbits
+  63              		.align	2
+  64              		.global	AES_AESCR_KEYLEN_Get
+  65              		.code	16
+  66              		.thumb_func
+  68              	AES_AESCR_KEYLEN_Get:
+  69              	.LFB37:
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 3
+
+
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** uint32_t AES_AESCR_KEYLEN_Get(void)
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+  70              		.loc 1 50 0
+  71              		.cfi_startproc
+  72              		@ args = 0, pretend = 0, frame = 0
+  73              		@ frame_needed = 0, uses_anonymous_args = 0
+  74              		@ link register save eliminated.
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	return (AES->AESCR & AES_AESCR_KEYLEN_Msk);
+  75              		.loc 1 51 0
+  76 0000 024B     		ldr	r3, .L5
+  77 0002 1868     		ldr	r0, [r3]
+  78 0004 C023     		movs	r3, #192
+  79 0006 DB01     		lsls	r3, r3, #7
+  80 0008 1840     		ands	r0, r3
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+  81              		.loc 1 52 0
+  82              		@ sp needed
+  83 000a 7047     		bx	lr
+  84              	.L6:
+  85              		.align	2
+  86              	.L5:
+  87 000c 00380140 		.word	1073821696
+  88              		.cfi_endproc
+  89              	.LFE37:
+  91              		.section	.text.AES_AESCR_DMAOEN_Setable,"ax",%progbits
+  92              		.align	2
+  93              		.global	AES_AESCR_DMAOEN_Setable
+  94              		.code	16
+  95              		.thumb_func
+  97              	AES_AESCR_DMAOEN_Setable:
+  98              	.LFB38:
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /* DMAÊý¾Ý×Ô¶¯¶Á³öÊ¹ÄÜ Ïà¹Øº¯Êý */
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** void AES_AESCR_DMAOEN_Setable(FunState NewState)
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+  99              		.loc 1 56 0
+ 100              		.cfi_startproc
+ 101              		@ args = 0, pretend = 0, frame = 0
+ 102              		@ frame_needed = 0, uses_anonymous_args = 0
+ 103              		@ link register save eliminated.
+ 104              	.LVL5:
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	if (NewState == ENABLE)
+ 105              		.loc 1 57 0
+ 106 0000 0128     		cmp	r0, #1
+ 107 0002 06D1     		bne	.L8
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		AES->AESCR |= (AES_AESCR_DMAOEN_Msk);
+ 108              		.loc 1 59 0
+ 109 0004 064A     		ldr	r2, .L10
+ 110 0006 1368     		ldr	r3, [r2]
+ 111 0008 8021     		movs	r1, #128
+ 112 000a 4901     		lsls	r1, r1, #5
+ 113 000c 0B43     		orrs	r3, r1
+ 114 000e 1360     		str	r3, [r2]
+ 115 0010 04E0     		b	.L7
+ 116              	.L8:
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 4
+
+
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	else
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		AES->AESCR &= ~(AES_AESCR_DMAOEN_Msk);
+ 117              		.loc 1 63 0
+ 118 0012 034A     		ldr	r2, .L10
+ 119 0014 1168     		ldr	r1, [r2]
+ 120 0016 034B     		ldr	r3, .L10+4
+ 121 0018 0B40     		ands	r3, r1
+ 122 001a 1360     		str	r3, [r2]
+ 123              	.L7:
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 124              		.loc 1 65 0
+ 125              		@ sp needed
+ 126 001c 7047     		bx	lr
+ 127              	.L11:
+ 128 001e C046     		.align	2
+ 129              	.L10:
+ 130 0020 00380140 		.word	1073821696
+ 131 0024 FFEFFFFF 		.word	-4097
+ 132              		.cfi_endproc
+ 133              	.LFE38:
+ 135              		.section	.text.AES_AESCR_DMAOEN_Getable,"ax",%progbits
+ 136              		.align	2
+ 137              		.global	AES_AESCR_DMAOEN_Getable
+ 138              		.code	16
+ 139              		.thumb_func
+ 141              	AES_AESCR_DMAOEN_Getable:
+ 142              	.LFB39:
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** FunState AES_AESCR_DMAOEN_Getable(void)
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 143              		.loc 1 68 0
+ 144              		.cfi_startproc
+ 145              		@ args = 0, pretend = 0, frame = 0
+ 146              		@ frame_needed = 0, uses_anonymous_args = 0
+ 147              		@ link register save eliminated.
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	if (AES->AESCR & (AES_AESCR_DMAOEN_Msk))
+ 148              		.loc 1 69 0
+ 149 0000 034B     		ldr	r3, .L15
+ 150 0002 1B68     		ldr	r3, [r3]
+ 151 0004 DB04     		lsls	r3, r3, #19
+ 152 0006 01D5     		bpl	.L14
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		return ENABLE;
+ 153              		.loc 1 71 0
+ 154 0008 0120     		movs	r0, #1
+ 155 000a 00E0     		b	.L13
+ 156              	.L14:
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	else
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		return DISABLE;
+ 157              		.loc 1 75 0
+ 158 000c 0020     		movs	r0, #0
+ 159              	.L13:
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 5
+
+
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 160              		.loc 1 77 0
+ 161              		@ sp needed
+ 162 000e 7047     		bx	lr
+ 163              	.L16:
+ 164              		.align	2
+ 165              	.L15:
+ 166 0010 00380140 		.word	1073821696
+ 167              		.cfi_endproc
+ 168              	.LFE39:
+ 170              		.section	.text.AES_AESCR_DMAIEN_Setable,"ax",%progbits
+ 171              		.align	2
+ 172              		.global	AES_AESCR_DMAIEN_Setable
+ 173              		.code	16
+ 174              		.thumb_func
+ 176              	AES_AESCR_DMAIEN_Setable:
+ 177              	.LFB40:
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /* DMAÊý¾Ý×Ô¶¯Ð´ÈëÊ¹ÄÜ Ïà¹Øº¯Êý */
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** void AES_AESCR_DMAIEN_Setable(FunState NewState)
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 178              		.loc 1 81 0
+ 179              		.cfi_startproc
+ 180              		@ args = 0, pretend = 0, frame = 0
+ 181              		@ frame_needed = 0, uses_anonymous_args = 0
+ 182              		@ link register save eliminated.
+ 183              	.LVL6:
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	if (NewState == ENABLE)
+ 184              		.loc 1 82 0
+ 185 0000 0128     		cmp	r0, #1
+ 186 0002 06D1     		bne	.L18
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		AES->AESCR |= (AES_AESCR_DMAIEN_Msk);
+ 187              		.loc 1 84 0
+ 188 0004 064A     		ldr	r2, .L20
+ 189 0006 1368     		ldr	r3, [r2]
+ 190 0008 8021     		movs	r1, #128
+ 191 000a 0901     		lsls	r1, r1, #4
+ 192 000c 0B43     		orrs	r3, r1
+ 193 000e 1360     		str	r3, [r2]
+ 194 0010 04E0     		b	.L17
+ 195              	.L18:
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	else
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		AES->AESCR &= ~(AES_AESCR_DMAIEN_Msk);
+ 196              		.loc 1 88 0
+ 197 0012 034A     		ldr	r2, .L20
+ 198 0014 1168     		ldr	r1, [r2]
+ 199 0016 034B     		ldr	r3, .L20+4
+ 200 0018 0B40     		ands	r3, r1
+ 201 001a 1360     		str	r3, [r2]
+ 202              	.L17:
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 203              		.loc 1 90 0
+ 204              		@ sp needed
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 6
+
+
+ 205 001c 7047     		bx	lr
+ 206              	.L21:
+ 207 001e C046     		.align	2
+ 208              	.L20:
+ 209 0020 00380140 		.word	1073821696
+ 210 0024 FFF7FFFF 		.word	-2049
+ 211              		.cfi_endproc
+ 212              	.LFE40:
+ 214              		.section	.text.AES_AESCR_DMAIEN_Getable,"ax",%progbits
+ 215              		.align	2
+ 216              		.global	AES_AESCR_DMAIEN_Getable
+ 217              		.code	16
+ 218              		.thumb_func
+ 220              	AES_AESCR_DMAIEN_Getable:
+ 221              	.LFB41:
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** FunState AES_AESCR_DMAIEN_Getable(void)
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 222              		.loc 1 93 0
+ 223              		.cfi_startproc
+ 224              		@ args = 0, pretend = 0, frame = 0
+ 225              		@ frame_needed = 0, uses_anonymous_args = 0
+ 226              		@ link register save eliminated.
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	if (AES->AESCR & (AES_AESCR_DMAIEN_Msk))
+ 227              		.loc 1 94 0
+ 228 0000 034B     		ldr	r3, .L25
+ 229 0002 1B68     		ldr	r3, [r3]
+ 230 0004 1B05     		lsls	r3, r3, #20
+ 231 0006 01D5     		bpl	.L24
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		return ENABLE;
+ 232              		.loc 1 96 0
+ 233 0008 0120     		movs	r0, #1
+ 234 000a 00E0     		b	.L23
+ 235              	.L24:
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	else
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		return DISABLE;
+ 236              		.loc 1 100 0
+ 237 000c 0020     		movs	r0, #0
+ 238              	.L23:
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 239              		.loc 1 102 0
+ 240              		@ sp needed
+ 241 000e 7047     		bx	lr
+ 242              	.L26:
+ 243              		.align	2
+ 244              	.L25:
+ 245 0010 00380140 		.word	1073821696
+ 246              		.cfi_endproc
+ 247              	.LFE41:
+ 249              		.section	.text.AES_AESCR_ERRIE_Setable,"ax",%progbits
+ 250              		.align	2
+ 251              		.global	AES_AESCR_ERRIE_Setable
+ 252              		.code	16
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 7
+
+
+ 253              		.thumb_func
+ 255              	AES_AESCR_ERRIE_Setable:
+ 256              	.LFB42:
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /* ´íÎó±êÖ¾£¨RDERRºÍWRERR£©ÖÐ¶ÏÊ¹ÄÜ Ïà¹Øº¯Êý */
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** void AES_AESCR_ERRIE_Setable(FunState NewState)
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 257              		.loc 1 106 0
+ 258              		.cfi_startproc
+ 259              		@ args = 0, pretend = 0, frame = 0
+ 260              		@ frame_needed = 0, uses_anonymous_args = 0
+ 261              		@ link register save eliminated.
+ 262              	.LVL7:
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	if (NewState == ENABLE)
+ 263              		.loc 1 107 0
+ 264 0000 0128     		cmp	r0, #1
+ 265 0002 06D1     		bne	.L28
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		AES->AESCR |= (AES_AESCR_ERRIE_Msk);
+ 266              		.loc 1 109 0
+ 267 0004 064A     		ldr	r2, .L30
+ 268 0006 1368     		ldr	r3, [r2]
+ 269 0008 8021     		movs	r1, #128
+ 270 000a C900     		lsls	r1, r1, #3
+ 271 000c 0B43     		orrs	r3, r1
+ 272 000e 1360     		str	r3, [r2]
+ 273 0010 04E0     		b	.L27
+ 274              	.L28:
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	else
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		AES->AESCR &= ~(AES_AESCR_ERRIE_Msk);
+ 275              		.loc 1 113 0
+ 276 0012 034A     		ldr	r2, .L30
+ 277 0014 1168     		ldr	r1, [r2]
+ 278 0016 034B     		ldr	r3, .L30+4
+ 279 0018 0B40     		ands	r3, r1
+ 280 001a 1360     		str	r3, [r2]
+ 281              	.L27:
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 282              		.loc 1 115 0
+ 283              		@ sp needed
+ 284 001c 7047     		bx	lr
+ 285              	.L31:
+ 286 001e C046     		.align	2
+ 287              	.L30:
+ 288 0020 00380140 		.word	1073821696
+ 289 0024 FFFBFFFF 		.word	-1025
+ 290              		.cfi_endproc
+ 291              	.LFE42:
+ 293              		.section	.text.AES_AESCR_ERRIE_Getable,"ax",%progbits
+ 294              		.align	2
+ 295              		.global	AES_AESCR_ERRIE_Getable
+ 296              		.code	16
+ 297              		.thumb_func
+ 299              	AES_AESCR_ERRIE_Getable:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 8
+
+
+ 300              	.LFB43:
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** FunState AES_AESCR_ERRIE_Getable(void)
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 301              		.loc 1 118 0
+ 302              		.cfi_startproc
+ 303              		@ args = 0, pretend = 0, frame = 0
+ 304              		@ frame_needed = 0, uses_anonymous_args = 0
+ 305              		@ link register save eliminated.
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	if (AES->AESCR & (AES_AESCR_ERRIE_Msk))
+ 306              		.loc 1 119 0
+ 307 0000 034B     		ldr	r3, .L35
+ 308 0002 1B68     		ldr	r3, [r3]
+ 309 0004 5B05     		lsls	r3, r3, #21
+ 310 0006 01D5     		bpl	.L34
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		return ENABLE;
+ 311              		.loc 1 121 0
+ 312 0008 0120     		movs	r0, #1
+ 313 000a 00E0     		b	.L33
+ 314              	.L34:
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	else
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		return DISABLE;
+ 315              		.loc 1 125 0
+ 316 000c 0020     		movs	r0, #0
+ 317              	.L33:
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 318              		.loc 1 127 0
+ 319              		@ sp needed
+ 320 000e 7047     		bx	lr
+ 321              	.L36:
+ 322              		.align	2
+ 323              	.L35:
+ 324 0010 00380140 		.word	1073821696
+ 325              		.cfi_endproc
+ 326              	.LFE43:
+ 328              		.section	.text.AES_AESCR_CCFIE_Setable,"ax",%progbits
+ 329              		.align	2
+ 330              		.global	AES_AESCR_CCFIE_Setable
+ 331              		.code	16
+ 332              		.thumb_func
+ 334              	AES_AESCR_CCFIE_Setable:
+ 335              	.LFB44:
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /* CCF±êÖ¾ÖÐ¶ÏÊ¹ÄÜ Ïà¹Øº¯Êý */
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** void AES_AESCR_CCFIE_Setable(FunState NewState)
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 336              		.loc 1 131 0
+ 337              		.cfi_startproc
+ 338              		@ args = 0, pretend = 0, frame = 0
+ 339              		@ frame_needed = 0, uses_anonymous_args = 0
+ 340              		@ link register save eliminated.
+ 341              	.LVL8:
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	if (NewState == ENABLE)
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 9
+
+
+ 342              		.loc 1 132 0
+ 343 0000 0128     		cmp	r0, #1
+ 344 0002 06D1     		bne	.L38
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		AES->AESCR |= (AES_AESCR_CCFIE_Msk);
+ 345              		.loc 1 134 0
+ 346 0004 064A     		ldr	r2, .L40
+ 347 0006 1368     		ldr	r3, [r2]
+ 348 0008 8021     		movs	r1, #128
+ 349 000a 8900     		lsls	r1, r1, #2
+ 350 000c 0B43     		orrs	r3, r1
+ 351 000e 1360     		str	r3, [r2]
+ 352 0010 04E0     		b	.L37
+ 353              	.L38:
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	else
+ 137:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 138:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		AES->AESCR &= ~(AES_AESCR_CCFIE_Msk);
+ 354              		.loc 1 138 0
+ 355 0012 034A     		ldr	r2, .L40
+ 356 0014 1168     		ldr	r1, [r2]
+ 357 0016 034B     		ldr	r3, .L40+4
+ 358 0018 0B40     		ands	r3, r1
+ 359 001a 1360     		str	r3, [r2]
+ 360              	.L37:
+ 139:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+ 140:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 361              		.loc 1 140 0
+ 362              		@ sp needed
+ 363 001c 7047     		bx	lr
+ 364              	.L41:
+ 365 001e C046     		.align	2
+ 366              	.L40:
+ 367 0020 00380140 		.word	1073821696
+ 368 0024 FFFDFFFF 		.word	-513
+ 369              		.cfi_endproc
+ 370              	.LFE44:
+ 372              		.section	.text.AES_AESCR_CCFIE_Getable,"ax",%progbits
+ 373              		.align	2
+ 374              		.global	AES_AESCR_CCFIE_Getable
+ 375              		.code	16
+ 376              		.thumb_func
+ 378              	AES_AESCR_CCFIE_Getable:
+ 379              	.LFB45:
+ 141:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 142:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** FunState AES_AESCR_CCFIE_Getable(void)
+ 143:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 380              		.loc 1 143 0
+ 381              		.cfi_startproc
+ 382              		@ args = 0, pretend = 0, frame = 0
+ 383              		@ frame_needed = 0, uses_anonymous_args = 0
+ 384              		@ link register save eliminated.
+ 144:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	if (AES->AESCR & (AES_AESCR_CCFIE_Msk))
+ 385              		.loc 1 144 0
+ 386 0000 034B     		ldr	r3, .L45
+ 387 0002 1B68     		ldr	r3, [r3]
+ 388 0004 9B05     		lsls	r3, r3, #22
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 10
+
+
+ 389 0006 01D5     		bpl	.L44
+ 145:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 146:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		return ENABLE;
+ 390              		.loc 1 146 0
+ 391 0008 0120     		movs	r0, #1
+ 392 000a 00E0     		b	.L43
+ 393              	.L44:
+ 147:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+ 148:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	else
+ 149:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 150:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		return DISABLE;
+ 394              		.loc 1 150 0
+ 395 000c 0020     		movs	r0, #0
+ 396              	.L43:
+ 151:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+ 152:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 397              		.loc 1 152 0
+ 398              		@ sp needed
+ 399 000e 7047     		bx	lr
+ 400              	.L46:
+ 401              		.align	2
+ 402              	.L45:
+ 403 0010 00380140 		.word	1073821696
+ 404              		.cfi_endproc
+ 405              	.LFE45:
+ 407              		.section	.text.AES_AESCR_ERRC_Clr,"ax",%progbits
+ 408              		.align	2
+ 409              		.global	AES_AESCR_ERRC_Clr
+ 410              		.code	16
+ 411              		.thumb_func
+ 413              	AES_AESCR_ERRC_Clr:
+ 414              	.LFB46:
+ 153:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 154:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /* Çå³ý´íÎó±êÖ¾Ð´1Çå³ýWRERRºÍRDERR´íÎó±êÖ¾ Ïà¹Øº¯Êý */
+ 155:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** void AES_AESCR_ERRC_Clr(void)
+ 156:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 415              		.loc 1 156 0
+ 416              		.cfi_startproc
+ 417              		@ args = 0, pretend = 0, frame = 0
+ 418              		@ frame_needed = 0, uses_anonymous_args = 0
+ 419              		@ link register save eliminated.
+ 157:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES->AESCR |= AES_AESCR_ERRC_Msk;
+ 420              		.loc 1 157 0
+ 421 0000 034A     		ldr	r2, .L48
+ 422 0002 1368     		ldr	r3, [r2]
+ 423 0004 8021     		movs	r1, #128
+ 424 0006 4900     		lsls	r1, r1, #1
+ 425 0008 0B43     		orrs	r3, r1
+ 426 000a 1360     		str	r3, [r2]
+ 158:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 427              		.loc 1 158 0
+ 428              		@ sp needed
+ 429 000c 7047     		bx	lr
+ 430              	.L49:
+ 431 000e C046     		.align	2
+ 432              	.L48:
+ 433 0010 00380140 		.word	1073821696
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 11
+
+
+ 434              		.cfi_endproc
+ 435              	.LFE46:
+ 437              		.section	.text.AES_AESCR_CCFC_Clr,"ax",%progbits
+ 438              		.align	2
+ 439              		.global	AES_AESCR_CCFC_Clr
+ 440              		.code	16
+ 441              		.thumb_func
+ 443              	AES_AESCR_CCFC_Clr:
+ 444              	.LFB47:
+ 159:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 160:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /* Çå³ýCCF±êÖ¾Ð´1ÇåCCF±êÖ¾
+ 161:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c ****  Ïà¹Øº¯Êý */
+ 162:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** void AES_AESCR_CCFC_Clr(void)
+ 163:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 445              		.loc 1 163 0
+ 446              		.cfi_startproc
+ 447              		@ args = 0, pretend = 0, frame = 0
+ 448              		@ frame_needed = 0, uses_anonymous_args = 0
+ 449              		@ link register save eliminated.
+ 164:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES->AESCR |= AES_AESCR_CCFC_Msk;
+ 450              		.loc 1 164 0
+ 451 0000 024A     		ldr	r2, .L51
+ 452 0002 1168     		ldr	r1, [r2]
+ 453 0004 8023     		movs	r3, #128
+ 454 0006 0B43     		orrs	r3, r1
+ 455 0008 1360     		str	r3, [r2]
+ 165:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 456              		.loc 1 165 0
+ 457              		@ sp needed
+ 458 000a 7047     		bx	lr
+ 459              	.L52:
+ 460              		.align	2
+ 461              	.L51:
+ 462 000c 00380140 		.word	1073821696
+ 463              		.cfi_endproc
+ 464              	.LFE47:
+ 466              		.section	.text.AES_AESCR_CHMOD_Set,"ax",%progbits
+ 467              		.align	2
+ 468              		.global	AES_AESCR_CHMOD_Set
+ 469              		.code	16
+ 470              		.thumb_func
+ 472              	AES_AESCR_CHMOD_Set:
+ 473              	.LFB48:
+ 166:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 167:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /* AESÊý¾ÝÁ÷´¦ÀíÄ£Ê½£¬AESEN=1Ê±²»¿ÉÐÞ¸Ä Ïà¹Øº¯Êý */
+ 168:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** void AES_AESCR_CHMOD_Set(uint32_t SetValue)
+ 169:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 474              		.loc 1 169 0
+ 475              		.cfi_startproc
+ 476              		@ args = 0, pretend = 0, frame = 0
+ 477              		@ frame_needed = 0, uses_anonymous_args = 0
+ 478              		@ link register save eliminated.
+ 479              	.LVL9:
+ 170:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	uint32_t tmpreg;
+ 171:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	tmpreg = AES->AESCR;
+ 480              		.loc 1 171 0
+ 481 0000 034A     		ldr	r2, .L54
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 12
+
+
+ 482 0002 1368     		ldr	r3, [r2]
+ 483              	.LVL10:
+ 172:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	tmpreg &= ~(AES_AESCR_CHMOD_Msk);
+ 484              		.loc 1 172 0
+ 485 0004 6021     		movs	r1, #96
+ 486 0006 8B43     		bics	r3, r1
+ 487              	.LVL11:
+ 173:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	tmpreg |= (SetValue & AES_AESCR_CHMOD_Msk);
+ 488              		.loc 1 173 0
+ 489 0008 0840     		ands	r0, r1
+ 490              	.LVL12:
+ 491 000a 1843     		orrs	r0, r3
+ 492              	.LVL13:
+ 174:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES->AESCR = tmpreg;
+ 493              		.loc 1 174 0
+ 494 000c 1060     		str	r0, [r2]
+ 175:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 495              		.loc 1 175 0
+ 496              		@ sp needed
+ 497 000e 7047     		bx	lr
+ 498              	.L55:
+ 499              		.align	2
+ 500              	.L54:
+ 501 0010 00380140 		.word	1073821696
+ 502              		.cfi_endproc
+ 503              	.LFE48:
+ 505              		.section	.text.AES_AESCR_CHMOD_Get,"ax",%progbits
+ 506              		.align	2
+ 507              		.global	AES_AESCR_CHMOD_Get
+ 508              		.code	16
+ 509              		.thumb_func
+ 511              	AES_AESCR_CHMOD_Get:
+ 512              	.LFB49:
+ 176:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 177:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** uint32_t AES_AESCR_CHMOD_Get(void)
+ 178:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 513              		.loc 1 178 0
+ 514              		.cfi_startproc
+ 515              		@ args = 0, pretend = 0, frame = 0
+ 516              		@ frame_needed = 0, uses_anonymous_args = 0
+ 517              		@ link register save eliminated.
+ 179:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	return (AES->AESCR & AES_AESCR_CHMOD_Msk);
+ 518              		.loc 1 179 0
+ 519 0000 024B     		ldr	r3, .L57
+ 520 0002 1B68     		ldr	r3, [r3]
+ 521 0004 6020     		movs	r0, #96
+ 522 0006 1840     		ands	r0, r3
+ 180:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 523              		.loc 1 180 0
+ 524              		@ sp needed
+ 525 0008 7047     		bx	lr
+ 526              	.L58:
+ 527 000a C046     		.align	2
+ 528              	.L57:
+ 529 000c 00380140 		.word	1073821696
+ 530              		.cfi_endproc
+ 531              	.LFE49:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 13
+
+
+ 533              		.section	.text.AES_AESCR_MODE_Set,"ax",%progbits
+ 534              		.align	2
+ 535              		.global	AES_AESCR_MODE_Set
+ 536              		.code	16
+ 537              		.thumb_func
+ 539              	AES_AESCR_MODE_Set:
+ 540              	.LFB50:
+ 181:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 182:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /* AES¹¤×÷Ä£Ê½£¬AESEN=1Ê±²»¿ÉÐÞ¸Ä Ïà¹Øº¯Êý */
+ 183:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** void AES_AESCR_MODE_Set(uint32_t SetValue)
+ 184:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 541              		.loc 1 184 0
+ 542              		.cfi_startproc
+ 543              		@ args = 0, pretend = 0, frame = 0
+ 544              		@ frame_needed = 0, uses_anonymous_args = 0
+ 545              		@ link register save eliminated.
+ 546              	.LVL14:
+ 185:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	uint32_t tmpreg;
+ 186:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	tmpreg = AES->AESCR;
+ 547              		.loc 1 186 0
+ 548 0000 034A     		ldr	r2, .L60
+ 549 0002 1368     		ldr	r3, [r2]
+ 550              	.LVL15:
+ 187:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	tmpreg &= ~(AES_AESCR_MODE_Msk);
+ 551              		.loc 1 187 0
+ 552 0004 1821     		movs	r1, #24
+ 553 0006 8B43     		bics	r3, r1
+ 554              	.LVL16:
+ 188:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	tmpreg |= (SetValue & AES_AESCR_MODE_Msk);
+ 555              		.loc 1 188 0
+ 556 0008 0840     		ands	r0, r1
+ 557              	.LVL17:
+ 558 000a 1843     		orrs	r0, r3
+ 559              	.LVL18:
+ 189:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES->AESCR = tmpreg;
+ 560              		.loc 1 189 0
+ 561 000c 1060     		str	r0, [r2]
+ 190:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 562              		.loc 1 190 0
+ 563              		@ sp needed
+ 564 000e 7047     		bx	lr
+ 565              	.L61:
+ 566              		.align	2
+ 567              	.L60:
+ 568 0010 00380140 		.word	1073821696
+ 569              		.cfi_endproc
+ 570              	.LFE50:
+ 572              		.section	.text.AES_AESCR_MODE_Get,"ax",%progbits
+ 573              		.align	2
+ 574              		.global	AES_AESCR_MODE_Get
+ 575              		.code	16
+ 576              		.thumb_func
+ 578              	AES_AESCR_MODE_Get:
+ 579              	.LFB51:
+ 191:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 192:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** uint32_t AES_AESCR_MODE_Get(void)
+ 193:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 14
+
+
+ 580              		.loc 1 193 0
+ 581              		.cfi_startproc
+ 582              		@ args = 0, pretend = 0, frame = 0
+ 583              		@ frame_needed = 0, uses_anonymous_args = 0
+ 584              		@ link register save eliminated.
+ 194:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	return (AES->AESCR & AES_AESCR_MODE_Msk);
+ 585              		.loc 1 194 0
+ 586 0000 024B     		ldr	r3, .L63
+ 587 0002 1B68     		ldr	r3, [r3]
+ 588 0004 1820     		movs	r0, #24
+ 589 0006 1840     		ands	r0, r3
+ 195:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 590              		.loc 1 195 0
+ 591              		@ sp needed
+ 592 0008 7047     		bx	lr
+ 593              	.L64:
+ 594 000a C046     		.align	2
+ 595              	.L63:
+ 596 000c 00380140 		.word	1073821696
+ 597              		.cfi_endproc
+ 598              	.LFE51:
+ 600              		.section	.text.AES_AESCR_DATATYP_Set,"ax",%progbits
+ 601              		.align	2
+ 602              		.global	AES_AESCR_DATATYP_Set
+ 603              		.code	16
+ 604              		.thumb_func
+ 606              	AES_AESCR_DATATYP_Set:
+ 607              	.LFB52:
+ 196:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 197:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /* Ñ¡ÔñÊý¾ÝÀàÐÍ£¬AESEN=1Ê±²»¿ÉÐÞ¸Ä Ïà¹Øº¯Êý */
+ 198:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** void AES_AESCR_DATATYP_Set(uint32_t SetValue)
+ 199:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 608              		.loc 1 199 0
+ 609              		.cfi_startproc
+ 610              		@ args = 0, pretend = 0, frame = 0
+ 611              		@ frame_needed = 0, uses_anonymous_args = 0
+ 612              		@ link register save eliminated.
+ 613              	.LVL19:
+ 200:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	uint32_t tmpreg;
+ 201:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	tmpreg = AES->AESCR;
+ 614              		.loc 1 201 0
+ 615 0000 034A     		ldr	r2, .L66
+ 616 0002 1368     		ldr	r3, [r2]
+ 617              	.LVL20:
+ 202:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	tmpreg &= ~(AES_AESCR_DATATYP_Msk);
+ 618              		.loc 1 202 0
+ 619 0004 0621     		movs	r1, #6
+ 620 0006 8B43     		bics	r3, r1
+ 621              	.LVL21:
+ 203:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	tmpreg |= (SetValue & AES_AESCR_DATATYP_Msk);
+ 622              		.loc 1 203 0
+ 623 0008 0840     		ands	r0, r1
+ 624              	.LVL22:
+ 625 000a 1843     		orrs	r0, r3
+ 626              	.LVL23:
+ 204:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES->AESCR = tmpreg;
+ 627              		.loc 1 204 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 15
+
+
+ 628 000c 1060     		str	r0, [r2]
+ 205:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 629              		.loc 1 205 0
+ 630              		@ sp needed
+ 631 000e 7047     		bx	lr
+ 632              	.L67:
+ 633              		.align	2
+ 634              	.L66:
+ 635 0010 00380140 		.word	1073821696
+ 636              		.cfi_endproc
+ 637              	.LFE52:
+ 639              		.section	.text.AES_AESCR_DATATYP_Get,"ax",%progbits
+ 640              		.align	2
+ 641              		.global	AES_AESCR_DATATYP_Get
+ 642              		.code	16
+ 643              		.thumb_func
+ 645              	AES_AESCR_DATATYP_Get:
+ 646              	.LFB53:
+ 206:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 207:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** uint32_t AES_AESCR_DATATYP_Get(void)
+ 208:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 647              		.loc 1 208 0
+ 648              		.cfi_startproc
+ 649              		@ args = 0, pretend = 0, frame = 0
+ 650              		@ frame_needed = 0, uses_anonymous_args = 0
+ 651              		@ link register save eliminated.
+ 209:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	return (AES->AESCR & AES_AESCR_DATATYP_Msk);
+ 652              		.loc 1 209 0
+ 653 0000 024B     		ldr	r3, .L69
+ 654 0002 1B68     		ldr	r3, [r3]
+ 655 0004 0620     		movs	r0, #6
+ 656 0006 1840     		ands	r0, r3
+ 210:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 657              		.loc 1 210 0
+ 658              		@ sp needed
+ 659 0008 7047     		bx	lr
+ 660              	.L70:
+ 661 000a C046     		.align	2
+ 662              	.L69:
+ 663 000c 00380140 		.word	1073821696
+ 664              		.cfi_endproc
+ 665              	.LFE53:
+ 667              		.section	.text.AES_AESCR_AESEN_Setable,"ax",%progbits
+ 668              		.align	2
+ 669              		.global	AES_AESCR_AESEN_Setable
+ 670              		.code	16
+ 671              		.thumb_func
+ 673              	AES_AESCR_AESEN_Setable:
+ 674              	.LFB54:
+ 211:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 212:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /* AESÊ¹ÄÜ,ÔÚÈÎºÎÊ±ºòÇå³ýAESENÎ»¶¼ÄÜ¹»¸´Î»AESÄ£¿é Ïà¹Øº¯Êý */
+ 213:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** void AES_AESCR_AESEN_Setable(FunState NewState)
+ 214:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 675              		.loc 1 214 0
+ 676              		.cfi_startproc
+ 677              		@ args = 0, pretend = 0, frame = 0
+ 678              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 16
+
+
+ 679              		@ link register save eliminated.
+ 680              	.LVL24:
+ 215:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	if (NewState == ENABLE)
+ 681              		.loc 1 215 0
+ 682 0000 0128     		cmp	r0, #1
+ 683 0002 05D1     		bne	.L72
+ 216:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 217:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		AES->AESCR |= (AES_AESCR_AESEN_Msk);
+ 684              		.loc 1 217 0
+ 685 0004 054A     		ldr	r2, .L74
+ 686 0006 1168     		ldr	r1, [r2]
+ 687 0008 0123     		movs	r3, #1
+ 688 000a 0B43     		orrs	r3, r1
+ 689 000c 1360     		str	r3, [r2]
+ 690 000e 04E0     		b	.L71
+ 691              	.L72:
+ 218:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+ 219:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	else
+ 220:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 221:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		AES->AESCR &= ~(AES_AESCR_AESEN_Msk);
+ 692              		.loc 1 221 0
+ 693 0010 024A     		ldr	r2, .L74
+ 694 0012 1368     		ldr	r3, [r2]
+ 695 0014 0121     		movs	r1, #1
+ 696 0016 8B43     		bics	r3, r1
+ 697 0018 1360     		str	r3, [r2]
+ 698              	.L71:
+ 222:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+ 223:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 699              		.loc 1 223 0
+ 700              		@ sp needed
+ 701 001a 7047     		bx	lr
+ 702              	.L75:
+ 703              		.align	2
+ 704              	.L74:
+ 705 001c 00380140 		.word	1073821696
+ 706              		.cfi_endproc
+ 707              	.LFE54:
+ 709              		.section	.text.AES_AESCR_AESEN_Getable,"ax",%progbits
+ 710              		.align	2
+ 711              		.global	AES_AESCR_AESEN_Getable
+ 712              		.code	16
+ 713              		.thumb_func
+ 715              	AES_AESCR_AESEN_Getable:
+ 716              	.LFB55:
+ 224:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 225:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** FunState AES_AESCR_AESEN_Getable(void)
+ 226:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 717              		.loc 1 226 0
+ 718              		.cfi_startproc
+ 719              		@ args = 0, pretend = 0, frame = 0
+ 720              		@ frame_needed = 0, uses_anonymous_args = 0
+ 721              		@ link register save eliminated.
+ 227:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	if (AES->AESCR & (AES_AESCR_AESEN_Msk))
+ 722              		.loc 1 227 0
+ 723 0000 034B     		ldr	r3, .L79
+ 724 0002 1B68     		ldr	r3, [r3]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 17
+
+
+ 725 0004 DB07     		lsls	r3, r3, #31
+ 726 0006 01D5     		bpl	.L78
+ 228:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 229:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		return ENABLE;
+ 727              		.loc 1 229 0
+ 728 0008 0120     		movs	r0, #1
+ 729 000a 00E0     		b	.L77
+ 730              	.L78:
+ 230:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+ 231:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	else
+ 232:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 233:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		return DISABLE;
+ 731              		.loc 1 233 0
+ 732 000c 0020     		movs	r0, #0
+ 733              	.L77:
+ 234:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+ 235:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 734              		.loc 1 235 0
+ 735              		@ sp needed
+ 736 000e 7047     		bx	lr
+ 737              	.L80:
+ 738              		.align	2
+ 739              	.L79:
+ 740 0010 00380140 		.word	1073821696
+ 741              		.cfi_endproc
+ 742              	.LFE55:
+ 744              		.section	.text.AES_AESIF_WRERR_Chk,"ax",%progbits
+ 745              		.align	2
+ 746              		.global	AES_AESIF_WRERR_Chk
+ 747              		.code	16
+ 748              		.thumb_func
+ 750              	AES_AESIF_WRERR_Chk:
+ 751              	.LFB56:
+ 236:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 237:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /* Ð´´íÎó±êÖ¾£ºÔÚ¼ÆËã»òÊä³ö½×¶Î·¢ÉúÐ´²Ù×÷Ê±ÖÃÎ»£¬Èí¼þ¶ÔERRC¼Ä´æÆ÷Ð´1ÇåÁã Ïà¹Øº¯Êý */
+ 238:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** FlagStatus AES_AESIF_WRERR_Chk(void)
+ 239:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 752              		.loc 1 239 0
+ 753              		.cfi_startproc
+ 754              		@ args = 0, pretend = 0, frame = 0
+ 755              		@ frame_needed = 0, uses_anonymous_args = 0
+ 756              		@ link register save eliminated.
+ 240:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	if (AES->AESIF & AES_AESIF_WRERR_Msk)
+ 757              		.loc 1 240 0
+ 758 0000 034B     		ldr	r3, .L84
+ 759 0002 5B68     		ldr	r3, [r3, #4]
+ 760 0004 5B07     		lsls	r3, r3, #29
+ 761 0006 01D5     		bpl	.L83
+ 241:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 242:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		return SET;
+ 762              		.loc 1 242 0
+ 763 0008 0120     		movs	r0, #1
+ 764 000a 00E0     		b	.L82
+ 765              	.L83:
+ 243:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+ 244:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	else
+ 245:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 18
+
+
+ 246:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		return RESET;
+ 766              		.loc 1 246 0
+ 767 000c 0020     		movs	r0, #0
+ 768              	.L82:
+ 247:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+ 248:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 769              		.loc 1 248 0
+ 770              		@ sp needed
+ 771 000e 7047     		bx	lr
+ 772              	.L85:
+ 773              		.align	2
+ 774              	.L84:
+ 775 0010 00380140 		.word	1073821696
+ 776              		.cfi_endproc
+ 777              	.LFE56:
+ 779              		.section	.text.AES_AESIF_RDERR_Chk,"ax",%progbits
+ 780              		.align	2
+ 781              		.global	AES_AESIF_RDERR_Chk
+ 782              		.code	16
+ 783              		.thumb_func
+ 785              	AES_AESIF_RDERR_Chk:
+ 786              	.LFB57:
+ 249:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 250:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /* ¶Á´íÎó±êÖ¾£ºÔÚ¼ÆËã»òÊäÈë½×¶Î·¢Éú¶Á²Ù×÷Ê±ÖÃÎ»£¬Èí¼þ¶ÔERRC¼Ä´æÆ÷Ð´1ÇåÁã Ïà¹Øº¯Êý */
+ 251:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** FlagStatus AES_AESIF_RDERR_Chk(void)
+ 252:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 787              		.loc 1 252 0
+ 788              		.cfi_startproc
+ 789              		@ args = 0, pretend = 0, frame = 0
+ 790              		@ frame_needed = 0, uses_anonymous_args = 0
+ 791              		@ link register save eliminated.
+ 253:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	if (AES->AESIF & AES_AESIF_RDERR_Msk)
+ 792              		.loc 1 253 0
+ 793 0000 034B     		ldr	r3, .L89
+ 794 0002 5B68     		ldr	r3, [r3, #4]
+ 795 0004 9B07     		lsls	r3, r3, #30
+ 796 0006 01D5     		bpl	.L88
+ 254:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 255:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		return SET;
+ 797              		.loc 1 255 0
+ 798 0008 0120     		movs	r0, #1
+ 799 000a 00E0     		b	.L87
+ 800              	.L88:
+ 256:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+ 257:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	else
+ 258:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 259:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		return RESET;
+ 801              		.loc 1 259 0
+ 802 000c 0020     		movs	r0, #0
+ 803              	.L87:
+ 260:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+ 261:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 804              		.loc 1 261 0
+ 805              		@ sp needed
+ 806 000e 7047     		bx	lr
+ 807              	.L90:
+ 808              		.align	2
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 19
+
+
+ 809              	.L89:
+ 810 0010 00380140 		.word	1073821696
+ 811              		.cfi_endproc
+ 812              	.LFE57:
+ 814              		.section	.text.AES_AESIF_CCF_Chk,"ax",%progbits
+ 815              		.align	2
+ 816              		.global	AES_AESIF_CCF_Chk
+ 817              		.code	16
+ 818              		.thumb_func
+ 820              	AES_AESIF_CCF_Chk:
+ 821              	.LFB58:
+ 262:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 263:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /* AES¼ÆËãÍê³É±êÖ¾£¬¿ÉÒÔÍ¨¹ýCCFCÖÃ1Çå³ýÕâ¸öÖÐ¶Ï±êÖ¾ Ïà¹Øº¯Êý */
+ 264:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** FlagStatus AES_AESIF_CCF_Chk(void)
+ 265:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 822              		.loc 1 265 0
+ 823              		.cfi_startproc
+ 824              		@ args = 0, pretend = 0, frame = 0
+ 825              		@ frame_needed = 0, uses_anonymous_args = 0
+ 826              		@ link register save eliminated.
+ 266:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	if (AES->AESIF & AES_AESIF_CCF_Msk)
+ 827              		.loc 1 266 0
+ 828 0000 034B     		ldr	r3, .L94
+ 829 0002 5B68     		ldr	r3, [r3, #4]
+ 830 0004 DB07     		lsls	r3, r3, #31
+ 831 0006 01D5     		bpl	.L93
+ 267:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 268:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		return SET;
+ 832              		.loc 1 268 0
+ 833 0008 0120     		movs	r0, #1
+ 834 000a 00E0     		b	.L92
+ 835              	.L93:
+ 269:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+ 270:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	else
+ 271:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 272:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		return RESET;
+ 836              		.loc 1 272 0
+ 837 000c 0020     		movs	r0, #0
+ 838              	.L92:
+ 273:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+ 274:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 839              		.loc 1 274 0
+ 840              		@ sp needed
+ 841 000e 7047     		bx	lr
+ 842              	.L95:
+ 843              		.align	2
+ 844              	.L94:
+ 845 0010 00380140 		.word	1073821696
+ 846              		.cfi_endproc
+ 847              	.LFE58:
+ 849              		.section	.text.AES_AESDIN_Write,"ax",%progbits
+ 850              		.align	2
+ 851              		.global	AES_AESDIN_Write
+ 852              		.code	16
+ 853              		.thumb_func
+ 855              	AES_AESDIN_Write:
+ 856              	.LFB59:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 20
+
+
+ 275:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 276:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /* Êý¾ÝÊäÈë¼Ä´æÆ÷£¬µ±AESÐèÒªÊäÈë¼Ó½âÃÜÊý¾ÝÊ±£¬Ó¦¸ÃÍù¸Ã¼Ä´æÆ÷Á¬ÐøÐ´4´Î Ïà¹Øº¯Êý */
+ 277:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** void AES_AESDIN_Write(uint32_t SetValue)
+ 278:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 857              		.loc 1 278 0
+ 858              		.cfi_startproc
+ 859              		@ args = 0, pretend = 0, frame = 0
+ 860              		@ frame_needed = 0, uses_anonymous_args = 0
+ 861              		@ link register save eliminated.
+ 862              	.LVL25:
+ 279:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES->AESDIN = (SetValue);
+ 863              		.loc 1 279 0
+ 864 0000 014B     		ldr	r3, .L97
+ 865 0002 9860     		str	r0, [r3, #8]
+ 280:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 866              		.loc 1 280 0
+ 867              		@ sp needed
+ 868 0004 7047     		bx	lr
+ 869              	.L98:
+ 870 0006 C046     		.align	2
+ 871              	.L97:
+ 872 0008 00380140 		.word	1073821696
+ 873              		.cfi_endproc
+ 874              	.LFE59:
+ 876              		.section	.text.AES_AESDIN_Read,"ax",%progbits
+ 877              		.align	2
+ 878              		.global	AES_AESDIN_Read
+ 879              		.code	16
+ 880              		.thumb_func
+ 882              	AES_AESDIN_Read:
+ 883              	.LFB60:
+ 281:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 282:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** uint32_t AES_AESDIN_Read(void)
+ 283:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 884              		.loc 1 283 0
+ 885              		.cfi_startproc
+ 886              		@ args = 0, pretend = 0, frame = 0
+ 887              		@ frame_needed = 0, uses_anonymous_args = 0
+ 888              		@ link register save eliminated.
+ 284:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	return (AES->AESDIN);
+ 889              		.loc 1 284 0
+ 890 0000 014B     		ldr	r3, .L100
+ 891 0002 9868     		ldr	r0, [r3, #8]
+ 285:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 892              		.loc 1 285 0
+ 893              		@ sp needed
+ 894 0004 7047     		bx	lr
+ 895              	.L101:
+ 896 0006 C046     		.align	2
+ 897              	.L100:
+ 898 0008 00380140 		.word	1073821696
+ 899              		.cfi_endproc
+ 900              	.LFE60:
+ 902              		.section	.text.AES_AESDOUT_Write,"ax",%progbits
+ 903              		.align	2
+ 904              		.global	AES_AESDOUT_Write
+ 905              		.code	16
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 21
+
+
+ 906              		.thumb_func
+ 908              	AES_AESDOUT_Write:
+ 909              	.LFB61:
+ 286:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 287:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /* Êý¾ÝÊä³ö¼Ä´æÆ÷£¬µ±AES¼ÆËãÍê³Éºó£¬¿ÉÒÔ·ÖËÄ´Î¶Á³ö¼Ó½âÃÜµÄ½á¹û Ïà¹Øº¯Êý */
+ 288:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** void AES_AESDOUT_Write(uint32_t SetValue)
+ 289:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 910              		.loc 1 289 0
+ 911              		.cfi_startproc
+ 912              		@ args = 0, pretend = 0, frame = 0
+ 913              		@ frame_needed = 0, uses_anonymous_args = 0
+ 914              		@ link register save eliminated.
+ 915              	.LVL26:
+ 290:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES->AESDOUT = (SetValue);
+ 916              		.loc 1 290 0
+ 917 0000 014B     		ldr	r3, .L103
+ 918 0002 D860     		str	r0, [r3, #12]
+ 291:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 919              		.loc 1 291 0
+ 920              		@ sp needed
+ 921 0004 7047     		bx	lr
+ 922              	.L104:
+ 923 0006 C046     		.align	2
+ 924              	.L103:
+ 925 0008 00380140 		.word	1073821696
+ 926              		.cfi_endproc
+ 927              	.LFE61:
+ 929              		.section	.text.AES_AESDOUT_Read,"ax",%progbits
+ 930              		.align	2
+ 931              		.global	AES_AESDOUT_Read
+ 932              		.code	16
+ 933              		.thumb_func
+ 935              	AES_AESDOUT_Read:
+ 936              	.LFB62:
+ 292:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 293:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** uint32_t AES_AESDOUT_Read(void)
+ 294:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 937              		.loc 1 294 0
+ 938              		.cfi_startproc
+ 939              		@ args = 0, pretend = 0, frame = 0
+ 940              		@ frame_needed = 0, uses_anonymous_args = 0
+ 941              		@ link register save eliminated.
+ 295:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	return (AES->AESDOUT);
+ 942              		.loc 1 295 0
+ 943 0000 014B     		ldr	r3, .L106
+ 944 0002 D868     		ldr	r0, [r3, #12]
+ 296:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 945              		.loc 1 296 0
+ 946              		@ sp needed
+ 947 0004 7047     		bx	lr
+ 948              	.L107:
+ 949 0006 C046     		.align	2
+ 950              	.L106:
+ 951 0008 00380140 		.word	1073821696
+ 952              		.cfi_endproc
+ 953              	.LFE62:
+ 955              		.section	.text.AES_Deinit,"ax",%progbits
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 22
+
+
+ 956              		.align	2
+ 957              		.global	AES_Deinit
+ 958              		.code	16
+ 959              		.thumb_func
+ 961              	AES_Deinit:
+ 962              	.LFB63:
+ 297:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 298:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 299:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** void AES_Deinit(void)
+ 300:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 963              		.loc 1 300 0
+ 964              		.cfi_startproc
+ 965              		@ args = 0, pretend = 0, frame = 0
+ 966              		@ frame_needed = 0, uses_anonymous_args = 0
+ 967              		@ link register save eliminated.
+ 301:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES->AESCR = 0x00000000;
+ 968              		.loc 1 301 0
+ 969 0000 084B     		ldr	r3, .L109
+ 970 0002 0022     		movs	r2, #0
+ 971 0004 1A60     		str	r2, [r3]
+ 302:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	//AES->AESIF = 0x00000000;
+ 303:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES->AESDIN = 0x00000000;
+ 972              		.loc 1 303 0
+ 973 0006 9A60     		str	r2, [r3, #8]
+ 304:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	//AES->AESDOUT = 0x00000000;
+ 305:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES->AESKEY0 = 0x00000000;
+ 974              		.loc 1 305 0
+ 975 0008 1A61     		str	r2, [r3, #16]
+ 306:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES->AESKEY1 = 0x00000000;
+ 976              		.loc 1 306 0
+ 977 000a 5A61     		str	r2, [r3, #20]
+ 307:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES->AESKEY2 = 0x00000000;
+ 978              		.loc 1 307 0
+ 979 000c 9A61     		str	r2, [r3, #24]
+ 308:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES->AESKEY3 = 0x00000000;
+ 980              		.loc 1 308 0
+ 981 000e DA61     		str	r2, [r3, #28]
+ 309:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES->AESKEY4 = 0x00000000;
+ 982              		.loc 1 309 0
+ 983 0010 1A62     		str	r2, [r3, #32]
+ 310:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES->AESKEY5 = 0x00000000;
+ 984              		.loc 1 310 0
+ 985 0012 5A62     		str	r2, [r3, #36]
+ 311:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES->AESKEY6 = 0x00000000;
+ 986              		.loc 1 311 0
+ 987 0014 9A62     		str	r2, [r3, #40]
+ 312:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES->AESKEY7 = 0x00000000;
+ 988              		.loc 1 312 0
+ 989 0016 DA62     		str	r2, [r3, #44]
+ 313:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES->AESIVR0 = 0x00000000;
+ 990              		.loc 1 313 0
+ 991 0018 1A63     		str	r2, [r3, #48]
+ 314:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES->AESIVR1 = 0x00000000;
+ 992              		.loc 1 314 0
+ 993 001a 5A63     		str	r2, [r3, #52]
+ 315:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES->AESIVR2 = 0x00000000;
+ 994              		.loc 1 315 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 23
+
+
+ 995 001c 9A63     		str	r2, [r3, #56]
+ 316:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES->AESIVR3 = 0x00000000;
+ 996              		.loc 1 316 0
+ 997 001e DA63     		str	r2, [r3, #60]
+ 317:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 998              		.loc 1 317 0
+ 999              		@ sp needed
+ 1000 0020 7047     		bx	lr
+ 1001              	.L110:
+ 1002 0022 C046     		.align	2
+ 1003              	.L109:
+ 1004 0024 00380140 		.word	1073821696
+ 1005              		.cfi_endproc
+ 1006              	.LFE63:
+ 1008              		.section	.text.AES_AESKEY_WriteEx,"ax",%progbits
+ 1009              		.align	2
+ 1010              		.global	AES_AESKEY_WriteEx
+ 1011              		.code	16
+ 1012              		.thumb_func
+ 1014              	AES_AESKEY_WriteEx:
+ 1015              	.LFB64:
+ 318:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** //Code_End
+ 319:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 320:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 321:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /*¼Ó½âÃÜÃÜÔ¿ÊäÈë£¬key0´æ·ÅÃÜÔ¿×îµÍ32bit */
+ 322:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** void AES_AESKEY_WriteEx(uint8_t *KeyIn, uint8_t Len)
+ 323:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 1016              		.loc 1 323 0
+ 1017              		.cfi_startproc
+ 1018              		@ args = 0, pretend = 0, frame = 8
+ 1019              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1020              	.LVL27:
+ 1021 0000 30B5     		push	{r4, r5, lr}
+ 1022              	.LCFI0:
+ 1023              		.cfi_def_cfa_offset 12
+ 1024              		.cfi_offset 4, -12
+ 1025              		.cfi_offset 5, -8
+ 1026              		.cfi_offset 14, -4
+ 1027 0002 83B0     		sub	sp, sp, #12
+ 1028              	.LCFI1:
+ 1029              		.cfi_def_cfa_offset 24
+ 324:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	uint8_t i;
+ 325:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	__IO uint32_t *PointKeyReg;
+ 326:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	__IO uint32_t Temp32;
+ 327:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	
+ 328:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	if( (Len != 16) && (Len != 24) && (Len != 32) ) return;
+ 1030              		.loc 1 328 0
+ 1031 0004 1029     		cmp	r1, #16
+ 1032 0006 25D0     		beq	.L115
+ 1033              		.loc 1 328 0 is_stmt 0 discriminator 1
+ 1034 0008 1829     		cmp	r1, #24
+ 1035 000a 25D0     		beq	.L116
+ 1036              		.loc 1 328 0 discriminator 2
+ 1037 000c 2029     		cmp	r1, #32
+ 1038 000e 26D1     		bne	.L111
+ 1039 0010 0022     		movs	r2, #0
+ 1040 0012 22E0     		b	.L112
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 24
+
+
+ 1041              	.LVL28:
+ 1042              	.L114:
+ 329:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	
+ 330:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	PointKeyReg = (&AES->AESKEY0);
+ 331:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	for(i=0; i<Len; i=i+4)
+ 332:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 333:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		Temp32 = (KeyIn[0+i]<<24)|(KeyIn[1+i]<<16)|(KeyIn[2+i]<<8)|(KeyIn[3+i]<<0);
+ 1043              		.loc 1 333 0 is_stmt 1 discriminator 3
+ 1044 0014 835C     		ldrb	r3, [r0, r2]
+ 1045 0016 1C06     		lsls	r4, r3, #24
+ 1046 0018 531C     		adds	r3, r2, #1
+ 1047 001a C35C     		ldrb	r3, [r0, r3]
+ 1048 001c 1B04     		lsls	r3, r3, #16
+ 1049 001e 2343     		orrs	r3, r4
+ 1050 0020 941C     		adds	r4, r2, #2
+ 1051 0022 045D     		ldrb	r4, [r0, r4]
+ 1052 0024 2402     		lsls	r4, r4, #8
+ 1053 0026 2343     		orrs	r3, r4
+ 1054 0028 D41C     		adds	r4, r2, #3
+ 1055 002a 045D     		ldrb	r4, [r0, r4]
+ 1056 002c 2343     		orrs	r3, r4
+ 1057 002e 0193     		str	r3, [sp, #4]
+ 334:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		PointKeyReg[(Len-i)/4-1] = Temp32;
+ 1058              		.loc 1 334 0 discriminator 3
+ 1059 0030 8B1A     		subs	r3, r1, r2
+ 1060 0032 DC17     		asrs	r4, r3, #31
+ 1061 0034 0325     		movs	r5, #3
+ 1062 0036 2C40     		ands	r4, r5
+ 1063 0038 E318     		adds	r3, r4, r3
+ 1064 003a 9B10     		asrs	r3, r3, #2
+ 1065 003c 094C     		ldr	r4, .L117
+ 1066 003e A446     		mov	ip, r4
+ 1067 0040 6344     		add	r3, r3, ip
+ 1068 0042 9B00     		lsls	r3, r3, #2
+ 1069 0044 084C     		ldr	r4, .L117+4
+ 1070 0046 A446     		mov	ip, r4
+ 1071 0048 6344     		add	r3, r3, ip
+ 1072 004a 019C     		ldr	r4, [sp, #4]
+ 1073 004c 1C60     		str	r4, [r3]
+ 331:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 1074              		.loc 1 331 0 discriminator 3
+ 1075 004e 0432     		adds	r2, r2, #4
+ 1076              	.LVL29:
+ 1077 0050 D2B2     		uxtb	r2, r2
+ 1078              	.LVL30:
+ 1079 0052 02E0     		b	.L112
+ 1080              	.LVL31:
+ 1081              	.L115:
+ 1082 0054 0022     		movs	r2, #0
+ 1083 0056 00E0     		b	.L112
+ 1084              	.L116:
+ 1085 0058 0022     		movs	r2, #0
+ 1086              	.L112:
+ 1087              	.LVL32:
+ 331:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 1088              		.loc 1 331 0 is_stmt 0 discriminator 1
+ 1089 005a 8A42     		cmp	r2, r1
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 25
+
+
+ 1090 005c DAD3     		bcc	.L114
+ 1091              	.LVL33:
+ 1092              	.L111:
+ 335:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+ 336:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 1093              		.loc 1 336 0 is_stmt 1
+ 1094 005e 03B0     		add	sp, sp, #12
+ 1095              		@ sp needed
+ 1096 0060 30BD     		pop	{r4, r5, pc}
+ 1097              	.L118:
+ 1098 0062 C046     		.align	2
+ 1099              	.L117:
+ 1100 0064 FFFFFF3F 		.word	1073741823
+ 1101 0068 10380140 		.word	1073821712
+ 1102              		.cfi_endproc
+ 1103              	.LFE64:
+ 1105              		.section	.text.AES_AESKEY_ReadEx,"ax",%progbits
+ 1106              		.align	2
+ 1107              		.global	AES_AESKEY_ReadEx
+ 1108              		.code	16
+ 1109              		.thumb_func
+ 1111              	AES_AESKEY_ReadEx:
+ 1112              	.LFB65:
+ 337:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 338:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /*¼Ó½âÃÜÃÜÔ¿Êä³ö£¬µÚÒ»¸ö×Ö´æ·ÅÃÜÔ¿×îµÍ32bit  */
+ 339:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** void AES_AESKEY_ReadEx(uint8_t *KeyOut, uint8_t Len)
+ 340:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 1113              		.loc 1 340 0
+ 1114              		.cfi_startproc
+ 1115              		@ args = 0, pretend = 0, frame = 8
+ 1116              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1117              	.LVL34:
+ 1118 0000 30B5     		push	{r4, r5, lr}
+ 1119              	.LCFI2:
+ 1120              		.cfi_def_cfa_offset 12
+ 1121              		.cfi_offset 4, -12
+ 1122              		.cfi_offset 5, -8
+ 1123              		.cfi_offset 14, -4
+ 1124 0002 83B0     		sub	sp, sp, #12
+ 1125              	.LCFI3:
+ 1126              		.cfi_def_cfa_offset 24
+ 341:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	uint8_t i;
+ 342:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	__IO uint32_t *PointKeyReg;
+ 343:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	__IO uint32_t Temp32;
+ 344:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	
+ 345:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	if( (Len != 16) && (Len != 24) && (Len != 32) ) return;
+ 1127              		.loc 1 345 0
+ 1128 0004 1029     		cmp	r1, #16
+ 1129 0006 25D0     		beq	.L123
+ 1130              		.loc 1 345 0 is_stmt 0 discriminator 1
+ 1131 0008 1829     		cmp	r1, #24
+ 1132 000a 25D0     		beq	.L124
+ 1133              		.loc 1 345 0 discriminator 2
+ 1134 000c 2029     		cmp	r1, #32
+ 1135 000e 26D1     		bne	.L119
+ 1136 0010 0022     		movs	r2, #0
+ 1137 0012 22E0     		b	.L120
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 26
+
+
+ 1138              	.LVL35:
+ 1139              	.L122:
+ 346:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	
+ 347:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	PointKeyReg = (&AES->AESKEY0);
+ 348:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	for(i=0; i<Len; i=i+4)
+ 349:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 350:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		Temp32 = PointKeyReg[(Len-i)/4-1];
+ 1140              		.loc 1 350 0 is_stmt 1 discriminator 3
+ 1141 0014 8B1A     		subs	r3, r1, r2
+ 1142 0016 DC17     		asrs	r4, r3, #31
+ 1143 0018 0325     		movs	r5, #3
+ 1144 001a 2C40     		ands	r4, r5
+ 1145 001c E318     		adds	r3, r4, r3
+ 1146 001e 9B10     		asrs	r3, r3, #2
+ 1147 0020 104C     		ldr	r4, .L125
+ 1148 0022 A446     		mov	ip, r4
+ 1149 0024 6344     		add	r3, r3, ip
+ 1150 0026 9B00     		lsls	r3, r3, #2
+ 1151 0028 0F4C     		ldr	r4, .L125+4
+ 1152 002a A446     		mov	ip, r4
+ 1153 002c 6344     		add	r3, r3, ip
+ 1154 002e 1B68     		ldr	r3, [r3]
+ 1155 0030 0193     		str	r3, [sp, #4]
+ 351:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		KeyOut[0+i] = Temp32>>24;
+ 1156              		.loc 1 351 0 discriminator 3
+ 1157 0032 019B     		ldr	r3, [sp, #4]
+ 1158 0034 1B0E     		lsrs	r3, r3, #24
+ 1159 0036 8354     		strb	r3, [r0, r2]
+ 352:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		KeyOut[1+i] = Temp32>>16;
+ 1160              		.loc 1 352 0 discriminator 3
+ 1161 0038 541C     		adds	r4, r2, #1
+ 1162 003a 019B     		ldr	r3, [sp, #4]
+ 1163 003c 1B0C     		lsrs	r3, r3, #16
+ 1164 003e 0355     		strb	r3, [r0, r4]
+ 353:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		KeyOut[2+i] = Temp32>>8;
+ 1165              		.loc 1 353 0 discriminator 3
+ 1166 0040 941C     		adds	r4, r2, #2
+ 1167 0042 019B     		ldr	r3, [sp, #4]
+ 1168 0044 1B0A     		lsrs	r3, r3, #8
+ 1169 0046 0355     		strb	r3, [r0, r4]
+ 354:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		KeyOut[3+i] = Temp32>>0;
+ 1170              		.loc 1 354 0 discriminator 3
+ 1171 0048 D31C     		adds	r3, r2, #3
+ 1172 004a 019C     		ldr	r4, [sp, #4]
+ 1173 004c C454     		strb	r4, [r0, r3]
+ 348:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 1174              		.loc 1 348 0 discriminator 3
+ 1175 004e 0432     		adds	r2, r2, #4
+ 1176              	.LVL36:
+ 1177 0050 D2B2     		uxtb	r2, r2
+ 1178              	.LVL37:
+ 1179 0052 02E0     		b	.L120
+ 1180              	.LVL38:
+ 1181              	.L123:
+ 1182 0054 0022     		movs	r2, #0
+ 1183 0056 00E0     		b	.L120
+ 1184              	.L124:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 27
+
+
+ 1185 0058 0022     		movs	r2, #0
+ 1186              	.L120:
+ 1187              	.LVL39:
+ 348:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 1188              		.loc 1 348 0 is_stmt 0 discriminator 1
+ 1189 005a 8A42     		cmp	r2, r1
+ 1190 005c DAD3     		bcc	.L122
+ 1191              	.LVL40:
+ 1192              	.L119:
+ 355:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+ 356:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 1193              		.loc 1 356 0 is_stmt 1
+ 1194 005e 03B0     		add	sp, sp, #12
+ 1195              		@ sp needed
+ 1196 0060 30BD     		pop	{r4, r5, pc}
+ 1197              	.L126:
+ 1198 0062 C046     		.align	2
+ 1199              	.L125:
+ 1200 0064 FFFFFF3F 		.word	1073741823
+ 1201 0068 10380140 		.word	1073821712
+ 1202              		.cfi_endproc
+ 1203              	.LFE65:
+ 1205              		.section	.text.AES_AESIVR_WriteEx,"ax",%progbits
+ 1206              		.align	2
+ 1207              		.global	AES_AESIVR_WriteEx
+ 1208              		.code	16
+ 1209              		.thumb_func
+ 1211              	AES_AESIVR_WriteEx:
+ 1212              	.LFB66:
+ 357:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 358:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /*³õÊ¼ÏòÁ¿ÊäÈë */
+ 359:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** void AES_AESIVR_WriteEx(uint8_t *IVRIn)
+ 360:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 1213              		.loc 1 360 0
+ 1214              		.cfi_startproc
+ 1215              		@ args = 0, pretend = 0, frame = 8
+ 1216              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1217              	.LVL41:
+ 1218 0000 10B5     		push	{r4, lr}
+ 1219              	.LCFI4:
+ 1220              		.cfi_def_cfa_offset 8
+ 1221              		.cfi_offset 4, -8
+ 1222              		.cfi_offset 14, -4
+ 1223 0002 82B0     		sub	sp, sp, #8
+ 1224              	.LCFI5:
+ 1225              		.cfi_def_cfa_offset 16
+ 1226              	.LVL42:
+ 361:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	uint8_t i;
+ 362:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	__IO uint32_t *PointIvrReg;
+ 363:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	__IO uint32_t Temp32;
+ 364:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	
+ 365:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	PointIvrReg = (&AES->AESIVR0);
+ 366:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	for(i=0; i<4*4; i=i+4)
+ 1227              		.loc 1 366 0
+ 1228 0004 0022     		movs	r2, #0
+ 1229 0006 1FE0     		b	.L128
+ 1230              	.LVL43:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 28
+
+
+ 1231              	.L129:
+ 367:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 368:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		Temp32 = (IVRIn[0+i]<<24)|(IVRIn[1+i]<<16)|(IVRIn[2+i]<<8)|(IVRIn[3+i]<<0);
+ 1232              		.loc 1 368 0 discriminator 3
+ 1233 0008 835C     		ldrb	r3, [r0, r2]
+ 1234 000a 1906     		lsls	r1, r3, #24
+ 1235 000c 531C     		adds	r3, r2, #1
+ 1236 000e C35C     		ldrb	r3, [r0, r3]
+ 1237 0010 1B04     		lsls	r3, r3, #16
+ 1238 0012 0B43     		orrs	r3, r1
+ 1239 0014 911C     		adds	r1, r2, #2
+ 1240 0016 415C     		ldrb	r1, [r0, r1]
+ 1241 0018 0902     		lsls	r1, r1, #8
+ 1242 001a 0B43     		orrs	r3, r1
+ 1243 001c D11C     		adds	r1, r2, #3
+ 1244 001e 415C     		ldrb	r1, [r0, r1]
+ 1245 0020 0B43     		orrs	r3, r1
+ 1246 0022 0193     		str	r3, [sp, #4]
+ 369:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		PointIvrReg[(16-i)/4-1] = Temp32;
+ 1247              		.loc 1 369 0 discriminator 3
+ 1248 0024 1023     		movs	r3, #16
+ 1249 0026 9B1A     		subs	r3, r3, r2
+ 1250 0028 D917     		asrs	r1, r3, #31
+ 1251 002a 0324     		movs	r4, #3
+ 1252 002c 2140     		ands	r1, r4
+ 1253 002e CB18     		adds	r3, r1, r3
+ 1254 0030 9B10     		asrs	r3, r3, #2
+ 1255 0032 0749     		ldr	r1, .L130
+ 1256 0034 8C46     		mov	ip, r1
+ 1257 0036 6344     		add	r3, r3, ip
+ 1258 0038 9B00     		lsls	r3, r3, #2
+ 1259 003a 0649     		ldr	r1, .L130+4
+ 1260 003c 8C46     		mov	ip, r1
+ 1261 003e 6344     		add	r3, r3, ip
+ 1262 0040 0199     		ldr	r1, [sp, #4]
+ 1263 0042 1960     		str	r1, [r3]
+ 366:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 1264              		.loc 1 366 0 discriminator 3
+ 1265 0044 0432     		adds	r2, r2, #4
+ 1266              	.LVL44:
+ 1267 0046 D2B2     		uxtb	r2, r2
+ 1268              	.LVL45:
+ 1269              	.L128:
+ 366:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 1270              		.loc 1 366 0 is_stmt 0 discriminator 1
+ 1271 0048 0F2A     		cmp	r2, #15
+ 1272 004a DDD9     		bls	.L129
+ 370:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+ 371:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 1273              		.loc 1 371 0 is_stmt 1
+ 1274 004c 02B0     		add	sp, sp, #8
+ 1275              		@ sp needed
+ 1276 004e 10BD     		pop	{r4, pc}
+ 1277              	.L131:
+ 1278              		.align	2
+ 1279              	.L130:
+ 1280 0050 FFFFFF3F 		.word	1073741823
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 29
+
+
+ 1281 0054 30380140 		.word	1073821744
+ 1282              		.cfi_endproc
+ 1283              	.LFE66:
+ 1285              		.section	.text.AES_AESIVR_ReadEx,"ax",%progbits
+ 1286              		.align	2
+ 1287              		.global	AES_AESIVR_ReadEx
+ 1288              		.code	16
+ 1289              		.thumb_func
+ 1291              	AES_AESIVR_ReadEx:
+ 1292              	.LFB67:
+ 372:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 373:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /*³õÊ¼ÏòÁ¿¶ÁÈ¡ */
+ 374:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** void AES_AESIVR_ReadEx(uint8_t *IVROut)
+ 375:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 1293              		.loc 1 375 0
+ 1294              		.cfi_startproc
+ 1295              		@ args = 0, pretend = 0, frame = 8
+ 1296              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1297              	.LVL46:
+ 1298 0000 10B5     		push	{r4, lr}
+ 1299              	.LCFI6:
+ 1300              		.cfi_def_cfa_offset 8
+ 1301              		.cfi_offset 4, -8
+ 1302              		.cfi_offset 14, -4
+ 1303 0002 82B0     		sub	sp, sp, #8
+ 1304              	.LCFI7:
+ 1305              		.cfi_def_cfa_offset 16
+ 1306              	.LVL47:
+ 376:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	uint8_t i;
+ 377:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	__IO uint32_t *PointIvrReg;
+ 378:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	__IO uint32_t Temp32;
+ 379:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	
+ 380:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	PointIvrReg = (&AES->AESIVR0);
+ 381:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	for(i=0; i<4*4; i=i+4)
+ 1307              		.loc 1 381 0
+ 1308 0004 0022     		movs	r2, #0
+ 1309 0006 1FE0     		b	.L133
+ 1310              	.LVL48:
+ 1311              	.L134:
+ 382:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 383:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		Temp32 = PointIvrReg[(4*4-i)/4-1];
+ 1312              		.loc 1 383 0 discriminator 3
+ 1313 0008 1023     		movs	r3, #16
+ 1314 000a 9B1A     		subs	r3, r3, r2
+ 1315 000c D917     		asrs	r1, r3, #31
+ 1316 000e 0324     		movs	r4, #3
+ 1317 0010 2140     		ands	r1, r4
+ 1318 0012 CB18     		adds	r3, r1, r3
+ 1319 0014 9B10     		asrs	r3, r3, #2
+ 1320 0016 0E49     		ldr	r1, .L135
+ 1321 0018 8C46     		mov	ip, r1
+ 1322 001a 6344     		add	r3, r3, ip
+ 1323 001c 9B00     		lsls	r3, r3, #2
+ 1324 001e 0D49     		ldr	r1, .L135+4
+ 1325 0020 8C46     		mov	ip, r1
+ 1326 0022 6344     		add	r3, r3, ip
+ 1327 0024 1B68     		ldr	r3, [r3]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 30
+
+
+ 1328 0026 0193     		str	r3, [sp, #4]
+ 384:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		IVROut[0+i] = Temp32>>24;
+ 1329              		.loc 1 384 0 discriminator 3
+ 1330 0028 019B     		ldr	r3, [sp, #4]
+ 1331 002a 1B0E     		lsrs	r3, r3, #24
+ 1332 002c 8354     		strb	r3, [r0, r2]
+ 385:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		IVROut[1+i] = Temp32>>16;
+ 1333              		.loc 1 385 0 discriminator 3
+ 1334 002e 511C     		adds	r1, r2, #1
+ 1335 0030 019B     		ldr	r3, [sp, #4]
+ 1336 0032 1B0C     		lsrs	r3, r3, #16
+ 1337 0034 4354     		strb	r3, [r0, r1]
+ 386:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		IVROut[2+i] = Temp32>>8;
+ 1338              		.loc 1 386 0 discriminator 3
+ 1339 0036 911C     		adds	r1, r2, #2
+ 1340 0038 019B     		ldr	r3, [sp, #4]
+ 1341 003a 1B0A     		lsrs	r3, r3, #8
+ 1342 003c 4354     		strb	r3, [r0, r1]
+ 387:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		IVROut[3+i] = Temp32>>0;	
+ 1343              		.loc 1 387 0 discriminator 3
+ 1344 003e D31C     		adds	r3, r2, #3
+ 1345 0040 0199     		ldr	r1, [sp, #4]
+ 1346 0042 C154     		strb	r1, [r0, r3]
+ 381:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 1347              		.loc 1 381 0 discriminator 3
+ 1348 0044 0432     		adds	r2, r2, #4
+ 1349              	.LVL49:
+ 1350 0046 D2B2     		uxtb	r2, r2
+ 1351              	.LVL50:
+ 1352              	.L133:
+ 381:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 1353              		.loc 1 381 0 is_stmt 0 discriminator 1
+ 1354 0048 0F2A     		cmp	r2, #15
+ 1355 004a DDD9     		bls	.L134
+ 388:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+ 389:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 1356              		.loc 1 389 0 is_stmt 1
+ 1357 004c 02B0     		add	sp, sp, #8
+ 1358              		@ sp needed
+ 1359 004e 10BD     		pop	{r4, pc}
+ 1360              	.L136:
+ 1361              		.align	2
+ 1362              	.L135:
+ 1363 0050 FFFFFF3F 		.word	1073741823
+ 1364 0054 30380140 		.word	1073821744
+ 1365              		.cfi_endproc
+ 1366              	.LFE67:
+ 1368              		.section	.text.AES_AESDIN_GroupWrite_128BIT,"ax",%progbits
+ 1369              		.align	2
+ 1370              		.global	AES_AESDIN_GroupWrite_128BIT
+ 1371              		.code	16
+ 1372              		.thumb_func
+ 1374              	AES_AESDIN_GroupWrite_128BIT:
+ 1375              	.LFB68:
+ 390:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 391:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /*¼Ó½âÃÜÊý¾ÝÊäÈë£¬16×Ö½Ú£¨128bit£©·Ö×éÊý¾ÝÊäÈë  */
+ 392:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** void AES_AESDIN_GroupWrite_128BIT(uint8_t *DataIn)
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 31
+
+
+ 393:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 1376              		.loc 1 393 0
+ 1377              		.cfi_startproc
+ 1378              		@ args = 0, pretend = 0, frame = 8
+ 1379              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1380              		@ link register save eliminated.
+ 1381              	.LVL51:
+ 1382 0000 82B0     		sub	sp, sp, #8
+ 1383              	.LCFI8:
+ 1384              		.cfi_def_cfa_offset 8
+ 1385              	.LVL52:
+ 394:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	uint8_t i;
+ 395:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	__IO uint32_t Temp32;
+ 396:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 397:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	for(i=0; i<16; i=i+4)
+ 1386              		.loc 1 397 0
+ 1387 0002 0023     		movs	r3, #0
+ 1388 0004 12E0     		b	.L138
+ 1389              	.LVL53:
+ 1390              	.L139:
+ 398:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 399:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		Temp32 = (DataIn[0+i]<<24)|(DataIn[1+i]<<16)|(DataIn[2+i]<<8)|(DataIn[3+i]<<0);
+ 1391              		.loc 1 399 0 discriminator 3
+ 1392 0006 C25C     		ldrb	r2, [r0, r3]
+ 1393 0008 1106     		lsls	r1, r2, #24
+ 1394 000a 5A1C     		adds	r2, r3, #1
+ 1395 000c 825C     		ldrb	r2, [r0, r2]
+ 1396 000e 1204     		lsls	r2, r2, #16
+ 1397 0010 0A43     		orrs	r2, r1
+ 1398 0012 991C     		adds	r1, r3, #2
+ 1399 0014 415C     		ldrb	r1, [r0, r1]
+ 1400 0016 0902     		lsls	r1, r1, #8
+ 1401 0018 0A43     		orrs	r2, r1
+ 1402 001a D91C     		adds	r1, r3, #3
+ 1403 001c 415C     		ldrb	r1, [r0, r1]
+ 1404 001e 0A43     		orrs	r2, r1
+ 1405 0020 0192     		str	r2, [sp, #4]
+ 400:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		AES->AESDIN = Temp32;
+ 1406              		.loc 1 400 0 discriminator 3
+ 1407 0022 0199     		ldr	r1, [sp, #4]
+ 1408 0024 034A     		ldr	r2, .L140
+ 1409 0026 9160     		str	r1, [r2, #8]
+ 397:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 1410              		.loc 1 397 0 discriminator 3
+ 1411 0028 0433     		adds	r3, r3, #4
+ 1412              	.LVL54:
+ 1413 002a DBB2     		uxtb	r3, r3
+ 1414              	.LVL55:
+ 1415              	.L138:
+ 397:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 1416              		.loc 1 397 0 is_stmt 0 discriminator 1
+ 1417 002c 0F2B     		cmp	r3, #15
+ 1418 002e EAD9     		bls	.L139
+ 401:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+ 402:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 1419              		.loc 1 402 0 is_stmt 1
+ 1420 0030 02B0     		add	sp, sp, #8
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 32
+
+
+ 1421              		@ sp needed
+ 1422 0032 7047     		bx	lr
+ 1423              	.L141:
+ 1424              		.align	2
+ 1425              	.L140:
+ 1426 0034 00380140 		.word	1073821696
+ 1427              		.cfi_endproc
+ 1428              	.LFE68:
+ 1430              		.section	.text.AES_AESDOUT_GroupRead_128BIT,"ax",%progbits
+ 1431              		.align	2
+ 1432              		.global	AES_AESDOUT_GroupRead_128BIT
+ 1433              		.code	16
+ 1434              		.thumb_func
+ 1436              	AES_AESDOUT_GroupRead_128BIT:
+ 1437              	.LFB69:
+ 403:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c ****         						
+ 404:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /*¼Ó½âÃÜÊý¾ÝÊä³ö£¬16×Ö½Ú£¨128bit£©·Ö×éÊý¾ÝÊä³ö  */
+ 405:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** void AES_AESDOUT_GroupRead_128BIT(uint8_t *DataOut)
+ 406:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 1438              		.loc 1 406 0
+ 1439              		.cfi_startproc
+ 1440              		@ args = 0, pretend = 0, frame = 24
+ 1441              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1442              	.LVL56:
+ 1443 0000 10B5     		push	{r4, lr}
+ 1444              	.LCFI9:
+ 1445              		.cfi_def_cfa_offset 8
+ 1446              		.cfi_offset 4, -8
+ 1447              		.cfi_offset 14, -4
+ 1448 0002 86B0     		sub	sp, sp, #24
+ 1449              	.LCFI10:
+ 1450              		.cfi_def_cfa_offset 32
+ 1451              	.LVL57:
+ 407:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	uint8_t i;
+ 408:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	__IO uint32_t Temp32;
+ 409:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	uint8_t Buf[16];
+ 410:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	
+ 411:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	for(i=0; i<16; i=i+4)
+ 1452              		.loc 1 411 0
+ 1453 0004 0023     		movs	r3, #0
+ 1454 0006 13E0     		b	.L143
+ 1455              	.LVL58:
+ 1456              	.L144:
+ 412:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 413:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		Temp32 = AES->AESDOUT;
+ 1457              		.loc 1 413 0 discriminator 3
+ 1458 0008 1E4A     		ldr	r2, .L153
+ 1459 000a D268     		ldr	r2, [r2, #12]
+ 1460 000c 0592     		str	r2, [sp, #20]
+ 414:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		Buf[0+i] = Temp32>>24;
+ 1461              		.loc 1 414 0 discriminator 3
+ 1462 000e 059A     		ldr	r2, [sp, #20]
+ 1463 0010 120E     		lsrs	r2, r2, #24
+ 1464 0012 01A9     		add	r1, sp, #4
+ 1465 0014 CA54     		strb	r2, [r1, r3]
+ 415:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		Buf[1+i] = Temp32>>16;
+ 1466              		.loc 1 415 0 discriminator 3
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 33
+
+
+ 1467 0016 5C1C     		adds	r4, r3, #1
+ 1468 0018 059A     		ldr	r2, [sp, #20]
+ 1469 001a 120C     		lsrs	r2, r2, #16
+ 1470 001c 0A55     		strb	r2, [r1, r4]
+ 416:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		Buf[2+i] = Temp32>>8;
+ 1471              		.loc 1 416 0 discriminator 3
+ 1472 001e 9C1C     		adds	r4, r3, #2
+ 1473 0020 059A     		ldr	r2, [sp, #20]
+ 1474 0022 120A     		lsrs	r2, r2, #8
+ 1475 0024 0A55     		strb	r2, [r1, r4]
+ 417:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		Buf[3+i] = Temp32>>0;
+ 1476              		.loc 1 417 0 discriminator 3
+ 1477 0026 DA1C     		adds	r2, r3, #3
+ 1478 0028 059C     		ldr	r4, [sp, #20]
+ 1479 002a 8C54     		strb	r4, [r1, r2]
+ 411:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 1480              		.loc 1 411 0 discriminator 3
+ 1481 002c 0433     		adds	r3, r3, #4
+ 1482              	.LVL59:
+ 1483 002e DBB2     		uxtb	r3, r3
+ 1484              	.LVL60:
+ 1485              	.L143:
+ 411:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 1486              		.loc 1 411 0 is_stmt 0 discriminator 1
+ 1487 0030 0F2B     		cmp	r3, #15
+ 1488 0032 E9D9     		bls	.L144
+ 418:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+ 419:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	if( RCC->SYSCLKSEL & (0x07UL << 16))//APBÊ±ÖÓÓÐ·ÖÆµ
+ 1489              		.loc 1 419 0 is_stmt 1
+ 1490 0034 144B     		ldr	r3, .L153+4
+ 1491              	.LVL61:
+ 1492 0036 DA68     		ldr	r2, [r3, #12]
+ 1493 0038 E023     		movs	r3, #224
+ 1494 003a DB02     		lsls	r3, r3, #11
+ 1495 003c 1A42     		tst	r2, r3
+ 1496 003e 08D1     		bne	.L152
+ 1497 0040 0023     		movs	r3, #0
+ 1498 0042 1AE0     		b	.L146
+ 1499              	.LVL62:
+ 1500              	.L147:
+ 420:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 421:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		for(i=0; i<12; i++)
+ 422:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		{
+ 423:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 			DataOut[4+i] = Buf[i];
+ 1501              		.loc 1 423 0 discriminator 3
+ 1502 0044 1A1D     		adds	r2, r3, #4
+ 1503 0046 01A9     		add	r1, sp, #4
+ 1504 0048 C95C     		ldrb	r1, [r1, r3]
+ 1505 004a 8154     		strb	r1, [r0, r2]
+ 421:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		{
+ 1506              		.loc 1 421 0 discriminator 3
+ 1507 004c 0133     		adds	r3, r3, #1
+ 1508              	.LVL63:
+ 1509 004e DBB2     		uxtb	r3, r3
+ 1510              	.LVL64:
+ 1511 0050 00E0     		b	.L145
+ 1512              	.LVL65:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 34
+
+
+ 1513              	.L152:
+ 1514 0052 0023     		movs	r3, #0
+ 1515              	.L145:
+ 1516              	.LVL66:
+ 421:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		{
+ 1517              		.loc 1 421 0 is_stmt 0 discriminator 1
+ 1518 0054 0B2B     		cmp	r3, #11
+ 1519 0056 F5D9     		bls	.L147
+ 1520 0058 0023     		movs	r3, #0
+ 1521              	.LVL67:
+ 1522 005a 06E0     		b	.L148
+ 1523              	.LVL68:
+ 1524              	.L149:
+ 424:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		}
+ 425:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		for(i=0; i<4; i++)
+ 426:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		{
+ 427:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 			DataOut[i] = Buf[12+i];
+ 1525              		.loc 1 427 0 is_stmt 1 discriminator 3
+ 1526 005c 1A00     		movs	r2, r3
+ 1527 005e 0C32     		adds	r2, r2, #12
+ 1528 0060 01A9     		add	r1, sp, #4
+ 1529 0062 8A5C     		ldrb	r2, [r1, r2]
+ 1530 0064 C254     		strb	r2, [r0, r3]
+ 425:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		{
+ 1531              		.loc 1 425 0 discriminator 3
+ 1532 0066 0133     		adds	r3, r3, #1
+ 1533              	.LVL69:
+ 1534 0068 DBB2     		uxtb	r3, r3
+ 1535              	.LVL70:
+ 1536              	.L148:
+ 425:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		{
+ 1537              		.loc 1 425 0 is_stmt 0 discriminator 1
+ 1538 006a 032B     		cmp	r3, #3
+ 1539 006c F6D9     		bls	.L149
+ 1540 006e 06E0     		b	.L142
+ 1541              	.L151:
+ 428:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		}	
+ 429:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+ 430:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	else
+ 431:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 432:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		for(i=0; i<16; i++)
+ 433:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		{
+ 434:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 			DataOut[i] = Buf[i];
+ 1542              		.loc 1 434 0 is_stmt 1 discriminator 3
+ 1543 0070 01AA     		add	r2, sp, #4
+ 1544 0072 D25C     		ldrb	r2, [r2, r3]
+ 1545 0074 C254     		strb	r2, [r0, r3]
+ 432:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		{
+ 1546              		.loc 1 432 0 discriminator 3
+ 1547 0076 0133     		adds	r3, r3, #1
+ 1548              	.LVL71:
+ 1549 0078 DBB2     		uxtb	r3, r3
+ 1550              	.LVL72:
+ 1551              	.L146:
+ 432:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		{
+ 1552              		.loc 1 432 0 is_stmt 0 discriminator 1
+ 1553 007a 0F2B     		cmp	r3, #15
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 35
+
+
+ 1554 007c F8D9     		bls	.L151
+ 1555              	.L142:
+ 435:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		}
+ 436:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+ 437:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 1556              		.loc 1 437 0 is_stmt 1
+ 1557 007e 06B0     		add	sp, sp, #24
+ 1558              		@ sp needed
+ 1559 0080 10BD     		pop	{r4, pc}
+ 1560              	.L154:
+ 1561 0082 C046     		.align	2
+ 1562              	.L153:
+ 1563 0084 00380140 		.word	1073821696
+ 1564 0088 00020040 		.word	1073742336
+ 1565              		.cfi_endproc
+ 1566              	.LFE69:
+ 1568              		.section	.text.AES_GroupWriteAndRead_128BIT,"ax",%progbits
+ 1569              		.align	2
+ 1570              		.global	AES_GroupWriteAndRead_128BIT
+ 1571              		.code	16
+ 1572              		.thumb_func
+ 1574              	AES_GroupWriteAndRead_128BIT:
+ 1575              	.LFB70:
+ 438:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 439:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** uint8_t AES_GroupWriteAndRead_128BIT(uint8_t *DataIn, uint8_t *DataOut)
+ 440:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {	
+ 1576              		.loc 1 440 0
+ 1577              		.cfi_startproc
+ 1578              		@ args = 0, pretend = 0, frame = 0
+ 1579              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1580              	.LVL73:
+ 1581 0000 70B5     		push	{r4, r5, r6, lr}
+ 1582              	.LCFI11:
+ 1583              		.cfi_def_cfa_offset 16
+ 1584              		.cfi_offset 4, -16
+ 1585              		.cfi_offset 5, -12
+ 1586              		.cfi_offset 6, -8
+ 1587              		.cfi_offset 14, -4
+ 1588 0002 0D00     		movs	r5, r1
+ 441:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	uint16_t i;
+ 442:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	
+ 443:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	//ÊäÈë¼Ó½âÃÜÊý¾Ý
+ 444:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES_AESDIN_GroupWrite_128BIT(DataIn);
+ 1589              		.loc 1 444 0
+ 1590 0004 FFF7FEFF 		bl	AES_AESDIN_GroupWrite_128BIT
+ 1591              	.LVL74:
+ 445:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	
+ 446:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	//µÈ´ýCCF±êÖ¾ÖÃÆð,Íê³É¼ÆËã´óÔ¼ÐèÒª100¸öÊ±ÖÓÖÜÆÚ
+ 447:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	for(i=0;i<500;i++)
+ 1592              		.loc 1 447 0
+ 1593 0008 0024     		movs	r4, #0
+ 1594 000a 05E0     		b	.L156
+ 1595              	.LVL75:
+ 1596              	.L158:
+ 448:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 449:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 		if(SET == AES_AESIF_CCF_Chk() ) break;
+ 1597              		.loc 1 449 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 36
+
+
+ 1598 000c FFF7FEFF 		bl	AES_AESIF_CCF_Chk
+ 1599              	.LVL76:
+ 1600 0010 0128     		cmp	r0, #1
+ 1601 0012 05D0     		beq	.L157
+ 447:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 1602              		.loc 1 447 0 discriminator 2
+ 1603 0014 0134     		adds	r4, r4, #1
+ 1604              	.LVL77:
+ 1605 0016 A4B2     		uxth	r4, r4
+ 1606              	.LVL78:
+ 1607              	.L156:
+ 447:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	{
+ 1608              		.loc 1 447 0 is_stmt 0 discriminator 1
+ 1609 0018 F423     		movs	r3, #244
+ 1610 001a FF33     		adds	r3, r3, #255
+ 1611 001c 9C42     		cmp	r4, r3
+ 1612 001e F5D9     		bls	.L158
+ 1613              	.L157:
+ 450:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	}
+ 451:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	//ÇåCCF±êÖ¾
+ 452:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	//¶ÁÈ¡Ç°±ØÐëÇå³ý
+ 453:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES_AESCR_CCFC_Clr();
+ 1614              		.loc 1 453 0 is_stmt 1
+ 1615 0020 FFF7FEFF 		bl	AES_AESCR_CCFC_Clr
+ 1616              	.LVL79:
+ 454:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	
+ 455:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	//¶ÁÈ¡½á¹û
+ 456:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES_AESDOUT_GroupRead_128BIT(DataOut);
+ 1617              		.loc 1 456 0
+ 1618 0024 2800     		movs	r0, r5
+ 1619 0026 FFF7FEFF 		bl	AES_AESDOUT_GroupRead_128BIT
+ 1620              	.LVL80:
+ 457:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	
+ 458:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	if(i==500) return 1;
+ 1621              		.loc 1 458 0
+ 1622 002a FA23     		movs	r3, #250
+ 1623 002c 5B00     		lsls	r3, r3, #1
+ 1624 002e 9C42     		cmp	r4, r3
+ 1625 0030 01D1     		bne	.L160
+ 1626 0032 0120     		movs	r0, #1
+ 1627 0034 00E0     		b	.L159
+ 1628              	.L160:
+ 459:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	else return 0;
+ 1629              		.loc 1 459 0
+ 1630 0036 0020     		movs	r0, #0
+ 1631              	.L159:
+ 460:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 1632              		.loc 1 460 0
+ 1633              		@ sp needed
+ 1634              	.LVL81:
+ 1635              	.LVL82:
+ 1636 0038 70BD     		pop	{r4, r5, r6, pc}
+ 1637              		.cfi_endproc
+ 1638              	.LFE70:
+ 1640 003a C046     		.section	.text.AES_Init,"ax",%progbits
+ 1641              		.align	2
+ 1642              		.global	AES_Init
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 37
+
+
+ 1643              		.code	16
+ 1644              		.thumb_func
+ 1646              	AES_Init:
+ 1647              	.LFB71:
+ 461:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 
+ 462:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** /* AESÄ£¿é³õÊ¼»¯º¯Êý */
+ 463:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** void AES_Init(AES_InitTypeDef* para)
+ 464:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** {
+ 1648              		.loc 1 464 0
+ 1649              		.cfi_startproc
+ 1650              		@ args = 0, pretend = 0, frame = 0
+ 1651              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1652              	.LVL83:
+ 1653 0000 10B5     		push	{r4, lr}
+ 1654              	.LCFI12:
+ 1655              		.cfi_def_cfa_offset 8
+ 1656              		.cfi_offset 4, -8
+ 1657              		.cfi_offset 14, -4
+ 1658 0002 0400     		movs	r4, r0
+ 465:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES_AESCR_KEYLEN_Set(para->KEYLEN);			//AES¼ÓÃÜÃÜÔ¿³¤¶È£¬AESEN=1Ê±²»¿ÉÐÞ¸Ä
+ 1659              		.loc 1 465 0
+ 1660 0004 0068     		ldr	r0, [r0]
+ 1661              	.LVL84:
+ 1662 0006 FFF7FEFF 		bl	AES_AESCR_KEYLEN_Set
+ 1663              	.LVL85:
+ 466:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES_AESCR_CHMOD_Set(para->CHMOD);			//AESÊý¾ÝÁ÷´¦ÀíÄ£Ê½£¬AESEN=1Ê±²»¿ÉÐÞ¸Ä
+ 1664              		.loc 1 466 0
+ 1665 000a 6068     		ldr	r0, [r4, #4]
+ 1666 000c FFF7FEFF 		bl	AES_AESCR_CHMOD_Set
+ 1667              	.LVL86:
+ 467:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES_AESCR_MODE_Set(para->MODE);				//AES¹¤×÷Ä£Ê½£¬AESEN=1Ê±²»¿ÉÐÞ¸Ä
+ 1668              		.loc 1 467 0
+ 1669 0010 A068     		ldr	r0, [r4, #8]
+ 1670 0012 FFF7FEFF 		bl	AES_AESCR_MODE_Set
+ 1671              	.LVL87:
+ 468:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES_AESCR_DATATYP_Set(para->DATATYP);		//Ñ¡ÔñÊý¾ÝÀàÐÍ£¬AESEN=1Ê±²»¿ÉÐÞ¸Ä¡£¾ßÌå½»»»¹æÔò¿É²Î¿¼AESÊý¾
+ 1672              		.loc 1 468 0
+ 1673 0016 E068     		ldr	r0, [r4, #12]
+ 1674 0018 FFF7FEFF 		bl	AES_AESCR_DATATYP_Set
+ 1675              	.LVL88:
+ 469:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES_AESCR_DMAOEN_Setable(para->DMAOEN);		//DMAÊý¾Ý×Ô¶¯¶Á³öÊ¹ÄÜ
+ 1676              		.loc 1 469 0
+ 1677 001c 207C     		ldrb	r0, [r4, #16]
+ 1678 001e FFF7FEFF 		bl	AES_AESCR_DMAOEN_Setable
+ 1679              	.LVL89:
+ 470:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES_AESCR_DMAIEN_Setable(para->DMAIEN);		//DMAÊý¾Ý×Ô¶¯Ð´ÈëÊ¹ÄÜ
+ 1680              		.loc 1 470 0
+ 1681 0022 607C     		ldrb	r0, [r4, #17]
+ 1682 0024 FFF7FEFF 		bl	AES_AESCR_DMAIEN_Setable
+ 1683              	.LVL90:
+ 471:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES_AESCR_ERRIE_Setable(para->ERRIE);		//´íÎó±êÖ¾£¨RDERRºÍWRERR£©ÖÐ¶ÏÊ¹ÄÜ
+ 1684              		.loc 1 471 0
+ 1685 0028 A07C     		ldrb	r0, [r4, #18]
+ 1686 002a FFF7FEFF 		bl	AES_AESCR_ERRIE_Setable
+ 1687              	.LVL91:
+ 472:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES_AESCR_CCFIE_Setable(para->CCFIE);		//CCF±êÖ¾ÖÐ¶ÏÊ¹ÄÜ
+ 1688              		.loc 1 472 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 38
+
+
+ 1689 002e E07C     		ldrb	r0, [r4, #19]
+ 1690 0030 FFF7FEFF 		bl	AES_AESCR_CCFIE_Setable
+ 1691              	.LVL92:
+ 473:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** 	AES_AESCR_AESEN_Setable(para->AESEN);		//AESÊ¹ÄÜ 
+ 1692              		.loc 1 473 0
+ 1693 0034 207D     		ldrb	r0, [r4, #20]
+ 1694 0036 FFF7FEFF 		bl	AES_AESCR_AESEN_Setable
+ 1695              	.LVL93:
+ 474:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_aes.c **** }
+ 1696              		.loc 1 474 0
+ 1697              		@ sp needed
+ 1698              	.LVL94:
+ 1699 003a 10BD     		pop	{r4, pc}
+ 1700              		.cfi_endproc
+ 1701              	.LFE71:
+ 1703              		.text
+ 1704              	.Letext0:
+ 1705              		.file 2 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\device\\include\\fm33a0xx.h"
+ 1706              		.file 3 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\machine\\_default_types.h
+ 1707              		.file 4 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 1708              		.file 5 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\drivers\\fm33a0xx_aes.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 39
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 fm33a0xx_aes.c
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:20     .text.AES_AESCR_KEYLEN_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:25     .text.AES_AESCR_KEYLEN_Set:00000000 AES_AESCR_KEYLEN_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:57     .text.AES_AESCR_KEYLEN_Set:00000014 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:63     .text.AES_AESCR_KEYLEN_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:68     .text.AES_AESCR_KEYLEN_Get:00000000 AES_AESCR_KEYLEN_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:87     .text.AES_AESCR_KEYLEN_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:92     .text.AES_AESCR_DMAOEN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:97     .text.AES_AESCR_DMAOEN_Setable:00000000 AES_AESCR_DMAOEN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:130    .text.AES_AESCR_DMAOEN_Setable:00000020 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:136    .text.AES_AESCR_DMAOEN_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:141    .text.AES_AESCR_DMAOEN_Getable:00000000 AES_AESCR_DMAOEN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:166    .text.AES_AESCR_DMAOEN_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:171    .text.AES_AESCR_DMAIEN_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:176    .text.AES_AESCR_DMAIEN_Setable:00000000 AES_AESCR_DMAIEN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:209    .text.AES_AESCR_DMAIEN_Setable:00000020 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:215    .text.AES_AESCR_DMAIEN_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:220    .text.AES_AESCR_DMAIEN_Getable:00000000 AES_AESCR_DMAIEN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:245    .text.AES_AESCR_DMAIEN_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:250    .text.AES_AESCR_ERRIE_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:255    .text.AES_AESCR_ERRIE_Setable:00000000 AES_AESCR_ERRIE_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:288    .text.AES_AESCR_ERRIE_Setable:00000020 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:294    .text.AES_AESCR_ERRIE_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:299    .text.AES_AESCR_ERRIE_Getable:00000000 AES_AESCR_ERRIE_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:324    .text.AES_AESCR_ERRIE_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:329    .text.AES_AESCR_CCFIE_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:334    .text.AES_AESCR_CCFIE_Setable:00000000 AES_AESCR_CCFIE_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:367    .text.AES_AESCR_CCFIE_Setable:00000020 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:373    .text.AES_AESCR_CCFIE_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:378    .text.AES_AESCR_CCFIE_Getable:00000000 AES_AESCR_CCFIE_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:403    .text.AES_AESCR_CCFIE_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:408    .text.AES_AESCR_ERRC_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:413    .text.AES_AESCR_ERRC_Clr:00000000 AES_AESCR_ERRC_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:433    .text.AES_AESCR_ERRC_Clr:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:438    .text.AES_AESCR_CCFC_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:443    .text.AES_AESCR_CCFC_Clr:00000000 AES_AESCR_CCFC_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:462    .text.AES_AESCR_CCFC_Clr:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:467    .text.AES_AESCR_CHMOD_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:472    .text.AES_AESCR_CHMOD_Set:00000000 AES_AESCR_CHMOD_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:501    .text.AES_AESCR_CHMOD_Set:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:506    .text.AES_AESCR_CHMOD_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:511    .text.AES_AESCR_CHMOD_Get:00000000 AES_AESCR_CHMOD_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:529    .text.AES_AESCR_CHMOD_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:534    .text.AES_AESCR_MODE_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:539    .text.AES_AESCR_MODE_Set:00000000 AES_AESCR_MODE_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:568    .text.AES_AESCR_MODE_Set:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:573    .text.AES_AESCR_MODE_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:578    .text.AES_AESCR_MODE_Get:00000000 AES_AESCR_MODE_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:596    .text.AES_AESCR_MODE_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:601    .text.AES_AESCR_DATATYP_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:606    .text.AES_AESCR_DATATYP_Set:00000000 AES_AESCR_DATATYP_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:635    .text.AES_AESCR_DATATYP_Set:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:640    .text.AES_AESCR_DATATYP_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:645    .text.AES_AESCR_DATATYP_Get:00000000 AES_AESCR_DATATYP_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:663    .text.AES_AESCR_DATATYP_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:668    .text.AES_AESCR_AESEN_Setable:00000000 $t
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s 			page 40
+
+
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:673    .text.AES_AESCR_AESEN_Setable:00000000 AES_AESCR_AESEN_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:705    .text.AES_AESCR_AESEN_Setable:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:710    .text.AES_AESCR_AESEN_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:715    .text.AES_AESCR_AESEN_Getable:00000000 AES_AESCR_AESEN_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:740    .text.AES_AESCR_AESEN_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:745    .text.AES_AESIF_WRERR_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:750    .text.AES_AESIF_WRERR_Chk:00000000 AES_AESIF_WRERR_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:775    .text.AES_AESIF_WRERR_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:780    .text.AES_AESIF_RDERR_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:785    .text.AES_AESIF_RDERR_Chk:00000000 AES_AESIF_RDERR_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:810    .text.AES_AESIF_RDERR_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:815    .text.AES_AESIF_CCF_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:820    .text.AES_AESIF_CCF_Chk:00000000 AES_AESIF_CCF_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:845    .text.AES_AESIF_CCF_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:850    .text.AES_AESDIN_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:855    .text.AES_AESDIN_Write:00000000 AES_AESDIN_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:872    .text.AES_AESDIN_Write:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:877    .text.AES_AESDIN_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:882    .text.AES_AESDIN_Read:00000000 AES_AESDIN_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:898    .text.AES_AESDIN_Read:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:903    .text.AES_AESDOUT_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:908    .text.AES_AESDOUT_Write:00000000 AES_AESDOUT_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:925    .text.AES_AESDOUT_Write:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:930    .text.AES_AESDOUT_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:935    .text.AES_AESDOUT_Read:00000000 AES_AESDOUT_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:951    .text.AES_AESDOUT_Read:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:956    .text.AES_Deinit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:961    .text.AES_Deinit:00000000 AES_Deinit
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:1004   .text.AES_Deinit:00000024 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:1009   .text.AES_AESKEY_WriteEx:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:1014   .text.AES_AESKEY_WriteEx:00000000 AES_AESKEY_WriteEx
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:1100   .text.AES_AESKEY_WriteEx:00000064 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:1106   .text.AES_AESKEY_ReadEx:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:1111   .text.AES_AESKEY_ReadEx:00000000 AES_AESKEY_ReadEx
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:1200   .text.AES_AESKEY_ReadEx:00000064 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:1206   .text.AES_AESIVR_WriteEx:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:1211   .text.AES_AESIVR_WriteEx:00000000 AES_AESIVR_WriteEx
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:1280   .text.AES_AESIVR_WriteEx:00000050 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:1286   .text.AES_AESIVR_ReadEx:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:1291   .text.AES_AESIVR_ReadEx:00000000 AES_AESIVR_ReadEx
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:1363   .text.AES_AESIVR_ReadEx:00000050 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:1369   .text.AES_AESDIN_GroupWrite_128BIT:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:1374   .text.AES_AESDIN_GroupWrite_128BIT:00000000 AES_AESDIN_GroupWrite_128BIT
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:1426   .text.AES_AESDIN_GroupWrite_128BIT:00000034 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:1431   .text.AES_AESDOUT_GroupRead_128BIT:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:1436   .text.AES_AESDOUT_GroupRead_128BIT:00000000 AES_AESDOUT_GroupRead_128BIT
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:1563   .text.AES_AESDOUT_GroupRead_128BIT:00000084 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:1569   .text.AES_GroupWriteAndRead_128BIT:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:1574   .text.AES_GroupWriteAndRead_128BIT:00000000 AES_GroupWriteAndRead_128BIT
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:1641   .text.AES_Init:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLL10XP.s:1646   .text.AES_Init:00000000 AES_Init
+                     .debug_frame:00000010 $d
+
+NO UNDEFINED SYMBOLS

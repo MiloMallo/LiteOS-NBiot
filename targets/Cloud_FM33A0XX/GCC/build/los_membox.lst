@@ -1,0 +1,875 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccAMPjsk.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"los_membox.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	__aeabi_uidiv
+  20              		.section	.text.LOS_MemboxInit,"ax",%progbits
+  21              		.align	2
+  22              		.global	LOS_MemboxInit
+  23              		.code	16
+  24              		.thumb_func
+  26              	LOS_MemboxInit:
+  27              	.LFB44:
+  28              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox/los_membox.c"
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** /*----------------------------------------------------------------------------
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * Copyright (c) <2013-2015>, <Huawei Technologies Co., Ltd>
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * All rights reserved.
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * are permitted provided that the following conditions are met:
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * conditions and the following disclaimer.
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * provided with the distribution.
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * permission.
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  *---------------------------------------------------------------------------*/
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** /*----------------------------------------------------------------------------
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * Notice of Export Control Law
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * ===============================================
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccAMPjsk.s 			page 2
+
+
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * applicable export control laws and regulations.
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  *---------------------------------------------------------------------------*/
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** #include "los_typedef.h"
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** #include "los_hwi.h"
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** #include "los_membox.ph"
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** #if (LOSCFG_PLATFORM_EXC == YES)
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** #include "los_memcheck.ph"
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** #endif
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** #ifdef __cplusplus
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** #if __cplusplus
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** extern "C" {
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** #endif /* __cplusplus */
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** #endif /* __cplusplus */
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** /**
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * The address of the static memory pool must be aligned to the boundary of 4.
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  */
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** #define OS_BOXMEM_BASE_ALIGN  4
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** #define IS_BOXMEM_ALIGNED(value, alignSize)  (0 == (((UINT32)(value)) & ((UINT32)(alignSize - 1))))
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** /**
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * Get the address of the next memory node in the static memory pool.
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  */
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** #define OS_MEMBOX_NODE_NEXT(addr, uwBlkSize)  (LOS_MEMBOX_NODE *)((UINT8 *)(addr) + (uwBlkSize))
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** /**
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * The magic word of the memory box.
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  */
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** #ifdef LOS_MEMBOX_MAGIC_CHECK
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** #define OS_MEMBOX_MAGIC              0xa55a5aa5
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** #define OS_MEMBOX_SET_MAGIC(addr)    *((UINT32 *)(addr)) = OS_MEMBOX_MAGIC
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** #define OS_MEMBOX_CHECK_MAGIC(addr)  ((*((UINT32 *)(addr)) == OS_MEMBOX_MAGIC) ? LOS_OK: LOS_NOK)
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** #else
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** #define OS_MEMBOX_SET_MAGIC(addr)
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** #define OS_MEMBOX_CHECK_MAGIC(addr)  LOS_OK
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** #endif
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** /**
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  * Get the address of memory block according to the magic word information.
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  */
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** #define OS_MEMBOX_USER_ADDR(addr)  ((VOID *)((UINT8 *)(addr) + LOS_MEMBOX_MAGIC_SIZE))
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** #define OS_MEMBOX_NODE_ADDR(addr)  ((LOS_MEMBOX_NODE *)((UINT8 *)(addr) - LOS_MEMBOX_MAGIC_SIZE))
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** /*****************************************************************************
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  Function : osCheckBoxMem
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  Description : Check whether the memory block is valid
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  Input       : pstBoxInfo  --- Pointer to the memory pool
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****                pstNode     --- Pointer to the memory block that will be checked
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  Output      : None
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  Return      : LOS_OK - OK, LOS_NOK - Error
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** *****************************************************************************/
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** LITE_OS_SEC_TEXT static INLINE UINT32 osCheckBoxMem(const LOS_MEMBOX_INFO *pstBoxInfo, const VOID *
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccAMPjsk.s 			page 3
+
+
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** {
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     UINT32 uwOffSet;
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     if (pstBoxInfo->uwBlkSize == 0)
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     {
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****         return LOS_NOK;
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     }
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     uwOffSet = (UINT32)pstNode - (UINT32)(pstBoxInfo + 1);
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     if ((uwOffSet % pstBoxInfo->uwBlkSize) != 0)
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     {
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****         return LOS_NOK;
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     }
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     if ((uwOffSet / pstBoxInfo->uwBlkSize) >= pstBoxInfo->uwBlkNum)
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     {
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****         return LOS_NOK;
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     }
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     return OS_MEMBOX_CHECK_MAGIC(pstNode);
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** }
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** /*****************************************************************************
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  Function : LOS_MemboxInit
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  Description : Initialize Static Memory pool
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  Input       : pBoxMem    --- Pointer to the memory pool
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****                uwBoxSize  --- Size of the memory pool
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****                uwBlkSize  --- Size of the memory block
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  Output      : None
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  Return      : LOS_OK - OK, LOS_NOK - Error
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** *****************************************************************************/
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** LITE_OS_SEC_TEXT_INIT UINT32 LOS_MemboxInit(VOID *pBoxMem, UINT32 uwBoxSize, UINT32 uwBlkSize)
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** {
+  29              		.loc 1 120 0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 8
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              	.LVL0:
+  34 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 20
+  37              		.cfi_offset 4, -20
+  38              		.cfi_offset 5, -16
+  39              		.cfi_offset 6, -12
+  40              		.cfi_offset 7, -8
+  41              		.cfi_offset 14, -4
+  42 0002 83B0     		sub	sp, sp, #12
+  43              	.LCFI1:
+  44              		.cfi_def_cfa_offset 32
+  45 0004 0400     		movs	r4, r0
+  46 0006 0F00     		movs	r7, r1
+  47 0008 1500     		movs	r5, r2
+  48              	.LVL1:
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     LOS_MEMBOX_INFO *pstBoxInfo = (LOS_MEMBOX_INFO *)pBoxMem;
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     LOS_MEMBOX_NODE *pstNode = NULL;
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     UINT32 i;
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     UINTPTR uvIntSave;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccAMPjsk.s 			page 4
+
+
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     if (pBoxMem == NULL || uwBlkSize == 0 || uwBoxSize < sizeof(LOS_MEMBOX_INFO))
+  49              		.loc 1 126 0
+  50 000a 0028     		cmp	r0, #0
+  51 000c 2FD0     		beq	.L6
+  52              		.loc 1 126 0 is_stmt 0 discriminator 1
+  53 000e 002A     		cmp	r2, #0
+  54 0010 2FD0     		beq	.L7
+  55              		.loc 1 126 0 discriminator 2
+  56 0012 0F29     		cmp	r1, #15
+  57 0014 2FD9     		bls	.L8
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     {
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****         return LOS_NOK;
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     }
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     if (!IS_BOXMEM_ALIGNED(pBoxMem, OS_BOXMEM_BASE_ALIGN))
+  58              		.loc 1 131 0 is_stmt 1
+  59 0016 0326     		movs	r6, #3
+  60 0018 0640     		ands	r6, r0
+  61 001a 2ED1     		bne	.L9
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     {
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****         return LOS_NOK;
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     }
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     uvIntSave = LOS_IntLock();
+  62              		.loc 1 136 0
+  63 001c FFF7FEFF 		bl	LOS_IntLock
+  64              	.LVL2:
+  65 0020 0190     		str	r0, [sp, #4]
+  66              	.LVL3:
+ 137:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 138:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     /*
+ 139:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****      * The node size is aligned to the next 4 boundary.
+ 140:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****      * Memory that is not enough for one node size in the memory pool will be ignored.
+ 141:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****      */
+ 142:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     pstBoxInfo->uwBlkSize = LOS_MEMBOX_ALIGNED(uwBlkSize + LOS_MEMBOX_MAGIC_SIZE);
+  67              		.loc 1 142 0
+  68 0022 E91D     		adds	r1, r5, #7
+  69 0024 0323     		movs	r3, #3
+  70 0026 9943     		bics	r1, r3
+  71 0028 2160     		str	r1, [r4]
+ 143:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     pstBoxInfo->uwBlkNum = (uwBoxSize - sizeof(LOS_MEMBOX_INFO)) / pstBoxInfo->uwBlkSize;
+  72              		.loc 1 143 0
+  73 002a 3800     		movs	r0, r7
+  74              	.LVL4:
+  75 002c 1038     		subs	r0, r0, #16
+  76 002e FFF7FEFF 		bl	__aeabi_uidiv
+  77              	.LVL5:
+  78 0032 6060     		str	r0, [r4, #4]
+ 144:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     pstBoxInfo->uwBlkCnt = 0;
+  79              		.loc 1 144 0
+  80 0034 0023     		movs	r3, #0
+  81 0036 A360     		str	r3, [r4, #8]
+ 145:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 146:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     if (pstBoxInfo->uwBlkNum == 0)
+  82              		.loc 1 146 0
+  83 0038 0028     		cmp	r0, #0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccAMPjsk.s 			page 5
+
+
+  84 003a 04D1     		bne	.L3
+ 147:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     {
+ 148:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****         LOS_IntRestore(uvIntSave);
+  85              		.loc 1 148 0
+  86 003c 0198     		ldr	r0, [sp, #4]
+  87 003e FFF7FEFF 		bl	LOS_IntRestore
+  88              	.LVL6:
+ 149:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****         return LOS_NOK;
+  89              		.loc 1 149 0
+  90 0042 0136     		adds	r6, r6, #1
+  91 0044 1AE0     		b	.L2
+  92              	.L3:
+ 150:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     }
+ 151:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 152:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     pstNode = (LOS_MEMBOX_NODE *)(pstBoxInfo + 1);
+  93              		.loc 1 152 0
+  94 0046 2200     		movs	r2, r4
+  95 0048 1032     		adds	r2, r2, #16
+  96              	.LVL7:
+ 153:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     pstBoxInfo->stFreeList.pstNext = pstNode;
+  97              		.loc 1 153 0
+  98 004a E260     		str	r2, [r4, #12]
+  99              	.LVL8:
+ 154:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 155:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     for (i = 0; i < pstBoxInfo->uwBlkNum - 1; ++i)
+ 100              		.loc 1 155 0
+ 101 004c 0021     		movs	r1, #0
+ 102 004e 04E0     		b	.L4
+ 103              	.LVL9:
+ 104              	.L5:
+ 156:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     {
+ 157:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****         pstNode->pstNext = OS_MEMBOX_NODE_NEXT(pstNode, pstBoxInfo->uwBlkSize);
+ 105              		.loc 1 157 0 discriminator 3
+ 106 0050 2368     		ldr	r3, [r4]
+ 107 0052 D318     		adds	r3, r2, r3
+ 108 0054 1360     		str	r3, [r2]
+ 109              	.LVL10:
+ 155:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     {
+ 110              		.loc 1 155 0 discriminator 3
+ 111 0056 0131     		adds	r1, r1, #1
+ 112              	.LVL11:
+ 158:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****         pstNode = pstNode->pstNext;
+ 113              		.loc 1 158 0 discriminator 3
+ 114 0058 1A00     		movs	r2, r3
+ 115              	.LVL12:
+ 116              	.L4:
+ 155:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     {
+ 117              		.loc 1 155 0 discriminator 1
+ 118 005a 6368     		ldr	r3, [r4, #4]
+ 119 005c 013B     		subs	r3, r3, #1
+ 120 005e 9942     		cmp	r1, r3
+ 121 0060 F6D3     		bcc	.L5
+ 159:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     }
+ 160:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     pstNode->pstNext = (LOS_MEMBOX_NODE *)NULL;  /* The last node */
+ 122              		.loc 1 160 0
+ 123 0062 0023     		movs	r3, #0
+ 124 0064 1360     		str	r3, [r2]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccAMPjsk.s 			page 6
+
+
+ 161:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 162:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** #if ((LOSCFG_PLATFORM_EXC == YES) && (LOSCFG_SAVE_EXC_INFO == YES))
+ 163:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     osMemInfoUpdate(pBoxMem, uwBoxSize, MEM_MANG_MEMBOX);
+ 164:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** #endif
+ 165:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 166:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     (VOID)LOS_IntRestore(uvIntSave);
+ 125              		.loc 1 166 0
+ 126 0066 0198     		ldr	r0, [sp, #4]
+ 127 0068 FFF7FEFF 		bl	LOS_IntRestore
+ 128              	.LVL13:
+ 167:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 168:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     return LOS_OK;
+ 129              		.loc 1 168 0
+ 130 006c 06E0     		b	.L2
+ 131              	.LVL14:
+ 132              	.L6:
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     }
+ 133              		.loc 1 128 0
+ 134 006e 0126     		movs	r6, #1
+ 135 0070 04E0     		b	.L2
+ 136              	.L7:
+ 137 0072 0126     		movs	r6, #1
+ 138 0074 02E0     		b	.L2
+ 139              	.L8:
+ 140 0076 0126     		movs	r6, #1
+ 141 0078 00E0     		b	.L2
+ 142              	.L9:
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     }
+ 143              		.loc 1 133 0
+ 144 007a 0126     		movs	r6, #1
+ 145              	.LVL15:
+ 146              	.L2:
+ 169:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** }
+ 147              		.loc 1 169 0
+ 148 007c 3000     		movs	r0, r6
+ 149 007e 03B0     		add	sp, sp, #12
+ 150              		@ sp needed
+ 151              	.LVL16:
+ 152              	.LVL17:
+ 153              	.LVL18:
+ 154 0080 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 155              		.cfi_endproc
+ 156              	.LFE44:
+ 158 0082 C046     		.section	.text.LOS_MemboxAlloc,"ax",%progbits
+ 159              		.align	2
+ 160              		.global	LOS_MemboxAlloc
+ 161              		.code	16
+ 162              		.thumb_func
+ 164              	LOS_MemboxAlloc:
+ 165              	.LFB45:
+ 170:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 171:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** /*****************************************************************************
+ 172:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  Function : LOS_MemboxAlloc
+ 173:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  Description : Allocate Memory block from Static Memory pool
+ 174:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  Input       : pBoxMem  --- Pointer to memory pool
+ 175:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  Output      : None
+ 176:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  Return      : Pointer to allocated memory block
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccAMPjsk.s 			page 7
+
+
+ 177:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** *****************************************************************************/
+ 178:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** LITE_OS_SEC_TEXT VOID *LOS_MemboxAlloc(VOID *pBoxMem)
+ 179:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** {
+ 166              		.loc 1 179 0
+ 167              		.cfi_startproc
+ 168              		@ args = 0, pretend = 0, frame = 0
+ 169              		@ frame_needed = 0, uses_anonymous_args = 0
+ 170              	.LVL19:
+ 171 0000 70B5     		push	{r4, r5, r6, lr}
+ 172              	.LCFI2:
+ 173              		.cfi_def_cfa_offset 16
+ 174              		.cfi_offset 4, -16
+ 175              		.cfi_offset 5, -12
+ 176              		.cfi_offset 6, -8
+ 177              		.cfi_offset 14, -4
+ 178 0002 051E     		subs	r5, r0, #0
+ 179              	.LVL20:
+ 180:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     LOS_MEMBOX_INFO *pstBoxInfo = (LOS_MEMBOX_INFO *)pBoxMem;
+ 181:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     LOS_MEMBOX_NODE *pstNode = NULL;
+ 182:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     LOS_MEMBOX_NODE *pRet = NULL;
+ 183:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     UINTPTR uvIntSave;
+ 184:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 185:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     if (pBoxMem == NULL)
+ 180              		.loc 1 185 0
+ 181 0004 11D0     		beq	.L13
+ 186:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     {
+ 187:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****         return NULL;
+ 188:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     }
+ 189:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 190:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     uvIntSave = LOS_IntLock();
+ 182              		.loc 1 190 0
+ 183 0006 FFF7FEFF 		bl	LOS_IntLock
+ 184              	.LVL21:
+ 191:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 192:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     pstNode = &pstBoxInfo->stFreeList;
+ 193:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     if (pstNode->pstNext != NULL)
+ 185              		.loc 1 193 0
+ 186 000a EC68     		ldr	r4, [r5, #12]
+ 187 000c 002C     		cmp	r4, #0
+ 188 000e 06D0     		beq	.L12
+ 189              	.LVL22:
+ 194:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     {
+ 195:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****         pRet = pstNode->pstNext;
+ 196:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****         pstNode->pstNext = pRet->pstNext;
+ 190              		.loc 1 196 0
+ 191 0010 2368     		ldr	r3, [r4]
+ 192 0012 EB60     		str	r3, [r5, #12]
+ 197:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****         OS_MEMBOX_SET_MAGIC(pRet);
+ 193              		.loc 1 197 0
+ 194 0014 074B     		ldr	r3, .L15
+ 195 0016 2360     		str	r3, [r4]
+ 198:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****         pstBoxInfo->uwBlkCnt++;
+ 196              		.loc 1 198 0
+ 197 0018 AB68     		ldr	r3, [r5, #8]
+ 198 001a 0133     		adds	r3, r3, #1
+ 199 001c AB60     		str	r3, [r5, #8]
+ 200              	.LVL23:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccAMPjsk.s 			page 8
+
+
+ 201              	.L12:
+ 199:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     }
+ 200:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 201:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     (VOID)LOS_IntRestore(uvIntSave);
+ 202              		.loc 1 201 0
+ 203 001e FFF7FEFF 		bl	LOS_IntRestore
+ 204              	.LVL24:
+ 202:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 203:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     return pRet == NULL ? NULL : OS_MEMBOX_USER_ADDR(pRet);
+ 205              		.loc 1 203 0
+ 206 0022 002C     		cmp	r4, #0
+ 207 0024 03D0     		beq	.L14
+ 208              		.loc 1 203 0 is_stmt 0 discriminator 1
+ 209 0026 201D     		adds	r0, r4, #4
+ 210 0028 02E0     		b	.L11
+ 211              	.LVL25:
+ 212              	.L13:
+ 187:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     }
+ 213              		.loc 1 187 0 is_stmt 1
+ 214 002a 0020     		movs	r0, #0
+ 215              	.LVL26:
+ 216 002c 00E0     		b	.L11
+ 217              	.LVL27:
+ 218              	.L14:
+ 219              		.loc 1 203 0
+ 220 002e 0020     		movs	r0, #0
+ 221              	.LVL28:
+ 222              	.L11:
+ 204:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** }
+ 223              		.loc 1 204 0
+ 224              		@ sp needed
+ 225              	.LVL29:
+ 226 0030 70BD     		pop	{r4, r5, r6, pc}
+ 227              	.L16:
+ 228 0032 C046     		.align	2
+ 229              	.L15:
+ 230 0034 A55A5AA5 		.word	-1520805211
+ 231              		.cfi_endproc
+ 232              	.LFE45:
+ 234              		.global	__aeabi_uidivmod
+ 235              		.section	.text.LOS_MemboxFree,"ax",%progbits
+ 236              		.align	2
+ 237              		.global	LOS_MemboxFree
+ 238              		.code	16
+ 239              		.thumb_func
+ 241              	LOS_MemboxFree:
+ 242              	.LFB46:
+ 205:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 206:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** /*****************************************************************************
+ 207:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  Function : LOS_MemboxFree
+ 208:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  Description : Free Memory block and return it to Static Memory pool
+ 209:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  Input       : pBoxMem  --- Pointer to memory pool
+ 210:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****                pBox     --- Pointer to memory block to free
+ 211:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  Output      : None
+ 212:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  Return      : LOS_OK - OK, LOS_NOK - Error
+ 213:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** *****************************************************************************/
+ 214:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** LITE_OS_SEC_TEXT UINT32 LOS_MemboxFree(VOID *pBoxMem, VOID *pBox)
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccAMPjsk.s 			page 9
+
+
+ 215:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** {
+ 243              		.loc 1 215 0
+ 244              		.cfi_startproc
+ 245              		@ args = 0, pretend = 0, frame = 8
+ 246              		@ frame_needed = 0, uses_anonymous_args = 0
+ 247              	.LVL30:
+ 248 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 249              	.LCFI3:
+ 250              		.cfi_def_cfa_offset 20
+ 251              		.cfi_offset 4, -20
+ 252              		.cfi_offset 5, -16
+ 253              		.cfi_offset 6, -12
+ 254              		.cfi_offset 7, -8
+ 255              		.cfi_offset 14, -4
+ 256 0002 4F46     		mov	r7, r9
+ 257 0004 80B4     		push	{r7}
+ 258              	.LCFI4:
+ 259              		.cfi_def_cfa_offset 24
+ 260              		.cfi_offset 9, -24
+ 261 0006 82B0     		sub	sp, sp, #8
+ 262              	.LCFI5:
+ 263              		.cfi_def_cfa_offset 32
+ 264 0008 0400     		movs	r4, r0
+ 265 000a 0D00     		movs	r5, r1
+ 266              	.LVL31:
+ 216:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     LOS_MEMBOX_INFO *pstBoxInfo = (LOS_MEMBOX_INFO *)pBoxMem;
+ 217:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     UINT32 uwRet = LOS_NOK;
+ 218:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     UINTPTR uvIntSave;
+ 219:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 220:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     if (pBoxMem == NULL || pBox == NULL)
+ 267              		.loc 1 220 0
+ 268 000c 0028     		cmp	r0, #0
+ 269 000e 37D0     		beq	.L21
+ 270              		.loc 1 220 0 is_stmt 0 discriminator 1
+ 271 0010 0029     		cmp	r1, #0
+ 272 0012 37D0     		beq	.L22
+ 221:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     {
+ 222:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****         return LOS_NOK;
+ 223:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     }
+ 224:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 225:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     uvIntSave = LOS_IntLock();
+ 273              		.loc 1 225 0 is_stmt 1
+ 274 0014 FFF7FEFF 		bl	LOS_IntLock
+ 275              	.LVL32:
+ 276 0018 0190     		str	r0, [sp, #4]
+ 277              	.LVL33:
+ 278              	.LBB5:
+ 226:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 227:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     do
+ 228:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     {
+ 229:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****         LOS_MEMBOX_NODE *pstNode = OS_MEMBOX_NODE_ADDR(pBox);
+ 279              		.loc 1 229 0
+ 280 001a 2E1F     		subs	r6, r5, #4
+ 281              	.LVL34:
+ 282              	.LBB6:
+ 283              	.LBB7:
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     {
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccAMPjsk.s 			page 10
+
+
+ 284              		.loc 1 91 0
+ 285 001c 2368     		ldr	r3, [r4]
+ 286 001e 9946     		mov	r9, r3
+ 287 0020 002B     		cmp	r3, #0
+ 288 0022 17D0     		beq	.L23
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     if ((uwOffSet % pstBoxInfo->uwBlkSize) != 0)
+ 289              		.loc 1 96 0
+ 290 0024 2700     		movs	r7, r4
+ 291 0026 1037     		adds	r7, r7, #16
+ 292 0028 F71B     		subs	r7, r6, r7
+ 293              	.LVL35:
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     {
+ 294              		.loc 1 97 0
+ 295 002a 1900     		movs	r1, r3
+ 296 002c 3800     		movs	r0, r7
+ 297              	.LVL36:
+ 298 002e FFF7FEFF 		bl	__aeabi_uidivmod
+ 299              	.LVL37:
+ 300 0032 0029     		cmp	r1, #0
+ 301 0034 10D1     		bne	.L24
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     {
+ 302              		.loc 1 102 0
+ 303 0036 4946     		mov	r1, r9
+ 304 0038 3800     		movs	r0, r7
+ 305 003a FFF7FEFF 		bl	__aeabi_uidiv
+ 306              	.LVL38:
+ 307 003e 6368     		ldr	r3, [r4, #4]
+ 308 0040 9842     		cmp	r0, r3
+ 309 0042 0BD2     		bcs	.L25
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** }
+ 310              		.loc 1 107 0
+ 311 0044 3368     		ldr	r3, [r6]
+ 312 0046 124A     		ldr	r2, .L27
+ 313 0048 9446     		mov	ip, r2
+ 314 004a 6344     		add	r3, r3, ip
+ 315 004c 5A1E     		subs	r2, r3, #1
+ 316 004e 9341     		sbcs	r3, r3, r2
+ 317 0050 DBB2     		uxtb	r3, r3
+ 318 0052 04E0     		b	.L19
+ 319              	.LVL39:
+ 320              	.L23:
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     }
+ 321              		.loc 1 93 0
+ 322 0054 0123     		movs	r3, #1
+ 323 0056 02E0     		b	.L19
+ 324              	.LVL40:
+ 325              	.L24:
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     }
+ 326              		.loc 1 99 0
+ 327 0058 0123     		movs	r3, #1
+ 328 005a 00E0     		b	.L19
+ 329              	.L25:
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     }
+ 330              		.loc 1 104 0
+ 331 005c 0123     		movs	r3, #1
+ 332              	.LVL41:
+ 333              	.L19:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccAMPjsk.s 			page 11
+
+
+ 334              	.LBE7:
+ 335              	.LBE6:
+ 230:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 231:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****         if (osCheckBoxMem(pstBoxInfo, pstNode) != LOS_OK)
+ 336              		.loc 1 231 0
+ 337 005e 002B     		cmp	r3, #0
+ 338 0060 08D1     		bne	.L26
+ 232:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****         {
+ 233:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****             break;
+ 234:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****         }
+ 235:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 236:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****         pstNode->pstNext = pstBoxInfo->stFreeList.pstNext;
+ 339              		.loc 1 236 0
+ 340 0062 043D     		subs	r5, r5, #4
+ 341              	.LVL42:
+ 342 0064 E368     		ldr	r3, [r4, #12]
+ 343 0066 2B60     		str	r3, [r5]
+ 237:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****         pstBoxInfo->stFreeList.pstNext = pstNode;
+ 344              		.loc 1 237 0
+ 345 0068 E660     		str	r6, [r4, #12]
+ 238:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****         pstBoxInfo->uwBlkCnt--;
+ 346              		.loc 1 238 0
+ 347 006a A368     		ldr	r3, [r4, #8]
+ 348 006c 013B     		subs	r3, r3, #1
+ 349 006e A360     		str	r3, [r4, #8]
+ 350              	.LVL43:
+ 239:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****         uwRet = LOS_OK;
+ 351              		.loc 1 239 0
+ 352 0070 0024     		movs	r4, #0
+ 353              	.LVL44:
+ 354 0072 00E0     		b	.L20
+ 355              	.LVL45:
+ 356              	.L26:
+ 357              	.LBE5:
+ 217:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     UINTPTR uvIntSave;
+ 358              		.loc 1 217 0
+ 359 0074 0124     		movs	r4, #1
+ 360              	.LVL46:
+ 361              	.L20:
+ 240:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     } while (0);
+ 241:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 242:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     (VOID)LOS_IntRestore(uvIntSave);
+ 362              		.loc 1 242 0
+ 363 0076 0198     		ldr	r0, [sp, #4]
+ 364 0078 FFF7FEFF 		bl	LOS_IntRestore
+ 365              	.LVL47:
+ 243:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 244:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     return uwRet;
+ 366              		.loc 1 244 0
+ 367 007c 2000     		movs	r0, r4
+ 368 007e 02E0     		b	.L18
+ 369              	.LVL48:
+ 370              	.L21:
+ 222:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     }
+ 371              		.loc 1 222 0
+ 372 0080 0120     		movs	r0, #1
+ 373              	.LVL49:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccAMPjsk.s 			page 12
+
+
+ 374 0082 00E0     		b	.L18
+ 375              	.LVL50:
+ 376              	.L22:
+ 377 0084 0120     		movs	r0, #1
+ 378              	.LVL51:
+ 379              	.L18:
+ 245:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** }
+ 380              		.loc 1 245 0
+ 381 0086 02B0     		add	sp, sp, #8
+ 382              		@ sp needed
+ 383 0088 04BC     		pop	{r2}
+ 384 008a 9146     		mov	r9, r2
+ 385 008c F0BD     		pop	{r4, r5, r6, r7, pc}
+ 386              	.L28:
+ 387 008e C046     		.align	2
+ 388              	.L27:
+ 389 0090 5BA5A55A 		.word	1520805211
+ 390              		.cfi_endproc
+ 391              	.LFE46:
+ 393              		.section	.text.LOS_MemboxClr,"ax",%progbits
+ 394              		.align	2
+ 395              		.global	LOS_MemboxClr
+ 396              		.code	16
+ 397              		.thumb_func
+ 399              	LOS_MemboxClr:
+ 400              	.LFB47:
+ 246:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 247:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** /*****************************************************************************
+ 248:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  Function : LOS_MemboxClr
+ 249:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  Description : Clear the memory block
+ 250:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  Input       : pBoxMem  --- Pointer to memory pool
+ 251:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****                pBox     --- Pointer to memory block to clear
+ 252:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  Output      : None
+ 253:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  Return      : None
+ 254:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** *****************************************************************************/
+ 255:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** LITE_OS_SEC_TEXT_MINOR VOID LOS_MemboxClr(VOID *pBoxMem, VOID *pBox)
+ 256:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** {
+ 401              		.loc 1 256 0
+ 402              		.cfi_startproc
+ 403              		@ args = 0, pretend = 0, frame = 0
+ 404              		@ frame_needed = 0, uses_anonymous_args = 0
+ 405              	.LVL52:
+ 406 0000 10B5     		push	{r4, lr}
+ 407              	.LCFI6:
+ 408              		.cfi_def_cfa_offset 8
+ 409              		.cfi_offset 4, -8
+ 410              		.cfi_offset 14, -4
+ 411 0002 0B00     		movs	r3, r1
+ 412              	.LVL53:
+ 257:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     LOS_MEMBOX_INFO *pstBoxInfo = (LOS_MEMBOX_INFO *)pBoxMem;
+ 258:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 259:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     if (pBoxMem == NULL || pBox == NULL)
+ 413              		.loc 1 259 0
+ 414 0004 0028     		cmp	r0, #0
+ 415 0006 07D0     		beq	.L29
+ 416              		.loc 1 259 0 is_stmt 0 discriminator 1
+ 417 0008 0029     		cmp	r1, #0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccAMPjsk.s 			page 13
+
+
+ 418 000a 05D0     		beq	.L29
+ 260:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     {
+ 261:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****         return;
+ 262:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     }
+ 263:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 264:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     memset(pBox, 0, pstBoxInfo->uwBlkSize - LOS_MEMBOX_MAGIC_SIZE);
+ 419              		.loc 1 264 0 is_stmt 1
+ 420 000c 0268     		ldr	r2, [r0]
+ 421 000e 043A     		subs	r2, r2, #4
+ 422 0010 0021     		movs	r1, #0
+ 423              	.LVL54:
+ 424 0012 1800     		movs	r0, r3
+ 425              	.LVL55:
+ 426 0014 FFF7FEFF 		bl	memset
+ 427              	.LVL56:
+ 428              	.L29:
+ 265:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** }
+ 429              		.loc 1 265 0
+ 430              		@ sp needed
+ 431 0018 10BD     		pop	{r4, pc}
+ 432              		.cfi_endproc
+ 433              	.LFE47:
+ 435 001a C046     		.section	.text.LOS_MemboxStatisticsGet,"ax",%progbits
+ 436              		.align	2
+ 437              		.global	LOS_MemboxStatisticsGet
+ 438              		.code	16
+ 439              		.thumb_func
+ 441              	LOS_MemboxStatisticsGet:
+ 442              	.LFB48:
+ 266:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 267:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** /*****************************************************************************
+ 268:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  Function : LOS_MemboxStatisticsGet
+ 269:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  Description : Get information about membox
+ 270:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  Input       : pBoxMem     --- Pointer to the calculate membox
+ 271:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  Output      : puwMaxBlk   --- Record the total number of membox
+ 272:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****                puwBlkCnt   --- Record the number of the allocated blocks of membox
+ 273:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****                puwBlkSize  --- Record the block size of membox
+ 274:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****  Return      : LOS_OK - OK, LOS_NOK - Error
+ 275:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** *****************************************************************************/
+ 276:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** LITE_OS_SEC_TEXT_MINOR UINT32 LOS_MemboxStatisticsGet(VOID *pBoxMem, UINT32 *puwMaxBlk, UINT32 *puw
+ 277:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** {
+ 443              		.loc 1 277 0
+ 444              		.cfi_startproc
+ 445              		@ args = 0, pretend = 0, frame = 0
+ 446              		@ frame_needed = 0, uses_anonymous_args = 0
+ 447              	.LVL57:
+ 448 0000 10B5     		push	{r4, lr}
+ 449              	.LCFI7:
+ 450              		.cfi_def_cfa_offset 8
+ 451              		.cfi_offset 4, -8
+ 452              		.cfi_offset 14, -4
+ 278:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     if ((NULL == pBoxMem) || (NULL == puwMaxBlk) || (NULL == puwBlkCnt) || (NULL == puwBlkSize))
+ 453              		.loc 1 278 0
+ 454 0002 0028     		cmp	r0, #0
+ 455 0004 0DD0     		beq	.L33
+ 456              		.loc 1 278 0 is_stmt 0 discriminator 1
+ 457 0006 0029     		cmp	r1, #0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccAMPjsk.s 			page 14
+
+
+ 458 0008 0DD0     		beq	.L34
+ 459              		.loc 1 278 0 discriminator 2
+ 460 000a 002A     		cmp	r2, #0
+ 461 000c 0DD0     		beq	.L35
+ 462              		.loc 1 278 0 discriminator 3
+ 463 000e 002B     		cmp	r3, #0
+ 464 0010 0DD0     		beq	.L36
+ 279:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     {
+ 280:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****         return LOS_NOK;
+ 281:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     }
+ 282:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 283:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     *puwMaxBlk = ((LOS_MEMBOX_INFO *)pBoxMem)->uwBlkNum;    /* Total number of blocks */
+ 465              		.loc 1 283 0 is_stmt 1
+ 466 0012 4468     		ldr	r4, [r0, #4]
+ 467 0014 0C60     		str	r4, [r1]
+ 284:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     *puwBlkCnt = ((LOS_MEMBOX_INFO *)pBoxMem)->uwBlkCnt;    /* The number of allocated blocks */
+ 468              		.loc 1 284 0
+ 469 0016 8168     		ldr	r1, [r0, #8]
+ 470              	.LVL58:
+ 471 0018 1160     		str	r1, [r2]
+ 285:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     *puwBlkSize = ((LOS_MEMBOX_INFO *)pBoxMem)->uwBlkSize;  /* Block size */
+ 472              		.loc 1 285 0
+ 473 001a 0268     		ldr	r2, [r0]
+ 474              	.LVL59:
+ 475 001c 1A60     		str	r2, [r3]
+ 286:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** 
+ 287:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     return LOS_OK;
+ 476              		.loc 1 287 0
+ 477 001e 0020     		movs	r0, #0
+ 478              	.LVL60:
+ 479 0020 06E0     		b	.L32
+ 480              	.LVL61:
+ 481              	.L33:
+ 280:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c ****     }
+ 482              		.loc 1 280 0
+ 483 0022 0120     		movs	r0, #1
+ 484              	.LVL62:
+ 485 0024 04E0     		b	.L32
+ 486              	.LVL63:
+ 487              	.L34:
+ 488 0026 0120     		movs	r0, #1
+ 489              	.LVL64:
+ 490 0028 02E0     		b	.L32
+ 491              	.LVL65:
+ 492              	.L35:
+ 493 002a 0120     		movs	r0, #1
+ 494              	.LVL66:
+ 495 002c 00E0     		b	.L32
+ 496              	.LVL67:
+ 497              	.L36:
+ 498 002e 0120     		movs	r0, #1
+ 499              	.LVL68:
+ 500              	.L32:
+ 288:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../kernel/base/mem/membox\los_membox.c **** }
+ 501              		.loc 1 288 0
+ 502              		@ sp needed
+ 503 0030 10BD     		pop	{r4, pc}
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccAMPjsk.s 			page 15
+
+
+ 504              		.cfi_endproc
+ 505              	.LFE48:
+ 507 0032 C046     		.text
+ 508              	.Letext0:
+ 509              		.file 2 "e:\\liteos\\liteos\\kernel\\include\\los_typedef.h"
+ 510              		.file 3 "e:\\liteos\\liteos\\kernel\\include\\los_membox.h"
+ 511              		.file 4 "e:\\liteos\\liteos\\arch\\arm\\arm-m\\include\\los_hwi.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccAMPjsk.s 			page 16
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 los_membox.c
+C:\Users\WANGBI~1\AppData\Local\Temp\ccAMPjsk.s:21     .text.LOS_MemboxInit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccAMPjsk.s:26     .text.LOS_MemboxInit:00000000 LOS_MemboxInit
+C:\Users\WANGBI~1\AppData\Local\Temp\ccAMPjsk.s:159    .text.LOS_MemboxAlloc:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccAMPjsk.s:164    .text.LOS_MemboxAlloc:00000000 LOS_MemboxAlloc
+C:\Users\WANGBI~1\AppData\Local\Temp\ccAMPjsk.s:230    .text.LOS_MemboxAlloc:00000034 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccAMPjsk.s:236    .text.LOS_MemboxFree:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccAMPjsk.s:241    .text.LOS_MemboxFree:00000000 LOS_MemboxFree
+C:\Users\WANGBI~1\AppData\Local\Temp\ccAMPjsk.s:389    .text.LOS_MemboxFree:00000090 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccAMPjsk.s:394    .text.LOS_MemboxClr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccAMPjsk.s:399    .text.LOS_MemboxClr:00000000 LOS_MemboxClr
+C:\Users\WANGBI~1\AppData\Local\Temp\ccAMPjsk.s:436    .text.LOS_MemboxStatisticsGet:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccAMPjsk.s:441    .text.LOS_MemboxStatisticsGet:00000000 LOS_MemboxStatisticsGet
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+__aeabi_uidiv
+LOS_IntLock
+LOS_IntRestore
+__aeabi_uidivmod
+memset

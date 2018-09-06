@@ -1,0 +1,570 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"fm33a0xx_wwdt.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.WWDT_WWDTCON_Write,"ax",%progbits
+  20              		.align	2
+  21              		.global	WWDT_WWDTCON_Write
+  22              		.code	16
+  23              		.thumb_func
+  25              	WWDT_WWDTCON_Write:
+  26              	.LFB36:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers/fm33a
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** /**
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c ****   ******************************************************************************
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c ****   * @file    fm33a0xx_wwdt.c
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c ****   * @author  FM33a0xx Application Team
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c ****   * @version V2.0.1
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c ****   * @date    8-1-2018
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c ****   * @brief   This file provides firmware functions to manage the following 
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c ****   *          functionalities of....:
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c ****   *
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** */
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** /* Includes ------------------------------------------------------------------*/
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** #include "fm33A0xx_wwdt.h" 
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** /** @addtogroup fm33a0xx_StdPeriph_Driver
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c ****   * @{
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c ****   */
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** /** @defgroup WWDT 
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c ****   * @brief WWDT driver modules
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c ****   * @{
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c ****   */ 
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** /* Private typedef -----------------------------------------------------------*/
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** /* Private define ------------------------------------------------------------*/
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** /* Private macro -------------------------------------------------------------*/
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** /* Private variables ---------------------------------------------------------*/
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** /* Private function prototypes -----------------------------------------------*/
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s 			page 2
+
+
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** /* Private functions ---------------------------------------------------------*/
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** //Code_Start
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** //2018-04-02-13-22-31
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** //FM33A0XX_Driver_Gen_V1.4
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** /* WWDT控制寄存器 相关函数 */
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** void WWDT_WWDTCON_Write(uint32_t SetValue)
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** {
+  28              		.loc 1 40 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	WWDT->WWDTCON = (SetValue & WWDT_WWDTCON_WWDTCON_Msk);
+  34              		.loc 1 41 0
+  35 0000 FF23     		movs	r3, #255
+  36 0002 1840     		ands	r0, r3
+  37              	.LVL1:
+  38 0004 014B     		ldr	r3, .L2
+  39 0006 1860     		str	r0, [r3]
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** }
+  40              		.loc 1 42 0
+  41              		@ sp needed
+  42 0008 7047     		bx	lr
+  43              	.L3:
+  44 000a C046     		.align	2
+  45              	.L2:
+  46 000c 00180140 		.word	1073813504
+  47              		.cfi_endproc
+  48              	.LFE36:
+  50              		.section	.text.WWDT_WWDTCFG_WWDTCFG_Set,"ax",%progbits
+  51              		.align	2
+  52              		.global	WWDT_WWDTCFG_WWDTCFG_Set
+  53              		.code	16
+  54              		.thumb_func
+  56              	WWDT_WWDTCFG_WWDTCFG_Set:
+  57              	.LFB37:
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** /* 配置看门狗溢出时间 相关函数 */
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** void WWDT_WWDTCFG_WWDTCFG_Set(uint32_t SetValue)
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** {
+  58              		.loc 1 46 0
+  59              		.cfi_startproc
+  60              		@ args = 0, pretend = 0, frame = 0
+  61              		@ frame_needed = 0, uses_anonymous_args = 0
+  62              		@ link register save eliminated.
+  63              	.LVL2:
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	uint32_t tmpreg;
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	tmpreg = WWDT->WWDTCFG;
+  64              		.loc 1 48 0
+  65 0000 034A     		ldr	r2, .L5
+  66 0002 5368     		ldr	r3, [r2, #4]
+  67              	.LVL3:
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	tmpreg &= ~(WWDT_WWDTCFG_WWDTCFG_Msk);
+  68              		.loc 1 49 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s 			page 3
+
+
+  69 0004 0721     		movs	r1, #7
+  70 0006 8B43     		bics	r3, r1
+  71              	.LVL4:
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	tmpreg |= (SetValue & WWDT_WWDTCFG_WWDTCFG_Msk);
+  72              		.loc 1 50 0
+  73 0008 0840     		ands	r0, r1
+  74              	.LVL5:
+  75 000a 1843     		orrs	r0, r3
+  76              	.LVL6:
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	WWDT->WWDTCFG = tmpreg;
+  77              		.loc 1 51 0
+  78 000c 5060     		str	r0, [r2, #4]
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** }
+  79              		.loc 1 52 0
+  80              		@ sp needed
+  81 000e 7047     		bx	lr
+  82              	.L6:
+  83              		.align	2
+  84              	.L5:
+  85 0010 00180140 		.word	1073813504
+  86              		.cfi_endproc
+  87              	.LFE37:
+  89              		.section	.text.WWDT_WWDTCFG_WWDTCFG_Get,"ax",%progbits
+  90              		.align	2
+  91              		.global	WWDT_WWDTCFG_WWDTCFG_Get
+  92              		.code	16
+  93              		.thumb_func
+  95              	WWDT_WWDTCFG_WWDTCFG_Get:
+  96              	.LFB38:
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** uint32_t WWDT_WWDTCFG_WWDTCFG_Get(void)
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** {
+  97              		.loc 1 55 0
+  98              		.cfi_startproc
+  99              		@ args = 0, pretend = 0, frame = 0
+ 100              		@ frame_needed = 0, uses_anonymous_args = 0
+ 101              		@ link register save eliminated.
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	return (WWDT->WWDTCFG & WWDT_WWDTCFG_WWDTCFG_Msk);
+ 102              		.loc 1 56 0
+ 103 0000 024B     		ldr	r3, .L8
+ 104 0002 5B68     		ldr	r3, [r3, #4]
+ 105 0004 0720     		movs	r0, #7
+ 106 0006 1840     		ands	r0, r3
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** }
+ 107              		.loc 1 57 0
+ 108              		@ sp needed
+ 109 0008 7047     		bx	lr
+ 110              	.L9:
+ 111 000a C046     		.align	2
+ 112              	.L8:
+ 113 000c 00180140 		.word	1073813504
+ 114              		.cfi_endproc
+ 115              	.LFE38:
+ 117              		.section	.text.WWDT_WWDTCNT_Read,"ax",%progbits
+ 118              		.align	2
+ 119              		.global	WWDT_WWDTCNT_Read
+ 120              		.code	16
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s 			page 4
+
+
+ 121              		.thumb_func
+ 123              	WWDT_WWDTCNT_Read:
+ 124              	.LFB39:
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** /* WWDT计数寄存器值 相关函数 */
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** uint32_t WWDT_WWDTCNT_Read(void)
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** {
+ 125              		.loc 1 61 0
+ 126              		.cfi_startproc
+ 127              		@ args = 0, pretend = 0, frame = 0
+ 128              		@ frame_needed = 0, uses_anonymous_args = 0
+ 129              		@ link register save eliminated.
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	return (WWDT->WWDTCNT & WWDT_WWDTCNT_WWDTCNT_Msk);
+ 130              		.loc 1 62 0
+ 131 0000 024B     		ldr	r3, .L11
+ 132 0002 9868     		ldr	r0, [r3, #8]
+ 133 0004 8005     		lsls	r0, r0, #22
+ 134 0006 800D     		lsrs	r0, r0, #22
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** }
+ 135              		.loc 1 63 0
+ 136              		@ sp needed
+ 137 0008 7047     		bx	lr
+ 138              	.L12:
+ 139 000a C046     		.align	2
+ 140              	.L11:
+ 141 000c 00180140 		.word	1073813504
+ 142              		.cfi_endproc
+ 143              	.LFE39:
+ 145              		.section	.text.WWDT_WWDTIE_WWDTIE_Setable,"ax",%progbits
+ 146              		.align	2
+ 147              		.global	WWDT_WWDTIE_WWDTIE_Setable
+ 148              		.code	16
+ 149              		.thumb_func
+ 151              	WWDT_WWDTIE_WWDTIE_Setable:
+ 152              	.LFB40:
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** /* WWDT中断使能 相关函数 */
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** void WWDT_WWDTIE_WWDTIE_Setable(FunState NewState)
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** {
+ 153              		.loc 1 67 0
+ 154              		.cfi_startproc
+ 155              		@ args = 0, pretend = 0, frame = 0
+ 156              		@ frame_needed = 0, uses_anonymous_args = 0
+ 157              		@ link register save eliminated.
+ 158              	.LVL7:
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	if (NewState == ENABLE)
+ 159              		.loc 1 68 0
+ 160 0000 0128     		cmp	r0, #1
+ 161 0002 05D1     		bne	.L14
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	{
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 		WWDT->WWDTIE |= (WWDT_WWDTIE_WWDTIE_Msk);
+ 162              		.loc 1 70 0
+ 163 0004 054A     		ldr	r2, .L16
+ 164 0006 D168     		ldr	r1, [r2, #12]
+ 165 0008 0123     		movs	r3, #1
+ 166 000a 0B43     		orrs	r3, r1
+ 167 000c D360     		str	r3, [r2, #12]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s 			page 5
+
+
+ 168 000e 04E0     		b	.L13
+ 169              	.L14:
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	}
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	else
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	{
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 		WWDT->WWDTIE &= ~(WWDT_WWDTIE_WWDTIE_Msk);
+ 170              		.loc 1 74 0
+ 171 0010 024A     		ldr	r2, .L16
+ 172 0012 D368     		ldr	r3, [r2, #12]
+ 173 0014 0121     		movs	r1, #1
+ 174 0016 8B43     		bics	r3, r1
+ 175 0018 D360     		str	r3, [r2, #12]
+ 176              	.L13:
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	}
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** }
+ 177              		.loc 1 76 0
+ 178              		@ sp needed
+ 179 001a 7047     		bx	lr
+ 180              	.L17:
+ 181              		.align	2
+ 182              	.L16:
+ 183 001c 00180140 		.word	1073813504
+ 184              		.cfi_endproc
+ 185              	.LFE40:
+ 187              		.section	.text.WWDT_WWDTIE_WWDTIE_Getable,"ax",%progbits
+ 188              		.align	2
+ 189              		.global	WWDT_WWDTIE_WWDTIE_Getable
+ 190              		.code	16
+ 191              		.thumb_func
+ 193              	WWDT_WWDTIE_WWDTIE_Getable:
+ 194              	.LFB41:
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** FunState WWDT_WWDTIE_WWDTIE_Getable(void)
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** {
+ 195              		.loc 1 79 0
+ 196              		.cfi_startproc
+ 197              		@ args = 0, pretend = 0, frame = 0
+ 198              		@ frame_needed = 0, uses_anonymous_args = 0
+ 199              		@ link register save eliminated.
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	if (WWDT->WWDTIE & (WWDT_WWDTIE_WWDTIE_Msk))
+ 200              		.loc 1 80 0
+ 201 0000 034B     		ldr	r3, .L21
+ 202 0002 DB68     		ldr	r3, [r3, #12]
+ 203 0004 DB07     		lsls	r3, r3, #31
+ 204 0006 01D5     		bpl	.L20
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	{
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 		return ENABLE;
+ 205              		.loc 1 82 0
+ 206 0008 0120     		movs	r0, #1
+ 207 000a 00E0     		b	.L19
+ 208              	.L20:
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	}
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	else
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	{
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 		return DISABLE;
+ 209              		.loc 1 86 0
+ 210 000c 0020     		movs	r0, #0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s 			page 6
+
+
+ 211              	.L19:
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	}
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** }
+ 212              		.loc 1 88 0
+ 213              		@ sp needed
+ 214 000e 7047     		bx	lr
+ 215              	.L22:
+ 216              		.align	2
+ 217              	.L21:
+ 218 0010 00180140 		.word	1073813504
+ 219              		.cfi_endproc
+ 220              	.LFE41:
+ 222              		.section	.text.WWDT_WWDTIF_WWDTIF_Clr,"ax",%progbits
+ 223              		.align	2
+ 224              		.global	WWDT_WWDTIF_WWDTIF_Clr
+ 225              		.code	16
+ 226              		.thumb_func
+ 228              	WWDT_WWDTIF_WWDTIF_Clr:
+ 229              	.LFB42:
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** /* WWDT 75%计时中断标志，写1清零 相关函数 */
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** void WWDT_WWDTIF_WWDTIF_Clr(void)
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** {
+ 230              		.loc 1 92 0
+ 231              		.cfi_startproc
+ 232              		@ args = 0, pretend = 0, frame = 0
+ 233              		@ frame_needed = 0, uses_anonymous_args = 0
+ 234              		@ link register save eliminated.
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	WWDT->WWDTIF = WWDT_WWDTIF_WWDTIF_Msk;
+ 235              		.loc 1 93 0
+ 236 0000 0122     		movs	r2, #1
+ 237 0002 014B     		ldr	r3, .L24
+ 238 0004 1A61     		str	r2, [r3, #16]
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** }
+ 239              		.loc 1 94 0
+ 240              		@ sp needed
+ 241 0006 7047     		bx	lr
+ 242              	.L25:
+ 243              		.align	2
+ 244              	.L24:
+ 245 0008 00180140 		.word	1073813504
+ 246              		.cfi_endproc
+ 247              	.LFE42:
+ 249              		.section	.text.WWDT_WWDTIF_WWDTIF_Chk,"ax",%progbits
+ 250              		.align	2
+ 251              		.global	WWDT_WWDTIF_WWDTIF_Chk
+ 252              		.code	16
+ 253              		.thumb_func
+ 255              	WWDT_WWDTIF_WWDTIF_Chk:
+ 256              	.LFB43:
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** FlagStatus WWDT_WWDTIF_WWDTIF_Chk(void)
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** {
+ 257              		.loc 1 97 0
+ 258              		.cfi_startproc
+ 259              		@ args = 0, pretend = 0, frame = 0
+ 260              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s 			page 7
+
+
+ 261              		@ link register save eliminated.
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	if (WWDT->WWDTIF & WWDT_WWDTIF_WWDTIF_Msk)
+ 262              		.loc 1 98 0
+ 263 0000 034B     		ldr	r3, .L29
+ 264 0002 1B69     		ldr	r3, [r3, #16]
+ 265 0004 DB07     		lsls	r3, r3, #31
+ 266 0006 01D5     		bpl	.L28
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	{
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 		return SET;
+ 267              		.loc 1 100 0
+ 268 0008 0120     		movs	r0, #1
+ 269 000a 00E0     		b	.L27
+ 270              	.L28:
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	}
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	else
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	{
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 		return RESET;
+ 271              		.loc 1 104 0
+ 272 000c 0020     		movs	r0, #0
+ 273              	.L27:
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	}
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** }
+ 274              		.loc 1 106 0
+ 275              		@ sp needed
+ 276 000e 7047     		bx	lr
+ 277              	.L30:
+ 278              		.align	2
+ 279              	.L29:
+ 280 0010 00180140 		.word	1073813504
+ 281              		.cfi_endproc
+ 282              	.LFE43:
+ 284              		.section	.text.WWDT_WWDTDIV_Read,"ax",%progbits
+ 285              		.align	2
+ 286              		.global	WWDT_WWDTDIV_Read
+ 287              		.code	16
+ 288              		.thumb_func
+ 290              	WWDT_WWDTDIV_Read:
+ 291              	.LFB44:
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** /* WWDT的4096预分频计数器 相关函数 */
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** uint32_t WWDT_WWDTDIV_Read(void)
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** {
+ 292              		.loc 1 110 0
+ 293              		.cfi_startproc
+ 294              		@ args = 0, pretend = 0, frame = 0
+ 295              		@ frame_needed = 0, uses_anonymous_args = 0
+ 296              		@ link register save eliminated.
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	return (WWDT->WWDTDIV & WWDT_WWDTDIV_DIVCNT_Msk);
+ 297              		.loc 1 111 0
+ 298 0000 024B     		ldr	r3, .L32
+ 299 0002 5869     		ldr	r0, [r3, #20]
+ 300 0004 0005     		lsls	r0, r0, #20
+ 301 0006 000D     		lsrs	r0, r0, #20
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** }
+ 302              		.loc 1 112 0
+ 303              		@ sp needed
+ 304 0008 7047     		bx	lr
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s 			page 8
+
+
+ 305              	.L33:
+ 306 000a C046     		.align	2
+ 307              	.L32:
+ 308 000c 00180140 		.word	1073813504
+ 309              		.cfi_endproc
+ 310              	.LFE44:
+ 312              		.section	.text.WWDT_Deinit,"ax",%progbits
+ 313              		.align	2
+ 314              		.global	WWDT_Deinit
+ 315              		.code	16
+ 316              		.thumb_func
+ 318              	WWDT_Deinit:
+ 319              	.LFB45:
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** void WWDT_Deinit(void)
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** {
+ 320              		.loc 1 115 0
+ 321              		.cfi_startproc
+ 322              		@ args = 0, pretend = 0, frame = 0
+ 323              		@ frame_needed = 0, uses_anonymous_args = 0
+ 324              		@ link register save eliminated.
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	//WWDT->WWDTCON = ;
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	//WWDT->WWDTCFG = 0x00000000;
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	//WWDT->WWDTCNT = ;
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	//WWDT->WWDTIE = 0x00000000;
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	//WWDT->WWDTIF = 0x00000000;
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 	//WWDT->WWDTDIV = ;
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** }
+ 325              		.loc 1 122 0
+ 326              		@ sp needed
+ 327 0000 7047     		bx	lr
+ 328              		.cfi_endproc
+ 329              	.LFE45:
+ 331 0002 C046     		.section	.text.WWDT_Start,"ax",%progbits
+ 332              		.align	2
+ 333              		.global	WWDT_Start
+ 334              		.code	16
+ 335              		.thumb_func
+ 337              	WWDT_Start:
+ 338              	.LFB46:
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** //Code_End
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** void WWDT_Start(void)
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** {
+ 339              		.loc 1 128 0
+ 340              		.cfi_startproc
+ 341              		@ args = 0, pretend = 0, frame = 0
+ 342              		@ frame_needed = 0, uses_anonymous_args = 0
+ 343              		@ link register save eliminated.
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c ****     WWDT->WWDTCON = WWDT_START_key;
+ 344              		.loc 1 129 0
+ 345 0000 5A22     		movs	r2, #90
+ 346 0002 014B     		ldr	r3, .L36
+ 347 0004 1A60     		str	r2, [r3]
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** }
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s 			page 9
+
+
+ 348              		.loc 1 130 0
+ 349              		@ sp needed
+ 350 0006 7047     		bx	lr
+ 351              	.L37:
+ 352              		.align	2
+ 353              	.L36:
+ 354 0008 00180140 		.word	1073813504
+ 355              		.cfi_endproc
+ 356              	.LFE46:
+ 358              		.section	.text.WWDT_Clr,"ax",%progbits
+ 359              		.align	2
+ 360              		.global	WWDT_Clr
+ 361              		.code	16
+ 362              		.thumb_func
+ 364              	WWDT_Clr:
+ 365              	.LFB47:
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** 
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** void WWDT_Clr(void)
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** {
+ 366              		.loc 1 133 0
+ 367              		.cfi_startproc
+ 368              		@ args = 0, pretend = 0, frame = 0
+ 369              		@ frame_needed = 0, uses_anonymous_args = 0
+ 370              		@ link register save eliminated.
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c ****     WWDT->WWDTCON = WWDT_CLR_key;
+ 371              		.loc 1 134 0
+ 372 0000 AC22     		movs	r2, #172
+ 373 0002 014B     		ldr	r3, .L39
+ 374 0004 1A60     		str	r2, [r3]
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/Drivers\fm33a0xx_wwdt.c **** }
+ 375              		.loc 1 135 0
+ 376              		@ sp needed
+ 377 0006 7047     		bx	lr
+ 378              	.L40:
+ 379              		.align	2
+ 380              	.L39:
+ 381 0008 00180140 		.word	1073813504
+ 382              		.cfi_endproc
+ 383              	.LFE47:
+ 385              		.text
+ 386              	.Letext0:
+ 387              		.file 2 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\device\\include\\fm33a0xx.h"
+ 388              		.file 3 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\machine\\_default_types.h
+ 389              		.file 4 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\sys\\_stdint.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s 			page 10
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 fm33a0xx_wwdt.c
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:20     .text.WWDT_WWDTCON_Write:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:25     .text.WWDT_WWDTCON_Write:00000000 WWDT_WWDTCON_Write
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:46     .text.WWDT_WWDTCON_Write:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:51     .text.WWDT_WWDTCFG_WWDTCFG_Set:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:56     .text.WWDT_WWDTCFG_WWDTCFG_Set:00000000 WWDT_WWDTCFG_WWDTCFG_Set
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:85     .text.WWDT_WWDTCFG_WWDTCFG_Set:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:90     .text.WWDT_WWDTCFG_WWDTCFG_Get:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:95     .text.WWDT_WWDTCFG_WWDTCFG_Get:00000000 WWDT_WWDTCFG_WWDTCFG_Get
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:113    .text.WWDT_WWDTCFG_WWDTCFG_Get:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:118    .text.WWDT_WWDTCNT_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:123    .text.WWDT_WWDTCNT_Read:00000000 WWDT_WWDTCNT_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:141    .text.WWDT_WWDTCNT_Read:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:146    .text.WWDT_WWDTIE_WWDTIE_Setable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:151    .text.WWDT_WWDTIE_WWDTIE_Setable:00000000 WWDT_WWDTIE_WWDTIE_Setable
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:183    .text.WWDT_WWDTIE_WWDTIE_Setable:0000001c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:188    .text.WWDT_WWDTIE_WWDTIE_Getable:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:193    .text.WWDT_WWDTIE_WWDTIE_Getable:00000000 WWDT_WWDTIE_WWDTIE_Getable
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:218    .text.WWDT_WWDTIE_WWDTIE_Getable:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:223    .text.WWDT_WWDTIF_WWDTIF_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:228    .text.WWDT_WWDTIF_WWDTIF_Clr:00000000 WWDT_WWDTIF_WWDTIF_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:245    .text.WWDT_WWDTIF_WWDTIF_Clr:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:250    .text.WWDT_WWDTIF_WWDTIF_Chk:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:255    .text.WWDT_WWDTIF_WWDTIF_Chk:00000000 WWDT_WWDTIF_WWDTIF_Chk
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:280    .text.WWDT_WWDTIF_WWDTIF_Chk:00000010 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:285    .text.WWDT_WWDTDIV_Read:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:290    .text.WWDT_WWDTDIV_Read:00000000 WWDT_WWDTDIV_Read
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:308    .text.WWDT_WWDTDIV_Read:0000000c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:313    .text.WWDT_Deinit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:318    .text.WWDT_Deinit:00000000 WWDT_Deinit
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:332    .text.WWDT_Start:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:337    .text.WWDT_Start:00000000 WWDT_Start
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:354    .text.WWDT_Start:00000008 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:359    .text.WWDT_Clr:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:364    .text.WWDT_Clr:00000000 WWDT_Clr
+C:\Users\WANGBI~1\AppData\Local\Temp\cc4aktA6.s:381    .text.WWDT_Clr:00000008 $d
+                     .debug_frame:00000010 $d
+
+NO UNDEFINED SYMBOLS

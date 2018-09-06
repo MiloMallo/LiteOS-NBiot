@@ -1,0 +1,809 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLph7oa.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"los_api_list.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.Example_list,"ax",%progbits
+  20              		.align	2
+  21              		.global	Example_list
+  22              		.code	16
+  23              		.thumb_func
+  25              	Example_list:
+  26              	.LFB43:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api/los_api_list.c"
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** /*----------------------------------------------------------------------------
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  * Copyright (c) <2016-2018>, <Huawei Technologies Co., Ltd>
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  * All rights reserved.
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  * are permitted provided that the following conditions are met:
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  * conditions and the following disclaimer.
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  * provided with the distribution.
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  * permission.
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  *---------------------------------------------------------------------------*/
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  /*----------------------------------------------------------------------------
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  * Notice of Export Control Law
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  * ===============================================
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLph7oa.s 			page 2
+
+
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  * applicable export control laws and regulations.
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****  *---------------------------------------------------------------------------*/
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** 
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** #include "los_list.h"
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** #include <stdio.h>
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** #include <stdlib.h>
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** #include "los_config.h"
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** #include "los_memory.h"
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** #include "los_api_list.h"
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** #include "los_inspect_entry.h"
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** 
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** #ifdef LOSCFG_LIB_LIBC
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** #include "string.h"
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** #endif
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** 
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** #ifdef __cplusplus
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** #if __cplusplus
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** extern "C" {
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** #endif /* __cpluscplus */
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** #endif /* __cpluscplus */
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** 
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** UINT32 Example_list(VOID)
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** {
+  28              		.loc 1 54 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 24
+  35              		.cfi_offset 3, -24
+  36              		.cfi_offset 4, -20
+  37              		.cfi_offset 5, -16
+  38              		.cfi_offset 6, -12
+  39              		.cfi_offset 7, -8
+  40              		.cfi_offset 14, -4
+  41              	.LVL0:
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     UINT32 uwRet = LOS_OK;
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** 
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     /* init */
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     dprintf("initial...... \r\n");
+  42              		.loc 1 58 0
+  43 0002 4E48     		ldr	r0, .L13
+  44 0004 FFF7FEFF 		bl	dprintf_none
+  45              	.LVL1:
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     LOS_DL_LIST *head;
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     head = (LOS_DL_LIST *)LOS_MemAlloc(m_aucSysMem0, sizeof(LOS_DL_LIST));
+  46              		.loc 1 60 0
+  47 0008 4D4B     		ldr	r3, .L13+4
+  48 000a 1868     		ldr	r0, [r3]
+  49 000c 0821     		movs	r1, #8
+  50 000e FFF7FEFF 		bl	LOS_MemAlloc
+  51              	.LVL2:
+  52 0012 051E     		subs	r5, r0, #0
+  53              	.LVL3:
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     if (head == NULL)
+  54              		.loc 1 61 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLph7oa.s 			page 3
+
+
+  55 0014 04D1     		bne	.L2
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     {
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****         dprintf("malloc failed \r\n");
+  56              		.loc 1 63 0
+  57 0016 4B48     		ldr	r0, .L13+8
+  58              	.LVL4:
+  59 0018 FFF7FEFF 		bl	dprintf_none
+  60              	.LVL5:
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****         return LOS_NOK;
+  61              		.loc 1 64 0
+  62 001c 0120     		movs	r0, #1
+  63 001e 8BE0     		b	.L3
+  64              	.LVL6:
+  65              	.L2:
+  66              	.LBB18:
+  67              	.LBB19:
+  68              		.file 2 "e:\\liteos\\liteos\\kernel\\include\\los_list.h"
+   1:e:\liteos\liteos\kernel\include\los_list.h **** /*----------------------------------------------------------------------------
+   2:e:\liteos\liteos\kernel\include\los_list.h ****  * Copyright (c) <2013-2015>, <Huawei Technologies Co., Ltd>
+   3:e:\liteos\liteos\kernel\include\los_list.h ****  * All rights reserved.
+   4:e:\liteos\liteos\kernel\include\los_list.h ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:e:\liteos\liteos\kernel\include\los_list.h ****  * are permitted provided that the following conditions are met:
+   6:e:\liteos\liteos\kernel\include\los_list.h ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:e:\liteos\liteos\kernel\include\los_list.h ****  * conditions and the following disclaimer.
+   8:e:\liteos\liteos\kernel\include\los_list.h ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:e:\liteos\liteos\kernel\include\los_list.h ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:e:\liteos\liteos\kernel\include\los_list.h ****  * provided with the distribution.
+  11:e:\liteos\liteos\kernel\include\los_list.h ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:e:\liteos\liteos\kernel\include\los_list.h ****  * to endorse or promote products derived from this software without specific prior written
+  13:e:\liteos\liteos\kernel\include\los_list.h ****  * permission.
+  14:e:\liteos\liteos\kernel\include\los_list.h ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:e:\liteos\liteos\kernel\include\los_list.h ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:e:\liteos\liteos\kernel\include\los_list.h ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:e:\liteos\liteos\kernel\include\los_list.h ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:e:\liteos\liteos\kernel\include\los_list.h ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:e:\liteos\liteos\kernel\include\los_list.h ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:e:\liteos\liteos\kernel\include\los_list.h ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:e:\liteos\liteos\kernel\include\los_list.h ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:e:\liteos\liteos\kernel\include\los_list.h ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:e:\liteos\liteos\kernel\include\los_list.h ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:e:\liteos\liteos\kernel\include\los_list.h ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:e:\liteos\liteos\kernel\include\los_list.h ****  *---------------------------------------------------------------------------*/
+  26:e:\liteos\liteos\kernel\include\los_list.h **** /*----------------------------------------------------------------------------
+  27:e:\liteos\liteos\kernel\include\los_list.h ****  * Notice of Export Control Law
+  28:e:\liteos\liteos\kernel\include\los_list.h ****  * ===============================================
+  29:e:\liteos\liteos\kernel\include\los_list.h ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:e:\liteos\liteos\kernel\include\los_list.h ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:e:\liteos\liteos\kernel\include\los_list.h ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:e:\liteos\liteos\kernel\include\los_list.h ****  * applicable export control laws and regulations.
+  33:e:\liteos\liteos\kernel\include\los_list.h ****  *---------------------------------------------------------------------------*/
+  34:e:\liteos\liteos\kernel\include\los_list.h **** 
+  35:e:\liteos\liteos\kernel\include\los_list.h ****  /** @defgroup los_list Doubly linked list
+  36:e:\liteos\liteos\kernel\include\los_list.h ****  * @ingroup kernel
+  37:e:\liteos\liteos\kernel\include\los_list.h ****  */
+  38:e:\liteos\liteos\kernel\include\los_list.h **** 
+  39:e:\liteos\liteos\kernel\include\los_list.h **** #ifndef _LOS_LIST_H
+  40:e:\liteos\liteos\kernel\include\los_list.h **** #define _LOS_LIST_H
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLph7oa.s 			page 4
+
+
+  41:e:\liteos\liteos\kernel\include\los_list.h **** 
+  42:e:\liteos\liteos\kernel\include\los_list.h **** #include "los_typedef.h"
+  43:e:\liteos\liteos\kernel\include\los_list.h **** 
+  44:e:\liteos\liteos\kernel\include\los_list.h **** #ifdef __cplusplus
+  45:e:\liteos\liteos\kernel\include\los_list.h **** #if __cplusplus
+  46:e:\liteos\liteos\kernel\include\los_list.h **** extern "C" {
+  47:e:\liteos\liteos\kernel\include\los_list.h **** #endif /* __cplusplus */
+  48:e:\liteos\liteos\kernel\include\los_list.h **** #endif /* __cplusplus */
+  49:e:\liteos\liteos\kernel\include\los_list.h **** 
+  50:e:\liteos\liteos\kernel\include\los_list.h **** 
+  51:e:\liteos\liteos\kernel\include\los_list.h **** /**
+  52:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+  53:e:\liteos\liteos\kernel\include\los_list.h ****  *Structure of a node in a doubly linked list.
+  54:e:\liteos\liteos\kernel\include\los_list.h ****  */
+  55:e:\liteos\liteos\kernel\include\los_list.h **** typedef struct LOS_DL_LIST
+  56:e:\liteos\liteos\kernel\include\los_list.h **** {
+  57:e:\liteos\liteos\kernel\include\los_list.h ****     struct LOS_DL_LIST *pstPrev;            /**< Current node's pointer to the previous node*/
+  58:e:\liteos\liteos\kernel\include\los_list.h ****     struct LOS_DL_LIST *pstNext;            /**< Current node's pointer to the next node*/
+  59:e:\liteos\liteos\kernel\include\los_list.h **** } LOS_DL_LIST;
+  60:e:\liteos\liteos\kernel\include\los_list.h **** 
+  61:e:\liteos\liteos\kernel\include\los_list.h **** /**
+  62:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+  63:e:\liteos\liteos\kernel\include\los_list.h ****  *@brief Initialize a doubly linked list.
+  64:e:\liteos\liteos\kernel\include\los_list.h ****  *
+  65:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Description:
+  66:e:\liteos\liteos\kernel\include\los_list.h ****  *This API is used to initialize a doubly linked list.
+  67:e:\liteos\liteos\kernel\include\los_list.h ****  *@attention
+  68:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+  69:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>The parameter passed in should be ensured to be a legal pointer.</li>
+  70:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+  71:e:\liteos\liteos\kernel\include\los_list.h ****  *
+  72:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstList    [IN] Node in a doubly linked list.
+  73:e:\liteos\liteos\kernel\include\los_list.h ****  *
+  74:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval None.
+  75:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Dependency:
+  76:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul><li>los_list.h: the header file that contains the API declaration.</li></ul>
+  77:e:\liteos\liteos\kernel\include\los_list.h ****  *@see
+  78:e:\liteos\liteos\kernel\include\los_list.h ****  *@since Huawei LiteOS V100R001C00
+  79:e:\liteos\liteos\kernel\include\los_list.h ****  */
+  80:e:\liteos\liteos\kernel\include\los_list.h **** LITE_OS_SEC_ALW_INLINE STATIC_INLINE VOID LOS_ListInit(LOS_DL_LIST *pstList)
+  81:e:\liteos\liteos\kernel\include\los_list.h **** {
+  82:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstNext = pstList;
+  69              		.loc 2 82 0
+  70 0020 6860     		str	r0, [r5, #4]
+  83:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstPrev = pstList;
+  71              		.loc 2 83 0
+  72 0022 2860     		str	r0, [r5]
+  73              	.LVL7:
+  74              	.LBE19:
+  75              	.LBE18:
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     }
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** 
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     LOS_ListInit(head);
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     if (!LOS_ListEmpty(head))
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     {
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****         dprintf("initial failed \r\n");
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****         return LOS_NOK;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLph7oa.s 			page 5
+
+
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     }
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** 
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     /* tail insert node*/
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     dprintf("node add and tail add......\r\n");
+  76              		.loc 1 75 0
+  77 0024 4848     		ldr	r0, .L13+12
+  78              	.LVL8:
+  79 0026 FFF7FEFF 		bl	dprintf_none
+  80              	.LVL9:
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** 
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     LOS_DL_LIST *node1 = (LOS_DL_LIST *)LOS_MemAlloc(m_aucSysMem0, sizeof(LOS_DL_LIST));
+  81              		.loc 1 77 0
+  82 002a 454B     		ldr	r3, .L13+4
+  83 002c 1868     		ldr	r0, [r3]
+  84 002e 0821     		movs	r1, #8
+  85 0030 FFF7FEFF 		bl	LOS_MemAlloc
+  86              	.LVL10:
+  87 0034 041E     		subs	r4, r0, #0
+  88              	.LVL11:
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     if (node1 == NULL)
+  89              		.loc 1 78 0
+  90 0036 04D1     		bne	.L4
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     {
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****         dprintf("malloc failed\n");
+  91              		.loc 1 80 0
+  92 0038 4448     		ldr	r0, .L13+16
+  93              	.LVL12:
+  94 003a FFF7FEFF 		bl	dprintf_none
+  95              	.LVL13:
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****         return LOS_NOK;
+  96              		.loc 1 81 0
+  97 003e 0120     		movs	r0, #1
+  98 0040 7AE0     		b	.L3
+  99              	.LVL14:
+ 100              	.L4:
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     }
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** 
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     LOS_DL_LIST *node2 = (LOS_DL_LIST *)LOS_MemAlloc(m_aucSysMem0, sizeof(LOS_DL_LIST));
+ 101              		.loc 1 84 0
+ 102 0042 3F4B     		ldr	r3, .L13+4
+ 103 0044 1868     		ldr	r0, [r3]
+ 104              	.LVL15:
+ 105 0046 0821     		movs	r1, #8
+ 106 0048 FFF7FEFF 		bl	LOS_MemAlloc
+ 107              	.LVL16:
+ 108 004c 061E     		subs	r6, r0, #0
+ 109              	.LVL17:
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     if (node2 == NULL)
+ 110              		.loc 1 85 0
+ 111 004e 09D1     		bne	.L5
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     {
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****         dprintf("malloc failed \r\n");
+ 112              		.loc 1 87 0
+ 113 0050 3C48     		ldr	r0, .L13+8
+ 114              	.LVL18:
+ 115 0052 FFF7FEFF 		bl	dprintf_none
+ 116              	.LVL19:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLph7oa.s 			page 6
+
+
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****         LOS_MemFree(m_aucSysMem0, node1);
+ 117              		.loc 1 88 0
+ 118 0056 3A4B     		ldr	r3, .L13+4
+ 119 0058 1868     		ldr	r0, [r3]
+ 120 005a 2100     		movs	r1, r4
+ 121 005c FFF7FEFF 		bl	LOS_MemFree
+ 122              	.LVL20:
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****         return LOS_NOK;
+ 123              		.loc 1 89 0
+ 124 0060 0120     		movs	r0, #1
+ 125 0062 69E0     		b	.L3
+ 126              	.LVL21:
+ 127              	.L5:
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     }
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** 
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     LOS_DL_LIST *tail = (LOS_DL_LIST *)LOS_MemAlloc(m_aucSysMem0, sizeof(LOS_DL_LIST));
+ 128              		.loc 1 92 0
+ 129 0064 364B     		ldr	r3, .L13+4
+ 130 0066 1868     		ldr	r0, [r3]
+ 131              	.LVL22:
+ 132 0068 0821     		movs	r1, #8
+ 133 006a FFF7FEFF 		bl	LOS_MemAlloc
+ 134              	.LVL23:
+ 135 006e 071E     		subs	r7, r0, #0
+ 136              	.LVL24:
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     if (tail == NULL)
+ 137              		.loc 1 93 0
+ 138 0070 0DD1     		bne	.L6
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     {
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****         dprintf("malloc failed \r\n");
+ 139              		.loc 1 95 0
+ 140 0072 3448     		ldr	r0, .L13+8
+ 141              	.LVL25:
+ 142 0074 FFF7FEFF 		bl	dprintf_none
+ 143              	.LVL26:
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****         LOS_MemFree(m_aucSysMem0, node1);
+ 144              		.loc 1 96 0
+ 145 0078 314D     		ldr	r5, .L13+4
+ 146              	.LVL27:
+ 147 007a 2100     		movs	r1, r4
+ 148 007c 2868     		ldr	r0, [r5]
+ 149 007e FFF7FEFF 		bl	LOS_MemFree
+ 150              	.LVL28:
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****         LOS_MemFree(m_aucSysMem0, node2);
+ 151              		.loc 1 97 0
+ 152 0082 2868     		ldr	r0, [r5]
+ 153 0084 3100     		movs	r1, r6
+ 154 0086 FFF7FEFF 		bl	LOS_MemFree
+ 155              	.LVL29:
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****         return LOS_NOK;
+ 156              		.loc 1 98 0
+ 157 008a 0120     		movs	r0, #1
+ 158 008c 54E0     		b	.L3
+ 159              	.LVL30:
+ 160              	.L6:
+ 161              	.LBB20:
+ 162              	.LBB21:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLph7oa.s 			page 7
+
+
+  84:e:\liteos\liteos\kernel\include\los_list.h **** }
+  85:e:\liteos\liteos\kernel\include\los_list.h **** 
+  86:e:\liteos\liteos\kernel\include\los_list.h **** /**
+  87:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+  88:e:\liteos\liteos\kernel\include\los_list.h ****  *@brief Point to the next node pointed to by the current node.
+  89:e:\liteos\liteos\kernel\include\los_list.h ****  *
+  90:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Description:
+  91:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+  92:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>This API is used to point to the next node pointed to by the current node.</li>
+  93:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+  94:e:\liteos\liteos\kernel\include\los_list.h ****  *@attention
+  95:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+  96:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>None.</li>
+  97:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+  98:e:\liteos\liteos\kernel\include\los_list.h ****  *
+  99:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstObject  [IN] Node in the doubly linked list.
+ 100:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 101:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval None.
+ 102:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Dependency:
+ 103:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul><li>los_list.h: the header file that contains the API declaration.</li></ul>
+ 104:e:\liteos\liteos\kernel\include\los_list.h ****  *@see
+ 105:e:\liteos\liteos\kernel\include\los_list.h ****  *@since Huawei LiteOS V100R001C00
+ 106:e:\liteos\liteos\kernel\include\los_list.h ****  */
+ 107:e:\liteos\liteos\kernel\include\los_list.h **** #define LOS_DL_LIST_FIRST(pstObject) ((pstObject)->pstNext)
+ 108:e:\liteos\liteos\kernel\include\los_list.h **** 
+ 109:e:\liteos\liteos\kernel\include\los_list.h **** /**
+ 110:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+ 111:e:\liteos\liteos\kernel\include\los_list.h ****  *@brief Insert a new node to a doubly linked list.
+ 112:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 113:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Description:
+ 114:e:\liteos\liteos\kernel\include\los_list.h ****  *This API is used to insert a new node to a doubly linked list.
+ 115:e:\liteos\liteos\kernel\include\los_list.h ****  *@attention
+ 116:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+ 117:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>The parameters passed in should be ensured to be legal pointers.</li>
+ 118:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+ 119:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 120:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstList    [IN]   Doubly linked list where the new node is inserted.
+ 121:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstNode    [IN]   New node to be inserted.
+ 122:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 123:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval None
+ 124:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Dependency:
+ 125:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul><li>los_list.h: the header file that contains the API declaration.</li></ul>
+ 126:e:\liteos\liteos\kernel\include\los_list.h ****  *@see LOS_ListDelete
+ 127:e:\liteos\liteos\kernel\include\los_list.h ****  *@since Huawei LiteOS V100R001C00
+ 128:e:\liteos\liteos\kernel\include\los_list.h ****  */
+ 129:e:\liteos\liteos\kernel\include\los_list.h **** LITE_OS_SEC_ALW_INLINE STATIC_INLINE VOID LOS_ListAdd(LOS_DL_LIST *pstList, LOS_DL_LIST *pstNode)
+ 130:e:\liteos\liteos\kernel\include\los_list.h **** {
+ 131:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstNext = pstList->pstNext;
+ 163              		.loc 2 131 0
+ 164 008e 6B68     		ldr	r3, [r5, #4]
+ 165 0090 6360     		str	r3, [r4, #4]
+ 132:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstPrev = pstList;
+ 166              		.loc 2 132 0
+ 167 0092 2560     		str	r5, [r4]
+ 133:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstNext->pstPrev = pstNode;
+ 168              		.loc 2 133 0
+ 169 0094 6B68     		ldr	r3, [r5, #4]
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLph7oa.s 			page 8
+
+
+ 170 0096 1C60     		str	r4, [r3]
+ 134:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstNext = pstNode;
+ 171              		.loc 2 134 0
+ 172 0098 6C60     		str	r4, [r5, #4]
+ 173              	.LVL31:
+ 174              	.LBE21:
+ 175              	.LBE20:
+ 176              	.LBB22:
+ 177              	.LBB23:
+ 131:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstPrev = pstList;
+ 178              		.loc 2 131 0
+ 179 009a 6368     		ldr	r3, [r4, #4]
+ 180 009c 7360     		str	r3, [r6, #4]
+ 132:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstNext->pstPrev = pstNode;
+ 181              		.loc 2 132 0
+ 182 009e 3460     		str	r4, [r6]
+ 133:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstNext = pstNode;
+ 183              		.loc 2 133 0
+ 184 00a0 6368     		ldr	r3, [r4, #4]
+ 185 00a2 1E60     		str	r6, [r3]
+ 186              		.loc 2 134 0
+ 187 00a4 6660     		str	r6, [r4, #4]
+ 188              	.LVL32:
+ 189              	.LBE23:
+ 190              	.LBE22:
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     }
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** 
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** 
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     LOS_ListAdd(head,node1);
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     LOS_ListAdd(node1,node2);
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     if ((node1->pstPrev == head) || (node2->pstPrev == node1))
+ 191              		.loc 1 104 0
+ 192 00a6 2368     		ldr	r3, [r4]
+ 193 00a8 9D42     		cmp	r5, r3
+ 194 00aa 02D0     		beq	.L7
+ 195              		.loc 1 104 0 is_stmt 0 discriminator 1
+ 196 00ac 3368     		ldr	r3, [r6]
+ 197 00ae 9C42     		cmp	r4, r3
+ 198 00b0 02D1     		bne	.L8
+ 199              	.L7:
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     {
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****         dprintf("add node success \r\n");
+ 200              		.loc 1 106 0 is_stmt 1
+ 201 00b2 2748     		ldr	r0, .L13+20
+ 202              	.LVL33:
+ 203 00b4 FFF7FEFF 		bl	dprintf_none
+ 204              	.LVL34:
+ 205              	.L8:
+ 206              	.LBB24:
+ 207              	.LBB25:
+ 135:e:\liteos\liteos\kernel\include\los_list.h **** }
+ 136:e:\liteos\liteos\kernel\include\los_list.h **** 
+ 137:e:\liteos\liteos\kernel\include\los_list.h **** /**
+ 138:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+ 139:e:\liteos\liteos\kernel\include\los_list.h ****  *@brief Insert a node to the tail of a doubly linked list.
+ 140:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 141:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Description:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLph7oa.s 			page 9
+
+
+ 142:e:\liteos\liteos\kernel\include\los_list.h ****  *This API is used to insert a new node to the tail of a doubly linked list.
+ 143:e:\liteos\liteos\kernel\include\los_list.h ****  *@attention
+ 144:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+ 145:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>The parameters passed in should be ensured to be legal pointers.</li>
+ 146:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+ 147:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 148:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstList     [IN] Doubly linked list where the new node is inserted.
+ 149:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstNode     [IN] New node to be inserted.
+ 150:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 151:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval None.
+ 152:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Dependency:
+ 153:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul><li>los_list.h: the header file that contains the API declaration.</li></ul>
+ 154:e:\liteos\liteos\kernel\include\los_list.h ****  *@see LOS_ListAdd | LOS_ListHeadInsert
+ 155:e:\liteos\liteos\kernel\include\los_list.h ****  *@since Huawei LiteOS V100R001C00
+ 156:e:\liteos\liteos\kernel\include\los_list.h ****  */
+ 157:e:\liteos\liteos\kernel\include\los_list.h **** LITE_OS_SEC_ALW_INLINE STATIC_INLINE VOID LOS_ListTailInsert(LOS_DL_LIST *pstList, LOS_DL_LIST *pst
+ 158:e:\liteos\liteos\kernel\include\los_list.h **** {
+ 159:e:\liteos\liteos\kernel\include\los_list.h ****     LOS_ListAdd(pstList->pstPrev, pstNode);
+ 208              		.loc 2 159 0
+ 209 00b8 2B68     		ldr	r3, [r5]
+ 210              	.LVL35:
+ 211              	.LBB26:
+ 212              	.LBB27:
+ 131:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstPrev = pstList;
+ 213              		.loc 2 131 0
+ 214 00ba 5A68     		ldr	r2, [r3, #4]
+ 215 00bc 7A60     		str	r2, [r7, #4]
+ 132:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstNext->pstPrev = pstNode;
+ 216              		.loc 2 132 0
+ 217 00be 3B60     		str	r3, [r7]
+ 133:e:\liteos\liteos\kernel\include\los_list.h ****     pstList->pstNext = pstNode;
+ 218              		.loc 2 133 0
+ 219 00c0 5A68     		ldr	r2, [r3, #4]
+ 220 00c2 1760     		str	r7, [r2]
+ 134:e:\liteos\liteos\kernel\include\los_list.h **** }
+ 221              		.loc 2 134 0
+ 222 00c4 5F60     		str	r7, [r3, #4]
+ 223              	.LVL36:
+ 224              	.LBE27:
+ 225              	.LBE26:
+ 226              	.LBE25:
+ 227              	.LBE24:
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     }
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** 
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     LOS_ListTailInsert(head, tail);
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     if (tail->pstPrev == node2)
+ 228              		.loc 1 110 0
+ 229 00c6 3B68     		ldr	r3, [r7]
+ 230 00c8 9E42     		cmp	r6, r3
+ 231 00ca 02D1     		bne	.L9
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     {
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****         dprintf("add tail success \r\n");
+ 232              		.loc 1 112 0
+ 233 00cc 2148     		ldr	r0, .L13+24
+ 234 00ce FFF7FEFF 		bl	dprintf_none
+ 235              	.LVL37:
+ 236              	.L9:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLph7oa.s 			page 10
+
+
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     }
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** 
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     /* delete node */
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     dprintf("delete node......\r\n");
+ 237              		.loc 1 116 0
+ 238 00d2 2148     		ldr	r0, .L13+28
+ 239 00d4 FFF7FEFF 		bl	dprintf_none
+ 240              	.LVL38:
+ 241              	.LBB28:
+ 242              	.LBB29:
+ 160:e:\liteos\liteos\kernel\include\los_list.h **** }
+ 161:e:\liteos\liteos\kernel\include\los_list.h **** 
+ 162:e:\liteos\liteos\kernel\include\los_list.h **** /**
+ 163:e:\liteos\liteos\kernel\include\los_list.h ****  *@ingroup los_list
+ 164:e:\liteos\liteos\kernel\include\los_list.h ****  *@brief Delete a specified node from a doubly linked list.
+ 165:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 166:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Description:
+ 167:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+ 168:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>This API is used to delete a specified node from a doubly linked list.</li>
+ 169:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+ 170:e:\liteos\liteos\kernel\include\los_list.h ****  *@attention
+ 171:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul>
+ 172:e:\liteos\liteos\kernel\include\los_list.h ****  *<li>The parameter passed in should be ensured to be a legal pointer.</li>
+ 173:e:\liteos\liteos\kernel\include\los_list.h ****  *</ul>
+ 174:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 175:e:\liteos\liteos\kernel\include\los_list.h ****  *@param pstNode    [IN] Node to be deleted.
+ 176:e:\liteos\liteos\kernel\include\los_list.h ****  *
+ 177:e:\liteos\liteos\kernel\include\los_list.h ****  *@retval None.
+ 178:e:\liteos\liteos\kernel\include\los_list.h ****  *@par Dependency:
+ 179:e:\liteos\liteos\kernel\include\los_list.h ****  *<ul><li>los_list.h: the header file that contains the API declaration.</li></ul>
+ 180:e:\liteos\liteos\kernel\include\los_list.h ****  *@see LOS_ListAdd
+ 181:e:\liteos\liteos\kernel\include\los_list.h ****  *@since Huawei LiteOS V100R001C00
+ 182:e:\liteos\liteos\kernel\include\los_list.h ****  */
+ 183:e:\liteos\liteos\kernel\include\los_list.h **** LITE_OS_SEC_ALW_INLINE STATIC_INLINE VOID LOS_ListDelete(LOS_DL_LIST *pstNode)
+ 184:e:\liteos\liteos\kernel\include\los_list.h **** {
+ 185:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstNext->pstPrev = pstNode->pstPrev;
+ 243              		.loc 2 185 0
+ 244 00d8 6368     		ldr	r3, [r4, #4]
+ 245 00da 2268     		ldr	r2, [r4]
+ 246 00dc 1A60     		str	r2, [r3]
+ 186:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstPrev->pstNext = pstNode->pstNext;
+ 247              		.loc 2 186 0
+ 248 00de 2368     		ldr	r3, [r4]
+ 249 00e0 6268     		ldr	r2, [r4, #4]
+ 250 00e2 5A60     		str	r2, [r3, #4]
+ 187:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstNext = (LOS_DL_LIST *)NULL;
+ 251              		.loc 2 187 0
+ 252 00e4 0023     		movs	r3, #0
+ 253 00e6 6360     		str	r3, [r4, #4]
+ 188:e:\liteos\liteos\kernel\include\los_list.h ****     pstNode->pstPrev = (LOS_DL_LIST *)NULL;
+ 254              		.loc 2 188 0
+ 255 00e8 2360     		str	r3, [r4]
+ 256              	.LVL39:
+ 257              	.LBE29:
+ 258              	.LBE28:
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     LOS_ListDelete(node1);
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     LOS_MemFree(m_aucSysMem0, node1);
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLph7oa.s 			page 11
+
+
+ 259              		.loc 1 118 0
+ 260 00ea 154B     		ldr	r3, .L13+4
+ 261 00ec 1868     		ldr	r0, [r3]
+ 262 00ee 2100     		movs	r1, r4
+ 263 00f0 FFF7FEFF 		bl	LOS_MemFree
+ 264              	.LVL40:
+ 119:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     if (head->pstNext == node2)
+ 265              		.loc 1 119 0
+ 266 00f4 6B68     		ldr	r3, [r5, #4]
+ 267 00f6 9E42     		cmp	r6, r3
+ 268 00f8 0DD1     		bne	.L10
+ 120:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     {
+ 121:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****         dprintf("delete node success\r\n");
+ 269              		.loc 1 121 0
+ 270 00fa 1848     		ldr	r0, .L13+32
+ 271 00fc FFF7FEFF 		bl	dprintf_none
+ 272              	.LVL41:
+ 122:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****         uwRet = LOS_InspectStatusSetByID(LOS_INSPECT_LIST, LOS_INSPECT_STU_SUCCESS);
+ 273              		.loc 1 122 0
+ 274 0100 0021     		movs	r1, #0
+ 275 0102 0720     		movs	r0, #7
+ 276 0104 FFF7FEFF 		bl	LOS_InspectStatusSetByID
+ 277              	.LVL42:
+ 123:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****         if (LOS_OK != uwRet)
+ 278              		.loc 1 123 0
+ 279 0108 0028     		cmp	r0, #0
+ 280 010a 12D0     		beq	.L11
+ 124:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****         {
+ 125:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****             dprintf("Set Inspect Status Err\r\n");
+ 281              		.loc 1 125 0
+ 282 010c 1448     		ldr	r0, .L13+36
+ 283              	.LVL43:
+ 284 010e FFF7FEFF 		bl	dprintf_none
+ 285              	.LVL44:
+ 126:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****         }
+ 127:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     }
+ 128:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     else
+ 129:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     {
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****         dprintf("delete node error\r\n");
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****         uwRet = LOS_InspectStatusSetByID(LOS_INSPECT_LIST, LOS_INSPECT_STU_ERROR);
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****         if (LOS_OK != uwRet)
+ 133:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****         {
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****             dprintf("Set Inspect Status Err\r\n");
+ 135:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****         }
+ 136:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     }
+ 137:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** 
+ 138:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****     return LOS_OK;
+ 286              		.loc 1 138 0
+ 287 0112 0020     		movs	r0, #0
+ 288 0114 10E0     		b	.L3
+ 289              	.LVL45:
+ 290              	.L10:
+ 130:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****         uwRet = LOS_InspectStatusSetByID(LOS_INSPECT_LIST, LOS_INSPECT_STU_ERROR);
+ 291              		.loc 1 130 0
+ 292 0116 1348     		ldr	r0, .L13+40
+ 293 0118 FFF7FEFF 		bl	dprintf_none
+ 294              	.LVL46:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLph7oa.s 			page 12
+
+
+ 131:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****         if (LOS_OK != uwRet)
+ 295              		.loc 1 131 0
+ 296 011c 0121     		movs	r1, #1
+ 297 011e 0720     		movs	r0, #7
+ 298 0120 FFF7FEFF 		bl	LOS_InspectStatusSetByID
+ 299              	.LVL47:
+ 132:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****         {
+ 300              		.loc 1 132 0
+ 301 0124 0028     		cmp	r0, #0
+ 302 0126 06D0     		beq	.L12
+ 134:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c ****         }
+ 303              		.loc 1 134 0
+ 304 0128 0D48     		ldr	r0, .L13+36
+ 305              	.LVL48:
+ 306 012a FFF7FEFF 		bl	dprintf_none
+ 307              	.LVL49:
+ 308              		.loc 1 138 0
+ 309 012e 0020     		movs	r0, #0
+ 310 0130 02E0     		b	.L3
+ 311              	.LVL50:
+ 312              	.L11:
+ 313 0132 0020     		movs	r0, #0
+ 314              	.LVL51:
+ 315 0134 00E0     		b	.L3
+ 316              	.LVL52:
+ 317              	.L12:
+ 318 0136 0020     		movs	r0, #0
+ 319              	.LVL53:
+ 320              	.L3:
+ 139:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../examples/api\los_api_list.c **** }
+ 321              		.loc 1 139 0
+ 322              		@ sp needed
+ 323 0138 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 324              	.L14:
+ 325 013a C046     		.align	2
+ 326              	.L13:
+ 327 013c 00000000 		.word	.LC0
+ 328 0140 00000000 		.word	m_aucSysMem0
+ 329 0144 14000000 		.word	.LC3
+ 330 0148 28000000 		.word	.LC5
+ 331 014c 48000000 		.word	.LC7
+ 332 0150 58000000 		.word	.LC9
+ 333 0154 6C000000 		.word	.LC11
+ 334 0158 80000000 		.word	.LC13
+ 335 015c 94000000 		.word	.LC15
+ 336 0160 AC000000 		.word	.LC17
+ 337 0164 C8000000 		.word	.LC19
+ 338              		.cfi_endproc
+ 339              	.LFE43:
+ 341              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 342              		.align	2
+ 343              	.LC0:
+ 344 0000 696E6974 		.ascii	"initial...... \015\012\000"
+ 344      69616C2E 
+ 344      2E2E2E2E 
+ 344      2E200D0A 
+ 344      00
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLph7oa.s 			page 13
+
+
+ 345 0011 000000   		.space	3
+ 346              	.LC3:
+ 347 0014 6D616C6C 		.ascii	"malloc failed \015\012\000"
+ 347      6F632066 
+ 347      61696C65 
+ 347      64200D0A 
+ 347      00
+ 348 0025 000000   		.space	3
+ 349              	.LC5:
+ 350 0028 6E6F6465 		.ascii	"node add and tail add......\015\012\000"
+ 350      20616464 
+ 350      20616E64 
+ 350      20746169 
+ 350      6C206164 
+ 351 0046 0000     		.space	2
+ 352              	.LC7:
+ 353 0048 6D616C6C 		.ascii	"malloc failed\012\000"
+ 353      6F632066 
+ 353      61696C65 
+ 353      640A00
+ 354 0057 00       		.space	1
+ 355              	.LC9:
+ 356 0058 61646420 		.ascii	"add node success \015\012\000"
+ 356      6E6F6465 
+ 356      20737563 
+ 356      63657373 
+ 356      200D0A00 
+ 357              	.LC11:
+ 358 006c 61646420 		.ascii	"add tail success \015\012\000"
+ 358      7461696C 
+ 358      20737563 
+ 358      63657373 
+ 358      200D0A00 
+ 359              	.LC13:
+ 360 0080 64656C65 		.ascii	"delete node......\015\012\000"
+ 360      7465206E 
+ 360      6F64652E 
+ 360      2E2E2E2E 
+ 360      2E0D0A00 
+ 361              	.LC15:
+ 362 0094 64656C65 		.ascii	"delete node success\015\012\000"
+ 362      7465206E 
+ 362      6F646520 
+ 362      73756363 
+ 362      6573730D 
+ 363 00aa 0000     		.space	2
+ 364              	.LC17:
+ 365 00ac 53657420 		.ascii	"Set Inspect Status Err\015\012\000"
+ 365      496E7370 
+ 365      65637420 
+ 365      53746174 
+ 365      75732045 
+ 366 00c5 000000   		.space	3
+ 367              	.LC19:
+ 368 00c8 64656C65 		.ascii	"delete node error\015\012\000"
+ 368      7465206E 
+ 368      6F646520 
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLph7oa.s 			page 14
+
+
+ 368      6572726F 
+ 368      720D0A00 
+ 369              		.text
+ 370              	.Letext0:
+ 371              		.file 3 "e:\\liteos\\liteos\\kernel\\include\\los_typedef.h"
+ 372              		.file 4 "e:\\liteos\\liteos\\examples\\include\\los_inspect_entry.h"
+ 373              		.file 5 "e:\\liteos\\liteos\\examples\\include\\los_demo_debug.h"
+ 374              		.file 6 "e:\\liteos\\liteos\\kernel\\include\\los_memory.h"
+ 375              		.file 7 "e:\\liteos\\liteos\\kernel\\include\\los_config.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\ccLph7oa.s 			page 15
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 los_api_list.c
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLph7oa.s:20     .text.Example_list:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLph7oa.s:25     .text.Example_list:00000000 Example_list
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLph7oa.s:327    .text.Example_list:0000013c $d
+C:\Users\WANGBI~1\AppData\Local\Temp\ccLph7oa.s:342    .rodata.str1.4:00000000 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+dprintf_none
+LOS_MemAlloc
+LOS_MemFree
+LOS_InspectStatusSetByID
+m_aucSysMem0

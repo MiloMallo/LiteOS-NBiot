@@ -1,0 +1,724 @@
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cca06MQd.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0plus
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"dht12.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.DHT12_Rst,"ax",%progbits
+  20              		.align	2
+  21              		.global	DHT12_Rst
+  22              		.code	16
+  23              		.thumb_func
+  25              	DHT12_Rst:
+  26              	.LFB43:
+  27              		.file 1 "e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode/dht1
+   1:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** #include "dht12.h"
+   2:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** void DHT12_Rst(void)	   
+   3:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** {                 
+  28              		.loc 1 3 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 70B5     		push	{r4, r5, r6, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 16
+  35              		.cfi_offset 4, -16
+  36              		.cfi_offset 5, -12
+  37              		.cfi_offset 6, -8
+  38              		.cfi_offset 14, -4
+   4:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	//DHT12_DQ_MODE_OUTPUT(); 	 
+   5:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	//OutputIO(GPIOA, GPIO_Pin_10,0);
+   6:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	GPIOA->INEN &= (~(1 << 10));
+  39              		.loc 1 6 0
+  40 0002 104C     		ldr	r4, .L2
+  41 0004 2268     		ldr	r2, [r4]
+  42 0006 104B     		ldr	r3, .L2+4
+  43 0008 1340     		ands	r3, r2
+  44 000a 2360     		str	r3, [r4]
+   7:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	GPIOA->FCR &= 0XFFCFFFFF;
+  45              		.loc 1 7 0
+  46 000c E268     		ldr	r2, [r4, #12]
+  47 000e 0F4B     		ldr	r3, .L2+8
+  48 0010 1340     		ands	r3, r2
+  49 0012 E360     		str	r3, [r4, #12]
+   8:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	GPIOA->FCR |= 0X00100000;
+  50              		.loc 1 8 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cca06MQd.s 			page 2
+
+
+  51 0014 E368     		ldr	r3, [r4, #12]
+  52 0016 8022     		movs	r2, #128
+  53 0018 5203     		lsls	r2, r2, #13
+  54 001a 1343     		orrs	r3, r2
+  55 001c E360     		str	r3, [r4, #12]
+   9:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	DHT12_DQ_WRITE(0); 	 
+  56              		.loc 1 9 0
+  57 001e 8025     		movs	r5, #128
+  58 0020 ED00     		lsls	r5, r5, #3
+  59 0022 2900     		movs	r1, r5
+  60 0024 2000     		movs	r0, r4
+  61 0026 FFF7FEFF 		bl	GPIO_ResetBits
+  62              	.LVL0:
+  10:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	//HAL_Delay(20);    	 
+  11:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	TicksDelayMs(20, NULL);//????
+  63              		.loc 1 11 0
+  64 002a 0021     		movs	r1, #0
+  65 002c 1420     		movs	r0, #20
+  66 002e FFF7FEFF 		bl	TicksDelayMs
+  67              	.LVL1:
+  12:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	DHT12_DQ_WRITE(1); 
+  68              		.loc 1 12 0
+  69 0032 2900     		movs	r1, r5
+  70 0034 2000     		movs	r0, r4
+  71 0036 FFF7FEFF 		bl	GPIO_SetBits
+  72              	.LVL2:
+  13:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	//LOS_DelayUs(30);  
+  14:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	TicksDelayUs(30);
+  73              		.loc 1 14 0
+  74 003a 1E20     		movs	r0, #30
+  75 003c FFF7FEFF 		bl	TicksDelayUs
+  76              	.LVL3:
+  15:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** }
+  77              		.loc 1 15 0
+  78              		@ sp needed
+  79 0040 70BD     		pop	{r4, r5, r6, pc}
+  80              	.L3:
+  81 0042 C046     		.align	2
+  82              	.L2:
+  83 0044 000C0040 		.word	1073744896
+  84 0048 FFFBFFFF 		.word	-1025
+  85 004c FFFFCFFF 		.word	-3145729
+  86              		.cfi_endproc
+  87              	.LFE43:
+  89              		.section	.text.DHT12_Check,"ax",%progbits
+  90              		.align	2
+  91              		.global	DHT12_Check
+  92              		.code	16
+  93              		.thumb_func
+  95              	DHT12_Check:
+  96              	.LFB44:
+  16:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 
+  17:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** UINT8 DHT12_Check(void) 	   
+  18:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** {   
+  97              		.loc 1 18 0
+  98              		.cfi_startproc
+  99              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cca06MQd.s 			page 3
+
+
+ 100              		@ frame_needed = 0, uses_anonymous_args = 0
+ 101 0000 10B5     		push	{r4, lr}
+ 102              	.LCFI1:
+ 103              		.cfi_def_cfa_offset 8
+ 104              		.cfi_offset 4, -8
+ 105              		.cfi_offset 14, -4
+ 106              	.LVL4:
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	UINT8 retry=0;
+  20:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	
+  21:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	//InputtIO(GPIOA, GPIO_Pin_10,0);
+  22:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	GPIOA->INEN |= (1 << 10);
+ 107              		.loc 1 22 0
+ 108 0002 1B4B     		ldr	r3, .L14
+ 109 0004 1968     		ldr	r1, [r3]
+ 110 0006 8020     		movs	r0, #128
+ 111 0008 C000     		lsls	r0, r0, #3
+ 112 000a 0143     		orrs	r1, r0
+ 113 000c 1960     		str	r1, [r3]
+  23:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	GPIOA->ODEN |= (1 << 10);
+ 114              		.loc 1 23 0
+ 115 000e 9A68     		ldr	r2, [r3, #8]
+ 116 0010 0243     		orrs	r2, r0
+ 117 0012 9A60     		str	r2, [r3, #8]
+  24:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	GPIOA->FCR &= 0XFFCFFFFF;
+ 118              		.loc 1 24 0
+ 119 0014 D968     		ldr	r1, [r3, #12]
+ 120 0016 174A     		ldr	r2, .L14+4
+ 121 0018 0A40     		ands	r2, r1
+ 122 001a DA60     		str	r2, [r3, #12]
+  19:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	UINT8 retry=0;
+ 123              		.loc 1 19 0
+ 124 001c 0024     		movs	r4, #0
+  25:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	
+  26:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** //	if(DHT12_DQ_READ()){
+  27:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** //		return 1;
+  28:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** //	}else{
+  29:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** //		return 0;
+  30:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** //	}
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	while (DHT12_DQ_READ()&& (retry<100)) 
+ 125              		.loc 1 31 0
+ 126 001e 04E0     		b	.L5
+ 127              	.LVL5:
+ 128              	.L7:
+  32:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	{
+  33:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 		retry++;
+ 129              		.loc 1 33 0
+ 130 0020 0134     		adds	r4, r4, #1
+ 131              	.LVL6:
+ 132 0022 E4B2     		uxtb	r4, r4
+ 133              	.LVL7:
+  34:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 		//LOS_DelayUs(1);
+  35:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 		TicksDelayUs(1);
+ 134              		.loc 1 35 0
+ 135 0024 0120     		movs	r0, #1
+ 136 0026 FFF7FEFF 		bl	TicksDelayUs
+ 137              	.LVL8:
+ 138              	.L5:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cca06MQd.s 			page 4
+
+
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	{
+ 139              		.loc 1 31 0
+ 140 002a 8021     		movs	r1, #128
+ 141 002c C900     		lsls	r1, r1, #3
+ 142 002e 1048     		ldr	r0, .L14
+ 143 0030 FFF7FEFF 		bl	GPIO_ReadInputDataBit
+ 144              	.LVL9:
+ 145 0034 0028     		cmp	r0, #0
+ 146 0036 01D0     		beq	.L6
+  31:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	{
+ 147              		.loc 1 31 0 is_stmt 0 discriminator 1
+ 148 0038 632C     		cmp	r4, #99
+ 149 003a F1D9     		bls	.L7
+ 150              	.L6:
+  36:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	};	 
+  37:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	if(retry>=100){
+ 151              		.loc 1 37 0 is_stmt 1
+ 152 003c 632C     		cmp	r4, #99
+ 153 003e 13D8     		bhi	.L12
+ 154 0040 0024     		movs	r4, #0
+ 155              	.LVL10:
+ 156 0042 04E0     		b	.L9
+ 157              	.LVL11:
+ 158              	.L11:
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 		return 1;
+  39:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	}
+  40:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	else retry=0;
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	while (!DHT12_DQ_READ()&&(retry<100)) 
+  42:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	{
+  43:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 		retry++;
+ 159              		.loc 1 43 0
+ 160 0044 0134     		adds	r4, r4, #1
+ 161              	.LVL12:
+ 162 0046 E4B2     		uxtb	r4, r4
+ 163              	.LVL13:
+  44:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 		//LOS_DelayUs(1);
+  45:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 		TicksDelayUs(1);
+ 164              		.loc 1 45 0
+ 165 0048 0120     		movs	r0, #1
+ 166 004a FFF7FEFF 		bl	TicksDelayUs
+ 167              	.LVL14:
+ 168              	.L9:
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	{
+ 169              		.loc 1 41 0
+ 170 004e 8021     		movs	r1, #128
+ 171 0050 C900     		lsls	r1, r1, #3
+ 172 0052 0748     		ldr	r0, .L14
+ 173 0054 FFF7FEFF 		bl	GPIO_ReadInputDataBit
+ 174              	.LVL15:
+ 175 0058 0028     		cmp	r0, #0
+ 176 005a 01D1     		bne	.L10
+  41:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	{
+ 177              		.loc 1 41 0 is_stmt 0 discriminator 1
+ 178 005c 632C     		cmp	r4, #99
+ 179 005e F1D9     		bls	.L11
+ 180              	.L10:
+  46:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	};
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cca06MQd.s 			page 5
+
+
+  47:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	if(retry>=100){
+ 181              		.loc 1 47 0 is_stmt 1
+ 182 0060 632C     		cmp	r4, #99
+ 183 0062 03D9     		bls	.L13
+  48:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 		return 1;	    
+ 184              		.loc 1 48 0
+ 185 0064 0120     		movs	r0, #1
+ 186 0066 02E0     		b	.L8
+ 187              	.L12:
+  38:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	}
+ 188              		.loc 1 38 0
+ 189 0068 0120     		movs	r0, #1
+ 190 006a 00E0     		b	.L8
+ 191              	.L13:
+  49:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	}
+  50:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	return 0;
+ 192              		.loc 1 50 0
+ 193 006c 0020     		movs	r0, #0
+ 194              	.L8:
+  51:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** }
+ 195              		.loc 1 51 0
+ 196              		@ sp needed
+ 197              	.LVL16:
+ 198 006e 10BD     		pop	{r4, pc}
+ 199              	.L15:
+ 200              		.align	2
+ 201              	.L14:
+ 202 0070 000C0040 		.word	1073744896
+ 203 0074 FFFFCFFF 		.word	-3145729
+ 204              		.cfi_endproc
+ 205              	.LFE44:
+ 207              		.section	.text.DHT12_Read_Bit,"ax",%progbits
+ 208              		.align	2
+ 209              		.global	DHT12_Read_Bit
+ 210              		.code	16
+ 211              		.thumb_func
+ 213              	DHT12_Read_Bit:
+ 214              	.LFB45:
+  52:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 
+  53:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** UINT8 DHT12_Read_Bit(void) 			 
+  54:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** {
+ 215              		.loc 1 54 0
+ 216              		.cfi_startproc
+ 217              		@ args = 0, pretend = 0, frame = 0
+ 218              		@ frame_needed = 0, uses_anonymous_args = 0
+ 219 0000 10B5     		push	{r4, lr}
+ 220              	.LCFI2:
+ 221              		.cfi_def_cfa_offset 8
+ 222              		.cfi_offset 4, -8
+ 223              		.cfi_offset 14, -4
+ 224              	.LVL17:
+  55:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c ****  	UINT8 retry=0;
+ 225              		.loc 1 55 0
+ 226 0002 0024     		movs	r4, #0
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	while(DHT12_DQ_READ()&&retry<100) 
+ 227              		.loc 1 56 0
+ 228 0004 04E0     		b	.L17
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cca06MQd.s 			page 6
+
+
+ 229              	.LVL18:
+ 230              	.L19:
+  57:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	{
+  58:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 		retry++;
+ 231              		.loc 1 58 0
+ 232 0006 0134     		adds	r4, r4, #1
+ 233              	.LVL19:
+ 234 0008 E4B2     		uxtb	r4, r4
+ 235              	.LVL20:
+  59:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 		//LOS_DelayUs(1);
+  60:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 		TicksDelayUs(1);
+ 236              		.loc 1 60 0
+ 237 000a 0120     		movs	r0, #1
+ 238 000c FFF7FEFF 		bl	TicksDelayUs
+ 239              	.LVL21:
+ 240              	.L17:
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	{
+ 241              		.loc 1 56 0
+ 242 0010 8021     		movs	r1, #128
+ 243 0012 C900     		lsls	r1, r1, #3
+ 244 0014 1248     		ldr	r0, .L24
+ 245 0016 FFF7FEFF 		bl	GPIO_ReadInputDataBit
+ 246              	.LVL22:
+ 247 001a 0028     		cmp	r0, #0
+ 248 001c 09D0     		beq	.L23
+  56:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	{
+ 249              		.loc 1 56 0 is_stmt 0 discriminator 1
+ 250 001e 632C     		cmp	r4, #99
+ 251 0020 F1D9     		bls	.L19
+ 252 0022 0024     		movs	r4, #0
+ 253              	.LVL23:
+ 254 0024 06E0     		b	.L18
+ 255              	.LVL24:
+ 256              	.L21:
+  61:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	}
+  62:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	retry=0;
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	while(!DHT12_DQ_READ()&&retry<100) 
+  64:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	{
+  65:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 		retry++;
+ 257              		.loc 1 65 0 is_stmt 1
+ 258 0026 0134     		adds	r4, r4, #1
+ 259              	.LVL25:
+ 260 0028 E4B2     		uxtb	r4, r4
+ 261              	.LVL26:
+  66:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 		//LOS_DelayUs(1);
+  67:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 		TicksDelayUs(1);
+ 262              		.loc 1 67 0
+ 263 002a 0120     		movs	r0, #1
+ 264 002c FFF7FEFF 		bl	TicksDelayUs
+ 265              	.LVL27:
+ 266 0030 00E0     		b	.L18
+ 267              	.L23:
+ 268 0032 0024     		movs	r4, #0
+ 269              	.LVL28:
+ 270              	.L18:
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	{
+ 271              		.loc 1 63 0
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cca06MQd.s 			page 7
+
+
+ 272 0034 8021     		movs	r1, #128
+ 273 0036 C900     		lsls	r1, r1, #3
+ 274 0038 0948     		ldr	r0, .L24
+ 275 003a FFF7FEFF 		bl	GPIO_ReadInputDataBit
+ 276              	.LVL29:
+ 277 003e 0028     		cmp	r0, #0
+ 278 0040 01D1     		bne	.L20
+  63:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	{
+ 279              		.loc 1 63 0 is_stmt 0 discriminator 1
+ 280 0042 632C     		cmp	r4, #99
+ 281 0044 EFD9     		bls	.L21
+ 282              	.L20:
+  68:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	}
+  69:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	//LOS_DelayUs(40); 
+  70:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	TicksDelayUs(40);
+ 283              		.loc 1 70 0 is_stmt 1
+ 284 0046 2820     		movs	r0, #40
+ 285 0048 FFF7FEFF 		bl	TicksDelayUs
+ 286              	.LVL30:
+  71:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	if(DHT12_DQ_READ())return 1;
+ 287              		.loc 1 71 0
+ 288 004c 8021     		movs	r1, #128
+ 289 004e C900     		lsls	r1, r1, #3
+ 290 0050 0348     		ldr	r0, .L24
+ 291 0052 FFF7FEFF 		bl	GPIO_ReadInputDataBit
+ 292              	.LVL31:
+ 293 0056 0028     		cmp	r0, #0
+ 294 0058 00D0     		beq	.L22
+ 295 005a 0120     		movs	r0, #1
+ 296              	.L22:
+  72:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	else return 0;		   
+  73:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** }
+ 297              		.loc 1 73 0
+ 298              		@ sp needed
+ 299              	.LVL32:
+ 300 005c 10BD     		pop	{r4, pc}
+ 301              	.L25:
+ 302 005e C046     		.align	2
+ 303              	.L24:
+ 304 0060 000C0040 		.word	1073744896
+ 305              		.cfi_endproc
+ 306              	.LFE45:
+ 308              		.section	.text.DHT12_Read_Byte,"ax",%progbits
+ 309              		.align	2
+ 310              		.global	DHT12_Read_Byte
+ 311              		.code	16
+ 312              		.thumb_func
+ 314              	DHT12_Read_Byte:
+ 315              	.LFB46:
+  74:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 
+  75:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** UINT8 DHT12_Read_Byte(void)    
+  76:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** {        
+ 316              		.loc 1 76 0
+ 317              		.cfi_startproc
+ 318              		@ args = 0, pretend = 0, frame = 0
+ 319              		@ frame_needed = 0, uses_anonymous_args = 0
+ 320 0000 70B5     		push	{r4, r5, r6, lr}
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cca06MQd.s 			page 8
+
+
+ 321              	.LCFI3:
+ 322              		.cfi_def_cfa_offset 16
+ 323              		.cfi_offset 4, -16
+ 324              		.cfi_offset 5, -12
+ 325              		.cfi_offset 6, -8
+ 326              		.cfi_offset 14, -4
+ 327              	.LVL33:
+  77:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	UINT8 i,dat;
+  78:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	dat=0;
+ 328              		.loc 1 78 0
+ 329 0002 0020     		movs	r0, #0
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	for (i=0;i<8;i++) 
+ 330              		.loc 1 79 0
+ 331 0004 0025     		movs	r5, #0
+ 332 0006 07E0     		b	.L27
+ 333              	.LVL34:
+ 334              	.L28:
+  80:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	{
+  81:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c ****    		dat<<=1; 
+ 335              		.loc 1 81 0 discriminator 3
+ 336 0008 4000     		lsls	r0, r0, #1
+ 337              	.LVL35:
+ 338 000a C4B2     		uxtb	r4, r0
+ 339              	.LVL36:
+  82:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	    dat|=DHT12_Read_Bit();
+ 340              		.loc 1 82 0 discriminator 3
+ 341 000c FFF7FEFF 		bl	DHT12_Read_Bit
+ 342              	.LVL37:
+ 343 0010 2043     		orrs	r0, r4
+ 344 0012 C0B2     		uxtb	r0, r0
+ 345              	.LVL38:
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	for (i=0;i<8;i++) 
+ 346              		.loc 1 79 0 discriminator 3
+ 347 0014 0135     		adds	r5, r5, #1
+ 348              	.LVL39:
+ 349 0016 EDB2     		uxtb	r5, r5
+ 350              	.LVL40:
+ 351              	.L27:
+  79:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	for (i=0;i<8;i++) 
+ 352              		.loc 1 79 0 is_stmt 0 discriminator 1
+ 353 0018 072D     		cmp	r5, #7
+ 354 001a F5D9     		bls	.L28
+  83:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c ****     }						    
+  84:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c ****     return dat;
+  85:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** }
+ 355              		.loc 1 85 0 is_stmt 1
+ 356              		@ sp needed
+ 357              	.LVL41:
+ 358 001c 70BD     		pop	{r4, r5, r6, pc}
+ 359              		.cfi_endproc
+ 360              	.LFE46:
+ 362 001e C046     		.section	.text.DHT12_Read_Data,"ax",%progbits
+ 363              		.align	2
+ 364              		.global	DHT12_Read_Data
+ 365              		.code	16
+ 366              		.thumb_func
+ 368              	DHT12_Read_Data:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cca06MQd.s 			page 9
+
+
+ 369              	.LFB47:
+  86:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 
+  87:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** /*TEMP: -20~60бу*/
+  88:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** /*HUMIDITY: 20%~95%*/
+  89:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** /* return:  0 init ok , !0 not ok*/
+  90:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 
+  91:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** UINT8 DHT12_Read_Data(INT8 *temp,UINT8 *humi)    
+  92:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** {        
+ 370              		.loc 1 92 0
+ 371              		.cfi_startproc
+ 372              		@ args = 0, pretend = 0, frame = 8
+ 373              		@ frame_needed = 0, uses_anonymous_args = 0
+ 374              	.LVL42:
+ 375 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 376              	.LCFI4:
+ 377              		.cfi_def_cfa_offset 20
+ 378              		.cfi_offset 4, -20
+ 379              		.cfi_offset 5, -16
+ 380              		.cfi_offset 6, -12
+ 381              		.cfi_offset 7, -8
+ 382              		.cfi_offset 14, -4
+ 383 0002 83B0     		sub	sp, sp, #12
+ 384              	.LCFI5:
+ 385              		.cfi_def_cfa_offset 32
+ 386 0004 0600     		movs	r6, r0
+ 387 0006 0F00     		movs	r7, r1
+  93:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c ****  	UINT8 buf[5]={0x00};
+ 388              		.loc 1 93 0
+ 389 0008 0522     		movs	r2, #5
+ 390 000a 0021     		movs	r1, #0
+ 391              	.LVL43:
+ 392 000c 6846     		mov	r0, sp
+ 393              	.LVL44:
+ 394 000e FFF7FEFF 		bl	memset
+ 395              	.LVL45:
+  94:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	UINT8 i;
+  95:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	DHT12_Rst();
+ 396              		.loc 1 95 0
+ 397 0012 FFF7FEFF 		bl	DHT12_Rst
+ 398              	.LVL46:
+  96:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	if(DHT12_Check()==0)
+ 399              		.loc 1 96 0
+ 400 0016 FFF7FEFF 		bl	DHT12_Check
+ 401              	.LVL47:
+ 402 001a 051E     		subs	r5, r0, #0
+ 403 001c 08D0     		beq	.L34
+  97:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	{
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 		for(i=0;i<5;i++)
+  99:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 		{
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 			buf[i]=DHT12_Read_Byte();
+ 101:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 		}
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 		if((buf[0]+buf[1]+buf[2]+buf[3])==buf[4])
+ 103:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 		{
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 			*humi=buf[0];
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c ****             ((buf[3]&0x80) == 0x80)?(*temp=-buf[2]):(*temp=buf[2]);		
+ 106:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 		}
+ 107:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	}else return 1;
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cca06MQd.s 			page 10
+
+
+ 404              		.loc 1 107 0
+ 405 001e 0125     		movs	r5, #1
+ 406 0020 1EE0     		b	.L31
+ 407              	.LVL48:
+ 408              	.L32:
+ 100:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 		}
+ 409              		.loc 1 100 0 discriminator 3
+ 410 0022 FFF7FEFF 		bl	DHT12_Read_Byte
+ 411              	.LVL49:
+ 412 0026 6B46     		mov	r3, sp
+ 413 0028 1855     		strb	r0, [r3, r4]
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 		{
+ 414              		.loc 1 98 0 discriminator 3
+ 415 002a 0134     		adds	r4, r4, #1
+ 416              	.LVL50:
+ 417 002c E4B2     		uxtb	r4, r4
+ 418              	.LVL51:
+ 419 002e 00E0     		b	.L30
+ 420              	.LVL52:
+ 421              	.L34:
+ 422 0030 0024     		movs	r4, #0
+ 423              	.L30:
+ 424              	.LVL53:
+  98:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 		{
+ 425              		.loc 1 98 0 is_stmt 0 discriminator 1
+ 426 0032 042C     		cmp	r4, #4
+ 427 0034 F5D9     		bls	.L32
+ 102:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 		{
+ 428              		.loc 1 102 0 is_stmt 1
+ 429 0036 6B46     		mov	r3, sp
+ 430 0038 1878     		ldrb	r0, [r3]
+ 431 003a 5B78     		ldrb	r3, [r3, #1]
+ 432 003c C318     		adds	r3, r0, r3
+ 433 003e 6A46     		mov	r2, sp
+ 434 0040 9178     		ldrb	r1, [r2, #2]
+ 435 0042 CB18     		adds	r3, r1, r3
+ 436 0044 D278     		ldrb	r2, [r2, #3]
+ 437 0046 D318     		adds	r3, r2, r3
+ 438 0048 6C46     		mov	r4, sp
+ 439              	.LVL54:
+ 440 004a 2479     		ldrb	r4, [r4, #4]
+ 441 004c A342     		cmp	r3, r4
+ 442 004e 07D1     		bne	.L31
+ 104:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c ****             ((buf[3]&0x80) == 0x80)?(*temp=-buf[2]):(*temp=buf[2]);		
+ 443              		.loc 1 104 0
+ 444 0050 3870     		strb	r0, [r7]
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 		}
+ 445              		.loc 1 105 0
+ 446 0052 52B2     		sxtb	r2, r2
+ 447 0054 002A     		cmp	r2, #0
+ 448 0056 02DA     		bge	.L33
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 		}
+ 449              		.loc 1 105 0 is_stmt 0 discriminator 1
+ 450 0058 4942     		rsbs	r1, r1, #0
+ 451 005a 3170     		strb	r1, [r6]
+ 452 005c 00E0     		b	.L31
+ 453              	.L33:
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cca06MQd.s 			page 11
+
+
+ 105:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 		}
+ 454              		.loc 1 105 0 discriminator 2
+ 455 005e 3170     		strb	r1, [r6]
+ 456              	.L31:
+ 108:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	return 0;	    
+ 109:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** }
+ 457              		.loc 1 109 0 is_stmt 1
+ 458 0060 2800     		movs	r0, r5
+ 459 0062 03B0     		add	sp, sp, #12
+ 460              		@ sp needed
+ 461              	.LVL55:
+ 462              	.LVL56:
+ 463 0064 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 464              		.cfi_endproc
+ 465              	.LFE47:
+ 467 0066 C046     		.section	.text.DHT12_Init,"ax",%progbits
+ 468              		.align	2
+ 469              		.global	DHT12_Init
+ 470              		.code	16
+ 471              		.thumb_func
+ 473              	DHT12_Init:
+ 474              	.LFB48:
+ 110:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c ****  	 
+ 111:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** UINT8 DHT12_Init(void)
+ 112:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** {	
+ 475              		.loc 1 112 0
+ 476              		.cfi_startproc
+ 477              		@ args = 0, pretend = 0, frame = 0
+ 478              		@ frame_needed = 0, uses_anonymous_args = 0
+ 479 0000 70B5     		push	{r4, r5, r6, lr}
+ 480              	.LCFI6:
+ 481              		.cfi_def_cfa_offset 16
+ 482              		.cfi_offset 4, -16
+ 483              		.cfi_offset 5, -12
+ 484              		.cfi_offset 6, -8
+ 485              		.cfi_offset 14, -4
+ 113:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	RCC_PERCLK_SetableEx( PDCCLK, ENABLE );		//IO?????????
+ 486              		.loc 1 113 0
+ 487 0002 0121     		movs	r1, #1
+ 488 0004 0948     		ldr	r0, .L36
+ 489 0006 FFF7FEFF 		bl	RCC_PERCLK_SetableEx
+ 490              	.LVL57:
+ 114:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	OutputIO(GPIOA, GPIO_Pin_10,0);
+ 491              		.loc 1 114 0
+ 492 000a 8025     		movs	r5, #128
+ 493 000c ED00     		lsls	r5, r5, #3
+ 494 000e 084C     		ldr	r4, .L36+4
+ 495 0010 0022     		movs	r2, #0
+ 496 0012 2900     		movs	r1, r5
+ 497 0014 2000     		movs	r0, r4
+ 498 0016 FFF7FEFF 		bl	OutputIO
+ 499              	.LVL58:
+ 115:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	DHT12_DQ_WRITE(1);
+ 500              		.loc 1 115 0
+ 501 001a 2900     		movs	r1, r5
+ 502 001c 2000     		movs	r0, r4
+ 503 001e FFF7FEFF 		bl	GPIO_SetBits
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cca06MQd.s 			page 12
+
+
+ 504              	.LVL59:
+ 116:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c ****     DHT12_Rst();
+ 505              		.loc 1 116 0
+ 506 0022 FFF7FEFF 		bl	DHT12_Rst
+ 507              	.LVL60:
+ 117:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** 	return DHT12_Check();
+ 508              		.loc 1 117 0
+ 509 0026 FFF7FEFF 		bl	DHT12_Check
+ 510              	.LVL61:
+ 118:e:/LiteOS/LiteOS/targets/Cloud_FM33A0XX/GCC/../../../targets/Cloud_FM33A0XX/UserCode\dht12.c **** }
+ 511              		.loc 1 118 0
+ 512              		@ sp needed
+ 513 002a 70BD     		pop	{r4, r5, r6, pc}
+ 514              	.L37:
+ 515              		.align	2
+ 516              	.L36:
+ 517 002c 07000001 		.word	16777223
+ 518 0030 000C0040 		.word	1073744896
+ 519              		.cfi_endproc
+ 520              	.LFE48:
+ 522              		.text
+ 523              	.Letext0:
+ 524              		.file 2 "e:\\liteos\\liteos\\kernel\\include\\los_typedef.h"
+ 525              		.file 3 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\machine\\_default_types.h
+ 526              		.file 4 "d:\\gnu tools arm embedded\\5.4 2016q3\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 527              		.file 5 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\device\\include\\fm33a0xx.h"
+ 528              		.file 6 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\drivers\\fm33a0xx_gpio.h"
+ 529              		.file 7 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\usercode\\user_init.h"
+ 530              		.file 8 "e:\\liteos\\liteos\\targets\\cloud_fm33a0xx\\drivers\\fm33a0xx_rcc.h"
+ARM GAS  C:\Users\WANGBI~1\AppData\Local\Temp\cca06MQd.s 			page 13
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 dht12.c
+C:\Users\WANGBI~1\AppData\Local\Temp\cca06MQd.s:20     .text.DHT12_Rst:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cca06MQd.s:25     .text.DHT12_Rst:00000000 DHT12_Rst
+C:\Users\WANGBI~1\AppData\Local\Temp\cca06MQd.s:83     .text.DHT12_Rst:00000044 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cca06MQd.s:90     .text.DHT12_Check:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cca06MQd.s:95     .text.DHT12_Check:00000000 DHT12_Check
+C:\Users\WANGBI~1\AppData\Local\Temp\cca06MQd.s:202    .text.DHT12_Check:00000070 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cca06MQd.s:208    .text.DHT12_Read_Bit:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cca06MQd.s:213    .text.DHT12_Read_Bit:00000000 DHT12_Read_Bit
+C:\Users\WANGBI~1\AppData\Local\Temp\cca06MQd.s:304    .text.DHT12_Read_Bit:00000060 $d
+C:\Users\WANGBI~1\AppData\Local\Temp\cca06MQd.s:309    .text.DHT12_Read_Byte:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cca06MQd.s:314    .text.DHT12_Read_Byte:00000000 DHT12_Read_Byte
+C:\Users\WANGBI~1\AppData\Local\Temp\cca06MQd.s:363    .text.DHT12_Read_Data:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cca06MQd.s:368    .text.DHT12_Read_Data:00000000 DHT12_Read_Data
+C:\Users\WANGBI~1\AppData\Local\Temp\cca06MQd.s:468    .text.DHT12_Init:00000000 $t
+C:\Users\WANGBI~1\AppData\Local\Temp\cca06MQd.s:473    .text.DHT12_Init:00000000 DHT12_Init
+C:\Users\WANGBI~1\AppData\Local\Temp\cca06MQd.s:517    .text.DHT12_Init:0000002c $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+GPIO_ResetBits
+TicksDelayMs
+GPIO_SetBits
+TicksDelayUs
+GPIO_ReadInputDataBit
+memset
+RCC_PERCLK_SetableEx
+OutputIO
